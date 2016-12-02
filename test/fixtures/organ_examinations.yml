@@ -1,0 +1,52 @@
+# == Schema Information
+#
+# Table examination_type: organ_examinations
+#
+#  id                  :integer          not null, primary key
+#  organ_id            :integer
+#  examination_type_id :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+outline:
+  organ: outline
+  examination_type: outline
+
+face:
+  organ: face
+  examination_type: face
+
+neck:
+  organ: neck
+  examination_type: neck
+
+trunk:
+  organ: trunk
+  examination_type: trunk
+
+upper_limbs_left:
+  organ: left_arm
+  examination_type: upper_limbs
+
+upper_limbs_right:
+  organ: right_arm
+  examination_type: upper_limbs
+
+lower_limbs_left:
+  organ: left_leg
+  examination_type: lower_limbs
+
+lower_limbs_right:
+  organ: right_leg
+  examination_type: lower_limbs
+
+genitalia:
+  organ: genitalia
+  examination_type: genitalia
+
+anus:
+  organ: anus
+  examination_type: anus

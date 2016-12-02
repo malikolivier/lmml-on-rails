@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: examination_types
+#
+#  id         :integer          not null, primary key
+#  category   :integer          not null
+#  name       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+outline:
+  category: external
+  name: outline
+
+face:
+  category: external
+  name: face
+
+neck:
+  category: external
+  name: neck
+
+trunk:
+  category: external
+  name: trunk
+
+upper_limbs:
+  category: external
+  name: upper_limbs
+
+lower_limbs:
+  category: external
+  name: lower_limbs
+
+genitalia:
+  category: external
+  name: genitalia
+
+anus:
+  category: external
+  name: anus

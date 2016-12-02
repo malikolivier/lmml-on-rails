@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: organs
+#
+#  id         :integer          not null, primary key
+#  name       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# Not exactly an organ, but anyway...
+outline:
+  name: Outline
+
+head:
+  name: Head
+
+face:
+  name: Face
+
+neck:
+  name: Neck
+
+trunk:
+  name: Trunk
+
+left_arm:
+  name: Left arm
+
+right_arm:
+  name: Right arm
+
+left_leg:
+  name: Left leg
+
+right_leg:
+  name: Right leg
+
+genitalia:
+  name: Genitalia
+
+anus:
+  name: Anus
