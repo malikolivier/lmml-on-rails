@@ -1,1 +1,0 @@
-json.array! @test_triages, partial: 'test_triages/test_triage', as: :test_triage

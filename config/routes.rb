@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
   resources :roles
-  resources :drugs
-  resources :test_triages
-  resources :test_histopathologies
-  resources :test_blood_type_experiments
-  resources :test_blood_types
   resources :photographs
   resources :explications
   resources :institutions

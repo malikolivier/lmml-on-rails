@@ -1,1 +1,0 @@
-json.partial! "test_histopathologies/test_histopathology", test_histopathology: @test_histopathology

@@ -1,1 +1,0 @@
-json.array! @test_histopathologies, partial: 'test_histopathologies/test_histopathology', as: :test_histopathology
