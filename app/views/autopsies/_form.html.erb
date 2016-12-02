@@ -1,0 +1,82 @@
+<%= form_for(autopsy) do |f| %>
+  <% if autopsy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(autopsy.errors.count, "error") %> prohibited this autopsy from being saved:</h2>
+
+      <ul>
+      <% autopsy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.text_area :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :conclusion %>
+    <%= f.text_area :conclusion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :suspect_id %>
+    <%= f.number_field :suspect_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :victim_id %>
+    <%= f.number_field :victim_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :place_id %>
+    <%= f.number_field :place_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :autopsy_date %>
+    <%= f.date_select :autopsy_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :starting_time %>
+    <%= f.datetime_select :starting_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ending_time %>
+    <%= f.datetime_select :ending_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :police_station_id %>
+    <%= f.number_field :police_station_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :police_inspector_id %>
+    <%= f.number_field :police_inspector_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :court_id %>
+    <%= f.number_field :court_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :judge_id %>
+    <%= f.number_field :judge_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

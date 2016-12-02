@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  sex: MyText
+  age: 1
+  title: MyText
+  institution_id: 1
+  identification_number: MyString
+  role_id: 1
+
+two:
+  name: MyText
+  sex: MyText
+  age: 1
+  title: MyText
+  institution_id: 1
+  identification_number: MyString
+  role_id: 1

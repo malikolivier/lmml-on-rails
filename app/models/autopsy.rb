@@ -1,0 +1,2 @@
+class Autopsy < ApplicationRecord
+end

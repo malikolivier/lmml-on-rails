@@ -1,0 +1,2 @@
+class Explication < ApplicationRecord
+end

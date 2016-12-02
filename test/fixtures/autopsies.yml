@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  completed: false
+  number: MyText
+  conclusion: MyText
+  suspect_id: 1
+  victim_id: 1
+  place_id: 1
+  autopsy_date: 2016-12-02
+  starting_time: 2016-12-02 18:04:00
+  ending_time: 2016-12-02 18:04:00
+  police_station_id: 1
+  police_inspector_id: 1
+  court_id: 1
+  judge_id: 1
+
+two:
+  completed: false
+  number: MyText
+  conclusion: MyText
+  suspect_id: 1
+  victim_id: 1
+  place_id: 1
+  autopsy_date: 2016-12-02
+  starting_time: 2016-12-02 18:04:00
+  ending_time: 2016-12-02 18:04:00
+  police_station_id: 1
+  police_inspector_id: 1
+  court_id: 1
+  judge_id: 1

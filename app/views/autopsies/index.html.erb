@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Autopsies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Completed</th>
+      <th>Number</th>
+      <th>Conclusion</th>
+      <th>Suspect</th>
+      <th>Victim</th>
+      <th>Place</th>
+      <th>Autopsy date</th>
+      <th>Starting time</th>
+      <th>Ending time</th>
+      <th>Police station</th>
+      <th>Police inspector</th>
+      <th>Court</th>
+      <th>Judge</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autopsies.each do |autopsy| %>
+      <tr>
+        <td><%= autopsy.completed %></td>
+        <td><%= autopsy.number %></td>
+        <td><%= autopsy.conclusion %></td>
+        <td><%= autopsy.suspect_id %></td>
+        <td><%= autopsy.victim_id %></td>
+        <td><%= autopsy.place_id %></td>
+        <td><%= autopsy.autopsy_date %></td>
+        <td><%= autopsy.starting_time %></td>
+        <td><%= autopsy.ending_time %></td>
+        <td><%= autopsy.police_station_id %></td>
+        <td><%= autopsy.police_inspector_id %></td>
+        <td><%= autopsy.court_id %></td>
+        <td><%= autopsy.judge_id %></td>
+        <td><%= link_to 'Show', autopsy %></td>
+        <td><%= link_to 'Edit', edit_autopsy_path(autopsy) %></td>
+        <td><%= link_to 'Destroy', autopsy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Autopsy', new_autopsy_path %>

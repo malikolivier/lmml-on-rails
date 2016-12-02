@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @autopsy.completed %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @autopsy.number %>
+</p>
+
+<p>
+  <strong>Conclusion:</strong>
+  <%= @autopsy.conclusion %>
+</p>
+
+<p>
+  <strong>Suspect:</strong>
+  <%= @autopsy.suspect_id %>
+</p>
+
+<p>
+  <strong>Victim:</strong>
+  <%= @autopsy.victim_id %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @autopsy.place_id %>
+</p>
+
+<p>
+  <strong>Autopsy date:</strong>
+  <%= @autopsy.autopsy_date %>
+</p>
+
+<p>
+  <strong>Starting time:</strong>
+  <%= @autopsy.starting_time %>
+</p>
+
+<p>
+  <strong>Ending time:</strong>
+  <%= @autopsy.ending_time %>
+</p>
+
+<p>
+  <strong>Police station:</strong>
+  <%= @autopsy.police_station_id %>
+</p>
+
+<p>
+  <strong>Police inspector:</strong>
+  <%= @autopsy.police_inspector_id %>
+</p>
+
+<p>
+  <strong>Court:</strong>
+  <%= @autopsy.court_id %>
+</p>
+
+<p>
+  <strong>Judge:</strong>
+  <%= @autopsy.judge_id %>
+</p>
+
+<%= link_to 'Edit', edit_autopsy_path(@autopsy) %> |
+<%= link_to 'Back', autopsies_path %>

@@ -1,0 +1,1 @@
+json.array! @explications, partial: 'explications/explication', as: :explication
