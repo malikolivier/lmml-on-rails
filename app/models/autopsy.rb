@@ -5,7 +5,6 @@
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
 #  number              :text
-#  conclusion          :text
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer
@@ -29,8 +28,9 @@ class Autopsy < ApplicationRecord
     belongs_to :police_station, class_name: Institution
     belongs_to :court, class_name: Institution
 
-    has_many :participation
-    has_many :participants, through: Participation
+    has_many :participations
+    has_many :participants, through: :participations, source: :person
+    has_many :conclusions
     has_many :explications
     has_many :examinations
     has_many :tests

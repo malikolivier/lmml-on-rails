@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202100540) do
+ActiveRecord::Schema.define(version: 20161202122734) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
     t.text     "number"
-    t.text     "conclusion"
     t.integer  "suspect_id"
     t.integer  "victim_id"
     t.integer  "place_id"
@@ -37,6 +36,14 @@ ActiveRecord::Schema.define(version: 20161202100540) do
     t.index ["victim_id"], name: "index_autopsies_on_victim_id"
   end
 
+  create_table "conclusions", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "autopsy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["autopsy_id"], name: "index_conclusions_on_autopsy_id"
+  end
+
   create_table "drugs", force: :cascade do |t|
     t.text     "name"
     t.text     "abbr"
@@ -44,11 +51,13 @@ ActiveRecord::Schema.define(version: 20161202100540) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "explications", force: :cascade do |t|
+  create_table "explanations", force: :cascade do |t|
     t.text     "title"
     t.text     "content"
+    t.integer  "autopsy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["autopsy_id"], name: "index_explanations_on_autopsy_id"
   end
 
   create_table "institution_types", force: :cascade do |t|

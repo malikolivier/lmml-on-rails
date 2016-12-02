@@ -5,7 +5,6 @@
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
 #  number              :text
-#  conclusion          :text
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer
@@ -25,7 +24,6 @@
 completed_autpsy:
   completed: true
   number: '000001'
-  conclusion: 死因は不明とせざるを得ない
   suspect: suspect
   victim: victim
   place: y_university

@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: explanations
+#
+#  id         :integer          not null, primary key
+#  title      :text
+#  content    :text
+#  autopsy_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_expl_1:
+  title: 死因
+  content: |
+    本屍には心嚢の溢血点、暗赤色流動性心臓血、諸臓器のうっ血という急死の三主徴が揃ってみられた。よって、本屍は急死したものと考えられるが、問題はその原因である。
+    本屍にみられた損傷に致死的なものはなく、損傷死は否定的である。一方、本屍の肺には高度の気腫とうっ血があり、一部水腫状となる部分もみられた。これらの所見は肺野のほぼ全てにみられることから、本屍の呼吸機能は著しく低下していた可能性が高く、この状態は致死的と考えられる。
+    以上の他、本屍には致死的原因が認められない。よって、本屍は肺気腫による呼吸不全で死亡したものと考えられる。
+  autopsy: completed_autopsy
+
+completed_autopsy_expl_2:
+  title: 損傷の有無、あれば部位・形状
+  content: 本屍にみられた損傷については、以下の剖検記録各項を参照されたい。
+  autopsy: completed_autopsy

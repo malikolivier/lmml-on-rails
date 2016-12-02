@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: conclusions
+#
+#  id         :integer          not null, primary key
+#  content    :text
+#  autopsy_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: 本屍は肺気腫による呼吸不全で死亡したものと考えられる。
+  autopsy: completed_autopsy
+
+two:
+  content: 本屍にみられた損傷の詳細については、説明第2項に記載された剖検記録各項を参照されたい。
+  autopsy: completed_autopsy
+
+three:
+  content: 成傷機転については説明第3項を参照されたい。
+  autopsy: completed_autopsy
