@@ -15,4 +15,8 @@ class ExaminationType < ApplicationRecord
   has_many :organs, through: :organ_examinations
 
   validates_uniqueness_of :name, scope: :category
+
+  def get_this_examination_model
+    "#{category}_#{name}_examination".camelize.constantize
+  end
 end
