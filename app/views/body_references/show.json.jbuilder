@@ -1,0 +1,1 @@
+json.partial! "body_references/body_reference", body_reference: @body_reference

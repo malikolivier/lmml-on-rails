@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202174216) do
+ActiveRecord::Schema.define(version: 20161202185558) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20161202174216) do
     t.index ["police_station_id"], name: "index_autopsies_on_police_station_id"
     t.index ["suspect_id"], name: "index_autopsies_on_suspect_id"
     t.index ["victim_id"], name: "index_autopsies_on_victim_id"
+  end
+
+  create_table "body_areas", force: :cascade do |t|
+    t.integer  "body_reference_id",      null: false
+    t.integer  "in_body_orientation_id"
+    t.float    "distance"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["body_reference_id"], name: "index_body_areas_on_body_reference_id"
+    t.index ["in_body_orientation_id"], name: "index_body_areas_on_in_body_orientation_id"
+  end
+
+  create_table "body_references", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "conclusions", force: :cascade do |t|
@@ -68,6 +84,14 @@ ActiveRecord::Schema.define(version: 20161202174216) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["autopsy_id"], name: "index_explanations_on_autopsy_id"
+  end
+
+  create_table "in_body_orientations", force: :cascade do |t|
+    t.integer  "coordinate_system", null: false
+    t.float    "x"
+    t.float    "y"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "injuries", force: :cascade do |t|

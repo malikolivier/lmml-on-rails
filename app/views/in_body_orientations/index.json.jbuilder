@@ -1,0 +1,1 @@
+json.array! @in_body_orientations, partial: 'in_body_orientations/in_body_orientation', as: :in_body_orientation

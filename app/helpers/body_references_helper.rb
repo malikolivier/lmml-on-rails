@@ -1,0 +1,2 @@
+module BodyReferencesHelper
+end

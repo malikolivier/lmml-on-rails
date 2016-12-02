@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :body_references
+  resources :in_body_orientations
+  resources :body_areas
   resources :injuries
   resources :roles
   resources :photographs

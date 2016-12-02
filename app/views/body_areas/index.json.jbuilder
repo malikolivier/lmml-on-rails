@@ -1,0 +1,1 @@
+json.array! @body_areas, partial: 'body_areas/body_area', as: :body_area

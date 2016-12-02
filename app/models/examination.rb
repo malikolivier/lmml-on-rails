@@ -14,6 +14,8 @@ class Examination < ApplicationRecord
   belongs_to :autopsy, required: true
   belongs_to :examination_type, required: true
 
+  has_many :injuries
+
   def get
     examination_type.get_this_examination_model.find_by!(autopsy: autopsy)
   end
