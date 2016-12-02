@@ -1,0 +1,1 @@
+json.partial! "test_blood_types/test_blood_type", test_blood_type: @test_blood_type

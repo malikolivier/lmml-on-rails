@@ -1,0 +1,2 @@
+module TestBloodTypeExperimentsHelper
+end

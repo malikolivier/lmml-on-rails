@@ -1,0 +1,1 @@
+json.array! @test_blood_type_experiments, partial: 'test_blood_type_experiments/test_blood_type_experiment', as: :test_blood_type_experiment

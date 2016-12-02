@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :test_histopathologies
+  resources :test_hispathologies
+  resources :test_blood_type_experiments
+  resources :test_blood_types
   resources :photographs
   resources :explications
   resources :institutions

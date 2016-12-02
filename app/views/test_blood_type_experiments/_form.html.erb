@@ -1,0 +1,27 @@
+<%= form_for(test_blood_type_experiment) do |f| %>
+  <% if test_blood_type_experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(test_blood_type_experiment.errors.count, "error") %> prohibited this test_blood_type_experiment from being saved:</h2>
+
+      <ul>
+      <% test_blood_type_experiment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :serum %>
+    <%= f.text_area :serum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :reaction %>
+    <%= f.text_area :reaction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

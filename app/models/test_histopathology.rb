@@ -1,0 +1,2 @@
+class TestHistopathology < ApplicationRecord
+end

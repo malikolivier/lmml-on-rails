@@ -1,0 +1,2 @@
+module TestHistopathologiesHelper
+end

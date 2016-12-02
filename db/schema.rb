@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202090400) do
+ActiveRecord::Schema.define(version: 20161202092425) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed"
@@ -28,6 +28,49 @@ ActiveRecord::Schema.define(version: 20161202090400) do
     t.integer  "judge_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+  end
+
+  create_table "explications", force: :cascade do |t|
+    t.text     "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.text     "name"
+    t.text     "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.text     "name"
+    t.text     "sex"
+    t.integer  "age"
+    t.text     "title"
+    t.integer  "institution_id"
+    t.text     "identification_number"
+    t.integer  "role_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "photographs", force: :cascade do |t|
+    t.integer  "type"
+    t.string   "caption"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

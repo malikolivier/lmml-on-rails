@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Blood Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Result</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_blood_types.each do |test_blood_type| %>
+      <tr>
+        <td><%= test_blood_type.result %></td>
+        <td><%= test_blood_type.note %></td>
+        <td><%= link_to 'Show', test_blood_type %></td>
+        <td><%= link_to 'Edit', edit_test_blood_type_path(test_blood_type) %></td>
+        <td><%= link_to 'Destroy', test_blood_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test Blood Type', new_test_blood_type_path %>
