@@ -1,2 +1,2 @@
-json.extract! autopsy, :id, :completed, :number, :conclusion, :suspect_id, :victim_id, :place_id, :autopsy_date, :starting_time, :ending_time, :police_station_id, :police_inspector_id, :court_id, :judge_id, :created_at, :updated_at
+json.extract! autopsy, :id, :completed, :number, :suspect_id, :victim_id, :place_id, :autopsy_date, :starting_time, :ending_time, :police_station_id, :police_inspector_id, :court_id, :judge_id, :created_at, :updated_at
 json.url autopsy_url(autopsy, format: :json)
