@@ -3,7 +3,7 @@
 # Table name: autopsies
 #
 #  id                  :integer          not null, primary key
-#  completed           :boolean
+#  completed           :boolean          default(FALSE)
 #  number              :text
 #  conclusion          :text
 #  suspect_id          :integer
@@ -22,32 +22,30 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  completed: false
-  number: MyText
-  conclusion: MyText
-  suspect_id: 1
-  victim_id: 1
-  place_id: 1
+completed_autpsy:
+  completed: true
+  number: '000001'
+  conclusion: 死因は不明とせざるを得ない
+  suspect: suspect
+  victim: victim
+  place: y_university
   autopsy_date: 2016-12-02
-  starting_time: 2016-12-02 18:04:00
+  starting_time: 2016-12-02 12:04:00
   ending_time: 2016-12-02 18:04:00
-  police_station_id: 1
-  police_inspector_id: 1
-  court_id: 1
-  judge_id: 1
+  police_station: a_police_station
+  police_inspector: policeman
+  court: a_court
+  judge: judge
 
-two:
+uncompleted_autpsy:
   completed: false
-  number: MyText
-  conclusion: MyText
-  suspect_id: 1
-  victim_id: 1
-  place_id: 1
-  autopsy_date: 2016-12-02
-  starting_time: 2016-12-02 18:04:00
-  ending_time: 2016-12-02 18:04:00
-  police_station_id: 1
-  police_inspector_id: 1
-  court_id: 1
-  judge_id: 1
+  number: '000002'
+  suspect: suspect
+  victim: victim_2
+  place: y_university
+  autopsy_date: 2016-12-03
+  starting_time: 2016-12-03 10:14:12
+  police_station: a_police_station
+  police_inspector: policeman
+  court: a_court
+  judge: judge

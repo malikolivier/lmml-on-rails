@@ -1,17 +1,23 @@
 # == Schema Information
 #
-# Table name: test_histopathologies
+# Table name: institution_types
 #
 #  id         :integer          not null, primary key
-#  note       :text
+#  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  note: MyText
+university:
+  name: University
 
-two:
-  note: MyText
+court:
+  name: Court
+
+police_station:
+  name: Police station
+
+private_company:
+  name: Private company

@@ -1,12 +1,12 @@
 # == Schema Information
 #
-# Table name: test_triages
+# Table name: institution_types
 #
 #  id         :integer          not null, primary key
-#  note       :string
+#  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class TestTriage < ApplicationRecord
+class InstitutionType < ApplicationRecord
 end

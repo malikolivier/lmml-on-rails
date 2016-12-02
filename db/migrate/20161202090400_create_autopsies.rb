@@ -1,19 +1,19 @@
 class CreateAutopsies < ActiveRecord::Migration[5.0]
   def change
     create_table :autopsies do |t|
-      t.boolean :completed
+      t.boolean :completed, default: false
       t.text :number
       t.text :conclusion
-      t.integer :suspect_id
-      t.integer :victim_id
-      t.integer :place_id
+      t.belongs_to :suspect, index: true
+      t.belongs_to :victim, index: true
+      t.belongs_to :place, index: true
       t.date :autopsy_date
       t.datetime :starting_time
       t.datetime :ending_time
-      t.integer :police_station_id
-      t.integer :police_inspector_id
-      t.integer :court_id
-      t.integer :judge_id
+      t.belongs_to :police_station, index: true
+      t.belongs_to :police_inspector, index: true
+      t.belongs_to :court, index: true
+      t.belongs_to :judge, index: true
 
       t.timestamps
     end

@@ -3,15 +3,27 @@
 # Table name: roles
 #
 #  id         :integer          not null, primary key
-#  name       :text
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+examiner:
+    name: Examiner
 
-two:
-  name: MyString
+requester:
+    name: Requester
+
+authorizer:
+    name: Authorizer
+
+assistant:
+    name: Assistant
+
+student:
+    name: Student
+
+spectator:
+    name: Spectator

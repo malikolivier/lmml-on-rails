@@ -4,32 +4,72 @@
 #
 #  id                    :integer          not null, primary key
 #  name                  :text
-#  sex                   :text
+#  sex                   :integer
 #  age                   :integer
 #  title                 :text
 #  institution_id        :integer
 #  identification_number :text
-#  role_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
-  sex: MyText
-  age: 1
-  title: MyText
-  institution_id: 1
-  identification_number: MyString
-  role_id: 1
+student:
+  name: Mr. Student
+  sex: M
+  age: 20
+  title: 博士1年生
+  institution: k_university
+  identification_number: '81423906'
 
-two:
-  name: MyText
-  sex: MyText
-  age: 1
-  title: MyText
-  institution_id: 1
-  identification_number: MyString
-  role_id: 1
+
+professor:
+  name: Ms. Professor
+  sex: F
+  age: 55
+  title: 教授
+  institution: k_university
+
+
+medical_examiner:
+  name: Ms. Examiner
+  sex: F
+  age: 46
+  title: 教授
+  institution: y_university
+
+assistant:
+  name: Mr. Assistant
+  sex: M
+  age: 46
+  title: 准教授
+  institution: y_university
+
+
+policeman:
+  name: Mr. Policeman
+  sex: M
+  age: 31
+  institution: a_police_station
+
+victim:
+  name: The Sad Victim
+  sex: O
+  age: 25
+
+victim_2:
+  name: The Sad Victim
+  sex: O
+  age: 25
+
+suspect:
+  name: Usual Suspect
+  sex: M
+  age: 59
+
+judge:
+  name: Mr. Judge
+  sex: M
+  age: 85
+  institution: a_court

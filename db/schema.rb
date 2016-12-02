@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202092425) do
+ActiveRecord::Schema.define(version: 20161202100540) do
 
   create_table "autopsies", force: :cascade do |t|
-    t.boolean  "completed"
+    t.boolean  "completed",           default: false
     t.text     "number"
     t.text     "conclusion"
     t.integer  "suspect_id"
@@ -26,8 +26,22 @@ ActiveRecord::Schema.define(version: 20161202092425) do
     t.integer  "police_inspector_id"
     t.integer  "court_id"
     t.integer  "judge_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["court_id"], name: "index_autopsies_on_court_id"
+    t.index ["judge_id"], name: "index_autopsies_on_judge_id"
+    t.index ["place_id"], name: "index_autopsies_on_place_id"
+    t.index ["police_inspector_id"], name: "index_autopsies_on_police_inspector_id"
+    t.index ["police_station_id"], name: "index_autopsies_on_police_station_id"
+    t.index ["suspect_id"], name: "index_autopsies_on_suspect_id"
+    t.index ["victim_id"], name: "index_autopsies_on_victim_id"
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.text     "name"
+    t.text     "abbr"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "explications", force: :cascade do |t|
@@ -37,23 +51,42 @@ ActiveRecord::Schema.define(version: 20161202092425) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "institutions", force: :cascade do |t|
+  create_table "institution_types", force: :cascade do |t|
     t.text     "name"
-    t.text     "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "institutions", force: :cascade do |t|
+    t.text     "name"
+    t.text     "address"
+    t.integer  "institution_type_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["institution_type_id"], name: "index_institutions_on_institution_type_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "autopsy_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["autopsy_id"], name: "index_participations_on_autopsy_id"
+    t.index ["person_id"], name: "index_participations_on_person_id"
+    t.index ["role_id"], name: "index_participations_on_role_id"
+  end
+
   create_table "people", force: :cascade do |t|
     t.text     "name"
-    t.text     "sex"
+    t.integer  "sex"
     t.integer  "age"
     t.text     "title"
     t.integer  "institution_id"
     t.text     "identification_number"
-    t.integer  "role_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["institution_id"], name: "index_people_on_institution_id"
   end
 
   create_table "photographs", force: :cascade do |t|
@@ -68,7 +101,48 @@ ActiveRecord::Schema.define(version: 20161202092425) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.text     "name"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_blood_type_experiments", force: :cascade do |t|
+    t.text     "serum"
+    t.text     "reaction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_blood_types", force: :cascade do |t|
+    t.text     "result"
+    t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_histopathologies", force: :cascade do |t|
+    t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "test_histopathology_organs", force: :cascade do |t|
+    t.integer  "test_histopathology_id"
+    t.integer  "organ_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "test_triage_drugs", force: :cascade do |t|
+    t.float    "concentration"
+    t.integer  "reaction"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "test_triages", force: :cascade do |t|
+    t.string   "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

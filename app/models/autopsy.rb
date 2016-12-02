@@ -3,7 +3,7 @@
 # Table name: autopsies
 #
 #  id                  :integer          not null, primary key
-#  completed           :boolean
+#  completed           :boolean          default(FALSE)
 #  number              :text
 #  conclusion          :text
 #  suspect_id          :integer
@@ -21,4 +21,18 @@
 #
 
 class Autopsy < ApplicationRecord
+    belongs_to :suspect, class_name: Person
+    belongs_to :victim, class_name: Person
+    belongs_to :police_inspector, class_name: Person
+    belongs_to :judge, class_name: Person
+    belongs_to :place, class_name: Institution
+    belongs_to :police_station, class_name: Institution
+    belongs_to :court, class_name: Institution
+
+    has_many :participation
+    has_many :participants, through: Participation
+    has_many :explications
+    has_many :examinations
+    has_many :tests
+    has_many :photographs
 end

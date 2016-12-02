@@ -2,19 +2,32 @@
 #
 # Table name: institutions
 #
-#  id         :integer          not null, primary key
-#  name       :text
-#  address    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :text
+#  address             :text
+#  institution_type_id :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  address: MyString
+k_university:
+  name: 慶應義塾大学大学院理工学研究科
+  address: 矢上
+  institution_type: university
 
-two:
-  name: MyString
-  address: MyString
+y_university:
+  name: 山梨大学医学部
+  address: 甲府市
+  institution_type: university
+
+a_police_station:
+  name: 〇〇警察署
+  address: 〇〇市
+  institution_type: police_station
+
+a_court:
+  name: 〇〇裁判所
+  address: 〇〇市
+  institution_type: court

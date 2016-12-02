@@ -4,12 +4,11 @@
 #
 #  id                    :integer          not null, primary key
 #  name                  :text
-#  sex                   :text
+#  sex                   :integer
 #  age                   :integer
 #  title                 :text
 #  institution_id        :integer
 #  identification_number :text
-#  role_id               :integer
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #

@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: test_histopathologies
+# Table name: participations
 #
 #  id         :integer          not null, primary key
-#  note       :text
+#  person_id  :integer
+#  autopsy_id :integer
+#  role_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class TestHistopathologyTest < ActiveSupport::TestCase
+class ParticipationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

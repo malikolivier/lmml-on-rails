@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: participations
+#
+#  id         :integer          not null, primary key
+#  person_id  :integer
+#  autopsy_id :integer
+#  role_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person: student
+  autopsy: completed_autpsy
+  role: student
+
+two:
+  person: examiner
+  autopsy: completed_autpsy
+  role: examiner
+
+three:
+  person: assistant
+  autopsy: completed_autpsy
+  role: assistant

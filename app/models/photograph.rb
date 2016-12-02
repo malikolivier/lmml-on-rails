@@ -15,4 +15,6 @@
 
 class Photograph < ApplicationRecord
     has_attached_file :picture
+
+    enum type: [:front, :back, :face, :injury, :other]
 end

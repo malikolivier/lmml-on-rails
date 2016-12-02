@@ -3,7 +3,7 @@
 # Table name: autopsies
 #
 #  id                  :integer          not null, primary key
-#  completed           :boolean
+#  completed           :boolean          default(FALSE)
 #  number              :text
 #  conclusion          :text
 #  suspect_id          :integer
