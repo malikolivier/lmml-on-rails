@@ -1,0 +1,2 @@
+class TestTriageDrug < ApplicationRecord
+end

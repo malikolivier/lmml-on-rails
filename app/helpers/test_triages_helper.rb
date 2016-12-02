@@ -1,0 +1,2 @@
+module TestTriagesHelper
+end

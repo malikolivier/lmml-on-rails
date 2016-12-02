@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concentration: 1.5
+  reaction: 1
+  description: MyText
+
+two:
+  concentration: 1.5
+  reaction: 1
+  description: MyText

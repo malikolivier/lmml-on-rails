@@ -1,0 +1,2 @@
+class TestTriage < ApplicationRecord
+end
