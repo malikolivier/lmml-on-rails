@@ -1,0 +1,2 @@
+module InjurySizesHelper
+end

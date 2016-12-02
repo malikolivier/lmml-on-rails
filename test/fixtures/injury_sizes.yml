@@ -1,0 +1,14 @@
+# == Schema Information
+#
+# Table name: injury_sizes
+#
+#  id                     :integer          not null, primary key
+#  shape                  :integer
+#  length                 :float
+#  width                  :float
+#  in_body_orientation_id :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

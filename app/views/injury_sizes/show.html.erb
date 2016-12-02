@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shape:</strong>
+  <%= @injury_size.shape %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @injury_size.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @injury_size.width %>
+</p>
+
+<%= link_to 'Edit', edit_injury_size_path(@injury_size) %> |
+<%= link_to 'Back', injury_sizes_path %>

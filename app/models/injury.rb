@@ -20,4 +20,5 @@ class Injury < ApplicationRecord
   enum time_sustained: [:pre_mortem, :post_mortem, :unknown]
   belongs_to :examination, required: true
   belongs_to :body_area
+  belongs_to :injury_size
 end

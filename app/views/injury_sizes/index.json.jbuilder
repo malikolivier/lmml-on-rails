@@ -1,0 +1,1 @@
+json.array! @injury_sizes, partial: 'injury_sizes/injury_size', as: :injury_size

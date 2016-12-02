@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202185558) do
+ActiveRecord::Schema.define(version: 20161202185952) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(version: 20161202185558) do
     t.index ["injury_size_id"], name: "index_injuries_on_injury_size_id"
     t.index ["injury_type_id"], name: "index_injuries_on_injury_type_id"
     t.index ["parent_injury_id"], name: "index_injuries_on_parent_injury_id"
+  end
+
+  create_table "injury_sizes", force: :cascade do |t|
+    t.integer  "shape"
+    t.float    "length"
+    t.float    "width"
+    t.integer  "in_body_orientation_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["in_body_orientation_id"], name: "index_injury_sizes_on_in_body_orientation_id"
   end
 
   create_table "institution_types", force: :cascade do |t|

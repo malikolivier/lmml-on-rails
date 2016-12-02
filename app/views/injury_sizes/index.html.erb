@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Injury Sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shape</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @injury_sizes.each do |injury_size| %>
+      <tr>
+        <td><%= injury_size.shape %></td>
+        <td><%= injury_size.length %></td>
+        <td><%= injury_size.width %></td>
+        <td><%= link_to 'Show', injury_size %></td>
+        <td><%= link_to 'Edit', edit_injury_size_path(injury_size) %></td>
+        <td><%= link_to 'Destroy', injury_size, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Injury Size', new_injury_size_path %>
