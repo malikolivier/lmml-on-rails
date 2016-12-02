@@ -35,10 +35,79 @@ lower_limbs:
   category: external
   name: lower_limbs
 
-genitalia:
+external_genitalia:
   category: external
   name: genitalia
 
 anus:
   category: external
   name: anus
+
+
+cranium:
+  category: internal
+  name: cranium
+
+brain:
+  category: internal
+  name: brain
+
+abnominal_wall:
+  category: internal
+  name: abnominal_wall
+
+neck_organs:
+  category: internal
+  name: neck_organs
+
+pericardium:
+  category: internal
+  name: pericardium
+
+heart:
+  category: internal
+  name: heart
+
+thoracic_aorta:
+  category: internal
+  name: thoracic_aorta
+
+adrenal_glands:
+  category: internal
+  name: adrenal_glands
+
+kidneys:
+  category: internal
+  name: kidneys
+
+spleen:
+  category: internal
+  name: spleen
+
+pancreas:
+  category: internal
+  name: pancreas
+
+liver:
+  category: internal
+  name: liver
+
+stomach:
+  category: internal
+  name: stomach
+
+intestines:
+  category: internal
+  name: intestines
+
+bladder:
+  category: internal
+  name: bladder
+
+internal_genitalia:
+  category: internal
+  name: genitalia
+
+back:
+  category: internal
+  name: back

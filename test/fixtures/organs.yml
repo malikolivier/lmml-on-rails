@@ -43,3 +43,57 @@ genitalia:
 
 anus:
   name: Anus
+
+cranium:
+  name: Cranium
+
+brain:
+  name: Brain
+
+abnominal_wall:
+  name: Abnominal wall
+
+neck_organs:
+  name: Neck organs
+
+pericardium:
+  name: Pericardium
+
+heart:
+  name: Heart
+
+thoracic_aorta:
+  name: Thoracic aorta
+
+adrenal_gland_left:
+  name: Left adrenal gland
+
+adrenal_gland_right:
+  name: Right adrenal gland
+
+kidney_left:
+  name: Left kidney
+
+kidney_right:
+  name: Right kidney
+
+spleen:
+  name: Spleen
+
+pancreas:
+  name: Pancreas
+
+liver:
+  name: Liver
+
+stomach:
+  name: Stomach
+
+intestines:
+  name: Intestines
+
+bladder:
+  name: Bladder
+
+back:
+  name: Back

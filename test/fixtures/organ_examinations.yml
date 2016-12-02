@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: organ_examinations
+# Table examination_type: organ_examinations
 #
 #  id                  :integer          not null, primary key
 #  organ_id            :integer
@@ -43,10 +43,87 @@ lower_limbs_right:
   organ: right_leg
   examination_type: lower_limbs
 
-genitalia:
+external_genitalia:
   organ: genitalia
-  examination_type: genitalia
+  examination_type: external_genitalia
 
 anus:
   organ: anus
   examination_type: anus
+
+
+cranium:
+  organ: cranium
+  examination_type: cranium
+
+brain:
+  organ: brain
+  examination_type: brain
+
+abnominal_wall:
+  organ: abnominal_wall
+  examination_type: abnominal_wall
+
+neck_organs:
+  organ: neck_organs
+  examination_type: neck_organs
+
+pericardium:
+  organ: pericardium
+  examination_type: pericardium
+
+heart:
+  organ: heart
+  examination_type: heart
+
+thoracic_aorta:
+  organ: thoracic_aorta
+  examination_type: thoracic_aorta
+
+adrenal_gland_left:
+  organ: adrenal_gland_left
+  examination_type: adrenal_glands
+
+adrenal_gland_right:
+  organ: adrenal_gland_right
+  examination_type: adrenal_glands
+
+kidney_left:
+  organ: kidney_left
+  examination_type: kidneys
+
+kidney_right:
+  organ: kidney_right
+  examination_type: kidneys
+
+spleen:
+  organ: spleen
+  examination_type: spleen
+
+pancreas:
+  organ: pancreas
+  examination_type: pancreas
+
+liver:
+  organ: liver
+  examination_type: liver
+
+stomach:
+  organ: stomach
+  examination_type: stomach
+
+intestines:
+  organ: intestines
+  examination_type: intestines
+
+bladder:
+  organ: bladder
+  examination_type: bladder
+
+internal_genitalia:
+  organ: genitalia
+  examination_type: internal_genitalia
+
+back:
+  organ: back
+  examination_type: back
