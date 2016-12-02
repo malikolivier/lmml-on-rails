@@ -5,6 +5,7 @@
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
 #  number              :text
+#  autopsy_type_id     :integer
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer
@@ -20,6 +21,7 @@
 #
 
 class Autopsy < ApplicationRecord
+    belongs_to :autopsy_type
     belongs_to :suspect, class_name: Person
     belongs_to :victim, class_name: Person
     belongs_to :police_inspector, class_name: Person

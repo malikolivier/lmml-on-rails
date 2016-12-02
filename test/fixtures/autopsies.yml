@@ -5,6 +5,7 @@
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
 #  number              :text
+#  autopsy_type_id     :integer
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer
@@ -24,6 +25,7 @@
 completed_autpsy:
   completed: true
   number: '000001'
+  autopsy_type: 司法解剖
   suspect: suspect
   victim: victim
   place: y_university

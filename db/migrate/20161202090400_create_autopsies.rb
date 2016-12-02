@@ -3,6 +3,7 @@ class CreateAutopsies < ActiveRecord::Migration[5.0]
     create_table :autopsies do |t|
       t.boolean :completed, default: false
       t.text :number
+      t.belongs_to :autopsy_type, index: true
       t.belongs_to :suspect, index: true
       t.belongs_to :victim, index: true
       t.belongs_to :place, index: true

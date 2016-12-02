@@ -5,6 +5,7 @@
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
 #  number              :text
+#  autopsy_type_id     :integer
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer

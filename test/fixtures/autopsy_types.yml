@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: autopsy_types
+#
+#  id         :integer          not null, primary key
+#  name       :text             not null
+#  law        :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+行政解剖:
+  name: 行政解剖
+
+司法解剖:
+  name: 司法解剖
+
+新法解剖:
+  name: 新法解剖
+  law: 新法解剖の場合、解剖を許可する法律が記載される

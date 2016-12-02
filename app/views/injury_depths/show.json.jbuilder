@@ -1,0 +1,1 @@
+json.partial! "injury_depths/injury_depth", injury_depth: @injury_depth

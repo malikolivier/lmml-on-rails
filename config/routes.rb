@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :autopsy_types
+  resources :injury_depths
   resources :injury_sizes
   resources :body_references
   resources :in_body_orientations

@@ -8,7 +8,7 @@
 #  body_area_id     :integer
 #  injury_size_id   :integer
 #  injury_depth_id  :integer
-#  injury_type_id   :integer
+#  injury_type      :integer
 #  time_sustained   :integer
 #  parent_injury_id :integer
 #  note             :text

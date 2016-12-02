@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202185952) do
+ActiveRecord::Schema.define(version: 20161202190832) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
     t.text     "number"
+    t.integer  "autopsy_type_id"
     t.integer  "suspect_id"
     t.integer  "victim_id"
     t.integer  "place_id"
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20161202185952) do
     t.integer  "judge_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["autopsy_type_id"], name: "index_autopsies_on_autopsy_type_id"
     t.index ["court_id"], name: "index_autopsies_on_court_id"
     t.index ["judge_id"], name: "index_autopsies_on_judge_id"
     t.index ["place_id"], name: "index_autopsies_on_place_id"
@@ -34,6 +36,13 @@ ActiveRecord::Schema.define(version: 20161202185952) do
     t.index ["police_station_id"], name: "index_autopsies_on_police_station_id"
     t.index ["suspect_id"], name: "index_autopsies_on_suspect_id"
     t.index ["victim_id"], name: "index_autopsies_on_victim_id"
+  end
+
+  create_table "autopsy_types", force: :cascade do |t|
+    t.text     "name",       null: false
+    t.text     "law"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "body_areas", force: :cascade do |t|
@@ -100,7 +109,7 @@ ActiveRecord::Schema.define(version: 20161202185952) do
     t.integer  "body_area_id"
     t.integer  "injury_size_id"
     t.integer  "injury_depth_id"
-    t.integer  "injury_type_id"
+    t.integer  "injury_type"
     t.integer  "time_sustained"
     t.integer  "parent_injury_id"
     t.text     "note"
@@ -110,8 +119,16 @@ ActiveRecord::Schema.define(version: 20161202185952) do
     t.index ["examination_id"], name: "index_injuries_on_examination_id"
     t.index ["injury_depth_id"], name: "index_injuries_on_injury_depth_id"
     t.index ["injury_size_id"], name: "index_injuries_on_injury_size_id"
-    t.index ["injury_type_id"], name: "index_injuries_on_injury_type_id"
+    t.index ["injury_type"], name: "index_injuries_on_injury_type"
     t.index ["parent_injury_id"], name: "index_injuries_on_parent_injury_id"
+  end
+
+  create_table "injury_depths", force: :cascade do |t|
+    t.float    "depth"
+    t.integer  "reached_organ_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["reached_organ_id"], name: "index_injury_depths_on_reached_organ_id"
   end
 
   create_table "injury_sizes", force: :cascade do |t|
