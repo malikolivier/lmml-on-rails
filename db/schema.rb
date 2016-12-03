@@ -109,10 +109,11 @@ ActiveRecord::Schema.define(version: 20161203020309) do
     t.integer  "sex"
     t.float    "height"
     t.float    "weight"
-    t.boolean  "partial_body"
-    t.string   "constitution"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "partial_body",      default: false
+    t.text     "constitution"
+    t.text     "livor_mortis_note"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "in_body_orientations", force: :cascade do |t|

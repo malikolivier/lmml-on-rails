@@ -4,8 +4,9 @@ class CreateExternalOutlineExaminations < ActiveRecord::Migration[5.0]
       t.integer :sex
       t.float :height
       t.float :weight
-      t.boolean :partial_body
-      t.string :constitution
+      t.boolean :partial_body, default: false
+      t.text :constitution
+      t.text :livor_mortis_note
 
       t.timestamps
     end
