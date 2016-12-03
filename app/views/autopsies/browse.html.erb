@@ -1,0 +1,63 @@
+<style>
+  p::before {
+    content: '　'
+  }
+</style>
+<h1>鑑　定　書</h1>
+
+<p>
+  <%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") %>、<%= @autopsy.police_station.name %>司法警察員・<%= @autopsy.police_inspector.name %>警視正は、被疑者・<%= @autopsy.suspect.name %>に対する殺人被疑事件に関し、<%= @autopsy.court.name %>・<%= @autopsy.judge.name %>裁判官の発した鑑定処分許可状に基づき死者・<%= @autopsy.victim.name %>（<%= @autopsy.victim.age %>）を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。
+</p>
+
+<p>
+  よって、<%= @autopsy.place.address %>において、<%= @autopsy.starting_time.to_era("%O%E年%m月%d日 %H時%M分") %>より<%= @autopsy.ending_time.to_era("%H時%M分") %>まで、
+  <% @autopsy.participations.each do |participation| %>
+    <% if participation.role.name == 'Spectator' %>
+      <%= participation.person.full_name_with_title %>の立ち会いの上、
+    <% elsif participation.role.name == 'Assistant' %>
+      <%= participation.person.full_name_with_title %>の補助を受けて、
+    <% end %>
+  <% end %>
+  剖検した。
+</p>
+
+<h2>第　１　章　結　　　論</h2>
+
+<ol>
+  <% @autopsy.conclusions.each do |conclusion| %>
+    <li> <%= conclusion.content %></li>
+  <% end %>
+</ol>
+
+<h2>第　２　章　説　　　明</h2>
+
+<h3>鑑　定　事　項</h3>
+
+<ol>
+  <% @autopsy.explanations.each do |explanation| %>
+    <li> <%= explanation.title %></li>
+  <% end %>
+</ol>
+
+
+<% @autopsy.explanations.each_with_index do |explanation, i| %>
+  <h4> <%= i+1 %>. <%= explanation.title %></h4>
+  <p>
+    <%= explanation.content %>
+  </p>
+<% end %>
+
+<h2>第　3　章　 剖　　検　　記　　録</h2>
+
+<div>
+  <%= @autopsy.victim.name %>（<%= @autopsy.victim.age %>）
+</div>
+
+<h3>（１）　外部所見</h3>
+<% @autopsy.examinations.external.each_with_index do |examination, i| %>
+  <h4><%= i + 1 %>．<%= examination.examination_type.name %></h4>
+
+  <p>
+    <%= render partial: examination.examination_type.name, locals: { exam: examination.get } %>
+  </p>
+<% end %>

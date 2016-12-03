@@ -1,0 +1,42 @@
+<%= exam.sex %>性屍。
+身長<%= exam.height %>cm、体重<%= exam.weight %>kg。
+体格、<%= exam.constitution %>。
+
+
+<%-# Livor mortis description. Should be improved -%>
+
+<% exam.livores_mortis.strong.each do |livor_mortis| %>
+  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に高度に発見し、<%= livor_mortis.on_fingure_pressure %>。
+<% end %>
+<% exam.livores_mortis.mid.each do |livor_mortis| %>
+  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に中等に発見し、<%= livor_mortis.on_fingure_pressure %>。
+<% end %>
+<% exam.livores_mortis.light.each do |livor_mortis| %>
+  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に軽度に発見し、<%= livor_mortis.on_fingure_pressure %>。
+<% end %>
+<%= exam.livor_mortis_note %>
+
+<%-# Rigor mortis description -%>
+
+<% rigor_mortis_phrases = [] %>
+<% RigorMortis.intensities.each do |intensity, intensity_index| %>
+  <% joints = []
+     exam.rigores_mortis.send(intensity).each do |rivor_mortis|
+       joints.push(rivor_mortis.joint)
+     end %>
+  <% if joints.length > 0 %>
+    <% rigor_mortis_phrases.push("#{joints.join('・')}で#{intensity}") %>
+  <% end %>
+<% end %>
+硬直は<%= rigor_mortis_phrases.join('、') %>。
+<%= exam.rigor_mortis_note %>
+
+<%-# Temperature -%>
+
+<% if exam.rectal_temperature < 25 %>
+  全身は冷却し、
+<% end %>
+<% if exam.rectal_temperature.present? %>
+  剖検開始時の直腸温<%= exam.rectal_temperature %>℃
+<% end %>
+（室温<%= exam.room_temperature %>℃）。

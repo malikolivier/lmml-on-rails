@@ -57,6 +57,7 @@ GEM
     coffee-script-source (1.11.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
+    era_ja (0.5.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
@@ -188,6 +189,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   coffee-rails (~> 4.2)
+  era_ja
   haml
   jbuilder (~> 2.5)
   jquery-rails

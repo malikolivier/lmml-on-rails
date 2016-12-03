@@ -22,4 +22,10 @@ class Examination < ApplicationRecord
   end
 
   validates :examination_type, presence: true
+
+  scope :external, -> {
+    joins(:examination_type).where( examination_types:
+      { category: ExaminationType.categories[:external] }
+    )
+  }
 end

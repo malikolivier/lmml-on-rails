@@ -61,6 +61,11 @@ class AutopsiesController < ApplicationController
     end
   end
 
+  # GET /autopsies/:autopsy_id/browse
+  def browse
+    @autopsy = Autopsy.find(params[:autopsy_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_autopsy

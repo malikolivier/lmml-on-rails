@@ -36,6 +36,9 @@ gem "paperclip", "~> 5.0.0"
 # Use haml for templates
 gem 'haml'
 
+# To convert date to string containing Japanese era
+gem 'era_ja'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'

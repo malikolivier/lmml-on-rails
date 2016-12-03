@@ -33,7 +33,7 @@ class Autopsy < ApplicationRecord
     has_many :participations
     has_many :participants, through: :participations, source: :person
     has_many :conclusions
-    has_many :explications
+    has_many :explanations
     has_many :examinations
     has_many :tests
     has_many :autopsy_photograph_takings
