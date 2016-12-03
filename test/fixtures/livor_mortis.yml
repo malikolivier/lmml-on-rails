@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: 1
+  position: 1
+  intensity: 1
+  on_fingure_pressure: 1
+
+two:
+  color: 1
+  position: 1
+  intensity: 1
+  on_fingure_pressure: 1

@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: livores_mortis
+#
+#  id                              :integer          not null, primary key
+#  color                           :integer
+#  position                        :integer
+#  intensity                       :integer
+#  on_fingure_pressure             :integer
+#  external_outline_examination_id :integer
+#  created_at                      :datetime         not null
+#  updated_at                      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: 1
+  position: 1
+  intensity: 1
+  on_fingure_pressure: 1
+
+two:
+  color: 1
+  position: 1
+  intensity: 1
+  on_fingure_pressure: 1

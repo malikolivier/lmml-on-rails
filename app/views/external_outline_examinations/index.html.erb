@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>External Outline Examinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sex</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Partial body</th>
+      <th>Constitution</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @external_outline_examinations.each do |external_outline_examination| %>
+      <tr>
+        <td><%= external_outline_examination.sex %></td>
+        <td><%= external_outline_examination.height %></td>
+        <td><%= external_outline_examination.weight %></td>
+        <td><%= external_outline_examination.partial_body %></td>
+        <td><%= external_outline_examination.constitution %></td>
+        <td><%= link_to 'Show', external_outline_examination %></td>
+        <td><%= link_to 'Edit', edit_external_outline_examination_path(external_outline_examination) %></td>
+        <td><%= link_to 'Destroy', external_outline_examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New External Outline Examination', new_external_outline_examination_path %>

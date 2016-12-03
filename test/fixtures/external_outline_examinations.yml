@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: external_outline_examinations
+#
+#  id           :integer          not null, primary key
+#  sex          :integer
+#  height       :float
+#  weight       :float
+#  partial_body :boolean
+#  constitution :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sex: 1
+  height: 1.5
+  weight: 1.5
+  partial_body: false
+  constitution: MyString
+
+two:
+  sex: 1
+  height: 1.5
+  weight: 1.5
+  partial_body: false
+  constitution: MyString

@@ -14,3 +14,11 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections do |inflect|
+  # Some latin words used in models
+  inflect.irregular 'livor_mortis', 'livores_mortis'
+  inflect.irregular 'LivorMortis', 'LivoresMortis'
+  inflect.irregular 'rigor_mortis', 'rigores_mortis'
+  inflect.irregular 'RigorMortis', 'RigoresMortis'
+end

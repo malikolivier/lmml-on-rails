@@ -1,0 +1,1 @@
+json.array! @external_outline_examinations, partial: 'external_outline_examinations/external_outline_examination', as: :external_outline_examination

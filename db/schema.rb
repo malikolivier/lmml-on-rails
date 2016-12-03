@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203014923) do
+ActiveRecord::Schema.define(version: 20161203020309) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -105,6 +105,16 @@ ActiveRecord::Schema.define(version: 20161203014923) do
     t.index ["autopsy_id"], name: "index_explanations_on_autopsy_id"
   end
 
+  create_table "external_outline_examinations", force: :cascade do |t|
+    t.integer  "sex"
+    t.float    "height"
+    t.float    "weight"
+    t.boolean  "partial_body"
+    t.string   "constitution"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "in_body_orientations", force: :cascade do |t|
     t.integer  "coordinate_system", null: false
     t.float    "x"
@@ -173,6 +183,17 @@ ActiveRecord::Schema.define(version: 20161203014923) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["institution_type_id"], name: "index_institutions_on_institution_type_id"
+  end
+
+  create_table "livores_mortis", force: :cascade do |t|
+    t.integer  "color"
+    t.integer  "position"
+    t.integer  "intensity"
+    t.integer  "on_fingure_pressure"
+    t.integer  "external_outline_examination_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["external_outline_examination_id"], name: "index_livores_mortis_on_external_outline_examination_id"
   end
 
   create_table "organ_examinations", force: :cascade do |t|
