@@ -20,7 +20,7 @@ class Injury < ApplicationRecord
   enum time_sustained: [:pre_mortem, :post_mortem, :unknown]
   enum injury_type: [:abrasion, :bruise, :laceration, :incision, :gun, :other]
 
-  belongs_to :examination, required: true
+  belongs_to :examination
   belongs_to :body_area
   belongs_to :injury_size
   belongs_to :injury_depth
@@ -28,4 +28,5 @@ class Injury < ApplicationRecord
 
   has_many :injury_photograph_takings
   has_many :photographs, through: :injury_photograph_takings
+  has_many :child_injuries, foreign_key: :parent_injury_id, class_name: self
 end
