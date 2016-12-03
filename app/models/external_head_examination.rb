@@ -19,4 +19,5 @@ class ExternalHeadExamination < ApplicationRecord
   belongs_to :examination, required: true
 
   has_many :external_ear_examinations
+  alias_method :ears, :external_ear_examinations
 end
