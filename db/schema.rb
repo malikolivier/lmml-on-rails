@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202190832) do
+ActiveRecord::Schema.define(version: 20161203014923) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20161202190832) do
     t.index ["police_station_id"], name: "index_autopsies_on_police_station_id"
     t.index ["suspect_id"], name: "index_autopsies_on_suspect_id"
     t.index ["victim_id"], name: "index_autopsies_on_victim_id"
+  end
+
+  create_table "autopsy_photograph_takings", force: :cascade do |t|
+    t.integer  "category"
+    t.integer  "autopsy_id"
+    t.integer  "photograph_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["autopsy_id"], name: "index_autopsy_photograph_takings_on_autopsy_id"
+    t.index ["photograph_id"], name: "index_autopsy_photograph_takings_on_photograph_id"
   end
 
   create_table "autopsy_types", force: :cascade do |t|
@@ -131,6 +141,15 @@ ActiveRecord::Schema.define(version: 20161202190832) do
     t.index ["reached_organ_id"], name: "index_injury_depths_on_reached_organ_id"
   end
 
+  create_table "injury_photograph_takings", force: :cascade do |t|
+    t.integer  "injury_id"
+    t.integer  "photograph_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["injury_id"], name: "index_injury_photograph_takings_on_injury_id"
+    t.index ["photograph_id"], name: "index_injury_photograph_takings_on_photograph_id"
+  end
+
   create_table "injury_sizes", force: :cascade do |t|
     t.integer  "shape"
     t.float    "length"
@@ -195,8 +214,7 @@ ActiveRecord::Schema.define(version: 20161202190832) do
   end
 
   create_table "photographs", force: :cascade do |t|
-    t.integer  "type"
-    t.string   "caption"
+    t.text     "caption"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "picture_file_name"

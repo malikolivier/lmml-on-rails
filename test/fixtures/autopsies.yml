@@ -22,7 +22,7 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-completed_autpsy:
+completed_autopsy:
   completed: true
   number: '000001'
   autopsy_type: 司法解剖
@@ -37,7 +37,7 @@ completed_autpsy:
   court: a_court
   judge: judge
 
-uncompleted_autpsy:
+uncompleted_autopsy:
   completed: false
   number: '000002'
   suspect: suspect

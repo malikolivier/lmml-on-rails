@@ -36,5 +36,6 @@ class Autopsy < ApplicationRecord
     has_many :explications
     has_many :examinations
     has_many :tests
-    has_many :photographs
+    has_many :autopsy_photograph_takings
+    has_many :photographs, through: :autopsy_photograph_takings
 end

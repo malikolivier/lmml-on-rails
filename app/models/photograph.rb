@@ -3,8 +3,7 @@
 # Table name: photographs
 #
 #  id                   :integer          not null, primary key
-#  type                 :integer
-#  caption              :string
+#  caption              :text
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #  picture_file_name    :string
@@ -15,6 +14,4 @@
 
 class Photograph < ApplicationRecord
     has_attached_file :picture
-
-    enum type: [:front, :back, :face, :injury, :other]
 end

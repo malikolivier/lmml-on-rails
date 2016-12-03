@@ -25,4 +25,7 @@ class Injury < ApplicationRecord
   belongs_to :injury_size
   belongs_to :injury_depth
   belongs_to :parent_injury, class_name: self
+
+  has_many :injury_photograph_takings
+  has_many :photographs, through: :injury_photograph_takings
 end

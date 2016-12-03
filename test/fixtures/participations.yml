@@ -14,15 +14,15 @@
 
 one:
   person: student
-  autopsy: completed_autpsy
+  autopsy: completed_autopsy
   role: student
 
 two:
   person: examiner
-  autopsy: completed_autpsy
+  autopsy: completed_autopsy
   role: examiner
 
 three:
   person: assistant
-  autopsy: completed_autpsy
+  autopsy: completed_autopsy
   role: assistant

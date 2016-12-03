@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: autopsy_photograph_takings
+#
+#  id            :integer          not null, primary key
+#  category      :integer
+#  autopsy_id    :integer
+#  photograph_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_photo_face:
+  category: face
+  autopsy: completed_autopsy
+  photograph: face_autopsy_one
