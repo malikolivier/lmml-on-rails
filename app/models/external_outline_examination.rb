@@ -3,6 +3,7 @@
 # Table name: external_outline_examinations
 #
 #  id                 :integer          not null, primary key
+#  examination_id     :integer
 #  sex                :integer
 #  height             :float
 #  weight             :float

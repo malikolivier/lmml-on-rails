@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203022128) do
+ActiveRecord::Schema.define(version: 20161203031117) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -104,6 +104,28 @@ ActiveRecord::Schema.define(version: 20161203022128) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["autopsy_id"], name: "index_explanations_on_autopsy_id"
+  end
+
+  create_table "external_ear_examinations", force: :cascade do |t|
+    t.integer  "deixis",                                       null: false
+    t.boolean  "bleeding",                     default: false
+    t.integer  "injury_id"
+    t.integer  "external_head_examination_id",                 null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.index ["external_head_examination_id"], name: "ear"
+    t.index ["injury_id"], name: "index_external_ear_examinations_on_injury_id"
+  end
+
+  create_table "external_head_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "hair_natural_color"
+    t.integer  "hair_dyed_color"
+    t.float    "top_hair_length"
+    t.float    "side_hair_length"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["examination_id"], name: "index_external_head_examinations_on_examination_id"
   end
 
   create_table "external_outline_examinations", force: :cascade do |t|

@@ -1,0 +1,2 @@
+module ExternalHeadExaminationsHelper
+end

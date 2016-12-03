@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :external_head_examinations
   resources :external_outline_examinations
   resources :autopsy_types
   resources :injury_depths

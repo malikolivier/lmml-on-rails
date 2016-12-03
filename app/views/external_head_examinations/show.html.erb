@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hair natural color:</strong>
+  <%= @external_head_examination.hair_natural_color %>
+</p>
+
+<p>
+  <strong>Hair dyed color:</strong>
+  <%= @external_head_examination.hair_dyed_color %>
+</p>
+
+<p>
+  <strong>Top hair length:</strong>
+  <%= @external_head_examination.top_hair_length %>
+</p>
+
+<p>
+  <strong>Side hair length:</strong>
+  <%= @external_head_examination.side_hair_length %>
+</p>
+
+<%= link_to 'Edit', edit_external_head_examination_path(@external_head_examination) %> |
+<%= link_to 'Back', external_head_examinations_path %>
