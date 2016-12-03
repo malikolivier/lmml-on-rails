@@ -1,1 +1,0 @@
-json.partial! "injury_sizes/injury_size", injury_size: @injury_size

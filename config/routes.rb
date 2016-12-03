@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :injuries
   resources :roles
   resources :photographs
-  resources :explications
+  resources :explanations
   resources :institutions
   resources :people
   resources :autopsies

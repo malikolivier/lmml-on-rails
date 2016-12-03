@@ -1,1 +1,0 @@
-json.partial! "in_body_orientations/in_body_orientation", in_body_orientation: @in_body_orientation

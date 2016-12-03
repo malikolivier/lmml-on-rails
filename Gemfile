@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # Manage pictures upload
 gem "paperclip", "~> 5.0.0"
 
+# Use haml for templates
+gem 'haml'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console

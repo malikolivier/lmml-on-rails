@@ -1,1 +1,0 @@
-json.array! @body_references, partial: 'body_references/body_reference', as: :body_reference

@@ -1,2 +1,0 @@
-json.extract! external_head_examination, :id, :hair_natural_color, :hair_dyed_color, :top_hair_length, :side_hair_length, :created_at, :updated_at
-json.url external_head_examination_url(external_head_examination, format: :json)

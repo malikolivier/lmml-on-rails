@@ -1,1 +1,0 @@
-json.partial! "external_outline_examinations/external_outline_examination", external_outline_examination: @external_outline_examination

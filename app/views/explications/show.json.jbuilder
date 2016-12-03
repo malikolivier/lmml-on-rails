@@ -1,1 +1,0 @@
-json.partial! "explications/explication", explication: @explication

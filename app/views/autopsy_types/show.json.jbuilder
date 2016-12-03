@@ -1,1 +1,0 @@
-json.partial! "autopsy_types/autopsy_type", autopsy_type: @autopsy_type

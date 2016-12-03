@@ -1,1 +1,0 @@
-json.array! @external_head_examinations, partial: 'external_head_examinations/external_head_examination', as: :external_head_examination
