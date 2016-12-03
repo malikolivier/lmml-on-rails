@@ -12,3 +12,8 @@
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_outline:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: outline

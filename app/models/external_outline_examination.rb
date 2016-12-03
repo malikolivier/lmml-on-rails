@@ -19,6 +19,8 @@
 class ExternalOutlineExamination < ApplicationRecord
   enum sex: [:M, :F, :O]
 
+  belongs_to :examination, required: true
+
   has_many :livores_mortis
   has_many :rigores_mortis
 end

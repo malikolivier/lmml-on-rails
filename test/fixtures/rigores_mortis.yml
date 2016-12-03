@@ -12,3 +12,21 @@
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_right_elbow_rigor_mortis:
+  joint: right_elbow
+  intensity: rather_weak
+  category: rigor_mortis
+  external_outline_examination: completed_autopsy_outline
+
+completed_autopsy_right_foot_livor_mortis:
+  joint: right_foot
+  intensity: rather_strong
+  category: rigor_mortis
+  external_outline_examination: completed_autopsy_outline
+
+completed_autopsy_left_hip_livor_mortis:
+  joint: left_hip
+  intensity: rather_strong
+  category: heat_related
+  external_outline_examination: completed_autopsy_outline

@@ -15,6 +15,7 @@ class RigorMortis < ApplicationRecord
   enum joint: [:chin, :neck, :left_shoulder, :right_shoulder, :left_elbow,
                :right_elbow, :left_hand, :right_hand, :left_hip, :right_hip,
                :left_knee, :right_knee, :left_foot, :right_foot]
+  enum intensity: [:weak, :rather_weak, :mid, :rather_strong, :strong]
   enum category: [:rigor_mortis, :heat_related, :freeze_related]
 
   validates :joint, presence: true

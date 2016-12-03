@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20161203022128) do
   end
 
   create_table "external_outline_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
     t.integer  "sex"
     t.float    "height"
     t.float    "weight"
@@ -118,6 +119,7 @@ ActiveRecord::Schema.define(version: 20161203022128) do
     t.float    "room_temperature"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.index ["examination_id"], name: "index_external_outline_examinations_on_examination_id"
   end
 
   create_table "in_body_orientations", force: :cascade do |t|

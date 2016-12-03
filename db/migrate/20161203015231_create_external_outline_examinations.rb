@@ -1,6 +1,7 @@
 class CreateExternalOutlineExaminations < ActiveRecord::Migration[5.0]
   def change
     create_table :external_outline_examinations do |t|
+      t.belongs_to :examination, index: true
       t.integer :sex
       t.float :height
       t.float :weight

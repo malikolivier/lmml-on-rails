@@ -18,6 +18,8 @@ class Examination < ApplicationRecord
   has_many :injuries
 
   def get
-    examination_type.get_this_examination_model.find_by!(autopsy: autopsy)
+    examination_type.get_this_examination_model.find_by!(examination: self)
   end
+
+  validates :examination_type, presence: true
 end

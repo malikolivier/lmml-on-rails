@@ -18,16 +18,14 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  sex: 1
-  height: 1.5
-  weight: 1.5
+completed_autopsy_outline:
+  examination: completed_autopsy_outline
+  sex: M
+  height: 166
+  weight: 67
   partial_body: false
-  constitution: MyString
-
-two:
-  sex: 1
-  height: 1.5
-  weight: 1.5
-  partial_body: false
-  constitution: MyString
+  constitution: Small and frail
+  livor_mortis_note: Pronounced livor mortis on bottom of the body
+  rigor_mortis_note: No rigor mortis
+  rectal_temperature: 33.4
+  room_temperature: 19.8
