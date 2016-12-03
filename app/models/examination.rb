@@ -3,6 +3,7 @@
 # Table name: examinations
 #
 #  id                  :integer          not null, primary key
+#  completed           :boolean          default(FALSE)
 #  note                :text
 #  autopsy_id          :integer          not null
 #  examination_type_id :integer          not null

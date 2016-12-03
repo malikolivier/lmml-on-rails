@@ -20,5 +20,5 @@ class LivorMortis < ApplicationRecord
                              :fades_with_strong_pressure,
                              :does_not_fade]
 
-  belongs_to :external_outline_examination
+  belongs_to :external_outline_examination, required: true
 end

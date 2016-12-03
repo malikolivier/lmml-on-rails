@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203020309) do
+ActiveRecord::Schema.define(version: 20161203022128) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -87,11 +87,12 @@ ActiveRecord::Schema.define(version: 20161203020309) do
   end
 
   create_table "examinations", force: :cascade do |t|
+    t.boolean  "completed",           default: false
     t.text     "note"
-    t.integer  "autopsy_id",          null: false
-    t.integer  "examination_type_id", null: false
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.integer  "autopsy_id",                          null: false
+    t.integer  "examination_type_id",                 null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.index ["autopsy_id"], name: "index_examinations_on_autopsy_id"
     t.index ["examination_type_id"], name: "index_examinations_on_examination_type_id"
   end
@@ -109,11 +110,14 @@ ActiveRecord::Schema.define(version: 20161203020309) do
     t.integer  "sex"
     t.float    "height"
     t.float    "weight"
-    t.boolean  "partial_body",      default: false
+    t.boolean  "partial_body",       default: false
     t.text     "constitution"
     t.text     "livor_mortis_note"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.text     "rigor_mortis_note"
+    t.float    "rectal_temperature"
+    t.float    "room_temperature"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "in_body_orientations", force: :cascade do |t|
@@ -243,6 +247,16 @@ ActiveRecord::Schema.define(version: 20161203020309) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "rigores_mortis", force: :cascade do |t|
+    t.integer  "joint",                           null: false
+    t.integer  "intensity"
+    t.integer  "category"
+    t.integer  "external_outline_examination_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["external_outline_examination_id"], name: "index_rigores_mortis_on_external_outline_examination_id"
   end
 
   create_table "roles", force: :cascade do |t|

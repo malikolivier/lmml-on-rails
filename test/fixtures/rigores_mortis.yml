@@ -1,0 +1,14 @@
+# == Schema Information
+#
+# Table name: rigores_mortis
+#
+#  id                              :integer          not null, primary key
+#  joint                           :integer          not null
+#  intensity                       :integer
+#  category                        :integer
+#  external_outline_examination_id :integer
+#  created_at                      :datetime         not null
+#  updated_at                      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
