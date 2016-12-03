@@ -14,7 +14,7 @@
 
 class ExternalHeadExamination < ApplicationRecord
   enum hair_natural_color: [:black, :brown, :blond, :auburn, :red, :gray, :white]
-  enum hair_dyed_color: [:not_dyed, :blond]
+  enum hair_dyed_color: [:not_dyed, :false_blond, :false_red]
 
   belongs_to :examination, required: true
 

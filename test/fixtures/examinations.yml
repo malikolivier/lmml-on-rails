@@ -17,3 +17,8 @@ completed_autopsy_outline:
   completed: true
   autopsy: completed_autopsy
   examination_type: outline
+
+completed_autopsy_head:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: head

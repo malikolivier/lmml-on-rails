@@ -14,14 +14,9 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  hair_natural_color: 1
-  hair_dyed_color: 1
-  top_hair_length: 1.5
-  side_hair_length: 1.5
-
-two:
-  hair_natural_color: 1
-  hair_dyed_color: 1
-  top_hair_length: 1.5
-  side_hair_length: 1.5
+completed_autopsy_external_head_examination:
+  examination: completed_autopsy_head
+  hair_natural_color: black
+  hair_dyed_color: not_dyed
+  top_hair_length: 4
+  side_hair_length: 2

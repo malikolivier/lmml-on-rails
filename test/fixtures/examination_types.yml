@@ -15,6 +15,10 @@ outline:
   category: external
   name: outline
 
+head:
+  category: external
+  name: head
+
 face:
   category: external
   name: face

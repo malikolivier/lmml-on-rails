@@ -13,8 +13,12 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+completed_autopsy_left:
+  deixis: left
   bleeding: false
+  external_head_examination: completed_autopsy_external_head_examination
 
 two:
+  deixis: right
   bleeding: false
+  external_head_examination: completed_autopsy_external_head_examination
