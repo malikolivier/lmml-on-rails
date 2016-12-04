@@ -55,7 +55,7 @@
 
 <h3>（１）　外部所見</h3>
 <% @autopsy.examinations.external.standard_order.each_with_index do |examination, i| %>
-  <h4><%= i + 1 %>．<%= examination.examination_type.name %></h4>
+  <h4><%= i + 1 %>．<%= I18n.t "organs.#{examination.examination_type.name}" %></h4>
 
   <p>
     <%= render partial: examination.examination_type.name, locals: { exam: examination.get } %>

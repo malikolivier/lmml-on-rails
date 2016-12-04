@@ -16,6 +16,10 @@ ja:
     white: 白色
   odors:
     no_odor: においのない
+  organs:
+    outline: 概観
+    head: 頭部
+    face: 顔面
   body_parts:
     left_leg: 左足
     right_leg: 右足
