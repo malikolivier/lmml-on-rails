@@ -30,4 +30,17 @@ class ExternalEyeExamination < ApplicationRecord
   enum conjunctiva_petechia: Settings.enums.five_scale_quantity, _prefix: true
 
   belongs_to :external_face_examination, required: true
+
+  validates :deixis, presence: true
+
+  def closedness_report
+    if !other?
+      aperture_sentence = open? && aperture > 0 ? "#{aperture}cm" : ''
+      closedness = I18n.t "closedness.#{closed}"
+      sentence = "#{I18n.t deixis}眼は#{aperture_sentence}#{closedness}。"
+    else
+      sentence = ''
+    end
+    sentence
+  end
 end

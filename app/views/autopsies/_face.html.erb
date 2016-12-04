@@ -1,1 +1,68 @@
-FACE
+鬱血<%= I18n.t "existence.#{exam.congestion}" %>、腫脹は<%= I18n.t "intensity.#{exam.swelling}" %>。
+
+<% left_eye = exam.eyes.left.first %>
+<% right_eye = exam.eyes.right.first %>
+<% same_aperture = left_eye.aperture == right_eye.aperture %>
+<% if left_eye.closed == right_eye.closed %>
+  両眼は<% if left_eye.closed? %>閉じる<% elsif left_eye.open? && same_aperture %><%= left_eye.aperture %>cm 開く<% else %>。左眼は<%= left_eye.aperture %>cm、右眼は<%= right_eye.aperture %>cm 開く<% end %>。
+<% else %>
+  <%= left_eye.closedness_report %>
+  <%= right_eye.closedness_report %>
+<% end %>
+
+<%= render partial: 'eye_details', locals: { eye: left_eye } %>
+<%= render partial: 'eye_details', locals: { eye: right_eye } %>
+
+
+<% if left_eye.cornea.present? && left_eye.cornea == right_eye.cornea %>
+  角膜は<%= left_eye.cornea %>、
+<% else %>
+  <% if left_eye.cornea.present? %>
+    左角膜は<%= left_eye.cornea %>、
+  <% end %>
+  <% if right_eye.cornea.present? %>
+    右角膜は<%= right_eye.cornea %>、
+  <% end %>
+<% end %>
+<% if left_eye.pupil.present? && left_eye.pupil == right_eye.pupil %>
+瞳孔は<%= left_eye.pupil %>で、
+<% else %>
+  <% if left_eye.pupil.present? %>
+    左瞳孔は<%= left_eye.pupil %>、
+  <% end %>
+  <% if right_eye.pupil.present? %>
+    右瞳孔は<%= right_eye.pupil %>、
+  <% end %>
+<% end %>
+<% if left_eye.diameter.present? && left_eye.diameter == right_eye.diameter %>
+左右共直径は<%= left_eye.diameter %>cm。
+<% else %>
+  <% if left_eye.diameter.present? %>
+    左の方の直径は<%= left_eye.diameter %>cm、
+  <% end %>
+  <% if right_eye.diameter.present? %>
+    右の方の直径は<%= right_eye.diameter %>cm。
+  <% end %>
+<% end %>
+
+<% if exam.nasal_cavity_content.present? %>
+  鼻腔内に<%= exam.nasal_cavity_content %>。
+<% end %>
+
+<%= exam.mouth.closedness_report %>
+<% if exam.mouth.foreign_fluids.any? %>
+  口腔内に次の異液がある：<% fluid_explanations = []
+                        exam.mouth.foreign_fluids.each do |fluid|
+                          fluid_explanations.push(fluid.explanation)
+                        end %>
+                      <%= fluid_explanations.join('、') %>。
+<% else %>
+  口腔内に異液なし。
+<% end %>
+
+<% if exam.mouth.petechia.present? %>
+  口腔粘膜に溢血点は<%= I18n.t "quantity.#{exam.mouth.petechia}" %>。
+<% end %>
+<% if exam.mouth.tongue_tip.present? %>
+  舌尖は下歯列の<%= I18n.t "quantity.#{exam.mouth.tongue_tip}" %>。
+<% end %>

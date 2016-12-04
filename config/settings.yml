@@ -5,8 +5,8 @@ enums:
     - unknown
   three_scale_intensity:
     - light
-    - mid
-    - strong
+    - middle
+    - heavy
   five_scale_intensity:
     - weak
     - rather_weak
