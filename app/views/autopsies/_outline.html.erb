@@ -5,10 +5,10 @@
 
 <%-# Livor mortis description. Should be improved -%>
 
-<% exam.livores_mortis.strong.each do |livor_mortis| %>
+<% exam.livores_mortis.heavy.each do |livor_mortis| %>
   死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に高度に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
 <% end %>
-<% exam.livores_mortis.mid.each do |livor_mortis| %>
+<% exam.livores_mortis.middle.each do |livor_mortis| %>
   死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に中等に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
 <% end %>
 <% exam.livores_mortis.light.each do |livor_mortis| %>

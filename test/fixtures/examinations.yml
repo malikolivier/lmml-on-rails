@@ -27,3 +27,4 @@ completed_autopsy_face:
   completed: true
   autopsy: completed_autopsy
   examination_type: face
+  note: 眼球には弾力性がある。

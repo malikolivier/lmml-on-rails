@@ -1,5 +1,7 @@
 ja:
   hello: こんにちは
+  left: 左
+  right: 右
   sex:
     M: 男
     F: 女
@@ -9,7 +11,11 @@ ja:
     fades_with_light_pressure: 指圧で退色
     fades_with_strong_pressure: 強い指圧で退色
     does_not_fade: 退色なし
-    black: 黒い
+    black: 黒色
+    no_color: 色のない
+    white: 白色
+  odors:
+    no_odor: においのない
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -34,11 +40,26 @@ ja:
     rather_strong: やや強い
     strong: 強い
     light: 軽度
+    middle: 中度
     heavy: 高度
+  quantity:
+    none: ない
+    few: 僅かにある
+    mid: 少数ある
+    many: 多数ある
+    extremely_many: 非常に多くある
+  existence:
+    exists: あり
+    does_not_exist: なし
+    unknown: 不明
   rigor_mortis:
     rigor_mortis: 死後硬直
     heat_related: 熱硬直
     freeze_related: 凍結硬直
+  closedness:
+    closed: 閉じる
+    open: 開く
+    unknown: 不明
   activerecord:
     errors:
       messages:
