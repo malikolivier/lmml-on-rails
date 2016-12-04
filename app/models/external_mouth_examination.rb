@@ -21,6 +21,7 @@ class ExternalMouthExamination < ApplicationRecord
   has_many :in_mouth_foreign_fluids
   has_many :foreign_fluids, through: :in_mouth_foreign_fluids
   has_many :tooth_examinations
+  alias_method :teeth, :tooth_examinations
 
   has_many :mouth_photograph_takings
   has_many :photographs, through: :mouth_photograph_takings

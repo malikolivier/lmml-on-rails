@@ -8,10 +8,10 @@
 #  closed                       :integer
 #  aperture                     :float
 #  eyelid_congestion            :integer
-#  eyelid_petechia_count        :integer
+#  eyelid_petechia              :integer
 #  eyelid_note                  :text
 #  conjunctiva_congestion       :integer
-#  conjunctiva_petechia_count   :integer
+#  conjunctiva_petechia         :integer
 #  conjunctiva_note             :text
 #  cornea                       :text
 #  pupil                        :text

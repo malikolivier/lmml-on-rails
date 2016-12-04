@@ -13,3 +13,28 @@
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_tooth_1:
+  external_mouth_examination: completed_autopsy_mouth_examination
+  position: upper_left
+  rank: 1
+  condition: normal
+
+completed_autopsy_tooth_2:
+  external_mouth_examination: completed_autopsy_mouth_examination
+  position: upper_left
+  rank: 2
+  condition: normal
+
+completed_autopsy_tooth_3:
+  external_mouth_examination: completed_autopsy_mouth_examination
+  position: upper_right
+  rank: 1
+  condition: pulled_post_mortem
+
+completed_autopsy_tooth_4:
+  external_mouth_examination: completed_autopsy_mouth_examination
+  position: upper_right
+  rank: 2
+  condition: was_treated
+  note: 虫があったと考えられる。
