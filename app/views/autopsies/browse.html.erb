@@ -50,7 +50,7 @@
 <h2>第　3　章　 剖　　検　　記　　録</h2>
 
 <div>
-  <%= @autopsy.victim.name %>（<%= @autopsy.victim.age %>）
+  <%= @autopsy.victim.name %><% if @autopsy.victim.age.present? %>（<%= @autopsy.victim.age %>歳）<% end %>
 </div>
 
 <h3>（１）　外部所見</h3>
