@@ -45,4 +45,9 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to autopsies_url
   end
+
+  test "browse autopsy" do
+    get "#{autopsy_url(@autopsy)}/browse"
+    assert_response :success
+  end
 end
