@@ -3,7 +3,7 @@
 # Table name: tooth_examinations
 #
 #  id                            :integer          not null, primary key
-#  external_mouth_examination_id :integer
+#  external_mouth_examination_id :integer          not null
 #  position                      :integer          not null
 #  rank                          :integer          not null
 #  condition                     :integer          default("normal")

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204050118) do
+ActiveRecord::Schema.define(version: 20161204063634) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -116,6 +116,25 @@ ActiveRecord::Schema.define(version: 20161204050118) do
     t.datetime "updated_at",                                   null: false
     t.index ["external_head_examination_id"], name: "ear"
     t.index ["injury_id"], name: "index_external_ear_examinations_on_injury_id"
+  end
+
+  create_table "external_eye_examinations", force: :cascade do |t|
+    t.integer  "external_face_examination_id", null: false
+    t.integer  "deixis",                       null: false
+    t.integer  "closed"
+    t.float    "aperture"
+    t.integer  "eyelid_congestion"
+    t.integer  "eyelid_petechia"
+    t.text     "eyelid_note"
+    t.integer  "conjunctiva_congestion"
+    t.integer  "conjunctiva_petechia"
+    t.text     "conjunctiva_note"
+    t.text     "cornea"
+    t.text     "pupil"
+    t.float    "diameter"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["external_face_examination_id"], name: "eye_on_face"
   end
 
   create_table "external_face_examinations", force: :cascade do |t|

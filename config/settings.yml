@@ -13,6 +13,12 @@ enums:
     - mid
     - rather_strong
     - strong
+  five_scale_quantity:
+    - none
+    - few
+    - mid
+    - many
+    - extremely_many
   sex:
     - M
     - F
@@ -21,3 +27,6 @@ enums:
     - closed
     - open
     - other
+  deixes:
+    - left
+    - right

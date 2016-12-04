@@ -3,7 +3,7 @@
 # Table name: external_mouth_examinations
 #
 #  id                           :integer          not null, primary key
-#  closed                       :boolean
+#  closed                       :integer
 #  aperture                     :float
 #  petechia                     :integer
 #  tongue_tip                   :integer

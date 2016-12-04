@@ -12,10 +12,8 @@
 #
 
 class ExternalEarExamination < ApplicationRecord
-  enum deixis: [:left, :right]
+  enum deixis: Settings.enums.deixes
 
   belongs_to :injury
   belongs_to :external_head_examination, required: true
-
-  validates :external_head_examination, presence: true
 end

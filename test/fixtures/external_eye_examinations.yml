@@ -1,0 +1,51 @@
+# == Schema Information
+#
+# Table name: external_eye_examinations
+#
+#  id                           :integer          not null, primary key
+#  external_face_examination_id :integer          not null
+#  deixis                       :integer          not null
+#  closed                       :integer
+#  aperture                     :float
+#  eyelid_congestion            :integer
+#  eyelid_petechia_count        :integer
+#  eyelid_note                  :text
+#  conjunctiva_congestion       :integer
+#  conjunctiva_petechia_count   :integer
+#  conjunctiva_note             :text
+#  cornea                       :text
+#  pupil                        :text
+#  diameter                     :float
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_eye_examination_left:
+  external_face_examination: completed_autopsy_external_face_examination
+  deixis: left
+  closed: closed
+  aperture: 0
+  eyelid_congestion: mid
+  eyelid_petechia: none
+  conjunctiva_congestion: weak
+  conjunctiva_petechia: node
+  conjunctiva_note: 眼球結膜が見当たらない
+  cornea: 混濁している
+  pupil: 円形
+  diameter: 2.5
+
+completed_autopsy_eye_examination_right:
+  external_face_examination: completed_autopsy_external_face_examination
+  deixis: right
+  closed: open
+  aperture: 1.5
+  eyelid_congestion: strong
+  eyelid_petechia: extremely_many
+  eyelid_note: 眼瞼に溢血点が非常に多い
+  conjunctiva_congestion: strong
+  conjunctiva_petechia: extremely_many
+  cornea: 混濁している
+  pupil: 円形
+  diameter: 2.6
