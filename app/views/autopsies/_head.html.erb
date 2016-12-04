@@ -1,0 +1,17 @@
+頭髪は
+<% if exam.hair_dyed_color.blank? || exam.not_dyed? %>
+  <%= exam.hair_natural_color %>色。
+<% else %>
+  <%= exam.hair_natural_color %>色で<%= exam.hair_dyed_color %>色に染められる。
+<% end %>
+
+長さ頭頂部で<%= exam.top_hair_length %>㎝、側頭部で<%= exam.side_hair_length %>㎝。
+
+<% left_ear = exam.ears.left.first %>
+<% right_ear = exam.ears.left.first %>
+<% if left_ear.injury.blank? && right_ear.injury.blank? && !right_ear.bleeding? && !left_ear.bleeding? %>
+  左右耳介に損傷なく、外耳道に出血なし。
+<% else %>
+  左耳介に損傷<% if left_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if left_ear.bleeding? %>あり<% else %>なし<% end %>。
+  右耳介に損傷<% if right_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if right_ear.bleeding? %>あり<% else %>なし<% end %>。
+<% end %>
