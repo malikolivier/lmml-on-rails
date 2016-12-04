@@ -33,3 +33,8 @@ completed_autopsy_neck:
   completed: true
   autopsy: completed_autopsy
   examination_type: neck
+
+completed_autopsy_trunk:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: trunk

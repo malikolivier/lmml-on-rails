@@ -60,6 +60,9 @@
   <p>
     <%= render partial: examination.examination_type.name, locals: { exam: examination.get } %>
     <%= examination.note %>
+    <% if examination.injuries.none? %>
+      損傷等の異常なし。
+    <% end %>
   </p>
 <% end %>
 

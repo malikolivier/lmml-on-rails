@@ -6,6 +6,7 @@
 #  completed           :boolean          default(FALSE)
 #  number              :text
 #  autopsy_type_id     :integer
+#  examiner_id         :integer
 #  suspect_id          :integer
 #  victim_id           :integer
 #  place_id            :integer
