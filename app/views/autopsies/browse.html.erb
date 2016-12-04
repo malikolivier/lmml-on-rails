@@ -62,3 +62,18 @@
     <%= examination.note %>
   </p>
 <% end %>
+
+<p>
+  以　上
+</p>
+
+<div>
+<%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") %><br />
+<%= @autopsy.place.address %><br />
+<%= @autopsy.examiner.institution.name %><%= @autopsy.examiner.title %><br />
+鑑定人　<%= @autopsy.examiner.name %>　医師
+</div>
+
+<p>
+以下余白
+</p>

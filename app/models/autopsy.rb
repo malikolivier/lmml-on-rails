@@ -22,6 +22,7 @@
 
 class Autopsy < ApplicationRecord
     belongs_to :autopsy_type
+    belongs_to :examiner, class_name: Person
     belongs_to :suspect, class_name: Person
     belongs_to :victim, class_name: Person
     belongs_to :police_inspector, class_name: Person

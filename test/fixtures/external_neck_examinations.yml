@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+completed_autopsy_external_neck_examination:
+  examination: completed_autopsy_neck

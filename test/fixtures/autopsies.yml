@@ -26,6 +26,7 @@ completed_autopsy:
   completed: true
   number: '000001'
   autopsy_type: 司法解剖
+  examiner: medical_examiner
   suspect: suspect
   victim: victim
   place: y_university

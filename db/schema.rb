@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204063634) do
+ActiveRecord::Schema.define(version: 20161204113302) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
     t.text     "number"
     t.integer  "autopsy_type_id"
+    t.integer  "examiner_id"
     t.integer  "suspect_id"
     t.integer  "victim_id"
     t.integer  "place_id"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161204063634) do
     t.datetime "updated_at",                          null: false
     t.index ["autopsy_type_id"], name: "index_autopsies_on_autopsy_type_id"
     t.index ["court_id"], name: "index_autopsies_on_court_id"
+    t.index ["examiner_id"], name: "index_autopsies_on_examiner_id"
     t.index ["judge_id"], name: "index_autopsies_on_judge_id"
     t.index ["place_id"], name: "index_autopsies_on_place_id"
     t.index ["police_inspector_id"], name: "index_autopsies_on_police_inspector_id"
@@ -168,6 +170,13 @@ ActiveRecord::Schema.define(version: 20161204063634) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["external_face_examination_id"], name: "face"
+  end
+
+  create_table "external_neck_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["examination_id"], name: "index_external_neck_examinations_on_examination_id"
   end
 
   create_table "external_outline_examinations", force: :cascade do |t|
