@@ -58,3 +58,8 @@ completed_autopsy_external_genitalia:
   completed: true
   autopsy: completed_autopsy
   examination_type: external_genitalia
+
+completed_autopsy_anus:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: anus
