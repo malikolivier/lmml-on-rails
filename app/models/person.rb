@@ -16,7 +16,7 @@
 class Person < ApplicationRecord
     belongs_to :institution
 
-    enum sex: [:M, :F, :O]
+    enum sex: Settings.enums.sex
 
     def full_name_with_title
       "#{institution.name}・#{name}#{title}"

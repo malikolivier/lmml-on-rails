@@ -18,7 +18,7 @@ completed_autopsy_left:
   bleeding: false
   external_head_examination: completed_autopsy_external_head_examination
 
-two:
+completed_autopsy_right:
   deixis: right
   bleeding: false
   external_head_examination: completed_autopsy_external_head_examination

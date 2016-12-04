@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: in_mouth_foreign_fluids
+#
+#  id                            :integer          not null, primary key
+#  external_mouth_examination_id :integer
+#  foreign_fluid_id              :integer
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_mouth_examination:
+  external_mouth_examination: completed_autopsy_mouth_examination
+  foreign_fluid: white_whatever

@@ -9,6 +9,7 @@ ja:
     fades_with_light_pressure: 指圧で退色
     fades_with_strong_pressure: 強い指圧で退色
     does_not_fade: 退色なし
+    black: 黒い
   body_parts:
     left_leg: 左足
     right_leg: 右足

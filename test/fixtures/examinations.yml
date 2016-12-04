@@ -22,3 +22,8 @@ completed_autopsy_head:
   completed: true
   autopsy: completed_autopsy
   examination_type: head
+
+completed_autopsy_face:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: face

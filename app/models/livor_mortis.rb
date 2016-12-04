@@ -15,7 +15,7 @@
 class LivorMortis < ApplicationRecord
   enum color: [:white, :pale, :yellow]
   enum position: [:left_leg, :right_leg]
-  enum intensity: [:light, :mid, :strong]
+  enum intensity: Settings.enums.three_scale_intensity
   enum on_fingure_pressure: [:fades_with_light_pressure,
                              :fades_with_strong_pressure,
                              :does_not_fade]

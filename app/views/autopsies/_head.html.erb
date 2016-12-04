@@ -1,8 +1,8 @@
 頭髪は
 <% if exam.hair_dyed_color.blank? || exam.not_dyed? %>
-  <%= exam.hair_natural_color %>色。
+  <%= I18n.t "colors.#{exam.hair_natural_color}" %>。
 <% else %>
-  <%= exam.hair_natural_color %>色で<%= exam.hair_dyed_color %>色に染められる。
+  <%= I18n.t "colors.#{exam.hair_natural_color}" %>で<%= I18n.t "colors.#{exam.hair_dyed_color}" %>色に染められる。
 <% end %>
 
 長さ頭頂部で<%= exam.top_hair_length %>㎝、側頭部で<%= exam.side_hair_length %>㎝。

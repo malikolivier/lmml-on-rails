@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161203031117) do
+ActiveRecord::Schema.define(version: 20161204050118) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -118,6 +118,16 @@ ActiveRecord::Schema.define(version: 20161203031117) do
     t.index ["injury_id"], name: "index_external_ear_examinations_on_injury_id"
   end
 
+  create_table "external_face_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "congestion"
+    t.integer  "swelling"
+    t.text     "nasal_cavity_content"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["examination_id"], name: "index_external_face_examinations_on_examination_id"
+  end
+
   create_table "external_head_examinations", force: :cascade do |t|
     t.integer  "examination_id"
     t.integer  "hair_natural_color"
@@ -127,6 +137,18 @@ ActiveRecord::Schema.define(version: 20161203031117) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["examination_id"], name: "index_external_head_examinations_on_examination_id"
+  end
+
+  create_table "external_mouth_examinations", force: :cascade do |t|
+    t.integer  "closed"
+    t.float    "aperture"
+    t.integer  "petechia"
+    t.integer  "tongue_tip"
+    t.text     "note"
+    t.integer  "external_face_examination_id", null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["external_face_examination_id"], name: "face"
   end
 
   create_table "external_outline_examinations", force: :cascade do |t|
@@ -145,12 +167,30 @@ ActiveRecord::Schema.define(version: 20161203031117) do
     t.index ["examination_id"], name: "index_external_outline_examinations_on_examination_id"
   end
 
+  create_table "foreign_fluids", force: :cascade do |t|
+    t.integer  "color"
+    t.text     "name"
+    t.text     "description"
+    t.integer  "odor"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "in_body_orientations", force: :cascade do |t|
     t.integer  "coordinate_system", null: false
     t.float    "x"
     t.float    "y"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "in_mouth_foreign_fluids", force: :cascade do |t|
+    t.integer  "external_mouth_examination_id"
+    t.integer  "foreign_fluid_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["external_mouth_examination_id"], name: "index_in_mouth_foreign_fluids_on_external_mouth_examination_id"
+    t.index ["foreign_fluid_id"], name: "index_in_mouth_foreign_fluids_on_foreign_fluid_id"
   end
 
   create_table "injuries", force: :cascade do |t|
@@ -226,6 +266,15 @@ ActiveRecord::Schema.define(version: 20161203031117) do
     t.index ["external_outline_examination_id"], name: "index_livores_mortis_on_external_outline_examination_id"
   end
 
+  create_table "mouth_photograph_takings", force: :cascade do |t|
+    t.integer  "external_mouth_examination_id", null: false
+    t.integer  "photograph_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["external_mouth_examination_id"], name: "mouth_has_photograph"
+    t.index ["photograph_id"], name: "index_mouth_photograph_takings_on_photograph_id"
+  end
+
   create_table "organ_examinations", force: :cascade do |t|
     t.integer  "organ_id"
     t.integer  "examination_type_id"
@@ -288,6 +337,17 @@ ActiveRecord::Schema.define(version: 20161203031117) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tooth_examinations", force: :cascade do |t|
+    t.integer  "external_mouth_examination_id",             null: false
+    t.integer  "position",                                  null: false
+    t.integer  "rank",                                      null: false
+    t.integer  "condition",                     default: 0
+    t.text     "note"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.index ["external_mouth_examination_id"], name: "index_tooth_examinations_on_external_mouth_examination_id"
   end
 
 end

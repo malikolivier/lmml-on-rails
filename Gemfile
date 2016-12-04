@@ -36,6 +36,9 @@ gem "paperclip", "~> 5.0.0"
 # Use haml for templates
 gem 'haml'
 
+# Use settings.yml
+gem 'config'
+
 # To convert date to string containing Japanese era
 gem 'era_ja'
 

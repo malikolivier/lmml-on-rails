@@ -18,7 +18,7 @@
 #
 
 class ExternalOutlineExamination < ApplicationRecord
-  enum sex: [:M, :F, :O]
+  enum sex: Settings.enums.sex
 
   belongs_to :examination, required: true
 

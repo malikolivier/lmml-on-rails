@@ -1,0 +1,19 @@
+# == Schema Information
+#
+# Table name: foreign_fluids
+#
+#  id          :integer          not null, primary key
+#  color       :integer
+#  name        :text
+#  description :text
+#  odor        :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+white_whatever:
+  color: white
+  name: 不明
+  odor: no_odor

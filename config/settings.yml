@@ -1,0 +1,23 @@
+enums:
+  existence:
+    - exists
+    - does_not_exist
+    - unknown
+  three_scale_intensity:
+    - light
+    - mid
+    - strong
+  five_scale_intensity:
+    - weak
+    - rather_weak
+    - mid
+    - rather_strong
+    - strong
+  sex:
+    - M
+    - F
+    - O
+  closedness:
+    - closed
+    - open
+    - other
