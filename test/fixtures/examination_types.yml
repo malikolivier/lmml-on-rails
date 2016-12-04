@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  category   :integer          not null
+#  placement  :integer          not null
 #  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -13,105 +14,131 @@
 
 outline:
   category: external
+  placement: 1
   name: outline
 
 head:
   category: external
+  placement: 2
   name: head
 
 face:
   category: external
+  placement: 3
   name: face
 
 neck:
   category: external
+  placement: 4
   name: neck
 
 trunk:
   category: external
+  placement: 5
   name: trunk
 
 upper_limbs:
   category: external
+  placement: 6
   name: upper_limbs
 
 lower_limbs:
   category: external
+  placement: 7
   name: lower_limbs
 
 external_genitalia:
   category: external
+  placement: 8
   name: genitalia
 
 anus:
   category: external
+  placement: 9
   name: anus
 
 
 cranium:
   category: internal
+  placement: 10
   name: cranium
 
 brain:
   category: internal
+  placement: 11
   name: brain
 
 abnominal_wall:
   category: internal
+  placement: 12
   name: abnominal_wall
 
 neck_organs:
   category: internal
+  placement: 13
   name: neck_organs
 
 pericardium:
   category: internal
+  placement: 14
   name: pericardium
 
 heart:
   category: internal
+  placement: 15
   name: heart
 
 thoracic_aorta:
   category: internal
+  placement: 16
   name: thoracic_aorta
 
 adrenal_glands:
   category: internal
+  placement: 17
   name: adrenal_glands
 
 kidneys:
   category: internal
+  placement: 18
   name: kidneys
 
 spleen:
   category: internal
+  placement: 19
   name: spleen
 
 pancreas:
   category: internal
+  placement: 20
   name: pancreas
 
 liver:
   category: internal
+  placement: 21
   name: liver
 
 stomach:
   category: internal
+  placement: 22
   name: stomach
 
 intestines:
   category: internal
+  placement: 23
   name: intestines
 
 bladder:
   category: internal
+  placement: 24
   name: bladder
 
 internal_genitalia:
   category: internal
+  placement: 25
   name: genitalia
 
 back:
   category: internal
+  placement: 26
   name: back

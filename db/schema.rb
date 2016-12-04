@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20161203031117) do
 
   create_table "examination_types", force: :cascade do |t|
     t.integer  "category",   null: false
+    t.integer  "placement",  null: false
     t.text     "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

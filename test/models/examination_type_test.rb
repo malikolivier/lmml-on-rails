@@ -4,6 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  category   :integer          not null
+#  placement  :integer          not null
 #  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

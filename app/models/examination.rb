@@ -28,4 +28,7 @@ class Examination < ApplicationRecord
       { category: ExaminationType.categories[:external] }
     )
   }
+  scope :standard_order, -> {
+    order("`examination_types`.`placement` ASC")
+  }
 end
