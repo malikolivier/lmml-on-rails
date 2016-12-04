@@ -32,6 +32,8 @@ ja:
     mid: 中等
     rather_strong: やや強い
     strong: 強い
+    light: 軽度
+    heavy: 高度
   rigor_mortis:
     rigor_mortis: 死後硬直
     heat_related: 熱硬直
