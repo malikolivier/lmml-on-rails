@@ -22,6 +22,7 @@ ja:
     face: 顔面
     neck: 頸部・項部
     trunk: 胸腹部
+    back: 背部
   body_parts:
     left_leg: 左足
     right_leg: 右足

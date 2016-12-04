@@ -37,108 +37,113 @@ trunk:
   placement: 5
   name: trunk
 
-upper_limbs:
+external_back:
   category: external
   placement: 6
+  name: back
+
+upper_limbs:
+  category: external
+  placement: 7
   name: upper_limbs
 
 lower_limbs:
   category: external
-  placement: 7
+  placement: 8
   name: lower_limbs
 
 external_genitalia:
   category: external
-  placement: 8
+  placement: 9
   name: genitalia
 
 anus:
   category: external
-  placement: 9
+  placement: 10
   name: anus
 
 
 cranium:
   category: internal
-  placement: 10
+  placement: 11
   name: cranium
 
 brain:
   category: internal
-  placement: 11
+  placement: 12
   name: brain
 
 abnominal_wall:
   category: internal
-  placement: 12
+  placement: 13
   name: abnominal_wall
 
 neck_organs:
   category: internal
-  placement: 13
+  placement: 14
   name: neck_organs
 
 pericardium:
   category: internal
-  placement: 14
+  placement: 15
   name: pericardium
 
 heart:
   category: internal
-  placement: 15
+  placement: 16
   name: heart
 
 thoracic_aorta:
   category: internal
-  placement: 16
+  placement: 17
   name: thoracic_aorta
 
 adrenal_glands:
   category: internal
-  placement: 17
+  placement: 18
   name: adrenal_glands
 
 kidneys:
   category: internal
-  placement: 18
+  placement: 19
   name: kidneys
 
 spleen:
   category: internal
-  placement: 19
+  placement: 20
   name: spleen
 
 pancreas:
   category: internal
-  placement: 20
+  placement: 21
   name: pancreas
 
 liver:
   category: internal
-  placement: 21
+  placement: 22
   name: liver
 
 stomach:
   category: internal
-  placement: 22
+  placement: 23
   name: stomach
 
 intestines:
   category: internal
-  placement: 23
+  placement: 24
   name: intestines
 
 bladder:
   category: internal
-  placement: 24
+  placement: 25
   name: bladder
 
 internal_genitalia:
   category: internal
-  placement: 25
+  placement: 26
   name: genitalia
 
-back:
+internal_back:
   category: internal
-  placement: 26
+  placement: 27
   name: back

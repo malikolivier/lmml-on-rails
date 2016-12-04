@@ -38,3 +38,8 @@ completed_autopsy_trunk:
   completed: true
   autopsy: completed_autopsy
   examination_type: trunk
+
+completed_autopsy_external_back:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: external_back
