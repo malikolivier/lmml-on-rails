@@ -43,3 +43,13 @@ completed_autopsy_external_back:
   completed: true
   autopsy: completed_autopsy
   examination_type: external_back
+
+completed_autopsy_external_upper_limbs:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: upper_limbs
+
+completed_autopsy_external_lower_limbs:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: lower_limbs

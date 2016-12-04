@@ -1,0 +1,4 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_external_upper_limbs_examination:
+  examination: completed_autopsy_external_upper_limbs

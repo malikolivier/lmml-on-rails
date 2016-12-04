@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204121352) do
+ActiveRecord::Schema.define(version: 20161204122840) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -167,6 +167,13 @@ ActiveRecord::Schema.define(version: 20161204121352) do
     t.index ["examination_id"], name: "index_external_head_examinations_on_examination_id"
   end
 
+  create_table "external_lower_limbs_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["examination_id"], name: "index_external_lower_limbs_examinations_on_examination_id"
+  end
+
   create_table "external_mouth_examinations", force: :cascade do |t|
     t.integer  "closed"
     t.float    "aperture"
@@ -208,6 +215,13 @@ ActiveRecord::Schema.define(version: 20161204121352) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["examination_id"], name: "index_external_trunk_examinations_on_examination_id"
+  end
+
+  create_table "external_upper_limbs_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["examination_id"], name: "index_external_upper_limbs_examinations_on_examination_id"
   end
 
   create_table "foreign_fluids", force: :cascade do |t|

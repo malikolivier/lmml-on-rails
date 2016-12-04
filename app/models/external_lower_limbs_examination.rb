@@ -1,0 +1,3 @@
+class ExternalLowerLimbsExamination < ApplicationRecord
+  belongs_to :examination, required: true
+end
