@@ -1,4 +1,4 @@
-<%= exam.sex %>性屍。
+<% if !exam.O? %><%= I18n.t "sex.#{exam.sex}" %>性屍。<% else %>性別が不明な屍。<% end %>
 身長<%= exam.height %>cm、体重<%= exam.weight %>kg。
 体格、<%= exam.constitution %>。
 
@@ -6,13 +6,13 @@
 <%-# Livor mortis description. Should be improved -%>
 
 <% exam.livores_mortis.strong.each do |livor_mortis| %>
-  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に高度に発見し、<%= livor_mortis.on_fingure_pressure %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に高度に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
 <% end %>
 <% exam.livores_mortis.mid.each do |livor_mortis| %>
-  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に中等に発見し、<%= livor_mortis.on_fingure_pressure %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に中等に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
 <% end %>
 <% exam.livores_mortis.light.each do |livor_mortis| %>
-  死斑は<%= livor_mortis.color %>色で、<%= livor_mortis.position %>面に軽度に発見し、<%= livor_mortis.on_fingure_pressure %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>色で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に軽度に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
 <% end %>
 <%= exam.livor_mortis_note %>
 
@@ -22,10 +22,10 @@
 <% RigorMortis.intensities.each do |intensity, intensity_index| %>
   <% joints = []
      exam.rigores_mortis.send(intensity).each do |rivor_mortis|
-       joints.push(rivor_mortis.joint)
+       joints.push(I18n.t "body_parts.#{rivor_mortis.joint}")
      end %>
   <% if joints.length > 0 %>
-    <% rigor_mortis_phrases.push("#{joints.join('・')}で#{intensity}") %>
+    <% rigor_mortis_phrases.push("#{joints.join('・')}で#{I18n.t "intensity.#{intensity}"}") %>
   <% end %>
 <% end %>
 硬直は<%= rigor_mortis_phrases.join('、') %>。

@@ -1,2 +1,38 @@
 ja:
   hello: こんにちは
+  sex:
+    M: 男
+    F: 女
+    O: 不明
+  colors:
+    pale: 蒼白
+    fades_with_light_pressure: 指圧で退色
+    fades_with_strong_pressure: 強い指圧で退色
+    does_not_fade: 退色なし
+  body_parts:
+    left_leg: 左足
+    right_leg: 右足
+    chin: 顎
+    neck: 頸部
+    left_shoulder: 左肩
+    right_shoulder: 右肩
+    left_elbow: 左肘
+    right_elbow: 右肘
+    left_hand: 左手
+    right_hand: 右手
+    left_hip: 左股関節
+    right_hip: 右股関節
+    left_knee: 左膝
+    right_knee: 右膝
+    left_foot: 左足
+    right_foot: 右足
+  intensity:
+    weak: 弱い
+    rather_weak: やや弱い
+    mid: 中等
+    rather_strong: やや強い
+    strong: 強い
+  rigor_mortis:
+    rigor_mortis: 死後硬直
+    heat_related: 熱硬直
+    freeze_related: 凍結硬直
