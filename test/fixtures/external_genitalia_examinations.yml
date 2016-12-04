@@ -1,14 +1,20 @@
 # == Schema Information
 #
-# Table name: external_lower_limbs_examinations
+# Table name: external_genitalia_examinations
 #
 #  id             :integer          not null, primary key
 #  examination_id :integer
+#  hair_color     :integer
+#  hair_length    :float
+#  sex            :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-completed_autopsy_external_lower_limbs_examination:
-  examination: completed_autopsy_external_lower_limbs
+completed_autopsy_external_genitalia:
+  examination: completed_autopsy_external_genitalia
+  hair_color: black
+  hair_length: 1.5
+  sex: M

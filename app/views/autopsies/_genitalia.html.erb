@@ -1,0 +1,17 @@
+<% phrases = []
+   if exam.hair_color.present?
+     phrases.push("#{I18n.t "colors.#{exam.hair_color}"}")
+   end
+   if exam.hair_length.present?
+     phrases.push("長さ#{exam.hair_length}cm")
+   end
+%>
+<%= "陰毛は#{phrases.join('で、')}。" if phrases.present? %>
+
+<% if exam.sex.present? %>
+  <% if !exam.O? %>
+    <%= I18n.t "sex.#{exam.sex}"%>性外陰の形態を有する。
+  <% else %>
+    男性のでもなく女性のでもない外陰の形態を有する。
+  <% end %>
+<% end %>
