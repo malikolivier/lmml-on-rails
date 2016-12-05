@@ -48,6 +48,9 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-remote'
   gem 'pry-nav'
+
+  # Linter
+  gem 'rubocop'
 end
 
 group :development do
