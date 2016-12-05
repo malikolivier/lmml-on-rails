@@ -9,4 +9,7 @@ class Fixnum
   def to_full_width
     self.to_s.to_full_width
   end
+  def to_full_width_letter
+    ('Ａ'..'Ｚ').first(self).last
+  end
 end

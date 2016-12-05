@@ -63,3 +63,8 @@ completed_autopsy_anus:
   completed: true
   autopsy: completed_autopsy
   examination_type: anus
+
+completed_autopsy_cranium:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: cranium
