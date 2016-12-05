@@ -10,8 +10,8 @@
   <%= right_eye.closedness_report %>
 <% end %>
 
-<%= render partial: 'eye_details', locals: { eye: left_eye } %>
-<%= render partial: 'eye_details', locals: { eye: right_eye } %>
+<%= render partial: 'autopsies/external/eye_details', locals: { eye: left_eye } %>
+<%= render partial: 'autopsies/external/eye_details', locals: { eye: right_eye } %>
 
 
 <% if left_eye.cornea.present? && left_eye.cornea == right_eye.cornea %>
