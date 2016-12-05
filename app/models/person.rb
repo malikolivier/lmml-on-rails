@@ -14,11 +14,11 @@
 #
 
 class Person < ApplicationRecord
-    belongs_to :institution
+  belongs_to :institution
 
-    enum sex: Settings.enums.sex
+  enum sex: Settings.enums.sex
 
-    def full_name_with_title
-      "#{institution.name}・#{name}#{title}"
-    end
+  def full_name_with_title
+    "#{institution.name}・#{name}#{title}"
+  end
 end

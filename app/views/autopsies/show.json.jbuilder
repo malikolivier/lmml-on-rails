@@ -1,1 +1,1 @@
-json.partial! "autopsies/autopsy", autopsy: @autopsy
+json.partial! 'autopsies/autopsy', autopsy: @autopsy

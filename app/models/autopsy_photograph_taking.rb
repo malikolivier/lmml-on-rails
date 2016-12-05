@@ -11,8 +11,8 @@
 #
 
 class AutopsyPhotographTaking < ApplicationRecord
-    enum category: [:front, :back, :face, :other]
+  enum category: [:front, :back, :face, :other]
 
-    belongs_to :autopsy
-    belongs_to :photograph
+  belongs_to :autopsy
+  belongs_to :photograph
 end

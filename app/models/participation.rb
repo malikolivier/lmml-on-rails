@@ -11,7 +11,7 @@
 #
 
 class Participation < ApplicationRecord
-    belongs_to :person, required: true
-    belongs_to :autopsy, required: true
-    belongs_to :role
+  belongs_to :person, required: true
+  belongs_to :autopsy, required: true
+  belongs_to :role
 end

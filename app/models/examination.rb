@@ -18,17 +18,16 @@ class Examination < ApplicationRecord
   has_many :injuries
 
   def get
-    examination_type.get_this_examination_model.find_by!(examination: self)
+    examination_type.this_examination_model.find_by!(examination: self)
   end
 
   validates :examination_type, presence: true
 
-  scope :external, -> {
-    joins(:examination_type).where( examination_types:
-      { category: ExaminationType.categories[:external] }
-    )
+  scope :external, lambda {
+    joins(:examination_type).where(examination_types:
+      { category: ExaminationType.categories[:external] })
   }
-  scope :standard_order, -> {
-    order("`examination_types`.`placement` ASC")
+  scope :standard_order, lambda {
+    order('`examination_types`.`placement` ASC')
   }
 end

@@ -22,5 +22,4 @@ class ExternalFaceExamination < ApplicationRecord
 
   has_one :external_mouth_examination
   alias_method :mouth, :external_mouth_examination
-
 end

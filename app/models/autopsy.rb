@@ -22,22 +22,22 @@
 #
 
 class Autopsy < ApplicationRecord
-    belongs_to :autopsy_type
-    belongs_to :examiner, class_name: Person
-    belongs_to :suspect, class_name: Person
-    belongs_to :victim, class_name: Person
-    belongs_to :police_inspector, class_name: Person
-    belongs_to :judge, class_name: Person
-    belongs_to :place, class_name: Institution
-    belongs_to :police_station, class_name: Institution
-    belongs_to :court, class_name: Institution
+  belongs_to :autopsy_type
+  belongs_to :examiner, class_name: Person
+  belongs_to :suspect, class_name: Person
+  belongs_to :victim, class_name: Person
+  belongs_to :police_inspector, class_name: Person
+  belongs_to :judge, class_name: Person
+  belongs_to :place, class_name: Institution
+  belongs_to :police_station, class_name: Institution
+  belongs_to :court, class_name: Institution
 
-    has_many :participations
-    has_many :participants, through: :participations, source: :person
-    has_many :conclusions
-    has_many :explanations
-    has_many :examinations
-    has_many :tests
-    has_many :autopsy_photograph_takings
-    has_many :photographs, through: :autopsy_photograph_takings
+  has_many :participations
+  has_many :participants, through: :participations, source: :person
+  has_many :conclusions
+  has_many :explanations
+  has_many :examinations
+  has_many :tests
+  has_many :autopsy_photograph_takings
+  has_many :photographs, through: :autopsy_photograph_takings
 end

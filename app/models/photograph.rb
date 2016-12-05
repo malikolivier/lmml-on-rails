@@ -13,5 +13,5 @@
 #
 
 class Photograph < ApplicationRecord
-    has_attached_file :picture
+  has_attached_file :picture
 end
