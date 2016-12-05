@@ -28,6 +28,7 @@ ja:
     genitalia: 外陰部
     anus: 肛門
     cranium: 頭蓋
+    brain: 脳
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -55,7 +56,7 @@ ja:
     middle: 中度
     heavy: 高度
   quantity:
-    none: ない
+    none: なし
     few: 僅かにある
     mid: 少数ある
     many: 多数ある

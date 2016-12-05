@@ -1,14 +1,20 @@
 # == Schema Information
 #
-# Table name: internal_cranium_examinations
+# Table name: internal_brain_examinations
 #
 #  id             :integer          not null, primary key
 #  examination_id :integer
+#  weight         :float
+#  pia_congestion :integer
+#  blood_spots    :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-completed_autopsy_internal_cranium_examination:
-  examination: completed_autopsy_cranium
+completed_autopsy_internal_brain_examination:
+  examination: completed_autopsy_brain
+  weight: 1920
+  pia_congestion: mid
+  blood_spots: none

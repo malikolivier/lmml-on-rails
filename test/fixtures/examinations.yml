@@ -68,3 +68,8 @@ completed_autopsy_cranium:
   completed: true
   autopsy: completed_autopsy
   examination_type: cranium
+
+completed_autopsy_brain:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: brain
