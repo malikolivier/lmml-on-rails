@@ -3,7 +3,7 @@ before_script:
   - ruby -v
   - which ruby
   - gem install bundler --no-ri --no-rdoc
-  - bundle install --path vendor/bundle --jobs $(nproc)  "${FLAGS[@]}"
+  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
 
 rails_test:
   script:
@@ -12,7 +12,3 @@ rails_test:
 rubocop:
   script:
     - bundle exec rubocop
-
-cache:
-    paths:
-      - vendor/bundle
