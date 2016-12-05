@@ -56,7 +56,7 @@
 <% external_examination_started = false %>
 <% internal_examination_started = false %>
 <% internal_head_examination_started = false %>
-<% internal_body_examination_started = false %>
+<% internal_torso_examination_started = false %>
 <% syoken_count = 0 %>
 <% kaiken_count = 0 %>
 <% @autopsy.examinations.joins(:examination_type).standard_order.each_with_index do |examination, i| %>
@@ -70,6 +70,10 @@
     <% if examination.get.head? && !internal_head_examination_started %>
       <% internal_head_examination_started = true %>
       <h3><%= (kaiken_count+=1).to_full_width_letter %>：頭腔開検</h3>
+    <% end %>
+    <% if examination.get.torso? && !internal_torso_examination_started %>
+      <% internal_torso_examination_started = true %>
+      <h3><%= (kaiken_count+=1).to_full_width_letter %>：頸胸腹開検</h3>
     <% end %>
   <% end %>
   <h4><%= i + 1 %>．<%= I18n.t "organs.#{examination.examination_type.name}" %></h4>

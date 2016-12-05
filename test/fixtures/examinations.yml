@@ -73,3 +73,8 @@ completed_autopsy_brain:
   completed: true
   autopsy: completed_autopsy
   examination_type: brain
+
+completed_autopsy_abdominal_wall:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: abdominal_wall

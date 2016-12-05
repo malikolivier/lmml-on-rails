@@ -29,6 +29,7 @@ ja:
     anus: 肛門
     cranium: 頭蓋
     brain: 脳
+    abdominal_wall: 胸腹壁および胸腹腔
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -61,6 +62,10 @@ ja:
     mid: 少数ある
     many: 多数ある
     extremely_many: 非常に多くある
+  growth:
+    abundant: 良好
+    normal: 中等
+    insufficient: 不良
   existence:
     exists: あり
     does_not_exist: なし

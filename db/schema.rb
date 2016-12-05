@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205143441) do
+ActiveRecord::Schema.define(version: 20161205153556) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -269,6 +269,15 @@ ActiveRecord::Schema.define(version: 20161205143441) do
     t.index ["foreign_fluid_id"], name: "index_in_mouth_foreign_fluids_on_foreign_fluid_id"
   end
 
+  create_table "in_peritoneum_foreign_fluids", force: :cascade do |t|
+    t.integer  "internal_abdominal_wall_examination_id", null: false
+    t.integer  "foreign_fluid_id",                       null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["foreign_fluid_id"], name: "index_in_peritoneum_foreign_fluids_on_foreign_fluid_id"
+    t.index ["internal_abdominal_wall_examination_id"], name: "fluids_in_peritoneum"
+  end
+
   create_table "injuries", force: :cascade do |t|
     t.integer  "examination_id"
     t.text     "description"
@@ -329,6 +338,20 @@ ActiveRecord::Schema.define(version: 20161205143441) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.index ["institution_type_id"], name: "index_institutions_on_institution_type_id"
+  end
+
+  create_table "internal_abdominal_wall_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "subcutaneous_fat_level"
+    t.float    "subcutaneous_fat_thickness"
+    t.float    "diaphragm_height_left"
+    t.float    "diaphragm_height_right"
+    t.integer  "pleura_adhesion"
+    t.integer  "air_in_digestive_track"
+    t.integer  "peritoneum_adhesion"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["examination_id"], name: "index_internal_abdominal_wall_examinations_on_examination_id"
   end
 
   create_table "internal_brain_examinations", force: :cascade do |t|
