@@ -1,4 +1,4 @@
-require "lmml_on_rails/internal_head_examination.rb"
+require 'lmml_on_rails/internal_head_examination.rb'
 
 class InternalCraniumExamination < ApplicationRecord
   include LmmlOnRails::InternalHeadExamination

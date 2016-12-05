@@ -9,4 +9,6 @@
 #
 
 class Organ < ApplicationRecord
+  has_many :organ_examinations
+  has_many :examination_types, through: :organ_examinations
 end

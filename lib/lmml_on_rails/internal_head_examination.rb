@@ -3,6 +3,7 @@ module LmmlOnRails
     def head?
       true
     end
+
     def torso?
       false
     end

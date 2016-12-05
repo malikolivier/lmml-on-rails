@@ -14,6 +14,7 @@ class ExaminationType < ApplicationRecord
   enum category: [:internal, :external]
   has_many :organ_examinations
   has_many :organs, through: :organ_examinations
+  has_many :examinations
 
   validates :name, uniqueness: { scope: :category }
   validates :placement, uniqueness: true
