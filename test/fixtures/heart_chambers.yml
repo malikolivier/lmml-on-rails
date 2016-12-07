@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: heart_chambers
+#
+#  id                            :integer          not null, primary key
+#  internal_heart_examination_id :integer
+#  category                      :integer          not null
+#  size                          :integer
+#  scar                          :integer
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_left_ventricle:
+  internal_heart_examination: completed_autopsy_heart_examination
+  category: left_ventricle
+  size: usual
+  scar: none
+
+completed_autopsy_right_ventricle:
+  internal_heart_examination: completed_autopsy_heart_examination
+  category: right_ventricle
+  size: usual
+  scar: none
+
+completed_autopsy_right_atrium:
+  internal_heart_examination: completed_autopsy_heart_examination
+  category: right_atrium
+  size: usual
+  scar: none
+
+completed_autopsy_left_atrium:
+  internal_heart_examination: completed_autopsy_heart_examination
+  category: left_atrium
+  size: usual
+  scar: none

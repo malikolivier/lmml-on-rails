@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207183934) do
+ActiveRecord::Schema.define(version: 20161207192306) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -79,6 +79,15 @@ ActiveRecord::Schema.define(version: 20161207183934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["autopsy_id"], name: "index_conclusions_on_autopsy_id"
+  end
+
+  create_table "coronary_arteries", force: :cascade do |t|
+    t.integer  "internal_heart_examination_id"
+    t.integer  "category",                      null: false
+    t.float    "stenosis"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["internal_heart_examination_id"], name: "index_coronary_arteries_on_internal_heart_examination_id"
   end
 
   create_table "examination_types", force: :cascade do |t|
@@ -252,6 +261,16 @@ ActiveRecord::Schema.define(version: 20161207183934) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "heart_chambers", force: :cascade do |t|
+    t.integer  "internal_heart_examination_id"
+    t.integer  "category",                      null: false
+    t.integer  "size"
+    t.integer  "scar"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["internal_heart_examination_id"], name: "index_heart_chambers_on_internal_heart_examination_id"
+  end
+
   create_table "in_body_orientations", force: :cascade do |t|
     t.integer  "coordinate_system", null: false
     t.float    "x"
@@ -378,6 +397,23 @@ ActiveRecord::Schema.define(version: 20161207183934) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["examination_id"], name: "index_internal_cranium_examinations_on_examination_id"
+  end
+
+  create_table "internal_heart_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.float    "weight"
+    t.integer  "rigor_mortis"
+    t.integer  "epicardial_lipomatosis"
+    t.integer  "epicardial_petechia"
+    t.float    "extracted_blood_quantity"
+    t.integer  "extracted_blood_color"
+    t.integer  "extracted_blood_coagulation"
+    t.float    "thickness_left"
+    t.float    "thickness_right"
+    t.float    "pulmonary_artery_width"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["examination_id"], name: "index_internal_heart_examinations_on_examination_id"
   end
 
   create_table "internal_neck_organs_examinations", force: :cascade do |t|

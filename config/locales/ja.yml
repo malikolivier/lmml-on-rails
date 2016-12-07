@@ -14,6 +14,8 @@ ja:
     black: 黒色
     no_color: 色のない
     white: 白色
+    dark_red: 暗赤色
+    florid: 鮮紅色
   odors:
     no_odor: においのない
   organs:

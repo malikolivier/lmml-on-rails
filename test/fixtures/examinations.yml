@@ -88,3 +88,8 @@ completed_autopsy_pericardium:
   completed: true
   autopsy: completed_autopsy
   examination_type: pericardium
+
+completed_autopsy_heart:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: heart

@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: internal_heart_examinations
+#
+#  id                          :integer          not null, primary key
+#  examination_id              :integer
+#  weight                      :float
+#  rigor_mortis                :integer
+#  epicardial_lipomatosis      :integer
+#  epicardial_petechia         :integer
+#  extracted_blood_quantity    :float
+#  extracted_blood_color       :integer
+#  extracted_blood_coagulation :integer
+#  thickness_left              :float
+#  thickness_right             :float
+#  pulmonary_artery_width      :float
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_heart_examination:
+  examination: completed_autopsy_heart
+  weight: 30
+  rigor_mortis: exists
+  epicardial_lipomatosis: exists
+  epicardial_petechia: none
+  extracted_blood_quantity: 1.5
+  extracted_blood_color: dark_red
+  extracted_blood_coagulation: none
+  thickness_left: 1.5
+  thickness_right: 1.5
+  pulmonary_artery_width: 1.5
