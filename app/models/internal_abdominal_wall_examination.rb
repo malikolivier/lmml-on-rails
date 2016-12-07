@@ -33,8 +33,8 @@ class InternalAbdominalWallExamination < ApplicationRecord
                                    source: :foreign_fluid
   has_many :in_peritoneum_foreign_fluids
   has_many :peritoneum_foreign_fluids, through: :in_peritoneum_foreign_fluids,
-                                   class_name: ForeignFluid,
-                                   source: :foreign_fluid
+                                       class_name: ForeignFluid,
+                                       source: :foreign_fluid
 
   validates :diaphragm_height_left, inclusion: 0..12
   validates :diaphragm_height_right, inclusion: 0..12
