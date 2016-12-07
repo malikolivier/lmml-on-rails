@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: internal_pericardium_examinations
+#
+#  id             :integer          not null, primary key
+#  examination_id :integer
+#  congestion     :integer
+#  petechia       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_pericardium:
+  examination: completed_autopsy_pericardium
+  congestion: nothing
+  petechia: none

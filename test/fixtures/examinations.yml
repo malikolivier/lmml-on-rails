@@ -83,3 +83,8 @@ completed_autopsy_neck_organs:
   completed: true
   autopsy: completed_autopsy
   examination_type: neck_organs
+
+completed_autopsy_pericardium:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: pericardium

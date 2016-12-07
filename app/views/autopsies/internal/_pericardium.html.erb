@@ -1,0 +1,6 @@
+<% if exam.congestion.present? %>
+血管充盈<%= I18n.t "intensity.#{exam.congestion}" %>。
+<% end %>
+<% if exam.petechia.present? %>
+溢血点<%= I18n.t "quantity.#{exam.petechia}" %>。
+<% end %>
