@@ -13,3 +13,9 @@ class Fixnum
     ('Ａ'..'Ｚ').first(self).last
   end
 end
+
+class Array
+  def to_sentence_with_full_stop(options = {})
+    self.empty? ? '' : "#{self.to_sentence(options)}。"
+  end
+end

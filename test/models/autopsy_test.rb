@@ -25,9 +25,10 @@ require 'test_helper'
 
 class AutopsyTest < ActiveSupport::TestCase
   test 'a complete autopsy should have all examination type' do
+    # rubocop:disable UselessAssignment
     complete_autopsy = autopsies(:completed_autopsy)
     all_examination_types = ExaminationType.all
     skip('Not implemented yet as all examination
-          type fixtures are not yet there');
+          type fixtures are not yet there')
   end
 end

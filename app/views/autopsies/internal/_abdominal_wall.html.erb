@@ -1,1 +1,20 @@
+<%
+injuries = exam.examination.injuries
+fat_phrases = []
+fat_phrases.push("皮下脂肪発育良好#{I18n.t "growth.#{exam.subcutaneous_fat_level}"}") if exam.subcutaneous_fat_level.present?
+fat_phrases.push("臍下部で厚さ#{exam.subcutaneous_fat_thickness}cm") if exam.subcutaneous_fat_thickness.present?
+%>
+<%= fat_phrases.to_sentence_with_full_stop two_words_connector: '、' %>
 
+<% if injuries.none? %>
+胸郭に損傷なし。
+<% end %>
+
+<% if exam.any_diaphragm_height? %>
+横隔膜の高さ、<%= exam.diaphragm_height_description %>。
+<% end %>
+
+胸膜に癒着・、胸膜腔に異液・。
+腸管の含気量・。
+腹膜に癒着・、腹膜腔に異液・。
+後腹膜に出血等の異常・。
