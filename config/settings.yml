@@ -19,6 +19,10 @@ enums:
     - mid
     - many
     - extremely_many
+  three_scale_growth:
+    - abundant
+    - normal
+    - insufficient
   sex:
     - M
     - F
@@ -30,3 +34,7 @@ enums:
   deixes:
     - left
     - right
+air_track_organs:
+  - larynx
+  - trachea
+  - main_bronchi

@@ -1,9 +1,27 @@
+# == Schema Information
+#
+# Table name: substances
+#
+#  id          :integer          not null, primary key
+#  name        :text
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
-  description: MyText
+nothing:
+  name: Nothing
+  description: No substance found
 
-two:
-  name: MyText
-  description: MyText
+water:
+  name: Water
+  description: Standard, normal, plain water
+
+saltwater:
+  name: Saltwater
+
+food:
+  name: Food
+  description: Unindentified food

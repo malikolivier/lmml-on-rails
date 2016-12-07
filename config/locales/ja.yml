@@ -30,6 +30,10 @@ ja:
     cranium: 頭蓋
     brain: 脳
     abdominal_wall: 胸腹壁および胸腹腔
+    neck_organs: 頸部器官
+    larynx: 喉頭
+    trachea: 気管
+    main_bronchi: 主気管支
   body_parts:
     left_leg: 左足
     right_leg: 右足

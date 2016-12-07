@@ -1,0 +1,29 @@
+<%
+injuries = exam.examination.injuries
+%>
+
+<% if injuries.none? %>
+頸部の皮下および筋肉に出血なし。
+舌に損傷なし。
+<% end %>
+
+<% if exam.lymph_level.present? %>
+舌根部リンパ装置発育<%= I18n.t "growth.#{exam.lymph_level}" %>。
+<% end %>
+
+<% if exam.oesophagus_substance.present? %>
+食道内に<%= exam.oesophagus_substance.name %>。
+<% end %>
+<% if injuries.none? %>
+粘膜に出血等の異常なし。
+<% end %>
+
+<% air_track_organ_list = exam.air_track_organs_description %>
+<% if air_track_organ_list.present? %>
+<%= air_track_organ_list %>内に<%= exam.larynx_substance.name %>。
+<% end %>
+
+<% if injuries.none? %>
+舌骨・喉頭軟骨・気管軟骨に骨折なく、その周囲の軟部組織に出血なし。
+頸椎前面に出血なく、頸椎の脱臼・易移動性なし。
+<% end %>

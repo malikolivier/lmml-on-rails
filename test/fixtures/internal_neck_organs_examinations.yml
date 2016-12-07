@@ -1,7 +1,24 @@
+# == Schema Information
+#
+# Table name: internal_neck_organs_examinations
+#
+#  id                        :integer          not null, primary key
+#  examination_id            :integer
+#  lymph_level               :integer
+#  oesophagus_substance_id   :integer
+#  larynx_substance_id       :integer
+#  trachea_substance_id      :integer
+#  main_bronchi_substance_id :integer
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  lymph_level: 1
-
-two:
-  lymph_level: 1
+completed_autopsy_neck_organs_examination:
+  examination: completed_autopsy_neck_organs
+  lymph_level: insufficient
+  oesophagus_substance: food
+  larynx_substance: water
+  trachea_substance: water
+  main_bronchi_substance: nothing

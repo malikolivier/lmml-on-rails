@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161207085532) do
+ActiveRecord::Schema.define(version: 20161207145732) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -380,6 +380,22 @@ ActiveRecord::Schema.define(version: 20161207085532) do
     t.index ["examination_id"], name: "index_internal_cranium_examinations_on_examination_id"
   end
 
+  create_table "internal_neck_organs_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "lymph_level"
+    t.integer  "oesophagus_substance_id"
+    t.integer  "larynx_substance_id"
+    t.integer  "trachea_substance_id"
+    t.integer  "main_bronchi_substance_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["examination_id"], name: "index_internal_neck_organs_examinations_on_examination_id"
+    t.index ["larynx_substance_id"], name: "in_larynx_substance"
+    t.index ["main_bronchi_substance_id"], name: "in_main_bronchi_substance"
+    t.index ["oesophagus_substance_id"], name: "in_oesophagus_substance"
+    t.index ["trachea_substance_id"], name: "in_trachea_substance"
+  end
+
   create_table "livores_mortis", force: :cascade do |t|
     t.integer  "color"
     t.integer  "position"
@@ -462,6 +478,13 @@ ActiveRecord::Schema.define(version: 20161207085532) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "substances", force: :cascade do |t|
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tooth_examinations", force: :cascade do |t|
