@@ -78,3 +78,8 @@ completed_autopsy_abdominal_wall:
   completed: true
   autopsy: completed_autopsy
   examination_type: abdominal_wall
+
+completed_autopsy_neck_organs:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: neck_organs
