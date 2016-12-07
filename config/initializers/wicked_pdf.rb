@@ -18,4 +18,7 @@ WickedPdf.config = {
   # Layout file to be used for all PDFs
   # (but can be overridden in `render :pdf` calls)
   # layout: 'pdf.html',
+
+  # Set default encoding for PDF files
+  encoding: 'UTF-8'
 }

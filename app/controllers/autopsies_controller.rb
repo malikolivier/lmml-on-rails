@@ -76,8 +76,7 @@ class AutopsiesController < ApplicationController
       format.html
       format.pdf do
         render pdf: 'autopsy',
-               template: 'autopsies/browse.html.erb',
-               encoding: 'UTF-8'
+               template: 'autopsies/browse.html.erb'
       end
     end
   end
