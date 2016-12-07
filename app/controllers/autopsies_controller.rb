@@ -75,8 +75,10 @@ class AutopsiesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: 'autopsy',
-               template: 'autopsies/browse.html.erb'
+        render pdf: 'autopsy', template: 'autopsies/browse.html.erb'
+      end
+      format.docx do
+        render docx: 'autopsy', template: 'autopsies/browse.html.erb'
       end
     end
   end

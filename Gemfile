@@ -45,6 +45,9 @@ gem 'era_ja'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+# To make docx files
+gem 'htmltoword'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
