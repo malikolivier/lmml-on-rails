@@ -72,6 +72,14 @@ class AutopsiesController < ApplicationController
   # GET /autopsies/:autopsy_id/browse
   def browse
     @autopsy = Autopsy.find(params[:autopsy_id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'autopsy',
+               template: 'autopsies/browse.html.erb',
+               encoding: 'UTF-8'
+      end
+    end
   end
 
   private

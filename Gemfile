@@ -41,6 +41,10 @@ gem 'config'
 # To convert date to string containing Japanese era
 gem 'era_ja'
 
+# To make pdf files
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
