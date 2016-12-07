@@ -24,7 +24,10 @@
 require 'test_helper'
 
 class AutopsyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'a complete autopsy should have all examination type' do
+    complete_autopsy = autopsies(:completed_autopsy)
+    all_examination_types = ExaminationType.all
+    skip('Not implemented yet as all examination
+          type fixtures are not yet there');
+  end
 end

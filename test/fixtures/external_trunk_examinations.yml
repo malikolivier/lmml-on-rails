@@ -4,7 +4,7 @@
 #
 #  id                      :integer          not null, primary key
 #  examination_id          :integer
-#  abnominal_discoloration :integer
+#  abdominal_discoloration :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #
@@ -13,4 +13,4 @@
 
 completed_autopsy_external_trunk_examination:
   examination: completed_autopsy_trunk
-  abnominal_discoloration: no_discoloration
+  abdominal_discoloration: no_discoloration

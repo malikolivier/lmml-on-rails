@@ -73,10 +73,10 @@ brain:
   placement: 12
   name: brain
 
-abnominal_wall:
+abdominal_wall:
   category: internal
   placement: 13
-  name: abnominal_wall
+  name: abdominal_wall
 
 neck_organs:
   category: internal

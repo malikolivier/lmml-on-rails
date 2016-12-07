@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(version: 20161205153556) do
 
   create_table "external_trunk_examinations", force: :cascade do |t|
     t.integer  "examination_id"
-    t.integer  "abnominal_discoloration"
+    t.integer  "abdominal_discoloration"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["examination_id"], name: "index_external_trunk_examinations_on_examination_id"

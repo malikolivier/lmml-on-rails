@@ -50,8 +50,8 @@ cranium:
 brain:
   name: Brain
 
-abnominal_wall:
-  name: Abnominal wall
+abdominal_wall:
+  name: abdominal wall
 
 neck_organs:
   name: Neck organs

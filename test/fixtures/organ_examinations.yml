@@ -60,9 +60,9 @@ brain:
   organ: brain
   examination_type: brain
 
-abnominal_wall:
-  organ: abnominal_wall
-  examination_type: abnominal_wall
+abdominal_wall:
+  organ: abdominal_wall
+  examination_type: abdominal_wall
 
 neck_organs:
   organ: neck_organs
