@@ -12,7 +12,7 @@
 #
 
 class ForeignFluid < ApplicationRecord
-  enum color: [:no_color, :green]
+  enum color: [:no_color, :green, :white]
   enum odor: [:no_odor]
 
   def explanation
@@ -22,5 +22,13 @@ class ForeignFluid < ApplicationRecord
     color_expl = I18n.t "colors.#{color}" if color.present?
     color_expl = '' if color.blank?
     "#{[odor_expl, color_expl].join('、')}の#{expl}"
+  end
+
+  def self.explanation_of_array(foreign_fluids)
+    explanations = []
+    foreign_fluids.each do |fluid|
+      explanations.push(fluid.explanation)
+    end
+    explanations.join('、')
   end
 end

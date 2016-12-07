@@ -51,11 +51,7 @@
 
 <%= exam.mouth.closedness_report %>
 <% if exam.mouth.foreign_fluids.any? %>
-  口腔内に次の異液がある：<% fluid_explanations = []
-                        exam.mouth.foreign_fluids.each do |fluid|
-                          fluid_explanations.push(fluid.explanation)
-                        end %>
-                      <%= fluid_explanations.join('、') %>。
+  口腔内に次の異液がある：<%= ForeignFluid.explanation_of_array(exam.mouth.foreign_fluids) %>。
 <% else %>
   口腔内に異液なし。
 <% end %>

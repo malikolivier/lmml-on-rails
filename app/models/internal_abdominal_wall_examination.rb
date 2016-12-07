@@ -27,8 +27,14 @@ class InternalAbdominalWallExamination < ApplicationRecord
   enum peritoneum_adhesion: Settings.enums.five_scale_quantity, _prefix: true
   enum air_in_digestive_track: Settings.enums.five_scale_quantity, _prefix: true
 
+  has_many :in_pleura_foreign_fluids
+  has_many :pleura_foreign_fluids, through: :in_pleura_foreign_fluids,
+                                   class_name: ForeignFluid,
+                                   source: :foreign_fluid
   has_many :in_peritoneum_foreign_fluids
-  has_many :foreign_fluids, through: :in_peritoneum_foreign_fluids
+  has_many :peritoneum_foreign_fluids, through: :in_peritoneum_foreign_fluids,
+                                   class_name: ForeignFluid,
+                                   source: :foreign_fluid
 
   validates :diaphragm_height_left, inclusion: 0..12
   validates :diaphragm_height_right, inclusion: 0..12

@@ -1,0 +1,5 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_in_pleura_foreign_fluid:
+  internal_abdominal_wall_examination: completed_autopsy_abdominal_wall_examination
+  foreign_fluid: white_whatever

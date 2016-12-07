@@ -3,6 +3,10 @@ injuries = exam.examination.injuries
 fat_phrases = []
 fat_phrases.push("皮下脂肪発育良好#{I18n.t "growth.#{exam.subcutaneous_fat_level}"}") if exam.subcutaneous_fat_level.present?
 fat_phrases.push("臍下部で厚さ#{exam.subcutaneous_fat_thickness}cm") if exam.subcutaneous_fat_thickness.present?
+
+pleura_phrases = []
+pleura_phrases.push("胸膜に癒着#{I18n.t "quantity.#{exam.pleura_adhesion}"}") if exam.pleura_adhesion.present?
+pleura_phrases.push("胸膜腔に異液")
 %>
 <%= fat_phrases.to_sentence_with_full_stop two_words_connector: '、' %>
 
@@ -14,7 +18,28 @@ fat_phrases.push("臍下部で厚さ#{exam.subcutaneous_fat_thickness}cm") if ex
 横隔膜の高さ、<%= exam.diaphragm_height_description %>。
 <% end %>
 
-胸膜に癒着・、胸膜腔に異液・。
-腸管の含気量・。
-腹膜に癒着・、腹膜腔に異液・。
-後腹膜に出血等の異常・。
+<% if exam.pleura_adhesion.present? %>
+胸膜に癒着<%= I18n.t "quantity.#{exam.pleura_adhesion}" %>。
+<% end %>
+<% if exam.pleura_foreign_fluids.any? %>
+  胸膜腔に次の異液がある：<%= ForeignFluid.explanation_of_array(exam.pleura_foreign_fluids) %>。
+<% else %>
+  胸膜腔に異液なし。
+<% end %>
+
+<% if exam.air_in_digestive_track.present? %>
+腸管の含気量<%= I18n.t "quantity.#{exam.air_in_digestive_track}" %>。
+<% end %>
+
+<% if exam.peritoneum_adhesion.present? %>
+胸膜に癒着<%= I18n.t "quantity.#{exam.peritoneum_adhesion}" %>。
+<% end %>
+<% if exam.peritoneum_foreign_fluids.any? %>
+  腹膜腔に次の異液がある：<%= ForeignFluid.explanation_of_array(exam.peritoneum_foreign_fluids) %>。
+<% else %>
+  腹膜腔に異液なし。
+<% end %>
+
+<% if injuries.none? %>
+後腹膜に出血等の異常なし。
+<% end %>
