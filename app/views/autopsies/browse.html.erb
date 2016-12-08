@@ -11,7 +11,7 @@
 
 <p>
   よって、<%= @autopsy.place.address %>において、<%= @autopsy.starting_time.to_era("%O%E年%m月%d日 %H時%M分") %>より<%= @autopsy.ending_time.to_era("%H時%M分") %>まで、
-  <% @autopsy.participations.each do |participation| %>
+  <% @autopsy.participations.includes(:role, person: :institution).each do |participation| %>
     <% if participation.role.name == 'Spectator' %>
       <%= participation.person.full_name_with_title %>の立ち会いの上、
     <% elsif participation.role.name == 'Assistant' %>
@@ -59,7 +59,7 @@
 <% internal_torso_examination_started = false %>
 <% syoken_count = 0 %>
 <% kaiken_count = 0 %>
-<% @autopsy.examinations.each_with_index do |examination, i| %>
+<% @autopsy.examinations.includes(:examination_type, :injuries).each_with_index do |examination, i| %>
   <% if examination.examination_type.external? && !external_examination_started %>
     <% external_examination_started = true %>
     <h3>（<%= (syoken_count+=1).to_full_width %>）　外部所見</h3>

@@ -44,6 +44,9 @@ GEM
     arel (7.1.4)
     ast (2.3.0)
     builder (3.2.2)
+    bullet (5.4.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.10.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -195,6 +198,7 @@ GEM
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.1.1)
+    uniform_notifier (1.10.0)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -212,6 +216,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bullet
   coffee-rails (~> 4.2)
   config
   era_ja

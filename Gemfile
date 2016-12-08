@@ -72,6 +72,9 @@ group :development do
 
   # Get schema info with 'annotate'
   gem 'annotate'
+
+  # Monitor queries to avoid N+1 query issues
+  gem 'bullet'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
