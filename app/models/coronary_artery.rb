@@ -18,11 +18,6 @@ class CoronaryArtery < ApplicationRecord
   # stenosis is the proportion of the artery which is obstructed by coagulated
   # blood in percent. 100% means the blood does not flow at all.
   validates :stenosis, inclusion: 0..100
-  def blood_clot?
-    stenosis == 100
-  end
-
-  def no_stenosis?
-    stenosis == 0
-  end
+  scope :blood_clot, -> { where(stenosis: 100) }
+  scope :no_stenosis, -> { where(stenosis: 0) }
 end

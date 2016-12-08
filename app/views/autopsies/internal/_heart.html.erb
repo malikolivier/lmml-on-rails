@@ -1,6 +1,24 @@
-○○ g。心筋に硬直あり・なし。
-心外膜下脂肪沈着・。心外膜下に溢血点なし。
-心臓血摘出量○○ ml、暗赤色で凝血・。
+<% if exam.weight.present? %>
+<%= exam.weight %>g。
+<% end %>
+<% if exam.rigor_mortis.present? %>
+心筋に硬直<%= I18n.t "existence.#{exam.rigor_mortis}" %>。
+<% end %>
+<% if exam.epicardial_lipomatosis.present? %>
+心外膜下脂肪沈着<%= I18n.t "existence.#{exam.epicardial_lipomatosis}" %>。
+<% end %>
+<% if exam.epicardial_petechia.present? %>
+心外膜下に溢血点<%= I18n.t "quantity.#{exam.epicardial_petechia}" %>。
+<% end %>
+<%
+extracted_blood_phrases = []
+extracted_blood_phrases.push("摘出量#{exam.extracted_blood_quantity}mL") if exam.extracted_blood_quantity.present?
+extracted_blood_phrases.push("#{I18n.t "colors.#{exam.extracted_blood_color}"}") if exam.extracted_blood_color.present?
+extracted_blood_phrases.push("凝血#{I18n.t "existence.#{exam.extracted_blood_coagulation}"}") if exam.extracted_blood_coagulation.present?
+%>
+<% if extracted_blood_phrases.present? %>
+心臓血<%= extracted_blood_phrases.to_sentence words_connector: '、', last_word_connector: 'で' %>。
+<% end %>
 冠状動脈前下行枝に○○ %、
 回旋枝に○○ %、
 右冠状動脈に○○ %の硬化性狭窄があるが、血栓はない。
