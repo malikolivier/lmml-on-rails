@@ -32,4 +32,12 @@ class InternalHeartExamination < ApplicationRecord
 
   has_many :coronary_arteries, -> { order(:category) }
   has_many :heart_chambers
+
+  def no_stenosis_description
+    phrases = []
+    coronary_arteries.no_stenosis.each do |artery|
+      phrases.push(artery.description)
+    end
+    phrases.to_sentence(words_connector: '、', last_word_connector: '、')
+  end
 end

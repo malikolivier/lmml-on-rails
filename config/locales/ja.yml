@@ -38,6 +38,10 @@ ja:
     main_bronchi: 主気管支
     pericardium: 心嚢
     heart: 心臓
+    LAD: 冠状動脈前下行枝
+    LCX: 回旋枝
+    RCA: 右冠状動脈
+
   body_parts:
     left_leg: 左足
     right_leg: 右足
