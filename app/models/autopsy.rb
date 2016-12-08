@@ -36,12 +36,12 @@ class Autopsy < ApplicationRecord
   has_many :participants, through: :participations, source: :person
   has_many :conclusions
   has_many :explanations
-  has_many :examinations
-  has_many :tests
+  has_many :examinations, lambda {
+    joins(:examination_type).order('`examination_types`.`placement`')
+  }
+  has_many :tests, lambda {
+    joins(:test_type).order('`test_types`.`placement`')
+  }
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings
-
-  def ordered_examinations
-    examinations.joins(:examination_type).standard_order
-  end
 end

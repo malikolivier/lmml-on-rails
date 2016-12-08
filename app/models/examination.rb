@@ -22,12 +22,4 @@ class Examination < ApplicationRecord
   end
 
   validates :examination_type, presence: true
-
-  scope :external, lambda {
-    joins(:examination_type).where(examination_types:
-      { category: ExaminationType.categories[:external] })
-  }
-  scope :standard_order, lambda {
-    order('`examination_types`.`placement` ASC')
-  }
 end

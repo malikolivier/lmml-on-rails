@@ -59,7 +59,7 @@
 <% internal_torso_examination_started = false %>
 <% syoken_count = 0 %>
 <% kaiken_count = 0 %>
-<% @autopsy.ordered_examinations.each_with_index do |examination, i| %>
+<% @autopsy.examinations.each_with_index do |examination, i| %>
   <% if examination.examination_type.external? && !external_examination_started %>
     <% external_examination_started = true %>
     <h3>（<%= (syoken_count+=1).to_full_width %>）　外部所見</h3>

@@ -30,6 +30,6 @@ class InternalHeartExamination < ApplicationRecord
   enum extracted_blood_color: [:dark_red, :florid], _prefix: true
   enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true
 
-  has_many :coronary_arteries
+  has_many :coronary_arteries, -> { order(:category) }
   has_many :heart_chambers
 end
