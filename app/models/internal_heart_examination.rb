@@ -13,7 +13,10 @@
 #  extracted_blood_coagulation :integer
 #  thickness_left              :float
 #  thickness_right             :float
+#  scar_left                   :integer
+#  scar_right                  :integer
 #  pulmonary_artery_width      :float
+#  pulmonary_artery_thrombus   :integer
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #
@@ -32,6 +35,10 @@ class InternalHeartExamination < ApplicationRecord
 
   has_many :coronary_arteries, -> { order(:category) }
   has_many :heart_chambers
+
+  enum scar_left: Settings.enums.existence, _prefix: true
+  enum scar_right: Settings.enums.existence, _prefix: true
+  enum pulmonary_artery_thrombus: Settings.enums.existence, _prefix: true
 
   def arteries_description
     return '' if coronary_arteries.count.zero?

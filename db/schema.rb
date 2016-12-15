@@ -265,7 +265,6 @@ ActiveRecord::Schema.define(version: 20161207192306) do
     t.integer  "internal_heart_examination_id"
     t.integer  "category",                      null: false
     t.integer  "size"
-    t.integer  "scar"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["internal_heart_examination_id"], name: "index_heart_chambers_on_internal_heart_examination_id"
@@ -410,7 +409,10 @@ ActiveRecord::Schema.define(version: 20161207192306) do
     t.integer  "extracted_blood_coagulation"
     t.float    "thickness_left"
     t.float    "thickness_right"
+    t.integer  "scar_left"
+    t.integer  "scar_right"
     t.float    "pulmonary_artery_width"
+    t.integer  "pulmonary_artery_thrombus"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["examination_id"], name: "index_internal_heart_examinations_on_examination_id"

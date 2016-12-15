@@ -13,7 +13,10 @@
 #  extracted_blood_coagulation :integer
 #  thickness_left              :float
 #  thickness_right             :float
+#  scar_left                   :integer
+#  scar_right                  :integer
 #  pulmonary_artery_width      :float
+#  pulmonary_artery_thrombus   :integer
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #
@@ -32,3 +35,5 @@ completed_autopsy_heart_examination:
   thickness_left: 1.5
   thickness_right: 1.5
   pulmonary_artery_width: 1.5
+  scar_left: none
+  scar_right: none

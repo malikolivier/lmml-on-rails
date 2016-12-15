@@ -11,7 +11,10 @@ class CreateInternalHeartExaminations < ActiveRecord::Migration[5.0]
       t.integer :extracted_blood_coagulation
       t.float :thickness_left
       t.float :thickness_right
+      t.integer :scar_left
+      t.integer :scar_right
       t.float :pulmonary_artery_width
+      t.integer :pulmonary_artery_thrombus
 
       t.timestamps
     end

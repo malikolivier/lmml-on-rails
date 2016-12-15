@@ -13,7 +13,10 @@
 #  extracted_blood_coagulation :integer
 #  thickness_left              :float
 #  thickness_right             :float
+#  scar_left                   :integer
+#  scar_right                  :integer
 #  pulmonary_artery_width      :float
+#  pulmonary_artery_thrombus   :integer
 #  created_at                  :datetime         not null
 #  updated_at                  :datetime         not null
 #

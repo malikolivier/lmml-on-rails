@@ -6,7 +6,6 @@
 #  internal_heart_examination_id :integer
 #  category                      :integer          not null
 #  size                          :integer
-#  scar                          :integer
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null
 #
