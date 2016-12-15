@@ -33,11 +33,31 @@ class InternalHeartExamination < ApplicationRecord
   has_many :coronary_arteries, -> { order(:category) }
   has_many :heart_chambers
 
-  def no_stenosis_description
+  def arteries_description
+    return '' if coronary_arteries.count.zero?
     phrases = []
-    coronary_arteries.no_stenosis.each do |artery|
+    stenosis_count = 0
+    coronary_arteries.each do |artery|
       phrases.push(artery.description)
+      stenosis_count += 1 if artery.stenosis?
     end
-    phrases.to_sentence(words_connector: '、', last_word_connector: '、')
+    if stenosis_count.zero?
+      phrases = []
+      coronary_arteries.each do |artery|
+        phrases.push(artery.name)
+      end
+      "#{phrases.to_sentence}に硬化性狭窄なし。"
+    else
+      description = "#{phrases.to_sentence(words_connector: '、',
+                                           last_word_connector: '、')}" \
+                    'の硬化性狭窄がある'
+      if coronary_arteries.blood_clot.none?
+        "#{description}が、血栓はない。"
+      else
+        # TODO: make something more descriptive,
+        # though I do not really know what to say
+        "#{description}。"
+      end
+    end
   end
 end
