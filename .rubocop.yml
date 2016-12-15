@@ -28,7 +28,7 @@ Metrics/MethodLength:
 Bundler/OrderedGems:
   Enabled: false
 
-Style/LineLength:
+Metrics/LineLength:
   Exclude:
     - 'test/models/**'
     - 'app/models/**'

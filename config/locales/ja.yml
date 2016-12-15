@@ -41,6 +41,8 @@ ja:
     LAD: 冠状動脈前下行枝
     LCX: 回旋枝
     RCA: 右冠状動脈
+    ventricle: 心室
+    atrium: 心房
 
   body_parts:
     left_leg: 左足
@@ -78,6 +80,10 @@ ja:
     abundant: 良好
     normal: 中等
     insufficient: 不良
+  size:
+    small: 小さい
+    usual: 大きさ尋常
+    big: 大きい
   existence:
     exists: あり
     does_not_exist: なし
