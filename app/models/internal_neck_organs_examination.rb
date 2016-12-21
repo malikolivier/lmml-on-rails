@@ -14,7 +14,6 @@
 #
 
 class InternalNeckOrgansExamination < ApplicationRecord
-
   belongs_to :examination, required: true
   enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph'
 
