@@ -10,9 +10,7 @@
 #  updated_at       :datetime         not null
 #
 
-require 'lmml_on_rails/internal_torso_examination.rb'
 class InternalThoracicAortaExamination < ApplicationRecord
-  include LmmlOnRails::InternalTorsoExamination
   belongs_to :examination, required: true
 
   enum arteriosclerosis: Settings.enums.five_scale_intensity

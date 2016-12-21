@@ -15,12 +15,9 @@
 #  updated_at                 :datetime         not null
 #
 
-require 'lmml_on_rails/internal_torso_examination.rb'
-
 class InternalAbdominalWallExamination < ApplicationRecord
-  include LmmlOnRails::InternalTorsoExamination
-
   belongs_to :examination, required: true
+
   enum subcutaneous_fat_level: Settings.enums.three_scale_growth,
        _prefix: 'fat'
   enum pleura_adhesion: Settings.enums.five_scale_quantity, _prefix: true

@@ -10,9 +10,7 @@
 #  updated_at     :datetime         not null
 #
 
-require 'lmml_on_rails/internal_torso_examination.rb'
 class InternalPericardiumExamination < ApplicationRecord
-  include LmmlOnRails::InternalTorsoExamination
   belongs_to :examination, required: true
 
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true

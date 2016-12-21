@@ -11,11 +11,7 @@
 #  updated_at     :datetime         not null
 #
 
-require 'lmml_on_rails/internal_head_examination.rb'
-
 class InternalBrainExamination < ApplicationRecord
-  include LmmlOnRails::InternalHeadExamination
-
   belongs_to :examination, required: true
 
   enum pia_congestion: Settings.enums.three_scale_intensity, _prefix: true

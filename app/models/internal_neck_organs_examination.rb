@@ -13,9 +13,7 @@
 #  updated_at                :datetime         not null
 #
 
-require 'lmml_on_rails/internal_torso_examination.rb'
 class InternalNeckOrgansExamination < ApplicationRecord
-  include LmmlOnRails::InternalTorsoExamination
 
   belongs_to :examination, required: true
   enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph'

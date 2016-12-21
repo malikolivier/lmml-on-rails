@@ -19,11 +19,11 @@ completed_autopsy_lung_examination_left:
   deixis: left
   weight: 310
   air_content: none
-  congestion: none
+  congestion: light
 
 completed_autopsy_lung_examination_right:
   examination: completed_autopsy_lungs
   deixis: right
   weight: 301
   air_content: little
-  congestion: mid
+  congestion: middle

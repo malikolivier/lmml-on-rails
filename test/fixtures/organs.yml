@@ -65,8 +65,11 @@ heart:
 thoracic_aorta:
   name: Thoracic aorta
 
-lung:
-  name: Lung
+lung_left:
+  name: Left lung
+
+lung_right:
+  name: Right lung
 
 abdominal_aorta:
   name: Abdominal aorta

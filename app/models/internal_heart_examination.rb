@@ -21,9 +21,7 @@
 #  updated_at                  :datetime         not null
 #
 
-require 'lmml_on_rails/internal_torso_examination.rb'
 class InternalHeartExamination < ApplicationRecord
-  include LmmlOnRails::InternalTorsoExamination
   belongs_to :examination, required: true
 
   enum rigor_mortis: Settings.enums.existence, _prefix: true
