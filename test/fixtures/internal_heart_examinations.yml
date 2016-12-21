@@ -34,6 +34,7 @@ completed_autopsy_heart_examination:
   extracted_blood_coagulation: none
   thickness_left: 1.5
   thickness_right: 1.5
-  pulmonary_artery_width: 1.5
   scar_left: none
   scar_right: none
+  pulmonary_artery_width: 1.5
+  pulmonary_artery_thrombus: does_not_exist

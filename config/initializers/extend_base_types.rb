@@ -18,4 +18,7 @@ class Array
   def to_sentence_with_full_stop(options = {})
     self.empty? ? '' : "#{self.to_sentence(options)}。"
   end
+  def to_sentence_with_comma_and_full_stop
+    self.empty? ? '' : "#{self.to_sentence(words_connector: '、', last_word_connector: '、', two_words_connector: '、')}。"
+  end
 end
