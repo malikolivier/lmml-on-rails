@@ -18,10 +18,19 @@ enums:
   five_scale_quantity:
     - unknown
     - none
+    - extremely_few
     - few
     - mid
     - many
     - extremely_many
+  five_scale_mass_quantity: # mass as in "mass noun"
+    - unknown
+    - none
+    - little
+    - rather_little
+    - mid
+    - rather_much
+    - much
   three_scale_growth:
     - unknown
     - abundant

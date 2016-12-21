@@ -18,7 +18,11 @@ class Examination < ApplicationRecord
   has_many :injuries
 
   def get
-    examination_type.this_examination_model.find_by!(examination: self)
+    if examination_type.organs.count <= 1
+      examination_type.this_examination_model.find_by!(examination: self)
+    else
+      examination_type.this_examination_model.where(examination: self)
+    end
   end
 
   validates :examination_type, presence: true

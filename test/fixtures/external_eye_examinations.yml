@@ -30,7 +30,7 @@ completed_autopsy_eye_examination_left:
   eyelid_congestion: mid
   eyelid_petechia: none
   conjunctiva_congestion: weak
-  conjunctiva_petechia: node
+  conjunctiva_petechia: none
   conjunctiva_note: 眼球結膜が見当たらない
   cornea: 混濁している
   pupil: 円形

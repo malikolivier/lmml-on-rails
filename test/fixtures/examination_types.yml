@@ -2,12 +2,13 @@
 #
 # Table name: examination_types
 #
-#  id         :integer          not null, primary key
-#  category   :integer          not null
-#  placement  :integer          not null
-#  name       :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  category    :integer          not null
+#  placement   :integer          not null
+#  subdivision :integer
+#  name        :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
@@ -65,95 +66,114 @@ anus:
 
 cranium:
   category: internal
+  subdivision: head
   placement: 11
   name: cranium
 
 brain:
   category: internal
+  subdivision: head
   placement: 12
   name: brain
 
 abdominal_wall:
   category: internal
+  subdivision: torso
   placement: 13
   name: abdominal_wall
 
 neck_organs:
   category: internal
+  subdivision: torso
   placement: 14
   name: neck_organs
 
 pericardium:
   category: internal
+  subdivision: torso
   placement: 15
   name: pericardium
 
 heart:
   category: internal
+  subdivision: torso
   placement: 16
   name: heart
 
 thoracic_aorta:
   category: internal
+  subdivision: torso
   placement: 17
   name: thoracic_aorta
 
 lungs:
   category: internal
+  subdivision: torso
   placement: 18
   name: lungs
 
 abdominal_aorta:
   category: internal
+  subdivision: torso
   placement: 19
   name: abdominal_aorta
 
 adrenal_glands:
   category: internal
+  subdivision: torso
   placement: 20
   name: adrenal_glands
 
 kidneys:
   category: internal
+  subdivision: torso
   placement: 21
   name: kidneys
 
 spleen:
   category: internal
+  subdivision: torso
   placement: 22
   name: spleen
 
 pancreas:
   category: internal
+  subdivision: torso
   placement: 23
   name: pancreas
 
 liver:
   category: internal
+  subdivision: torso
   placement: 24
   name: liver
 
 stomach:
   category: internal
+  subdivision: torso
   placement: 25
   name: stomach
 
 intestines:
   category: internal
+  subdivision: torso
   placement: 26
   name: intestines
 
 bladder:
   category: internal
+  subdivision: torso
   placement: 27
   name: bladder
 
 internal_genitalia:
   category: internal
+  subdivision: torso
   placement: 28
   name: genitalia
 
 internal_back:
   category: internal
+  subdivision: torso
   placement: 29
   name: back

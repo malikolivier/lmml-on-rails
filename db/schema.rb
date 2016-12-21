@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221084308) do
+ActiveRecord::Schema.define(version: 20161221131736) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -91,11 +91,12 @@ ActiveRecord::Schema.define(version: 20161221084308) do
   end
 
   create_table "examination_types", force: :cascade do |t|
-    t.integer  "category",   null: false
-    t.integer  "placement",  null: false
+    t.integer  "category",    null: false
+    t.integer  "placement",   null: false
+    t.integer  "subdivision"
     t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "examinations", force: :cascade do |t|
@@ -416,6 +417,17 @@ ActiveRecord::Schema.define(version: 20161221084308) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["examination_id"], name: "index_internal_heart_examinations_on_examination_id"
+  end
+
+  create_table "internal_lungs_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "deixis",         null: false
+    t.float    "weight"
+    t.integer  "air_content"
+    t.integer  "congestion"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["examination_id"], name: "index_internal_lungs_examinations_on_examination_id"
   end
 
   create_table "internal_neck_organs_examinations", force: :cascade do |t|

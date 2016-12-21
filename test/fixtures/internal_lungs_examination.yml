@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: internal_examination_lungs
+#
+#  id             :integer          not null, primary key
+#  examination_id :integer
+#  deixis         :integer          not null
+#  weight         :float
+#  air_content    :integer
+#  congestion     :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_lung_examination_left:
+  examination: completed_autopsy_lungs
+  deixis: left
+  weight: 310
+  air_content: none
+  congestion: none
+
+completed_autopsy_lung_examination_right:
+  examination: completed_autopsy_lungs
+  deixis: right
+  weight: 301
+  air_content: little
+  congestion: mid

@@ -98,3 +98,8 @@ completed_autopsy_thoracic_aorta:
   completed: true
   autopsy: completed_autopsy
   examination_type: thoracic_aorta
+
+completed_autopsy_lungs:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: lungs

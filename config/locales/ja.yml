@@ -44,6 +44,7 @@ ja:
     ventricle: 心室
     atrium: 心房
     thoracic_aorta: 胸部大動脈
+    lungs: 肺臓
 
   body_parts:
     left_leg: 左足
