@@ -65,6 +65,12 @@ heart:
 thoracic_aorta:
   name: Thoracic aorta
 
+lung:
+  name: Lung
+
+abdominal_aorta:
+  name: Abdominal aorta
+
 adrenal_gland_left:
   name: Left adrenal gland
 

@@ -98,52 +98,62 @@ thoracic_aorta:
   placement: 17
   name: thoracic_aorta
 
-adrenal_glands:
+lungs:
   category: internal
   placement: 18
+  name: lungs
+
+abdominal_aorta:
+  category: internal
+  placement: 19
+  name: abdominal_aorta
+
+adrenal_glands:
+  category: internal
+  placement: 20
   name: adrenal_glands
 
 kidneys:
   category: internal
-  placement: 19
+  placement: 21
   name: kidneys
 
 spleen:
   category: internal
-  placement: 20
+  placement: 22
   name: spleen
 
 pancreas:
   category: internal
-  placement: 21
+  placement: 23
   name: pancreas
 
 liver:
   category: internal
-  placement: 22
+  placement: 24
   name: liver
 
 stomach:
   category: internal
-  placement: 23
+  placement: 25
   name: stomach
 
 intestines:
   category: internal
-  placement: 24
+  placement: 26
   name: intestines
 
 bladder:
   category: internal
-  placement: 25
+  placement: 27
   name: bladder
 
 internal_genitalia:
   category: internal
-  placement: 26
+  placement: 28
   name: genitalia
 
 internal_back:
   category: internal
-  placement: 27
+  placement: 29
   name: back

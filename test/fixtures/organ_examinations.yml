@@ -80,6 +80,18 @@ thoracic_aorta:
   organ: thoracic_aorta
   examination_type: thoracic_aorta
 
+lung_left:
+  organ: lung_left
+  examination_type: lungs
+
+lung_right:
+  organ: lung_right
+  examination_type: lungs
+
+abdominal_aorta:
+  organ: abdominal_aorta
+  examination_type: abdominal_aorta
+
 adrenal_gland_left:
   organ: adrenal_gland_left
   examination_type: adrenal_glands
