@@ -93,3 +93,8 @@ completed_autopsy_heart:
   completed: true
   autopsy: completed_autopsy
   examination_type: heart
+
+completed_autopsy_thoracic_aorta:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: thoracic_aorta

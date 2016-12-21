@@ -43,6 +43,7 @@ ja:
     RCA: 右冠状動脈
     ventricle: 心室
     atrium: 心房
+    thoracic_aorta: 胸部大動脈
 
   body_parts:
     left_leg: 左足
@@ -62,6 +63,7 @@ ja:
     left_foot: 左足
     right_foot: 右足
   intensity:
+    unknown: 不明
     weak: 弱い
     rather_weak: やや弱い
     mid: 中等
@@ -71,16 +73,19 @@ ja:
     middle: 中度
     heavy: 高度
   quantity:
+    unknown: 不明
     none: なし
     few: 僅かにある
     mid: 少数ある
     many: 多数ある
     extremely_many: 非常に多くある
   growth:
+    unknown: 不明
     abundant: 良好
     normal: 中等
     insufficient: 不良
   size:
+    unknown: 不明
     small: 小さい
     usual: 大きさ尋常
     big: 大きい

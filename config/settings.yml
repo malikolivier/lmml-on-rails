@@ -1,25 +1,29 @@
 enums:
   existence:
+    - unknown
     - exists
     - does_not_exist
-    - unknown
   three_scale_intensity:
+    - unknown
     - light
     - middle
     - heavy
   five_scale_intensity:
+    - unknown
     - weak
     - rather_weak
     - mid
     - rather_strong
     - strong
   five_scale_quantity:
+    - unknown
     - none
     - few
     - mid
     - many
     - extremely_many
   three_scale_growth:
+    - unknown
     - abundant
     - normal
     - insufficient

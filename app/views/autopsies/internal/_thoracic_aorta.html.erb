@@ -1,0 +1,7 @@
+<%
+phrases = []
+phrases.push("起始部の幅#{exam.width}cm") if exam.width.present?
+phrases.push("内膜の動脈硬化性変化#{I18n.t "intensity.#{exam.arteriosclerosis}"}") if exam.arteriosclerosis.present?
+phrases.push("冠状動脈口に異常なし") if exam.examination.injuries.none?
+%>
+<%= phrases.to_sentence_with_comma_and_full_stop %>

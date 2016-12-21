@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: internal_thoracic_aorta_examinations
+#
+#  id               :integer          not null, primary key
+#  examination_id   :integer
+#  width            :float
+#  arteriosclerosis :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_thoracic_aorta_examination:
+  examination: completed_autopsy_thoracic_aorta
+  width: 4.1
+  arteriosclerosis: rather_strong
