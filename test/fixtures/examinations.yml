@@ -118,3 +118,8 @@ completed_autopsy_kidneys:
   completed: true
   autopsy: completed_autopsy
   examination_type: kidneys
+
+completed_autopsy_spleen:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: spleen

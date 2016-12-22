@@ -14,7 +14,7 @@
 class InternalAdrenalGlandsExamination < ApplicationRecord
   belongs_to :examination, required: true
 
-  enum deixis: [:left, :right]
+  enum deixis: Settings.enums.deixes
 
   enum cortex_thickness: Settings.enums.five_scale_thickness,
        _prefix: 'cortex'

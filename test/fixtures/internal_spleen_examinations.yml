@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: internal_spleen_examinations
+#
+#  id             :integer          not null, primary key
+#  examination_id :integer
+#  weight         :float
+#  hardness       :integer
+#  congestion     :integer
+#  pulp_distinct  :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_spleen_examination:
+  examination: completed_autopsy_spleen
+  weight: 100
+  hardness: hard
+  congestion: light
+  pulp_distinct: clear

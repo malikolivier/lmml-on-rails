@@ -48,6 +48,7 @@ ja:
     abdominal_aorta: 胸部大動脈
     adrenal_glands: 副腎
     kidneys: 腎臓
+    spleen: 脾臓
 
   body_parts:
     left_leg: 左足
@@ -127,6 +128,10 @@ ja:
   difficulty:
     easy: 容易
     hard: 困難
+    unknown: 不明
+  clarity:
+    clear: 明瞭
+    unclear: 不明瞭
     unknown: 不明
   activerecord:
     errors:

@@ -54,6 +54,10 @@ enums:
   deixes:
     - left
     - right
+  hardness:
+    - hard
+    - soft
+    - unknown
 air_track_organs:
   - larynx
   - trachea

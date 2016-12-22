@@ -18,9 +18,9 @@
 class InternalKidneysExamination < ApplicationRecord
   belongs_to :examination, required: true
 
-  enum deixis: [:left, :right]
+  enum deixis: Settings.enums.deixes
 
-  enum hardness: [:hard, :soft, :unknown]
+  enum hardness: Settings.enums.hardness
   enum capsule_removal: [:easy, :hard, :unknown], _prefix: true
   enum capsule_congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum pelvis_congestion: Settings.enums.three_scale_intensity, _prefix: true
