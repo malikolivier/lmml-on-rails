@@ -61,6 +61,7 @@ ja:
     jejunum: 空腸
     ileum: 回腸
     colon: 大腸
+    bladder: 膀胱
 
   body_parts:
     left_leg: 左足
@@ -152,6 +153,9 @@ ja:
     unknown: 消化程度が不明
   aspect:
     watery: 水分の多い
+  transparency:
+    transparent: 透明
+    opaque: 混濁
   activerecord:
     errors:
       messages:
