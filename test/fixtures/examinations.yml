@@ -123,3 +123,8 @@ completed_autopsy_spleen:
   completed: true
   autopsy: completed_autopsy
   examination_type: spleen
+
+completed_autopsy_pancreas:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: pancreas

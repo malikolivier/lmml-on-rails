@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: internal_pancreas_examinations
+#
+#  id             :integer          not null, primary key
+#  examination_id :integer
+#  hardness       :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_pancreas_examination:
+  examination: completed_autopsy_pancreas
+  hardness: soft
