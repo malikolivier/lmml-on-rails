@@ -22,5 +22,5 @@ completed_autopsy_internal_genitalia_examination:
   fundal_width: 4.5
   cervical_width: 3.8
   endometrium_color: pale
-  ovaries_presence: yes
+  ovaries_presence: "yes"
   ovaries_distance: 6.1
