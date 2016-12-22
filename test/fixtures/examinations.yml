@@ -108,3 +108,8 @@ completed_autopsy_abdominal_aorta:
   completed: true
   autopsy: completed_autopsy
   examination_type: abdominal_aorta
+
+completed_autopsy_adrenal_glands:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: adrenal_glands

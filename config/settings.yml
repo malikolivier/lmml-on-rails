@@ -36,6 +36,13 @@ enums:
     - abundant
     - normal
     - insufficient
+  five_scale_thickness:
+    - unknown
+    - very_thin
+    - thin
+    - usual
+    - thick
+    - very_thick
   sex:
     - M
     - F

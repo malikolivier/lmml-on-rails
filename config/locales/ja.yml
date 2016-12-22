@@ -46,6 +46,7 @@ ja:
     thoracic_aorta: 胸部大動脈
     lungs: 肺臓
     abdominal_aorta: 胸部大動脈
+    adrenal_glands: 副腎
 
   body_parts:
     left_leg: 左足
@@ -99,6 +100,13 @@ ja:
     small: 小さい
     usual: 大きさ尋常
     big: 大きい
+  thickness:
+    unknown: 不明
+    very_thin: 非常に薄い
+    thin: 薄い
+    usual: 厚さ尋常
+    thick: 厚い
+    very_thick: 非常に厚い
   existence:
     exists: あり
     does_not_exist: なし

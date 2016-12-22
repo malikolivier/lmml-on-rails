@@ -1,0 +1,53 @@
+<%
+cortex_group = exam.group_by(&:cortex_thickness)
+medulla_group = exam.group_by(&:medulla_thickness)
+descriptions = []
+InternalAdrenalGlandsExamination.cortex_thicknesses.each do |thickness, _|
+  next if cortex_group[thickness].blank? && medulla_group[thickness].blank?
+  thickness_name = I18n.t "thickness.#{thickness}"
+  status = 0b0
+  if cortex_group[thickness].present?
+    status |= cortex_group[thickness].any?(&:left?) ? 1 : 0
+    status |= cortex_group[thickness].any?(&:right?) ? 2 : 0
+  end
+  if medulla_group[thickness].present?
+    status |= medulla_group[thickness].any?(&:left?) ? 4 : 0
+    status |= medulla_group[thickness].any?(&:right?) ? 8 : 0
+  end
+  case status
+  when 0b0001
+    descriptions.push("左皮質は#{thickness_name}")
+  when 0b0010
+    descriptions.push("右皮質は#{thickness_name}")
+  when 0b0011
+    descriptions.push("左右皮質は#{thickness_name}")
+  when 0b0100
+    descriptions.push("左髄質は#{thickness_name}")
+  when 0b0101
+    descriptions.push("右皮質・左髄質は#{thickness_name}")
+  when 0b0110
+    descriptions.push("左皮質・左髄質は#{thickness_name}")
+  when 0b0111
+    descriptions.push("左右の皮質・左髄質は#{thickness_name}")
+  when 0b1000
+    descriptions.push("右髄質は#{thickness_name}")
+  when 0b1001
+    descriptions.push("左皮質・右髄質は#{thickness_name}")
+  when 0b1010
+    descriptions.push("右皮質・右髄質は#{thickness_name}")
+  when 0b1011
+    descriptions.push("左右皮質・右髄質は#{thickness_name}")
+  when 0b1100
+    descriptions.push("左右髄質は#{thickness_name}")
+  when 0b1101
+    descriptions.push("右皮質・左右髄質は#{thickness_name}")
+  when 0b1110
+    descriptions.push("左皮質・左右髄質は#{thickness_name}")
+  when 0b1111
+    descriptions.push("左右の皮質・髄質は#{thickness_name}")
+  else
+    descriptions.push("Unhandled status value: #{status}")
+  end
+end
+%>
+<%= descriptions.to_sentence_with_comma_and_full_stop %>

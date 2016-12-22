@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: internal_adrenal_glands_examinations
+#
+#  id                :integer          not null, primary key
+#  examination_id    :integer
+#  deixis            :integer
+#  cortex_thickness  :integer
+#  medulla_thickness :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_adrenal_gland_left_examination:
+  examination: completed_autopsy_adrenal_glands
+  deixis: left
+  cortex_thickness: thick
+  medulla_thickness: usual
+
+completed_autopsy_adrenal_gland_right_examination:
+  examination: completed_autopsy_adrenal_glands
+  deixis: right
+  cortex_thickness: thin
+  medulla_thickness: usual
