@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: internal_abdominal_aorta_examinations
+#
+#  id               :integer          not null, primary key
+#  examination_id   :integer
+#  arteriosclerosis :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_abdominal_aorta_examination:
+  examination: completed_autopsy_abdominal_aorta
+  arteriosclerosis: weak

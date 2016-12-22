@@ -103,3 +103,8 @@ completed_autopsy_lungs:
   completed: true
   autopsy: completed_autopsy
   examination_type: lungs
+
+completed_autopsy_abdominal_aorta:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: abdominal_aorta
