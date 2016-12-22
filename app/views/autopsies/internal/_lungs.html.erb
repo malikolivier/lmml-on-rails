@@ -6,7 +6,7 @@ injuries = right.examination.injuries if left.blank? && right.present?
 
 weight_phrases = []
 weight_phrases.push("左#{left.weight}g") if left.try(:weight).present?
-weight_phrases.push("左#{right.weight}g") if right.try(:weight).present?
+weight_phrases.push("右#{right.weight}g") if right.try(:weight).present?
 %>
 <%= weight_phrases.to_sentence_with_comma_and_full_stop %>
 

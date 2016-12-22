@@ -80,7 +80,7 @@ ja:
     unknown: 不明
     none: なし
     few: 僅かにある
-    mid: 少数ある
+    middle: 少数ある
     many: 多数ある
     extremely_many: 非常に多くある
   mass_quantity: # mass as in "mass noun"
@@ -119,6 +119,14 @@ ja:
   closedness:
     closed: 閉じる
     open: 開く
+    unknown: 不明
+  hardness:
+    hard: 弾性硬
+    soft: 弾性軟
+    unknown: 不明
+  difficulty:
+    easy: 容易
+    hard: 困難
     unknown: 不明
   activerecord:
     errors:
