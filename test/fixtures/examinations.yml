@@ -148,3 +148,8 @@ completed_autopsy_bladder:
   completed: true
   autopsy: completed_autopsy
   examination_type: bladder
+
+completed_autopsy_internal_genitalia:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: internal_genitalia

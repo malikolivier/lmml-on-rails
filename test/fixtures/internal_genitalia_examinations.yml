@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: internal_genitalia_examinations
+#
+#  id                :integer          not null, primary key
+#  examination_id    :integer
+#  length            :float
+#  fundal_width      :float
+#  cervical_width    :float
+#  endometrium_color :integer
+#  ovaries_presence  :integer
+#  ovaries_distance  :float
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_internal_genitalia_examination:
+  examination: completed_autopsy_internal_genitalia
+  length: 7.6
+  fundal_width: 4.5
+  cervical_width: 3.8
+  endometrium_color: pale
+  ovaries_presence: yes
+  ovaries_distance: 6.1
