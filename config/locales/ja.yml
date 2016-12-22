@@ -31,7 +31,7 @@ ja:
     back: 背部
     upper_limbs: 上肢
     lower_limbs: 下肢
-    genitalia: 外陰部
+    genitalia: 陰部
     anus: 肛門
     cranium: 頭蓋
     brain: 脳
@@ -62,7 +62,38 @@ ja:
     ileum: 回腸
     colon: 大腸
     bladder: 膀胱
-
+  section_title:
+    external:
+      outline: 概観
+      head: 頭部
+      face: 顔面
+      neck: 頸部・項部
+      trunk: 胸腹部
+      back: 背部
+      upper_limbs: 上肢
+      lower_limbs: 下肢
+      genitalia: 外陰部
+      anus: 肛門
+    internal:
+      cranium: 頭蓋
+      brain: 脳
+      abdominal_wall: 胸腹壁および胸腹腔
+      neck_organs: 頸部器官
+      pericardium: 心嚢
+      heart: 心臓
+      thoracic_aorta: 胸部大動脈
+      lungs: 肺臓
+      abdominal_aorta: 胸部大動脈
+      adrenal_glands: 副腎
+      kidneys: 腎臓
+      spleen: 脾臓
+      pancreas: 膵臓
+      liver: 肝臓
+      stomach: 胃
+      intestines: 腸管
+      bladder: 膀胱
+      genitalia: 内陰部
+      back: 背部開検
   body_parts:
     left_leg: 左足
     right_leg: 右足

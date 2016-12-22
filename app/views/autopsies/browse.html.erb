@@ -78,7 +78,7 @@
       <h3><%= (kaiken_count+=1).to_full_width_letter %>：頸胸腹開検</h3>
     <% end %>
   <% end %>
-  <h4><%= i + 1 %>．<%= I18n.t "organs.#{examination.examination_type.name}" %></h4>
+  <h4><%= i + 1 %>．<%= I18n.t "section_title.#{examination.examination_type.category}.#{examination.examination_type.name}" %></h4>
   <p>
     <%= render partial: "autopsies/#{examination.examination_type.category}/#{examination.examination_type.name}", locals: { exam: examination.get } %>
     <%= examination.note %>
