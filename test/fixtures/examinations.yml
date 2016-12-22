@@ -113,3 +113,8 @@ completed_autopsy_adrenal_glands:
   completed: true
   autopsy: completed_autopsy
   examination_type: adrenal_glands
+
+completed_autopsy_kidneys:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: kidneys
