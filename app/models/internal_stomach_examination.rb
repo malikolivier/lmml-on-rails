@@ -35,11 +35,7 @@ class InternalStomachExamination < ApplicationRecord
     elsif content_quantity < 1
       'ほとんど空虚。'
     else
-      digestion = content_digestion.present? ? I18n.t("digestion.#{content_digestion}") : ''
-      aspect = content_aspect.present? ? I18n.t("aspect.#{content_aspect}") : ''
-      color = content_color.present? ? I18n.t("colors.#{content_color}") : ''
-      quantity = content_quantity.present? ? "#{content_quantity}mL" : ''
-      "内に#{digestion}のものを含む#{aspect}#{color}内容#{quantity}あり。"
+      filled_stomach_description
     end
   end
 
@@ -51,5 +47,15 @@ class InternalStomachExamination < ApplicationRecord
     else
       ''
     end
+  end
+
+  private
+
+  def filled_stomach_description
+    digestion = content_digestion.present? ? I18n.t("digestion.#{content_digestion}") : ''
+    aspect = content_aspect.present? ? I18n.t("aspect.#{content_aspect}") : ''
+    color = content_color.present? ? I18n.t("colors.#{content_color}") : ''
+    quantity = content_quantity.present? ? "#{content_quantity}mL" : ''
+    "内に#{digestion}のものを含む#{aspect}#{color}内容#{quantity}あり。"
   end
 end
