@@ -4,6 +4,7 @@ class CreateInternalKidneysExaminations < ActiveRecord::Migration[5.0]
       t.belongs_to :examination, index: true
       t.integer :deixis, null: false
       t.float :weight
+      t.integer :hardness
       t.integer :capsule_removal
       t.integer :capsule_congestion
       t.integer :pelvis_congestion

@@ -6,6 +6,7 @@
 #  examination_id     :integer
 #  deixis             :integer          not null
 #  weight             :float
+#  hardness           :integer
 #  capsule_removal    :integer
 #  capsule_congestion :integer
 #  pelvis_congestion  :integer
@@ -19,6 +20,7 @@ class InternalKidneysExamination < ApplicationRecord
 
   enum deixis: [:left, :right]
 
+  enum hardness: [:hard, :soft, :unknown]
   enum capsule_removal: [:easy, :hard, :unknown], _prefix: true
   enum capsule_congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum pelvis_congestion: Settings.enums.three_scale_intensity, _prefix: true

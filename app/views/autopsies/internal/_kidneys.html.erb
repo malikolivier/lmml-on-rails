@@ -1,3 +1,13 @@
+<%
+left = exam.left.first
+right = exam.right.first
+
+weight_phrases = []
+weight_phrases.push("左#{left.weight}g") if left.try(:weight).present?
+weight_phrases.push("左#{right.weight}g") if right.try(:weight).present?
+%>
+<%= weight_phrases.to_sentence_with_comma_and_full_stop %>
+
 左○○ g、右○○ g。硬度は弾性硬。損傷なし。
 被膜剥離容易、うっ血○○。
 腎盂粘膜の血管充盈○○、溢血点○○。

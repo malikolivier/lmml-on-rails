@@ -6,6 +6,7 @@
 #  examination_id     :integer
 #  deixis             :integer          not null
 #  weight             :float
+#  hardness           :integer
 #  capsule_removal    :integer
 #  capsule_congestion :integer
 #  pelvis_congestion  :integer
