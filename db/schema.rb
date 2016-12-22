@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222054322) do
+ActiveRecord::Schema.define(version: 20161222071624) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -535,6 +535,19 @@ ActiveRecord::Schema.define(version: 20161222054322) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["examination_id"], name: "index_internal_spleen_examinations_on_examination_id"
+  end
+
+  create_table "internal_stomach_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "content_color"
+    t.integer  "content_smell"
+    t.integer  "content_aspect"
+    t.float    "content_quantity"
+    t.integer  "content_digestion"
+    t.integer  "rugae"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["examination_id"], name: "index_internal_stomach_examinations_on_examination_id"
   end
 
   create_table "internal_thoracic_aorta_examinations", force: :cascade do |t|

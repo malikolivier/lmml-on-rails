@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: internal_stomach_examinations
+#
+#  id                :integer          not null, primary key
+#  examination_id    :integer
+#  content_color     :integer
+#  content_smell     :integer
+#  content_aspect    :integer
+#  content_quantity  :float
+#  content_digestion :integer
+#  rugae             :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_stomach_examination:
+  examination: completed_autopsy_stomach
+  content_color: yellow
+  content_smell: acid
+  content_aspect: watery
+  content_quantity: 15
+  content_digestion: not_digested
+  rugae: persistent

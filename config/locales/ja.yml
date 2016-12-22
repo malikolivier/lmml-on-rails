@@ -16,8 +16,10 @@ ja:
     white: 白色
     dark_red: 暗赤色
     florid: 鮮紅色
-    yellowish: 茶褐色
+    yellow: 黄色
+    yellowish: 黄白色
     yellow_green: 黄緑色
+    dark_brown: 茶褐色
   odors:
     no_odor: においのない
   organs:
@@ -53,6 +55,7 @@ ja:
     spleen: 脾臓
     pancreas: 膵臓
     liver: 肝臓
+    stomach: 胃
 
   body_parts:
     left_leg: 左足
@@ -137,6 +140,13 @@ ja:
     clear: 明瞭
     unclear: 不明瞭
     unknown: 不明
+  digestion:
+    not_digested: 未消化
+    digested: 消化済
+    partly_digested: 半消化
+    unknown: 消化程度が不明
+  aspect:
+    watery: 水分の多い
   activerecord:
     errors:
       messages:

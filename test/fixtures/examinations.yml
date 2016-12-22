@@ -133,3 +133,8 @@ completed_autopsy_liver:
   completed: true
   autopsy: completed_autopsy
   examination_type: liver
+
+completed_autopsy_stomach:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: stomach
