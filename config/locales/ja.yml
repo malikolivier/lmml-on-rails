@@ -16,6 +16,8 @@ ja:
     white: 白色
     dark_red: 暗赤色
     florid: 鮮紅色
+    yellowish: 茶褐色
+    yellow_green: 黄緑色
   odors:
     no_odor: においのない
   organs:
@@ -50,6 +52,7 @@ ja:
     kidneys: 腎臓
     spleen: 脾臓
     pancreas: 膵臓
+    liver: 肝臓
 
   body_parts:
     left_leg: 左足

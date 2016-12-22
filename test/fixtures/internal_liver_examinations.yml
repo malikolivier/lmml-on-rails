@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: internal_liver_examinations
+#
+#  id             :integer          not null, primary key
+#  examination_id :integer
+#  weight         :float
+#  hardness       :integer
+#  congestion     :integer
+#  steatosis      :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_liver_examination:
+  examination: completed_autopsy_liver
+  weight: 236
+  hardness: soft
+  congestion: heavy
+  steatosis: strong

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222052152) do
+ActiveRecord::Schema.define(version: 20161222054322) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -262,6 +262,18 @@ ActiveRecord::Schema.define(version: 20161222052152) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "gall_bladders", force: :cascade do |t|
+    t.integer  "internal_liver_examination_id"
+    t.integer  "bile_color"
+    t.integer  "bile_quantity"
+    t.integer  "gallstones_quantity"
+    t.integer  "gallstones_color"
+    t.integer  "gallstones_size"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["internal_liver_examination_id"], name: "index_gall_bladders_on_internal_liver_examination_id"
+  end
+
   create_table "heart_chambers", force: :cascade do |t|
     t.integer  "internal_heart_examination_id"
     t.integer  "category",                      null: false
@@ -458,6 +470,16 @@ ActiveRecord::Schema.define(version: 20161222052152) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["examination_id"], name: "index_internal_kidneys_examinations_on_examination_id"
+  end
+
+  create_table "internal_liver_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.float    "weight"
+    t.integer  "hardness"
+    t.integer  "congestion"
+    t.integer  "steatosis"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "internal_lungs_examinations", force: :cascade do |t|

@@ -128,3 +128,8 @@ completed_autopsy_pancreas:
   completed: true
   autopsy: completed_autopsy
   examination_type: pancreas
+
+completed_autopsy_liver:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: liver

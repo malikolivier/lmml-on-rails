@@ -15,7 +15,7 @@ class HeartChamber < ApplicationRecord
 
   enum category: [:left_ventricle, :right_ventricle,
                   :left_atrium, :right_atrium]
-  enum size: [:usual, :big, :small], _prefix: true
+  enum size: Settings.enums.size, _prefix: true
 
   def part_name
     if left_ventricle? || right_ventricle?

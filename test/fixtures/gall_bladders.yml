@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: gall_bladders
+#
+#  id                            :integer          not null, primary key
+#  internal_liver_examination_id :integer
+#  bile_color                    :integer
+#  bile_quantity                 :integer
+#  gallstones_quantity           :integer
+#  gallstones_color              :integer
+#  gallstones_size               :integer
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_gall_bladder:
+  internal_liver_examination: completed_autopsy_liver_examination
+  bile_color: yellowish
+  bile_quantity: much
+  gallstones_color: yellow_green
+  gallstones_quantity: many
+  gallstones_size: small

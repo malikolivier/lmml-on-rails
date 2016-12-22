@@ -58,6 +58,10 @@ enums:
     - hard
     - soft
     - unknown
+  size:
+    - usual
+    - big
+    - small
 air_track_organs:
   - larynx
   - trachea
