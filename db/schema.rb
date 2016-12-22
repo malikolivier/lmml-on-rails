@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222071624) do
+ActiveRecord::Schema.define(version: 20161222104739) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
@@ -458,6 +458,14 @@ ActiveRecord::Schema.define(version: 20161222071624) do
     t.index ["examination_id"], name: "index_internal_heart_examinations_on_examination_id"
   end
 
+  create_table "internal_intestines_examinations", force: :cascade do |t|
+    t.integer  "examination_id"
+    t.integer  "appendix"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["examination_id"], name: "index_internal_intestines_examinations_on_examination_id"
+  end
+
   create_table "internal_kidneys_examinations", force: :cascade do |t|
     t.integer  "examination_id"
     t.integer  "deixis",             null: false
@@ -557,6 +565,16 @@ ActiveRecord::Schema.define(version: 20161222071624) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["examination_id"], name: "index_internal_thoracic_aorta_examinations_on_examination_id"
+  end
+
+  create_table "intestine_sections", force: :cascade do |t|
+    t.integer  "internal_intestines_examination_id"
+    t.integer  "category",                           null: false
+    t.integer  "color"
+    t.integer  "quantity"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.index ["internal_intestines_examination_id"], name: "index_intestine_sections_on_internal_intestines_examination_id"
   end
 
   create_table "livores_mortis", force: :cascade do |t|

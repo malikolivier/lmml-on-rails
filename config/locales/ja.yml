@@ -56,6 +56,11 @@ ja:
     pancreas: 膵臓
     liver: 肝臓
     stomach: 胃
+    intestines: 腸管
+    duodenum: 十二指腸
+    jejunum: 空腸
+    ileum: 回腸
+    colon: 大腸
 
   body_parts:
     left_leg: 左足

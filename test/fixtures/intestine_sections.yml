@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: intestine_sections
+#
+#  id                                 :integer          not null, primary key
+#  internal_intestines_examination_id :integer
+#  category                           :integer          not null
+#  color                              :integer
+#  quantity                           :integer
+#  created_at                         :datetime         not null
+#  updated_at                         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_intestines_duodenum:
+  internal_intestines_examination: completed_autopsy_intestines_examination
+  category: duodenum
+  color: yellowish
+  quantity: much
+
+completed_autopsy_intestines_jejunum:
+  internal_intestines_examination: completed_autopsy_intestines_examination
+  category: jejunum
+  color: yellowish
+  quantity: little
+
+completed_autopsy_intestines_ileum:
+  internal_intestines_examination: completed_autopsy_intestines_examination
+  category: ileum
+  color: yellow_green
+  quantity: little
+
+completed_autopsy_intestines_colon:
+  internal_intestines_examination: completed_autopsy_intestines_examination
+  category: colon
+  color: dark_brown
+  quantity: little

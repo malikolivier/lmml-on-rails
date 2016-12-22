@@ -138,3 +138,8 @@ completed_autopsy_stomach:
   completed: true
   autopsy: completed_autopsy
   examination_type: stomach
+
+completed_autopsy_intestines:
+  completed: true
+  autopsy: completed_autopsy
+  examination_type: intestines
