@@ -6,6 +6,7 @@
 #  analysis_id :integer
 #  title       :text
 #  content     :text
+#  placement   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

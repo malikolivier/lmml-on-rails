@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20161224072808) do
     t.integer  "analysis_id"
     t.text     "title"
     t.text     "content"
+    t.integer  "placement"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_others_on_analysis_id"

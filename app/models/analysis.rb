@@ -18,4 +18,10 @@ class Analysis < ApplicationRecord
   def get
     analysis_type.this_analysis_model.find_by!(analysis: self)
   end
+
+  has_one :analysis_other
+
+  def other?
+    analysis_type.other?
+  end
 end

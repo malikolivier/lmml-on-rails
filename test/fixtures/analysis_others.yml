@@ -6,6 +6,7 @@
 #  analysis_id :integer
 #  title       :text
 #  content     :text
+#  placement   :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -16,8 +17,10 @@ completed_autopsy_other1_analysis:
   analysis: completed_autopsy_other1
   title: 〇〇検査１
   content: 結果は不明とせざるを得ない。
+  placement: 1
 
 completed_autopsy_other2_analysis:
   analysis: completed_autopsy_other2
   title: 〇〇検査2
   content: よろしい結果を得たと思われる。
+  placement: 2

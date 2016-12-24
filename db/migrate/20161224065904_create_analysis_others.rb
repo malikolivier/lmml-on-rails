@@ -4,6 +4,7 @@ class CreateAnalysisOthers < ActiveRecord::Migration[5.0]
       t.belongs_to :analysis, index: true
       t.text :title
       t.text :content
+      t.integer :placement
 
       t.timestamps
     end

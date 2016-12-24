@@ -24,11 +24,19 @@
 require 'test_helper'
 
 class AutopsyTest < ActiveSupport::TestCase
-  test 'a complete autopsy should have all examination type' do
-    # rubocop:disable UselessAssignment
+  test 'analyses should be properly ordered' do
     complete_autopsy = autopsies(:completed_autopsy)
-    all_examination_types = ExaminationType.all
-    skip('Not implemented yet as all examination
-          type fixtures are not yet there')
+    ordered_analises = Analysis.where(autopsy: complete_autopsy)
+                               .joins(:analysis_type)
+                               .where.not(analysis_types: { name: 'other' })
+                               .order('`analysis_types`.`placement`')
+                               .to_a
+    ordered_analises += Analysis.where(autopsy: complete_autopsy)
+                               .joins(:analysis_type)
+                               .joins(:analysis_other)
+                               .where(analysis_types: { name: 'other' })
+                               .order('`analysis_others`.`placement`')
+                               .to_a
+    complete_autopsy.analyses.to_a.should eq ordered_analises
   end
 end
