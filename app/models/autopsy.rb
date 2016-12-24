@@ -39,8 +39,8 @@ class Autopsy < ApplicationRecord
   has_many :examinations, lambda {
     joins(:examination_type).order('`examination_types`.`placement`')
   }
-  has_many :tests, lambda {
-    joins(:test_type).order('`test_types`.`placement`')
+  has_many :analyses, lambda {
+    joins(:analysis_type).order('`analysis_types`.`placement`')
   }
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings

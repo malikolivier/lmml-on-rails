@@ -1,0 +1,56 @@
+# == Schema Information
+#
+# Table name: analysis_types
+#
+#  id         :integer          not null, primary key
+#  placement  :integer          not null
+#  name       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bloodtype:
+  placement: 1
+  name: blood_type
+
+histopathology:
+  placement: 2
+  name: histopathology
+
+instant_view:
+  placement: 3
+  name: instant_view
+
+triage:
+  placement: 4
+  name: triage
+
+poison:
+  placement: 5
+  name: poison
+
+ethanol:
+  placement: 6
+  name: ethanol
+
+carbon_monoxide:
+  placement: 7
+  name: carbon_monoxide
+
+uropaper:
+  placement: 8
+  name: uropaper
+
+biochemistry:
+  placement: 9
+  name: biochemistry
+
+diatom_test:
+  placement: 10
+  name: diatom_test
+
+other:
+  placement: 1000
+  name: other

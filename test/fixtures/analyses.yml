@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: analyses
+#
+#  id               :integer          not null, primary key
+#  completed        :boolean
+#  note             :text
+#  autopsy_id       :integer          not null
+#  analysis_type_id :integer          not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_bloodtype:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: bloodtype
+
+completed_autopsy_other1:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: other
+
+completed_autopsy_other2:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: other

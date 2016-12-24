@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: analysis_others
+#
+#  id          :integer          not null, primary key
+#  analysis_id :integer
+#  title       :text
+#  content     :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_other1_analysis:
+  analysis: completed_autopsy_other1
+  title: 〇〇検査１
+  content: 結果は不明とせざるを得ない。
+
+completed_autopsy_other2_analysis:
+  analysis: completed_autopsy_other2
+  title: 〇〇検査2
+  content: よろしい結果を得たと思われる。

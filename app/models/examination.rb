@@ -24,6 +24,4 @@ class Examination < ApplicationRecord
       examination_type.this_examination_model.where(examination: self)
     end
   end
-
-  validates :examination_type, presence: true
 end

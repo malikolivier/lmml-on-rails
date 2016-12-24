@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222133414) do
+ActiveRecord::Schema.define(version: 20161224072808) do
+
+  create_table "analyses", force: :cascade do |t|
+    t.boolean  "completed"
+    t.text     "note"
+    t.integer  "autopsy_id",       null: false
+    t.integer  "analysis_type_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["analysis_type_id"], name: "index_analyses_on_analysis_type_id"
+    t.index ["autopsy_id"], name: "index_analyses_on_autopsy_id"
+  end
+
+  create_table "analysis_blood_types", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_blood_types_on_analysis_id"
+  end
+
+  create_table "analysis_others", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.text     "title"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_others_on_analysis_id"
+  end
+
+  create_table "analysis_types", force: :cascade do |t|
+    t.integer  "placement",  null: false
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false

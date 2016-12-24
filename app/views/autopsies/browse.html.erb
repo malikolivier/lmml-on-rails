@@ -55,11 +55,13 @@
 
 <% external_examination_started = false %>
 <% internal_examination_started = false %>
+<% analyses_started = false %>
 <% internal_head_examination_started = false %>
 <% internal_torso_examination_started = false %>
+<% section_count = 0 %>
 <% syoken_count = 0 %>
 <% kaiken_count = 0 %>
-<% @autopsy.examinations.includes(:examination_type, :injuries).each_with_index do |examination, i| %>
+<% @autopsy.examinations.includes(:examination_type, :injuries).each do |examination| %>
   <% if examination.examination_type.external? && !external_examination_started %>
     <% external_examination_started = true %>
     <h3>（<%= (syoken_count+=1).to_full_width %>）　外部所見</h3>
@@ -78,7 +80,7 @@
       <h3><%= (kaiken_count+=1).to_full_width_letter %>：頸胸腹開検</h3>
     <% end %>
   <% end %>
-  <h4><%= i + 1 %>．<%= I18n.t "section_title.#{examination.examination_type.category}.#{examination.examination_type.name}" %></h4>
+  <h4><%= section_count += 1 %>．<%= I18n.t "section_title.#{examination.examination_type.category}.#{examination.examination_type.name}" %></h4>
   <p>
     <%= render partial: "autopsies/#{examination.examination_type.category}/#{examination.examination_type.name}", locals: { exam: examination.get } %>
     <%= examination.note %>
@@ -86,6 +88,24 @@
       損傷等の異常なし。
     <% end %>
   </p>
+<% end %>
+<% @autopsy.analyses.each do |analysis| %>
+  <%
+  section_count += 1
+  if analysis.analysis_type.other?
+    section_title_content = analysis.get.title
+  else
+    section_title_content = I18n.t "section_title.analyses.#{analysis.analysis_type.name}"
+  end
+  section_title = "#{section_count}．#{section_title_content}"
+  if !analyses_started
+    analyses_started = true
+    %>
+    <h3>（<%= (syoken_count+=1).to_full_width %>）　諸検査の成績</h3>
+  <% end %>
+  <h4><%= section_title %></h4>
+  <%= render partial: "autopsies/analyses/#{analysis.analysis_type.name}", locals: { this: analysis.get } %>
+  <%= analysis.note %>
 <% end %>
 
 <p>
