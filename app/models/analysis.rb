@@ -21,7 +21,5 @@ class Analysis < ApplicationRecord
 
   has_one :analysis_other
 
-  def other?
-    analysis_type.other?
-  end
+  delegate :other?, to: :analysis_type
 end

@@ -89,7 +89,7 @@
     <% end %>
   </p>
 <% end %>
-<% @autopsy.analyses.each do |analysis| %>
+<% @autopsy.ordered_analyses.each do |analysis| %>
   <%
   section_count += 1
   if analysis.analysis_type.other?
