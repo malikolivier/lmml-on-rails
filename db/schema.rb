@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224072808) do
+ActiveRecord::Schema.define(version: 20161226200058) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(version: 20161224072808) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_blood_types_on_analysis_id"
+  end
+
+  create_table "analysis_histopathologies", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_histopathologies_on_analysis_id"
+  end
+
+  create_table "analysis_histopathology_on_organs", force: :cascade do |t|
+    t.integer  "organ_id"
+    t.integer  "analysis_histopathology_id", null: false
+    t.text     "result"
+    t.text     "other_organ"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["analysis_histopathology_id"], name: "organ_histopathology_analysis"
+    t.index ["organ_id"], name: "index_analysis_histopathology_on_organs_on_organ_id"
   end
 
   create_table "analysis_others", force: :cascade do |t|
@@ -674,8 +692,9 @@ ActiveRecord::Schema.define(version: 20161224072808) do
 
   create_table "organs", force: :cascade do |t|
     t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "subject_to_histopathology_analysis", default: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
   end
 
   create_table "participations", force: :cascade do |t|

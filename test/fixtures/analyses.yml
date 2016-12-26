@@ -18,6 +18,11 @@ completed_autopsy_bloodtype:
   autopsy: completed_autopsy
   analysis_type: bloodtype
 
+completed_autopsy_histopathology:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: histopathology
+
 completed_autopsy_other1:
   completed: true
   autopsy: completed_autopsy

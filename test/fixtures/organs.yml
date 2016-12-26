@@ -2,107 +2,153 @@
 #
 # Table name: organs
 #
-#  id         :integer          not null, primary key
-#  name       :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                                 :integer          not null, primary key
+#  name                               :text
+#  subject_to_histopathology_analysis :boolean          default(FALSE)
+#  created_at                         :datetime         not null
+#  updated_at                         :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # Not exactly an organ, but anyway...
 outline:
-  name: Outline
+  name: outline
 
 head:
-  name: Head
+  name: head
 
 face:
-  name: Face
+  name: face
 
 neck:
-  name: Neck
+  name: neck
 
 trunk:
-  name: Trunk
+  name: trunk
 
 left_arm:
-  name: Left arm
+  name: left_arm
 
 right_arm:
-  name: Right arm
+  name: right_arm
 
 left_leg:
-  name: Left leg
+  name: left_leg
 
 right_leg:
-  name: Right leg
+  name: right_leg
 
 genitalia:
-  name: Genitalia
+  name: genitalia
 
 anus:
-  name: Anus
+  name: anus
 
 cranium:
-  name: Cranium
+  name: cranium
 
 brain:
-  name: Brain
+  name: brain
 
 abdominal_wall:
-  name: abdominal wall
+  name: abdominal_wall
 
 neck_organs:
-  name: Neck organs
+  name: neck_organs
 
 pericardium:
-  name: Pericardium
+  name: pericardium
 
 heart:
-  name: Heart
+  name: heart
 
 thoracic_aorta:
-  name: Thoracic aorta
+  name: thoracic_aorta
 
 lung_left:
-  name: Left lung
+  name: left_lung
+  subject_to_histopathology_analysis: true
 
 lung_right:
-  name: Right lung
+  name: right_lung
+  subject_to_histopathology_analysis: true
 
 abdominal_aorta:
-  name: Abdominal aorta
+  name: abdominal_aorta
 
 adrenal_gland_left:
-  name: Left adrenal gland
+  name: left_adrenal_gland
+  subject_to_histopathology_analysis: true
 
 adrenal_gland_right:
-  name: Right adrenal gland
+  name: right_adrenal_gland
+  subject_to_histopathology_analysis: true
 
 kidney_left:
-  name: Left kidney
+  name: left_kidney
+  subject_to_histopathology_analysis: true
 
 kidney_right:
-  name: Right kidney
+  name: right_kidney
+  subject_to_histopathology_analysis: true
 
 spleen:
-  name: Spleen
+  name: spleen
+  subject_to_histopathology_analysis: true
 
 pancreas:
-  name: Pancreas
+  name: pancreas
+  subject_to_histopathology_analysis: true
 
 liver:
-  name: Liver
+  name: liver
+  subject_to_histopathology_analysis: true
 
 stomach:
-  name: Stomach
+  name: stomach
 
 intestines:
-  name: Intestines
+  name: intestines
 
 bladder:
-  name: Bladder
+  name: bladder
 
 back:
-  name: Back
+  name: back
+
+coronary_artery:
+  name: coronary_artery
+  subject_to_histopathology_analysis: true
+
+myocardium:
+  name: myocardium
+  subject_to_histopathology_analysis: true
+
+cerebrum:
+  name: cerebrum
+  subject_to_histopathology_analysis: true
+
+cerebellum:
+  name: cerebellum
+  subject_to_histopathology_analysis: true
+
+pons:
+  name: pons
+  subject_to_histopathology_analysis: true
+
+medulla_oblongata:
+  name: medulla_oblongata
+  subject_to_histopathology_analysis: true
+
+psoas_major_muscle:
+  name: psoas_major_muscle
+  subject_to_histopathology_analysis: true
+
+thyroid_gland:
+  name: thyroid_gland
+  subject_to_histopathology_analysis: true
+
+bone_marrow:
+  name: bone_marrow
+  subject_to_histopathology_analysis: true

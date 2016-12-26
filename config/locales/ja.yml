@@ -62,6 +62,7 @@ ja:
     ileum: 回腸
     colon: 大腸
     bladder: 膀胱
+    myocardium: 心筋
   section_title:
     external:
       outline: 概観
@@ -96,6 +97,7 @@ ja:
       back: 背部開検
     analyses:
       blood_type: 血液型
+      histopathology: 病理組織学的所見
   body_parts:
     left_leg: 左足
     right_leg: 右足

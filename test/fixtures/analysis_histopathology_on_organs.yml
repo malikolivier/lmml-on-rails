@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: analysis_histopathology_on_organs
+#
+#  id                         :integer          not null, primary key
+#  organ_id                   :integer
+#  analysis_histopathology_id :integer          not null
+#  result                     :text
+#  other_organ                :text
+#  created_at                 :datetime         not null
+#  updated_at                 :datetime         not null
+#
+
+completed_autopsy_histopathology_myocardium:
+  organ: myocardium
+  analysis_histopathology: completed_autopsy_histopathology_analysis
+  result: 心筋は〇〇です。
+
+completed_autopsy_histopathology_other_organ:
+  other_organ: 眼球
+  analysis_histopathology: completed_autopsy_histopathology_analysis
+  result: 眼球は〇〇です。
