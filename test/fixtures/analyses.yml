@@ -28,6 +28,11 @@ completed_autopsy_instant_view:
   autopsy: completed_autopsy
   analysis_type: instant_view
 
+completed_autopsy_triage:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: triage
+
 
 completed_autopsy_other1:
   completed: true

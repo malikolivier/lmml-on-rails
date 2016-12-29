@@ -1,0 +1,44 @@
+# == Schema Information
+#
+# Table name: triage_supported_drugs
+#
+#  id                      :integer          not null, primary key
+#  drug_id                 :integer
+#  concentration_threshold :float
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+triage_supports_PCP:
+  drug: PCP
+  concentration_threshold: 25
+
+triage_supports_BZO:
+  drug: benzos
+  concentration_threshold: 300
+
+triage_supports_cocaine:
+  drug: cocaine
+  concentration_threshold: 300
+
+triage_supports_amp:
+  drug: amphetamine
+  concentration_threshold: 1000
+
+triage_supports_thc:
+  drug: cannabis
+  concentration_threshold: 50
+
+triage_supported_opiates:
+  drug: opiates
+  concentration_threshold: 300
+
+triage_supports_barbiturates:
+  drug: barbiturates
+  concentration_threshold: 300
+
+triage_supports_TCA:
+  drug: TCA
+  concentration_threshold: 1000

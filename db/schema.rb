@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229111902) do
+ActiveRecord::Schema.define(version: 20161229115738) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20161229111902) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_others_on_analysis_id"
+  end
+
+  create_table "analysis_triages", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_triages_on_analysis_id"
   end
 
   create_table "analysis_types", force: :cascade do |t|
@@ -796,6 +803,24 @@ ActiveRecord::Schema.define(version: 20161229111902) do
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.index ["external_mouth_examination_id"], name: "index_tooth_examinations_on_external_mouth_examination_id"
+  end
+
+  create_table "triage_drug_results", force: :cascade do |t|
+    t.integer  "analysis_triage_id"
+    t.integer  "drug_id"
+    t.integer  "result"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["analysis_triage_id"], name: "index_triage_drug_results_on_analysis_triage_id"
+    t.index ["drug_id"], name: "index_triage_drug_results_on_drug_id"
+  end
+
+  create_table "triage_supported_drugs", force: :cascade do |t|
+    t.integer  "drug_id"
+    t.float    "concentration_threshold"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["drug_id"], name: "index_triage_supported_drugs_on_drug_id"
   end
 
 end

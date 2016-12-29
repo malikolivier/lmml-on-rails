@@ -23,3 +23,15 @@ cannabis:
 
 opiates:
   abbr: OPI
+
+PCP:
+  abbr: PCP
+
+benzos:
+  abbr: BZO
+
+barbiturates:
+  abbr: BAR
+
+TCA:
+  abbr: TCA

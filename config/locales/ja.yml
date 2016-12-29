@@ -99,6 +99,7 @@ ja:
       blood_type: 血液型
       histopathology: 病理組織学的所見
       instant_view: インスタントビュー濫用薬物スクリーニング検査
+      triage: トライエージ濫用薬物スクリーニング検査
   body_parts:
     left_leg: 左足
     right_leg: 右足

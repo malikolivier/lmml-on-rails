@@ -41,3 +41,27 @@ opiates_ja:
   language: ja
   name: オピエート
   long_name: モルヒネ、ヘロイン等（モルヒネ系麻薬）
+
+PCP_ja:
+  drug: PCP
+  language: ja
+  name: フェンシクリジン
+  long_name: フェンシクリジン（幻覚剤）
+
+benzos_ja:
+  drug: benzos
+  language: ja
+  name: ベンゾ
+  long_name: ベンゾジアゼピン類（向精神薬）
+
+barbiturates_ja:
+  drug: barbiturates
+  language: ja
+  name: バルビツール酸系
+  long_name: バルビツール酸類（向精神薬）
+
+TCA_ja:
+  drug: TCA
+  language: ja
+  name: TCA
+  long_name: 三環系抗うつ剤（向精神薬）

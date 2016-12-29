@@ -1,0 +1,28 @@
+<%= this.description %>
+
+<% if this.triage_drug_results.not_positive.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          薬物
+        </th>
+        <th>
+          検出限界濃度(ng/mL)
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% this.triage_drug_results.includes(drug: :triage_supported_drug).not_positive.each do |result| %>
+        <tr>
+          <td>
+            <%= result.drug.abbr %>：<%= result.drug.translated_long_name %>
+          </td>
+          <td>
+            <%= result.drug.triage_concentration_threshold %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
