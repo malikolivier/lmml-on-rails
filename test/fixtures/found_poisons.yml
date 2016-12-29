@@ -14,14 +14,13 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  drug_id: 1
-  unit: 1
-  quantitative_concentration: 1.5
-  qualitative_concentration: 1
+completed_autopsy_poisoning_analysis_opiates:
+  analysis_poisoning: completed_autopsy_poisoning_analysis
+  drug: opiates
+  unit: qualitative
+  qualitative_concentration: much
 
-two:
-  drug_id: 1
-  unit: 1
-  quantitative_concentration: 1.5
-  qualitative_concentration: 1
+completed_autopsy_poisoning_analysis_benzos:
+  drug: benzos
+  unit: mg/mL
+  quantitative_concentration: 0.9

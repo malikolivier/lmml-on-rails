@@ -12,12 +12,7 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  integer: 
-  integer: 
-  date: 2016-12-29
-
-two:
-  integer: 
-  integer: 
+completed_autopsy_poisoning_analysis:
+  analysis: completed_autopsy_poisoning
+  contract_institution: a_lab
   date: 2016-12-29

@@ -27,9 +27,9 @@ triage:
   placement: 4
   name: triage
 
-poison:
+poisoning:
   placement: 5
-  name: poison
+  name: poisoning
 
 ethanol:
   placement: 6

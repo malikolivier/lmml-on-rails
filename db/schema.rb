@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229140001) do
+ActiveRecord::Schema.define(version: 20161229142000) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -146,6 +146,11 @@ ActiveRecord::Schema.define(version: 20161229140001) do
 
   create_table "body_references", force: :cascade do |t|
     t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chemical_analysis_methods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

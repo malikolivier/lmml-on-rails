@@ -31,3 +31,7 @@ a_court:
   name: 〇〇裁判所
   address: 〇〇市
   institution_type: court
+
+a_lab:
+  name: 〇〇警科学捜査研究所
+  institution_type: lab

@@ -1,26 +1,12 @@
 # == Schema Information
 #
-# Table name: institution_types
+# Table name: chemical_analysis_methods
 #
 #  id         :integer          not null, primary key
-#  name       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-university:
-  name: University
-
-court:
-  name: Court
-
-police_station:
-  name: Police station
-
-private_company:
-  name: Private company
-
-lab:
-  name: lab
+one: {}

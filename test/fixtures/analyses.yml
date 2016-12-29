@@ -33,6 +33,11 @@ completed_autopsy_triage:
   autopsy: completed_autopsy
   analysis_type: triage
 
+completed_autopsy_poisoning:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: poisoning
+
 
 completed_autopsy_other1:
   completed: true
