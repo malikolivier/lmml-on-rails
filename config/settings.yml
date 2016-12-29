@@ -62,6 +62,17 @@ enums:
     - usual
     - big
     - small
+  units:
+    - mg/mL
+    - ng/mL
+    - qualitative
+  concentration:
+    - undetected
+    - little
+    - rather_little
+    - mid
+    - rather_much
+    - much
   tests:
     binary_result:
       - positive

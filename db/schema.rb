@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229115738) do
+ActiveRecord::Schema.define(version: 20161229140001) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20161229115738) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_others_on_analysis_id"
+  end
+
+  create_table "analysis_poisonings", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.integer  "contract_institution_id"
+    t.date     "date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["analysis_id"], name: "index_analysis_poisonings_on_analysis_id"
+    t.index ["contract_institution_id"], name: "index_analysis_poisonings_on_contract_institution_id"
   end
 
   create_table "analysis_triages", force: :cascade do |t|
@@ -344,6 +354,18 @@ ActiveRecord::Schema.define(version: 20161229115738) do
     t.integer  "odor"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "found_poisons", force: :cascade do |t|
+    t.integer  "analysis_poisoning_id"
+    t.integer  "drug_id"
+    t.integer  "unit"
+    t.float    "quantitative_concentration"
+    t.integer  "qualitative_concentration"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["analysis_poisoning_id"], name: "index_found_poisons_on_analysis_poisoning_id"
+    t.index ["drug_id"], name: "index_found_poisons_on_drug_id"
   end
 
   create_table "gall_bladders", force: :cascade do |t|
