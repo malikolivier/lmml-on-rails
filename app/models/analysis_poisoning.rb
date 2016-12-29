@@ -18,11 +18,11 @@ class AnalysisPoisoning < ApplicationRecord
   has_many :chemical_analysis_methods, through: :found_poisons
 
   def description
-    if found_poisons.any?
-      result = '以下の薬物が検出され、その血中濃度は以下のごとくであった'
-    else
-      result = '薬物が検出されなかった'
-    end
+    result = if found_poisons.any?
+               '以下の薬物が検出され、その血中濃度は以下のごとくであった'
+             else
+               '薬物が検出されなかった'
+             end
     "#{contract_description}本屍の血液について、#{chemical_analysis_method_description}をおこなった結果、#{result}旨報告を受けた#{date_description}。"
   end
 
@@ -39,6 +39,6 @@ class AnalysisPoisoning < ApplicationRecord
   end
 
   def date_description
-    "（#{date.to_era("%O%E年%m月%d日")}）" if date.present?
+    "（#{date.to_era('%O%E年%m月%d日')}）" if date.present?
   end
 end
