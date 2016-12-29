@@ -12,11 +12,9 @@ class Drug < ApplicationRecord
   has_many :drug_translations
 
   def translated_name
-    begin
-      record = drug_translations.language(I18n.locale).take!
-      record.name
-    rescue ActiveRecord::RecordNotFound
-      "No translation found for drug #{abbr} ##{id} in #{I18n.locale}!"
-    end
+    record = drug_translations.language(I18n.locale).take!
+    record.name
+  rescue ActiveRecord::RecordNotFound
+    "No translation found for drug #{abbr} ##{id} in #{I18n.locale}!"
   end
 end

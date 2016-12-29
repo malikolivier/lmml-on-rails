@@ -14,7 +14,7 @@
 class DrugTranslation < ApplicationRecord
   belongs_to :drug, required: true
 
-  validates :status, inclusion: {in: I18n.available_locales}
+  validates :status, inclusion: { in: I18n.available_locales }
   validates :language, presence: true
 
   scope :language, ->(locale) { where(language: locale) }
