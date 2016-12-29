@@ -101,6 +101,7 @@ ja:
       instant_view: インスタントビュー濫用薬物スクリーニング検査
       triage: トライエージ濫用薬物スクリーニング検査
       poisoning: 血中薬毒物検査
+      ethanol: 血中エタノール濃度
   body_parts:
     left_leg: 左足
     right_leg: 右足

@@ -6,7 +6,7 @@
 #  drug_id    :integer
 #  name       :text
 #  long_name  :text
-#  language   :string(5)
+#  language   :string(5)        not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

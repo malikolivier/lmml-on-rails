@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: analysis_ethanols
+#
+#  id                       :integer          not null, primary key
+#  analysis_id              :integer
+#  contract_institution_id  :integer
+#  found                    :boolean          not null
+#  date                     :date
+#  heart_concentration      :float
+#  iliac_vein_concentration :float
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  analysis_id: 1
+  contract_institution_id: 1
+  found: false
+  date: 2016-12-30
+  heart_concentration: 1.5
+  iliac_vein_concentration: 1.5
+
+two:
+  analysis_id: 1
+  contract_institution_id: 1
+  found: false
+  date: 2016-12-30
+  heart_concentration: 1.5
+  iliac_vein_concentration: 1.5
