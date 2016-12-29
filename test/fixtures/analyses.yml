@@ -23,6 +23,12 @@ completed_autopsy_histopathology:
   autopsy: completed_autopsy
   analysis_type: histopathology
 
+completed_autopsy_instant_view:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: instant_view
+
+
 completed_autopsy_other1:
   completed: true
   autopsy: completed_autopsy

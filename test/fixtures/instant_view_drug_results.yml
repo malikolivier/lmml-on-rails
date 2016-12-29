@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: instant_view_drug_results
+#
+#  id                       :integer          not null, primary key
+#  analysis_instant_view_id :integer
+#  drug_id                  :integer
+#  result                   :integer
+#  created_at               :datetime         not null
+#  updated_at               :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_instant_view_analysis_cocaine:
+  analysis_instant_view: completed_autopsy_instant_view_analysis
+  drug: cocaine
+  result: negative
+
+completed_autopsy_instant_view_analysis_amphetamine:
+  analysis_instant_view: completed_autopsy_instant_view_analysis
+  drug: amphetamine
+  result: negative
+
+completed_autopsy_instant_view_analysis_methamphetamine:
+  analysis_instant_view: completed_autopsy_instant_view_analysis
+  drug: methamphetamine
+  result: negative
+
+completed_autopsy_instant_view_analysis_cannabis:
+  analysis_instant_view: completed_autopsy_instant_view_analysis
+  drug: cannabis
+  result: negative
+
+completed_autopsy_instant_view_analysis_opiates:
+  analysis_instant_view: completed_autopsy_instant_view_analysis
+  drug: opiates
+  result: positive

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226200058) do
+ActiveRecord::Schema.define(version: 20161229082126) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 20161226200058) do
     t.datetime "updated_at",                 null: false
     t.index ["analysis_histopathology_id"], name: "organ_histopathology_analysis"
     t.index ["organ_id"], name: "index_analysis_histopathology_on_organs_on_organ_id"
+  end
+
+  create_table "analysis_instant_views", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_instant_views_on_analysis_id"
   end
 
   create_table "analysis_others", force: :cascade do |t|
@@ -141,6 +148,12 @@ ActiveRecord::Schema.define(version: 20161226200058) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["internal_heart_examination_id"], name: "index_coronary_arteries_on_internal_heart_examination_id"
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "examination_types", force: :cascade do |t|
@@ -425,6 +438,16 @@ ActiveRecord::Schema.define(version: 20161226200058) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["in_body_orientation_id"], name: "index_injury_sizes_on_in_body_orientation_id"
+  end
+
+  create_table "instant_view_drug_results", force: :cascade do |t|
+    t.integer  "analysis_instant_view_id"
+    t.integer  "drug_id"
+    t.integer  "result"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["analysis_instant_view_id"], name: "index_instant_view_drug_results_on_analysis_instant_view_id"
+    t.index ["drug_id"], name: "index_instant_view_drug_results_on_drug_id"
   end
 
   create_table "institution_types", force: :cascade do |t|

@@ -98,6 +98,7 @@ ja:
     analyses:
       blood_type: 血液型
       histopathology: 病理組織学的所見
+      instant_view: インスタントビュー濫用薬物スクリーニング検査
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -115,6 +116,12 @@ ja:
     right_knee: 右膝
     left_foot: 左足
     right_foot: 右足
+  drugs:
+    cocaine: コカイン
+    amphetamine: アンフェタミン
+    methamphetamine: メタンフェタミン
+    cannabis: アサ
+    opiates: オピエート
   intensity:
     unknown: 不明
     weak: 弱い

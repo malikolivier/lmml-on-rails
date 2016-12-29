@@ -62,6 +62,11 @@ enums:
     - usual
     - big
     - small
+  tests:
+    binary_result:
+      - positive
+      - negative
+      - unknown
 air_track_organs:
   - larynx
   - trachea
