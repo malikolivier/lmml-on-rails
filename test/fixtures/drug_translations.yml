@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: drug_translations
+#
+#  id         :integer          not null, primary key
+#  drug_id    :integer
+#  name       :text
+#  long_name  :text
+#  language   :string(5)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cocaine_ja:
+  drug: cocaine
+  language: ja
+  name: コカイン
+  long_name: ｺｶｲﾝ､ﾍﾞﾝｿﾞｲﾙｴｸｺﾞﾆﾝ等（コカイン系麻薬）
+
+amphetamine_ja:
+  drug: amphetamine
+  language: ja
+  name: アンフェタミン
+  long_name: ｱﾝﾌｪﾀﾐﾝ､ﾒﾀﾝﾌｪﾀﾐﾝ（覚醒剤）
+
+methamphetamine_ja:
+  drug: methamphetamine
+  language: ja
+  name: メタンフェタミン
+
+cannabis_ja:
+  drug: cannabis
+  language: ja
+  name: 大麻
+  long_name: ﾃﾄﾗﾋﾄﾞﾛｶﾝﾅﾋﾞﾉｰﾙ（大麻）
+
+opiates_ja:
+  drug: opiates
+  language: ja
+  name: オピエート
+  long_name: モルヒネ、ヘロイン等（モルヒネ系麻薬）

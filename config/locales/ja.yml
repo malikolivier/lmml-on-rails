@@ -116,12 +116,6 @@ ja:
     right_knee: 右膝
     left_foot: 左足
     right_foot: 右足
-  drugs:
-    cocaine: コカイン
-    amphetamine: アンフェタミン
-    methamphetamine: メタンフェタミン
-    cannabis: アサ
-    opiates: オピエート
   intensity:
     unknown: 不明
     weak: 弱い

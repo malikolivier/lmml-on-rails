@@ -3,7 +3,7 @@
 # Table name: drugs
 #
 #  id         :integer          not null, primary key
-#  name       :text
+#  abbr       :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -11,16 +11,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 cocaine:
-  name: cocaine
+  abbr: COC
 
 amphetamine:
-  name: amphetamine
+  abbr: AMP
 
-methamphetamine:
-  name: methamphetamine
+methamphetamine: {}
 
 cannabis:
-  name: cannabis
+  abbr: THC
 
 opiates:
-  name: opiates
+  abbr: OPI
