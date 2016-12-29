@@ -30,7 +30,7 @@ class ExternalMouthExamination < ApplicationRecord
 
   def closedness_report
     if !other?
-      aperture_sentence = open? && aperture > 0 ? "#{aperture}cm" : ''
+      aperture_sentence = open? && aperture.positive? ? "#{aperture}cm" : ''
       closedness = I18n.t "closedness.#{closed}"
       sentence = "口は#{aperture_sentence}#{closedness}。"
     else

@@ -21,7 +21,7 @@ class CoronaryArtery < ApplicationRecord
   scope :blood_clot, -> { where(stenosis: 100) }
   scope :no_stenosis, -> { where(stenosis: 0) }
   def stenosis?
-    stenosis > 0
+    stenosis.positive?
   end
 
   def description
