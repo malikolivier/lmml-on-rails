@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: chemical_analysis_method_translations
+#
+#  id                          :integer          not null, primary key
+#  chemical_analysis_method_id :integer
+#  language                    :string(5)        not null
+#  name                        :text
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+gas_chromatography_ja:
+  chemical_analysis_method: gas_chromatography
+  language: ja
+  name: ガスクロマトグラフィー
+
+mass_spectrometry_ja:
+  chemical_analysis_method: mass_spectrometry
+  language: ja
+  name: 質量分析法
+
+high_performance_liquid_chromatography_ja:
+  chemical_analysis_method: high_performance_liquid_chromatography
+  language: ja
+  name: 高速液体クロマトグラフィー

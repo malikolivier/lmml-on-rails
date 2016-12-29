@@ -104,7 +104,9 @@
     <h3>（<%= (syoken_count+=1).to_full_width %>）　諸検査の成績</h3>
   <% end %>
   <h4><%= section_title %></h4>
-  <%= render partial: "autopsies/analyses/#{analysis.analysis_type.name}", locals: { this: analysis.get } %>
+  <p>
+    <%= render partial: "autopsies/analyses/#{analysis.analysis_type.name}", locals: { this: analysis.get } %>
+  </p>
   <%= analysis.note %>
 <% end %>
 

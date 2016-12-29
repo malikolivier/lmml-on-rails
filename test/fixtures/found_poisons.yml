@@ -19,8 +19,11 @@ completed_autopsy_poisoning_analysis_opiates:
   drug: opiates
   unit: qualitative
   qualitative_concentration: much
+  chemical_analysis_method: gas_chromatography
 
 completed_autopsy_poisoning_analysis_benzos:
+  analysis_poisoning: completed_autopsy_poisoning_analysis
   drug: benzos
   unit: mg/mL
   quantitative_concentration: 0.9
+  chemical_analysis_method: mass_spectrometry

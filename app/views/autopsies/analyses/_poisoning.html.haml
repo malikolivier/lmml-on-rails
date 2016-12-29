@@ -1,0 +1,13 @@
+= this.description
+
+- if this.found_poisons.any?
+  %table
+    %thead>
+      %tr
+        %th 薬物
+        %th 血中濃度
+    %tbody
+      - this.found_poisons.includes(:drug).each do |poison|
+        %tr
+          %td= poison.drug.description
+          %td= poison.concentration_description

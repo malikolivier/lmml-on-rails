@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229142000) do
+ActiveRecord::Schema.define(version: 20161229151314) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -150,6 +150,16 @@ ActiveRecord::Schema.define(version: 20161229142000) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chemical_analysis_method_translations", force: :cascade do |t|
+    t.integer  "chemical_analysis_method_id"
+    t.string   "language",                    limit: 5, null: false
+    t.text     "name"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["chemical_analysis_method_id"], name: "chemical_analysis_method_translation_index"
+    t.index ["language"], name: "index_chemical_analysis_method_translations_on_language"
+  end
+
   create_table "chemical_analysis_methods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -176,7 +186,7 @@ ActiveRecord::Schema.define(version: 20161229142000) do
     t.integer  "drug_id"
     t.text     "name"
     t.text     "long_name"
-    t.string   "language",   limit: 5
+    t.string   "language",   limit: 5, null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["drug_id"], name: "index_drug_translations_on_drug_id"
@@ -364,12 +374,14 @@ ActiveRecord::Schema.define(version: 20161229142000) do
   create_table "found_poisons", force: :cascade do |t|
     t.integer  "analysis_poisoning_id"
     t.integer  "drug_id"
+    t.integer  "chemical_analysis_method_id"
     t.integer  "unit"
     t.float    "quantitative_concentration"
     t.integer  "qualitative_concentration"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["analysis_poisoning_id"], name: "index_found_poisons_on_analysis_poisoning_id"
+    t.index ["chemical_analysis_method_id"], name: "index_found_poisons_on_chemical_analysis_method_id"
     t.index ["drug_id"], name: "index_found_poisons_on_drug_id"
   end
 

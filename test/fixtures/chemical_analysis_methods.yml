@@ -9,4 +9,8 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one: {}
+gas_chromatography: {}
+
+mass_spectrometry: {}
+
+high_performance_liquid_chromatography: {}

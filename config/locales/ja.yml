@@ -100,6 +100,7 @@ ja:
       histopathology: 病理組織学的所見
       instant_view: インスタントビュー濫用薬物スクリーニング検査
       triage: トライエージ濫用薬物スクリーニング検査
+      poisoning: 血中薬毒物検査
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -137,6 +138,13 @@ ja:
   mass_quantity: # mass as in "mass noun"
     unknown: 不明
     none: なし
+    little: 少ない
+    rather_little: やや少ない
+    mid: 中等
+    rather_much: やや多い
+    much: 多い
+  concentration:
+    undetected: 未検出
     little: 少ない
     rather_little: やや少ない
     mid: 中等
