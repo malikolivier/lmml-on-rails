@@ -1,0 +1,13 @@
+%p= this.description
+
+- if this.triage_drug_results.not_positive.any?
+  %table
+    %thead>
+      %tr
+        %th 薬物
+        %th 検出限界濃度(ng/mL)
+    %tbody
+      - this.triage_drug_results.includes(drug: :triage_supported_drug).not_positive.each do |result|
+        %tr
+          %td= result.drug.description
+          %td= result.drug.triage_concentration_threshold
