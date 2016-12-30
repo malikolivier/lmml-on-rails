@@ -13,6 +13,6 @@ class AnalysisBiochemistry < ApplicationRecord
 
   has_many :biochemical_analyses, lambda {
     joins(:biochemical_analysis_type)
-    .order('`biochemical_analysis_types`.`placement`')
+      .order('`biochemical_analysis_types`.`placement`')
   }
 end

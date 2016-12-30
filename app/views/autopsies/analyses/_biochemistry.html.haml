@@ -5,7 +5,6 @@
   %table
     %tbody
       - analysis.biochemical_analysis_results.each do |result|
-        - #binding.pry
         %tr
           %td= result.molecule.translation.name
           %td= result.quantity_description

@@ -19,7 +19,7 @@ class Molecule < ApplicationRecord
     molecule_translations.language(I18n.locale).take!
   end
 
-  def standard_description
+  def standard_description # rubocop:disable Metrics/CyclomaticComplexity
     mask = 0b0
     mask += standard_quantity_min.present? && !standard_quantity_min.zero? ? 1 : 0
     mask += standard_quantity_max.present? ? 1 : 0
