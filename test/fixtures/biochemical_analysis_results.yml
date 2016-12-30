@@ -23,18 +23,18 @@ completed_autopsy_biochemistry_at_home_analysis_result:
 
 completed_autopsy_biochemistry_a_lab_analysis_acetoacetic_acid:
   biochemical_analysis: completed_autopsy_biochemistry_a_lab_analysis
-  molecule_id: acetoacetic_acid
+  molecule: acetoacetic_acid
   quantity: 23
   unit: μmol/L
 
 completed_autopsy_biochemistry_a_lab_analysis_3_hydroxybutyric_acid:
   biochemical_analysis: completed_autopsy_biochemistry_a_lab_analysis
-  molecule_id: 3_hydroxybutyric_acid
+  molecule: 3_hydroxybutyric_acid
   quantity: 54
   unit: μmol/L
 
 completed_autopsy_biochemistry_a_lab_analysis_all_ketone_bodies:
   biochemical_analysis: completed_autopsy_biochemistry_a_lab_analysis
-  molecule_id: all_ketone_bodies
+  molecule: all_ketone_bodies
   quantity: 14
   unit: μmol/L

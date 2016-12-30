@@ -1,8 +1,12 @@
-１）ヘモグロビンA1c検査
-　本屍の心臓血につき、ヘモグロビンA1c濃度を測定したところ、約○○ % (正常値4.6～6.2 %)であった。
-２）血中ケトン体分画
-　株式会社エスアールエルに委託し、本屍の血中ケトン体分画を検査したところ、以下のような結果を得た旨報告を受けた(平成26年○月○日)
+- this.biochemical_analyses.each_with_index do |analysis, i|
+  %h4= "#{i+1}) #{analysis.biochemical_analysis_type.translation.title}"
+  %p= analysis.description
 
-アセト酢酸		：○○ μmol/l （正常値55μmol/l以下）
-3-ヒドロキシ酪酸	：○○ μmol/l （正常値85μmol/l以下）
-総ケトン体		：○○ μmol/l （正常値130μmol/l以下）
+  %table
+    %tbody
+      - analysis.biochemical_analysis_results.each do |result|
+        - #binding.pry
+        %tr
+          %td= result.molecule.translation.name
+          %td= result.quantity_description
+          %td= "（正常値 #{result.molecule.standard_description}）" if result.molecule.standard_description.present?

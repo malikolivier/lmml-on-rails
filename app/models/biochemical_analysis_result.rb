@@ -13,8 +13,13 @@
 #
 
 class BiochemicalAnalysisResult < ApplicationRecord
-  belongs_to :biochemical_analysis
-  belongs_to :molecule
+  belongs_to :biochemical_analysis, required: true
+  belongs_to :molecule, required: true
 
   enum unit: [:%, :'μmol/L']
+
+  def quantity_description
+    about = approximate ? '約' : ''
+    "#{about}#{quantity}#{unit}"
+  end
 end
