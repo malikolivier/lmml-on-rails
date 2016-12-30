@@ -15,18 +15,10 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  analysis_id: 1
-  contract_institution_id: 1
-  found: false
+completed_autopsy_ethanol_analysis:
+  analysis: completed_autopsy_ethanol
+  contract_institution: a_lab
+  found: true
   date: 2016-12-30
-  heart_concentration: 1.5
-  iliac_vein_concentration: 1.5
-
-two:
-  analysis_id: 1
-  contract_institution_id: 1
-  found: false
-  date: 2016-12-30
-  heart_concentration: 1.5
+  heart_concentration: 1.6
   iliac_vein_concentration: 1.5

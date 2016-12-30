@@ -1,0 +1,17 @@
+= this.description
+
+- if this.found?
+  %table
+    %tbody
+      - if this.heart_concentration.present?
+        %tr
+          %td 心臓血中エタノール濃度
+          %td
+            = this.heart_concentration
+            mg/mL
+      - if this.iliac_vein_concentration.present?
+        %tr
+          %td 総腸骨静脈血中エタノール濃度
+          %td
+            = this.iliac_vein_concentration
+            mg/mL

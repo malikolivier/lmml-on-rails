@@ -38,6 +38,11 @@ completed_autopsy_poisoning:
   autopsy: completed_autopsy
   analysis_type: poisoning
 
+completed_autopsy_ethanol:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: ethanol
+
 
 completed_autopsy_other1:
   completed: true
