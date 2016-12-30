@@ -19,8 +19,7 @@ class AnalysisDiatomTest < ApplicationRecord
   def description
     return '未記入な項目がございます。' if left_lung.quantity.blank? && right.quantity.blank?
     "#{first_paragraph}
-    <br />
-    #{second_paragraph}"
+  　<p>#{second_paragraph}</p>"
   end
 
   def left_lung
@@ -34,12 +33,12 @@ class AnalysisDiatomTest < ApplicationRecord
   private
 
   def first_paragraph
-    first_paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
+    paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
     if right_lung.quantity == left_lung.quantity
       if left_lung.found?
-        first_paragraph += "肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
+        paragraph += "肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
       else
-        first_paragraph += "肺臓では検出されなかった。"
+        paragraph += '肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。'
       end
     else
       phrases = []
@@ -52,8 +51,8 @@ class AnalysisDiatomTest < ApplicationRecord
         phrases.push("右肺臓では#{right_lung.translated_quantity}")
         descriptive_phrases.push("左肺に#{right_lung.descriptive_quantity}")
       end
-      first_paragraph += phrases.to_sentence_with_comma
-      first_paragraph += "（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{descriptive_phrases.to_sentence_with_comma}の珪藻が観察）の珪藻が観察された。"
+      paragraph += phrases.to_sentence_with_comma
+      "#{paragraph}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{descriptive_phrases.to_sentence_with_comma}の珪藻が観察）の珪藻が観察された。"
     end
   end
 
