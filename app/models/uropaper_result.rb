@@ -23,7 +23,7 @@ class UropaperResult < ApplicationRecord
     value = Settings.uropaper_categories[category].values[qualitative_result]
     if value.nil?
       string = qualitative_result.to_s
-      if /^(\+|\-)+$/.match(string)
+      if string =~ /^(\+|\-)+$/
         # Return strings that only have '+' or '-' as is
         string
       else
