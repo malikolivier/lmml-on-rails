@@ -82,3 +82,75 @@ air_track_organs:
   - larynx
   - trachea
   - main_bronchi
+uropaper_categories:
+  leukocytes:
+    values:
+      -: null
+      +: null
+      ++: null
+      +++: null
+  urobilinogen:
+    values:
+      usual: null
+      +: 2
+      ++: 4
+      +++: 8
+      ++++: 12
+    unit: mg/dL
+  occult_blood_hemoglobin:
+    values:
+      -: null
+      +-: null
+      +: null
+      ++: null
+      +++: null
+  occult_blood_erythrocytes:
+    values:
+      -: null
+      +-: null
+      +: null
+      ++: null
+      +++: null
+  bilirubin:
+    values:
+      -: null
+      +: null
+      ++: null
+      +++: null
+  ketone_bodies:
+    values:
+      -: null
+      +: null
+      ++: null
+      +++: null
+  glucose:
+    values:
+      -: null
+      +-: 50
+      +: 100
+      ++: 250
+      +++: 500
+      ++++: 2000
+    unit: mg/dL
+  protein:
+    values:
+      -: null
+      +-: 15
+      +: 30
+      ++: 100
+      +++: 300
+      ++++: 1000
+    unit: mg/dL
+  nitrite:
+    values:
+      -: null
+      weak_positive: null
+      strong_positive: null
+  relative_density:
+    1.000: null
+    1.005: null
+    1.010: null
+    1.015: null
+    1.020: null
+    1.025: null
+    1.030: null

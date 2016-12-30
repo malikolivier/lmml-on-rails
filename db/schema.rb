@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230041851) do
+ActiveRecord::Schema.define(version: 20161230074824) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -110,6 +110,13 @@ ActiveRecord::Schema.define(version: 20161230041851) do
     t.text     "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "analysis_uropapers", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.float    "ph"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "autopsies", force: :cascade do |t|
@@ -883,6 +890,15 @@ ActiveRecord::Schema.define(version: 20161230041851) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["drug_id"], name: "index_triage_supported_drugs_on_drug_id"
+  end
+
+  create_table "uropaper_results", force: :cascade do |t|
+    t.integer  "analysis_uropaper_id"
+    t.integer  "category",             null: false
+    t.integer  "result"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["analysis_uropaper_id"], name: "index_uropaper_results_on_analysis_uropaper_id"
   end
 
 end

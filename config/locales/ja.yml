@@ -103,6 +103,7 @@ ja:
       poisoning: 血中薬毒物検査
       ethanol: 血中エタノール濃度
       carbon_monoxide: 血中ヘモグロビンの一酸化炭素飽和度
+      uropaper: ウロペーパーⅢ検査
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -203,6 +204,23 @@ ja:
   transparency:
     transparent: 透明
     opaque: 混濁
+  uropapers:
+    leukocytes: 白血球
+    urobilinogen: ウロビリノーゲン
+    occult_blood_hemoglobin: 潜血（ヘモグロビン）
+    occult_blood_erythrocytes: 潜血（赤血球）
+    bilirubin: ビリルビン
+    ketone_bodies: ケトン体
+    glucose: ブドウ糖
+    protein: 蛋白質
+    nitrite: 亜硝酸塩
+    relative_density: 比重
+    category:
+      urobilinogen:
+        usual: 正常
+      nitrite:
+        weak_positive: 弱陽性
+        strong_positive: 強陽性
   activerecord:
     errors:
       messages:

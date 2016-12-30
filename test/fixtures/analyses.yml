@@ -48,6 +48,11 @@ completed_autopsy_carbon_monoxide:
   autopsy: completed_autopsy
   analysis_type: carbon_monoxide
 
+completed_autopsy_uropaper:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: uropaper
+
 completed_autopsy_other1:
   completed: true
   autopsy: completed_autopsy

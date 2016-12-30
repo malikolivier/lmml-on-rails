@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: uropaper_results
+#
+#  id                   :integer          not null, primary key
+#  analysis_uropaper_id :integer
+#  category             :integer          not null
+#  result               :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_uropaper_analysis_urobilinogen:
+  analysis_uropaper: completed_autopsy_uropaper_analysis
+  category: urobilinogen
+  result: 0
+
+completed_autopsy_uropaper_analysis_occult_blood_hemoglobin:
+  analysis_uropaper: completed_autopsy_uropaper_analysis
+  category: occult_blood_hemoglobin
+  result: 0
+
+completed_autopsy_uropaper_analysis_ketone_bodies:
+  analysis_uropaper: completed_autopsy_uropaper_analysis
+  category: ketone_bodies
+  result: 1
+
+completed_autopsy_uropaper_analysis_glucose:
+  analysis_uropaper: completed_autopsy_uropaper_analysis
+  category: glucose
+  result: 2
+
+completed_autopsy_uropaper_analysis_protein:
+  analysis_uropaper: completed_autopsy_uropaper_analysis
+  category: protein
+  result: 2
