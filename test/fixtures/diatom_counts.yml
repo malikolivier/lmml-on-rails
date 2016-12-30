@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: diatom_counts
+#
+#  id                      :integer          not null, primary key
+#  analysis_diatom_test_id :integer
+#  category                :integer
+#  quantity                :integer
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_diatom_test_analysis_water_no_destruction:
+  analysis_diatom_test: completed_autopsy_diatom_test_analysis
+  category: water_no_destruction
+  quantity: none
+
+completed_autopsy_diatom_test_analysis_water_with_destruction:
+  analysis_diatom_test: completed_autopsy_diatom_test_analysis
+  category: water_with_destruction
+  quantity: none
+
+completed_autopsy_diatom_test_analysis_left_lung:
+  analysis_diatom_test: completed_autopsy_diatom_test_analysis
+  category: left_lung
+  quantity: none
+
+completed_autopsy_diatom_test_analysis_right_lung:
+  analysis_diatom_test: completed_autopsy_diatom_test_analysis
+  category: right_lung
+  quantity: none

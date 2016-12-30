@@ -58,6 +58,11 @@ completed_autopsy_biochemistry:
   autopsy: completed_autopsy
   analysis_type: biochemistry
 
+completed_autopsy_diatom_test:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: diatom_test
+
 completed_autopsy_other1:
   completed: true
   autopsy: completed_autopsy

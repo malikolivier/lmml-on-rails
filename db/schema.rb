@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230125952) do
+ActiveRecord::Schema.define(version: 20161230154629) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20161230125952) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["analysis_id"], name: "index_analysis_carbon_monoxides_on_analysis_id"
+  end
+
+  create_table "analysis_diatom_tests", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.integer  "conclusion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "analysis_ethanols", force: :cascade do |t|
@@ -191,6 +198,8 @@ ActiveRecord::Schema.define(version: 20161230125952) do
     t.integer  "unit"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.index ["biochemical_analysis_id"], name: "index_biochemical_analysis_results_on_biochemical_analysis_id"
+    t.index ["molecule_id"], name: "index_biochemical_analysis_results_on_molecule_id"
   end
 
   create_table "biochemical_analysis_type_translations", force: :cascade do |t|
@@ -255,6 +264,15 @@ ActiveRecord::Schema.define(version: 20161230125952) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["internal_heart_examination_id"], name: "index_coronary_arteries_on_internal_heart_examination_id"
+  end
+
+  create_table "diatom_counts", force: :cascade do |t|
+    t.integer  "analysis_diatom_test_id"
+    t.integer  "category"
+    t.integer  "quantity"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["analysis_diatom_test_id"], name: "index_diatom_counts_on_analysis_diatom_test_id"
   end
 
   create_table "drug_translations", force: :cascade do |t|

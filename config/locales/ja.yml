@@ -105,6 +105,7 @@ ja:
       carbon_monoxide: 血中ヘモグロビンの一酸化炭素飽和度
       uropaper: ウロペーパーⅢ検査
       biochemistry: 生化学検査
+      diatom_test: 壊機試験
   body_parts:
     left_leg: 左足
     right_leg: 右足
@@ -135,10 +136,11 @@ ja:
   quantity:
     unknown: 不明
     none: なし
-    few: 僅かにある
-    middle: 少数ある
-    many: 多数ある
-    extremely_many: 非常に多くある
+    extremely_few: 極少数
+    few: 少数
+    middle: 中等数
+    many: 多数
+    extremely_many: 極多数
   mass_quantity: # mass as in "mass noun"
     unknown: 不明
     none: なし
@@ -222,6 +224,19 @@ ja:
       nitrite:
         weak_positive: 弱陽性
         strong_positive: 強陽性
+  diatom_test:
+    descriptive_quantity:
+      unknown: 不明
+      none: 0個
+      extremely_few: 全視野で1個
+      few: 数視野で0～数個
+      middle: 1視野で0～数個
+      many: 1視野で数個以上
+      extremely_many: 1視野で10個以上
+    conclusion:
+      contradiction: 肺にみられた珪藻との種類に矛盾はあった
+      no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
+      impossible_to_conclude: 本検査で得た情報で結論付けられない
   activerecord:
     errors:
       messages:
