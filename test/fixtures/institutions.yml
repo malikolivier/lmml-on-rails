@@ -35,3 +35,7 @@ a_court:
 a_lab:
   name: 〇〇警科学捜査研究所
   institution_type: lab
+
+a_company:
+  name: 株式会社〇〇
+  institution_type: private_company

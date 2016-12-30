@@ -53,6 +53,11 @@ completed_autopsy_uropaper:
   autopsy: completed_autopsy
   analysis_type: uropaper
 
+completed_autopsy_biochemistry:
+  completed: true
+  autopsy: completed_autopsy
+  analysis_type: biochemistry
+
 completed_autopsy_other1:
   completed: true
   autopsy: completed_autopsy

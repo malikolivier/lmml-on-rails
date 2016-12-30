@@ -1,0 +1,33 @@
+# == Schema Information
+#
+# Table name: molecule_translations
+#
+#  id          :integer          not null, primary key
+#  molecule_id :integer
+#  language    :string
+#  name        :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hemoglobin_a1c_ja:
+  molecule: hemoglobin_a1c
+  language: ja
+  name: ヘモグロビンA1c
+
+acetoacetic_acid_ja:
+  molecule: acetoacetic_acid
+  language: ja
+  name: アセト酢酸
+
+3_hydroxybutyric_acid_ja:
+  molecule: 3_hydroxybutyric_acid
+  language: ja
+  name: 3-ヒドロキシ酪酸
+
+all_ketone_bodies_ja:
+  molecule: all_ketone_bodies
+  language: ja
+  name: 総ケトン体

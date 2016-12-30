@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: biochemical_analyses
+#
+#  id                           :integer          not null, primary key
+#  analysis_biochemistry_id     :integer
+#  contract_institution_id      :integer
+#  biochemical_analysis_type_id :integer
+#  date                         :date
+#  created_at                   :datetime         not null
+#  updated_at                   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_biochemistry_at_home_analysis:
+  analysis_biochemistry: completed_autopsy_biochemistry_analysis
+  biochemical_analysis_type: hemoglobin_a1c
+
+completed_autopsy_biochemistry_a_lab_analysis:
+  analysis_biochemistry: completed_autopsy_biochemistry_analysis
+  contract_institution: a_company
+  biochemical_analysis_type: ketone_body_fraction
+  date: 2016-12-30

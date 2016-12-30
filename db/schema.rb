@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230074824) do
+ActiveRecord::Schema.define(version: 20161230125952) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20161230074824) do
     t.datetime "updated_at",       null: false
     t.index ["analysis_type_id"], name: "index_analyses_on_analysis_type_id"
     t.index ["autopsy_id"], name: "index_analyses_on_autopsy_id"
+  end
+
+  create_table "analysis_biochemistries", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_biochemistries_on_analysis_id"
   end
 
   create_table "analysis_blood_types", force: :cascade do |t|
@@ -160,6 +167,44 @@ ActiveRecord::Schema.define(version: 20161230074824) do
   create_table "autopsy_types", force: :cascade do |t|
     t.text     "name",       null: false
     t.text     "law"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "biochemical_analyses", force: :cascade do |t|
+    t.integer  "analysis_biochemistry_id"
+    t.integer  "contract_institution_id"
+    t.integer  "biochemical_analysis_type_id"
+    t.date     "date"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["analysis_biochemistry_id"], name: "index_biochemical_analyses_on_analysis_biochemistry_id"
+    t.index ["biochemical_analysis_type_id"], name: "index_biochemical_analyses_on_biochemical_analysis_type_id"
+    t.index ["contract_institution_id"], name: "index_biochemical_analyses_on_contract_institution_id"
+  end
+
+  create_table "biochemical_analysis_results", force: :cascade do |t|
+    t.integer  "biochemical_analysis_id"
+    t.integer  "molecule_id"
+    t.float    "quantity"
+    t.boolean  "approximate",             default: false
+    t.integer  "unit"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  create_table "biochemical_analysis_type_translations", force: :cascade do |t|
+    t.integer  "biochemical_analysis_type_id"
+    t.string   "language",                     limit: 5, null: false
+    t.text     "title"
+    t.text     "experiment_description"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index [nil], name: "biochemical_analysis_type_translation_index"
+  end
+
+  create_table "biochemical_analysis_types", force: :cascade do |t|
+    t.integer  "placement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -780,6 +825,22 @@ ActiveRecord::Schema.define(version: 20161230074824) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["external_outline_examination_id"], name: "index_livores_mortis_on_external_outline_examination_id"
+  end
+
+  create_table "molecule_translations", force: :cascade do |t|
+    t.integer  "molecule_id"
+    t.string   "language"
+    t.text     "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "molecules", force: :cascade do |t|
+    t.float    "standard_quantity_min"
+    t.float    "standard_quantity_max"
+    t.integer  "unit"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "mouth_photograph_takings", force: :cascade do |t|

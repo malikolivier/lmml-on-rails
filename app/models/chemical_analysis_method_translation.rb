@@ -13,8 +13,7 @@
 class ChemicalAnalysisMethodTranslation < ApplicationRecord
   belongs_to :chemical_analysis_method, required: true
 
-  validates :status, inclusion: { in: I18n.available_locales }
-  validates :language, presence: true
+  validates :language, inclusion: { in: I18n.available_locales }
 
   scope :language, ->(locale) { where(language: locale) }
 end

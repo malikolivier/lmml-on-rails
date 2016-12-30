@@ -104,6 +104,7 @@ ja:
       ethanol: 血中エタノール濃度
       carbon_monoxide: 血中ヘモグロビンの一酸化炭素飽和度
       uropaper: ウロペーパーⅢ検査
+      biochemistry: 生化学検査
   body_parts:
     left_leg: 左足
     right_leg: 右足

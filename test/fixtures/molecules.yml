@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: molecules
+#
+#  id                    :integer          not null, primary key
+#  standard_quantity_min :float
+#  standard_quantity_max :float
+#  unit                  :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hemoglobin_a1c:
+  standard_quantity_min: 4.6
+  standard_quantity_max: 6.2
+  unit: '%'
+
+acetoacetic_acid:
+  standard_quantity_max: 55
+  unit: μmol/L
+
+3_hydroxybutyric_acid:
+  standard_quantity_max: 85
+  unit: μmol/L
+
+all_ketone_bodies:
+  standard_quantity_max: 130
+  unit: μmol/L
