@@ -4,6 +4,10 @@
 #
 #  id          :integer          not null, primary key
 #  analysis_id :integer
+#  anti_a      :integer
+#  anti_b      :integer
+#  anti_h      :integer
+#  blood_type  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -12,3 +16,7 @@
 
 completed_autopsy_bloodtype_analysis:
   analysis: completed_autopsy_bloodtype
+  anti_a: positive
+  anti_b: negative
+  anti_h: negative
+  blood_type: A

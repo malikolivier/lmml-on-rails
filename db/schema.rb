@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20161230154629) do
 
   create_table "analysis_blood_types", force: :cascade do |t|
     t.integer  "analysis_id"
+    t.integer  "anti_a"
+    t.integer  "anti_b"
+    t.integer  "anti_h"
+    t.integer  "blood_type"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_blood_types_on_analysis_id"
@@ -52,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.integer  "conclusion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["analysis_id"], name: "index_analysis_diatom_tests_on_analysis_id"
   end
 
   create_table "analysis_ethanols", force: :cascade do |t|
