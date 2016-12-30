@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229164609) do
+ActiveRecord::Schema.define(version: 20161230041851) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20161229164609) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["analysis_id"], name: "index_analysis_blood_types_on_analysis_id"
+  end
+
+  create_table "analysis_carbon_monoxides", force: :cascade do |t|
+    t.integer  "analysis_id"
+    t.float    "left_heart_saturation"
+    t.float    "right_heart_saturation"
+    t.float    "iliac_vein_saturation"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["analysis_id"], name: "index_analysis_carbon_monoxides_on_analysis_id"
   end
 
   create_table "analysis_ethanols", force: :cascade do |t|

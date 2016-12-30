@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: analysis_carbon_monoxides
+#
+#  id                     :integer          not null, primary key
+#  analysis_id            :integer
+#  left_heart_saturation  :float
+#  right_heart_saturation :float
+#  iliac_vein_saturation  :float
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+completed_autopsy_carbon_monoxide_analysis:
+  analysis: completed_autopsy_carbon_monoxide
+  left_heart_saturation: 0
+  right_heart_saturation: 10
+  iliac_vein_saturation: 11.1

@@ -102,6 +102,7 @@ ja:
       triage: トライエージ濫用薬物スクリーニング検査
       poisoning: 血中薬毒物検査
       ethanol: 血中エタノール濃度
+      carbon_monoxide: 血中ヘモグロビンの一酸化炭素飽和度
   body_parts:
     left_leg: 左足
     right_leg: 右足
