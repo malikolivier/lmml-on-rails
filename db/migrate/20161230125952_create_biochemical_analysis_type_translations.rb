@@ -9,7 +9,7 @@ class CreateBiochemicalAnalysisTypeTranslations < ActiveRecord::Migration[5.0]
       t.timestamps
     end
     add_index :biochemical_analysis_type_translations,
-              :biochemical_analysis_type,
+              :biochemical_analysis_type_id,
               name: 'biochemical_analysis_type_translation_index'
   end
 end

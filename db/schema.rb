@@ -200,7 +200,7 @@ ActiveRecord::Schema.define(version: 20161230125952) do
     t.text     "experiment_description"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.index [nil], name: "biochemical_analysis_type_translation_index"
+    t.index ["biochemical_analysis_type_id"], name: "biochemical_analysis_type_translation_index"
   end
 
   create_table "biochemical_analysis_types", force: :cascade do |t|
