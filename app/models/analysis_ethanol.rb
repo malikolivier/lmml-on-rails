@@ -41,7 +41,8 @@ class AnalysisEthanol < ApplicationRecord
   def contract_description
     "#{contract_institution.name}に依頼し、" if contract_institution.present?
   end
-    def date_description
-      "（#{date.to_era('%O%E年%m月%d日')}）" if date.present?
-    end
+
+  def date_description
+    "（#{date.to_era('%O%E年%m月%d日')}）" if date.present?
+  end
 end
