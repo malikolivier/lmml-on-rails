@@ -26,12 +26,12 @@ class AnalysisBloodType < ApplicationRecord
     if positive_tries.any?
       description += "#{positive_tries.join('・')}血清とは明らかに陽性の凝集反応を示したが、"
     else
-      description += "明らかに陽性の凝集反応を示した血清はなかったが、"
+      description += '明らかに陽性の凝集反応を示した血清はなかったが、'
     end
     if negative_tries.any?
       description += "#{negative_tries.join('・')}血清とは明らかに反応が陰性であった。"
     else
-      description += "明らかに反応が陰性であった血清がなかった。"
+      description += '明らかに反応が陰性であった血清がなかった。'
     end
     description
   end
