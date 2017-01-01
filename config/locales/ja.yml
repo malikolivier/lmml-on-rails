@@ -265,6 +265,7 @@ ja:
         autopsy_type: 鑑定種別
         court: 裁判所
         judge: 裁判官
+        examiner: 執刀者
   date:
     abbr_day_names:
     - 日

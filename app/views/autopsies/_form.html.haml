@@ -20,7 +20,7 @@
   .field
     = f.time_field_v :starting_time
   .field
-    = f.time_field :ending_time
+    = f.time_field_v :ending_time
   .field
     = f.number_field :police_station
   .field
@@ -29,5 +29,7 @@
     = f.number_field :judge
   .field
     = f.number_field :court
+  .field
+    = f.number_field :examiner
   .actions
     = f.submit

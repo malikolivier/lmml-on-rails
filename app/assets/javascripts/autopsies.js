@@ -3,41 +3,41 @@
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(function() {
-  var data = {
-    number: document.getElementById('autopsy_number').value,
-    suspect_name: document.getElementById('autopsy_suspect_name').value,
-    victim_name: document.getElementById('autopsy_victim_name').value,
-    starting_time: document.getElementById('autopsy_starting_time').value
+  var model = 'autopsy';
+  var data = {};
+  var watch = {};
+  var onChange = function onChange(newValue) {
+    this.updatePreview();
   }
-  var newAutopsyVm = new Vue({
-    el: '#new_autopsy',
-    data: data,
-    watch: {
-      number: function (newNumber) {
-        this.updatePreview()
+  $('#new_' + model + ' input').each(function(index) {
+    var field_name = this.name.substring(model.length + 1, this.name.length - 1);
+    data[field_name] = this.value;
+    watch[field_name] = onChange;
+  });
+  var methods = {
+    updatePreview: _.debounce(
+      function () {
+        console.log("Updating " + model)
+        this.$http.post('preview', {[model]: data}).then(function(response) {
+          document.getElementById('preview').innerHTML = response.body;
+        }, function(response) {
+          console.error(response)
+        });
       },
-      suspect_name: function (newSuspectName) {
-        this.updatePreview()
-      },
-      victim_name: function(newVictimName) {
-        this.updatePreview()
-      }
-    },
-    methods: {
-      updatePreview: _.debounce(
-        function () {
-          console.log("GA")
-          this.$http.post('preview', {autopsy: data}).then(function(response) {
-            document.getElementById('preview').innerHTML = response.body;
-          }, function(response) {
-            console.error(response)
-          });
-        },
-        500
-      )
+      500
+    )
+  };
+
+  Vue.nextTick(function() {
+    var newAutopsyVm = new Vue({
+      el: '#new_autopsy',
+      data: data,
+      watch: watch,
+      methods: methods
+    });
+    window.vm = function () {
+      return newAutopsyVm
     }
-  })
-  window.vm = function () {
-    return newAutopsyVm
-  }
+
+  });
 })

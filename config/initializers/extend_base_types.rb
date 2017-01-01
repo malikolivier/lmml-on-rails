@@ -41,7 +41,7 @@ class ActionView::Helpers::FormBuilder
 
   def time_field_v(object_name, options = {})
     options[:'v-model'] ||= object_name
-    options[:value] ||= object.starting_time.strftime('%H:%M') unless object.starting_time.blank?
+    options[:value] ||= object.send(object_name).strftime('%H:%M') unless object.send(object_name).blank?
     time_field(object_name, options)
   end
 end
