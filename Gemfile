@@ -48,10 +48,12 @@ gem 'wkhtmltopdf-binary'
 # To make docx files
 gem 'htmltoword'
 
-# Foundation CSS framework
-gem 'foundation-rails'
+# Bootstrap CSS framework
+gem 'bootstrap'
+gem 'bootstrap_form'
 # Use vue's JS framework
 gem 'vuejs-rails'
+gem 'lodash-rails'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger

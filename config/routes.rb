@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :autopsies do
     get :browse, to: 'autopsies#browse'
   end
+  post 'autopsies/preview', to: 'autopsies#preview'
 end

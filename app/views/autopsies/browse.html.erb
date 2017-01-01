@@ -102,12 +102,7 @@
 </p>
 
 <div>
-<%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") if @autopsy.autopsy_date.present? %><br />
-<%= @autopsy.place.address if @autopsy.place.present? %><br />
-<% if @autopsy.examiner.present? %>
-  <%= @autopsy.examiner.institution.name if @autopsy.examiner.institution.present? %><%= @autopsy.examiner.title %><br />
-  鑑定人　<%= @autopsy.examiner.name %>　医師
-<% end %>
+  <%= render 'sign', autopsy: @autopsy %>
 </div>
 
 <p>

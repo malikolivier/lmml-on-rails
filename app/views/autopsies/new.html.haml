@@ -1,0 +1,9 @@
+%h1= t '.title'
+
+.row
+  .col-md-6
+    = render 'form', autopsy: @autopsy
+
+    = link_to((t 'helpers.back'), root_path)
+  .col-md-6
+    #preview

@@ -27,3 +27,15 @@ class Array
     self.empty? ? '' : "#{self.to_sentence_with_comma}。"
   end
 end
+
+class ActionView::Helpers::FormBuilder
+  def text_field_v(object_name, options = {})
+    options[:'v-model'] = object_name
+    text_field(object_name, options)
+  end
+
+  def number_field_v(object_name, options = {})
+    options[:'v-model.number'] = object_name
+    number_field(object_name, options)
+  end
+end

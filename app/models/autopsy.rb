@@ -99,7 +99,7 @@ class Autopsy < ApplicationRecord
   def time_interval_description
     from = starting_time.present? ? "#{starting_time.to_era('%O%E年%m月%d日 %H時%M分')}より" : ''
     to = ending_time.present? ? "#{ending_time.to_era('%H時%M分')}まで" : ''
-    "#{from}#{to}、"
+    "#{from}#{to}、" if from.present? || to.present?
   end
 
   def participants_description

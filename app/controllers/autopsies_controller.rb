@@ -84,6 +84,21 @@ class AutopsiesController < ApplicationController
     end
   end
 
+
+  # POST /autopsies/preview
+  def preview
+    params = autopsy_params
+    [:victim, :suspect].each do |person|
+      person_name = "#{person}_name"
+      if params[person_name].present?
+        params[person] = Person.new(name: params[person_name])
+      end
+      params.delete(person_name)
+    end
+    @autopsy = Autopsy.new(params)
+    render layout: false
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -98,6 +113,7 @@ class AutopsiesController < ApplicationController
                                     :suspect_id, :victim_id, :place_id,
                                     :autopsy_date, :starting_time, :ending_time,
                                     :police_station_id, :police_inspector_id,
-                                    :court_id, :judge_id)
+                                    :court_id, :judge_id,
+                                    :suspect_name, :victim_name)
   end
 end

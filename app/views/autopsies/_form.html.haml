@@ -1,4 +1,4 @@
-= form_for(autopsy) do |f|
+= bootstrap_form_for(autopsy) do |f|
   - if autopsy.errors.any?
     #error_explanation
       %h2
@@ -8,40 +8,28 @@
         - autopsy.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :number
-    = f.text_field :number
+    = f.text_field_v :number
   .field
-    = f.label :suspect
-    = f.number_field :suspect
+    = f.label :suspect_name
+    %input{name: 'autopsy[suspect]', 'v-model': 'suspect_name', class: 'form-control'}
   .field
-    = f.label :victim
-    = f.number_field :victim
+    = f.label :victim_name
+    %input{name: 'autopsy[victim]', 'v-model': 'victim_name', class: 'form-control'}
   .field
-    = f.label :place
     = f.number_field :place
   .field
-    = f.label :autopsy_date
     = f.date_select :autopsy_date
   .field
-    = f.label :starting_time
     = f.time_select :starting_time
   .field
-    = f.label :ending_time
     = f.time_select :ending_time
   .field
-    = f.label :police_station
     = f.number_field :police_station
   .field
-    = f.label :police_inspector
     = f.number_field :police_inspector
   .field
-    = f.label :judge
     = f.number_field :judge
   .field
-    = f.label :court
     = f.number_field :court
-  .field
-    = f.label :judge
-    = f.number_field :judge
   .actions
     = f.submit
