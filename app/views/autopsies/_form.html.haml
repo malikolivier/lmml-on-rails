@@ -1,0 +1,20 @@
+- form_for(autopsy) do |f|
+  - if autopsy.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(autopsy.errors.count, "error")
+        prohibited this autopsy from being saved:
+
+      %ul
+        - autopsy.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :completed
+    = f.check_box :completed
+
+  .field
+    = f.label :number
+    = f.text_area :number
+
+  .actions
+    = f.submit

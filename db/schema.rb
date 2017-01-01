@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
 
   create_table "autopsies", force: :cascade do |t|
     t.boolean  "completed",           default: false
+    t.boolean  "approved",            default: false
     t.text     "number"
     t.integer  "autopsy_type_id"
     t.integer  "examiner_id"

@@ -4,6 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  completed           :boolean          default(FALSE)
+#  approved            :boolean          default(FALSE)
 #  number              :text
 #  autopsy_type_id     :integer
 #  examiner_id         :integer

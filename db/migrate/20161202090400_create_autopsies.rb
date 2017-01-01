@@ -2,6 +2,7 @@ class CreateAutopsies < ActiveRecord::Migration[5.0]
   def change
     create_table :autopsies do |t|
       t.boolean :completed, default: false
+      t.boolean :approved, default: false
       t.text :number
       t.belongs_to :autopsy_type, index: true
       t.belongs_to :examiner, index: true
