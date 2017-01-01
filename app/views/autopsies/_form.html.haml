@@ -10,19 +10,17 @@
   .field
     = f.text_field_v :number
   .field
-    = f.label :suspect_name
-    %input{name: 'autopsy[suspect]', 'v-model': 'suspect_name', class: 'form-control'}
+    = f.text_field_v :suspect_name
   .field
-    = f.label :victim_name
-    %input{name: 'autopsy[victim]', 'v-model': 'victim_name', class: 'form-control'}
+    = f.text_field_v :victim_name
   .field
     = f.number_field :place
   .field
-    = f.date_select :autopsy_date
+    = f.date_field :autopsy_date
   .field
-    = f.time_select :starting_time
+    = f.time_field_v :starting_time
   .field
-    = f.time_select :ending_time
+    = f.time_field :ending_time
   .field
     = f.number_field :police_station
   .field

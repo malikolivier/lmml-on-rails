@@ -4,9 +4,10 @@
 
 $(function() {
   var data = {
-    number: null,
-    suspect_name: null,
-    victim_name: null
+    number: document.getElementById('autopsy_number').value,
+    suspect_name: document.getElementById('autopsy_suspect_name').value,
+    victim_name: document.getElementById('autopsy_victim_name').value,
+    starting_time: document.getElementById('autopsy_starting_time').value
   }
   var newAutopsyVm = new Vue({
     el: '#new_autopsy',
@@ -15,7 +16,10 @@ $(function() {
       number: function (newNumber) {
         this.updatePreview()
       },
-      suspect_name: function (newNumber) {
+      suspect_name: function (newSuspectName) {
+        this.updatePreview()
+      },
+      victim_name: function(newVictimName) {
         this.updatePreview()
       }
     },

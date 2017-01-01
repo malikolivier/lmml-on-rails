@@ -68,6 +68,13 @@ class Autopsy < ApplicationRecord
     analyses
   end
 
+  def victim_name
+    victim.name unless victim.blank?
+  end
+  def suspect_name
+    suspect.name unless suspect.blank?
+  end
+
   def introduction_text
     date_description = autopsy_date.present? ? "#{autopsy_date.to_era('%O%E年%m月%d日')}、" : ''
     if police_inspector.present?

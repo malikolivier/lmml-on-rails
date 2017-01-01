@@ -30,12 +30,18 @@ end
 
 class ActionView::Helpers::FormBuilder
   def text_field_v(object_name, options = {})
-    options[:'v-model'] = object_name
+    options[:'v-model'] ||= object_name
     text_field(object_name, options)
   end
 
   def number_field_v(object_name, options = {})
-    options[:'v-model.number'] = object_name
+    options[:'v-model.number'] ||= object_name
     number_field(object_name, options)
+  end
+
+  def time_field_v(object_name, options = {})
+    options[:'v-model'] ||= object_name
+    options[:value] ||= object.starting_time.strftime('%H:%M') unless object.starting_time.blank?
+    time_field(object_name, options)
   end
 end

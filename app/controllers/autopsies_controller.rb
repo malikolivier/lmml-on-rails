@@ -14,6 +14,8 @@ class AutopsiesController < ApplicationController
   # GET /autopsies/new
   def new
     @autopsy = Autopsy.new
+    @autopsy.autopsy_date = DateTime.current
+    @autopsy.starting_time = DateTime.current
   end
 
   # GET /autopsies/1/edit
@@ -83,7 +85,6 @@ class AutopsiesController < ApplicationController
       end
     end
   end
-
 
   # POST /autopsies/preview
   def preview
