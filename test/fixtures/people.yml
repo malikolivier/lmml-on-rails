@@ -51,6 +51,7 @@ policeman:
   name: Mr. Policeman
   sex: M
   age: 31
+  title: 警視正
   institution: a_police_station
 
 victim:

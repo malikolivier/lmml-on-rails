@@ -1,19 +1,11 @@
 <h1>鑑　定　書</h1>
 
 <p>
-  <%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") %>、<%= @autopsy.police_station.name %>司法警察員・<%= @autopsy.police_inspector.name %>警視正は、被疑者・<%= @autopsy.suspect.name %>に対する殺人被疑事件に関し、<%= @autopsy.court.name %>・<%= @autopsy.judge.name %>裁判官の発した鑑定処分許可状に基づき死者・<%= @autopsy.victim.name %>（<%= @autopsy.victim.age %>）を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。
+  <%= @autopsy.introduction_text %>
 </p>
 
 <p>
-  よって、<%= @autopsy.place.address %>において、<%= @autopsy.starting_time.to_era("%O%E年%m月%d日 %H時%M分") %>より<%= @autopsy.ending_time.to_era("%H時%M分") %>まで、
-  <% @autopsy.participations.includes(:role, person: :institution).each do |participation| %>
-    <% if participation.role.name == 'Spectator' %>
-      <%= participation.person.full_name_with_title %>の立ち会いの上、
-    <% elsif participation.role.name == 'Assistant' %>
-      <%= participation.person.full_name_with_title %>の補助を受けて、
-    <% end %>
-  <% end %>
-  剖検した。
+  <%= @autopsy.second_paragraph_text %>
 </p>
 
 <h2>第　１　章　結　　　論</h2>
@@ -45,7 +37,7 @@
 <h2>第　3　章　 剖　　検　　記　　録</h2>
 
 <div>
-  <%= @autopsy.victim.name %><% if @autopsy.victim.age.present? %>（<%= @autopsy.victim.age %>歳）<% end %>
+  <%= @autopsy.victim_description %>
 </div>
 
 <% external_examination_started = false %>
@@ -110,10 +102,12 @@
 </p>
 
 <div>
-<%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") %><br />
-<%= @autopsy.place.address %><br />
-<%= @autopsy.examiner.institution.name %><%= @autopsy.examiner.title %><br />
-鑑定人　<%= @autopsy.examiner.name %>　医師
+<%= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") if @autopsy.autopsy_date.present? %><br />
+<%= @autopsy.place.address if @autopsy.place.present? %><br />
+<% if @autopsy.examiner.present? %>
+  <%= @autopsy.examiner.institution.name if @autopsy.examiner.institution.present? %><%= @autopsy.examiner.title %><br />
+  鑑定人　<%= @autopsy.examiner.name %>　医師
+<% end %>
 </div>
 
 <p>

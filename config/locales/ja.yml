@@ -237,6 +237,9 @@ ja:
       contradiction: 肺にみられた珪藻との種類に矛盾はあった
       no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
       impossible_to_conclude: 本検査で得た情報で結論付けられない
+  autopsies:
+    new:
+      title: 新しい解剖所見を作成
   activerecord:
     errors:
       messages:
@@ -248,7 +251,18 @@ ja:
       autopsy: 解剖
     attributes:
       autopsy:
-        number: 番号
+        number: 解剖番号
+        suspect: 被疑者
+        victim: 被害者
+        place: 鑑定機関
+        autopsy_date: 日付
+        starting_time: 開始時刻
+        ending_time: 終了時刻
+        police_station: 警察署
+        police_inspector: 警視正
+        autopsy_type: 鑑定種別
+        court: 裁判所
+        judge: 裁判官
   date:
     abbr_day_names:
     - 日
@@ -384,6 +398,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+    back: 戻る
   number:
     currency:
       format:

@@ -53,6 +53,7 @@ class Autopsy < ApplicationRecord
                           FROM `analyses`
                           INNER JOIN `analysis_types` ON `analysis_types`.`id` = `analyses`.`analysis_type_id`
                           WHERE `analysis_types`.`name` != 'other'
+                          AND `analyses`.`autopsy_id` = '#{id}'
                           UNION
                           SELECT `analyses`.*,
                                 `analysis_types`.`placement`,
@@ -61,8 +62,57 @@ class Autopsy < ApplicationRecord
                           INNER JOIN `analysis_types` ON `analysis_types`.`id` = `analyses`.`analysis_type_id`
                           INNER JOIN `analysis_others` ON `analysis_others`.`analysis_id` = `analyses`.`id`
                           WHERE `analysis_types`.`name` = 'other'
+                          AND `analyses`.`autopsy_id` = '#{id}'
                           ORDER BY `analysis_types`.`placement`, `analysis_others`.`placement`;")
     ActiveRecord::Associations::Preloader.new.preload(analyses, :analysis_type)
     analyses
+  end
+
+  def introduction_text
+    date_description = autopsy_date.present? ? "#{autopsy_date.to_era('%O%E年%m月%d日')}、" : ''
+    if police_inspector.present?
+      policeman = "#{police_inspector.full_name_with_title('司法警察員')}は、"
+      final_verb = 'した'
+    else
+      policeman = ''
+      final_verb = 'された'
+    end
+    suspect_description = suspect.present? ? "被疑者・#{suspect.name}に対する殺人被疑事件に関し、" : ''
+    judge_description = judge.present? ? "#{judge.full_name_with_title}の発した鑑定処分許可状に基づき" : ''
+    "#{date_description}#{policeman}#{suspect_description}#{judge_description}#{victim_description}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託#{final_verb}。"
+  end
+
+  def victim_description
+    if victim.present?
+      age = victim.age.present? ? "（#{victim.age}歳）" : ''
+      "死者・#{victim.name}#{age}"
+    else
+      '身元不明の遺体'
+    end
+  end
+
+  def second_paragraph_text
+    place_description = if place.present?
+                          "#{place.address}において、"
+                        else; ''; end
+    "よって、#{place_description}#{time_interval_description}#{participants_description}剖検した。"
+  end
+
+  def time_interval_description
+    from = starting_time.present? ? "#{starting_time.to_era('%O%E年%m月%d日 %H時%M分')}より" : ''
+    to = ending_time.present? ? "#{ending_time.to_era('%H時%M分')}まで" : ''
+    "#{from}#{to}、"
+  end
+
+  def participants_description
+    phrases = []
+    participations.includes(:role, person: :institution).each do |participation|
+      if participation.role.name == 'Spectator'
+        phrases.push("#{participation.person.full_name_with_title}の立ち会いの上")
+      elsif participation.role.name == 'Assistant'
+        phrases.push("#{participation.person.full_name_with_title}の補助を受けて")
+      end
+    end
+    phrases.join('、')
   end
 end

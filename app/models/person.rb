@@ -18,7 +18,7 @@ class Person < ApplicationRecord
 
   enum sex: Settings.enums.sex
 
-  def full_name_with_title
-    "#{institution.name}・#{name}#{title}"
+  def full_name_with_title(position = '')
+    "#{institution.name}#{position}・#{name}#{title}"
   end
 end
