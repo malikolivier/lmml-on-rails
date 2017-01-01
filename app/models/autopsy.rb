@@ -71,6 +71,7 @@ class Autopsy < ApplicationRecord
   def victim_name
     victim.name unless victim.blank?
   end
+
   def suspect_name
     suspect.name unless suspect.blank?
   end
