@@ -48,6 +48,11 @@ gem 'wkhtmltopdf-binary'
 # To make docx files
 gem 'htmltoword'
 
+# Foundation CSS framework
+gem 'foundation-rails'
+# Use vue's JS framework
+gem 'vuejs-rails'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
