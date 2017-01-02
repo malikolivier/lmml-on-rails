@@ -23,6 +23,7 @@ class AutopsiesController < ApplicationController
   # POST /autopsies.json
   def create
     @autopsy = Autopsy.new(autopsy_params)
+    setup_autopsy
 
     respond_to do |format|
       if @autopsy.save
@@ -87,6 +88,7 @@ class AutopsiesController < ApplicationController
   # POST /autopsies/preview
   def preview
     @autopsy = Autopsy.new(autopsy_params)
+    setup_autopsy
     render layout: false
   end
 
@@ -115,5 +117,11 @@ class AutopsiesController < ApplicationController
                   police_station_attributes: [:name],
                   court_attributes: [:name],
                   judge_attributes: [:name])
+  end
+
+  def setup_autopsy
+    @autopsy.court ||= @autopsy.judge.institution if @autopsy.judge.present?
+    return unless @autopsy.police_inspector.present?
+    @autopsy.police_station ||= @autopsy.police_inspector.institution
   end
 end

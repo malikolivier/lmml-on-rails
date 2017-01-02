@@ -14,7 +14,7 @@ $(function() {
 
   /*
   // Scrap autocomplete for now (not a priority)
-  autopsyVm.$http.get('/people?order_by=autopsies_examiner_count')
+  autopsyVm.$http.get('/people?order_by=autopsies_examiners_count')
   .then(function(response) {
     this.examiner_autocomplete = response.body;
   });

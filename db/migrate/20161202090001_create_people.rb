@@ -8,11 +8,11 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.text :title
       t.belongs_to :institution, index: true
       t.text :identification_number
-      t.integer :autopsies_examiner_count, default: 0
-      t.integer :autopsies_suspect_count, default: 0
-      t.integer :autopsies_victim_count, default: 0
-      t.integer :autopsies_police_inspector_count, default: 0
-      t.integer :autopsies_judge_count, default: 0
+      t.integer :autopsies_examiners_count, default: 0
+      t.integer :autopsies_suspects_count, default: 0
+      t.integer :autopsies_victims_count, default: 0
+      t.integer :autopsies_police_inspectors_count, default: 0
+      t.integer :autopsies_judges_count, default: 0
 
       t.timestamps
     end

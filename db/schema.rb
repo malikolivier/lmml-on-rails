@@ -615,12 +615,12 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   create_table "institutions", force: :cascade do |t|
     t.text     "name"
     t.text     "address"
-    t.integer  "autopsies_place_count",          default: 0
-    t.integer  "autopsies_police_station_count", default: 0
-    t.integer  "autopsies_court_count",          default: 0
+    t.integer  "autopsies_places_count",          default: 0
+    t.integer  "autopsies_police_stations_count", default: 0
+    t.integer  "autopsies_courts_count",          default: 0
     t.integer  "institution_type_id"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.index ["institution_type_id"], name: "index_institutions_on_institution_type_id"
   end
 
@@ -914,13 +914,13 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.text     "title"
     t.integer  "institution_id"
     t.text     "identification_number"
-    t.integer  "autopsies_examiner_count",         default: 0
-    t.integer  "autopsies_suspect_count",          default: 0
-    t.integer  "autopsies_victim_count",           default: 0
-    t.integer  "autopsies_police_inspector_count", default: 0
-    t.integer  "autopsies_judge_count",            default: 0
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.integer  "autopsies_examiners_count",         default: 0
+    t.integer  "autopsies_suspects_count",          default: 0
+    t.integer  "autopsies_victims_count",           default: 0
+    t.integer  "autopsies_police_inspectors_count", default: 0
+    t.integer  "autopsies_judges_count",            default: 0
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.index ["institution_id"], name: "index_people_on_institution_id"
   end
 

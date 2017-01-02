@@ -36,9 +36,6 @@
   .field
     = f.time_field_v :ending_time
   .field
-    %label{for: 'autopsy_police_station_name'}= t 'activerecord.attributes.autopsy.police_station'
-    %input#autopsy_police_station_name.form-control{type: "text", name: "autopsy[police_station_attributes][name]", 'v-model': 'police_station_attributes.name', value: autopsy.police_station.name}
-  .field
     %label{for: 'autopsy_police_inspector_name'}= t 'activerecord.attributes.autopsy.police_inspector'
     .input-group{'v-if': '!new_police_inspector'}
       %select.form-control{name: "autopsy[police_inspector_id]", 'v-model': 'police_inspector_id', value: autopsy.police_inspector_id}
@@ -50,9 +47,6 @@
       %input#autopsy_police_inspector_name.form-control{type: "text", name: "autopsy[police_inspector_attributes][name]", 'v-model': 'police_inspector_attributes.name', value: autopsy.police_inspector.name}
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'new_police_inspector = !new_police_inspector'}= t 'helpers.back'
-  .field
-    %label{for: 'autopsy_court_name'}= t 'activerecord.attributes.autopsy.court'
-    %input#autopsy_court_name.form-control{type: "text", name: "autopsy[court_attributes][name]", 'v-model': 'court_attributes.name', value: autopsy.court.name}
   .field
     %label{for: 'autopsy_judge_name'}= t 'activerecord.attributes.autopsy.judge'
     .input-group{'v-if': '!new_judge'}
