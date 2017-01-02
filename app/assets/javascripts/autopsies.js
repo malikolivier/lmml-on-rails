@@ -3,11 +3,16 @@
 
 $(function() {
   var autopsyVm = LMML.loadVueModel('autopsy', {
-    additionalProp: ['examiner_autocomplete']
+    data: {
+      new_examiner: false
+    }
   });
 
+  /*
+  // Scrap autocomplete for now (not a priority)
   autopsyVm.$http.get('/people?order_by=autopsies_examiner_count')
   .then(function(response) {
     this.examiner_autocomplete = response.body;
   });
+  */
 })

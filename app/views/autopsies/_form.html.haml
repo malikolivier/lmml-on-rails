@@ -49,8 +49,15 @@
     %input#autopsy_judge_name.form-control{type: "text", name: "autopsy[judge_attributes][name]", 'v-model': 'judge_attributes.name', value: autopsy.judge.name}
   .field
     %label{for: 'autopsy_examiner_name'}= t 'activerecord.attributes.autopsy.examiner'
-    %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name, list: 'examiners'}
-    %datalist#examiners
-      %option{'v-for': 'examiner in examiner_autocomplete'} {{ examiner.name }}
+    .input-group{'v-if': '!new_examiner'}
+      %select.form-control{name: "autopsy[examiner_id]", 'v-model': 'examiner_id', value: autopsy.examiner_id}
+        - Person.been_examiner.all.each do |person, _|
+          %option{value: person.id}= person.name
+      .input-group-btn
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_examiner = !new_examiner'}= t 'helpers.new'
+    .input-group{'v-if': 'new_examiner'}
+      %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name}
+      .input-group-btn
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_examiner = !new_examiner'}= t 'helpers.back'
   .actions
     = f.submit

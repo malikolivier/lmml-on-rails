@@ -31,10 +31,10 @@ LMML.loadVueModel = function(model, options = {}) {
       }
     }
   });
-  if (options.additionalProp) {
-    options.additionalProp.forEach(function(prop) {
-      data[prop] = null;
-    })
+  if (options.data) {
+    _.forOwn(options.data, function(value, key) {
+      data[key] = value;
+    });
   }
 
   var newModelVm = new Vue({

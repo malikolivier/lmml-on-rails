@@ -30,4 +30,9 @@ class Person < ApplicationRecord
   def institution_name
     institution.name unless institution.blank?
   end
+
+  scope :been_examiner, lambda {
+    where('autopsies_examiner_count > 0')
+      .order(autopsies_examiner_count: :desc)
+  }
 end

@@ -405,6 +405,7 @@ ja:
       submit: 保存する
       update: 更新する
     back: 戻る
+    new: 新規登録
   number:
     currency:
       format:
