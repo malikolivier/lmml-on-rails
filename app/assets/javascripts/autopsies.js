@@ -2,9 +2,13 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  var autopsyVm = LMML.loadVueModel('autopsy');
+  var autopsyVm = LMML.loadVueModel('autopsy', {
+    additionalProp: ['examiner_autocomplete']
+  });
 
-  Vue.http.get('/people?order_by=autopsies_examiner_count')
+  autopsyVm.$http.get('/people?order_by=autopsies_examiner_count')
   .then(function(response) {
-  })
+    this.examiner_autocomplete = response.body;
+    $("#autopsy_examiner_name").select2();
+  });
 })

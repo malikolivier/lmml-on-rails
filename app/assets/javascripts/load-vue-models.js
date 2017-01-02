@@ -5,13 +5,13 @@ $(function() {
   Vue.http.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
 });
 
-LMML.loadVueModel = function(model) {
+LMML.loadVueModel = function(model, options = {}) {
   var data = {};
   var watch = {};
   var onChange = function onChange(newValue, oldValue) {
     this.updatePreview();
   }
-  $('#new_' + model + ' input').each(function(index) {
+  $('#new_' + model + ' input,select').each(function(index) {
     if (this.name.startsWith(model + '[') && this.name.endsWith(']')) {
       var field_name = this.name.substring(model.length + 1, this.name.length - 1);
       var names = field_name.split('][');
@@ -31,6 +31,11 @@ LMML.loadVueModel = function(model) {
       }
     }
   });
+  if (options.additionalProp) {
+    options.additionalProp.forEach(function(prop) {
+      data[prop] = null;
+    })
+  }
 
   var newModelVm = new Vue({
     el: '#new_' + model,
