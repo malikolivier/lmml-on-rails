@@ -8,33 +8,47 @@ $(function() {
 LMML.loadVueModel = function(model) {
   var data = {};
   var watch = {};
-  var onChange = function onChange(newValue) {
+  var onChange = function onChange(newValue, oldValue) {
     this.updatePreview();
   }
   $('#new_' + model + ' input').each(function(index) {
-    var field_name = this.name.substring(model.length + 1, this.name.length - 1);
-    data[field_name] = this.value;
-    watch[field_name] = onChange;
+    if (this.name.startsWith(model + '[') && this.name.endsWith(']')) {
+      var field_name = this.name.substring(model.length + 1, this.name.length - 1);
+      var names = field_name.split('][');
+      var scoped_data = data;
+      watch[names[0]] = {
+        handler: onChange,
+        deep: true
+      };
+      for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+        if (i === names.length - 1) {
+          scoped_data[name] = this.value;
+        } else {
+          scoped_data[name] = scoped_data[name] || {};
+          scoped_data = scoped_data[name];
+        }
+      }
+    }
   });
-  var methods = {
-    updatePreview: _.debounce(
-      function () {
-        console.log("Updating " + model)
-        this.$http.post('preview', {[model]: data}).then(function(response) {
-          document.getElementById('preview').innerHTML = response.body;
-        }, function(response) {
-          console.error(response)
-        });
-      },
-      500
-    )
-  };
 
   var newModelVm = new Vue({
     el: '#new_' + model,
     data: data,
     watch: watch,
-    methods: methods
+    methods: {
+      updatePreview: _.debounce(
+        function () {
+          console.log("Updating " + model)
+          this.$http.post('preview', {[model]: data}).then(function(response) {
+            document.getElementById('preview').innerHTML = response.body;
+          }, function(response) {
+            console.error(response)
+          });
+        },
+        500
+      )
+    }
   });
   newModelVm.updatePreview();
   window[model + 'Vm'] = function () {

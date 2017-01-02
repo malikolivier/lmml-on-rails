@@ -266,6 +266,8 @@ ja:
         court: 裁判所
         judge: 裁判官
         examiner: 執刀者
+      person:
+        age: 年齢
   date:
     abbr_day_names:
     - 日

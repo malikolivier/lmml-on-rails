@@ -121,4 +121,8 @@ class Autopsy < ApplicationRecord
     end
     phrases.join('、')
   end
+
+  accepts_nested_attributes_for :suspect, :victim, :place,
+    allow_destroy: true,
+    reject_if: :all_blank
 end

@@ -1,4 +1,4 @@
-= bootstrap_form_for(autopsy) do |f|
+= bootstrap_form_for(setup_autopsy(autopsy)) do |f|
   - if autopsy.errors.any?
     #error_explanation
       %h2
@@ -10,11 +10,18 @@
   .field
     = f.text_field_v :number
   .field
-    = f.text_field_v :suspect_name
+    %label{for: 'autopsy_suspect_name'}= t 'activerecord.attributes.autopsy.suspect_name'
+    %input#autopsy_suspect_name.form-control{type: "text", name: "autopsy[suspect_attributes][name]", 'v-model': 'suspect_attributes.name', value: autopsy.suspect.name}
+  .field.row
+    .col-md-6
+      %label{for: 'autopsy_victim_name'}= t 'activerecord.attributes.autopsy.victim_name'
+      %input#autopsy_victim_name.form-control{type: "text", name: "autopsy[victim_attributes][name]", 'v-model': 'victim_attributes.name', value: autopsy.victim.name}
+    .col-md-6
+      %label{for: 'autopsy_victim_age'}= t 'activerecord.attributes.person.age'
+      %input#autopsy_victim_age.form-control{type: "text", name: "autopsy[victim_attributes][age]", 'v-model': 'victim_attributes.age', value: autopsy.victim.age}
   .field
-    = f.text_field_v :victim_name
-  .field
-    = f.number_field :place
+    %label{for: 'autopsy_place_address'}= t 'activerecord.attributes.autopsy.place'
+    %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address'}
   .field
     = f.date_field_v :autopsy_date
   .field

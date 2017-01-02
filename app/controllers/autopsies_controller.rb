@@ -14,8 +14,6 @@ class AutopsiesController < ApplicationController
   # GET /autopsies/new
   def new
     @autopsy = Autopsy.new
-    @autopsy.autopsy_date = DateTime.current
-    @autopsy.starting_time = DateTime.current
   end
 
   # GET /autopsies/1/edit
@@ -88,15 +86,7 @@ class AutopsiesController < ApplicationController
 
   # POST /autopsies/preview
   def preview
-    params = autopsy_params
-    [:victim, :suspect].each do |person|
-      person_name = "#{person}_name"
-      if params[person_name].present?
-        params[person] = Person.new(name: params[person_name])
-      end
-      params.delete(person_name)
-    end
-    @autopsy = Autopsy.new(params)
+    @autopsy = Autopsy.new(autopsy_params)
     render layout: false
   end
 
@@ -115,6 +105,8 @@ class AutopsiesController < ApplicationController
                                     :autopsy_date, :starting_time, :ending_time,
                                     :police_station_id, :police_inspector_id,
                                     :court_id, :judge_id,
-                                    :suspect_name, :victim_name)
+                                    suspect_attributes: :name,
+                                    victim_attributes: [:name, :age],
+                                    place_attributes: [:address])
   end
 end
