@@ -17,7 +17,3 @@
 //= require vue
 //= require vue-resource
 //= require_tree .
-
-$(function() {
-  Vue.http.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content');
-});
