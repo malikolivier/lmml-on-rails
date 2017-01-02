@@ -28,6 +28,7 @@ class Array
   end
 end
 
+# Extend FormBuilder to build Vue-friendly forms
 class ActionView::Helpers::FormBuilder
   def text_field_v(object_name, options = {})
     options[:'v-model'] ||= object_name
@@ -43,5 +44,10 @@ class ActionView::Helpers::FormBuilder
     options[:'v-model'] ||= object_name
     options[:value] ||= object.send(object_name).strftime('%H:%M') unless object.send(object_name).blank?
     time_field(object_name, options)
+  end
+
+  def date_field_v(object_name, options = {})
+    options[:'v-model'] ||= object_name
+    date_field(object_name, options)
   end
 end
