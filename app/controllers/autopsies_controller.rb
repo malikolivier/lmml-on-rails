@@ -104,9 +104,14 @@ class AutopsiesController < ApplicationController
                                     :suspect_id, :victim_id, :place_id,
                                     :autopsy_date, :starting_time, :ending_time,
                                     :police_station_id, :police_inspector_id,
-                                    :court_id, :judge_id,
-                                    suspect_attributes: :name,
+                                    :court_id, :judge_id, :examiner_id,
+                                    suspect_attributes: [:name],
                                     victim_attributes: [:name, :age],
-                                    place_attributes: [:address])
+                                    place_attributes: [:address],
+                                    examiner_attributes: [:name],
+                                    police_inspector_attributes: [:name],
+                                    police_station_attributes: [:name],
+                                    court_attributes: [:name],
+                                    judge_attributes: [:name])
   end
 end

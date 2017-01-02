@@ -21,7 +21,7 @@
       %input#autopsy_victim_age.form-control{type: "text", name: "autopsy[victim_attributes][age]", 'v-model': 'victim_attributes.age', value: autopsy.victim.age}
   .field
     %label{for: 'autopsy_place_address'}= t 'activerecord.attributes.autopsy.place'
-    %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address'}
+    %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address', value: autopsy.place.address}
   .field
     = f.date_field_v :autopsy_date
   .field
@@ -29,14 +29,19 @@
   .field
     = f.time_field_v :ending_time
   .field
-    = f.number_field :police_station
+    %label{for: 'autopsy_police_station_name'}= t 'activerecord.attributes.autopsy.police_station'
+    %input#autopsy_police_station_name.form-control{type: "text", name: "autopsy[police_station_attributes][name]", 'v-model': 'police_station_attributes.name', value: autopsy.police_station.name}
   .field
-    = f.number_field :police_inspector
+    %label{for: 'autopsy_police_inspector_name'}= t 'activerecord.attributes.autopsy.police_inspector'
+    %input#autopsy_police_inspector_name.form-control{type: "text", name: "autopsy[police_inspector_attributes][name]", 'v-model': 'police_inspector_attributes.name', value: autopsy.police_inspector.name}
   .field
-    = f.number_field :judge
+    %label{for: 'autopsy_court_name'}= t 'activerecord.attributes.autopsy.court'
+    %input#autopsy_court_name.form-control{type: "text", name: "autopsy[court_attributes][name]", 'v-model': 'court_attributes.name', value: autopsy.court.name}
   .field
-    = f.number_field :court
+    %label{for: 'autopsy_judge_name'}= t 'activerecord.attributes.autopsy.judge'
+    %input#autopsy_judge_name.form-control{type: "text", name: "autopsy[judge_attributes][name]", 'v-model': 'judge_attributes.name', value: autopsy.judge.name}
   .field
-    = f.number_field :examiner
+    %label{for: 'autopsy_examiner_name'}= t 'activerecord.attributes.autopsy.examiner'
+    %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name}
   .actions
     = f.submit

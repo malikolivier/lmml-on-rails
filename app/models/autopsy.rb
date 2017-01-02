@@ -105,8 +105,8 @@ class Autopsy < ApplicationRecord
   end
 
   def time_interval_description
-    from = starting_time.present? ? "#{starting_time.to_era('%O%E年%m月%d日 %H時%M分')}より" : ''
-    to = ending_time.present? ? "#{ending_time.to_era('%H時%M分')}まで" : ''
+    from = starting_time.present? ? "#{starting_time.to_era('%O%E年%m月%d日 %k時%M分')}より" : ''
+    to = ending_time.present? ? "#{ending_time.to_era('%k時%M分')}まで" : ''
     "#{from}#{to}、" if from.present? || to.present?
   end
 
@@ -122,7 +122,9 @@ class Autopsy < ApplicationRecord
     phrases.join('、')
   end
 
-  accepts_nested_attributes_for :suspect, :victim, :place,
-    allow_destroy: true,
-    reject_if: :all_blank
+  accepts_nested_attributes_for :suspect, :victim, :place, :examiner,
+                                :police_inspector, :judge, :police_station,
+                                :court,
+                                allow_destroy: true,
+                                reject_if: :all_blank
 end
