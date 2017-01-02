@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
+  if (document.getElementById('new_autopsy') === null) return;
+
   var autopsyVm = LMML.loadVueModel('autopsy', {
     data: {
       new_examiner: false
