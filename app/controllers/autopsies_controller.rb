@@ -100,19 +100,20 @@ class AutopsiesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list
   # through.
   def autopsy_params
-    params.require(:autopsy).permit(:completed, :number, :conclusion,
-                                    :suspect_id, :victim_id, :place_id,
-                                    :autopsy_date, :starting_time, :ending_time,
-                                    :police_station_id, :police_inspector_id,
-                                    :court_id, :judge_id, :examiner_id,
-                                    :autopsy_type_id,
-                                    suspect_attributes: [:name],
-                                    victim_attributes: [:name, :age, :sex],
-                                    place_attributes: [:address],
-                                    examiner_attributes: [:name],
-                                    police_inspector_attributes: [:name],
-                                    police_station_attributes: [:name],
-                                    court_attributes: [:name],
-                                    judge_attributes: [:name])
+    params.require(:autopsy)
+          .permit(:completed, :number, :conclusion,
+                  :suspect_id, :victim_id, :place_id,
+                  :autopsy_date, :starting_time, :ending_time,
+                  :police_station_id, :police_inspector_id,
+                  :court_id, :judge_id, :examiner_id,
+                  :autopsy_type_id,
+                  suspect_attributes: [:name],
+                  victim_attributes: [:name, :death_age, :sex],
+                  place_attributes: [:address],
+                  examiner_attributes: [:name],
+                  police_inspector_attributes: [:name],
+                  police_station_attributes: [:name],
+                  court_attributes: [:name],
+                  judge_attributes: [:name])
   end
 end

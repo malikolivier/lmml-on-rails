@@ -5,7 +5,8 @@
 #  id                               :integer          not null, primary key
 #  name                             :text
 #  sex                              :integer
-#  age                              :integer
+#  death_age                        :integer
+#  dob                              :date
 #  title                            :text
 #  institution_id                   :integer
 #  identification_number            :text

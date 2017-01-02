@@ -909,7 +909,8 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   create_table "people", force: :cascade do |t|
     t.text     "name"
     t.integer  "sex"
-    t.integer  "age"
+    t.integer  "death_age"
+    t.date     "dob"
     t.text     "title"
     t.integer  "institution_id"
     t.text     "identification_number"

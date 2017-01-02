@@ -19,8 +19,8 @@
       %label{for: 'autopsy_victim_name'}= t 'activerecord.attributes.autopsy.victim_name'
       %input#autopsy_victim_name.form-control{type: "text", name: "autopsy[victim_attributes][name]", 'v-model': 'victim_attributes.name', value: autopsy.victim.name}
     .col-md-3
-      %label{for: 'autopsy_victim_age'}= t 'activerecord.attributes.person.age'
-      %input#autopsy_victim_age.form-control{type: "text", name: "autopsy[victim_attributes][age]", 'v-model': 'victim_attributes.age', value: autopsy.victim.age}
+      %label{for: 'autopsy_victim_death_age'}= t 'activerecord.attributes.person.age'
+      %input#autopsy_victim_death_age.form-control{type: "text", name: "autopsy[victim_attributes][death_age]", 'v-model': 'victim_attributes.death_age', value: autopsy.victim.death_age}
     .col-md-3
       %label{for: 'autopsy_victim_sex'}= t 'activerecord.attributes.person.sex'
       %select.form-control{name: "autopsy[victim_attributes][sex]", 'v-model': 'victim_attributes.sex', value: autopsy.victim.sex}

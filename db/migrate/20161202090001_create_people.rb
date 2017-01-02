@@ -3,7 +3,8 @@ class CreatePeople < ActiveRecord::Migration[5.0]
     create_table :people do |t|
       t.text :name
       t.integer :sex
-      t.integer :age
+      t.integer :death_age
+      t.date :dob
       t.text :title
       t.belongs_to :institution, index: true
       t.text :identification_number

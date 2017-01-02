@@ -92,7 +92,7 @@ class Autopsy < ApplicationRecord
 
   def victim_description
     if victim.present?
-      age = victim.age.present? ? "（#{victim.age}歳）" : ''
+      age = victim.death_age.present? ? "（#{victim.death_age}歳）" : ''
       "死者・#{victim.name}#{age}"
     else
       '身元不明の遺体'

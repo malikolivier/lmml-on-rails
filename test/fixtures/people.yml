@@ -5,7 +5,8 @@
 #  id                               :integer          not null, primary key
 #  name                             :text
 #  sex                              :integer
-#  age                              :integer
+#  death_age                        :integer
+#  dob                              :date
 #  title                            :text
 #  institution_id                   :integer
 #  identification_number            :text
@@ -23,7 +24,6 @@
 student:
   name: Mr. Student
   sex: M
-  age: 20
   title: 博士1年生
   institution: k_university
   identification_number: '81423906'
@@ -32,7 +32,6 @@ student:
 professor:
   name: Ms. Professor
   sex: F
-  age: 55
   title: 教授
   institution: k_university
 
@@ -40,14 +39,12 @@ professor:
 medical_examiner:
   name: Ms. Examiner
   sex: F
-  age: 46
   title: 教授
   institution: y_university
 
 assistant:
   name: Mr. Assistant
   sex: M
-  age: 46
   title: 准教授
   institution: y_university
 
@@ -55,27 +52,24 @@ assistant:
 policeman:
   name: Mr. Policeman
   sex: M
-  age: 31
   title: 警視正
   institution: a_police_station
 
 victim:
   name: The Sad Victim
   sex: O
-  age: 25
+  death_age: 25
 
 victim_2:
   name: The Sad Victim
   sex: O
-  age: 25
+  death_age: 25
 
 suspect:
   name: Usual Suspect
   sex: M
-  age: 59
 
 judge:
   name: Mr. Judge
   sex: M
-  age: 85
   institution: a_court
