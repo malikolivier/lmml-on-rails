@@ -8,6 +8,7 @@
 #  death_age                         :integer
 #  dob                               :date
 #  title                             :text
+#  affiliation                       :text
 #  institution_id                    :integer
 #  identification_number             :text
 #  autopsies_examiners_count         :integer          default(0)
@@ -40,6 +41,7 @@ medical_examiner:
   name: Ms. Examiner
   sex: F
   title: 教授
+  affiliation: 大学院医学工学総合研究部医学学域社会医学系法医学講座
   institution: y_university
 
 assistant:

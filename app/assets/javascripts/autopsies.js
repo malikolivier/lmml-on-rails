@@ -6,9 +6,38 @@ $(function() {
 
   var autopsyVm = LMML.loadVueModel('autopsy', {
     data: {
+      new_place: false,
       new_examiner: false,
       new_judge: false,
       new_police_inspector: false
+    },
+    methods: {
+      switch_new_place: function() {
+        this.new_place = !this.new_place;
+        if (!this.new_place) {
+          this.place_attributes.name = '';
+          this.place_attributes.address = '';
+          this.place_attributes.autopsy_room = '';
+        }
+      },
+      switch_new_police_inspector: function() {
+        this.new_police_inspector = !this.new_police_inspector;
+        if (!this.new_police_inspector) {
+          this.police_inspector_attributes.name = '';
+        }
+      },
+      switch_new_judge: function() {
+        this.new_judge = !this.new_judge;
+        if (!this.new_judge) {
+          this.judge_attributes.name = '';
+        }
+      },
+      switch_new_examiner: function() {
+        this.new_examiner = !this.new_examiner;
+        if (!this.new_examiner) {
+          this.examiner_attributes.name = '';
+        }
+      }
     }
   });
 

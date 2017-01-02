@@ -269,6 +269,10 @@ ja:
       person:
         age: 年齢
         sex: 性
+      institution:
+        name: 名義
+        address: 住所
+        autopsy_room: 解剖室
   date:
     abbr_day_names:
     - 日

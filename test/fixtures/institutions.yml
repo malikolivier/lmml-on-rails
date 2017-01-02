@@ -5,6 +5,7 @@
 #  id                              :integer          not null, primary key
 #  name                            :text
 #  address                         :text
+#  autopsy_room                    :text
 #  autopsies_places_count          :integer          default(0)
 #  autopsies_police_stations_count :integer          default(0)
 #  autopsies_courts_count          :integer          default(0)
@@ -16,13 +17,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 k_university:
-  name: 慶應義塾大学大学院理工学研究科
+  name: 慶應義塾大学5
   address: 矢上
   institution_type: university
 
 y_university:
-  name: 山梨大学医学部
-  address: 甲府市
+  name: 山梨大学
+  address: 市中央市下河東1110
+  autopsy_room: 山梨大学医学部法医解剖室
   institution_type: university
 
 a_police_station:

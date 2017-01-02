@@ -3,6 +3,7 @@ class CreateInstitutions < ActiveRecord::Migration[5.0]
     create_table :institutions do |t|
       t.text :name
       t.text :address
+      t.text :autopsy_room
       t.integer :autopsies_places_count, default: 0
       t.integer :autopsies_police_stations_count, default: 0
       t.integer :autopsies_courts_count, default: 0

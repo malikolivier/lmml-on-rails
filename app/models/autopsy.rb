@@ -100,7 +100,7 @@ class Autopsy < ApplicationRecord
   end
 
   def second_paragraph_text
-    place_description = place.present? ? "#{place.address}において、" : ''
+    place_description = place.present? ? "#{place.address}#{place.autopsy_room}において、" : ''
     "よって、#{place_description}#{time_interval_description}#{participants_description}剖検した。"
   end
 

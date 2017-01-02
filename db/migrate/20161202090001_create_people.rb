@@ -6,6 +6,7 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.integer :death_age
       t.date :dob
       t.text :title
+      t.text :affiliation
       t.belongs_to :institution, index: true
       t.text :identification_number
       t.integer :autopsies_examiners_count, default: 0

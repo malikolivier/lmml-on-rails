@@ -27,8 +27,28 @@
         - Person.sexes.each do |sex, _|
           %option{value: sex}= t "sex.#{sex}"
   .field
-    %label{for: 'autopsy_place_address'}= t 'activerecord.attributes.autopsy.place'
-    %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address', value: autopsy.place.address}
+    %label{for: 'autopsy_place_id'}= t 'activerecord.attributes.autopsy.place'
+    .input-group{'v-if': '!new_place'}
+      %select#autopsy_place_id.form-control{name: "autopsy[place_id]", 'v-model': 'place_id', value: autopsy.place_id}
+        - Institution.been_autopsy_place.all.each do |institution, _|
+          %option{value: institution.id}= institution.address
+      .input-group-btn
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.new'
+    .panel.panel-default{'v-if': 'new_place'}
+      .panel-body.form-horizontal
+        .form-group
+          %label.col-sm-2.control-label{for: 'autopsy_place_name'}= t 'activerecord.attributes.institution.name'
+          .col-sm-8
+            %input#autopsy_place_name.form-control{type: "text", name: "autopsy[place_attributes][name]", 'v-model': 'place_attributes.name', value: autopsy.place.name}
+          %button.col-sm-2.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.back'
+        .form-group
+          %label.col-sm-2.control-label{for: 'autopsy_place_address'}= t 'activerecord.attributes.institution.address'
+          .col-sm-8
+            %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address', value: autopsy.place.address}
+        .form-group
+          %label.col-sm-2.control-label{for: 'autopsy_place_autopsy_room'}= t 'activerecord.attributes.institution.autopsy_room'
+          .col-sm-8
+            %input#autopsy_place_autopsy_room.form-control{type: "text", name: "autopsy[place_attributes][autopsy_room]", 'v-model': 'place_attributes.autopsy_room', value: autopsy.place.autopsy_room}
   .field
     = f.date_field_v :autopsy_date
   .field
@@ -42,11 +62,11 @@
         - Person.been_police_inspector.all.each do |person, _|
           %option{value: person.id}= person.name
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_police_inspector = !new_police_inspector'}= t 'helpers.new'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.new'
     .input-group{'v-if': 'new_police_inspector'}
       %input#autopsy_police_inspector_name.form-control{type: "text", name: "autopsy[police_inspector_attributes][name]", 'v-model': 'police_inspector_attributes.name', value: autopsy.police_inspector.name}
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_police_inspector = !new_police_inspector'}= t 'helpers.back'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.back'
   .field
     %label{for: 'autopsy_judge_name'}= t 'activerecord.attributes.autopsy.judge'
     .input-group{'v-if': '!new_judge'}
@@ -54,11 +74,11 @@
         - Person.been_judge.all.each do |person, _|
           %option{value: person.id}= person.name
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_judge = !new_judge'}= t 'helpers.new'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.new'
     .input-group{'v-if': 'new_judge'}
       %input#autopsy_judge_name.form-control{type: "text", name: "autopsy[judge_attributes][name]", 'v-model': 'judge_attributes.name', value: autopsy.judge.name}
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_judge = !new_judge'}= t 'helpers.back'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.back'
   .field
     %label{for: 'autopsy_examiner_name'}= t 'activerecord.attributes.autopsy.examiner'
     .input-group{'v-if': '!new_examiner'}
@@ -66,10 +86,10 @@
         - Person.been_examiner.all.each do |person, _|
           %option{value: person.id}= person.name
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_examiner = !new_examiner'}= t 'helpers.new'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.new'
     .input-group{'v-if': 'new_examiner'}
       %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name}
       .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'new_examiner = !new_examiner'}= t 'helpers.back'
+        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
   .actions
     = f.submit

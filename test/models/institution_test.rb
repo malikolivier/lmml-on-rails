@@ -5,6 +5,7 @@
 #  id                              :integer          not null, primary key
 #  name                            :text
 #  address                         :text
+#  autopsy_room                    :text
 #  autopsies_places_count          :integer          default(0)
 #  autopsies_police_stations_count :integer          default(0)
 #  autopsies_courts_count          :integer          default(0)

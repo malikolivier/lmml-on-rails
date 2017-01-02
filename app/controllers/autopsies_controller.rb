@@ -111,7 +111,7 @@ class AutopsiesController < ApplicationController
                   :autopsy_type_id,
                   suspect_attributes: [:name],
                   victim_attributes: [:name, :death_age, :sex],
-                  place_attributes: [:address],
+                  place_attributes: [:name, :address, :autopsy_room],
                   examiner_attributes: [:name],
                   police_inspector_attributes: [:name],
                   police_station_attributes: [:name],

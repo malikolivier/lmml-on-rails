@@ -31,29 +31,35 @@ LMML.loadVueModel = function(model, options = {}) {
       }
     }
   });
+  var methods = {
+    updatePreview: _.debounce(
+      function () {
+        console.log("Updating " + model)
+        this.$http.post('preview', {[model]: data}).then(function(response) {
+          document.getElementById('preview').innerHTML = response.body;
+        }, function(response) {
+          console.error(response)
+        });
+      },
+      500
+    )
+  };
   if (options.data) {
     _.forOwn(options.data, function(value, key) {
       data[key] = value;
     });
   }
+  if (options.methods) {
+    _.forOwn(options.methods, function(value, key) {
+      methods[key] = value;
+    });
+  }
 
   var newModelVm = new Vue({
     el: '#new_' + model,
-    data: data,
-    watch: watch,
-    methods: {
-      updatePreview: _.debounce(
-        function () {
-          console.log("Updating " + model)
-          this.$http.post('preview', {[model]: data}).then(function(response) {
-            document.getElementById('preview').innerHTML = response.body;
-          }, function(response) {
-            console.error(response)
-          });
-        },
-        500
-      )
-    }
+    data,
+    watch,
+    methods
   });
   newModelVm.updatePreview();
   window[model + 'Vm'] = function () {

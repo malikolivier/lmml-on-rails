@@ -8,6 +8,7 @@
 #  death_age                         :integer
 #  dob                               :date
 #  title                             :text
+#  affiliation                       :text
 #  institution_id                    :integer
 #  identification_number             :text
 #  autopsies_examiners_count         :integer          default(0)

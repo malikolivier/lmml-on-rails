@@ -47,7 +47,7 @@ gem 'wkhtmltopdf-binary'
 gem 'htmltoword'
 
 # Bootstrap CSS framework
-gem 'bootstrap'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
 # Use vue's JS framework
 gem 'vuejs-rails'

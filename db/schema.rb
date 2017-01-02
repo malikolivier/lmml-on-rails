@@ -615,6 +615,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   create_table "institutions", force: :cascade do |t|
     t.text     "name"
     t.text     "address"
+    t.text     "autopsy_room"
     t.integer  "autopsies_places_count",          default: 0
     t.integer  "autopsies_police_stations_count", default: 0
     t.integer  "autopsies_courts_count",          default: 0
@@ -912,6 +913,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.integer  "death_age"
     t.date     "dob"
     t.text     "title"
+    t.text     "affiliation"
     t.integer  "institution_id"
     t.text     "identification_number"
     t.integer  "autopsies_examiners_count",         default: 0
