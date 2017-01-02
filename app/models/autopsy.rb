@@ -24,14 +24,14 @@
 
 class Autopsy < ApplicationRecord
   belongs_to :autopsy_type
-  belongs_to :examiner, class_name: Person
-  belongs_to :suspect, class_name: Person
-  belongs_to :victim, class_name: Person
-  belongs_to :police_inspector, class_name: Person
-  belongs_to :judge, class_name: Person
-  belongs_to :place, class_name: Institution
-  belongs_to :police_station, class_name: Institution
-  belongs_to :court, class_name: Institution
+  belongs_to :examiner, class_name: Person, counter_cache: :autopsies_examiner_count
+  belongs_to :suspect, class_name: Person, counter_cache: :autopsies_suspect_count
+  belongs_to :victim, class_name: Person, counter_cache: :autopsies_victim_count
+  belongs_to :police_inspector, class_name: Person, counter_cache: :autopsies_police_inspector_count
+  belongs_to :judge, class_name: Person, counter_cache: :autopsies_judge_count
+  belongs_to :place, class_name: Institution, counter_cache: :autopsies_place_count
+  belongs_to :police_station, class_name: Institution, counter_cache: :autopsies_police_station_count
+  belongs_to :court, class_name: Institution, counter_cache: :autopsies_court_count
 
   has_many :participations
   has_many :participants, through: :participations, source: :person

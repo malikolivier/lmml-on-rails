@@ -10,15 +10,22 @@
   .field
     = f.text_field_v :number
   .field
+    = f.collection_select(:autopsy_type_id, AutopsyType.all, :id, :name, prompt: true)
+  .field
     %label{for: 'autopsy_suspect_name'}= t 'activerecord.attributes.autopsy.suspect_name'
     %input#autopsy_suspect_name.form-control{type: "text", name: "autopsy[suspect_attributes][name]", 'v-model': 'suspect_attributes.name', value: autopsy.suspect.name}
   .field.row
     .col-md-6
       %label{for: 'autopsy_victim_name'}= t 'activerecord.attributes.autopsy.victim_name'
       %input#autopsy_victim_name.form-control{type: "text", name: "autopsy[victim_attributes][name]", 'v-model': 'victim_attributes.name', value: autopsy.victim.name}
-    .col-md-6
+    .col-md-3
       %label{for: 'autopsy_victim_age'}= t 'activerecord.attributes.person.age'
       %input#autopsy_victim_age.form-control{type: "text", name: "autopsy[victim_attributes][age]", 'v-model': 'victim_attributes.age', value: autopsy.victim.age}
+    .col-md-3
+      %label{for: 'autopsy_victim_sex'}= t 'activerecord.attributes.person.sex'
+      %select.form-control{name: "autopsy[victim_attributes][sex]", 'v-model': 'victim_attributes.sex', value: autopsy.victim.sex}
+        - Person.sexes.each do |sex, _|
+          %option{value: sex}= t "sex.#{sex}"
   .field
     %label{for: 'autopsy_place_address'}= t 'activerecord.attributes.autopsy.place'
     %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address', value: autopsy.place.address}
