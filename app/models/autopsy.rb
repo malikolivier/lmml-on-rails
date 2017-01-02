@@ -22,7 +22,7 @@
 #  updated_at          :datetime         not null
 #
 
-class Autopsy < ApplicationRecord
+class Autopsy < ApplicationRecord # rubocop:disable ClassLength
   belongs_to :autopsy_type
   belongs_to :examiner, class_name: Person, counter_cache: :autopsies_examiners_count
   belongs_to :suspect, class_name: Person, counter_cache: :autopsies_suspects_count
@@ -104,9 +104,25 @@ class Autopsy < ApplicationRecord
     "よって、#{place_description}#{time_interval_description}#{participants_description}剖検した。"
   end
 
-  def time_interval_description
-    from = starting_time.present? ? "#{starting_time.to_era('%O%E年%m月%d日 %k時%M分')}より" : ''
-    to = ending_time.present? ? "#{ending_time.to_era('%k時%M分')}まで" : ''
+  def time_interval_description # rubocop:disable PerceivedComplexity, CyclomaticComplexity
+    from_am = starting_time.present? && starting_time.hour < 12
+    to_am = ending_time.present? && ending_time.hour < 12
+    if starting_time.present?
+      from = if from_am
+               "#{starting_time.to_era('%O%E年%m月%d日 午前%H時%M分')}より"
+             else
+               "#{starting_time.to_era('%O%E年%m月%d日 午後%H時%M分')}より"
+             end
+    end
+    if ending_time.present?
+      to = if from_am == to_am
+             "#{ending_time.to_era('%H時%M分')}まで"
+           elsif to_am
+             "#{ending_time.to_era('午前%H時%M分')}まで"
+           else
+             "#{ending_time.to_era('午後%H時%M分')}まで"
+           end
+    end
     "#{from}#{to}、" if from.present? || to.present?
   end
 
