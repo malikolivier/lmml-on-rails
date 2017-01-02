@@ -9,6 +9,5 @@ $(function() {
   autopsyVm.$http.get('/people?order_by=autopsies_examiner_count')
   .then(function(response) {
     this.examiner_autocomplete = response.body;
-    $("#autopsy_examiner_name").select2();
   });
 })

@@ -49,6 +49,8 @@
     %input#autopsy_judge_name.form-control{type: "text", name: "autopsy[judge_attributes][name]", 'v-model': 'judge_attributes.name', value: autopsy.judge.name}
   .field
     %label{for: 'autopsy_examiner_name'}= t 'activerecord.attributes.autopsy.examiner'
-    %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name}
+    %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name, list: 'examiners'}
+    %datalist#examiners
+      %option{'v-for': 'examiner in examiner_autocomplete'} {{ examiner.name }}
   .actions
     = f.submit
