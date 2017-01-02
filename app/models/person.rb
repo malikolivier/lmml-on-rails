@@ -35,4 +35,12 @@ class Person < ApplicationRecord
     where('autopsies_examiner_count > 0')
       .order(autopsies_examiner_count: :desc)
   }
+  scope :been_judge, lambda {
+    where('autopsies_judge_count > 0')
+      .order(autopsies_judge_count: :desc)
+  }
+  scope :been_police_inspector, lambda {
+    where('autopsies_police_inspector_count > 0')
+      .order(autopsies_police_inspector_count: :desc)
+  }
 end

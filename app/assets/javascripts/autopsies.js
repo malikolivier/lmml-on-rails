@@ -6,7 +6,9 @@ $(function() {
 
   var autopsyVm = LMML.loadVueModel('autopsy', {
     data: {
-      new_examiner: false
+      new_examiner: false,
+      new_judge: false,
+      new_police_inspector: false
     }
   });
 
