@@ -19,7 +19,9 @@ class Examination < ApplicationRecord
 
   def get
     if examination_type.organs.count <= 1
-      examination_type.this_examination_model.find_by!(examination: self)
+      examination = examination_type.this_examination_model
+                                    .find_by(examination: self)
+      examination || examination_type.this_examination_model.new
     else
       examination_type.this_examination_model.where(examination: self)
     end

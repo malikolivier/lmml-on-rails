@@ -33,10 +33,10 @@
 
 <%-# Temperature -%>
 
-<% if exam.rectal_temperature < 25 %>
-  全身は冷却し、
-<% end %>
 <% if exam.rectal_temperature.present? %>
+  <% if exam.rectal_temperature < 25 %>
+    全身は冷却し、
+  <% end %>
   剖検開始時の直腸温<%= exam.rectal_temperature %>℃
 <% end %>
 （室温<%= exam.room_temperature %>℃）。

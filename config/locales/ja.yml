@@ -241,7 +241,7 @@ ja:
     new:
       title: 新しい解剖所見を作成
     edit:
-      title: 解剖所見編集中
+      title: 剖検記録
   activerecord:
     errors:
       messages:
@@ -275,6 +275,8 @@ ja:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      external_outline_examination:
+        sex: 性別
   date:
     abbr_day_names:
     - 日

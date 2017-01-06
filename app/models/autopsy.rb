@@ -142,4 +142,9 @@ class Autopsy < ApplicationRecord # rubocop:disable ClassLength
                                 :police_inspector, :judge, :police_station,
                                 :court,
                                 reject_if: :all_blank
+
+  def examination(examination_type_name)
+    examinations.joins(:examination_type)
+                .find_by(examination_types: { name: examination_type_name })
+  end
 end

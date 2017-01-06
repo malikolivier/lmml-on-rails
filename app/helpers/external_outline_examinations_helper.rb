@@ -1,0 +1,2 @@
+module ExternalOutlineExaminationsHelper
+end
