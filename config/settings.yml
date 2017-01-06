@@ -44,9 +44,9 @@ enums:
     - thick
     - very_thick
   sex:
+    - O
     - M
     - F
-    - O
   closedness:
     - closed
     - open

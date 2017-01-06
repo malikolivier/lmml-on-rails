@@ -92,4 +92,5 @@
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
   .actions
-    = f.submit
+    = f.submit if action_name == 'new'
+  %div.hide{id: 'autopsy_action_name'}= action_name

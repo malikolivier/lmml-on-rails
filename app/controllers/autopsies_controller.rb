@@ -43,18 +43,10 @@ class AutopsiesController < ApplicationController
   # PATCH/PUT /autopsies/1
   # PATCH/PUT /autopsies/1.json
   def update
-    respond_to do |format|
-      if @autopsy.update(autopsy_params)
-        format.html do
-          redirect_to @autopsy, notice: 'Autopsy was successfully updated.'
-        end
-        format.json { render :show, status: :ok, location: @autopsy }
-      else
-        format.html { render :edit }
-        format.json do
-          render json: @autopsy.errors, status: :unprocessable_entity
-        end
-      end
+    if @autopsy.update(autopsy_params)
+      render 'preview'
+    else
+      render json: { errors: @autopsy.errors.full_messages }, status: 422
     end
   end
 
@@ -96,7 +88,7 @@ class AutopsiesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_autopsy
-    @autopsy = Autopsy.find(params[:id])
+    @autopsy = Autopsy.find(params[:id] || params[:autopsy_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list

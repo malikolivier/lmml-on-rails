@@ -31,11 +31,15 @@ LMML.loadVueModel = function(model, options = {}) {
       }
     }
   });
+  if (!options.http_verb) {
+    options.http_verb = 'post';
+  }
   var methods = {
     updatePreview: _.debounce(
       function () {
         console.log("Updating " + model)
-        this.$http.post(options.preview_url, {[model]: data}).then(function(response) {
+        this.$http[options.http_verb](options.preview_url, {[model]: data})
+        .then(function(response) {
           document.getElementById(model + '_preview').innerHTML = response.body;
         }, function(response) {
           console.error(response)

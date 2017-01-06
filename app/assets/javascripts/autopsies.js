@@ -4,8 +4,17 @@
 $(function() {
   if (document.getElementById('autopsy') === null) return;
 
+  var action_name_element = document.getElementById('autopsy_action_name');
+  if (action_name_element !== null && action_name_element.innerHTML === 'new') {
+    var preview_url = '/autopsies/preview';
+    var http_verb = 'post';
+  } else {
+    var preview_url = 'update';
+    var http_verb = 'put';
+  }
   var autopsyVm = LMML.loadVueModel('autopsy', {
-    preview_url: '/autopsies/preview',
+    preview_url,
+    http_verb,
     data: {
       new_place: false,
       new_examiner: false,
