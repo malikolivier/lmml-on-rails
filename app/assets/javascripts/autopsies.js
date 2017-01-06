@@ -13,6 +13,7 @@ $(function() {
     var update_url = 'update';
     var http_verb = 'put';
     var update_all = false;
+    LMML.setup_navbar();
   }
   var autopsyVm = LMML.loadVueModel('autopsy', {
     update_url,
