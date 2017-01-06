@@ -5,7 +5,7 @@ $(function() {
   if (document.getElementById('external_outline_examination') === null) return;
 
   var autopsyVm = LMML.loadVueModel('external_outline_examination', {
-    preview_url: '/external_outline_examinations/preview',
+    preview_url: 'external_outline_examinations',
     data: {
     },
     methods: {

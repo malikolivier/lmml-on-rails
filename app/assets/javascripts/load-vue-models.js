@@ -39,6 +39,11 @@ LMML.loadVueModel = function(model, options = {}) {
           document.getElementById(model + '_preview').innerHTML = response.body;
         }, function(response) {
           console.error(response)
+          var errorElement = document.getElementById(model + '_errors');
+          if (response.body.errors)
+            errorElement.innerHTML = response.body.errors;
+          else
+            errorElement.innerHTML = response.body;
         });
       },
       500

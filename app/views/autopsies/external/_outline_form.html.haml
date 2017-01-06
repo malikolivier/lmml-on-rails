@@ -1,5 +1,5 @@
 = bootstrap_form_tag(html: { id: 'external_outline_examination' }) do |f|
-  %input{type: 'hidden', name: 'external_outline_examination[id]'}= exam.id
+  %input{type: 'hidden', name: 'external_outline_examination[id]', value: exam.id}
   .form-group
     %label.col-sm-4.control-label= t "activerecord.attributes.external_outline_examination.sex"
     .col-sm-8

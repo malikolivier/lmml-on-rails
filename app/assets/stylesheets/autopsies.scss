@@ -5,3 +5,7 @@
 p::before {
   content: '　'
 }
+
+.alert:empty {
+    display: none;
+}

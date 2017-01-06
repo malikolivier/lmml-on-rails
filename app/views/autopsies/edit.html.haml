@@ -7,8 +7,9 @@
     .col-sm-6
       #autopsy_preview
   - ExaminationType.external.order(:placement).each do |examination_type|
+    - key_string = "#{examination_type.category}_#{examination_type.name}_examination"
     .row
-      %h1= t "section_title.#{examination_type.category}.#{examination_type.name}"
+      %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
     .row
       .col-sm-6
         - begin # TODO remove this begin rescue when all templates are done!
@@ -18,4 +19,5 @@
         - rescue ActionView::MissingTemplate
           = $!
       .col-sm-6
-        %div{id: "#{examination_type.name}_preview"}
+        %div.alert.alert-danger{id: "#{key_string}_errors"}
+        %div{id: "#{key_string}_preview"}

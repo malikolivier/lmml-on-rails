@@ -1,7 +1,13 @@
-<% if !exam.O? %><%= I18n.t "sex.#{exam.sex}" %>性屍。<% else %>性別が不明な屍。<% end %>
-身長<%= exam.height %>cm、体重<%= exam.weight %>kg。
-体格、<%= exam.constitution %>。
-
+<% if !exam.O? && exam.sex.present? %><%= t "sex.#{exam.sex}" %>性屍。<% else %>性別が不明な屍。<% end %>
+<%
+phrases = []
+phrases.push("身長#{exam.height}cm") if exam.height.present?
+phrases.push("体重#{exam.weight}kg") if exam.weight.present?
+%>
+<%= phrases.to_sentence_with_comma_and_full_stop %>
+<% if exam.constitution.present? %>
+  体格、<%= exam.constitution %>。
+<% end %>
 
 <%-# Livor mortis description. Should be improved -%>
 
@@ -28,7 +34,9 @@
     <% rigor_mortis_phrases.push("#{joints.join('・')}で#{I18n.t "intensity.#{intensity}"}") %>
   <% end %>
 <% end %>
-硬直は<%= rigor_mortis_phrases.join('、') %>。
+<% if rigor_mortis_phrases.any? %>
+  硬直は<%= rigor_mortis_phrases.join('、') %>。
+<% end %>
 <%= exam.rigor_mortis_note %>
 
 <%-# Temperature -%>
@@ -39,4 +47,6 @@
   <% end %>
   剖検開始時の直腸温<%= exam.rectal_temperature %>℃
 <% end %>
+<% if exam.room_temperature.present? %>
 （室温<%= exam.room_temperature %>℃）。
+<% end %>

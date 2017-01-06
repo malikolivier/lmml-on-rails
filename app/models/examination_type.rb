@@ -24,4 +24,8 @@ class ExaminationType < ApplicationRecord
   def this_examination_model
     "#{category}_#{name}_examination".camelize.constantize
   end
+
+  def self.by_name(name, category)
+    find_by!(name: name, category: category)
+  end
 end
