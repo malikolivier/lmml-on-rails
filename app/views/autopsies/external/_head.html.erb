@@ -1,13 +1,13 @@
-<% if exam.hair_natural_color.present? %>
-  頭髪は
-  <% if exam.hair_dyed_color.blank? || exam.not_dyed? %>
-    <%= t "colors.#{exam.hair_natural_color}" %>。
-  <% else %>
-    <%= t "colors.#{exam.hair_natural_color}" %>で<%= t "colors.#{exam.hair_dyed_color}" %>色に染められる。
-  <% end %>
-<% elsif exam.hair_dyed_color.present? %>
-  <%= t "colors.#{exam.hair_dyed_color}" %>色に染められる。
-<% end %>
+<%= if exam.hair_natural_color.present?
+      if exam.hair_dyed_color.blank? || exam.not_dyed?
+        "頭髪は#{t "colors.#{exam.hair_natural_color}"}。"
+      else
+        "頭髪は#{t "colors.#{exam.hair_natural_color}"}で#{t "colors.#{exam.hair_dyed_color}"}に染められる。"
+      end
+    elsif exam.hair_dyed_color.present?
+      "頭髪は#{t "colors.#{exam.hair_dyed_color}"}に染められる。"
+    end
+%>
 
 <%
 hair_length_phrases = []
