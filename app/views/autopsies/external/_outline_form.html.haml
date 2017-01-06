@@ -22,3 +22,11 @@
     .form-group
       %label= t "activerecord.attributes.external_outline_examination.constitution"
       %input.form-control{name: "external_outline_examination[constitution]", 'v-model': 'constitution', value: exam.constitution}
+  .field.row
+    .form-group
+      .col-xs-6
+        %label= t "activerecord.attributes.external_outline_examination.rectal_temperature"
+        %input.form-control{type: 'number', name: "external_outline_examination[rectal_temperature]", 'v-model': 'rectal_temperature', value: exam.rectal_temperature}
+      .col-xs-6
+        %label= t "activerecord.attributes.external_outline_examination.room_temperature"
+        %input.form-control{type: 'number', name: "external_outline_examination[room_temperature]", 'v-model': 'room_temperature', value: exam.room_temperature}

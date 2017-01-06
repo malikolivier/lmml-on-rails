@@ -281,6 +281,8 @@ ja:
         height: 身長
         weight: 体重
         constitution: 体格
+        rectal_temperature: 直腸温度
+        room_temperature: 室温
   date:
     abbr_day_names:
     - 日
