@@ -11,7 +11,7 @@ LMML.loadVueModel = function(model, options = {}) {
   var onChange = function onChange(newValue, oldValue) {
     this.updatePreview();
   }
-  $('#new_' + model + ' input,select').each(function(index) {
+  $('#' + model + ' input,select').each(function(index) {
     if (this.name.startsWith(model + '[') && this.name.endsWith(']')) {
       var field_name = this.name.substring(model.length + 1, this.name.length - 1);
       var names = field_name.split('][');
@@ -35,8 +35,8 @@ LMML.loadVueModel = function(model, options = {}) {
     updatePreview: _.debounce(
       function () {
         console.log("Updating " + model)
-        this.$http.post('preview', {[model]: data}).then(function(response) {
-          document.getElementById('preview').innerHTML = response.body;
+        this.$http.post(options.preview_url, {[model]: data}).then(function(response) {
+          document.getElementById(model + '_preview').innerHTML = response.body;
         }, function(response) {
           console.error(response)
         });
@@ -56,7 +56,7 @@ LMML.loadVueModel = function(model, options = {}) {
   }
 
   var newModelVm = new Vue({
-    el: '#new_' + model,
+    el: '#' + model,
     data,
     watch,
     methods

@@ -28,7 +28,7 @@ class AutopsiesController < ApplicationController
     respond_to do |format|
       if @autopsy.save
         format.html do
-          redirect_to @autopsy, notice: 'Autopsy was successfully created.'
+          redirect_to action: :edit, id: @autopsy.id
         end
         format.json { render :show, status: :created, location: @autopsy }
       else

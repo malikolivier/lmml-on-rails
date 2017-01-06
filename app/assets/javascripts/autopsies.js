@@ -2,9 +2,10 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  if (document.getElementById('new_autopsy') === null) return;
+  if (document.getElementById('autopsy') === null) return;
 
   var autopsyVm = LMML.loadVueModel('autopsy', {
+    preview_url: '/autopsies/preview',
     data: {
       new_place: false,
       new_examiner: false,

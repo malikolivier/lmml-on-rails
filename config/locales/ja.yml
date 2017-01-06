@@ -240,6 +240,8 @@ ja:
   autopsies:
     new:
       title: 新しい解剖所見を作成
+    edit:
+      title: 解剖所見編集中
   activerecord:
     errors:
       messages:

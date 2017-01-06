@@ -1,4 +1,4 @@
-= bootstrap_form_for(setup_autopsy(autopsy)) do |f|
+= bootstrap_form_for(setup_autopsy(autopsy), html: { id: 'autopsy' }) do |f|
   - if autopsy.errors.any?
     #error_explanation
       %h2
@@ -31,7 +31,7 @@
     .input-group{'v-if': '!new_place'}
       %select#autopsy_place_id.form-control{name: "autopsy[place_id]", 'v-model': 'place_id', value: autopsy.place_id}
         - Institution.been_autopsy_place.all.each do |institution, _|
-          %option{value: institution.id}= institution.address
+          %option{value: institution.id, selected: autopsy.place_id == institution.id}= institution.address
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.new'
     .panel.panel-default{'v-if': 'new_place'}
@@ -60,7 +60,7 @@
     .input-group{'v-if': '!new_police_inspector'}
       %select.form-control{name: "autopsy[police_inspector_id]", 'v-model': 'police_inspector_id', value: autopsy.police_inspector_id}
         - Person.been_police_inspector.all.each do |person, _|
-          %option{value: person.id}= person.name
+          %option{value: person.id, selected: autopsy.police_inspector_id == person.id}= person.name
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.new'
     .input-group{'v-if': 'new_police_inspector'}
@@ -72,7 +72,7 @@
     .input-group{'v-if': '!new_judge'}
       %select.form-control{name: "autopsy[judge_id]", 'v-model': 'judge_id', value: autopsy.judge_id}
         - Person.been_judge.all.each do |person, _|
-          %option{value: person.id}= person.name
+          %option{value: person.id, selected: autopsy.judge_id == person.id}= person.name
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.new'
     .input-group{'v-if': 'new_judge'}
@@ -84,7 +84,7 @@
     .input-group{'v-if': '!new_examiner'}
       %select.form-control{name: "autopsy[examiner_id]", 'v-model': 'examiner_id', value: autopsy.examiner_id}
         - Person.been_examiner.all.each do |person, _|
-          %option{value: person.id}= person.name
+          %option{value: person.id, selected: autopsy.examiner_id == person.id}= person.name
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.new'
     .input-group{'v-if': 'new_examiner'}
