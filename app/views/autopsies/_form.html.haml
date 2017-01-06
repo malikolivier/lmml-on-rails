@@ -13,8 +13,10 @@
     = f.collection_select(:autopsy_type_id, AutopsyType.all, :id, :name, prompt: true)
   .field
     %label{for: 'autopsy_suspect_name'}= t 'activerecord.attributes.autopsy.suspect_name'
+    %input{type: 'hidden', name: 'autopsy[suspect_attributes][id]', value: autopsy.suspect.id}
     %input#autopsy_suspect_name.form-control{type: "text", name: "autopsy[suspect_attributes][name]", 'v-model': 'suspect_attributes.name', value: autopsy.suspect.name}
   .field.row
+    %input{type: 'hidden', name: 'autopsy[victim_attributes][id]', value: autopsy.victim.id}
     .col-xs-6
       %label{for: 'autopsy_victim_name'}= t 'activerecord.attributes.autopsy.victim_name'
       %input#autopsy_victim_name.form-control{type: "text", name: "autopsy[victim_attributes][name]", 'v-model': 'victim_attributes.name', value: autopsy.victim.name}

@@ -7,11 +7,15 @@
 
 長さ頭頂部で<%= exam.top_hair_length %>㎝、側頭部で<%= exam.side_hair_length %>㎝。
 
-<% left_ear = exam.ears.left.first %>
-<% right_ear = exam.ears.left.first %>
-<% if left_ear.injury.blank? && right_ear.injury.blank? && !right_ear.bleeding? && !left_ear.bleeding? %>
+<% left_ear = exam.ears.left.take %>
+<% right_ear = exam.ears.left.take %>
+<% if left_ear.present? && right_ear.present? && left_ear.injury.blank? && right_ear.injury.blank? && !right_ear.bleeding? && !left_ear.bleeding? %>
   左右耳介に損傷なく、外耳道に出血なし。
 <% else %>
-  左耳介に損傷<% if left_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if left_ear.bleeding? %>あり<% else %>なし<% end %>。
-  右耳介に損傷<% if right_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if right_ear.bleeding? %>あり<% else %>なし<% end %>。
+  <% if left_ear.present? %>
+    左耳介に損傷<% if left_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if left_ear.bleeding? %>あり<% else %>なし<% end %>。
+  <% end %>
+  <% if right_ear.present? %>
+    右耳介に損傷<% if right_ear.injury.present? %>あり<% else %>なく<% end %>、外耳道に出血<% if right_ear.bleeding? %>あり<% else %>なし<% end %>。
+  <% end %>
 <% end %>

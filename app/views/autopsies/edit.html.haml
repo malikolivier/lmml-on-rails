@@ -5,8 +5,8 @@
     .col-sm-6
       = render 'form', autopsy: @autopsy
     .col-sm-6
-      #autopsy_preview
       #autopsy_errors.alert.alert-danger
+      #autopsy_preview= render 'preview'
   - ExaminationType.external.order(:placement).each do |examination_type|
     - key_string = "#{examination_type.category}_#{examination_type.name}_examination"
     .row
@@ -21,4 +21,4 @@
           = $!
       .col-sm-6
         %div.alert.alert-danger{id: "#{key_string}_errors"}
-        %div{id: "#{key_string}_preview"}
+        %div{id: "#{key_string}_preview"}= render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: examination.get

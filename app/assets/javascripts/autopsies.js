@@ -6,15 +6,18 @@ $(function() {
 
   var action_name_element = document.getElementById('autopsy_action_name');
   if (action_name_element !== null && action_name_element.innerHTML === 'new') {
-    var preview_url = '/autopsies/preview';
+    var update_url = '/autopsies/preview';
     var http_verb = 'post';
+    var update_all = true;
   } else {
-    var preview_url = 'update';
+    var update_url = 'update';
     var http_verb = 'put';
+    var update_all = false;
   }
   var autopsyVm = LMML.loadVueModel('autopsy', {
-    preview_url,
+    update_url,
     http_verb,
+    update_all,
     data: {
       new_place: false,
       new_examiner: false,

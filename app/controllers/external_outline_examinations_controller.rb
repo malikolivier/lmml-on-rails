@@ -2,11 +2,6 @@ class ExternalOutlineExaminationsController < ApplicationController
   protect_from_forgery except: [:create, :update]
   before_action :set_exam, only: [:create, :update]
 
-  # POST /autopsies/:autopsy_id/external_outline_examinations.json
-  def create
-    update
-  end
-
   # PUT /autopsies/:autopsy_id/external_outline_examinations.json
   def update
     if @exam.update(update_params)

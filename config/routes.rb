@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :autopsies do
     get :browse, to: 'autopsies#browse'
     put :update, to: 'autopsies#update'
-    resources :external_outline_examinations, only: [:create, :update]
+    put :external_outline_examinations, to: 'external_outline_examinations#update'
   end
   post 'autopsies/preview', to: 'autopsies#preview'
 
