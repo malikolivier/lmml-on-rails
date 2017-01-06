@@ -1,11 +1,22 @@
-頭髪は
-<% if exam.hair_dyed_color.blank? || exam.not_dyed? %>
-  <%= I18n.t "colors.#{exam.hair_natural_color}" %>。
-<% else %>
-  <%= I18n.t "colors.#{exam.hair_natural_color}" %>で<%= I18n.t "colors.#{exam.hair_dyed_color}" %>色に染められる。
+<% if exam.hair_natural_color.present? %>
+  頭髪は
+  <% if exam.hair_dyed_color.blank? || exam.not_dyed? %>
+    <%= t "colors.#{exam.hair_natural_color}" %>。
+  <% else %>
+    <%= t "colors.#{exam.hair_natural_color}" %>で<%= t "colors.#{exam.hair_dyed_color}" %>色に染められる。
+  <% end %>
+<% elsif exam.hair_dyed_color.present? %>
+  <%= t "colors.#{exam.hair_dyed_color}" %>色に染められる。
 <% end %>
 
-長さ頭頂部で<%= exam.top_hair_length %>㎝、側頭部で<%= exam.side_hair_length %>㎝。
+<%
+hair_length_phrases = []
+hair_length_phrases.push("頭頂部で#{exam.top_hair_length}㎝") if exam.top_hair_length.present?
+hair_length_phrases.push("側頭部で#{exam.side_hair_length}㎝") if exam.side_hair_length.present?
+%>
+<% if hair_length_phrases.any? %>
+  長さ<%= hair_length_phrases.to_sentence_with_comma_and_full_stop %>
+<% end %>
 
 <% left_ear = exam.ears.left.take %>
 <% right_ear = exam.ears.left.take %>
