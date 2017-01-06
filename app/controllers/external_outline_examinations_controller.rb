@@ -32,7 +32,8 @@ class ExternalOutlineExaminationsController < ApplicationController
                                         )
       @exam ||= ExternalOutlineExamination.new(
         examination: Examination.create!(autopsy: autopsy,
-                                         examination_type: ExaminationType.by_name(:outline, :external))
+                                         examination_type: ExaminationType
+                                           .by_name(:outline, :external))
       )
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
