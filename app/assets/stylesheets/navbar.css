@@ -14,17 +14,20 @@
 @media (min-width: 979px) {
   #sidebar.affix-top {
     position: static;
-    margin-top: 30px;
-    width: 228px;
+    margin: 20px 10px;
   }
   #sidebar.affix {
     position: fixed;
-    top: 70px;
-    width: 228px;
+    margin: 20px 10px;
   }
 }
 
 #sidebar li.active {
   border: 0 #eee solid;
   border-right-width: 4px;
+}
+
+#leftCol {
+  padding-left: 2px;
+  padding-right: 2px;
 }
