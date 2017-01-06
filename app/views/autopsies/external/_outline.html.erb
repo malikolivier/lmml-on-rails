@@ -1,8 +1,10 @@
 <% if !exam.O? && exam.sex.present? %><%= t "sex.#{exam.sex}" %>性屍。<% else %>性別が不明な屍。<% end %>
 <%
 phrases = []
-phrases.push("身長#{exam.height}cm") if exam.height.present?
-phrases.push("体重#{exam.weight}kg") if exam.weight.present?
+height = exam.partial_body ? '全長' : '身長'
+weight = exam.partial_body ? '重量' : '体重'
+phrases.push("#{height}#{exam.height}cm") if exam.height.present?
+phrases.push("#{weight}#{exam.weight}kg") if exam.weight.present?
 %>
 <%= phrases.to_sentence_with_comma_and_full_stop %>
 <% if exam.constitution.present? %>
