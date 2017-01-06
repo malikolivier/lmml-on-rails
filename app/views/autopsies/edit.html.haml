@@ -1,12 +1,12 @@
 .row
-  #leftCol.col-md-2
+  #leftCol.col-md-1.col-sm-2.col-xs-3
     %ul.nav.nav-stacked#sidebar
       %li.nav-item
         %a{href: '#autopsy_head'}= t '.title'
       - ExaminationType.external.order(:placement).each do |examination_type|
         %li.nav-item
           %a{href: "##{examination_type.category}_#{examination_type.name}_examination_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
-  #mainCol.col-md-10
+  #mainCol.col-md-11.col-sm-10.col-xs-9
     %h1#autopsy_head= t '.title'
 
     .row
