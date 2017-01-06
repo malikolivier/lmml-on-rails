@@ -1,5 +1,5 @@
 class AutopsiesController < ApplicationController
-  before_action :set_autopsy, only: [:show, :edit, :update, :destroy]
+  before_action :set_autopsy, only: [:show, :update, :destroy]
 
   # GET /autopsies
   # GET /autopsies.json
@@ -17,7 +17,9 @@ class AutopsiesController < ApplicationController
   end
 
   # GET /autopsies/1/edit
-  def edit; end
+  def edit
+    @autopsy = Autopsy.includes(:place).find(params[:id])
+  end
 
   # POST /autopsies
   # POST /autopsies.json
