@@ -277,6 +277,10 @@ ja:
         autopsy_room: 解剖室
       external_outline_examination:
         sex: 性別
+        partial_body: 部位欠損
+        height: 身長
+        weight: 体重
+        constitution: 体格
   date:
     abbr_day_names:
     - 日

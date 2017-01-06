@@ -36,6 +36,6 @@ class ExternalOutlineExaminationsController < ApplicationController
 
   def update_params
     params.require(:external_outline_examination)
-          .permit(:id, :sex)
+          .permit(:id, :sex, :partial_body, :height, :weight, :constitution)
   end
 end

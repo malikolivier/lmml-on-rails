@@ -1,8 +1,24 @@
 = bootstrap_form_tag(html: { id: 'external_outline_examination' }) do |f|
   %input{type: 'hidden', name: 'external_outline_examination[id]', value: exam.id}
-  .form-group
-    %label.col-sm-4.control-label= t "activerecord.attributes.external_outline_examination.sex"
-    .col-sm-8
-      %select.form-control{name: "external_outline_examination[sex]", 'v-model': 'sex', value: exam.sex}
-        - ExternalOutlineExamination.sexes.each do |sex, _|
-          %option{value: sex, selected: exam.sex == sex}= t "sex.#{sex}"
+  .field.row
+    .form-group
+      %label.col-sm-4= t "activerecord.attributes.external_outline_examination.sex"
+      .col-sm-8
+        %select.form-control{name: "external_outline_examination[sex]", 'v-model': 'sex', value: exam.sex}
+          - ExternalOutlineExamination.sexes.each do |sex, _|
+            %option{value: sex, selected: exam.sex == sex}= t "sex.#{sex}"
+  .field.row
+    .form-group
+      .col-xs-4
+        %label= t "activerecord.attributes.external_outline_examination.partial_body"
+        %input.form-control{type: 'checkbox', name: "external_outline_examination[partial_body]", 'v-model': 'partial_body', value: exam.partial_body}
+      .col-xs-4
+        %label= t "activerecord.attributes.external_outline_examination.height"
+        %input.form-control{type: 'number', name: "external_outline_examination[height]", 'v-model': 'height', value: exam.height}
+      .col-xs-4
+        %label= t "activerecord.attributes.external_outline_examination.weight"
+        %input.form-control{type: 'number', name: "external_outline_examination[weight]", 'v-model': 'weight', value: exam.weight}
+  .field
+    .form-group
+      %label= t "activerecord.attributes.external_outline_examination.constitution"
+      %input.form-control{name: "external_outline_examination[constitution]", 'v-model': 'constitution', value: exam.constitution}
