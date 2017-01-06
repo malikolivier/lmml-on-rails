@@ -1,4 +1,9 @@
-鬱血<%= I18n.t "existence.#{exam.congestion}" %>、腫脹は<%= I18n.t "intensity.#{exam.swelling}" %>。
+<%
+phrases = []
+phrases.push("鬱血#{t "existence.#{exam.congestion}"}") if exam.congestion.present?
+phrases.push("腫脹は#{t "intensity.#{exam.swelling}"}") if exam.swelling.present?
+%>
+<%= phrases.to_sentence_with_comma_and_full_stop %>
 
 <% left_eye = exam.eyes.left.take %>
 <% right_eye = exam.eyes.right.take %>
