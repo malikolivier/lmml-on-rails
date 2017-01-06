@@ -59,7 +59,11 @@ LMML.loadVueModel = function(model, options = {}) {
       for (var i = 0; i < names.length; i++) {
         var name = names[i];
         if (i === names.length - 1) {
-          scoped_data[name] = this.value;
+          if (this.type == 'checkbox') {
+            scoped_data[name] = this.checked;
+          } else {
+            scoped_data[name] = this.value;
+          }
         } else {
           scoped_data[name] = scoped_data[name] || {};
           scoped_data = scoped_data[name];

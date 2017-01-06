@@ -11,7 +11,7 @@
     .form-group
       .col-xs-4
         %label= t "activerecord.attributes.external_outline_examination.partial_body"
-        %input.form-control{type: 'checkbox', name: "external_outline_examination[partial_body]", 'v-model': 'partial_body', value: exam.partial_body}
+        %input.form-control{type: 'checkbox', name: "external_outline_examination[partial_body]", 'v-model': 'partial_body', checked: exam.partial_body}
       .col-xs-4
         %label= t "activerecord.attributes.external_outline_examination.height"
         %input.form-control{type: 'number', name: "external_outline_examination[height]", 'v-model': 'height', value: exam.height}
