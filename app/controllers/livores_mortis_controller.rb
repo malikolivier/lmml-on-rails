@@ -12,7 +12,7 @@ class LivoresMortisController < ApplicationController
   private
 
   def set_livor_mortis
-    @livor_mortis.find(params[:id])
+    @livor_mortis = LivorMortis.find(params[:id])
   end
 
   def create_params

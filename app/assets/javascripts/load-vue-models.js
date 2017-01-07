@@ -66,8 +66,6 @@ LMML.loadVueModel = function(model, options = {}) {
               handler: _.debounce(
                 function onArrayChange(newValue, oldValue) {
                   console.log(`Updating array ${array_name}...`);
-                  console.log(newValue);
-                  console.log(oldValue);
                   this.$http[options.http_verb](options.update_url, {
                     [model]: {
                       [array_name]: newValue
@@ -137,7 +135,7 @@ LMML.loadVueModel = function(model, options = {}) {
   };
   if (options.data) {
     _.forOwn(options.data, function(value, key) {
-      data[key] = value;
+      if (data[key] === undefined) data[key] = value;
     });
   }
   if (options.methods) {

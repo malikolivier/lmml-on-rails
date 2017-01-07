@@ -43,7 +43,7 @@
             %select.form-control{'v-model': "livor_mortis.position"}
               - LivorMortis.positions.each do |position, _|
                 %option{value: position}= t "body_parts.#{position}"
-          .col-xs-3
+          .col-xs-2
             %label= t "activerecord.attributes.livor_mortis.intensity"
             %select.form-control{'v-model': "livor_mortis.intensity"}
               - LivorMortis.intensities.each do |intensity, _|
@@ -53,6 +53,9 @@
             %select.form-control{'v-model': "livor_mortis.on_finger_pressure"}
               - LivorMortis.on_finger_pressures.each do |on_finger_pressure, _|
                 %option{value: on_finger_pressure}= t "colors.#{on_finger_pressure}"
+          .col-xs-1
+            %label &nbsp;
+            %button.btn.btn-danger.btn-xs{'v-on:click.prevent': 'delete_livor_mortis(livor_mortis)'} X
         %button.btn.btn-default{'v-on:click': 'add_livor_mortis'}= t 'helpers.add'
         .form-group.col-xs-12
           %label= t "activerecord.attributes.examination.note"
