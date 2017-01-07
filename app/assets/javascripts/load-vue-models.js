@@ -12,7 +12,7 @@ LMML.loadVueModel = function(model, options = {}) {
   var data = {};
   var watch = {};
   $('#' + model + ' input,select').each(function(index) {
-    if (this.name.startsWith(model + '[') && this.name.endsWith(']')) {
+    if (this.name && this.name.startsWith(model + '[') && this.name.endsWith(']')) {
       var field_name = this.name.substring(model.length + 1, this.name.length - 1);
       var names = field_name.split('][');
       var scoped_data = data;
@@ -58,6 +58,16 @@ LMML.loadVueModel = function(model, options = {}) {
       }
       for (var i = 0; i < names.length; i++) {
         var name = names[i];
+        // Check if name is an array
+        var array_match = name.match(/^(\w+)\[([0-9]+)\]$/);
+        var index = null;
+        if (array_match) {
+          name = array_match[1];
+          index = array_match[2];
+          scoped_data[name] =  scoped_data[name] || [];
+          scoped_data = scoped_data[name];
+          name = index;
+        }
         if (i === names.length - 1) {
           if (this.type == 'checkbox') {
             scoped_data[name] = this.checked;
