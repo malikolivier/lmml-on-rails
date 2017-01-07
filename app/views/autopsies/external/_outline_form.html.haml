@@ -53,7 +53,7 @@
             %select.form-control{'v-model': "livor_mortis.on_finger_pressure"}
               - LivorMortis.on_finger_pressures.each do |on_finger_pressure, _|
                 %option{value: on_finger_pressure}= t "colors.#{on_finger_pressure}"
-        %button.btn.btn-default{'v-on:click': 'add_livor_mortis()'}= t 'helpers.add'
+        %button.btn.btn-default{'v-on:click': 'add_livor_mortis'}= t 'helpers.add'
         .form-group.col-xs-12
           %label= t "activerecord.attributes.examination.note"
           %input.form-control{name: "external_outline_examination[livor_mortis_note]", 'v-model': 'livor_mortis_note', value: exam.livor_mortis_note}

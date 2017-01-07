@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   post 'autopsies/preview', to: 'autopsies#preview'
 
   resources :people, only: [:index]
+
+  resources :livores_mortis, only: [:create, :destroy]
 end

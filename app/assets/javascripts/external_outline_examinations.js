@@ -9,11 +9,12 @@ $(function() {
     data: {
     },
     methods: {
-      add_livor_mortis: function() {
-        this.$http.post('/livor_mortis', {
+      add_livor_mortis: function(event) {
+        event.preventDefault();
+        this.$http.post('/livores_mortis', {
           external_outline_examination_id: this.id
         }).then(function(response) {
-          console.log(response);
+          this.livores_mortis_attributes.push(response.body);
         }, function(response) {
           console.error(response)
           var errorElement = document.getElementById('external_outline_examination_errors');
