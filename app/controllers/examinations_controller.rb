@@ -49,4 +49,21 @@ class ExaminationsController < ApplicationController
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
   end
+
+  def convert_to_array(params)
+    params.each do |key, value|
+      if key.end_with?('_attributes')
+        not_integer = false
+        array = []
+        value.each do |key, value|
+          unless key =~ /^[0-9]+$/
+            not_integer = true
+            break
+          end
+          array.push(value)
+        end
+        params[key] = array
+      end
+    end
+  end
 end

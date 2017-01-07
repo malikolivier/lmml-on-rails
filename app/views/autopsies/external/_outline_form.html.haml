@@ -22,6 +22,33 @@
     .form-group
       %label= t "activerecord.attributes.external_outline_examination.constitution"
       %input.form-control{name: "external_outline_examination[constitution]", 'v-model': 'constitution', value: exam.constitution}
+  .field
+    .panel.panel-default
+      .panel-heading= t "activerecord.models.livor_mortis"
+      .panel-body.form-horizontal
+        - exam.livores_mortis.each_with_index do |livor_mortis, i|
+          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes][#{i}][id]", value: livor_mortis.id}
+          .form-group
+            .col-xs-3
+              %label= t "activerecord.attributes.livor_mortis.color"
+              %select.form-control{name: "external_outline_examination[livores_mortis_attributes][#{i}][color]", 'v-model': "livores_mortis_attributes[#{i}].color", value: livor_mortis.color}
+                - LivorMortis.colors.each do |color, _|
+                  %option{value: color, selected: livor_mortis.color == color}= t "colors.#{color}"
+            .col-xs-3
+              %label= t "activerecord.attributes.livor_mortis.position"
+              %select.form-control{name: "external_outline_examination[livores_mortis_attributes][#{i}][position]", 'v-model': "livores_mortis_attributes[#{i}].position", value: livor_mortis.position}
+                - LivorMortis.positions.each do |position, _|
+                  %option{value: position, selected: livor_mortis.position == position}= t "body_parts.#{position}"
+            .col-xs-3
+              %label= t "activerecord.attributes.livor_mortis.intensity"
+              %select.form-control{name: "external_outline_examination[livores_mortis_attributes][#{i}][intensity]", 'v-model': "livores_mortis_attributes[#{i}].intensity", value: livor_mortis.intensity}
+                - LivorMortis.intensities.each do |intensity, _|
+                  %option{value: intensity, selected: livor_mortis.intensity == intensity}= t "intensity.#{intensity}"
+            .col-xs-3
+              %label= t "activerecord.attributes.livor_mortis.on_finger_pressure"
+              %select.form-control{name: "external_outline_examination[livores_mortis_attributes][#{i}][on_finger_pressure]", 'v-model': "livores_mortis_attributes[#{i}].on_finger_pressure", value: livor_mortis.on_finger_pressure}
+                - LivorMortis.on_finger_pressures.each do |on_finger_pressure, _|
+                  %option{value: on_finger_pressure, selected: livor_mortis.on_finger_pressure == on_finger_pressure}= t "colors.#{on_finger_pressure}"
   .field.row
     .form-group
       .col-xs-6

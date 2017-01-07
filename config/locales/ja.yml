@@ -121,8 +121,14 @@ ja:
     right_hip: 右股関節
     left_knee: 左膝
     right_knee: 右膝
-    left_foot: 左足
-    right_foot: 右足
+    left_foot: 左足部
+    right_foot: 右足部
+    back: 背部
+    belly: 腹部
+    trunk: 胸部
+    head: 頭部
+    left_arm: 左腕
+    right_arm: 右腕
   intensity:
     unknown: 不明
     weak: 弱い
@@ -251,6 +257,8 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       autopsy: 解剖
+      livor_mortis: 死斑
+      rigor_mortis: 死後硬直
     attributes:
       autopsy:
         number: 解剖番号
@@ -275,6 +283,8 @@ ja:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      examination:
+        note: 特記
       external_outline_examination:
         sex: 性別
         partial_body: 部位欠損
@@ -283,6 +293,11 @@ ja:
         constitution: 体格
         rectal_temperature: 直腸温度
         room_temperature: 室温
+      livor_mortis:
+        color: 色
+        position: 部位
+        intensity: 程度
+        on_finger_pressure: 指圧で
   date:
     abbr_day_names:
     - 日

@@ -11,7 +11,7 @@ phrases.push("#{weight}#{exam.weight}kg") if exam.weight.present?
   体格、<%= exam.constitution %>。
 <% end %>
 
-<%-# Livor mortis description. Should be improved -%>
+<%-# Livor mortis description. Should be improved TODO: This is really shit-%>
 
 <% exam.livores_mortis.heavy.each do |livor_mortis| %>
   死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に高度に発見し、<%= I18n.t "colors.#{livor_mortis.on_finger_pressure}" %>。

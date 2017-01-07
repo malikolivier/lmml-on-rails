@@ -101,7 +101,6 @@ LMML.loadVueModel = function(model, options = {}) {
     });
   }
 
-
   var newModelVm = new Vue({
     el: '#' + model,
     data,
