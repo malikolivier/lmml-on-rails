@@ -4,7 +4,7 @@ class CreateLivoresMortis < ActiveRecord::Migration[5.0]
       t.integer :color
       t.integer :position
       t.integer :intensity
-      t.integer :on_fingure_pressure
+      t.integer :on_finger_pressure
       t.belongs_to :external_outline_examination, index: true
 
       t.timestamps

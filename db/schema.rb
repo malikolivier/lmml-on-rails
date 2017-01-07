@@ -848,7 +848,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.integer  "color"
     t.integer  "position"
     t.integer  "intensity"
-    t.integer  "on_fingure_pressure"
+    t.integer  "on_finger_pressure"
     t.integer  "external_outline_examination_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false

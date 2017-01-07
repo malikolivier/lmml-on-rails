@@ -6,7 +6,7 @@
 #  color                           :integer
 #  position                        :integer
 #  intensity                       :integer
-#  on_fingure_pressure             :integer
+#  on_finger_pressure              :integer
 #  external_outline_examination_id :integer
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null

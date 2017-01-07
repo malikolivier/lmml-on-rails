@@ -14,13 +14,13 @@ phrases.push("#{weight}#{exam.weight}kg") if exam.weight.present?
 <%-# Livor mortis description. Should be improved -%>
 
 <% exam.livores_mortis.heavy.each do |livor_mortis| %>
-  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に高度に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に高度に発見し、<%= I18n.t "colors.#{livor_mortis.on_finger_pressure}" %>。
 <% end %>
 <% exam.livores_mortis.middle.each do |livor_mortis| %>
-  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に中等に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に中等に発見し、<%= I18n.t "colors.#{livor_mortis.on_finger_pressure}" %>。
 <% end %>
 <% exam.livores_mortis.light.each do |livor_mortis| %>
-  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に軽度に発見し、<%= I18n.t "colors.#{livor_mortis.on_fingure_pressure}" %>。
+  死斑は<%= I18n.t "colors.#{livor_mortis.color}" %>で、<%= I18n.t "body_parts.#{livor_mortis.position}" %>面に軽度に発見し、<%= I18n.t "colors.#{livor_mortis.on_finger_pressure}" %>。
 <% end %>
 <%= exam.livor_mortis_note %>
 

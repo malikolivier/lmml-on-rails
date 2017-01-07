@@ -6,7 +6,7 @@
 #  color                           :integer
 #  position                        :integer
 #  intensity                       :integer
-#  on_fingure_pressure             :integer
+#  on_finger_pressure              :integer
 #  external_outline_examination_id :integer
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
@@ -18,12 +18,12 @@ completed_autopsy_left_foot_livor_mortis:
   color: pale
   position: left_foot
   intensity: light
-  on_fingure_pressure: fades_with_light_pressure
+  on_finger_pressure: fades_with_light_pressure
   external_outline_examination: completed_autopsy_outline
 
 completed_autopsy_right_foot_livor_mortis:
   color: pale
   position: right_foot
   intensity: mid
-  on_fingure_pressure: fades_with_light_pressure
+  on_finger_pressure: fades_with_light_pressure
   external_outline_examination: completed_autopsy_outline
