@@ -1,4 +1,4 @@
-var LMML = LMML || {}
+/* global LMML */
 
 LMML.setup_navbar = function () {
   $('#sidebar').affix({

@@ -42,11 +42,14 @@ class AutopsiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /autopsies/1
-  # PATCH/PUT /autopsies/1.json
+  # PUT /autopsies/1
   def update
     if @autopsy.update(autopsy_params)
-      render 'preview'
+      html_preview = render_to_string 'preview', layout: false
+      render json: {
+        model: @autopsy,
+        description: html_preview
+      }
     else
       render json: { errors: @autopsy.errors.full_messages }, status: 422
     end

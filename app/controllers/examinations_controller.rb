@@ -4,8 +4,13 @@ class ExaminationsController < ApplicationController
   # PUT /autopsies/:autopsy_id/***_examinations.json
   def update
     if @exam.update(update_params)
-      render "autopsies/#{examination_category}/_#{examination_name}",
-             locals: { exam: @exam }
+      template_file = "autopsies/#{examination_category}/_#{examination_name}"
+      html_preview = render_to_string template_file, locals: { exam: @exam },
+                                                     layout: false
+      render json: {
+        model: @exam,
+        description: html_preview
+      }
     else
       render json: { errors: @exam.errors.full_messages }, status: 422
     end

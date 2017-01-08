@@ -4,10 +4,14 @@
 // All this logic will automatically be available in application.js.
 
 $(function () {
-  if (document.getElementById('external_outline_examination') === null) return
+  if (document.getElementById('external_outline_examination') !== null) {
+    LMML.loaders.external_outline_examination()
+  }
+})
 
+LMML.loaders.external_outline_examination = function () {
   LMML.loadVueModel('external_outline_examination', {
-    updateUrl: 'external_outline_examinations',
+    updateUrl: `/autopsies/${LMML.autopsy_id()}/external_outline_examinations`,
     data: {
       livores_mortis_attributes: [] // Initialize value if not set
     },
@@ -47,4 +51,4 @@ $(function () {
       }
     }
   })
-})
+}

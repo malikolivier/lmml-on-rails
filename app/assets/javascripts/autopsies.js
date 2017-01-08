@@ -4,8 +4,12 @@
 // All this logic will automatically be available in application.js.
 
 $(function () {
-  if (document.getElementById('autopsy') === null) return
+  if (document.getElementById('autopsy') !== null) {
+    LMML.loaders.autopsy()
+  }
+})
 
+LMML.loaders.autopsy = function () {
   var actionNameElement = document.getElementById('autopsy_action_name')
   var updateUrl, httpVerb, updateAll
   if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
@@ -13,7 +17,7 @@ $(function () {
     httpVerb = 'post'
     updateAll = true
   } else {
-    updateUrl = 'update'
+    updateUrl = `/autopsies/${LMML.autopsy_id()}/update`
     httpVerb = 'put'
     updateAll = false
     LMML.setup_navbar()
@@ -65,4 +69,4 @@ $(function () {
     this.examiner_autocomplete = response.body;
   });
   */
-})
+}

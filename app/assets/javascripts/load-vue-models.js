@@ -1,4 +1,4 @@
-var LMML = LMML || {}
+/* global LMML */
 
 // Set headers for vue-resource HTTP requests
 $(function () {
@@ -30,34 +30,38 @@ LMML.loadVueModel = function (model, options = {}) {
           return name.match(/^(\w+)\[([0-9]+)]$/)
         })
         if (arrayIndex === -1) {
-          watch[joinedNames] = _.debounce(
-            function onIndividualChange (newValue, oldValue) {
-              console.log(`Updating ${model}'s ${joinedNames} to: ${newValue}`)
-              var params = {}
-              var scopedParams = params
-              var scopedData = data
-              for (var i = 0; i < names.length - 1; i++) {
-                scopedParams[names[i]] = {}
-                scopedParams = scopedParams[names[i]]
-                scopedData = scopedData[names[i]]
-              }
-              scopedParams[names[names.length - 1]] = newValue
-              // Add ID so that rails update this record
-              if (scopedData.id) scopedParams.id = scopedData.id
-              this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-              .then(function (response) {
-                document.getElementById(model + '_preview').innerHTML = response.body
-                document.getElementById(model + '_errors').innerHTML = ''
-              }, function (response) {
-                console.error(response)
-                var errorElement = document.getElementById(model + '_errors')
-                if (response.body.errors) {
-                  errorElement.innerHTML = response.body.errors
-                } else { errorElement.innerHTML = response.body }
-              })
-            },
-            500
-          )
+          // Do not add watcher if the object is an ID, as an ID is not updatable
+          if (names[names.length - 1] !== 'id') {
+            watch[joinedNames] = _.debounce(
+              function onIndividualChange (newValue, oldValue) {
+                console.log(`Updating ${model}'s ${joinedNames} to: ${newValue}`)
+                var params = {}
+                var scopedParams = params
+                var scopedData = data
+                for (var i = 0; i < names.length - 1; i++) {
+                  scopedParams[names[i]] = {}
+                  scopedParams = scopedParams[names[i]]
+                  scopedData = scopedData[names[i]]
+                }
+                scopedParams[names[names.length - 1]] = newValue
+                // Add ID so that rails update this record
+                if (scopedData.id) scopedParams.id = scopedData.id
+                this.$http[options.httpVerb](options.updateUrl, {[model]: params})
+                .then(function (response) {
+                  document.getElementById(model + '_preview').innerHTML = response.body.description
+                  this.id = response.body.model.id
+                  document.getElementById(model + '_errors').innerHTML = ''
+                }, function (response) {
+                  console.error(response)
+                  var errorElement = document.getElementById(model + '_errors')
+                  if (response.body.errors) {
+                    errorElement.innerHTML = response.body.errors
+                  } else { errorElement.innerHTML = response.body }
+                })
+              },
+              500
+            )
+          }
         } else {
           var arrayName = names[arrayIndex].match(/^(\w+)\[[0-9]+]$/)[1]
           if (!watch[arrayName]) {
@@ -70,7 +74,8 @@ LMML.loadVueModel = function (model, options = {}) {
                       [arrayName]: newValue
                     }
                   }).then(function (response) {
-                    document.getElementById(model + '_preview').innerHTML = response.body
+                    document.getElementById(model + '_preview').innerHTML = response.body.description
+                    this.id = response.body.model.id
                     document.getElementById(model + '_errors').innerHTML = ''
                   }, function (response) {
                     console.error(response)
@@ -150,8 +155,6 @@ LMML.loadVueModel = function (model, options = {}) {
     methods
   })
   if (options.updateAll) newModelVm.updateAll()
-  window[model + 'Vm'] = function () {
-    return newModelVm
-  }
+  LMML.vms[model] = newModelVm
   return newModelVm
 }
