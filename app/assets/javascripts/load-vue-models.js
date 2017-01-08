@@ -88,28 +88,28 @@ LMML.loadVueModel = function(model, options = {}) {
             };
           }
         }
-        for (var i = 0; i < names.length; i++) {
-          var name = names[i];
-          // Check if name is an array
-          var array_match = name.match(/^(\w+)\[([0-9]+)\]$/);
-          var index = null;
-          if (array_match) {
-            name = array_match[1];
-            index = array_match[2];
-            scoped_data[name] =  scoped_data[name] || [];
-            scoped_data = scoped_data[name];
-            name = index;
-          }
-          if (i === names.length - 1) {
-            if (this.type == 'checkbox') {
-              scoped_data[name] = this.checked;
-            } else {
-              scoped_data[name] = this.value;
-            }
+      }
+      for (var i = 0; i < names.length; i++) {
+        var name = names[i];
+        // Check if name is an array
+        var array_match = name.match(/^(\w+)\[([0-9]+)\]$/);
+        var index = null;
+        if (array_match) {
+          name = array_match[1];
+          index = array_match[2];
+          scoped_data[name] =  scoped_data[name] || [];
+          scoped_data = scoped_data[name];
+          name = index;
+        }
+        if (i === names.length - 1) {
+          if (this.type == 'checkbox') {
+            scoped_data[name] = this.checked;
           } else {
-            scoped_data[name] = scoped_data[name] || {};
-            scoped_data = scoped_data[name];
+            scoped_data[name] = this.value;
           }
+        } else {
+          scoped_data[name] = scoped_data[name] || {};
+          scoped_data = scoped_data[name];
         }
       }
     }
