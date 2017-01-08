@@ -1,24 +1,27 @@
+/* global LMML */
+
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
-$(function() {
-  if (document.getElementById('autopsy') === null) return;
+$(function () {
+  if (document.getElementById('autopsy') === null) return
 
-  var action_name_element = document.getElementById('autopsy_action_name');
-  if (action_name_element !== null && action_name_element.innerHTML === 'new') {
-    var update_url = '/autopsies/preview';
-    var http_verb = 'post';
-    var update_all = true;
+  var actionNameElement = document.getElementById('autopsy_action_name')
+  var updateUrl, httpVerb, updateAll
+  if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
+    updateUrl = '/autopsies/preview'
+    httpVerb = 'post'
+    updateAll = true
   } else {
-    var update_url = 'update';
-    var http_verb = 'put';
-    var update_all = false;
-    LMML.setup_navbar();
+    updateUrl = 'update'
+    httpVerb = 'put'
+    updateAll = false
+    LMML.setup_navbar()
   }
-  var autopsyVm = LMML.loadVueModel('autopsy', {
-    update_url,
-    http_verb,
-    update_all,
+  LMML.loadVueModel('autopsy', {
+    updateUrl,
+    httpVerb,
+    updateAll,
     data: {
       new_place: false,
       new_examiner: false,
@@ -26,34 +29,34 @@ $(function() {
       new_police_inspector: false
     },
     methods: {
-      switch_new_place: function() {
-        this.new_place = !this.new_place;
+      switch_new_place: function () {
+        this.new_place = !this.new_place
         if (!this.new_place) {
-          this.place_attributes.name = '';
-          this.place_attributes.address = '';
-          this.place_attributes.autopsy_room = '';
+          this.place_attributes.name = ''
+          this.place_attributes.address = ''
+          this.place_attributes.autopsy_room = ''
         }
       },
-      switch_new_police_inspector: function() {
-        this.new_police_inspector = !this.new_police_inspector;
+      switch_new_police_inspector: function () {
+        this.new_police_inspector = !this.new_police_inspector
         if (!this.new_police_inspector) {
-          this.police_inspector_attributes.name = '';
+          this.police_inspector_attributes.name = ''
         }
       },
-      switch_new_judge: function() {
-        this.new_judge = !this.new_judge;
+      switch_new_judge: function () {
+        this.new_judge = !this.new_judge
         if (!this.new_judge) {
-          this.judge_attributes.name = '';
+          this.judge_attributes.name = ''
         }
       },
-      switch_new_examiner: function() {
-        this.new_examiner = !this.new_examiner;
+      switch_new_examiner: function () {
+        this.new_examiner = !this.new_examiner
         if (!this.new_examiner) {
-          this.examiner_attributes.name = '';
+          this.examiner_attributes.name = ''
         }
       }
     }
-  });
+  })
 
   /*
   // Scrap autocomplete for now (not a priority)

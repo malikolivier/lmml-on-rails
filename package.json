@@ -1,0 +1,12 @@
+{
+  "name": "lmml-on-rails",
+  "devDependencies": {
+    "standard": "8.6.0"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "standard": {
+    "globals": [ "$", "jQuery", "_", "Vue"]
+  }
+}

@@ -4,6 +4,7 @@ before_script:
   - which ruby
   - gem install bundler --no-ri --no-rdoc
   - bundle install --jobs $(nproc)  "${FLAGS[@]}"
+  - npm install
 
 rubocop:
   script:
@@ -12,6 +13,10 @@ rubocop:
 rails_test:
   script:
     - bundle exec rails test
+
+js_lint:
+  script:
+    - npm test
 
 js_test:
   script:
