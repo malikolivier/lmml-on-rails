@@ -98,6 +98,10 @@ GEM
       railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    magic_lamp (1.8.1)
+      method_source
+      rails (>= 4.0.0)
+      rake
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
@@ -239,6 +243,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   lodash-rails
+  magic_lamp
   paperclip (~> 5.0.0)
   phantomjs
   pry-doc

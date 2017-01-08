@@ -67,6 +67,7 @@ group :development, :test do
   # Javascript test framework
   gem 'teaspoon-jasmine'
   gem 'phantomjs'
+  gem 'magic_lamp'
 end
 
 group :development do
