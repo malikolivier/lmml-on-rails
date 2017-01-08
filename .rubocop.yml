@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - 'db/**/*'
     - 'config/**/*'
+    - 'spec/teaspoon_env.rb'
 
 Rails:
   Enabled: true
