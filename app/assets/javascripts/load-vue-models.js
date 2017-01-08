@@ -1,4 +1,4 @@
-var LMML = LMML || {}
+/* global LMML */
 
 // Set headers for vue-resource HTTP requests
 $(function () {
@@ -150,8 +150,6 @@ LMML.loadVueModel = function (model, options = {}) {
     methods
   })
   if (options.updateAll) newModelVm.updateAll()
-  window[model + 'Vm'] = function () {
-    return newModelVm
-  }
+  LMML.vms[model] = newModelVm
   return newModelVm
 }
