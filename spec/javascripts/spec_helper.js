@@ -32,3 +32,7 @@
 // For more information: http://github.com/modeset/teaspoon
 
 // = require magic_lamp
+
+this.LMML_TEST = {
+  timeout: 1000
+}

@@ -5,7 +5,7 @@ MagicLamp.define(controller: AutopsiesController) do
   end
 
   fixture(name: 'edit_empty') do
-    @autopsy = Autopsy.new
+    @autopsy = Autopsy.create!
     render 'edit'
   end
 

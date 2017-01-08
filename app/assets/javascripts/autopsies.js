@@ -17,7 +17,7 @@ LMML.loaders.autopsy = function() {
     httpVerb = 'post'
     updateAll = true
   } else {
-    updateUrl = 'update'
+    updateUrl = `/autopsies/${LMML.autopsy_id()}/update`
     httpVerb = 'put'
     updateAll = false
     LMML.setup_navbar()

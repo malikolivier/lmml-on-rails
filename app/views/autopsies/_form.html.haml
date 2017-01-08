@@ -7,10 +7,13 @@
       %ul
         - autopsy.errors.full_messages.each do |message|
           %li= message
+  %input#autopsy_id{type: 'hidden', name: 'autopsy[id]', value: autopsy.id}
   .field
     = f.text_field_v :number
   .field
-    = f.collection_select(:autopsy_type_id, AutopsyType.all, :id, :name, prompt: true)
+    %select.form-control{name: "autopsy[autopsy_type_id]", 'v-model': 'autopsy_type_id', value: autopsy.autopsy_type_id}
+      - AutopsyType.all.each do |type|
+        %option{value: type.id, selected: type.id == autopsy.autopsy_type_id}= type.name
   .field
     %label{for: 'autopsy_suspect_name'}= t 'activerecord.attributes.autopsy.suspect_name'
     %input{type: 'hidden', name: 'autopsy[suspect_attributes][id]', value: autopsy.suspect.id}
