@@ -6,7 +6,7 @@ class ExaminationsController < ApplicationController
     if @exam.update(update_params)
       template_file = "autopsies/#{examination_category}/_#{examination_name}"
       html_preview = render_to_string template_file, locals: { exam: @exam },
-                                      layout: false
+                                                     layout: false
       render json: {
         model: @exam,
         description: html_preview
