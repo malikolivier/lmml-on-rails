@@ -5,11 +5,11 @@
 
 $(function () {
   if (document.getElementById('autopsy') !== null) {
-    LMML.loaders.autopsy();
+    LMML.loaders.autopsy()
   }
 })
 
-LMML.loaders.autopsy = function() {
+LMML.loaders.autopsy = function () {
   var actionNameElement = document.getElementById('autopsy_action_name')
   var updateUrl, httpVerb, updateAll
   if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
