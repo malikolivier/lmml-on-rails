@@ -6,7 +6,7 @@ describe('New autopsy', function () {
     MagicLamp.load('autopsies/new')
   })
 
-  it('has an autopsy form', function() {
+  it('has an autopsy form', function () {
     var element = document.getElementById('autopsy')
     expect(element).not.toBe(null)
   })
