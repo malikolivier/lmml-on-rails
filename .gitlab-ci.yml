@@ -23,4 +23,6 @@ js_lint:
 
 js_test:
   script:
+    # Reset database for tests
+    - bundle exec rails db:clean
     - bundle exec teaspoon
