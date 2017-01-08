@@ -63,6 +63,10 @@ group :development, :test do
 
   # Linter
   gem 'rubocop'
+
+  # Javascript test framework
+  gem 'teaspoon-jasmine'
+  gem 'phantomjs'
 end
 
 group :development do

@@ -1,0 +1,2 @@
+describe("New autopsy", function() {
+});
