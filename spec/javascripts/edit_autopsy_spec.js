@@ -2,14 +2,12 @@
 /* global MagicLamp, LMML */
 
 describe('Edit empty autopsy', function () {
-
   beforeEach(function () {
     MagicLamp.load('autopsies/edit_empty')
   })
 
   describe('Edit external_outline_examination', function () {
-
-    var outlineVm;
+    var outlineVm
     beforeEach(function () {
       LMML.loaders.external_outline_examination()
       outlineVm = LMML.vms.external_outline_examination
@@ -28,10 +26,10 @@ describe('Edit empty autopsy', function () {
     })
 
     it('Can add livores mortis', function (done) {
-      outlineVm.add_livor_mortis();
+      outlineVm.add_livor_mortis()
       setTimeout(function () {
         outlineVm.livores_mortis_attributes[0].color = 'white'
-        done();
+        done()
       }, 1000)
     })
   })

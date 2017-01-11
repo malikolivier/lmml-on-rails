@@ -14,23 +14,23 @@ LMML.loaders.external_outline_examination = function () {
     updateUrl: `/autopsies/${LMML.autopsy_id()}/external_outline_examinations`,
     methods: {
       add_livor_mortis: function () {
-        new Promise( (resolve, reject) => {
+        new Promise((resolve, reject) => {
           if (this.id !== '') {
-            resolve();
+            resolve()
           } else {
             this.$http.post(`/autopsies/${LMML.autopsy_id()}/external_outline_examinations`)
-            .then(function(response) {
+            .then(function (response) {
               this.id = response.body.model.id
               resolve()
             }, reject)
           }
         })
-        .then( () => {
+        .then(() => {
           return this.$http.post('/livores_mortis', {
             external_outline_examination_id: this.id
           })
         })
-        .then( (response) => {
+        .then((response) => {
           this.livores_mortis_attributes.push(response.body)
         }, (response) => {
           console.error(response)
