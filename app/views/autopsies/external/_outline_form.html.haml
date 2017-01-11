@@ -62,6 +62,47 @@
         .form-group.col-xs-12
           %label= t "activerecord.attributes.examination.note"
           %input.form-control{name: "external_outline_examination[livor_mortis_note]", 'v-model': 'livor_mortis_note', value: exam.livor_mortis_note}
+
+.field
+.panel.panel-default
+.panel-heading= t "activerecord.models.rigor_mortis"
+.panel-body.form-horizontal
+  // The following input allows to at least initialize an empty array
+  %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[]]"}
+  - exam.rigores_mortis.each_with_index do |rigor_mortis, i|
+    %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][id]", value: rigor_mortis.id}
+    %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][color]", value: rigor_mortis.color}
+    %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][position]", value: rigor_mortis.position}
+    %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][intensity]", value: rigor_mortis.intensity}
+    %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][on_finger_pressure]", value: rigor_mortis.on_finger_pressure}
+  .form-group{'v-for': "rigor_mortis in rigores_mortis_attributes"}
+    .col-xs-3
+      %label= t "activerecord.attributes.rigor_mortis.color"
+      %select.form-control{'v-model': "rigor_mortis.color"}
+        - LivorMortis.colors.each do |color, _|
+          %option{value: color}= t "colors.#{color}"
+    .col-xs-3
+      %label= t "activerecord.attributes.rigor_mortis.position"
+      %select.form-control{'v-model': "rigor_mortis.position"}
+        - LivorMortis.positions.each do |position, _|
+          %option{value: position}= t "body_parts.#{position}"
+    .col-xs-2
+      %label= t "activerecord.attributes.rigor_mortis.intensity"
+      %select.form-control{'v-model': "rigor_mortis.intensity"}
+        - LivorMortis.intensities.each do |intensity, _|
+          %option{value: intensity}= t "intensity.#{intensity}"
+    .col-xs-3
+      %label= t "activerecord.attributes.rigor_mortis.on_finger_pressure"
+      %select.form-control{'v-model': "rigor_mortis.on_finger_pressure"}
+        - LivorMortis.on_finger_pressures.each do |on_finger_pressure, _|
+          %option{value: on_finger_pressure}= t "colors.#{on_finger_pressure}"
+    .col-xs-1
+      %label &nbsp;
+      %button.btn.btn-danger.btn-xs{'v-on:click.prevent': 'delete_rigor_mortis(rigor_mortis)'} X
+  %button.btn.btn-default{'v-on:click.prevent': 'add_rigor_mortis()'}= t 'helpers.add'
+  .form-group.col-xs-12
+    %label= t "activerecord.attributes.examination.note"
+    %input.form-control{name: "external_outline_examination[rigor_mortis_note]", 'v-model': 'rigor_mortis_note', value: exam.rigor_mortis_note}
   .field.row
     .form-group
       .col-xs-6
