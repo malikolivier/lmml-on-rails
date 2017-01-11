@@ -16,8 +16,7 @@ LMML.loaders.external_outline_examination = function () {
       livores_mortis_attributes: [] // Initialize value if not set
     },
     methods: {
-      add_livor_mortis: function (event) {
-        event.preventDefault()
+      add_livor_mortis: function () {
         this.$http.post('/livores_mortis', {
           external_outline_examination_id: this.id
         }).then(function (response) {

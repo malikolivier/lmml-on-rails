@@ -56,7 +56,7 @@
           .col-xs-1
             %label &nbsp;
             %button.btn.btn-danger.btn-xs{'v-on:click.prevent': 'delete_livor_mortis(livor_mortis)'} X
-        %button.btn.btn-default{'v-on:click': 'add_livor_mortis'}= t 'helpers.add'
+        %button.btn.btn-default{'v-on:click.prevent': 'add_livor_mortis()'}= t 'helpers.add'
         .form-group.col-xs-12
           %label= t "activerecord.attributes.examination.note"
           %input.form-control{name: "external_outline_examination[livor_mortis_note]", 'v-model': 'livor_mortis_note', value: exam.livor_mortis_note}
