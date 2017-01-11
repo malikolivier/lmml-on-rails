@@ -298,6 +298,10 @@ ja:
         position: 部位
         intensity: 程度
         on_finger_pressure: 指圧で
+      rigor_mortis:
+        joint: 関節
+        intensity: 程度
+        category: 種類
   date:
     abbr_day_names:
     - 日

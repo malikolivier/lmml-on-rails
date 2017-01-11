@@ -22,10 +22,6 @@ class ExaminationsController < ApplicationController
 
   protected
 
-  def model_class
-    controller_name.classify.constantize
-  end
-
   def examination_category
     controller_name.split('_')[0]
   end

@@ -58,6 +58,12 @@ LMML.loaders.external_outline_examination = function () {
             errorElement.innerHTML = response.body
           }
         })
+      },
+      add_rigor_mortis: function () {
+        throw new Error('Not implemented')
+      },
+      delete_rigor_mortis: function (rigorMortis) {
+        throw new Error('Not implemented')
       }
     }
   })
