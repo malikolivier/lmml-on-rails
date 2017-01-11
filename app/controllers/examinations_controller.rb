@@ -1,18 +1,22 @@
 class ExaminationsController < ApplicationController
   before_action :set_exam, only: [:update]
 
+  # POST /autopsies/:autopsy_id/***_examinations.json
+  def create
+    @exam = new_examination
+    if @exam.save
+      render_success
+    else
+      render_failure
+    end
+  end
+
   # PUT /autopsies/:autopsy_id/***_examinations.json
   def update
     if @exam.update(update_params)
-      template_file = "autopsies/#{examination_category}/_#{examination_name}"
-      html_preview = render_to_string template_file, locals: { exam: @exam },
-                                                     layout: false
-      render json: {
-        model: @exam,
-        description: html_preview
-      }
+      render_success
     else
-      render json: { errors: @exam.errors.full_messages }, status: 422
+      render_failure
     end
   end
 
@@ -44,14 +48,33 @@ class ExaminationsController < ApplicationController
                            examinations:
                              { autopsy_id: autopsy.id }
                          )
-      @exam ||= model_class.new(
-        examination: Examination.create!(
-          autopsy: autopsy,
-          examination_type: ExaminationType
-            .by_name(examination_name, examination_category)
-        )
-      )
+      @exam ||= new_examination
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
+  end
+
+  def render_success
+    template_file = "autopsies/#{examination_category}/_#{examination_name}"
+    html_preview = render_to_string template_file, locals: { exam: @exam },
+                                                   layout: false
+    render json: {
+      model: @exam,
+      description: html_preview
+    }
+  end
+
+  def render_failure
+    render json: { errors: @exam.errors.full_messages }, status: 422
+  end
+
+  def new_examination
+    autopsy = Autopsy.find(params[:autopsy_id])
+    model_class.new(
+      examination: Examination.create!(
+        autopsy: autopsy,
+        examination_type: ExaminationType
+          .by_name(examination_name, examination_category)
+      )
+    )
   end
 end

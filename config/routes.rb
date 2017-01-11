@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :autopsies do
     get :browse, to: 'autopsies#browse'
     put :update, to: 'autopsies#update'
+    post :external_outline_examinations, to: 'external_outline_examinations#create'
     put :external_outline_examinations, to: 'external_outline_examinations#update'
   end
   post 'autopsies/preview', to: 'autopsies#preview'

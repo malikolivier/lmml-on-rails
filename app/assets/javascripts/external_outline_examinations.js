@@ -14,11 +14,25 @@ LMML.loaders.external_outline_examination = function () {
     updateUrl: `/autopsies/${LMML.autopsy_id()}/external_outline_examinations`,
     methods: {
       add_livor_mortis: function () {
-        this.$http.post('/livores_mortis', {
-          external_outline_examination_id: this.id
-        }).then(function (response) {
+        new Promise( (resolve, reject) => {
+          if (this.id !== '') {
+            resolve();
+          } else {
+            this.$http.post(`/autopsies/${LMML.autopsy_id()}/external_outline_examinations`)
+            .then(function(response) {
+              this.id = response.body.model.id
+              resolve()
+            }, reject)
+          }
+        })
+        .then( () => {
+          return this.$http.post('/livores_mortis', {
+            external_outline_examination_id: this.id
+          })
+        })
+        .then( (response) => {
           this.livores_mortis_attributes.push(response.body)
-        }, function (response) {
+        }, (response) => {
           console.error(response)
           var errorElement = document.getElementById('external_outline_examination_errors')
           if (response.body.errors) {
