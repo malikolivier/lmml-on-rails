@@ -27,7 +27,7 @@ LMML.loadVueModel = function (model, options = {}) {
       } else {
         var joinedNames = names.join('.')
         var arrayIndex = names.findIndex(function (name) {
-          return name.match(/^(\w+)\[([0-9]+)]$/)
+          return name.match(/^(\w+)\[([0-9]*)]$/)
         })
         if (arrayIndex === -1) {
           // Do not add watcher if the object is an ID, as an ID is not updatable
@@ -63,7 +63,7 @@ LMML.loadVueModel = function (model, options = {}) {
             )
           }
         } else {
-          var arrayName = names[arrayIndex].match(/^(\w+)\[[0-9]+]$/)[1]
+          var arrayName = names[arrayIndex].match(/^(\w+)\[[0-9]*]$/)[1]
           if (!watch[arrayName]) {
             watch[arrayName] = {
               handler: _.debounce(
@@ -95,7 +95,7 @@ LMML.loadVueModel = function (model, options = {}) {
       for (var i = 0; i < names.length; i++) {
         var name = names[i]
         // Check if name is an array
-        var arrayMatch = name.match(/^(\w+)\[([0-9]+)]$/)
+        var arrayMatch = name.match(/^(\w+)\[([0-9]*)]$/)
         var index = null
         if (arrayMatch) {
           name = arrayMatch[1]
@@ -103,6 +103,10 @@ LMML.loadVueModel = function (model, options = {}) {
           scopedData[name] = scopedData[name] || []
           scopedData = scopedData[name]
           name = index
+          // edge case for empty array
+          if (name === '') {
+            continue
+          }
         }
         if (i === names.length - 1) {
           if (this.type === 'checkbox') {
@@ -147,6 +151,7 @@ LMML.loadVueModel = function (model, options = {}) {
       methods[key] = value
     })
   }
+
 
   var newModelVm = new Vue({
     el: '#' + model,

@@ -12,9 +12,6 @@ $(function () {
 LMML.loaders.external_outline_examination = function () {
   LMML.loadVueModel('external_outline_examination', {
     updateUrl: `/autopsies/${LMML.autopsy_id()}/external_outline_examinations`,
-    data: {
-      livores_mortis_attributes: [] // Initialize value if not set
-    },
     methods: {
       add_livor_mortis: function () {
         this.$http.post('/livores_mortis', {

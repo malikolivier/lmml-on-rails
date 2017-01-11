@@ -26,6 +26,8 @@
     .panel.panel-default
       .panel-heading= t "activerecord.models.livor_mortis"
       .panel-body.form-horizontal
+        // The following input allows to at least initialize an empty array
+        %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[]]"}
         - exam.livores_mortis.each_with_index do |livor_mortis, i|
           %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][id]", value: livor_mortis.id}
           %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][color]", value: livor_mortis.color}
