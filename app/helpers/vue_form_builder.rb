@@ -1,11 +1,11 @@
 # Extend FormBuilder to build Vue-friendly forms
 class VueFormBuilder < ActionView::Helpers::FormBuilder
-  def text_field(object_name, options = {})
+  def text_field(object_name, label_name = nil, options = {})
     options[:'v-model'] ||= object_name
     class_def = 'form-control'
     class_def << " #{options[:class]}" if options[:class].present?
     options[:class] = class_def
-    wrap_with_label(object_name, super(object_name, options))
+    wrap_with_label(object_name, super(object_name, options), label_name)
   end
 
   # rubocop:disable ParameterLists
@@ -40,8 +40,15 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
 
   private
 
-  def wrap_with_label(object_name, input_html)
-    form_content = label(object_name) + input_html
+  def wrap_with_label(object_name, input_html, label_name = nil)
+    if label_name.nil?
+      form_content = label(object_name) + input_html
+    elsif label_name == false
+      form_content = input_html
+    else
+      label_content = label(object_name, label_name)
+      form_content = label_content + input_html
+    end
     @template.content_tag(:div, form_content, class: 'field')
   end
 end
