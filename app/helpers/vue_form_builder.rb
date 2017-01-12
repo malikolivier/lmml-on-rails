@@ -2,19 +2,22 @@
 class VueFormBuilder < ActionView::Helpers::FormBuilder
   def text_field(object_name, label_name = nil, options = {})
     options[:'v-model'] ||= object_name
-    class_def = 'form-control'
-    class_def << " #{options[:class]}" if options[:class].present?
-    options[:class] = class_def
+    add_form_control(options)
     wrap_with_label(object_name, super(object_name, options), label_name)
+  end
+
+  def select(method, choices = nil, options = {}, html_options = {}, &block)
+    html_options[:'v-model'] ||= method
+    add_form_control(html_options)
+    input_html = super(method, choices, options, html_options, &block)
+    wrap_with_label(method, input_html)
   end
 
   # rubocop:disable ParameterLists
   def collection_select(method, collection, value_method, text_method,
                         options = {}, html_options = {})
     html_options[:'v-model'] ||= method
-    class_def = 'form-control'
-    class_def << " #{options[:class]}" if options[:class].present?
-    html_options[:class] = class_def
+    add_form_control(html_options)
     input_html = super(method, collection, value_method, text_method,
                        options, html_options)
     wrap_with_label(method, input_html)
@@ -50,5 +53,12 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
       form_content = label_content + input_html
     end
     @template.content_tag(:div, form_content, class: 'field')
+  end
+
+  def add_form_control(html_options)
+    class_def = 'form-control'
+    class_def << " #{html_options[:class]}" if html_options[:class].present?
+    html_options[:class] = class_def
+    html_options
   end
 end
