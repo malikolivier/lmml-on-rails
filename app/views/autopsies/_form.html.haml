@@ -50,29 +50,27 @@
         .input-group-btn
           %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.back'
   .field
-    %label{for: 'autopsy_judge_name'}= t 'activerecord.attributes.autopsy.judge'
+    = f.label :judge
     .input-group{'v-if': '!new_judge'}
-      %select.form-control{name: "autopsy[judge_id]", 'v-model': 'judge_id', value: autopsy.judge_id}
-        - Person.been_judge.all.each do |person, _|
-          %option{value: person.id, selected: autopsy.judge_id == person.id}= person.name
+      = f.collection_select :judge_id, Person.been_judge, :id, :name, no_field: true, label_name: false
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.new'
     .input-group{'v-if': 'new_judge'}
-      %input#autopsy_judge_name.form-control{type: "text", name: "autopsy[judge_attributes][name]", 'v-model': 'judge_attributes.name', value: autopsy.judge.name}
-      .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.back'
+      = f.fields_for :judge do |ff|
+        = ff.text_field :name, no_field: true, label_name: false
+        .input-group-btn
+          %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_judge()'}= t 'helpers.back'
   .field
-    %label{for: 'autopsy_examiner_name'}= t 'activerecord.attributes.autopsy.examiner'
+    = f.label :examiner
     .input-group{'v-if': '!new_examiner'}
-      %select.form-control{name: "autopsy[examiner_id]", 'v-model': 'examiner_id', value: autopsy.examiner_id}
-        - Person.been_examiner.all.each do |person, _|
-          %option{value: person.id, selected: autopsy.examiner_id == person.id}= person.name
+      = f.collection_select :examiner_id, Person.been_examiner, :id, :name, no_field: true, label_name: false
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.new'
     .input-group{'v-if': 'new_examiner'}
-      %input#autopsy_examiner_name.form-control{type: "text", name: "autopsy[examiner_attributes][name]", 'v-model': 'examiner_attributes.name', value: autopsy.examiner.name}
-      .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
+      = f.fields_for :examiner do |ff|
+        = ff.text_field :name, no_field: true, label_name: false
+        .input-group-btn
+          %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
   .actions
     = f.submit if action_name == 'new'
   %div.hide{id: 'autopsy_action_name'}= action_name
