@@ -39,17 +39,16 @@
   = f.time_field :starting_time
   = f.time_field :ending_time
   .field
-    %label{for: 'autopsy_police_inspector_name'}= t 'activerecord.attributes.autopsy.police_inspector'
+    = f.label :police_inspector
     .input-group{'v-if': '!new_police_inspector'}
-      %select.form-control{name: "autopsy[police_inspector_id]", 'v-model': 'police_inspector_id', value: autopsy.police_inspector_id}
-        - Person.been_police_inspector.all.each do |person, _|
-          %option{value: person.id, selected: autopsy.police_inspector_id == person.id}= person.name
+      = f.collection_select :police_inspector_id, Person.been_police_inspector, :id, :name, no_field: true, label_name: false
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.new'
     .input-group{'v-if': 'new_police_inspector'}
-      %input#autopsy_police_inspector_name.form-control{type: "text", name: "autopsy[police_inspector_attributes][name]", 'v-model': 'police_inspector_attributes.name', value: autopsy.police_inspector.name}
-      .input-group-btn
-        %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.back'
+      = f.fields_for :police_inspector do |ff|
+        = ff.text_field :name, no_field: true, label_name: false
+        .input-group-btn
+          %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_police_inspector()'}= t 'helpers.back'
   .field
     %label{for: 'autopsy_judge_name'}= t 'activerecord.attributes.autopsy.judge'
     .input-group{'v-if': '!new_judge'}
