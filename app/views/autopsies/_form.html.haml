@@ -23,28 +23,18 @@
       .col-xs-3
         = ff.select :sex, translated_sexes, prompt: true
   .field
-    %label{for: 'autopsy_place_id'}= t 'activerecord.attributes.autopsy.place'
+    = f.label :place_id
     .input-group{'v-if': '!new_place'}
-      %select#autopsy_place_id.form-control{name: "autopsy[place_id]", 'v-model': 'place_id', value: autopsy.place_id}
-        - Institution.been_autopsy_place.all.each do |institution, _|
-          %option{value: institution.id, selected: autopsy.place_id == institution.id}= institution.address
+      = f.collection_select :place_id, Institution.been_autopsy_place, :id, :address, no_field: true, label_name: false
       .input-group-btn
         %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.new'
     .panel.panel-default{'v-if': 'new_place'}
       .panel-body.form-horizontal
-        .form-group
-          %label.col-sm-2.control-label{for: 'autopsy_place_name'}= t 'activerecord.attributes.institution.name'
-          .col-sm-8
-            %input#autopsy_place_name.form-control{type: "text", name: "autopsy[place_attributes][name]", 'v-model': 'place_attributes.name', value: autopsy.place.name}
+        = f.fields_for :place do |ff|
+          = ff.text_field :name
+          = ff.text_field :address
+          = ff.text_field :autopsy_room
           %button.col-sm-2.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.back'
-        .form-group
-          %label.col-sm-2.control-label{for: 'autopsy_place_address'}= t 'activerecord.attributes.institution.address'
-          .col-sm-8
-            %input#autopsy_place_address.form-control{type: "text", name: "autopsy[place_attributes][address]", 'v-model': 'place_attributes.address', value: autopsy.place.address}
-        .form-group
-          %label.col-sm-2.control-label{for: 'autopsy_place_autopsy_room'}= t 'activerecord.attributes.institution.autopsy_room'
-          .col-sm-8
-            %input#autopsy_place_autopsy_room.form-control{type: "text", name: "autopsy[place_attributes][autopsy_room]", 'v-model': 'place_attributes.autopsy_room', value: autopsy.place.autopsy_room}
   .field
     = f.date_field_v :autopsy_date
   .field

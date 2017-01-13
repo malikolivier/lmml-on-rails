@@ -3,14 +3,16 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
   def text_field(object_name, label_name = nil, options = {})
     options[:'v-model'] ||= v_model_value(object_name)
     add_form_control(options)
-    wrap_with_label(object_name, super(object_name, options), label_name)
+    wrap_with_label(object_name, super(object_name, options),
+                    label_name: label_name, no_field: options[:no_field])
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options[:'v-model'] ||= v_model_value(method)
     add_form_control(html_options)
     input_html = super(method, choices, options, html_options, &block)
-    wrap_with_label(method, input_html)
+    wrap_with_label(method, input_html, label_name: options[:label_name],
+                                        no_field: options[:no_field])
   end
 
   # rubocop:disable ParameterLists
@@ -20,7 +22,8 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     add_form_control(html_options)
     input_html = super(method, collection, value_method, text_method,
                        options, html_options)
-    wrap_with_label(method, input_html)
+     wrap_with_label(method, input_html, label_name: options[:label_name],
+                                         no_field: options[:no_field])
   end
 
   def number_field(object_name, options = {})
@@ -43,7 +46,8 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
 
   private
 
-  def wrap_with_label(object_name, input_html, label_name = nil)
+  def wrap_with_label(object_name, input_html, options = {})
+    label_name = options[:label_name]
     if label_name.nil?
       form_content = label(object_name) + input_html
     elsif label_name == false
@@ -52,7 +56,11 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
       label_content = label(object_name, label_name)
       form_content = label_content + input_html
     end
-    @template.content_tag(:div, form_content, class: 'field')
+    if options[:no_field]
+      form_content
+    else
+      @template.content_tag(:div, form_content, class: 'field')
+    end
   end
 
   def add_form_control(html_options)
