@@ -12,14 +12,14 @@
   = f.collection_select :autopsy_type_id, AutopsyType.all, :id, :name, prompt: true
   = f.fields_for :suspect do |ff|
     = ff.hidden_field :id
-    = ff.text_field :name, t('activerecord.attributes.autopsy.suspect_name')
+    = ff.text_field :name, label_name: t('activerecord.attributes.autopsy.suspect_name')
   .row
     = f.fields_for :victim do |ff|
       = ff.hidden_field :id
       .col-xs-6
-        = ff.text_field :name, t('activerecord.attributes.autopsy.victim_name')
+        = ff.text_field :name, label_name: t('activerecord.attributes.autopsy.victim_name')
       .col-xs-3
-        = ff.text_field :death_age, t('activerecord.attributes.person.age')
+        = ff.text_field :death_age, label_name: t('activerecord.attributes.person.age')
       .col-xs-3
         = ff.select :sex, translated_sexes, prompt: true
   .field
@@ -35,12 +35,9 @@
           = ff.text_field :address
           = ff.text_field :autopsy_room
           %button.col-sm-2.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_place()'}= t 'helpers.back'
-  .field
-    = f.date_field_v :autopsy_date
-  .field
-    = f.time_field_v :starting_time
-  .field
-    = f.time_field_v :ending_time
+  = f.date_field :autopsy_date
+  = f.time_field :starting_time
+  = f.time_field :ending_time
   .field
     %label{for: 'autopsy_police_inspector_name'}= t 'activerecord.attributes.autopsy.police_inspector'
     .input-group{'v-if': '!new_police_inspector'}

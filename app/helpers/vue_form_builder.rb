@@ -1,18 +1,18 @@
 # Extend FormBuilder to build Vue-friendly forms
 class VueFormBuilder < ActionView::Helpers::FormBuilder
-  def text_field(object_name, label_name = nil, options = {})
+  def text_field(object_name, options = {})
     options[:'v-model'] ||= v_model_value(object_name)
     add_form_control(options)
-    wrap_with_label(object_name, super(object_name, options),
-                    label_name: label_name, no_field: options[:no_field])
+    label_options = wrap_with_label_options(options)
+    wrap_with_label(object_name, super(object_name, options), label_options)
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options[:'v-model'] ||= v_model_value(method)
     add_form_control(html_options)
+    label_options = wrap_with_label_options(options)
     input_html = super(method, choices, options, html_options, &block)
-    wrap_with_label(method, input_html, label_name: options[:label_name],
-                                        no_field: options[:no_field])
+    wrap_with_label(method, input_html, label_options)
   end
 
   # rubocop:disable ParameterLists
@@ -20,31 +20,47 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
                         options = {}, html_options = {})
     html_options[:'v-model'] ||= v_model_value(method)
     add_form_control(html_options)
+    label_options = wrap_with_label_options(options)
     input_html = super(method, collection, value_method, text_method,
                        options, html_options)
-     wrap_with_label(method, input_html, label_name: options[:label_name],
-                                         no_field: options[:no_field])
+    wrap_with_label(method, input_html, label_options)
   end
 
   def number_field(object_name, options = {})
     options[:'v-model.number'] ||= v_model_value(object_name)
-    super(object_name, options)
+    add_form_control(options)
+    label_options = wrap_with_label_options(options)
+    wrap_with_label(object_name, super(object_name, options), label_options)
   end
 
-  def time_field_v(object_name, options = {})
+  def time_field(object_name, options = {})
     options[:'v-model'] ||= v_model_value(object_name)
+    add_form_control(options)
     if object.send(object_name).present?
       options[:value] ||= object.send(object_name).strftime('%H:%M')
     end
-    time_field(object_name, options)
+    label_options = wrap_with_label_options(options)
+    wrap_with_label(object_name, super(object_name, options), label_options)
   end
 
-  def date_field_v(object_name, options = {})
+  def date_field(object_name, options = {})
     options[:'v-model'] ||= v_model_value(object_name)
-    date_field(object_name, options)
+    add_form_control(options)
+    label_options = wrap_with_label_options(options)
+    wrap_with_label(object_name, super(object_name, options), label_options)
   end
 
   private
+
+  def wrap_with_label_options(input_options)
+    options = {}
+    input_options.each do |k, v|
+      next unless k == :label_name || k == :no_field
+      options[k] = v
+      input_options.delete(k)
+    end
+    options
+  end
 
   def wrap_with_label(object_name, input_html, options = {})
     label_name = options[:label_name]
