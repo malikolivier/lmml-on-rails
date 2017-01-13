@@ -50,6 +50,13 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     wrap_with_label(object_name, super(object_name, options), label_options)
   end
 
+  def submit(value = nil, options = {})
+    class_def = 'btn btn-default'
+    class_def << " #{options[:class]}" if options[:class].present?
+    options[:class] = class_def
+    super(value, options)
+  end
+
   private
 
   def wrap_with_label_options(input_options)
