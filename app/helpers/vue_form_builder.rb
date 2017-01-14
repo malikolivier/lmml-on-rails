@@ -1,10 +1,10 @@
 # Extend FormBuilder to build Vue-friendly forms
 class VueFormBuilder < ActionView::Helpers::FormBuilder
-  def text_field(object_name, options = {})
-    options[:'v-model'] ||= v_model_value(object_name)
+  def text_field(method, options = {})
+    options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
     label_options = wrap_with_label_options(options)
-    wrap_with_label(object_name, super(object_name, options), label_options)
+    wrap_with_label(method, super(method, options), label_options)
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
@@ -26,28 +26,37 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     wrap_with_label(method, input_html, label_options)
   end
 
-  def number_field(object_name, options = {})
-    options[:'v-model.number'] ||= v_model_value(object_name)
+  def number_field(method, options = {})
+    options[:'v-model.number'] ||= v_model_value(method)
     add_form_control(options)
     label_options = wrap_with_label_options(options)
-    wrap_with_label(object_name, super(object_name, options), label_options)
+    wrap_with_label(method, super(method, options), label_options)
   end
 
-  def time_field(object_name, options = {})
-    options[:'v-model'] ||= v_model_value(object_name)
+  def time_field(method, options = {})
+    options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
-    if object.send(object_name).present?
-      options[:value] ||= object.send(object_name).strftime('%H:%M')
+    if object.send(method).present?
+      options[:value] ||= object.send(method).strftime('%H:%M')
     end
     label_options = wrap_with_label_options(options)
-    wrap_with_label(object_name, super(object_name, options), label_options)
+    wrap_with_label(method, super(method, options), label_options)
   end
 
-  def date_field(object_name, options = {})
-    options[:'v-model'] ||= v_model_value(object_name)
+  def date_field(method, options = {})
+    options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
     label_options = wrap_with_label_options(options)
-    wrap_with_label(object_name, super(object_name, options), label_options)
+    wrap_with_label(method, super(method, options), label_options)
+  end
+
+  def check_box(method, options = {}, checked_value = '1',
+                unchecked_value = '0')
+    options[:'v-model'] ||= v_model_value(method)
+    add_form_control(options)
+    label_options = wrap_with_label_options(options)
+    input_html = super(method, options, checked_value, unchecked_value)
+    wrap_with_label(method, input_html, label_options)
   end
 
   def submit(value = nil, options = {})

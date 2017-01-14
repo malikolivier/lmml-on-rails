@@ -4,20 +4,14 @@
     = f.label :sex, class: 'col-sm-4'
     .col-sm-8
       = f.select :sex, translated_sexes, prompt: true, label_name: false
-  .field.row
+  .row
     .col-xs-4
-      %label= t "activerecord.attributes.external_outline_examination.partial_body"
-      %input.form-control{type: 'checkbox', name: "external_outline_examination[partial_body]", 'v-model': 'partial_body', checked: exam.partial_body}
+      = f.check_box :partial_body
     .col-xs-4
-      %label= t "activerecord.attributes.external_outline_examination.height"
-      %input.form-control{type: 'number', name: "external_outline_examination[height]", 'v-model': 'height', value: exam.height}
+      = f.number_field :height
     .col-xs-4
-      %label= t "activerecord.attributes.external_outline_examination.weight"
-      %input.form-control{type: 'number', name: "external_outline_examination[weight]", 'v-model': 'weight', value: exam.weight}
-  .field
-    .form-group
-      %label= t "activerecord.attributes.external_outline_examination.constitution"
-      %input.form-control{name: "external_outline_examination[constitution]", 'v-model': 'constitution', value: exam.constitution}
+      = f.number_field :weight
+  = f.text_field :constitution
   .field
     .panel.panel-default
       .panel-heading= t "activerecord.models.livor_mortis"
@@ -92,11 +86,8 @@
         .form-group.col-xs-12
           %label= t "activerecord.attributes.examination.note"
           %input.form-control{name: "external_outline_examination[rigor_mortis_note]", 'v-model': 'rigor_mortis_note', value: exam.rigor_mortis_note}
-  .field.row
-    .form-group
-      .col-xs-6
-        %label= t "activerecord.attributes.external_outline_examination.rectal_temperature"
-        %input.form-control{type: 'number', name: "external_outline_examination[rectal_temperature]", 'v-model': 'rectal_temperature', value: exam.rectal_temperature}
-      .col-xs-6
-        %label= t "activerecord.attributes.external_outline_examination.room_temperature"
-        %input.form-control{type: 'number', name: "external_outline_examination[room_temperature]", 'v-model': 'room_temperature', value: exam.room_temperature}
+  .row
+    .col-xs-6
+      = f.number_field :rectal_temperature
+    .col-xs-6
+      = f.number_field :room_temperature
