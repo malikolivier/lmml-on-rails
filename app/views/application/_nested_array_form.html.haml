@@ -1,4 +1,15 @@
-- # Arguments: object, method, form, fields
+- # Arguments: form, method, fields, &block
+- #   form: The parent form
+- #   method: Method to access the object's array
+- #   fields: {
+- #     field_name: { // field_name can be whatever method of the objects in the array
+- #       type: input type (supported: 'select') // compulsory
+- #       encapsulating_element: {  // optional
+- #         class: 'col-xs-3' // Whatever class for the encapsulating element
+- #       }
+- #     }
+- #   }
+- object = form.object
 - object_name = object.class.to_s.underscore
 - association_info = object.class.reflect_on_association(method)
 - association_name = association_info.class_name.underscore

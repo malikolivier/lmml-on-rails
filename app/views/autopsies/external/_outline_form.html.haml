@@ -13,13 +13,13 @@
       = f.number_field :weight
   = f.text_field :constitution
 
-  = render 'nested_array_form', object: exam, method: :livores_mortis, form: f,
+  = render 'nested_array_form', form: f, method: :livores_mortis,
            fields: { color: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
                      position: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
                      intensity: { type: :select, encapsulating_element: {class: 'col-xs-2'} },
                      on_finger_pressure: {type: :select, encapsulating_element: {class: 'col-xs-3'} } } do
     = f.text_field :livor_mortis_note, label_name: t('activerecord.attributes.examination.note')
-  = render 'nested_array_form', object: exam, method: :rigores_mortis, form: f,
+  = render 'nested_array_form', form: f, method: :rigores_mortis,
            fields: { joint: { type: :select, encapsulating_element: {class: 'col-xs-4'} },
                      intensity: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
                      category: {type: :select, encapsulating_element: {class: 'col-xs-4'} } } do
