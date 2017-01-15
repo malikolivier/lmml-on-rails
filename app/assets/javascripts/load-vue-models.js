@@ -24,6 +24,13 @@
     return _.debounce(func, 500)
   }
 
+  // this should be resolved to Vue Model instance
+  function updateHandler (response) {
+    document.getElementById(model + '_preview').innerHTML = response.body.description
+    this.id = response.body.model.id
+    document.getElementById(model + '_errors').innerHTML = ''
+  }
+
   function loadFromDOM () {
     $('#' + model + ' input,select').each(function () {
       if (this.name && this.name.startsWith(model + '[') && this.name.endsWith(']')) {
@@ -61,11 +68,7 @@
                   // Add ID so that rails update this record
                   if (scopedData.id) scopedParams.id = scopedData.id
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-                  .then(function (response) {
-                    document.getElementById(model + '_preview').innerHTML = response.body.description
-                    this.id = response.body.model.id
-                    document.getElementById(model + '_errors').innerHTML = ''
-                  }, function (response) {
+                  .then(updateHandler, function (response) {
                     console.error(response)
                     var errorElement = document.getElementById(model + '_errors')
                     if (response.body.errors) {
@@ -86,11 +89,7 @@
                       [model]: {
                         [arrayName]: newValue
                       }
-                    }).then(function (response) {
-                      document.getElementById(model + '_preview').innerHTML = response.body.description
-                      this.id = response.body.model.id
-                      document.getElementById(model + '_errors').innerHTML = ''
-                    }, function (response) {
+                    }).then(updateHandler, function (response) {
                       console.error(response)
                       var errorElement = document.getElementById(model + '_errors')
                       if (response.body.errors) { errorElement.innerHTML = response.body.errors } else {
@@ -151,9 +150,7 @@
         function () {
           console.log('Updating ' + model)
           this.$http[options.httpVerb](options.updateUrl, {[model]: data})
-          .then(function (response) {
-            document.getElementById(model + '_preview').innerHTML = response.body
-          }, function (response) {
+          .then(updateHandler, function (response) {
             console.error(response)
             var errorElement = document.getElementById(model + '_errors')
             if (response.body.errors) {
