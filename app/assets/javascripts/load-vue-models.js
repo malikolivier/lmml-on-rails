@@ -57,7 +57,7 @@
         } else {
           var joinedNames = names.join('.')
           var arrayIndex = names.findIndex(function (name) {
-            return name.match(/^(\w+)\[([0-9]*)]$/)
+            return name.match(/^\w+\[[0-9]*]$/)
           })
           if (arrayIndex === -1) {
             // Do not add watcher if the object is an ID, as an ID is not updatable
