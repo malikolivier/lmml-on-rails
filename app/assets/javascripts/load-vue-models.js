@@ -1,25 +1,19 @@
 /* global LMML */
 
-(function () {
-  // Set headers for vue-resource HTTP requests
-  $(function () {
-    Vue.http.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content')
-  })
+// Set headers for vue-resource HTTP requests
+$(function () {
+  Vue.http.headers.common['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr('content')
+})
 
+LMML.loadVueModel = function loadVueModel (model, options = {}) {
   // IIFE GLOBAL VARIABLES
   var data = {}
   var watch = {}
-  var model = null
-  var options = null
-
-  // IIFE GLOBAL FUNCTIONS
-  function setupOptions (_options) {
-    options = _options
-    if (!options.httpVerb) {
-      options.httpVerb = 'put'
-    }
+  if (!options.httpVerb) {
+    options.httpVerb = 'put'
   }
 
+  // IIFE GLOBAL FUNCTIONS
   function debounce (func) {
     return _.debounce(func, 500)
   }
@@ -131,45 +125,36 @@
     })
   }
 
-  // PUBLIC FUNCTIONS
-  LMML.loadVueModel = loadVueModel
+  // Start processing
+  loadFromDOM()
 
-  function loadVueModel (_model, _options = {}) {
-    // Setup
-    setupOptions(_options)
-    model = _model
-
-    // Start processing
-    loadFromDOM()
-
-    var methods = {
-      updateAll: debounce(
-        function () {
-          console.log('Updating ' + model)
-          this.$http[options.httpVerb](options.updateUrl, {[model]: data})
-          .then(updateHandler, errorHandler)
-        }
-      )
-    }
-    if (options.data) {
-      _.forOwn(options.data, function (value, key) {
-        if (data[key] === undefined) data[key] = value
-      })
-    }
-    if (options.methods) {
-      _.forOwn(options.methods, function (value, key) {
-        methods[key] = value
-      })
-    }
-
-    var newModelVm = new Vue({
-      el: '#' + model,
-      data,
-      watch,
-      methods
-    })
-    if (options.updateAll) newModelVm.updateAll()
-    LMML.vms[model] = newModelVm
-    return newModelVm
+  var methods = {
+    updateAll: debounce(
+      function () {
+        console.log('Updating ' + model)
+        this.$http[options.httpVerb](options.updateUrl, {[model]: data})
+        .then(updateHandler, errorHandler)
+      }
+    )
   }
-})()
+  if (options.data) {
+    _.forOwn(options.data, function (value, key) {
+      if (data[key] === undefined) data[key] = value
+    })
+  }
+  if (options.methods) {
+    _.forOwn(options.methods, function (value, key) {
+      methods[key] = value
+    })
+  }
+
+  var newModelVm = new Vue({
+    el: '#' + model,
+    data,
+    watch,
+    methods
+  })
+  if (options.updateAll) newModelVm.updateAll()
+  LMML.vms[model] = newModelVm
+  return newModelVm
+}
