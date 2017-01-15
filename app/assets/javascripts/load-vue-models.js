@@ -30,6 +30,15 @@
     this.id = response.body.model.id
     document.getElementById(model + '_errors').innerHTML = ''
   }
+  function errorHandler (response) {
+    console.error(response)
+    var errorElement = document.getElementById(model + '_errors')
+    if (response.body.errors) {
+      errorElement.innerHTML = response.body.errors
+    } else {
+      errorElement.innerHTML = response.body
+    }
+  }
 
   function loadFromDOM () {
     $('#' + model + ' input,select').each(function () {
@@ -68,13 +77,7 @@
                   // Add ID so that rails update this record
                   if (scopedData.id) scopedParams.id = scopedData.id
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-                  .then(updateHandler, function (response) {
-                    console.error(response)
-                    var errorElement = document.getElementById(model + '_errors')
-                    if (response.body.errors) {
-                      errorElement.innerHTML = response.body.errors
-                    } else { errorElement.innerHTML = response.body }
-                  })
+                  .then(updateHandler, errorHandler)
                 }
               )
             }
@@ -89,13 +92,7 @@
                       [model]: {
                         [arrayName]: newValue
                       }
-                    }).then(updateHandler, function (response) {
-                      console.error(response)
-                      var errorElement = document.getElementById(model + '_errors')
-                      if (response.body.errors) { errorElement.innerHTML = response.body.errors } else {
-                        errorElement.innerHTML = response.body
-                      }
-                    })
+                    }).then(updateHandler, errorHandler)
                   }
                 ),
                 deep: true
@@ -150,15 +147,7 @@
         function () {
           console.log('Updating ' + model)
           this.$http[options.httpVerb](options.updateUrl, {[model]: data})
-          .then(updateHandler, function (response) {
-            console.error(response)
-            var errorElement = document.getElementById(model + '_errors')
-            if (response.body.errors) {
-              errorElement.innerHTML = response.body.errors
-            } else {
-              errorElement.innerHTML = response.body
-            }
-          })
+          .then(updateHandler, errorHandler)
         }
       )
     }
