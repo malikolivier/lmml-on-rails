@@ -1,5 +1,5 @@
 /* eslint no-extend-native: 0 */
-String.prototype.pluralize = function pluralize() {
+String.prototype.pluralize = function pluralize () {
   if (this.endsWith('y')) {
     return this.replace(/^(.*)y$/, '$1ies')
   } else if (this.toString() === 'livor_mortis') {

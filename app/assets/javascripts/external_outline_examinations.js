@@ -14,7 +14,7 @@ LMML.loaders.external_outline_examination = function () {
   LMML.loadVueModel(model, {
     methods: {
       add_livor_mortis: LMML.add_('livor_mortis', model),
-      delete_livor_mortis:  LMML.delete_('livor_mortis', model),
+      delete_livor_mortis: LMML.delete_('livor_mortis', model),
       add_rigor_mortis: LMML.add_('rigor_mortis', model, { joint: 'chin' }),
       delete_rigor_mortis: LMML.delete_('rigor_mortis', model)
     }
