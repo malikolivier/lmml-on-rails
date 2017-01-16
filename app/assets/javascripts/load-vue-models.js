@@ -50,7 +50,13 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
           var arrayIndex = names.findIndex(function (name) {
             return name.match(/^\w+\[[0-9]*]$/)
           })
-          if (arrayIndex === -1) {
+          var anyArray = names.findIndex(function (name) {
+            return name.match(/^[0-9]+$/)
+          })
+          if (anyArray !== -1) {
+            // Those fields are array container and should be ignored as the
+            // watcher for the whole array will be defined hereafter
+          } else if (arrayIndex === -1) {
             // Do not add watcher if the object is an ID, as an ID is not updatable
             if (names[names.length - 1] !== 'id') {
               watch[joinedNames] = debounce(
