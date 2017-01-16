@@ -10,15 +10,15 @@ $(function () {
 })
 
 LMML.loaders.external_outline_examination = function () {
-  LMML.loadVueModel('external_outline_examination', {
-    updateUrl: `/autopsies/${LMML.autopsy_id()}/external_outline_examinations`,
+  var model = 'external_outline_examination'
+  LMML.loadVueModel(model, {
     methods: {
       add_livor_mortis: function () {
         new Promise((resolve, reject) => {
           if (this.id !== '') {
             resolve()
           } else {
-            this.$http.post(`/autopsies/${LMML.autopsy_id()}/external_outline_examinations`)
+            this.$http.post(LMML.models_url(model))
             .then(function (response) {
               this.id = response.body.model.id
               resolve()
@@ -32,15 +32,7 @@ LMML.loaders.external_outline_examination = function () {
         })
         .then((response) => {
           this.livores_mortis_attributes.push(response.body)
-        }, (response) => {
-          console.error(response)
-          var errorElement = document.getElementById('external_outline_examination_errors')
-          if (response.body.errors) {
-            errorElement.innerHTML = response.body.errors
-          } else {
-            errorElement.innerHTML = response.body
-          }
-        })
+        }, LMML.httpErrorHandler(model))
       },
       delete_livor_mortis: function (livorMortis) {
         this.$http.delete(`/livores_mortis/${livorMortis.id}`)
@@ -49,15 +41,7 @@ LMML.loaders.external_outline_examination = function () {
             return livor.id === livorMortis.id
           })
           this.livores_mortis_attributes.splice(i, 1)
-        }, function (response) {
-          console.error(response)
-          var errorElement = document.getElementById('external_outline_examination_errors')
-          if (response.body.errors) {
-            errorElement.innerHTML = response.body.errors
-          } else {
-            errorElement.innerHTML = response.body
-          }
-        })
+        }, LMML.httpErrorHandler(model))
       },
       add_rigor_mortis: function () {
         throw new Error('Not implemented')

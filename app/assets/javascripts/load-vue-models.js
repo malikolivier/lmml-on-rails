@@ -12,6 +12,9 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   if (!options.httpVerb) {
     options.httpVerb = 'put'
   }
+  if (!options.updateUrl) {
+    options.updateUrl = LMML.models_url(model)
+  }
 
   // IIFE GLOBAL FUNCTIONS
   function debounce (func) {
@@ -25,13 +28,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
     document.getElementById(model + '_errors').innerHTML = ''
   }
   function errorHandler (response) {
-    console.error(response)
-    var errorElement = document.getElementById(model + '_errors')
-    if (response.body.errors) {
-      errorElement.innerHTML = response.body.errors
-    } else {
-      errorElement.innerHTML = response.body
-    }
+    LMML.httpErrorHandler(model)(response)
   }
 
   function loadFromDOM () {
