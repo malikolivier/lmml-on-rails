@@ -19,24 +19,24 @@ var LMML = {
   models_url: function getModelUrl(model) {
     return `/autopsies/${LMML.autopsy_id()}/${model.pluralize()}`
   },
-  add_: function addNestedModel(nestedModel, model) {
+  add_: function addNestedModel(nestedModel, model, attributes = {}) {
     var nestedModelPlural = nestedModel.pluralize()
-    return function() {
+    return function () {
       new Promise((resolve, reject) => {
           if (this.id !== '') {
             resolve()
           } else {
             this.$http.post(LMML.models_url(model))
-              .then(function(response) {
-                this.id = response.body.model.id
-                resolve()
-              }, reject)
+            .then(function(response) {
+              this.id = response.body.model.id
+              resolve()
+            }, reject)
           }
         })
         .then(() => {
-          return this.$http.post(`/${nestedModelPlural}`, {
-            [`${model}_id`]: this.id
-          })
+          var newAttributes = _.clone(attributes)
+          newAttributes[`${model}_id`] = this.id
+          return this.$http.post(`/${nestedModelPlural}`, newAttributes)
         })
         .then((response) => {
           this[`${nestedModelPlural}_attributes`].push(response.body)
