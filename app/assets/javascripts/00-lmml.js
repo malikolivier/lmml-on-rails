@@ -17,10 +17,10 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id()}/${model.pluralize()}`
+    return `/autopsies/${LMML.autopsy_id()}/${LMML.pluralize(model)}`
   },
   add_: function addNestedModel (nestedModel, model, attributes = {}) {
-    var nestedModelPlural = nestedModel.pluralize()
+    var nestedModelPlural = LMML.pluralize(nestedModel)
     return function () {
       new Promise((resolve, reject) => {
         if (this.id !== '') {
@@ -44,7 +44,7 @@ var LMML = {
     }
   },
   delete_: function deleteNestedModel (nestedModel, model) {
-    var nestedModelPlural = nestedModel.pluralize()
+    var nestedModelPlural = LMML.pluralize(nestedModel)
     return function (nestedModelVal) {
       this.$http.delete(`/${nestedModelPlural}/${nestedModelVal.id}`)
       .then(function (response) {
