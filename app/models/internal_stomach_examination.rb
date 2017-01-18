@@ -14,9 +14,7 @@
 #  updated_at        :datetime         not null
 #
 
-class InternalStomachExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalStomachExamination < ExaminationBase
   enum content_color: [:yellow, :green], _prefix: 'content'
   enum content_smell: [:putrid, :acid], _prefix: 'content'
   enum content_aspect: [:watery], _prefix: 'content'

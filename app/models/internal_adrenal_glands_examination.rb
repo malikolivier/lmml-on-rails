@@ -11,9 +11,7 @@
 #  updated_at        :datetime         not null
 #
 
-class InternalAdrenalGlandsExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalAdrenalGlandsExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
 
   enum cortex_thickness: Settings.enums.five_scale_thickness,

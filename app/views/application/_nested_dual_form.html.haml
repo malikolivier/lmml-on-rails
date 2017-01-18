@@ -1,0 +1,55 @@
+- # Arguments: form, method, fields, &block
+- #   form: The parent form
+- #   method: Method to access the object's array
+- #   fields: {
+- #     field_name: { // field_name can be whatever method of the objects in the array
+- #       type: input type (supported: 'check_box') // compulsory
+- #       encapsulating_element: {  // optional
+- #         class: 'col-xs-3' // Whatever class for the encapsulating element
+- #       }
+- #     }
+- #   }
+- #  &block: The block will be appended at the end of the panel
+- object = form.object
+- object_name = object.class.to_s.underscore
+- association_info = object.class.reflect_on_association(method)
+- association_class = association_info.class_name.constantize
+- association_name = association_info.class_name.underscore
+.panel.panel-default
+  .panel-heading
+    %div= t("activerecord.models.#{association_name}")
+    .col-xs-6= t('left')
+    .col-xs-6= t('right')
+  .panel-body.form-horizontal
+    - # These hidden fields will initialize the Vue values
+    - left = object.send(method).left.take || association_class.new(deixis: 'left')
+    - right = object.send(method).right.take || association_class.new(deixis: 'right')
+    %input{type: 'hidden', value: left.id,
+           name: "#{object_name}[#{association_info.plural_name}_attributes][0][id]",
+           id: "#{object_name}_#{association_info.plural_name}_attributes_0_id",
+           'deixis-data': true }
+    %input{type: 'hidden', value: left.deixis,
+           name: "#{object_name}[#{association_info.plural_name}_attributes][0][deixis]",
+           id: "#{object_name}_#{association_info.plural_name}_attributes_0_deixis",'deixis-data': true }
+    %input{type: 'hidden', value: right.id,
+           name: "#{object_name}[#{association_info.plural_name}_attributes][1][id]",
+          id: "#{object_name}_#{association_info.plural_name}_attributes_1_id",
+          'deixis-data': true }
+    %input{type: 'hidden', value: right.deixis,
+           name: "#{object_name}[#{association_info.plural_name}_attributes][1][deixis]",
+           id: "#{object_name}_#{association_info.plural_name}_attributes_1_deixis",
+           'deixis-data': true }
+      - fields.each do |field_name, field_type|
+        %input{type: 'hidden', value: left.send(field_name).to_s,
+               name: "#{object_name}[#{association_info.plural_name}_attributes][0][#{field_name}]",
+               id: "#{object_name}_#{association_info.plural_name}_attributes_0_#{field_name}",
+               'deixis-data': true }
+        %input{type: 'hidden', value: right.send(field_name).to_s,
+               name: "#{object_name}[#{association_info.plural_name}_attributes][1][#{field_name}]",
+               id: "#{object_name}_#{association_info.plural_name}_attributes_1_#{field_name}",
+               'deixis-data': true }
+    = render 'nested_form', association_name: association_name,
+                            association_info: association_info,
+                            fields: fields,
+                            dual: true
+    = yield

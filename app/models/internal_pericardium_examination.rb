@@ -10,9 +10,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalPericardiumExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalPericardiumExamination < ExaminationBase
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum petechia: Settings.enums.five_scale_quantity, _prefix: true
 end

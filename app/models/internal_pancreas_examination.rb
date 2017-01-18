@@ -9,9 +9,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalPancreasExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalPancreasExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
 
   def description

@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   resources :autopsies do
     get :browse, to: 'autopsies#browse'
     put :update, to: 'autopsies#update'
-    post :external_outline_examinations, to: 'external_outline_examinations#create'
-    put :external_outline_examinations, to: 'external_outline_examinations#update'
+    [:external_outline, :external_head, :external_face].each do |examination_type|
+      key_string_plural = "#{examination_type}_examination".pluralize
+      post key_string_plural, to: "#{key_string_plural}#create"
+      put key_string_plural, to: "#{key_string_plural}#update"
+    end
   end
   post 'autopsies/preview', to: 'autopsies#preview'
 

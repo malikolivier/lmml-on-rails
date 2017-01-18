@@ -11,9 +11,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalBrainExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalBrainExamination < ExaminationBase
   enum pia_congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum blood_spots: Settings.enums.five_scale_quantity, _prefix: true
 end

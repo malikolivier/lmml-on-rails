@@ -53,11 +53,11 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
           var anyArray = names.findIndex(function (name) {
             return name.match(/^[0-9]+$/)
           })
-          if (anyArray !== -1) {
+          if (anyArray !== -1 && this.getAttribute('deixis-data') === null) {
             // Those fields are array container and should be ignored as the
             // watcher for the whole array will be defined hereafter
-          } else if (arrayIndex === -1) {
-            // Do not add watcher if the object is an ID, as an ID is not updatable
+          } else if (arrayIndex === -1 || this.getAttribute('deixis-data') !== null) {
+            // Do not add watcher if the object is an ID, as an ID is not updatable.
             if (names[names.length - 1] !== 'id') {
               watch[joinedNames] = debounce(
                 function onIndividualChange (newValue, oldValue) {
@@ -73,8 +73,20 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   scopedParams[names[names.length - 1]] = newValue
                   // Add ID so that rails update this record
                   if (scopedData.id) scopedParams.id = scopedData.id
+                  // Add deixis if deixis is present (must be there for all parts with a right or left part)
+                  if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-                  .then(updateHandler, errorHandler)
+                  .then(function (response) {
+                    if (_.isEmpty(scopedData.id)) {
+                      // Set ID of inner element from request (if not set)
+                      var scopedResponseModel = response.body.model
+                      for (var i = 0; i < names.length - 1; i++) {
+                        scopedResponseModel = scopedResponseModel[names[i]]
+                      }
+                      scopedData.id = scopedResponseModel.id
+                    }
+                    updateHandler(response)
+                  }, errorHandler)
                 }
               )
             }
@@ -117,7 +129,14 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
             if (this.type === 'checkbox') {
               scopedData[name] = this.checked
             } else {
-              scopedData[name] = this.value
+              // Edge case for boolean/checkboxes
+              if (this.value === 'false') {
+                scopedData[name] = false
+              } else if (this.value === 'true') {
+                scopedData[name] = true
+              } else {
+                scopedData[name] = this.value
+              }
             }
           } else {
             scopedData[name] = scopedData[name] || {}

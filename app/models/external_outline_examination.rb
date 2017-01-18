@@ -17,15 +17,12 @@
 #  updated_at         :datetime         not null
 #
 
-class ExternalOutlineExamination < ApplicationRecord
+class ExternalOutlineExamination < ExaminationBase
   enum sex: Settings.enums.sex
-
-  belongs_to :examination, required: true
 
   has_many :livores_mortis, inverse_of: :external_outline_examination
   has_many :rigores_mortis, inverse_of: :external_outline_examination
 
   accepts_nested_attributes_for :livores_mortis, :rigores_mortis,
                                 reject_if: :all_blank
-  accepts_nested_attributes_for :examination, update_only: true
 end

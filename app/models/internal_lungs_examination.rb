@@ -12,9 +12,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalLungsExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalLungsExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
   enum air_content: Settings.enums.five_scale_mass_quantity, _prefix: true
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true

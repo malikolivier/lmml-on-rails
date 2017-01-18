@@ -15,9 +15,7 @@
 #  updated_at         :datetime         not null
 #
 
-class InternalKidneysExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalKidneysExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
 
   enum hardness: Settings.enums.hardness

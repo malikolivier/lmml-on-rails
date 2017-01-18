@@ -11,9 +11,7 @@
 #  updated_at     :datetime         not null
 #
 
-class ExternalGenitaliaExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class ExternalGenitaliaExamination < ExaminationBase
   enum hair_color: [:black, :gray, :blond, :red]
   enum sex: Settings.enums.sex
 end

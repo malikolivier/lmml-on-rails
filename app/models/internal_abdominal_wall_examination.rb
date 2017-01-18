@@ -15,9 +15,7 @@
 #  updated_at                 :datetime         not null
 #
 
-class InternalAbdominalWallExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalAbdominalWallExamination < ExaminationBase
   enum subcutaneous_fat_level: Settings.enums.three_scale_growth,
        _prefix: 'fat'
   enum pleura_adhesion: Settings.enums.five_scale_quantity, _prefix: true

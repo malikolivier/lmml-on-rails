@@ -11,9 +11,7 @@
 #  updated_at           :datetime         not null
 #
 
-class ExternalFaceExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class ExternalFaceExamination < ExaminationBase
   enum congestion: Settings.enums.existence, _prefix: true
   enum swelling: Settings.enums.three_scale_intensity, _prefix: true
 

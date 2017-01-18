@@ -30,6 +30,10 @@ class ExaminationsController < ApplicationController
     controller_name.split('_')[1]
   end
 
+  def json_includes
+    []
+  end
+
   private
 
   def set_exam
@@ -54,7 +58,7 @@ class ExaminationsController < ApplicationController
     html_preview = render_to_string template_file, locals: { exam: @exam },
                                                    layout: false
     render json: {
-      model: @exam,
+      model: JSON.parse(@exam.to_json(include: json_includes)),
       description: html_preview + @exam.examination.note
     }
   end

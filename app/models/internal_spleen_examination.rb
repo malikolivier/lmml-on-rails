@@ -12,9 +12,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalSpleenExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalSpleenExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum pulp_distinct: [:clear, :unclear, :unknown], _prefix: true

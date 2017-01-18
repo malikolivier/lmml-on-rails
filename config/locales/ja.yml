@@ -6,6 +6,17 @@ ja:
     M: 男
     F: 女
     O: 不明
+  hair_colors:
+    black: 黒
+    brown: 茶色
+    blond: 金髪
+    auburn: 赤褐色
+    red: 赤髪
+    gray: 灰
+    white: 白
+    not_dyed: 染めていない
+    false_blond: 金髪
+    false_red: 赤
   colors:
     pale: 蒼白
     fades_with_light_pressure: 指圧で退色
@@ -259,6 +270,7 @@ ja:
       autopsy: 解剖
       livor_mortis: 死斑
       rigor_mortis: 死後硬直
+      external_ear_examination: 外耳道
     attributes:
       autopsy:
         number: 解剖番号
@@ -302,6 +314,14 @@ ja:
         joint: 関節
         intensity: 程度
         category: 種類
+      external_head_examination:
+        hair: 頭髪
+        hair_natural_color: 色
+        hair_dyed_color: 染色
+        top_hair_length: 頭頂部での長さ(cm)
+        side_hair_length: 側頭部での長さ(cm)
+      external_ear_examination:
+        bleeding: 出血
   date:
     abbr_day_names:
     - 日

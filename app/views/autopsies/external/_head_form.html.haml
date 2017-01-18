@@ -1,0 +1,18 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'external_head_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  .panel.panel-default
+    .panel-heading= t('activerecord.attributes.external_head_examination.hair')
+    .panel-body
+      .row
+        .col-xs-6
+          = f.select :hair_natural_color, translated_hair_natural_colors, prompt: true
+        .col-xs-6
+          = f.select :hair_dyed_color, translated_hair_dyed_colors, prompt: true
+      .row
+        .col-xs-6
+          = f.number_field :top_hair_length
+        .col-xs-6
+          = f.number_field :side_hair_length
+  = render 'nested_dual_form', form: f, method: :external_ear_examinations,
+           fields: { bleeding: { type: :check_box } }
+  = yield f
