@@ -12,4 +12,10 @@ module AutopsiesHelper
     autopsy.examiner ||= Person.new
     autopsy
   end
+
+  def translated_sexes
+    Person.sexes.map do |sex, _|
+      [t("sex.#{sex}"), sex]
+    end
+  end
 end

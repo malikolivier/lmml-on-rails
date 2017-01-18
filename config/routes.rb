@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :people, only: [:index]
 
   resources :livores_mortis, only: [:create, :destroy]
-  resources :rigor_mortis, only: [:create, :destroy]
+  resources :rigores_mortis, only: [:create, :destroy]
 end

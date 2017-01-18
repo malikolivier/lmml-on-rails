@@ -1,106 +1,32 @@
-= bootstrap_form_tag(html: { id: 'external_outline_examination' }) do |f|
-  %input{type: 'hidden', name: 'external_outline_examination[id]', value: exam.id}
-  .field.row
-    .form-group
-      %label.col-sm-4= t "activerecord.attributes.external_outline_examination.sex"
-      .col-sm-8
-        %select.form-control{name: "external_outline_examination[sex]", 'v-model': 'sex', value: exam.sex}
-          - ExternalOutlineExamination.sexes.each do |sex, _|
-            %option{value: sex, selected: exam.sex == sex}= t "sex.#{sex}"
-  .field.row
-    .form-group
-      .col-xs-4
-        %label= t "activerecord.attributes.external_outline_examination.partial_body"
-        %input.form-control{type: 'checkbox', name: "external_outline_examination[partial_body]", 'v-model': 'partial_body', checked: exam.partial_body}
-      .col-xs-4
-        %label= t "activerecord.attributes.external_outline_examination.height"
-        %input.form-control{type: 'number', name: "external_outline_examination[height]", 'v-model': 'height', value: exam.height}
-      .col-xs-4
-        %label= t "activerecord.attributes.external_outline_examination.weight"
-        %input.form-control{type: 'number', name: "external_outline_examination[weight]", 'v-model': 'weight', value: exam.weight}
-  .field
-    .form-group
-      %label= t "activerecord.attributes.external_outline_examination.constitution"
-      %input.form-control{name: "external_outline_examination[constitution]", 'v-model': 'constitution', value: exam.constitution}
-  .field
-    .panel.panel-default
-      .panel-heading= t "activerecord.models.livor_mortis"
-      .panel-body.form-horizontal
-        // The following input allows to at least initialize an empty array
-        %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[]]"}
-        - exam.livores_mortis.each_with_index do |livor_mortis, i|
-          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][id]", value: livor_mortis.id}
-          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][color]", value: livor_mortis.color}
-          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][position]", value: livor_mortis.position}
-          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][intensity]", value: livor_mortis.intensity}
-          %input{type: 'hidden', name: "external_outline_examination[livores_mortis_attributes[#{i}]][on_finger_pressure]", value: livor_mortis.on_finger_pressure}
-        .form-group{'v-for': "livor_mortis in livores_mortis_attributes"}
-          .col-xs-3
-            %label= t "activerecord.attributes.livor_mortis.color"
-            %select.form-control{'v-model': "livor_mortis.color"}
-              - LivorMortis.colors.each do |color, _|
-                %option{value: color}= t "colors.#{color}"
-          .col-xs-3
-            %label= t "activerecord.attributes.livor_mortis.position"
-            %select.form-control{'v-model': "livor_mortis.position"}
-              - LivorMortis.positions.each do |position, _|
-                %option{value: position}= t "body_parts.#{position}"
-          .col-xs-2
-            %label= t "activerecord.attributes.livor_mortis.intensity"
-            %select.form-control{'v-model': "livor_mortis.intensity"}
-              - LivorMortis.intensities.each do |intensity, _|
-                %option{value: intensity}= t "intensity.#{intensity}"
-          .col-xs-3
-            %label= t "activerecord.attributes.livor_mortis.on_finger_pressure"
-            %select.form-control{'v-model': "livor_mortis.on_finger_pressure"}
-              - LivorMortis.on_finger_pressures.each do |on_finger_pressure, _|
-                %option{value: on_finger_pressure}= t "colors.#{on_finger_pressure}"
-          .col-xs-1
-            %label &nbsp;
-            %button.btn.btn-danger.btn-xs{'v-on:click.prevent': 'delete_livor_mortis(livor_mortis)'} X
-        %button.btn.btn-default{'v-on:click.prevent': 'add_livor_mortis()'}= t 'helpers.add'
-        .form-group.col-xs-12
-          %label= t "activerecord.attributes.examination.note"
-          %input.form-control{name: "external_outline_examination[livor_mortis_note]", 'v-model': 'livor_mortis_note', value: exam.livor_mortis_note}
-  .field
-    .panel.panel-default
-      .panel-heading= t "activerecord.models.rigor_mortis"
-      .panel-body.form-horizontal
-        // The following input allows to at least initialize an empty array
-        %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[]]"}
-        - exam.rigores_mortis.each_with_index do |rigor_mortis, i|
-          %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][id]", value: rigor_mortis.id}
-          %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][joint]", value: rigor_mortis.joint}
-          %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][intensity]", value: rigor_mortis.intensity}
-          %input{type: 'hidden', name: "external_outline_examination[rigores_mortis_attributes[#{i}]][category]", value: rigor_mortis.category}
-        .form-group{'v-for': "rigor_mortis in rigores_mortis_attributes"}
-          .col-xs-4
-            %label= t "activerecord.attributes.rigor_mortis.joint"
-            %select.form-control{'v-model': "rigor_mortis.joint"}
-              - RigorMortis.joints.each do |joint, _|
-                %option{value: joint}= t "body_parts.#{joint}"
-          .col-xs-3
-            %label= t "activerecord.attributes.rigor_mortis.intensity"
-            %select.form-control{'v-model': "rigor_mortis.intensity"}
-              - RigorMortis.intensities.each do |intensity, _|
-                %option{value: intensity}= t "intensity.#{intensity}"
-          .col-xs-4
-            %label= t "activerecord.attributes.rigor_mortis.category"
-            %select.form-control{'v-model': "rigor_mortis.category"}
-              - RigorMortis.categories.each do |category, _|
-                %option{value: category}= t "rigor_mortis.#{category}"
-          .col-xs-1
-            %label &nbsp;
-            %button.btn.btn-danger.btn-xs{'v-on:click.prevent': 'delete_rigor_mortis(rigor_mortis)'} X
-        %button.btn.btn-default{'v-on:click.prevent': 'add_rigor_mortis()'}= t 'helpers.add'
-        .form-group.col-xs-12
-          %label= t "activerecord.attributes.examination.note"
-          %input.form-control{name: "external_outline_examination[rigor_mortis_note]", 'v-model': 'rigor_mortis_note', value: exam.rigor_mortis_note}
-  .field.row
-    .form-group
-      .col-xs-6
-        %label= t "activerecord.attributes.external_outline_examination.rectal_temperature"
-        %input.form-control{type: 'number', name: "external_outline_examination[rectal_temperature]", 'v-model': 'rectal_temperature', value: exam.rectal_temperature}
-      .col-xs-6
-        %label= t "activerecord.attributes.external_outline_examination.room_temperature"
-        %input.form-control{type: 'number', name: "external_outline_examination[room_temperature]", 'v-model': 'room_temperature', value: exam.room_temperature}
+= form_for(exam, builder: VueFormBuilder, html: { id: 'external_outline_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  .row
+    = f.label :sex, class: 'col-sm-4'
+    .col-sm-8
+      = f.select :sex, translated_sexes, prompt: true, label_name: false
+  .row
+    .col-xs-4
+      = f.check_box :partial_body
+    .col-xs-4
+      = f.number_field :height
+    .col-xs-4
+      = f.number_field :weight
+  = f.text_field :constitution
+
+  = render 'nested_array_form', form: f, method: :livores_mortis,
+           fields: { color: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
+                     position: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
+                     intensity: { type: :select, encapsulating_element: {class: 'col-xs-2'} },
+                     on_finger_pressure: {type: :select, encapsulating_element: {class: 'col-xs-3'} } } do
+    = f.text_field :livor_mortis_note, label_name: t('activerecord.attributes.examination.note')
+  = render 'nested_array_form', form: f, method: :rigores_mortis,
+           fields: { joint: { type: :select, encapsulating_element: {class: 'col-xs-4'} },
+                     intensity: { type: :select, encapsulating_element: {class: 'col-xs-3'} },
+                     category: {type: :select, encapsulating_element: {class: 'col-xs-4'} } } do
+    = f.text_field :rigor_mortis_note, label_name: t('activerecord.attributes.examination.note')
+  .row
+    .col-xs-6
+      = f.number_field :rectal_temperature
+    .col-xs-6
+      = f.number_field :room_temperature
+  = yield f

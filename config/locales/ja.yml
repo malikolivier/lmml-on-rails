@@ -266,7 +266,7 @@ ja:
         suspect_name: 被疑者名
         victim: 被害者
         victim_name: 被害者名
-        place: 鑑定機関
+        place_id: 鑑定機関
         autopsy_date: 日付
         starting_time: 開始時刻
         ending_time: 終了時刻
