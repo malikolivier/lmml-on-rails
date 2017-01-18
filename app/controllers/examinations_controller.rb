@@ -55,7 +55,7 @@ class ExaminationsController < ApplicationController
                                                    layout: false
     render json: {
       model: @exam,
-      description: html_preview
+      description: html_preview + @exam.examination.note
     }
   end
 
