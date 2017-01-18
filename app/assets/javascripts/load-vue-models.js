@@ -77,11 +77,23 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
                   .then(function (response) {
-                    if (_.isEmpty(scopedData.id)) {
+                    if (scopedData.hasOwnProperty('deixis') && _.isEmpty(scopedData.id)) {
                       // Set ID of inner element from request (if not set)
                       var scopedResponseModel = response.body.model
                       for (var i = 0; i < names.length - 1; i++) {
-                        scopedResponseModel = scopedResponseModel[names[i]]
+                        var name = names[i]
+                        if (i === names.length - 2) {
+                          var changedModelIndex = scopedResponseModel.findIndex(function (rModel) {
+                            return rModel.deixis === scopedData.deixis
+                          })
+                          name = '' + changedModelIndex
+                        }
+                        // Remove attributes affix (not there in JSON output)
+                        var match = name.match(/(\w+)_attributes/)
+                        if (match) {
+                          name = match[1]
+                        }
+                        scopedResponseModel = scopedResponseModel[name]
                       }
                       scopedData.id = scopedResponseModel.id
                     }
