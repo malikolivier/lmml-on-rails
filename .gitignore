@@ -26,3 +26,5 @@ config/environments/*.local.yml
 
 # ignore compiles assets
 public/assets/
+
+node_modules

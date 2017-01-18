@@ -86,7 +86,11 @@ class AutopsiesController < ApplicationController
   def preview
     @autopsy = Autopsy.new(autopsy_params)
     setup_autopsy
-    render layout: false
+    html_preview = render_to_string 'preview', layout: false
+    render json: {
+      model: @autopsy,
+      description: html_preview
+    }
   end
 
   private

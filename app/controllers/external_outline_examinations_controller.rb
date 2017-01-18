@@ -9,6 +9,7 @@ class ExternalOutlineExaminationsController < ExaminationsController
                   livores_mortis_attributes: [:id, :color, :position,
                                               :intensity, :on_finger_pressure],
                   rigores_mortis_attributes: [:id, :joint, :intensity,
-                                              :category])
+                                              :category],
+                  examination_attributes: [:note])
   end
 end
