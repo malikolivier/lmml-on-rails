@@ -1,4 +1,5 @@
-.form-group{'v-for': "#{association_name} in #{association_info.plural_name}_attributes", class: (defined? form_class) ? form_class : nil}
+- dual = !!local_assigns[:dual]
+.form-group{'v-for': "#{association_name} in #{association_info.plural_name}_attributes", class: dual ? 'col-xs-6' : nil}
   - fields.each do |field_name, field_info|
     %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
       = label association_name, field_name, t("activerecord.attributes.#{association_name}.#{field_name}")

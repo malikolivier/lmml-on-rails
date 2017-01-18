@@ -16,7 +16,10 @@
 - association_class = association_info.class_name.constantize
 - association_name = association_info.class_name.underscore
 .panel.panel-default
-  .panel-heading= t("activerecord.models.#{association_name}")
+  .panel-heading
+    %div= t("activerecord.models.#{association_name}")
+    .col-xs-6= t('left')
+    .col-xs-6= t('right')
   .panel-body.form-horizontal
     - # These hidden fields will initialize the Vue values
     - left = object.send(method).left.take || association_class.new(deixis: 'left')
@@ -48,5 +51,5 @@
     = render 'nested_form', association_name: association_name,
                             association_info: association_info,
                             fields: fields,
-                            form_class: 'col-xs-6'
+                            dual: true
     = yield
