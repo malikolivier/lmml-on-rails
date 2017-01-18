@@ -9,9 +9,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalIntestinesExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalIntestinesExamination < ExaminationBase
   enum appendix: Settings.enums.existence, _prefix: true
 
   has_many :intestine_sections, -> { order(:category) }

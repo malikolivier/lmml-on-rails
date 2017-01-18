@@ -13,8 +13,7 @@
 #  updated_at                :datetime         not null
 #
 
-class InternalNeckOrgansExamination < ApplicationRecord
-  belongs_to :examination, required: true
+class InternalNeckOrgansExamination < ExaminationBase
   enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph'
 
   belongs_to :oesophagus_substance, class_name: Substance

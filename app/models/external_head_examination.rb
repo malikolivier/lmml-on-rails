@@ -12,7 +12,7 @@
 #  updated_at         :datetime         not null
 #
 
-class ExternalHeadExamination < ApplicationRecord
+class ExternalHeadExamination < ExaminationBase
   enum hair_natural_color: [:black, :brown, :blond, :auburn, :red, :gray,
                             :white]
   enum hair_dyed_color: [:not_dyed, :false_blond, :false_red]
@@ -21,6 +21,4 @@ class ExternalHeadExamination < ApplicationRecord
 
   has_many :external_ear_examinations
   alias_method :ears, :external_ear_examinations
-
-  accepts_nested_attributes_for :examination, update_only: true
 end

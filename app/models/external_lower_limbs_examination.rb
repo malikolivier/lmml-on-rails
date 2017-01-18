@@ -8,6 +8,5 @@
 #  updated_at     :datetime         not null
 #
 
-class ExternalLowerLimbsExamination < ApplicationRecord
-  belongs_to :examination, required: true
+class ExternalLowerLimbsExamination < ExaminationBase
 end

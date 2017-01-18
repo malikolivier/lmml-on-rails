@@ -10,8 +10,6 @@
 #  updated_at       :datetime         not null
 #
 
-class InternalThoracicAortaExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalThoracicAortaExamination < ExaminationBase
   enum arteriosclerosis: Settings.enums.five_scale_intensity, _prefix: true
 end

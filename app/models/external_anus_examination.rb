@@ -10,9 +10,7 @@
 #  updated_at     :datetime         not null
 #
 
-class ExternalAnusExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class ExternalAnusExamination < ExaminationBase
   enum closed: [:closed, :not_closed]
   enum feces_quantity: Settings.enums.five_scale_quantity, _prefix: true
 end

@@ -21,9 +21,7 @@
 #  updated_at                  :datetime         not null
 #
 
-class InternalHeartExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalHeartExamination < ExaminationBase
   enum rigor_mortis: Settings.enums.existence, _prefix: true
   enum epicardial_lipomatosis: Settings.enums.existence, _prefix: true
   enum epicardial_petechia: Settings.enums.five_scale_quantity, _prefix: true

@@ -14,9 +14,7 @@
 #  updated_at        :datetime         not null
 #
 
-class InternalGenitaliaExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalGenitaliaExamination < ExaminationBase
   enum endometrium_color: [:pale], _prefix: true
   enum ovaries_presence: [:yes, :left_is_missing, :right_is_missing, :no],
        _prefix: true

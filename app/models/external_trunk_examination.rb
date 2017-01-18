@@ -9,7 +9,6 @@
 #  updated_at              :datetime         not null
 #
 
-class ExternalTrunkExamination < ApplicationRecord
-  belongs_to :examination, required: true
+class ExternalTrunkExamination < ExaminationBase
   enum abdominal_discoloration: [:no_discoloration, :discolored]
 end

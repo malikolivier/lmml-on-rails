@@ -12,8 +12,7 @@
 #  updated_at         :datetime         not null
 #
 
-class InternalBladderExamination < ApplicationRecord
-  belongs_to :examination, required: true
+class InternalBladderExamination < ExaminationBase
   enum urine_color: [:yellowish, :yellow, :amber, :red, :brown], _prefix: true
   enum urine_transparency: [:transparent, :opaque], _prefix: 'urine'
   enum membrane_color: [:pale], _prefix: true

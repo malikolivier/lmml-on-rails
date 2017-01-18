@@ -12,9 +12,7 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalLiverExamination < ApplicationRecord
-  belongs_to :examination, required: true
-
+class InternalLiverExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum steatosis: Settings.enums.five_scale_intensity, _prefix: true
