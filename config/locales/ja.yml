@@ -270,6 +270,7 @@ ja:
       autopsy: 解剖
       livor_mortis: 死斑
       rigor_mortis: 死後硬直
+      external_ear_examination: 外耳道
     attributes:
       autopsy:
         number: 解剖番号
@@ -319,6 +320,8 @@ ja:
         hair_dyed_color: 染色
         top_hair_length: 頭頂部での長さ(cm)
         side_hair_length: 側頭部での長さ(cm)
+      external_ear_examination:
+        bleeding: 出血
   date:
     abbr_day_names:
     - 日

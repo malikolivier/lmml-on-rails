@@ -13,4 +13,6 @@
           = f.number_field :top_hair_length
         .col-xs-6
           = f.number_field :side_hair_length
+  = render 'nested_dual_form', form: f, method: :external_ear_examinations,
+           fields: { bleeding: { type: :check_box } }
   = yield f

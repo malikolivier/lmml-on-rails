@@ -24,15 +24,9 @@
       - fields.each do |field_name, field_type|
         - # These hidden fields will initialize the Vue values
         = ff.hidden_field field_name
-    .form-group{'v-for': "#{association_name} in #{association_info.plural_name}_attributes"}
-      - fields.each do |field_name, field_info|
-        %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
-          - case field_info[:type]
-            - when :select
-              = label association_name, field_name, t("activerecord.attributes.#{association_name}.#{field_name}")
-              = select association_name, field_name, send("translated_#{association_name}_#{field_name.to_s.pluralize}"), {prompt: true}, {class: 'form-control', 'v-model': "#{association_name}.#{field_name}"}
-            - default
-              - raise "Unhandled field_type: #{field_type}"
+    = render 'nested_form', association_name: association_name,
+                            association_info: association_info,
+                            fields: fields do
       .col-xs-1
         %label &nbsp;
         %button.btn.btn-danger.btn-xs{'v-on:click.prevent': "delete_#{association_name}(#{association_name})"} X

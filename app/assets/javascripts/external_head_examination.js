@@ -8,6 +8,5 @@ $(function () {
 
 LMML.loaders.external_head_examination = function () {
   var model = 'external_head_examination'
-  LMML.loadVueModel(model, {
-  })
+  LMML.loadVueModel(model)
 }

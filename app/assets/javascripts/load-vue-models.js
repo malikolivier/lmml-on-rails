@@ -117,7 +117,14 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
             if (this.type === 'checkbox') {
               scopedData[name] = this.checked
             } else {
-              scopedData[name] = this.value
+              // Edge case for boolean/checkboxes
+              if (this.value === 'false') {
+                scopedData[name] = false
+              } else if (this.value === 'true') {
+                scopedData[name] = true
+              } else {
+                scopedData[name] = this.value
+              }
             }
           } else {
             scopedData[name] = scopedData[name] || {}
