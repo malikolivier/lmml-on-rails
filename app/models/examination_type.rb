@@ -22,7 +22,11 @@ class ExaminationType < ApplicationRecord
   validates :placement, uniqueness: true
 
   def this_examination_model
-    "#{category}_#{name}_examination".camelize.constantize
+    key_string.camelize.constantize
+  end
+
+  def key_string
+    "#{category}_#{name}_examination"
   end
 
   def self.by_name(name, category)

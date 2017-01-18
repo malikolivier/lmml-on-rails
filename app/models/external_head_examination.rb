@@ -21,4 +21,6 @@ class ExternalHeadExamination < ApplicationRecord
 
   has_many :external_ear_examinations
   alias_method :ears, :external_ear_examinations
+
+  accepts_nested_attributes_for :examination, update_only: true
 end
