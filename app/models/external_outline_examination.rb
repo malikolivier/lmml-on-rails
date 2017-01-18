@@ -27,4 +27,5 @@ class ExternalOutlineExamination < ApplicationRecord
 
   accepts_nested_attributes_for :livores_mortis, :rigores_mortis,
                                 reject_if: :all_blank
+  accepts_nested_attributes_for :examination, update_only: true
 end
