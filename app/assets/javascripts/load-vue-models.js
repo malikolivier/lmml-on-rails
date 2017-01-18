@@ -76,7 +76,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   // Add deixis if deixis is present (must be there for all parts with a right or left part)
                   if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-                  .then(function(response) {
+                  .then(function (response) {
                     if (_.isEmpty(scopedData.id)) {
                       // Set ID of inner element from request (if not set)
                       var scopedResponseModel = response.body.model
@@ -85,7 +85,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                       }
                       scopedData.id = scopedResponseModel.id
                     }
-                    updateHandler(response);
+                    updateHandler(response)
                   }, errorHandler)
                 }
               )
