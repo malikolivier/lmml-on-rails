@@ -1,5 +1,10 @@
 - dual = !!local_assigns[:dual]
-.form-group{'v-for': "#{association_name} in #{association_info.plural_name}_attributes", class: dual ? 'col-xs-6' : nil}
+- match = object_name.match(/^\w*\[(\w*)\]*$/)
+- if match
+  - v_for = "#{association_name} in #{match[1]}.#{association_info.plural_name}_attributes"
+- else
+  - v_for = "#{association_name} in #{association_info.plural_name}_attributes"
+.form-group{'v-for': v_for, class: dual ? 'col-xs-6' : nil}
   - fields.each do |field_name, field_info|
     %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
       = label association_name, field_name, t("activerecord.attributes.#{association_name}.#{field_name}")

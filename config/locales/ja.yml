@@ -31,6 +31,7 @@ ja:
     yellowish: 黄白色
     yellow_green: 黄緑色
     dark_brown: 茶褐色
+    green: 緑色
   odors:
     no_odor: においのない
   organs:
@@ -279,6 +280,7 @@ ja:
       external_ear_examination: 外耳道
       external_eye_examination: 眼
       external_mouth_examination: 口
+      foreign_fluid: 異液
     attributes:
       autopsy:
         number: 解剖番号
@@ -352,6 +354,11 @@ ja:
         petechia: 溢血点
         tongue_tip: 舌尖
         note: 特記
+      foreign_fluid:
+        name: 名称
+        color: 色
+        odor: におい
+        description: 記述
   date:
     abbr_day_names:
     - 日

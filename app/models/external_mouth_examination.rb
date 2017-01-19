@@ -39,4 +39,7 @@ class ExternalMouthExamination < ApplicationRecord
     end
     sentence
   end
+
+  accepts_nested_attributes_for :foreign_fluids, :tooth_examinations,
+                                reject_if: :all_blank
 end

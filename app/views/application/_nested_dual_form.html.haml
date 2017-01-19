@@ -11,7 +11,7 @@
 - #   }
 - #  &block: The block will be appended at the end of the panel
 - object = form.object
-- object_name = object.class.to_s.underscore
+- object_name = form.object_name
 - association_info = object.class.reflect_on_association(method)
 - association_class = association_info.class_name.constantize
 - association_name = association_info.class_name.underscore
@@ -48,7 +48,8 @@
                name: "#{object_name}[#{association_info.plural_name}_attributes][1][#{field_name}]",
                id: "#{object_name}_#{association_info.plural_name}_attributes_1_#{field_name}",
                'deixis-data': true }
-    = render 'nested_form', association_name: association_name,
+    = render 'nested_form', object_name: object_name,
+                            association_name: association_name,
                             association_info: association_info,
                             fields: fields,
                             dual: true
