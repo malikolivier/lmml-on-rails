@@ -322,6 +322,10 @@ ja:
         side_hair_length: 側頭部での長さ(cm)
       external_ear_examination:
         bleeding: 出血
+      external_face_examination:
+        congestion: 鬱血
+        swelling: 腫脹
+        nasal_cavity_content: 鼻腔内
   date:
     abbr_day_names:
     - 日
