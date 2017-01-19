@@ -1,4 +1,9 @@
 module ExternalFaceExaminationsHelper
+  def setup_external_face_examination(exam)
+    exam.external_mouth_examination ||= ExternalMouthExamination.new
+    exam
+  end
+
   def translated_congestions
     ExternalFaceExamination.congestions.map do |existence, _|
       [t("existence.#{existence}"), existence]

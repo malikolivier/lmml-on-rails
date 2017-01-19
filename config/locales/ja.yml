@@ -204,6 +204,10 @@ ja:
     open: 開く
     other: その他
     unknown: 不明
+  tongue_tips:
+    behind: 下歯槽の後方
+    front: 下歯槽の前方
+    unknown: 不明
   hardness:
     hard: 弾性硬
     soft: 弾性軟
@@ -274,6 +278,7 @@ ja:
       rigor_mortis: 死後硬直
       external_ear_examination: 外耳道
       external_eye_examination: 眼
+      external_mouth_examination: 口
     attributes:
       autopsy:
         number: 解剖番号
@@ -341,6 +346,12 @@ ja:
         cornea: 角膜
         pupil: 瞳孔
         diameter: 瞳孔直径
+      external_mouth_examination:
+        closed: 開閉
+        aperture: 開閉(cm)
+        petechia: 溢血点
+        tongue_tip: 舌尖
+        note: 特記
   date:
     abbr_day_names:
     - 日

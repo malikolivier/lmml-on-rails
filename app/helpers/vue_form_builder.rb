@@ -10,6 +10,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options[:'v-model'] ||= v_model_value(method)
     add_form_control(html_options)
+    options[:prompt] = true unless options[:prompt].present?
     label_options = wrap_with_label_options(options)
     input_html = super(method, choices, options, html_options, &block)
     wrap_with_label(method, input_html, label_options)
@@ -19,6 +20,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
   def collection_select(method, collection, value_method, text_method,
                         options = {}, html_options = {})
     html_options[:'v-model'] ||= v_model_value(method)
+    options[:prompt] = true unless options[:prompt].present?
     add_form_control(html_options)
     label_options = wrap_with_label_options(options)
     input_html = super(method, collection, value_method, text_method,

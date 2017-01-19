@@ -20,7 +20,7 @@ class ExternalFaceExamination < ExaminationBase
 
   alias_method :eyes, :external_eye_examinations
 
-  has_one :external_mouth_examination
+  has_one :external_mouth_examination, inverse_of: :external_face_examination
   alias_method :mouth, :external_mouth_examination
 
   accepts_nested_attributes_for :external_eye_examinations,

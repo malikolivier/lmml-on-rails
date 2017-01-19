@@ -1,10 +1,10 @@
-= form_for(exam, builder: VueFormBuilder, html: { id: 'external_face_examination' }, url: '') do |f|
+= form_for(setup_external_face_examination(exam), builder: VueFormBuilder, html: { id: 'external_face_examination' }, url: '') do |f|
   = f.hidden_field :id
   .row
     .col-xs-6
-      = f.select :congestion, translated_congestions, prompt: true
+      = f.select :congestion, translated_congestions
     .col-xs-6
-      = f.select :swelling, translated_swellings, prompt: true
+      = f.select :swelling, translated_swellings
   = f.text_field :nasal_cavity_content
   = render 'nested_dual_form', form: f, method: :external_eye_examinations,
            fields: { closed: { type: :select },
@@ -18,4 +18,20 @@
                      cornea: { type: :text_field },
                      pupil: { type: :text_field },
                      diameter: { type: :number_field } }
+  .panel.panel-default
+    .panel-heading= t('activerecord.models.external_mouth_examination')
+    .panel-body
+      = f.fields_for :external_mouth_examination do |ff|
+        = ff.hidden_field :id
+        .row
+          .col-xs-6
+            = ff.select :closed, translated_external_mouth_examination_closeds
+          .col-xs-6
+            = ff.number_field :aperture
+        .row
+          .col-xs-6
+            = ff.select :petechia, translated_external_mouth_examination_petechia
+          .col-xs-6
+            = ff.select :tongue_tip, translated_external_mouth_examination_tongue_tips
+        = ff.text_field :note
   = yield f
