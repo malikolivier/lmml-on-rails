@@ -20,7 +20,7 @@
     %div= t("activerecord.models.#{association_name}")
     .col-xs-6= t('left')
     .col-xs-6= t('right')
-  .panel-body.form-horizontal
+  .panel-body
     - # These hidden fields will initialize the Vue values
     - left = object.send(method).left.take || association_class.new(deixis: 'left')
     - right = object.send(method).right.take || association_class.new(deixis: 'right')

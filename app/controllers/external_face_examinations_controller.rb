@@ -8,7 +8,7 @@ class ExternalFaceExaminationsController < ExaminationsController
   private
 
   def update_params
-    eye_attributes = [:id, :closed, :aperture,
+    eye_attributes = [:id, :deixis, :closed, :aperture,
                       :eyelid_congestion, :eyelid_petechia, :eyelid_note,
                       :conjunctiva_congestion, :conjunctiva_petechia,
                       :conjunctiva_note,

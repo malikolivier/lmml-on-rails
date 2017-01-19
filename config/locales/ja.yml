@@ -156,6 +156,7 @@ ja:
     extremely_few: 極少数
     few: 少数
     middle: 中等数
+    mid: 中等数
     many: 多数
     extremely_many: 極多数
   mass_quantity: # mass as in "mass noun"
@@ -201,6 +202,7 @@ ja:
   closedness:
     closed: 閉じる
     open: 開く
+    other: その他
     unknown: 不明
   hardness:
     hard: 弾性硬
@@ -271,6 +273,7 @@ ja:
       livor_mortis: 死斑
       rigor_mortis: 死後硬直
       external_ear_examination: 外耳道
+      external_eye_examination: 眼
     attributes:
       autopsy:
         number: 解剖番号
@@ -326,6 +329,18 @@ ja:
         congestion: 鬱血
         swelling: 腫脹
         nasal_cavity_content: 鼻腔内
+      external_eye_examination:
+        closed: 開閉
+        aperture: 開閉(cm)
+        eyelid_congestion: 眼瞼血管充盈
+        eyelid_petechia: 眼瞼溢血点
+        eyelid_note: 眼瞼結膜特記
+        conjunctiva_congestion: 眼球血管充盈
+        conjunctiva_petechia: 眼球溢血点
+        conjunctiva_note: 眼球結膜特記
+        cornea: 角膜
+        pupil: 瞳孔
+        diameter: 瞳孔直径
   date:
     abbr_day_names:
     - 日

@@ -51,6 +51,7 @@ enums:
     - closed
     - open
     - other
+    - unknown
   deixes:
     - left
     - right

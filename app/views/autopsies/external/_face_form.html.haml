@@ -6,4 +6,16 @@
     .col-xs-6
       = f.select :swelling, translated_swellings, prompt: true
   = f.text_field :nasal_cavity_content
+  = render 'nested_dual_form', form: f, method: :external_eye_examinations,
+           fields: { closed: { type: :select },
+                     aperture: { type: :number_field },
+                     eyelid_congestion: { type: :select },
+                     eyelid_petechia: { type: :select },
+                     eyelid_note: { type: :text_field},
+                     conjunctiva_congestion: { type: :select },
+                     conjunctiva_petechia: { type: :select },
+                     conjunctiva_note: { type: :text_field},
+                     cornea: { type: :text_field },
+                     pupil: { type: :text_field },
+                     diameter: { type: :number_field } }
   = yield f
