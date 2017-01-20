@@ -1,14 +1,21 @@
-- examination_type = exam.examination.examination_type
+- is_array = exam.respond_to?(:each)
+- if is_array
+  - examination_type = exam.first.examination.examination_type
+- else
+  - examination_type = exam.examination.examination_type
 - key_string = examination_type.key_string
 .row
   %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
 .row
   .col-sm-6
-    = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: exam do |f|
-      = f.fields_for :examination do |ff|
-        = ff.text_field :note
+    - begin # TODO remove this begin rescue when all templates are done!
+      = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: exam do |f|
+        = f.fields_for :examination do |ff|
+          = ff.text_field :note
+    - rescue ActionView::MissingTemplate
+      = $!
   .col-sm-6
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}
       = render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: exam
-      = exam.examination.note
+      = is_array ? exam.first.examination.note : exam.examination.note
