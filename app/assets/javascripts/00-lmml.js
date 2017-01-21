@@ -5,6 +5,9 @@ var LMML = {
   autopsy_id: function getAutopsyId () {
     return document.getElementById('autopsy_id').value
   },
+  isEmpty: function isLmmlObjectEmpty (object) {
+    return object === null || object === '' || object === undefined
+  },
   httpErrorHandler: function httpErrorHandler (model) {
     return function httpErrorHandler (response) {
       console.error(response)
@@ -45,7 +48,8 @@ var LMML = {
         .then((response) => {
           var scopedVueModel = this
           for (var i = 1; i < modelPath.length; i++) {
-            scopedVueModel = scopedVueModel[modelPath[i]]
+            scopedVueModel = scopedVueModel[`${modelPath[i]}_attributes`]
+            scopedVueModel.id = response.body[`${modelPath[i]}_id`]
           }
           scopedVueModel[`${nestedModelPlural}_attributes`].push(response.body)
         }, LMML.httpErrorHandler(model))
@@ -62,7 +66,7 @@ var LMML = {
       .then(function (response) {
         var scopedVueModel = this
         for (var i = 1; i < modelPath.length; i++) {
-          scopedVueModel = scopedVueModel[modelPath[i]]
+          scopedVueModel = scopedVueModel[`${modelPath[i]}_attributes`]
         }
         var i = scopedVueModel[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
           return submodel.id === nestedModelVal.id

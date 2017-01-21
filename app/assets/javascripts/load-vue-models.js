@@ -69,12 +69,12 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                     scopedParams[names[i]] = {}
                     scopedParams = scopedParams[names[i]]
                     scopedData = scopedData[names[i]]
+                    // Add ID so that rails update this record
+                    if (scopedData.id) scopedParams.id = scopedData.id
+                    // Add deixis if deixis is present (must be there for all parts with a right or left part)
+                    if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   }
                   scopedParams[names[names.length - 1]] = newValue
-                  // Add ID so that rails update this record
-                  if (scopedData.id) scopedParams.id = scopedData.id
-                  // Add deixis if deixis is present (must be there for all parts with a right or left part)
-                  if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
                   .then(function (response) {
                     var noId = _.isEmpty(scopedData.id)
@@ -110,6 +110,8 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
               watch[arrayName] = {
                 handler: debounce(
                   function onArrayChange (newValue, oldValue) {
+                    // Old value and new value do not work for arrays:
+                    // https://forum-archive.vuejs.org/topic/4012/watch-array-mutations-newval-oldval-issue/3
                     console.log(`Updating array ${arrayName}...`)
                     var params = { [model]: {} }
                     var scopedParams = params[model]
@@ -121,9 +123,9 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                         scopedParams[name] = {}
                         scopedParams = scopedParams[name]
                         scopedVueModel = scopedVueModel[name]
-                        if (!_.isEmpty(scopedVueModel.id)) {
-                          scopedParams.id = scopedVueModel.id
-                        }
+                      }
+                      if (!LMML.isEmpty(scopedVueModel.id)) {
+                        scopedParams.id = scopedVueModel.id
                       }
                     })
                     this.$http[options.httpVerb](options.updateUrl, params)

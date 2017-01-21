@@ -10,8 +10,8 @@ LMML.loaders.external_face_examination = function () {
   var model = 'external_face_examination'
   LMML.loadVueModel(model, {
     methods: {
-      add_foreign_fluid: LMML.add_('foreign_fluid', [model, 'external_mouth_examination_attributes']),
-      delete_foreign_fluid: LMML.delete_('foreign_fluid', [model, 'external_mouth_examination_attributes'])
+      add_foreign_fluid: LMML.add_('foreign_fluid', [model, 'external_mouth_examination']),
+      delete_foreign_fluid: LMML.delete_('foreign_fluid', [model, 'external_mouth_examination'])
     }
   })
 }
