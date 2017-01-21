@@ -19,8 +19,12 @@ var LMML = {
   models_url: function getModelUrl (model) {
     return `/autopsies/${LMML.autopsy_id()}/${LMML.pluralize(model)}`
   },
-  add_: function addNestedModel (nestedModel, model, attributes = {}) {
+  add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)
+    if (!_.isArray(modelPath)) {
+      modelPath = [modelPath]
+    }
+    var model = modelPath[0]
     return function () {
       new Promise((resolve, reject) => {
         if (this.id !== '') {
@@ -39,7 +43,11 @@ var LMML = {
           return this.$http.post(`/${nestedModelPlural}`, newAttributes)
         })
         .then((response) => {
-          this[`${nestedModelPlural}_attributes`].push(response.body)
+          var scopedVueModel = this
+          for (var i = 1; i < modelPath.length; i++) {
+            scopedVueModel = scopedVueModel[modelPath[i]]
+          }
+          scopedVueModel[`${nestedModelPlural}_attributes`].push(response.body)
         }, LMML.httpErrorHandler(model))
     }
   },

@@ -1,4 +1,14 @@
 class ForeignFluidsController < ExaminationNestedModelsController
+
+  def create
+    @nested_model = ForeignFluid.create!(create_params)
+    if params[:external_face_examination_id].present?
+      exam = ExternalFaceExamination.find(params[:external_face_examination_id])
+      exam.external_mouth_examination.foreign_fluids.push(@nested_model)
+      exam.save!
+    end
+  end
+
   private
 
   def create_params
