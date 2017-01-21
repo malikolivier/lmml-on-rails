@@ -10,9 +10,9 @@ Rails.application.routes.draw do
     put :update, to: 'autopsies#update'
     [:external_outline, :external_head, :external_face].each do |examination_type|
       key_string_plural = "#{examination_type}_examination".pluralize
-      resources key_string_plural, only: [:create]
+      resources key_string_plural, only: [:create, :new]
       put key_string_plural, to: "#{key_string_plural}#update"
-      # This route is used for indenpendent debugging of examination form
+      # This route is used for indenpendent debugging of examination form (like /new)
       get "#{key_string_plural}/edit", to: "#{key_string_plural}#edit"
     end
   end

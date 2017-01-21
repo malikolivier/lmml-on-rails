@@ -23,6 +23,13 @@ class ExaminationsController < ApplicationController
   # GET /autopsies/:autopsy_id/***_examinations/edit
   def edit; end
 
+  # GET /autopsies/:autopsy_id/***_examinations/new
+  def new
+    examination_type = ExaminationType.by_name(examination_name,
+                                               examination_category)
+    @exam_base = Examination.new(examination_type: examination_type)
+  end
+
   protected
 
   def examination_category
