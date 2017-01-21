@@ -1,11 +1,11 @@
 class ForeignFluidsController < ExaminationNestedModelsController
 
   def create
-    @nested_model = ForeignFluid.create!(create_params)
+    super
     if params[:external_face_examination_id].present?
       exam = ExternalFaceExamination.find(params[:external_face_examination_id])
+      # assume external mouth examination is already created
       exam.external_mouth_examination.foreign_fluids.push(@nested_model)
-      exam.save!
     end
   end
 

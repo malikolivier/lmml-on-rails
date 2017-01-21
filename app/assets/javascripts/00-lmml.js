@@ -51,15 +51,23 @@ var LMML = {
         }, LMML.httpErrorHandler(model))
     }
   },
-  delete_: function deleteNestedModel (nestedModel, model) {
+  delete_: function deleteNestedModel (nestedModel, modelPath) {
     var nestedModelPlural = LMML.pluralize(nestedModel)
+    if (!_.isArray(modelPath)) {
+      modelPath = [modelPath]
+    }
+    var model = modelPath[0]
     return function (nestedModelVal) {
       this.$http.delete(`/${nestedModelPlural}/${nestedModelVal.id}`)
       .then(function (response) {
-        var i = this[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
+        var scopedVueModel = this
+        for (var i = 1; i < modelPath.length; i++) {
+          scopedVueModel = scopedVueModel[modelPath[i]]
+        }
+        var i = scopedVueModel[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
           return submodel.id === nestedModelVal.id
         })
-        this[`${nestedModelPlural}_attributes`].splice(i, 1)
+        scopedVueModel[`${nestedModelPlural}_attributes`].splice(i, 1)
       }, LMML.httpErrorHandler(model))
     }
   }

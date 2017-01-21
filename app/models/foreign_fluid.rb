@@ -31,4 +31,12 @@ class ForeignFluid < ApplicationRecord
     end
     explanations.join('、')
   end
+
+  after_destroy :destroy_in_mouth_relationship
+
+  private
+
+  def destroy_in_mouth_relationship
+    InMouthForeignFluid.where(foreign_fluid: self).destroy_all
+  end
 end
