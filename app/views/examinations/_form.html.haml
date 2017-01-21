@@ -1,8 +1,3 @@
-- is_array = exam.respond_to?(:each)
-- if is_array
-  - examination_type = exam.first.examination.examination_type
-- else
-  - examination_type = exam.examination.examination_type
 - key_string = examination_type.key_string
 .row
   %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
@@ -18,4 +13,4 @@
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}
       = render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: exam
-      = is_array ? exam.first.examination.note : exam.examination.note
+      = exam.examination.try(:note) if !exam.respond_to?(:each)

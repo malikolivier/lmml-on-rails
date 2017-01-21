@@ -161,6 +161,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
 
   // Start processing
   loadFromDOM()
+  console.log(_.clone(watch))
 
   var methods = {
     updateAll: debounce(
