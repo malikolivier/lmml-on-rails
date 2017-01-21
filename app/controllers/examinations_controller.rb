@@ -21,8 +21,7 @@ class ExaminationsController < ApplicationController
   end
 
   # GET /autopsies/:autopsy_id/***_examinations/edit
-  def edit
-  end
+  def edit; end
 
   protected
 

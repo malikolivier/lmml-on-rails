@@ -113,7 +113,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                     var params = { [model]: {} }
                     var scopedParams = params[model]
                     var scopedVueModel = this
-                    arrayName.split('.').forEach( function (name, i, array) {
+                    arrayName.split('.').forEach(function buildParams (name, i, array) {
                       if (i === array.length - 1) {
                         scopedParams[name] = newValue
                       } else {
