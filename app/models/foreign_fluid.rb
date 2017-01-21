@@ -13,7 +13,7 @@
 
 class ForeignFluid < ApplicationRecord
   enum color: [:no_color, :green, :white]
-  enum odor: [:no_odor]
+  enum odor: [:no_odor, :rot]
 
   def explanation
     expl = name.present? ? name : '不明な異液'

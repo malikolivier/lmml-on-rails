@@ -104,16 +104,29 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
             }
           } else {
             var arrayName = names[arrayIndex].match(/^(\w+)\[[0-9]*]$/)[1]
+            arrayName = names.slice(0, arrayIndex).concat(arrayName).join('.')
             if (!watch[arrayName]) {
               watch[arrayName] = {
                 handler: debounce(
                   function onArrayChange (newValue, oldValue) {
                     console.log(`Updating array ${arrayName}...`)
-                    this.$http[options.httpVerb](options.updateUrl, {
-                      [model]: {
-                        [arrayName]: newValue
+                    var params = { [model]: {} }
+                    var scopedParams = params[model]
+                    var scopedVueModel = this
+                    arrayName.split('.').forEach( function (name, i, array) {
+                      if (i === array.length - 1) {
+                        scopedParams[name] = newValue
+                      } else {
+                        scopedParams[name] = {}
+                        scopedParams = scopedParams[name]
+                        scopedVueModel = scopedVueModel[name]
+                        if (!_.isEmpty(scopedVueModel.id)) {
+                          scopedParams.id = scopedVueModel.id
+                        }
                       }
-                    }).then(updateHandler, errorHandler)
+                    })
+                    this.$http[options.httpVerb](options.updateUrl, params)
+                    .then(updateHandler, errorHandler)
                   }
                 ),
                 deep: true

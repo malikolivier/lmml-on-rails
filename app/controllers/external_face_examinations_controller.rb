@@ -14,7 +14,7 @@ class ExternalFaceExaminationsController < ExaminationsController
                       :conjunctiva_note,
                       :cornea, :pupil, :diameter]
     mouth_attributes = [:id, :closed, :petechia, :tongue_tip, :note,
-                        foreign_fluids_attributes: [:id, :name, :color,
+                        foreign_fluids_attributes: [:id, :name, :color, :odor,
                                                     :description]]
     params.require(:external_face_examination)
           .permit(:id, :congestion, :swelling, :nasal_cavity_content,
