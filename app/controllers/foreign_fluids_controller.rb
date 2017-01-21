@@ -1,12 +1,13 @@
 class ForeignFluidsController < ExaminationNestedModelsController
-
   def create
     super
+    # rubocop:disable GuardClause (fix when add other relationships)
     if params[:external_face_examination_id].present?
       exam = ExternalFaceExamination.find(params[:external_face_examination_id])
       # assume external mouth examination is already created
       exam.external_mouth_examination.foreign_fluids.push(@nested_model)
     end
+    # TODO: Add other relationships (lung, peritoneum and pleura)
   end
 
   private
