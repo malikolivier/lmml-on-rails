@@ -65,8 +65,8 @@ var LMML = {
       this.$http.delete(`/${nestedModelPlural}/${nestedModelVal.id}`)
       .then(function (response) {
         var scopedVueModel = this
-        for (var i = 1; i < modelPath.length; i++) {
-          scopedVueModel = scopedVueModel[`${modelPath[i]}_attributes`]
+        for (var j = 1; j < modelPath.length; j++) {
+          scopedVueModel = scopedVueModel[`${modelPath[j]}_attributes`]
         }
         var i = scopedVueModel[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
           return submodel.id === nestedModelVal.id
