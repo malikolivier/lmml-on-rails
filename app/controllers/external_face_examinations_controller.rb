@@ -2,7 +2,7 @@ class ExternalFaceExaminationsController < ExaminationsController
   protected
 
   def json_includes
-    [:external_eye_examinations]
+    [:external_eye_examinations, :external_mouth_examination]
   end
 
   private
