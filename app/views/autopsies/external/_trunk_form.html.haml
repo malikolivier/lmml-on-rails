@@ -1,0 +1,3 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'external_trunk_examination' }, url: '') do |f|
+  = f.select :abdominal_discoloration, translated_external_trunk_abdominal_discolorations
+  = yield f

@@ -242,6 +242,10 @@ ja:
     pulled_pre_mortem: 生前抜歯
     pulled_post_mortem: 死後抜歯
     was_treated: 治療痕あり
+  discoloration:
+    discolored: 腐敗変色あり
+    no_discoloration: 腐敗変色なし
+    unknown: 不明
   uropapers:
     leukocytes: 白血球
     urobilinogen: ウロビリノーゲン
@@ -371,6 +375,8 @@ ja:
         color: 色
         odor: におい
         description: 記述
+      external_trunk_examination:
+        abdominal_discoloration: 下腹部腐敗変色
   date:
     abbr_day_names:
     - 日
