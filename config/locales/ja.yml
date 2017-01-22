@@ -232,6 +232,16 @@ ja:
   transparency:
     transparent: 透明
     opaque: 混濁
+  directions:
+    upper_left: 左上側
+    upper_right: 右上側
+    lower_left: 左下側
+    lower_right: 右下側
+  tooth_condition:
+    normal: 治療痕なし
+    pulled_pre_mortem: 生前抜歯
+    pulled_post_mortem: 死後抜歯
+    was_treated: 治療痕あり
   uropapers:
     leukocytes: 白血球
     urobilinogen: ウロビリノーゲン
@@ -282,6 +292,7 @@ ja:
       external_eye_examination: 眼
       external_mouth_examination: 口
       foreign_fluid: 異液
+      tooth_examination: 歯
     attributes:
       autopsy:
         number: 解剖番号
