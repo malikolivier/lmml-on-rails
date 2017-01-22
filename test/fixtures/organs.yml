@@ -27,11 +27,11 @@ neck:
 trunk:
   name: trunk
 
-left_arm:
-  name: left_arm
+upper_arms:
+  name: upper_arms
 
-right_arm:
-  name: right_arm
+upper_arms:
+  name: upper_arms
 
 left_leg:
   name: left_leg

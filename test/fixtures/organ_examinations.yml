@@ -28,19 +28,11 @@ trunk:
   examination_type: trunk
 
 upper_limbs_left:
-  organ: left_arm
-  examination_type: upper_limbs
-
-upper_limbs_right:
-  organ: right_arm
+  organ: upper_limbs
   examination_type: upper_limbs
 
 lower_limbs_left:
-  organ: left_leg
-  examination_type: lower_limbs
-
-lower_limbs_right:
-  organ: right_leg
+  organ: lower_limbs
   examination_type: lower_limbs
 
 external_genitalia:
