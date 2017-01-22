@@ -88,11 +88,20 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                       var scopedResponseModel = response.body.model
                       for (var i = 0; i < names.length - 1; i++) {
                         var name = names[i]
-                        if (scopedData.hasOwnProperty('deixis') && i === names.length - 2) {
-                          var changedModelIndex = scopedResponseModel.findIndex(function (rModel) {
+                        var isLastNestedModel = i === names.length - 2
+                        if (scopedData.hasOwnProperty('deixis') && isLastNestedModel) {
+                          // Set right model for dual models
+                          var changedDualIndex = scopedResponseModel.findIndex(function (rModel) {
                             return rModel.deixis === scopedData.deixis
                           })
-                          name = '' + changedModelIndex
+                          name = '' + changedDualIndex
+                        }
+                        if (scopedData.hasOwnProperty('position') && scopedData.hasOwnProperty('rank') && isLastNestedModel) {
+                          // Set right model for teeth
+                          var changedToothIndex = scopedResponseModel.findIndex(function (rModel) {
+                            return rModel.position === scopedData.position && rModel.rank === Number(scopedData.rank)
+                          })
+                          name = '' + changedToothIndex
                         }
                         // Remove attributes affix (not there in JSON output)
                         var match = name.match(/^(\w+)_attributes$/)
