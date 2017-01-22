@@ -15,7 +15,7 @@
 
 class ExternalMouthExamination < ApplicationRecord
   belongs_to :external_face_examination, required: true
-  enum closed: Settings.enums.closedness
+  enum closed: Settings.enums.closedness, _prefix: true
   enum petechia: Settings.enums.five_scale_quantity, _prefix: true
   enum tongue_tip: [:behind, :front, :unknown], _prefix: true
 
@@ -30,8 +30,8 @@ class ExternalMouthExamination < ApplicationRecord
   # TODO: 舌尖 tongue_tip, what should be written there?
 
   def closedness_report
-    if !other?
-      aperture_sentence = open? && aperture.positive? ? "#{aperture}cm" : ''
+    if !closed_other?
+      aperture_sentence = closed_open? && aperture.positive? ? "#{aperture}cm" : ''
       closedness = I18n.t "closedness.#{closed}"
       sentence = "口は#{aperture_sentence}#{closedness}。"
     else
