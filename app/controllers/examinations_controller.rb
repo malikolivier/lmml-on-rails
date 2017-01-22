@@ -68,7 +68,7 @@ class ExaminationsController < ApplicationController
     html_preview = render_to_string template_file, locals: { exam: @exam },
                                                    layout: false
     render json: {
-      model: JSON.parse(@exam.to_json(include: json_includes)),
+      model: @exam.as_json(include: json_includes),
       description: html_preview + @exam.examination.note
     }
   end
