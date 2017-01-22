@@ -37,7 +37,7 @@ class ExaminationsController < ApplicationController
   end
 
   def examination_name
-    controller_name.split('_')[1]
+    controller_name.match(/^[a-z]+_(.+)_examinations$/)[1]
   end
 
   private

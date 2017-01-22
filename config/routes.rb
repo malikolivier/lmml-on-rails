@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     get :browse, to: 'autopsies#browse'
     put :update, to: 'autopsies#update'
     [:external_outline, :external_head, :external_face, :external_neck,
-     :external_trunk, :external_back]
+     :external_trunk, :external_back, :external_upper_limbs,
+     :external_lower_limbs]
     .each do |examination_type|
       key_string_plural = "#{examination_type}_examination".pluralize
       resources key_string_plural, only: [:create, :new]
