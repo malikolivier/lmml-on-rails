@@ -24,6 +24,7 @@ class ExternalFaceExamination < ExaminationBase
   alias_method :mouth, :external_mouth_examination
 
   accepts_nested_attributes_for :external_eye_examinations,
-                                :external_mouth_examination,
                                 reject_if: :all_blank
+  accepts_nested_attributes_for :external_mouth_examination,
+                                update_only: true
 end
