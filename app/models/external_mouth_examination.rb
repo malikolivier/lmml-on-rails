@@ -21,7 +21,8 @@ class ExternalMouthExamination < ApplicationRecord
 
   has_many :in_mouth_foreign_fluids
   has_many :foreign_fluids, through: :in_mouth_foreign_fluids
-  has_many :tooth_examinations, -> { order(:position, :rank) }
+  has_many :tooth_examinations, -> { order(:position, :rank) },
+           inverse_of: :external_mouth_examination
   alias_method :teeth, :tooth_examinations
 
   has_many :mouth_photograph_takings

@@ -39,4 +39,10 @@
                              odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
                              description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }
         = ff.text_field :note
+        .row
+          .col-xs-12
+            .panel.panel-default
+              .panel-heading= t('activerecord.models.tooth_examination')
+              .panel-body
+                = render 'autopsies/external/teeth_form', mouth_form: ff
   = yield f

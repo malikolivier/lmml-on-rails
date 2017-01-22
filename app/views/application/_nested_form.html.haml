@@ -1,6 +1,5 @@
 - dual = !!local_assigns[:dual]
-- match = object_name.match(/^\w*\[(.*)\]$/)
-- array_name = match ? "#{match.captures.join('.')}.#{association_info.plural_name}_attributes" : "#{association_info.plural_name}_attributes"
+- array_name = form_to_vue(object_name, association_info.plural_name)
 - v_for = "(#{association_name}, index) in #{array_name}"
 .form-group{'v-for': v_for, class: dual ? 'col-xs-6' : nil}
   - fields.each do |field_name, field_info|

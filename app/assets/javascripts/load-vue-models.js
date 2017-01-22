@@ -53,10 +53,11 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
           var anyArray = names.findIndex(function (name) {
             return name.match(/^[0-9]+$/)
           })
-          if (anyArray !== -1 && this.getAttribute('deixis-data') === null) {
+          var hasMultiData = this.getAttribute('deixis-data') !== null || this.getAttribute('multi-data') !== null
+          if (anyArray !== -1 && !hasMultiData) {
             // Those fields are array container and should be ignored as the
             // watcher for the whole array will be defined hereafter
-          } else if (arrayIndex === -1 || this.getAttribute('deixis-data') !== null) {
+          } else if (arrayIndex === -1 || hasMultiData) {
             // Do not add watcher if the object is an ID, as an ID is not updatable.
             if (names[names.length - 1] !== 'id') {
               watch[joinedNames] = debounce(
@@ -73,6 +74,10 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                     if (scopedData.id) scopedParams.id = scopedData.id
                     // Add deixis if deixis is present (must be there for all parts with a right or left part)
                     if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
+                    // Add position if position is present (must be there for some parts like teeth)
+                    if (scopedData.position) scopedParams.position = scopedData.position
+                    // Add rank if rank is present (must be there for some parts like teeth)
+                    if (scopedData.rank) scopedParams.rank = scopedData.rank
                   }
                   scopedParams[names[names.length - 1]] = newValue
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
@@ -90,7 +95,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                           name = '' + changedModelIndex
                         }
                         // Remove attributes affix (not there in JSON output)
-                        var match = name.match(/(\w+)_attributes/)
+                        var match = name.match(/^(\w+)_attributes$/)
                         if (match) {
                           name = match[1]
                         }
