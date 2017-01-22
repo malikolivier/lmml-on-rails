@@ -1,13 +1,17 @@
 - dual = !!local_assigns[:dual]
-.form-group{'v-for': "#{association_name} in #{association_info.plural_name}_attributes", class: dual ? 'col-xs-6' : nil}
+- array_name = form_to_vue(object_name, association_info.plural_name)
+- v_for = "(#{association_name}, index) in #{array_name}"
+.form-group{'v-for': v_for, class: dual ? 'col-xs-6' : nil}
   - fields.each do |field_name, field_info|
     %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
       = label association_name, field_name, t("activerecord.attributes.#{association_name}.#{field_name}")
       - case field_info[:type]
         - when :select
           = select association_name, field_name, send("translated_#{association_name}_#{field_name.to_s.pluralize}"), {prompt: true}, {class: 'form-control', 'v-model': "#{association_name}.#{field_name}"}
-        - when :check_box
-          = check_box association_name, field_name, class: 'form-control', 'v-model': "#{association_name}.#{field_name}"
+        - when :check_box, :number_field, :text_field
+          = send(field_info[:type], association_name, field_name, class: 'form-control', 'v-model': "#{association_name}.#{field_name}")
         - else
           - raise "Unhandled field_type: #{field_info[:type]}"
   = yield
+  - if !dual
+    %hr{style: 'clear: both', 'v-if': "#{array_name}.length - 1 !== index"}

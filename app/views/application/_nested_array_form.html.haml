@@ -11,7 +11,7 @@
 - #   }
 - #  &block: The block will be appended at the end of the panel
 - object = form.object
-- object_name = object.class.to_s.underscore
+- object_name = form.object_name
 - association_info = object.class.reflect_on_association(method)
 - association_name = association_info.class_name.underscore
 .panel.panel-default
@@ -24,7 +24,8 @@
       - fields.each do |field_name, field_type|
         - # These hidden fields will initialize the Vue values
         = ff.hidden_field field_name
-    = render 'nested_form', association_name: association_name,
+    = render 'nested_form', object_name: object_name,
+                            association_name: association_name,
                             association_info: association_info,
                             fields: fields do
       .col-xs-1

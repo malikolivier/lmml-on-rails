@@ -16,21 +16,6 @@
         #autopsy_errors.alert.alert-danger
         #autopsy_preview= render 'preview'
     - ExaminationType.external.order(:placement).each do |examination_type|
-      - key_string = examination_type.key_string
-      .row
-        %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
-      .row
-        .col-sm-6
-          - begin # TODO remove this begin rescue when all templates are done!
-            - examination = @autopsy.examination(examination_type.name)
-            - examination ||= Examination.new(examination_type: examination_type)
-            = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: examination.get do |f|
-              = f.fields_for :examination do |ff|
-                = ff.text_field :note
-          - rescue ActionView::MissingTemplate
-            = $!
-        .col-sm-6
-          %div.alert.alert-danger{id: "#{key_string}_errors"}
-          %div{id: "#{key_string}_preview"}
-            = render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: examination.get
-            = examination.note
+      - examination = @autopsy.examination(examination_type.name)
+      - examination ||= Examination.new(examination_type: examination_type)
+      = render 'examinations/form', exam: examination.get, examination_type: examination_type

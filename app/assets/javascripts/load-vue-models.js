@@ -53,10 +53,11 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
           var anyArray = names.findIndex(function (name) {
             return name.match(/^[0-9]+$/)
           })
-          if (anyArray !== -1 && this.getAttribute('deixis-data') === null) {
+          var hasMultiData = this.getAttribute('deixis-data') !== null || this.getAttribute('multi-data') !== null
+          if (anyArray !== -1 && !hasMultiData) {
             // Those fields are array container and should be ignored as the
             // watcher for the whole array will be defined hereafter
-          } else if (arrayIndex === -1 || this.getAttribute('deixis-data') !== null) {
+          } else if (arrayIndex === -1 || hasMultiData) {
             // Do not add watcher if the object is an ID, as an ID is not updatable.
             if (names[names.length - 1] !== 'id') {
               watch[joinedNames] = debounce(
@@ -69,19 +70,45 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                     scopedParams[names[i]] = {}
                     scopedParams = scopedParams[names[i]]
                     scopedData = scopedData[names[i]]
+                    // Add ID so that rails update this record
+                    if (scopedData.id) scopedParams.id = scopedData.id
+                    // Add deixis if deixis is present (must be there for all parts with a right or left part)
+                    if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
+                    // Add position if position is present (must be there for some parts like teeth)
+                    if (scopedData.position) scopedParams.position = scopedData.position
+                    // Add rank if rank is present (must be there for some parts like teeth)
+                    if (scopedData.rank) scopedParams.rank = scopedData.rank
                   }
                   scopedParams[names[names.length - 1]] = newValue
-                  // Add ID so that rails update this record
-                  if (scopedData.id) scopedParams.id = scopedData.id
-                  // Add deixis if deixis is present (must be there for all parts with a right or left part)
-                  if (scopedData.deixis) scopedParams.deixis = scopedData.deixis
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
                   .then(function (response) {
-                    if (_.isEmpty(scopedData.id)) {
+                    var noId = _.isEmpty(scopedData.id)
+                    if (noId) {
                       // Set ID of inner element from request (if not set)
                       var scopedResponseModel = response.body.model
                       for (var i = 0; i < names.length - 1; i++) {
-                        scopedResponseModel = scopedResponseModel[names[i]]
+                        var name = names[i]
+                        var isLastNestedModel = i === names.length - 2
+                        if (scopedData.hasOwnProperty('deixis') && isLastNestedModel) {
+                          // Set right model for dual models
+                          var changedDualIndex = scopedResponseModel.findIndex(function (rModel) {
+                            return rModel.deixis === scopedData.deixis
+                          })
+                          name = '' + changedDualIndex
+                        }
+                        if (scopedData.hasOwnProperty('position') && scopedData.hasOwnProperty('rank') && isLastNestedModel) {
+                          // Set right model for teeth
+                          var changedToothIndex = scopedResponseModel.findIndex(function (rModel) {
+                            return rModel.position === scopedData.position && rModel.rank === Number(scopedData.rank)
+                          })
+                          name = '' + changedToothIndex
+                        }
+                        // Remove attributes affix (not there in JSON output)
+                        var match = name.match(/^(\w+)_attributes$/)
+                        if (match) {
+                          name = match[1]
+                        }
+                        scopedResponseModel = scopedResponseModel[name]
                       }
                       scopedData.id = scopedResponseModel.id
                     }
@@ -92,16 +119,31 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
             }
           } else {
             var arrayName = names[arrayIndex].match(/^(\w+)\[[0-9]*]$/)[1]
+            arrayName = names.slice(0, arrayIndex).concat(arrayName).join('.')
             if (!watch[arrayName]) {
               watch[arrayName] = {
                 handler: debounce(
                   function onArrayChange (newValue, oldValue) {
+                    // Old value and new value do not work for arrays:
+                    // https://forum-archive.vuejs.org/topic/4012/watch-array-mutations-newval-oldval-issue/3
                     console.log(`Updating array ${arrayName}...`)
-                    this.$http[options.httpVerb](options.updateUrl, {
-                      [model]: {
-                        [arrayName]: newValue
+                    var params = { [model]: {} }
+                    var scopedParams = params[model]
+                    var scopedVueModel = this
+                    arrayName.split('.').forEach(function buildParams (name, i, array) {
+                      if (i === array.length - 1) {
+                        scopedParams[name] = newValue
+                      } else {
+                        scopedParams[name] = {}
+                        scopedParams = scopedParams[name]
+                        scopedVueModel = scopedVueModel[name]
                       }
-                    }).then(updateHandler, errorHandler)
+                      if (!LMML.isEmpty(scopedVueModel.id)) {
+                        scopedParams.id = scopedVueModel.id
+                      }
+                    })
+                    this.$http[options.httpVerb](options.updateUrl, params)
+                    .then(updateHandler, errorHandler)
                   }
                 ),
                 deep: true
@@ -149,6 +191,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
 
   // Start processing
   loadFromDOM()
+  console.log(_.clone(watch))
 
   var methods = {
     updateAll: debounce(

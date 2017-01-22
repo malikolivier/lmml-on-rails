@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     put :update, to: 'autopsies#update'
     [:external_outline, :external_head, :external_face].each do |examination_type|
       key_string_plural = "#{examination_type}_examination".pluralize
-      post key_string_plural, to: "#{key_string_plural}#create"
+      resources key_string_plural, only: [:create, :new]
       put key_string_plural, to: "#{key_string_plural}#update"
+      # This route is used for indenpendent debugging of examination form (like /new)
+      get "#{key_string_plural}/edit", to: "#{key_string_plural}#edit"
     end
   end
   post 'autopsies/preview', to: 'autopsies#preview'
@@ -20,4 +22,5 @@ Rails.application.routes.draw do
 
   resources :livores_mortis, only: [:create, :destroy]
   resources :rigores_mortis, only: [:create, :destroy]
+  resources :foreign_fluids, only: [:create, :destroy]
 end

@@ -13,7 +13,7 @@
 
 class ForeignFluid < ApplicationRecord
   enum color: [:no_color, :green, :white]
-  enum odor: [:no_odor]
+  enum odor: [:no_odor, :rot]
 
   def explanation
     expl = name.present? ? name : '不明な異液'
@@ -30,5 +30,16 @@ class ForeignFluid < ApplicationRecord
       explanations.push(fluid.explanation)
     end
     explanations.join('、')
+  end
+
+  after_destroy :destroy_relationships
+
+  private
+
+  def destroy_relationships
+    InMouthForeignFluid.where(foreign_fluid: self).destroy_all
+    InLungForeignFluid.where(foreign_fluid: self).destroy_all
+    InPeritoneumForeignFluid.where(foreign_fluid: self).destroy_all
+    InPleuraForeignFluid.where(foreign_fluid: self).destroy_all
   end
 end

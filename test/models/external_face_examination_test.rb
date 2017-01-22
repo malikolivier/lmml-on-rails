@@ -14,7 +14,11 @@
 require 'test_helper'
 
 class ExternalFaceExaminationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'JSON set without error' do
+    assert_equal(ExternalFaceExamination.json_includes,
+                 external_eye_examinations: {},
+                 external_mouth_examination: {
+                   include: :tooth_examinations
+                 })
+  end
 end

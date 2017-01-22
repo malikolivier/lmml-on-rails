@@ -1,0 +1,29 @@
+- # Argument: mouth_form
+- teeth = mouth_form.object.teeth
+- object_name = mouth_form.object_name
+.col-xs-3
+  = image_tag 'teeth.png', class: 'img-responsive'
+.col-xs-9
+  - i = 0
+  - [:upper, :lower].each do |vertical|
+    .row
+      - [:left, :right].each do |horizontal|
+        - position = "#{vertical}_#{horizontal}"
+        .col-xs-6
+          %div= t("directions.#{position}")
+          - (1..8).each do |rank|
+            - # Create hidden fields to load data with Vue
+            - queried_tooth = teeth.send(position).rank(rank).take
+            - tooth = queried_tooth || ToothExamination.new(position: position, rank: rank)
+            - [:id, :position, :rank, :condition, :note].each do |attribute|
+              %input{type: 'hidden', value: tooth.send(attribute),
+                     name: "#{object_name}[tooth_examinations_attributes][#{i}][#{attribute}]",
+                     id: "#{object_name}_tooth_examinations_attributes_attributes_#{i}_#{attribute}",
+                     'multi-data': true }
+            - # Generate Vue form
+            - v_model = "#{form_to_vue(object_name, 'tooth_examinations')}[#{i}]"
+            %div
+              = rank
+              = select :tooth_examination, :condition, translated_tooth_examination_conditions, {prompt: true}, {'v-model': "#{v_model}.condition"}
+              = text_field :tooth_examination, :note, 'v-model': "#{v_model}.note"
+              - i += 1

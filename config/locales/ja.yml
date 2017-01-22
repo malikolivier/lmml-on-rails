@@ -31,8 +31,10 @@ ja:
     yellowish: 黄白色
     yellow_green: 黄緑色
     dark_brown: 茶褐色
+    green: 緑色
   odors:
     no_odor: においのない
+    rot: 腐敗の臭い
   organs:
     outline: 概観
     head: 頭部
@@ -156,6 +158,7 @@ ja:
     extremely_few: 極少数
     few: 少数
     middle: 中等数
+    mid: 中等数
     many: 多数
     extremely_many: 極多数
   mass_quantity: # mass as in "mass noun"
@@ -201,6 +204,11 @@ ja:
   closedness:
     closed: 閉じる
     open: 開く
+    other: その他
+    unknown: 不明
+  tongue_tips:
+    behind: 下歯槽の後方
+    front: 下歯槽の前方
     unknown: 不明
   hardness:
     hard: 弾性硬
@@ -224,6 +232,16 @@ ja:
   transparency:
     transparent: 透明
     opaque: 混濁
+  directions:
+    upper_left: 左上側
+    upper_right: 右上側
+    lower_left: 左下側
+    lower_right: 右下側
+  tooth_condition:
+    normal: 治療痕なし
+    pulled_pre_mortem: 生前抜歯
+    pulled_post_mortem: 死後抜歯
+    was_treated: 治療痕あり
   uropapers:
     leukocytes: 白血球
     urobilinogen: ウロビリノーゲン
@@ -271,6 +289,10 @@ ja:
       livor_mortis: 死斑
       rigor_mortis: 死後硬直
       external_ear_examination: 外耳道
+      external_eye_examination: 眼
+      external_mouth_examination: 口
+      foreign_fluid: 異液
+      tooth_examination: 歯
     attributes:
       autopsy:
         number: 解剖番号
@@ -322,6 +344,33 @@ ja:
         side_hair_length: 側頭部での長さ(cm)
       external_ear_examination:
         bleeding: 出血
+      external_face_examination:
+        congestion: 鬱血
+        swelling: 腫脹
+        nasal_cavity_content: 鼻腔内
+      external_eye_examination:
+        closed: 開閉
+        aperture: 開閉(cm)
+        eyelid_congestion: 眼瞼血管充盈
+        eyelid_petechia: 眼瞼溢血点
+        eyelid_note: 眼瞼結膜特記
+        conjunctiva_congestion: 眼球血管充盈
+        conjunctiva_petechia: 眼球溢血点
+        conjunctiva_note: 眼球結膜特記
+        cornea: 角膜
+        pupil: 瞳孔
+        diameter: 瞳孔直径
+      external_mouth_examination:
+        closed: 開閉
+        aperture: 開閉(cm)
+        petechia: 溢血点
+        tongue_tip: 舌尖
+        note: 特記
+      foreign_fluid:
+        name: 名称
+        color: 色
+        odor: におい
+        description: 記述
   date:
     abbr_day_names:
     - 日

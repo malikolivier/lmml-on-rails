@@ -1,5 +1,5 @@
 class ExaminationsController < ApplicationController
-  before_action :set_exam, only: [:update]
+  before_action :set_exam, only: [:update, :edit]
 
   # POST /autopsies/:autopsy_id/***_examinations.json
   def create
@@ -20,6 +20,16 @@ class ExaminationsController < ApplicationController
     end
   end
 
+  # GET /autopsies/:autopsy_id/***_examinations/edit
+  def edit; end
+
+  # GET /autopsies/:autopsy_id/***_examinations/new
+  def new
+    examination_type = ExaminationType.by_name(examination_name,
+                                               examination_category)
+    @exam_base = Examination.new(examination_type: examination_type)
+  end
+
   protected
 
   def examination_category
@@ -28,10 +38,6 @@ class ExaminationsController < ApplicationController
 
   def examination_name
     controller_name.split('_')[1]
-  end
-
-  def json_includes
-    []
   end
 
   private
@@ -58,7 +64,7 @@ class ExaminationsController < ApplicationController
     html_preview = render_to_string template_file, locals: { exam: @exam },
                                                    layout: false
     render json: {
-      model: JSON.parse(@exam.to_json(include: json_includes)),
+      model: @exam.as_lmml_json,
       description: html_preview + @exam.examination.note
     }
   end
