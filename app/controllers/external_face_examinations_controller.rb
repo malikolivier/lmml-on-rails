@@ -1,15 +1,4 @@
 class ExternalFaceExaminationsController < ExaminationsController
-  protected
-
-  def json_includes
-    {
-      external_eye_examinations: {},
-      external_mouth_examination: {
-        include: :tooth_examinations
-      }
-    }
-  end
-
   private
 
   def update_params

@@ -27,4 +27,11 @@ class ExternalFaceExamination < ExaminationBase
                                 reject_if: :all_blank
   accepts_nested_attributes_for :external_mouth_examination,
                                 update_only: true
+
+  self.json_includes = {
+    external_eye_examinations: {},
+    external_mouth_examination: {
+      include: :tooth_examinations
+    }
+  }
 end

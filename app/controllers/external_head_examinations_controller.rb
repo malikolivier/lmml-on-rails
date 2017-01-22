@@ -1,10 +1,4 @@
 class ExternalHeadExaminationsController < ExaminationsController
-  protected
-
-  def json_includes
-    [:external_ear_examinations]
-  end
-
   private
 
   def update_params
