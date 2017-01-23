@@ -1,0 +1,9 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'external_genitalia_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  .row
+    .col-xs-6
+      = f.select :hair_color, translated_genitalia_hair_colors
+    .col-xs-6
+      = f.number_field :hair_length
+  = f.select :sex, translated_genitalia_sexes
+  = yield f
