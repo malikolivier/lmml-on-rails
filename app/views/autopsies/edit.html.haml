@@ -3,7 +3,7 @@
     %ul.nav.nav-stacked#sidebar
       %li.nav-item
         %a.nav-big-item{href: '#autopsy_head'}= t '.title'
-      - ExaminationType.external.order(:placement).each do |examination_type|
+      - ExaminationType.external.each do |examination_type|
         %li.nav-item
           %a{href: "##{examination_type.category}_#{examination_type.name}_examination_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
       %li.nav-item
