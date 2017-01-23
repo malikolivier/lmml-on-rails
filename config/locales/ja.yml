@@ -246,6 +246,14 @@ ja:
     discolored: 腐敗変色あり
     no_discoloration: 腐敗変色なし
     unknown: 不明
+  pubic_hair_colors:
+    black: 黒
+    gray: 灰色
+    white: 白
+    blond: 金髪
+    red: 赤
+    no_hair: なし
+    unknown: 不明
   uropapers:
     leukocytes: 白血球
     urobilinogen: ウロビリノーゲン
