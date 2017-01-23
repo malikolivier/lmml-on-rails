@@ -11,6 +11,6 @@
 #
 
 class ExternalAnusExamination < ExaminationBase
-  enum closed: [:closed, :not_closed]
+  enum closed: Settings.enums.closedness, _prefix: true
   enum feces_quantity: Settings.enums.five_scale_quantity, _prefix: true
 end

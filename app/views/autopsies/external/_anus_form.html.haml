@@ -1,0 +1,8 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'external_anus_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  .row
+    .col-xs-6
+      = f.select :closed, translated_anus_closeds
+    .col-xs-6
+      = f.select :feces_quantity, translated_anus_feces_quantities
+  = yield f
