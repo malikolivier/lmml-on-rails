@@ -88,7 +88,7 @@
   if !analyses_started
     analyses_started = true
     %>
-    <h3>（<%= (syoken_count+=1).to_full_width %>）　諸検査の成績</h3>
+    <h3>（<%= (syoken_count+=1).to_full_width %>）　<%=t('section_title.analyses_title')%></h3>
   <% end %>
   <h4><%= section_title %></h4>
   <p>

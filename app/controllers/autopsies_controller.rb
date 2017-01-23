@@ -1,5 +1,6 @@
 class AutopsiesController < ApplicationController
-  before_action :set_autopsy, only: [:show, :update, :edit_internal, :destroy]
+  before_action :set_autopsy, only: [:show, :update, :edit_internal,
+                                     :edit_analyses, :destroy]
 
   # GET /autopsies
   # GET /autopsies.json
@@ -23,6 +24,9 @@ class AutopsiesController < ApplicationController
 
   # GET /autopsies/1/edit_internal
   def edit_internal; end
+
+  # GET /autopsies/1/edit_analyses
+  def edit_analyses; end
 
   # POST /autopsies
   # POST /autopsies.json

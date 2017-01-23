@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get :browse
     put :update
     get :edit_internal
+    get :edit_analyses
     [:external_outline, :external_head, :external_face, :external_neck,
      :external_trunk, :external_back, :external_upper_limbs,
      :external_lower_limbs, :external_genitalia, :external_anus]
