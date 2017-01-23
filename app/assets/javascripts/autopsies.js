@@ -20,7 +20,6 @@ LMML.loaders.autopsy = function () {
     updateUrl = `/autopsies/${LMML.autopsy_id()}/update`
     httpVerb = 'put'
     updateAll = false
-    LMML.setup_navbar()
   }
   LMML.loadVueModel('autopsy', {
     updateUrl,
