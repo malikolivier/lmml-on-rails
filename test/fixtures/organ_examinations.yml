@@ -27,11 +27,11 @@ trunk:
   organ: trunk
   examination_type: trunk
 
-upper_limbs_left:
+upper_limbs:
   organ: upper_limbs
   examination_type: upper_limbs
 
-lower_limbs_left:
+lower_limbs:
   organ: lower_limbs
   examination_type: lower_limbs
 

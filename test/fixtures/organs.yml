@@ -27,17 +27,11 @@ neck:
 trunk:
   name: trunk
 
-upper_arms:
-  name: upper_arms
+upper_limbs:
+  name: upper_limbs
 
-upper_arms:
-  name: upper_arms
-
-left_leg:
-  name: left_leg
-
-right_leg:
-  name: right_leg
+lower_limbs:
+  name: lower_limbs
 
 genitalia:
   name: genitalia
