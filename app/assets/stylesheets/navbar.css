@@ -31,3 +31,12 @@
   padding-left: 2px;
   padding-right: 2px;
 }
+
+.nav-big-item::before {
+ content: '・';
+}
+.nav-big-item {
+  position: relative;
+  right: 12px;
+  font-size: 120%;
+}

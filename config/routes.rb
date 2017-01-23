@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :autopsies do
-    get :browse, to: 'autopsies#browse'
-    put :update, to: 'autopsies#update'
+    get :browse
+    put :update
+    get :edit_internal
     [:external_outline, :external_head, :external_face, :external_neck,
      :external_trunk, :external_back, :external_upper_limbs,
      :external_lower_limbs, :external_genitalia, :external_anus]
