@@ -25,5 +25,5 @@ class ExternalHeadExamination < ExaminationBase
   accepts_nested_attributes_for :external_ear_examinations,
                                 reject_if: :all_blank
 
-  self.json_includes = [:external_ear_examinations]
+  includes_in_json :external_ear_examinations
 end

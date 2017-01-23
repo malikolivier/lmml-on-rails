@@ -17,6 +17,6 @@ require 'test_helper'
 
 class ExternalMouthExaminationTest < ActiveSupport::TestCase
   test 'JSON set without error' do
-    assert_equal(ExternalMouthExamination.json_includes, [])
+    assert_equal(ExternalMouthExamination.json_includes, {})
   end
 end

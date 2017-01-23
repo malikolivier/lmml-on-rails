@@ -19,6 +19,7 @@ class ExternalFaceExaminationTest < ActiveSupport::TestCase
                  external_eye_examinations: {},
                  external_mouth_examination: {
                    include: :tooth_examinations
-                 })
+                 },
+                 examination: {})
   end
 end

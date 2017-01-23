@@ -28,10 +28,8 @@ class ExternalFaceExamination < ExaminationBase
   accepts_nested_attributes_for :external_mouth_examination,
                                 update_only: true
 
-  self.json_includes = {
-    external_eye_examinations: {},
-    external_mouth_examination: {
-      include: :tooth_examinations
-    }
-  }
+  includes_in_json external_eye_examinations: {},
+                   external_mouth_examination: {
+                     include: :tooth_examinations
+                   }
 end
