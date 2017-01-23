@@ -143,8 +143,8 @@ class Autopsy < ApplicationRecord # rubocop:disable ClassLength
                                 :court,
                                 reject_if: :all_blank
 
-  def examination(examination_type_name)
+  def examination(examination_type)
     examinations.joins(:examination_type)
-                .find_by(examination_types: { name: examination_type_name })
+                .find_by(examination_types: { id: examination_type.id })
   end
 end

@@ -3,6 +3,8 @@
     %ul.nav.nav-stacked#sidebar
       %li.nav-item
         %a.nav-big-item{href: '#autopsy_head'}= t '.title'
+      %li.nav-item
+        .nav-big-item= t('section_title.external_examination')
       - ExaminationType.external.each do |examination_type|
         %li.nav-item
           %a{href: "##{examination_type.category}_#{examination_type.name}_examination_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
@@ -19,7 +21,7 @@
       .col-sm-6
         #autopsy_errors.alert.alert-danger
         #autopsy_preview= render 'preview'
-    - ExaminationType.external.order(:placement).each do |examination_type|
-      - examination = @autopsy.examination(examination_type.name)
+    - ExaminationType.external.each do |examination_type|
+      - examination = @autopsy.examination(examination_type)
       - examination ||= Examination.new(examination_type: examination_type)
       = render 'examinations/form', exam: examination.get, examination_type: examination_type

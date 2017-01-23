@@ -3,9 +3,12 @@
   %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
 .row
   .col-sm-6
-    = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: exam do |f|
-      = f.fields_for :examination do |ff|
-        = ff.text_field :note
+    - begin
+      = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: exam do |f|
+        = f.fields_for :examination do |ff|
+          = ff.text_field :note
+    - rescue ActionView::MissingTemplate
+      = $!
   .col-sm-6
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}

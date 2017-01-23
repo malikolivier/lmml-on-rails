@@ -292,6 +292,8 @@ ja:
       title: 新しい解剖所見を作成
     edit:
       title: 剖検記録
+    edit_internal:
+      title: 剖検記録 - 内部所見
   activerecord:
     errors:
       messages:
