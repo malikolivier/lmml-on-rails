@@ -33,7 +33,7 @@
 }
 
 .nav-big-item::before {
- content: '・';
+  content: '・';
 }
 .nav-big-item {
   position: relative;
