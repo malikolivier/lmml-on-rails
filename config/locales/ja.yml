@@ -385,6 +385,10 @@ ja:
         description: 記述
       external_trunk_examination:
         abdominal_discoloration: 下腹部腐敗変色
+      external_genitalia_examination:
+        hair_color: 陰毛色
+        hair_length: 陰毛長さ
+        sex: 形状
   date:
     abbr_day_names:
     - 日
