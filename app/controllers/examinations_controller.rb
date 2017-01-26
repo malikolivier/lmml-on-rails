@@ -40,6 +40,12 @@ class ExaminationsController < ApplicationController
     controller_name.match(/^[a-z]+_(.+)_examinations$/)[1]
   end
 
+  # This method should be overriden if the examination requires more params
+  def update_params
+    params.require(controller_name.singularize)
+          .permit(examination_attributes: [:note])
+  end
+
   private
 
   def set_exam
