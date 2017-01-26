@@ -12,6 +12,8 @@
 #
 
 class ExaminationType < ApplicationRecord
+  default_scope { order(:placement) }
+
   enum category: [:internal, :external]
   enum subdivision: [:head, :torso]
   has_many :organ_examinations

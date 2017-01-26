@@ -2,10 +2,16 @@
   #leftCol.col-md-1.col-sm-2.col-xs-3
     %ul.nav.nav-stacked#sidebar
       %li.nav-item
-        %a{href: '#autopsy_head'}= t '.title'
-      - ExaminationType.external.order(:placement).each do |examination_type|
+        %a.nav-big-item{href: '#autopsy_head'}= t '.title'
+      %li.nav-item
+        .nav-big-item= t('section_title.external_examination')
+      - ExaminationType.external.each do |examination_type|
         %li.nav-item
           %a{href: "##{examination_type.category}_#{examination_type.name}_examination_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
+      %li.nav-item
+        = link_to t('section_title.internal_examination'), autopsy_edit_internal_path(@autopsy), class: 'nav-big-item'
+      %li.nav-item
+        = link_to t('section_title.analyses_title'), autopsy_edit_analyses_path(@autopsy), class: 'nav-big-item'
   #mainCol.col-md-11.col-sm-10.col-xs-9
     %h1#autopsy_head= t '.title'
 
@@ -15,7 +21,7 @@
       .col-sm-6
         #autopsy_errors.alert.alert-danger
         #autopsy_preview= render 'preview'
-    - ExaminationType.external.order(:placement).each do |examination_type|
-      - examination = @autopsy.examination(examination_type.name)
+    - ExaminationType.external.each do |examination_type|
+      - examination = @autopsy.examination(examination_type)
       - examination ||= Examination.new(examination_type: examination_type)
       = render 'examinations/form', exam: examination.get, examination_type: examination_type

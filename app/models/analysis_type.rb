@@ -10,6 +10,8 @@
 #
 
 class AnalysisType < ApplicationRecord
+  default_scope { order(:placement) }
+
   validates :name, uniqueness: true
   validates :placement, uniqueness: true
 

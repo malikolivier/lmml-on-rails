@@ -51,12 +51,12 @@
 <% @autopsy.examinations.includes(:examination_type, :injuries).each do |examination| %>
   <% if examination.examination_type.external? && !external_examination_started %>
     <% external_examination_started = true %>
-    <h3>（<%= (syoken_count+=1).to_full_width %>）　外部所見</h3>
+    <h3>（<%= (syoken_count+=1).to_full_width %>）　<%=t('section_title.external_examination')%></h3>
   <% end %>
   <% if examination.examination_type.internal? %>
     <% if !internal_examination_started %>
       <% internal_examination_started = true %>
-      <h3>（<%= (syoken_count+=1).to_full_width %>）　内部所見</h3>
+      <h3>（<%= (syoken_count+=1).to_full_width %>）　<%=t('section_title.internal_examination')%></h3>
     <% end %>
     <% if examination.examination_type.head? && !internal_head_examination_started %>
       <% internal_head_examination_started = true %>
@@ -88,7 +88,7 @@
   if !analyses_started
     analyses_started = true
     %>
-    <h3>（<%= (syoken_count+=1).to_full_width %>）　諸検査の成績</h3>
+    <h3>（<%= (syoken_count+=1).to_full_width %>）　<%=t('section_title.analyses_title')%></h3>
   <% end %>
   <h4><%= section_title %></h4>
   <p>

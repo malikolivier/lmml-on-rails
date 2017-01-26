@@ -1,5 +1,11 @@
 /* global LMML */
 
+$(function () {
+  if (document.getElementById('sidebar') !== null) {
+    LMML.setup_navbar()
+  }
+})
+
 LMML.setup_navbar = function () {
   $('#sidebar').affix({
     offset: {
