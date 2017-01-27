@@ -1,0 +1,2 @@
+class InternalBrainExaminationsController < ExaminationsController
+end
