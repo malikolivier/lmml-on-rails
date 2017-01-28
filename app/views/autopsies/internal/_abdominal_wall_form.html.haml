@@ -1,0 +1,13 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_abdominal_wall_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  .row
+    .col-xs-6
+      = f.select :subcutaneous_fat_level, translated_internal_abdomnial_walls_subcutaneous_fat_levels
+    .col-xs-6
+      = f.number_field :subcutaneous_fat_thickness
+  .row
+    .col-xs-6
+      = f.range_field :diaphragm_height_left, in: -1..12, step: 0.5
+    .col-xs-6
+      = f.range_field :diaphragm_height_right, in: -1..12, step: 0.5
+  = yield f

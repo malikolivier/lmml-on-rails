@@ -61,6 +61,22 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     wrap_with_label(method, input_html, label_options)
   end
 
+  def range_field(method, options = {}, unknown_value = -1)
+    options[:'v-model'] ||= v_model_value(method)
+    add_form_control(options)
+    label_options = wrap_with_label_options(options)
+    range_html = super(method, options)
+    addon_html = @template.content_tag(:span, "{{ #{options[:'v-model']} }}",
+                                       class: 'input-group-addon',
+                                       'v-if': "#{options[:'v-model']} != #{unknown_value}") +
+                 @template.content_tag(:span, I18n.t('unknown'),
+                                       class: 'input-group-addon',
+                                       'v-if': "#{options[:'v-model']} == #{unknown_value}")
+    inner_html = @template.content_tag(:div, range_html + addon_html,
+                                       class: 'input-group')
+    wrap_with_label(method, inner_html, label_options)
+  end
+
   def submit(value = nil, options = {})
     class_def = 'btn btn-default'
     class_def << " #{options[:class]}" if options[:class].present?

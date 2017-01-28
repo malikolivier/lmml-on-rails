@@ -31,8 +31,8 @@ class InternalAbdominalWallExamination < ExaminationBase
                                        class_name: ForeignFluid,
                                        source: :foreign_fluid
 
-  validates :diaphragm_height_left, inclusion: 0..12
-  validates :diaphragm_height_right, inclusion: 0..12
+  validates :diaphragm_height_left, inclusion: -1..12
+  validates :diaphragm_height_right, inclusion: -1..12
 
   def any_diaphragm_height?
     diaphragm_height_right.present? || diaphragm_height_left.present?

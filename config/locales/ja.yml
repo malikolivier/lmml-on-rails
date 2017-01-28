@@ -1,5 +1,5 @@
 ja:
-  hello: こんにちは
+  unknown: 不明
   left: 左
   right: 右
   sex:
@@ -401,6 +401,11 @@ ja:
         weight: 重量
         pia_congestion: 軟膜血管充盈
         blood_spots: 大脳髄質血点
+      internal_abdominal_wall_examination:
+        subcutaneous_fat_level: 皮下脂肪
+        subcutaneous_fat_thickness: 皮下脂肪厚さ
+        diaphragm_height_left: 左横隔膜高さ
+        diaphragm_height_right: 右横隔膜高さ
   date:
     abbr_day_names:
     - 日

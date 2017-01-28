@@ -14,6 +14,7 @@ pleura_phrases.push("胸膜腔に異液")
 胸郭に損傷なし。
 <% end %>
 
+<% # TODO: Unknown is represented as -1 (this was a slider) %>
 <% if exam.any_diaphragm_height? %>
 横隔膜の高さ、<%= exam.diaphragm_height_description %>。
 <% end %>
