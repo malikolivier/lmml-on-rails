@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   resources :livores_mortis, only: [:create, :destroy]
   resources :rigores_mortis, only: [:create, :destroy]
   resources :foreign_fluids, only: [:create, :destroy]
+  resources :pleura_foreign_fluids, only: [:create, :destroy]
 end
