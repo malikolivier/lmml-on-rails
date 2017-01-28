@@ -397,6 +397,10 @@ ja:
       external_anus_examination:
         closed: 開閉
         feces_quantity: 流出量
+      internal_brain_examination:
+        weight: 重量
+        pia_congestion: 軟膜血管充盈
+        blood_spots: 大脳髄質血点
   date:
     abbr_day_names:
     - 日
