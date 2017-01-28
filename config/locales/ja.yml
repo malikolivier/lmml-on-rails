@@ -406,6 +406,9 @@ ja:
         subcutaneous_fat_thickness: 皮下脂肪厚さ
         diaphragm_height_left: 左横隔膜高さ
         diaphragm_height_right: 右横隔膜高さ
+        pleura_adhesion: 胸膜癒着
+        peritoneum_adhesion: 腹膜癒着
+        air_in_digestive_track: 腸管含気量
   date:
     abbr_day_names:
     - 日
