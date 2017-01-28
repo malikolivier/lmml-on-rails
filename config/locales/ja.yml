@@ -303,13 +303,7 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       autopsy: 解剖
-      livor_mortis: 死斑
-      rigor_mortis: 死後硬直
-      external_ear_examination: 外耳道
-      external_eye_examination: 眼
       external_mouth_examination: 口
-      foreign_fluid: 異液
-      tooth_examination: 歯
     attributes:
       autopsy:
         number: 解剖番号
@@ -361,12 +355,14 @@ ja:
         hair_dyed_color: 染色
         top_hair_length: 頭頂部での長さ(cm)
         side_hair_length: 側頭部での長さ(cm)
+        external_ear_examinations: 外耳道
       external_ear_examination:
         bleeding: 出血
       external_face_examination:
         congestion: 鬱血
         swelling: 腫脹
         nasal_cavity_content: 鼻腔内
+        external_eye_examinations: 眼
       external_eye_examination:
         closed: 開閉
         aperture: 開閉(cm)
@@ -386,6 +382,7 @@ ja:
         tongue_tip: 舌尖
         note: 特記
         foreign_fluids: 異液
+        tooth_examinations: 歯
       foreign_fluid:
         name: 名称
         color: 色
