@@ -12,6 +12,15 @@
       = f.range_field :diaphragm_height_right, in: -1..12, step: 0.5
   = f.select :pleura_adhesion, translated_internal_abdomnial_walls_pleura_adhesions
   = f.select :air_in_digestive_track, translated_internal_abdomnial_walls_air_in_digestive_tracks
-  = # Foreign Fluids
+  = render 'nested_array_form', form: f, method: :pleura_foreign_fluids,
+             fields: { name: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } },
+                       color: { type: :select, encapsulating_element: { class: 'col-xs-6' } },
+                       odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
+                       description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }
   = f.select :peritoneum_adhesion, translated_internal_abdomnial_walls_peritoneum_adhesions
+  = render 'nested_array_form', form: f, method: :peritoneum_foreign_fluids,
+             fields: { name: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } },
+                       color: { type: :select, encapsulating_element: { class: 'col-xs-6' } },
+                       odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
+                       description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }
   = yield f

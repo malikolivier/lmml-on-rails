@@ -344,6 +344,8 @@ ja:
         constitution: 体格
         rectal_temperature: 直腸温度
         room_temperature: 室温
+        livores_mortis: 死斑
+        rigores_mortis: 死後硬直
       livor_mortis:
         color: 色
         position: 部位
@@ -383,6 +385,7 @@ ja:
         petechia: 溢血点
         tongue_tip: 舌尖
         note: 特記
+        foreign_fluids: 異液
       foreign_fluid:
         name: 名称
         color: 色
@@ -409,6 +412,8 @@ ja:
         pleura_adhesion: 胸膜癒着
         peritoneum_adhesion: 腹膜癒着
         air_in_digestive_track: 腸管含気量
+        pleura_foreign_fluids: 胸膜異液
+        peritoneum_foreign_fluids: 腹膜異液
   date:
     abbr_day_names:
     - 日
