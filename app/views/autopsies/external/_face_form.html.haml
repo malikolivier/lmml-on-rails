@@ -33,11 +33,7 @@
             = ff.select :petechia, translated_external_mouth_examination_petechia
           .col-xs-6
             = ff.select :tongue_tip, translated_external_mouth_examination_tongue_tips
-        = render 'nested_array_form', form: ff, method: :foreign_fluids,
-                   fields: { name: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } },
-                             color: { type: :select, encapsulating_element: { class: 'col-xs-6' } },
-                             odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
-                             description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }
+        = render 'foreign_fluids_form', form: ff
         = ff.text_field :note
         .row
           .col-xs-12
