@@ -29,8 +29,8 @@ Rails.application.routes.draw do
 
   resources :people, only: [:index]
 
-  resources :livores_mortis, only: [:create, :destroy]
-  resources :rigores_mortis, only: [:create, :destroy]
-  resources :foreign_fluids, only: [:create, :destroy]
-  resources :pleura_foreign_fluids, only: [:create, :destroy]
+  # Resources for has-many relations (for examinations)
+  resources :livores_mortis, :rigores_mortis, :foreign_fluids,
+            :pleura_foreign_fluids, :peritoneum_foreign_fluids,
+            only: [:create, :destroy]
 end
