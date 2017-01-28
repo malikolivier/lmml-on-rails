@@ -66,12 +66,16 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     add_form_control(options)
     label_options = wrap_with_label_options(options)
     range_html = super(method, options)
-    addon_html = @template.content_tag(:span, "{{ #{options[:'v-model']} }}",
-                                       class: 'input-group-addon',
-                                       'v-if': "#{options[:'v-model']} != #{unknown_value}") +
-                 @template.content_tag(:span, I18n.t('unknown'),
-                                       class: 'input-group-addon',
-                                       'v-if': "#{options[:'v-model']} == #{unknown_value}")
+    addon_html = @template.content_tag(
+      :span, "{{ #{options[:'v-model']} }}",
+      class: 'input-group-addon',
+      'v-if': "#{options[:'v-model']} != #{unknown_value}"
+    )
+    addon_html += @template.content_tag(
+      :span, I18n.t('unknown'),
+      class: 'input-group-addon',
+      'v-if': "#{options[:'v-model']} == #{unknown_value}"
+    )
     inner_html = @template.content_tag(:div, range_html + addon_html,
                                        class: 'input-group')
     wrap_with_label(method, inner_html, label_options)
