@@ -413,7 +413,7 @@ ja:
         peritoneum_foreign_fluids: 腹膜異液
       internal_neck_organs_examination:
         lymph_level: 舌根部リンパ装置発育
-        oesophagus_substance_id: 食堂内容物
+        oesophagus_substance_id: 食道内容物
         larynx_substance_id: 喉頭内容物
         trachea_substance_id: 気管内容物
         main_bronchi_substance_id: 主気管支内容物
