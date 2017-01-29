@@ -411,6 +411,8 @@ ja:
         air_in_digestive_track: 腸管含気量
         pleura_foreign_fluids: 胸膜異液
         peritoneum_foreign_fluids: 腹膜異液
+      internal_neck_organs_examination:
+        lymph_level: 舌根部リンパ装置発育
   date:
     abbr_day_names:
     - 日
