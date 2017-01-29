@@ -1,0 +1,7 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_neck_organs_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.select :lymph_level, translated_internal_neck_organs_lymph_levels
+  = f.select :oesophagus_substance_id, translated_substances
+  - Settings.air_track_organs.each do |air_track_organ|
+    = f.select "#{air_track_organ}_substance_id", translated_substances
+  = yield f
