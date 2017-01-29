@@ -16,7 +16,7 @@ class BiochemicalAnalysis < ApplicationRecord
   belongs_to :contract_institution, class_name: Institution
   belongs_to :biochemical_analysis_type, required: true
 
-  translates :title, :experiment_description
+  has_many :biochemical_analysis_results
 
   def description
     if contract_institution.present?
