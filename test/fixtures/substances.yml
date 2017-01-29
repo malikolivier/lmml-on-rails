@@ -2,26 +2,19 @@
 #
 # Table name: substances
 #
-#  id          :integer          not null, primary key
-#  name        :text
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-nothing:
-  name: Nothing
-  description: No substance found
+unknown_substance: {}
 
-water:
-  name: Water
-  description: Standard, normal, plain water
+no_substance: {}
 
-saltwater:
-  name: Saltwater
+water: {}
 
-food:
-  name: Food
-  description: Unindentified food
+saltwater: {}
+
+food: {}

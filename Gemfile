@@ -52,6 +52,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'vuejs-rails'
 gem 'lodash-rails'
 
+# Translate model's field with globalize
+# TODO: update to the stable release when it is released officially for rails 5
+gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console

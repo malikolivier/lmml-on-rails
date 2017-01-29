@@ -9,9 +9,5 @@
 #
 
 class BiochemicalAnalysisType < ApplicationRecord
-  has_many :biochemical_analysis_type_translations
-
-  def translation
-    biochemical_analysis_type_translations.language(I18n.locale).take!
-  end
+  translates :title, :experiment_description
 end

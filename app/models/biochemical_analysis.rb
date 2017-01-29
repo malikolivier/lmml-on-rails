@@ -20,9 +20,9 @@ class BiochemicalAnalysis < ApplicationRecord
 
   def description
     if contract_institution.present?
-      "#{contract_description}#{biochemical_analysis_type.translation.experiment_description}ところ、以下のような結果を得た旨報告を受けた#{date_description}。"
+      "#{contract_description}#{biochemical_analysis_type.experiment_description}ところ、以下のような結果を得た旨報告を受けた#{date_description}。"
     else
-      "#{biochemical_analysis_type.translation.experiment_description}ところ、以下のような結果を得た。"
+      "#{biochemical_analysis_type.experiment_description}ところ、以下のような結果を得た。"
     end
   end
 

@@ -21,7 +21,7 @@ class AnalysisInstantView < ApplicationRecord
     else
       drug_names = []
       instant_view_drug_results.positive.each do |result|
-        drug_names.push(result.drug.translated_name)
+        drug_names.push(result.drug.name)
       end
       description += "#{drug_names.to_sentence}陽性対照領域に明瞭な反応が出現する一方で、それ以外の全ての薬物領域には明らかな陽性反応は出現しなかった。"
     end

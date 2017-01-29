@@ -11,13 +11,9 @@
 #
 
 class Molecule < ApplicationRecord
+  translates :name
+
   enum unit: [:%, :'μmol/L']
-
-  has_many :molecule_translations
-
-  def translation
-    molecule_translations.language(I18n.locale).take!
-  end
 
   def standard_description # rubocop:disable Metrics/CyclomaticComplexity
     mask = 0b0
