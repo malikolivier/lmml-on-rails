@@ -1,6 +1,6 @@
 module SubstancesHelper
   def translated_substances
-    Substance.all.map do |substance|
+    Substance.with_translations(I18n.locale).map do |substance|
       [substance.name, substance.id]
     end
   end

@@ -36,8 +36,8 @@ class InternalNeckOrgansExamination < ExaminationBase
   def reached_air_track_organs
     reached_organs = []
     Settings.air_track_organs.each do |air_track_organ|
-      subtance = send("#{air_track_organ}_substance")
-      break if subtance.nothing?
+      substance = send("#{air_track_organ}_substance")
+      break if substance.nil? || substance.nothing?
       reached_organs.push(air_track_organ)
     end
     reached_organs

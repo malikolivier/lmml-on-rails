@@ -952,11 +952,20 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "substances", force: :cascade do |t|
+  create_table "substance_translations", force: :cascade do |t|
+    t.integer  "substance_id", null: false
+    t.string   "locale",       null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.index ["locale"], name: "index_substance_translations_on_locale"
+    t.index ["substance_id"], name: "index_substance_translations_on_substance_id"
+  end
+
+  create_table "substances", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tooth_examinations", force: :cascade do |t|
