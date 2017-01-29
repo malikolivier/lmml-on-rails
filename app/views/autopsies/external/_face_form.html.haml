@@ -33,16 +33,12 @@
             = ff.select :petechia, translated_external_mouth_examination_petechia
           .col-xs-6
             = ff.select :tongue_tip, translated_external_mouth_examination_tongue_tips
-        = render 'nested_array_form', form: ff, method: :foreign_fluids,
-                   fields: { name: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } },
-                             color: { type: :select, encapsulating_element: { class: 'col-xs-6' } },
-                             odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
-                             description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }
+        = render 'foreign_fluids_form', form: ff
         = ff.text_field :note
         .row
           .col-xs-12
             .panel.panel-default
-              .panel-heading= t('activerecord.models.tooth_examination')
+              .panel-heading= t('activerecord.attributes.external_mouth_examination.tooth_examinations')
               .panel-body
                 = render 'autopsies/external/teeth_form', mouth_form: ff
   = yield f

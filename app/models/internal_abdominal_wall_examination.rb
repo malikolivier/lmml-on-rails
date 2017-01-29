@@ -65,4 +65,8 @@ class InternalAbdominalWallExamination < ExaminationBase
     height = send("diaphragm_height_#{deixis}")
     "第#{height.truncate}#{between_rib?(deixis) ? '肋間' : '肋骨'}"
   end
+
+  accepts_nested_attributes_for :pleura_foreign_fluids,
+                                :peritoneum_foreign_fluids,
+                                reject_if: :all_blank
 end
