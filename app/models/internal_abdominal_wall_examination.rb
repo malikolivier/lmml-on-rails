@@ -31,8 +31,8 @@ class InternalAbdominalWallExamination < ExaminationBase
                                        class_name: ForeignFluid,
                                        source: :foreign_fluid
 
-  validates :diaphragm_height_left, inclusion: 0..12
-  validates :diaphragm_height_right, inclusion: 0..12
+  validates :diaphragm_height_left, inclusion: -1..12
+  validates :diaphragm_height_right, inclusion: -1..12
 
   def any_diaphragm_height?
     diaphragm_height_right.present? || diaphragm_height_left.present?
@@ -65,4 +65,8 @@ class InternalAbdominalWallExamination < ExaminationBase
     height = send("diaphragm_height_#{deixis}")
     "第#{height.truncate}#{between_rib?(deixis) ? '肋間' : '肋骨'}"
   end
+
+  accepts_nested_attributes_for :pleura_foreign_fluids,
+                                :peritoneum_foreign_fluids,
+                                reject_if: :all_blank
 end

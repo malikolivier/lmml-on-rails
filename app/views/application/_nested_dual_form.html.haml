@@ -14,10 +14,11 @@
 - object_name = form.object_name
 - association_info = object.class.reflect_on_association(method)
 - association_class = association_info.class_name.constantize
-- association_name = association_info.class_name.underscore
+- association_name = association_info.plural_name.singularize
+- associated_class_name = association_info.class_name.underscore
 .panel.panel-default
   .panel-heading
-    %div= t("activerecord.models.#{association_name}")
+    %div= t("activerecord.attributes.#{object.model_name.param_key}.#{association_info.plural_name}")
     .col-xs-6= t('left')
     .col-xs-6= t('right')
   .panel-body
@@ -50,6 +51,7 @@
                'deixis-data': true }
     = render 'nested_form', object_name: object_name,
                             association_name: association_name,
+                            associated_class_name: associated_class_name,
                             association_info: association_info,
                             fields: fields,
                             dual: true

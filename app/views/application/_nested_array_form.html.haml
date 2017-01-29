@@ -13,9 +13,10 @@
 - object = form.object
 - object_name = form.object_name
 - association_info = object.class.reflect_on_association(method)
-- association_name = association_info.class_name.underscore
+- association_name = association_info.plural_name.singularize
+- associated_class_name = association_info.class_name.underscore
 .panel.panel-default
-  .panel-heading= t("activerecord.models.#{association_name}")
+  .panel-heading= t("activerecord.attributes.#{object.model_name.param_key}.#{association_info.plural_name}")
   .panel-body.form-horizontal
     = hidden_field object_name, "#{association_info.plural_name}_attributes[]"
     = form.fields_for association_info.plural_name do |ff|
@@ -26,6 +27,7 @@
         = ff.hidden_field field_name
     = render 'nested_form', object_name: object_name,
                             association_name: association_name,
+                            associated_class_name: associated_class_name,
                             association_info: association_info,
                             fields: fields do
       .col-xs-1

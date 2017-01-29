@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
-    get people_index_url
+    get "#{url_for(Person)}.json"
     assert_response :success
   end
 end

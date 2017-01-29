@@ -1,0 +1,9 @@
+- # Parameters:
+- # @form, required, the form in which this would be included
+- # @prefix, optional, prefix to the name "foreign_fluids"
+- method = local_assigns[:prefix].present? ? "#{prefix}_foreign_fluids" : :foreign_fluids
+= render 'nested_array_form', form: form, method: method,
+           fields: { name: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } },
+                     color: { type: :select, encapsulating_element: { class: 'col-xs-6' } },
+                     odor: { type: :select, encapsulating_element: { class: 'col-xs-6' }  },
+                     description: { type: :text_field, encapsulating_element: { class: 'col-xs-12' } } }

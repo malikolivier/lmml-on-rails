@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   mount MagicLamp::Genie, at: "/magic_lamp" if defined?(MagicLamp)
 
-  get 'people/index'
-
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :autopsies do
@@ -29,7 +27,8 @@ Rails.application.routes.draw do
 
   resources :people, only: [:index]
 
-  resources :livores_mortis, only: [:create, :destroy]
-  resources :rigores_mortis, only: [:create, :destroy]
-  resources :foreign_fluids, only: [:create, :destroy]
+  # Resources for has-many relations (for examinations)
+  resources :livores_mortis, :rigores_mortis, :foreign_fluids,
+            :pleura_foreign_fluids, :peritoneum_foreign_fluids,
+            only: [:create, :destroy]
 end
