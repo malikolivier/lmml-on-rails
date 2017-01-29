@@ -1,0 +1,11 @@
+hemoglobin_a1c_ja:
+  globalized_model: hemoglobin_a1c
+  locale: ja
+  title: ヘモグロビンA1c検査
+  experiment_description: 本屍の心臓血につき、ヘモグロビンA1c濃度を測定した
+
+ketone_body_fraction_ja:
+  globalized_model: ketone_body_fraction
+  locale: ja
+  title: 血中ケトン体分画
+  experiment_description: 本屍の血中ケトン体分画を検査した

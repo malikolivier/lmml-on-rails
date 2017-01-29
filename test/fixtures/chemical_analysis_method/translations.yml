@@ -1,0 +1,14 @@
+gas_chromatography_ja:
+  globalized_model: gas_chromatography
+  locale: ja
+  name: ガスクロマトグラフィー
+
+mass_spectrometry_ja:
+  globalized_model: mass_spectrometry
+  locale: ja
+  name: 質量分析法
+
+high_performance_liquid_chromatography_ja:
+  globalized_model: high_performance_liquid_chromatography
+  locale: ja
+  name: 高速液体クロマトグラフィー

@@ -1,67 +1,52 @@
-# == Schema Information
-#
-# Table name: drug_translations
-#
-#  id         :integer          not null, primary key
-#  drug_id    :integer
-#  name       :text
-#  long_name  :text
-#  language   :string(5)        not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 cocaine_ja:
-  drug: cocaine
-  language: ja
+  globalized_model: cocaine
+  locale: ja
   name: コカイン
   long_name: ｺｶｲﾝ､ﾍﾞﾝｿﾞｲﾙｴｸｺﾞﾆﾝ等（コカイン系麻薬）
 
 amphetamine_ja:
-  drug: amphetamine
-  language: ja
+  globalized_model: amphetamine
+  locale: ja
   name: アンフェタミン
   long_name: ｱﾝﾌｪﾀﾐﾝ､ﾒﾀﾝﾌｪﾀﾐﾝ（覚醒剤）
 
 methamphetamine_ja:
-  drug: methamphetamine
-  language: ja
+  globalized_model: methamphetamine
+  locale: ja
   name: メタンフェタミン
 
 cannabis_ja:
-  drug: cannabis
-  language: ja
+  globalized_model: cannabis
+  locale: ja
   name: 大麻
   long_name: ﾃﾄﾗﾋﾄﾞﾛｶﾝﾅﾋﾞﾉｰﾙ（大麻）
 
 opiates_ja:
-  drug: opiates
-  language: ja
+  globalized_model: opiates
+  locale: ja
   name: オピエート
   long_name: モルヒネ、ヘロイン等（モルヒネ系麻薬）
 
 PCP_ja:
-  drug: PCP
-  language: ja
+  globalized_model: PCP
+  locale: ja
   name: フェンシクリジン
   long_name: フェンシクリジン（幻覚剤）
 
 benzos_ja:
-  drug: benzos
-  language: ja
+  globalized_model: benzos
+  locale: ja
   name: ベンゾ
   long_name: ベンゾジアゼピン類（向精神薬）
 
 barbiturates_ja:
-  drug: barbiturates
-  language: ja
+  globalized_model: barbiturates
+  locale: ja
   name: バルビツール酸系
   long_name: バルビツール酸類（向精神薬）
 
 TCA_ja:
-  drug: TCA
-  language: ja
+  globalized_model: TCA
+  locale: ja
   name: TCA
   long_name: 三環系抗うつ剤（向精神薬）

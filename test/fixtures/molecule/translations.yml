@@ -1,0 +1,19 @@
+hemoglobin_a1c_ja:
+  globalized_model: hemoglobin_a1c
+  locale: ja
+  name: ヘモグロビンA1c
+
+acetoacetic_acid_ja:
+  globalized_model: acetoacetic_acid
+  locale: ja
+  name: アセト酢酸
+
+3_hydroxybutyric_acid_ja:
+  globalized_model: 3_hydroxybutyric_acid
+  locale: ja
+  name: 3-ヒドロキシ酪酸
+
+all_ketone_bodies_ja:
+  globalized_model: all_ketone_bodies
+  locale: ja
+  name: 総ケトン体

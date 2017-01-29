@@ -209,13 +209,14 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   end
 
   create_table "biochemical_analysis_type_translations", force: :cascade do |t|
-    t.integer  "biochemical_analysis_type_id"
-    t.string   "language",                     limit: 5, null: false
+    t.integer  "biochemical_analysis_type_id", null: false
+    t.string   "locale",                       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "title"
     t.text     "experiment_description"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.index ["biochemical_analysis_type_id"], name: "biochemical_analysis_type_translation_index"
+    t.index ["biochemical_analysis_type_id"], name: "index_fb94f1ebb13662f8158b5460c1ab4f68885e0217"
+    t.index ["locale"], name: "index_biochemical_analysis_type_translations_on_locale"
   end
 
   create_table "biochemical_analysis_types", force: :cascade do |t|
@@ -241,13 +242,13 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   end
 
   create_table "chemical_analysis_method_translations", force: :cascade do |t|
-    t.integer  "chemical_analysis_method_id"
-    t.string   "language",                    limit: 5, null: false
+    t.integer  "chemical_analysis_method_id", null: false
+    t.string   "locale",                      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.text     "name"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.index ["chemical_analysis_method_id"], name: "chemical_analysis_method_translation_index"
-    t.index ["language"], name: "index_chemical_analysis_method_translations_on_language"
+    t.index ["chemical_analysis_method_id"], name: "index_ab07b522caba59c135c9940ed98b90c1e020b085"
+    t.index ["locale"], name: "index_chemical_analysis_method_translations_on_locale"
   end
 
   create_table "chemical_analysis_methods", force: :cascade do |t|
@@ -282,14 +283,14 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   end
 
   create_table "drug_translations", force: :cascade do |t|
-    t.integer  "drug_id"
+    t.integer  "drug_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text     "name"
     t.text     "long_name"
-    t.string   "language",   limit: 5, null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
     t.index ["drug_id"], name: "index_drug_translations_on_drug_id"
-    t.index ["language"], name: "index_drug_translations_on_language"
+    t.index ["locale"], name: "index_drug_translations_on_locale"
   end
 
   create_table "drugs", force: :cascade do |t|
@@ -856,11 +857,13 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   end
 
   create_table "molecule_translations", force: :cascade do |t|
-    t.integer  "molecule_id"
-    t.string   "language"
-    t.text     "name"
+    t.integer  "molecule_id", null: false
+    t.string   "locale",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "name"
+    t.index ["locale"], name: "index_molecule_translations_on_locale"
+    t.index ["molecule_id"], name: "index_molecule_translations_on_molecule_id"
   end
 
   create_table "molecules", force: :cascade do |t|
