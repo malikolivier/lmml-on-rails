@@ -16,13 +16,13 @@ class BiochemicalAnalysis < ApplicationRecord
   belongs_to :contract_institution, class_name: Institution
   belongs_to :biochemical_analysis_type, required: true
 
-  has_many :biochemical_analysis_results
+  translates :title, :experiment_description
 
   def description
     if contract_institution.present?
-      "#{contract_description}#{biochemical_analysis_type.translation.experiment_description}ところ、以下のような結果を得た旨報告を受けた#{date_description}。"
+      "#{contract_description}#{biochemical_analysis_type.experiment_description}ところ、以下のような結果を得た旨報告を受けた#{date_description}。"
     else
-      "#{biochemical_analysis_type.translation.experiment_description}ところ、以下のような結果を得た。"
+      "#{biochemical_analysis_type.experiment_description}ところ、以下のような結果を得た。"
     end
   end
 

@@ -7,5 +7,14 @@ class CreateMolecules < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    reversible do |dir|
+      dir.up do
+        Molecule.create_translation_table! name: :text
+      end
+      dir.down do
+        Molecule.drop_translation_table!
+      end
+    end
   end
 end
