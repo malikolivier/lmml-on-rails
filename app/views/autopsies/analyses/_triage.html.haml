@@ -7,7 +7,7 @@
         %th 薬物
         %th 検出限界濃度(ng/mL)
     %tbody
-      - this.triage_drug_results.includes(drug: :triage_supported_drug).not_positive.each do |result|
+      - this.triage_drug_results.includes(drug: [:translations, :triage_supported_drug]).not_positive.each do |result|
         %tr
           %td= result.drug.description
           %td= result.drug.triage_concentration_threshold

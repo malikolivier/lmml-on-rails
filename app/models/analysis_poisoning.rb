@@ -32,7 +32,7 @@ class AnalysisPoisoning < ApplicationRecord
 
   def chemical_analysis_method_description
     method_name = []
-    chemical_analysis_methods.each do |method|
+    chemical_analysis_methods.includes(:translations).each do |method|
       method_name.push(method.name)
     end
     method_name.to_sentence
