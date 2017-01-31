@@ -1,5 +1,6 @@
 FROM ruby:2.3.3
-WORKDIR  /root
+RUN mkdir -p /builds/CF/lmml-on-rails
+WORKDIR  /builds/CF/lmml-on-rails
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update -qq && apt-get install -y -qq sqlite3 libsqlite3-dev nodejs
 COPY Gemfile Gemfile
