@@ -1,4 +1,4 @@
-image: lmml
+image: localhost:5000/lmml
 
 before_script:
   - ruby -v
