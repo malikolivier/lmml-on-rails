@@ -18,7 +18,10 @@
 require 'test_helper'
 
 class InternalAbdominalWallExaminationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'JSON set without error' do
+    assert_equal(InternalAbdominalWallExamination.json_includes,
+                 pleura_foreign_fluids: {},
+                 peritoneum_foreign_fluids: {},
+                 examination: {})
+  end
 end

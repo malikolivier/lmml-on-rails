@@ -417,6 +417,9 @@ ja:
         larynx_substance_id: 喉頭内容物
         trachea_substance_id: 気管内容物
         main_bronchi_substance_id: 主気管支内容物
+      internal_pericardium_examination:
+        congestion: 血管充盈
+        petechia: 溢血点
   date:
     abbr_day_names:
     - 日
