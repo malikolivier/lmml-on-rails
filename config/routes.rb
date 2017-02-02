@@ -19,7 +19,8 @@ Rails.application.routes.draw do
      :genitalia, :anus].each do |part|
       define_examination_routes.call(:external, part)
     end
-    [:cranium, :brain, :abdominal_wall, :neck_organs].each do |part|
+    [:cranium, :brain, :abdominal_wall, :neck_organs,
+     :pericardium].each do |part|
       define_examination_routes.call(:internal, part)
     end
   end
