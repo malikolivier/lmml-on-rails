@@ -69,4 +69,6 @@ class InternalAbdominalWallExamination < ExaminationBase
   accepts_nested_attributes_for :pleura_foreign_fluids,
                                 :peritoneum_foreign_fluids,
                                 reject_if: :all_blank
+
+  includes_in_json :pleura_foreign_fluids, :peritoneum_foreign_fluids
 end

@@ -5,18 +5,20 @@ class ApplicationRecord < ActiveRecord::Base
     # Create a public method json_includes indicating the children than should
     # be included in JSON input. Children can be added using this method:
     #     includes_in_json :method
-    #     includes_in_json [:method1, :method2]
-    #     includes_in_json {method1: { include: :innermethod }, method2: {}}
+    #     includes_in_json :method1, :method2
+    #     includes_in_json method1: { include: :innermethod }, method2: {}}
     # See rails documentation for 'as_json' as it use the same argument format.
-    def includes_in_json(objects)
+    def includes_in_json(*objects)
       @json_includes ||= {}
-      case objects
-      when Hash
-        @json_includes.merge!(objects)
-      when Array
-        objects.map { |o| @json_includes[o] = {} }
-      else
-        @json_includes[objects] = {}
+      objects.each do |object|
+        case object
+        when Hash
+          @json_includes.merge!(object)
+        when Array
+          object.map { |o| @json_includes[o] = {} }
+        else
+          @json_includes[object] = {}
+        end
       end
     end
 
