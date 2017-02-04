@@ -46,8 +46,6 @@ class ExaminationsController < ApplicationController
           .permit(examination_attributes: [:note])
   end
 
-  protected
-
   def set_exam
     exam_params = params[controller_name.singularize]
     if exam_params.present? && exam_params[:id].present?
@@ -61,19 +59,9 @@ class ExaminationsController < ApplicationController
                              { autopsy_id: autopsy.id }
                          )
       @exam ||= new_examination
+      @exam_base = @exam.examination
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
-  end
-
-  def new_examination
-    autopsy = Autopsy.find(params[:autopsy_id])
-    model_class.new(
-      examination: Examination.create!(
-        autopsy: autopsy,
-        examination_type: ExaminationType
-          .by_name(examination_name, examination_category)
-      )
-    )
   end
 
   private
@@ -90,5 +78,16 @@ class ExaminationsController < ApplicationController
 
   def render_failure
     render json: { errors: @exam.errors.full_messages }, status: 422
+  end
+
+  def new_examination
+    autopsy = Autopsy.find(params[:autopsy_id])
+    model_class.new(
+      examination: Examination.create!(
+        autopsy: autopsy,
+        examination_type: ExaminationType
+          .by_name(examination_name, examination_category)
+      )
+    )
   end
 end
