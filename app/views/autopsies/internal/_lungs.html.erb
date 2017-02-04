@@ -45,7 +45,7 @@ end
 %>
 <%= next_phrases.to_sentence_with_comma_and_full_stop %>
 
-<% if injuries.none? %>
+<% if injuries.blank? || injuries.none? %>
 気腫・結節・瘢痕等の異常なし。
 <% end %>
 
@@ -68,6 +68,6 @@ end
   <% end %>
 <% end %>
 
-<% if injuries.none? %>
+<% if injuries.blank? || injuries.none? %>
 肺門部リンパ節に異常なし。
 <% end %>
