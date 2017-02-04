@@ -8,8 +8,8 @@ class InternalHeartExaminationsController < ExaminationsController
                   :extracted_blood_color, :extracted_blood_coagulation,
                   :thickness_left, :thickness_right, :scar_left, :scar_right,
                   :pulmonary_artery_width, :pulmonary_artery_thrombus,
-                  coronary_arteries_attributes: [:id, :stenosis],
-                  heart_chambers_attributes: [:id, :size],
+                  coronary_arteries_attributes: [:id, :category, :stenosis],
+                  heart_chambers_attributes: [:id, :category, :size],
                   examination_attributes: [:note])
   end
 end

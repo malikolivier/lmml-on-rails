@@ -41,11 +41,14 @@
         - fields.each do |field_name, field_info|
           %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
             = label association_name, field_name, t("activerecord.attributes.#{associated_class_name}.#{field_name}")
+            - html_options = field_info.try(:[], :html_options) || {}
+            - html_options[:class] = 'form-control'
+            - html_options[:'v-model'] = "#{v_model}.#{field_name}"
             - case field_info[:type]
               - when :select
-                = select association_name, field_name, send("translated_#{associated_class_name}_#{field_name.to_s.pluralize}"), {}, {class: 'form-control', 'v-model': "#{v_model}.#{field_name}"}
+                = select association_name, field_name, send("translated_#{associated_class_name}_#{field_name.to_s.pluralize}"), {}, html_options
               - when :check_box, :number_field, :text_field
-                = send(field_info[:type], association_name, field_name, class: 'form-control', 'v-model': "#{v_model}.#{field_name}")
+                = send(field_info[:type], association_name, field_name, html_options)
               - else
                 - raise "Unhandled field_type: #{field_info[:type]}"
     = yield
