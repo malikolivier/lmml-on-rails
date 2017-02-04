@@ -440,6 +440,9 @@ ja:
         stenosis: 狭窄
       heart_chamber:
         size: 大きさ
+      internal_thoracic_aorta_examination:
+        width: 起始部 幅(cm)
+        arteriosclerosis: 動脈硬化性変化
     enums:
       coronary_artery:
         categories:
