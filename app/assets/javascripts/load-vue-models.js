@@ -78,6 +78,8 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                     if (scopedData.position) scopedParams.position = scopedData.position
                     // Add rank if rank is present (must be there for some parts like teeth)
                     if (scopedData.rank) scopedParams.rank = scopedData.rank
+                    // Add category if category is present (must be there for some parts like heart chambers)
+                    if (scopedData.category) scopedParams.category = scopedData.category
                   }
                   scopedParams[names[names.length - 1]] = newValue
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})

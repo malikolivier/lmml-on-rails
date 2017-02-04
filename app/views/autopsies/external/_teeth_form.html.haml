@@ -18,7 +18,7 @@
             - [:id, :position, :rank, :condition, :note].each do |attribute|
               %input{type: 'hidden', value: tooth.send(attribute),
                      name: "#{object_name}[tooth_examinations_attributes][#{i}][#{attribute}]",
-                     id: "#{object_name}_tooth_examinations_attributes_attributes_#{i}_#{attribute}",
+                     id: "#{object_name}_tooth_examinations_attributes_#{i}_#{attribute}",
                      'multi-data': true }
             - # Generate Vue form
             - v_model = "#{form_to_vue(object_name, 'tooth_examinations')}[#{i}]"

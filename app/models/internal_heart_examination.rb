@@ -29,8 +29,10 @@ class InternalHeartExamination < ExaminationBase
   enum extracted_blood_color: [:dark_red, :florid], _prefix: true
   enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true
 
-  has_many :coronary_arteries, -> { order(:category) }
-  has_many :heart_chambers
+  has_many :coronary_arteries, -> { order(:category) },
+           inverse_of: :internal_heart_examination
+  has_many :heart_chambers, -> { order(:category) },
+           inverse_of: :internal_heart_examination
 
   enum scar_left: Settings.enums.existence, _prefix: true
   enum scar_right: Settings.enums.existence, _prefix: true
@@ -119,4 +121,9 @@ class InternalHeartExamination < ExaminationBase
       "#{description}。"
     end
   end
+
+  accepts_nested_attributes_for :coronary_arteries, :heart_chambers,
+                                reject_if: :all_blank
+
+  includes_in_json :coronary_arteries, :heart_chambers
 end

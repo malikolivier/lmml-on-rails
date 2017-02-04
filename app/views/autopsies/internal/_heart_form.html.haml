@@ -1,0 +1,34 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_heart_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.number_field :weight
+  = f.select :rigor_mortis, translated_internal_heart_rigores_mortis
+  .row
+    .col-xs-6
+      = f.select :epicardial_lipomatosis, translated_internal_heart_epicardial_lipomatoses
+    .col-xs-6
+      = f.select :epicardial_petechia, translated_internal_heart_epicardial_petechia
+  .row
+    .col-xs-4
+      = f.number_field :extracted_blood_quantity
+    .col-xs-4
+      = f.select :extracted_blood_color, translated_internal_heart_extracted_blood_colors
+    .col-xs-4
+      = f.select :extracted_blood_coagulation, translated_internal_heart_extracted_blood_coagulations
+  = render 'nested_plural_form', form: f, method: :coronary_arteries,
+                                 fields: { stenosis: { type: :number_field,
+                                 html_options: { min: '0', max: '100' } } }
+  = render 'nested_plural_form', form: f, method: :heart_chambers,
+                                 fields: { size: { type: :select } }
+  .row
+    .col-xs-6
+      = f.number_field :thickness_left
+      = f.select :scar_left, translated_internal_heart_scar_lefts
+    .col-xs-6
+      = f.number_field :thickness_right
+      = f.select :scar_right, translated_internal_heart_scar_rights
+  .row
+    .col-xs-6
+      = f.number_field :pulmonary_artery_width
+    .col-xs-6
+      = f.select :pulmonary_artery_thrombus, translated_internal_heart_pulmonary_artery_thrombuses
+  = yield f

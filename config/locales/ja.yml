@@ -398,7 +398,7 @@ ja:
         closed: 開閉
         feces_quantity: 流出量
       internal_brain_examination:
-        weight: 重量
+        weight: 重量(g)
         pia_congestion: 軟膜血管充盈
         blood_spots: 大脳髄質血点
       internal_abdominal_wall_examination:
@@ -420,6 +420,38 @@ ja:
       internal_pericardium_examination:
         congestion: 血管充盈
         petechia: 溢血点
+      internal_heart_examination:
+        weight: 重量(g)
+        rigor_mortis: 硬直
+        epicardial_lipomatosis: 心外膜下脂肪沈
+        epicardial_petechia: 心外膜下に溢血点
+        extracted_blood_quantity: 血摘出量(ml)
+        extracted_blood_color: 色
+        extracted_blood_coagulation: 凝血
+        coronary_arteries: 動脈
+        heart_chambers: 心室・心房
+        thickness_left: 左心筋厚さ(cm)
+        thickness_right: 右心筋厚さ(cm)
+        scar_left: 瘢痕(左)
+        scar_right: 瘢痕(右)
+        pulmonary_artery_width: 肺動脈起始部の幅(cm)
+        pulmonary_artery_thrombus: 肺動脈起始部血栓
+      coronary_artery:
+        stenosis: 狭窄
+      heart_chamber:
+        size: 大きさ
+    enums:
+      coronary_artery:
+        categories:
+          LAD: 冠状動脈前下行枝
+          LCX: 回旋枝
+          RCA: 右冠状動脈
+      heart_chamber:
+        categories:
+          left_ventricle: 左心室
+          right_ventricle: 右心室
+          left_atrium: 左心房
+          right_atrium: 右心房
   date:
     abbr_day_names:
     - 日
