@@ -46,7 +46,7 @@ class ExaminationsController < ApplicationController
           .permit(examination_attributes: [:note])
   end
 
-  private
+  protected
 
   def set_exam
     exam_params = params[controller_name.singularize]
@@ -65,6 +65,19 @@ class ExaminationsController < ApplicationController
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
   end
 
+  def new_examination
+    autopsy = Autopsy.find(params[:autopsy_id])
+    model_class.new(
+      examination: Examination.create!(
+        autopsy: autopsy,
+        examination_type: ExaminationType
+          .by_name(examination_name, examination_category)
+      )
+    )
+  end
+
+  private
+
   def render_success
     template_file = "autopsies/#{examination_category}/_#{examination_name}"
     html_preview = render_to_string template_file, locals: { exam: @exam },
@@ -77,16 +90,5 @@ class ExaminationsController < ApplicationController
 
   def render_failure
     render json: { errors: @exam.errors.full_messages }, status: 422
-  end
-
-  def new_examination
-    autopsy = Autopsy.find(params[:autopsy_id])
-    model_class.new(
-      examination: Examination.create!(
-        autopsy: autopsy,
-        examination_type: ExaminationType
-          .by_name(examination_name, examination_category)
-      )
-    )
   end
 end

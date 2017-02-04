@@ -1,0 +1,2 @@
+class InternalLungsExaminationsController < DualExaminationsController
+end

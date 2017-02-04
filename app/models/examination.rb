@@ -18,7 +18,7 @@ class Examination < ApplicationRecord
   has_many :injuries
 
   def get
-    if examination_type.organs.count <= 1
+    if unique_examination?
       examination = examination_type.this_examination_model
                                     .find_by(examination: self)
       examination ||
@@ -26,5 +26,9 @@ class Examination < ApplicationRecord
     else
       examination_type.this_examination_model.where(examination: self)
     end
+  end
+
+  def unique_examination?
+    examination_type.organs.count <= 1
   end
 end
