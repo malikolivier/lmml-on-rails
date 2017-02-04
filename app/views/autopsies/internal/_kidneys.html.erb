@@ -17,7 +17,7 @@ all_symetric = left.try(:hardness) == right.try(:hardness) &&
 %>
 <br />
 <% if all_symetric %>
-  <%= left.description %>
+  <%= left.description if left.present? %>
 <% else %>
   <%= "左腎臓：#{left.description}" if left.present? %>
   <br />

@@ -26,7 +26,15 @@ class InternalLiverExamination < ExaminationBase
     description += "鬱血は#{I18n.t "intensity.#{congestion}"}。" if congestion.present?
     description += "肉眼的に脂肪変性#{I18n.t "intensity.#{steatosis}"}。" if steatosis.present?
     description += '胆管・血管に異常なし。' if examination.injuries.none?
-    description += gall_bladder.description
+    description += gall_bladder_description
     description
+  end
+
+  def gall_bladder_description
+    if gall_bladder.present?
+      gall_bladder.description
+    else
+      ''
+    end
   end
 end

@@ -36,6 +36,7 @@ class InternalBladderExamination < ExaminationBase
   end
 
   def content_description
+    return '' if urine_quantity.blank?
     if urine_quantity.zero?
       '空虚。'
     else
