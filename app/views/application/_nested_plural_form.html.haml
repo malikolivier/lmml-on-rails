@@ -1,0 +1,51 @@
+- # Arguments: form, method, fields, &block
+- #   form: The parent form
+- #   method: Method to access the object's array
+- #   fields: {
+- #     field_name: { // field_name can be whatever method of the objects in the array
+- #       type: input type (supported: 'check_box') // compulsory
+- #       encapsulating_element: {  // optional
+- #         class: 'col-xs-3' // Whatever class for the encapsulating element
+- #       }
+- #     }
+- #   }
+- #  &block: The block will be appended at the end of the panel
+- object = form.object
+- object_name = form.object_name
+- association_info = object.class.reflect_on_association(method)
+- association_class = association_info.class_name.constantize
+- association_name = association_info.plural_name.singularize
+- associated_class_name = association_info.class_name.underscore
+- categories = association_class.categories.map { |c, _| c }
+.panel.panel-default
+  .panel-heading
+    %div= t("activerecord.attributes.#{object.model_name.param_key}.#{association_info.plural_name}")
+    - categories.each do |category|
+      %div{class: "col-xs-#{12/categories.length}"}= t("activerecord.enums.#{association_name}.categories.#{category}")
+  .panel-body
+    - # These hidden fields will initialize the Vue values
+    - categories.each_with_index do |category, i|
+      - category_object = object.send(method).send(category).take || association_class.new(category: category)
+      - [:id, :category].each do |attribute|
+        %input{type: 'hidden', value: category_object.send(attribute),
+               name: "#{object_name}[#{association_info.plural_name}_attributes][#{i}][#{attribute}]",
+               id: "#{object_name}_#{association_info.plural_name}_attributes_#{i}_#{attribute}",
+               'multi-data': true }
+      - fields.each do |field_name, _field_type|
+        %input{type: 'hidden', value: category_object.send(field_name).to_s,
+               name: "#{object_name}[#{association_info.plural_name}_attributes][#{i}][#{field_name}]",
+               id: "#{object_name}_#{association_info.plural_name}_attributes_#{i}_#{field_name}",
+               'multi-data': true }
+      %div{class: "col-xs-#{12/categories.length}"}
+        - v_model = "#{form_to_vue(object_name, association_info.plural_name)}[#{i}]"
+        - fields.each do |field_name, field_info|
+          %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
+            = label association_name, field_name, t("activerecord.attributes.#{associated_class_name}.#{field_name}")
+            - case field_info[:type]
+              - when :select
+                = select association_name, field_name, send("translated_#{associated_class_name}_#{field_name.to_s.pluralize}"), {}, {class: 'form-control', 'v-model': "#{v_model}.#{field_name}"}
+              - when :check_box, :number_field, :text_field
+                = send(field_info[:type], association_name, field_name, class: 'form-control', 'v-model': "#{v_model}.#{field_name}")
+              - else
+                - raise "Unhandled field_type: #{field_info[:type]}"
+    = yield
