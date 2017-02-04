@@ -1,0 +1,5 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_thoracic_aorta_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.number_field :width
+  = f.select :arteriosclerosis, translated_internal_thoracic_aorta_arterioscleroses
+  = yield f
