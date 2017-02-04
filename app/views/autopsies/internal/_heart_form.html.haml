@@ -14,8 +14,11 @@
       = f.select :extracted_blood_color, translated_internal_heart_extracted_blood_colors
     .col-xs-4
       = f.select :extracted_blood_coagulation, translated_internal_heart_extracted_blood_coagulations
-  = # coronary_arteries
-  = # heart_chambers
+  = render 'nested_plural_form', form: f, method: :coronary_arteries,
+                                 fields: { stenosis: { type: :number_field,
+                                 html_options: { min: '0', max: '100' } } }
+  = render 'nested_plural_form', form: f, method: :heart_chambers,
+                                 fields: { size: { type: :select } }
   .row
     .col-xs-6
       = f.number_field :thickness_left

@@ -440,6 +440,18 @@ ja:
         stenosis: 狭窄
       heart_chamber:
         size: 大きさ
+    enums:
+      coronary_artery:
+        categories:
+          LAD: 冠状動脈前下行枝
+          LCX: 回旋枝
+          RCA: 右冠状動脈
+      heart_chamber:
+        categories:
+          left_ventricle: 左心室
+          right_ventricle: 右心室
+          left_atrium: 左心房
+          right_atrium: 右心房
   date:
     abbr_day_names:
     - 日
