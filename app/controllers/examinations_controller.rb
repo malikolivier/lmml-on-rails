@@ -59,9 +59,10 @@ class ExaminationsController < ApplicationController
                              { autopsy_id: autopsy.id }
                          )
       @exam ||= new_examination
-      @exam_base = @exam.examination
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
+    @examination_type = ExaminationType.by_name(examination_name,
+                                                examination_category)
   end
 
   private
