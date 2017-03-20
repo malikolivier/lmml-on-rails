@@ -448,6 +448,8 @@ ja:
         air_content: 含気量
         congestion: 鬱血
         foreign_fluids: 気管支内異液
+      internal_abdominal_aorta_examination:
+        arteriosclerosis: 動脈硬化性変化
     enums:
       coronary_artery:
         categories:
