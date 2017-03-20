@@ -2,4 +2,5 @@
   = f.number_field :weight
   = f.select :air_content, translated_internal_lungs_air_contents
   = f.select :congestion, translated_internal_lungs_congestions
+  = render 'foreign_fluids_form', form: f
   = yield f

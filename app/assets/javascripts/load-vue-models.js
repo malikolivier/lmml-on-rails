@@ -9,6 +9,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   // IIFE GLOBAL VARIABLES
   var data = {}
   var watch = {}
+  var elementId = options.deixis ? `${model}_${options.deixis}` : model
   if (!options.httpVerb) {
     options.httpVerb = 'put'
   }
@@ -32,7 +33,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   }
 
   function loadFromDOM () {
-    $('#' + model + ' input,select').each(function () {
+    $('#' + elementId + ' input,select').each(function () {
       if (this.name && this.name.startsWith(model + '[') && this.name.endsWith(']')) {
         var fieldName = this.name.substring(model.length + 1, this.name.length - 1)
         var names = fieldName.split('][')
@@ -216,7 +217,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   }
 
   var newModelVm = new Vue({
-    el: '#' + model,
+    el: '#' + elementId,
     data,
     watch,
     methods

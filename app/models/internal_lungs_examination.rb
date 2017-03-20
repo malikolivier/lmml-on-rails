@@ -18,4 +18,6 @@ class InternalLungsExamination < DualExaminationBase
 
   has_many :in_lung_foreign_fluids
   has_many :foreign_fluids, through: :in_lung_foreign_fluids
+
+  accepts_nested_attributes_for :foreign_fluids, reject_if: :all_blank
 end

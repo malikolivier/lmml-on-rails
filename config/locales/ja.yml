@@ -447,6 +447,7 @@ ja:
         weight: 重量(g)
         air_content: 含気量
         congestion: 鬱血
+        foreign_fluids: 異液
     enums:
       coronary_artery:
         categories:
