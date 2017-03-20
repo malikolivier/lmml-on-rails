@@ -46,8 +46,6 @@ class ExaminationsController < ApplicationController
           .permit(examination_attributes: [:note])
   end
 
-  private
-
   def set_exam
     exam_params = params[controller_name.singularize]
     if exam_params.present? && exam_params[:id].present?
@@ -63,7 +61,11 @@ class ExaminationsController < ApplicationController
       @exam ||= new_examination
     end
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
+    @examination_type = ExaminationType.by_name(examination_name,
+                                                examination_category)
   end
+
+  private
 
   def render_success
     template_file = "autopsies/#{examination_category}/_#{examination_name}"

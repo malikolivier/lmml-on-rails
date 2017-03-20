@@ -13,4 +13,7 @@
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}
       = render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: exam
-      = exam.examination.try(:note) if !exam.respond_to?(:each)
+      - unless exam.respond_to? :each
+        = exam.examination.try(:note)
+      - else
+        = exam.first.try(:examination).try(:note)

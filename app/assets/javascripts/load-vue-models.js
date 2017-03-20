@@ -9,6 +9,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   // IIFE GLOBAL VARIABLES
   var data = {}
   var watch = {}
+  var elementId = options.deixis ? `${model}_${options.deixis}` : model
   if (!options.httpVerb) {
     options.httpVerb = 'put'
   }
@@ -32,7 +33,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   }
 
   function loadFromDOM () {
-    $('#' + model + ' input,select').each(function () {
+    $('#' + elementId + ' input,select').each(function () {
       if (this.name && this.name.startsWith(model + '[') && this.name.endsWith(']')) {
         var fieldName = this.name.substring(model.length + 1, this.name.length - 1)
         var names = fieldName.split('][')
@@ -66,10 +67,12 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   var params = {}
                   var scopedParams = params
                   var scopedData = data
-                  for (var i = 0; i < names.length - 1; i++) {
-                    scopedParams[names[i]] = {}
-                    scopedParams = scopedParams[names[i]]
-                    scopedData = scopedData[names[i]]
+                  for (var i = -1; i < names.length - 1; i++) {
+                    if (i > -1) {
+                      scopedParams[names[i]] = {}
+                      scopedParams = scopedParams[names[i]]
+                      scopedData = scopedData[names[i]]
+                    }
                     // Add ID so that rails update this record
                     if (scopedData.id) scopedParams.id = scopedData.id
                     // Add deixis if deixis is present (must be there for all parts with a right or left part)
@@ -142,6 +145,9 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                       }
                       if (!LMML.isEmpty(scopedVueModel.id)) {
                         scopedParams.id = scopedVueModel.id
+                      }
+                      if (!LMML.isEmpty(scopedVueModel.deixis)) {
+                        scopedParams.deixis = scopedVueModel.deixis
                       }
                     })
                     this.$http[options.httpVerb](options.updateUrl, params)
@@ -216,7 +222,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   }
 
   var newModelVm = new Vue({
-    el: '#' + model,
+    el: '#' + elementId,
     data,
     watch,
     methods

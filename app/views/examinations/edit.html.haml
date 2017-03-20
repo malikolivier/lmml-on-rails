@@ -1,2 +1,2 @@
-= hidden_field :autopsy, :id, value: @exam.examination.autopsy_id
-= render 'form', exam: @exam, examination_type: @exam.examination.examination_type
+= hidden_field :autopsy, :id, value: params[:autopsy_id]
+= render 'form', exam: @exam, examination_type: @examination_type

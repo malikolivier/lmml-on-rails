@@ -1,6 +1,6 @@
 <%
-left = exam.left.first
-right = exam.right.first
+left = exam.left.take
+right = exam.right.take
 injuries = left.examination.injuries if left.present?
 injuries = right.examination.injuries if left.blank? && right.present?
 

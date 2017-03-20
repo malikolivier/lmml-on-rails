@@ -12,11 +12,12 @@
 #  updated_at     :datetime         not null
 #
 
-class InternalLungsExamination < ExaminationBase
-  enum deixis: Settings.enums.deixes
+class InternalLungsExamination < DualExaminationBase
   enum air_content: Settings.enums.five_scale_mass_quantity, _prefix: true
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
 
   has_many :in_lung_foreign_fluids
   has_many :foreign_fluids, through: :in_lung_foreign_fluids
+
+  accepts_nested_attributes_for :foreign_fluids, reject_if: :all_blank
 end

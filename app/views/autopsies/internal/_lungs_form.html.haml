@@ -1,0 +1,10 @@
+- left = true
+= render 'primary_dual_form', exam: exam do |f|
+  = f.number_field :weight
+  = f.select :air_content, translated_internal_lungs_air_contents
+  = f.select :congestion, translated_internal_lungs_congestions
+  = render 'foreign_fluids_form', form: f
+  - if left
+    - # Only show common fields (examination note) once
+    = yield f
+    - left = false
