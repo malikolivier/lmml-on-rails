@@ -146,6 +146,9 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                       if (!LMML.isEmpty(scopedVueModel.id)) {
                         scopedParams.id = scopedVueModel.id
                       }
+                      if (!LMML.isEmpty(scopedVueModel.deixis)) {
+                        scopedParams.deixis = scopedVueModel.deixis
+                      }
                     })
                     this.$http[options.httpVerb](options.updateUrl, params)
                     .then(updateHandler, errorHandler)

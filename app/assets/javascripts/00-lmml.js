@@ -36,6 +36,7 @@ var LMML = {
           this.$http.post(LMML.models_url(model))
             .then(function (response) {
               this.id = response.body.model.id
+              // TODO add deixis for lungs etc.
               resolve()
             }, reject)
         }
