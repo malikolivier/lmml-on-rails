@@ -1,5 +1,13 @@
 class DualExaminationsController < ExaminationsController
-  before_action :deixis!, only: [:update]
+  before_action :deixis!, only: [:update, :create]
+
+  # POST /autopsies/:autopsy_id/***_examinations.json
+  def create
+    @exam = new_examination!
+    render_success
+  rescue ActiveRecord::ActiveRecordError
+    render_failure
+  end
 
   protected
 
@@ -22,5 +30,18 @@ class DualExaminationsController < ExaminationsController
       model: @exam.send(deixis!).take.as_lmml_json,
       description: html_preview + @exam.first.try(:examination).try(:note)
     }
+  end
+
+  def new_examination!
+    autopsy = Autopsy.find(params[:autopsy_id])
+    model_class.create!(
+      deixis: deixis!,
+      examination: Examination.create!(
+        autopsy: autopsy,
+        examination_type: ExaminationType
+          .by_name(examination_name, examination_category)
+      )
+    )
+    DualExamination.new(model_class, autopsy)
   end
 end

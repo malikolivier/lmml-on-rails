@@ -33,10 +33,13 @@ var LMML = {
         if (this.id !== '') {
           resolve()
         } else {
-          this.$http.post(LMML.models_url(model))
+          var params = {}
+          if (!_.isEmpty(this.deixis)) {
+            params.deixis = this.deixis
+          }
+          this.$http.post(LMML.models_url(model), params)
             .then(function (response) {
               this.id = response.body.model.id
-              // TODO add deixis for lungs etc.
               resolve()
             }, reject)
         }

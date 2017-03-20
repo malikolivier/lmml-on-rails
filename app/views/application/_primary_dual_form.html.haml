@@ -1,10 +1,11 @@
 - # Form for primary dual organs, including lungs, kidneys, etc.
-- form_id_prefix = controller_name.singularize
+- form_id_prefix = exam.name.underscore
 .row
 - [:left, :right].each do |deixis|
   .col-sm-6
     = t(deixis)
-    = form_for(exam.send(deixis).take, builder: VueFormBuilder, html: { id: "#{form_id_prefix}_#{deixis}" }, url: '') do |f|
+    - organ = exam.send(deixis).take || exam.model.new(deixis: deixis)
+    = form_for(organ, builder: VueFormBuilder, html: { id: "#{form_id_prefix}_#{deixis}" }, url: '') do |f|
       = f.hidden_field :id
       = f.hidden_field :deixis
       = yield f
