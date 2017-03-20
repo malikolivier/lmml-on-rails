@@ -67,10 +67,12 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   var params = {}
                   var scopedParams = params
                   var scopedData = data
-                  for (var i = 0; i < names.length - 1; i++) {
-                    scopedParams[names[i]] = {}
-                    scopedParams = scopedParams[names[i]]
-                    scopedData = scopedData[names[i]]
+                  for (var i = -1; i < names.length - 1; i++) {
+                    if (i > -1) {
+                      scopedParams[names[i]] = {}
+                      scopedParams = scopedParams[names[i]]
+                      scopedData = scopedData[names[i]]
+                    }
                     // Add ID so that rails update this record
                     if (scopedData.id) scopedParams.id = scopedData.id
                     // Add deixis if deixis is present (must be there for all parts with a right or left part)

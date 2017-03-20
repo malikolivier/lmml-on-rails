@@ -29,6 +29,21 @@ class DualExamination
     end
   end
 
+  def update(params = {})
+    raise 'Expected "deixis" to be set to "left" of "right"' if params[:deixis].blank?
+    send(params[:deixis]).take.update(params)
+  end
+
+  def errors
+    full_messages = []
+    [:left, :right].each do |deixis|
+      obj = send(deixis).take
+      next if obj.try(:errors).blank?
+      full_messages.push("#{deixis.capitalize}: #{obj.errors.full_messages}")
+    end
+    DualExaminationError.new(full_messages) if full_messages.any?
+  end
+
   class DualExaminationFalseRelation
     def initialize(object)
       @object = object
@@ -36,6 +51,13 @@ class DualExamination
 
     def take
       @object
+    end
+  end
+
+  class DualExaminationError
+    attr_reader :full_messages
+    def initialize(full_messages)
+      @full_messages = full_messages.join("\n")
     end
   end
 end
