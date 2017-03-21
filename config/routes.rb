@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       define_examination_routes.call(:external, part)
     end
     [:cranium, :brain, :abdominal_wall, :neck_organs,
-     :pericardium, :heart, :thoracic_aorta, :lungs].each do |part|
+     :pericardium, :heart, :thoracic_aorta, :lungs,
+     :abdominal_aorta].each do |part|
       define_examination_routes.call(:internal, part)
     end
   end
