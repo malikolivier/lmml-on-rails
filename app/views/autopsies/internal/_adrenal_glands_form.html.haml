@@ -1,0 +1,8 @@
+- left = true
+= render 'primary_dual_form', exam: exam do |f|
+  = f.select :cortex_thickness, translated_internal_adrenal_grands_cortex_thicknesses
+  = f.select :medulla_thickness, translated_internal_adrenal_grands_medulla_thicknesses
+  - if left
+    - # Only show common fields (examination note) once
+    = yield f
+    - left = false
