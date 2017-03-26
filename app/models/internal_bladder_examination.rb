@@ -13,13 +13,16 @@
 #
 
 class InternalBladderExamination < ExaminationBase
-  enum urine_color: [:yellowish, :yellow, :amber, :red, :brown], _prefix: true
-  enum urine_transparency: [:transparent, :opaque], _prefix: 'urine'
-  enum membrane_color: [:pale], _prefix: true
+  enum urine_color: [:unknown, :yellowish, :yellow, :amber, :red,
+                     :brown], _prefix: true
+  enum urine_transparency: [:unknown, :transparent, :opaque], _prefix: 'urine'
+  enum membrane_color: [:unknown, :pale], _prefix: true
 
   def description
     description = content_description
-    description += "粘膜#{I18n.t "colors.#{membrane_color}"}。"
+    if membrane_color.present?
+      description += "粘膜#{I18n.t("colors.#{membrane_color}")}。"
+    end
     description
   end
 
