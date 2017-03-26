@@ -465,6 +465,8 @@ ja:
         hardness: 硬度
         congestion: 鬱血
         pulp_distinct: 赤脾髄・白脾髄の別
+      internal_pancreas_examination:
+        hardness: 硬度
     enums:
       coronary_artery:
         categories:
