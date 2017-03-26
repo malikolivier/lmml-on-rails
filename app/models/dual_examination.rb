@@ -2,6 +2,7 @@
 class DualExamination
   attr_reader :exams, :model
   delegate :each, to: :exams
+  delegate :group_by, to: :exams
   delegate :name, to: :model
 
   def left

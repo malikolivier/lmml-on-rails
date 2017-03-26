@@ -191,11 +191,11 @@ ja:
     big: 大きい
   thickness:
     unknown: 不明
-    very_thin: 非常に薄い
-    thin: 薄い
+    very_thin: 非常に萎縮
+    thin: 萎縮
     usual: 厚さ尋常
-    thick: 厚い
-    very_thick: 非常に厚い
+    thick: 肥厚
+    very_thick: 非常に肥厚
   existence:
     exists: あり
     does_not_exist: なし
@@ -450,6 +450,9 @@ ja:
         foreign_fluids: 気管支内異液
       internal_abdominal_aorta_examination:
         arteriosclerosis: 動脈硬化性変化
+      internal_adrenal_glands_examination:
+        cortex_thickness: 皮質厚さ
+        medulla_thickness: 皮質厚さ
     enums:
       coronary_artery:
         categories:
