@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     [:cranium, :brain, :abdominal_wall, :neck_organs,
      :pericardium, :heart, :thoracic_aorta, :lungs,
      :abdominal_aorta, :adrenal_glands, :kidneys, :spleen,
-     :pancreas].each do |part|
+     :pancreas, :liver].each do |part|
       define_examination_routes.call(:internal, part)
     end
   end

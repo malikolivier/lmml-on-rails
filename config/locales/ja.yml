@@ -32,6 +32,8 @@ ja:
     yellow_green: 黄緑色
     dark_brown: 茶褐色
     green: 緑色
+    dark_green: 暗緑色
+    brown: 茶色
   odors:
     no_odor: においのない
     rot: 腐敗の臭い
@@ -304,6 +306,7 @@ ja:
     models:
       autopsy: 解剖
       external_mouth_examination: 口
+      gall_bladder: 胆嚢
     attributes:
       autopsy:
         number: 解剖番号
@@ -467,6 +470,17 @@ ja:
         pulp_distinct: 赤脾髄・白脾髄の別
       internal_pancreas_examination:
         hardness: 硬度
+      internal_liver_examination:
+        weight: 重量(g)
+        hardness: 硬度
+        congestion: 鬱血
+        steatosis: 脂肪変性
+      gall_bladder:
+        bile_color: 胆汁色
+        bile_quantity: 胆汁量
+        gallstones_quantity: 胆石量
+        gallstones_color: 胆石色
+        gallstones_size: 胆石大きさ
     enums:
       coronary_artery:
         categories:
