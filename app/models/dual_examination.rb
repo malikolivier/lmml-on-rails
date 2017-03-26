@@ -84,6 +84,7 @@ class DualExamination
     def take
       @object
     end
+    alias_method :first, :take
   end
 
   class DualExaminationError

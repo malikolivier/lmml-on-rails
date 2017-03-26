@@ -453,6 +453,13 @@ ja:
       internal_adrenal_glands_examination:
         cortex_thickness: 皮質厚さ
         medulla_thickness: 皮質厚さ
+      internal_kidneys_examination:
+        weight: 重量(g)
+        hardness: 硬度
+        capsule_removal: 腎被膜剥離
+        capsule_congestion: 腎被膜鬱血
+        pelvis_congestion: 腎盂粘膜血管充盈
+        pelvis_petechia: 腎盂粘膜溢血点
     enums:
       coronary_artery:
         categories:
