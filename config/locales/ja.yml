@@ -493,6 +493,12 @@ ja:
         content_aspect: 内容物見た目
         content_digestion: 消化の程度
         rugae: 粘膜皺襞
+      internal_intestines_examination:
+        appendix: 虫垂
+        intestine_sections: 消化管区分
+      intestine_section:
+        color: 内容物色
+        quantity: 内容物量
     enums:
       coronary_artery:
         categories:
@@ -510,6 +516,12 @@ ja:
           persistent: 残る
           not_persistent: 伸びる
           unknown: 不明
+      intestine_section:
+        categories:
+          duodenum: 十二指腸
+          jejunum: 空腸
+          ileum: 回腸
+          colon: 大腸
   date:
     abbr_day_names:
     - 日

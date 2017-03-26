@@ -12,7 +12,8 @@
 class InternalIntestinesExamination < ExaminationBase
   enum appendix: Settings.enums.existence, _prefix: true
 
-  has_many :intestine_sections, -> { order(:category) }
+  has_many :intestine_sections, -> { order(:category) },
+           inverse_of: :internal_intestines_examination
 
   def description
     description = ''
@@ -24,4 +25,9 @@ class InternalIntestinesExamination < ExaminationBase
     description += '虫垂なし。' if appendix_does_not_exist?
     description
   end
+
+  accepts_nested_attributes_for :intestine_sections,
+                                reject_if: :all_blank
+
+  includes_in_json :intestine_sections
 end
