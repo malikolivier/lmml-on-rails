@@ -17,7 +17,7 @@ class InternalLiverExamination < ExaminationBase
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum steatosis: Settings.enums.five_scale_intensity, _prefix: true
 
-  has_one :gall_bladder
+  has_one :gall_bladder, inverse_of: :internal_liver_examination
 
   def description
     description = ''
@@ -37,4 +37,8 @@ class InternalLiverExamination < ExaminationBase
       ''
     end
   end
+
+  accepts_nested_attributes_for :gall_bladder, update_only: true
+
+  includes_in_json :gall_bladder
 end
