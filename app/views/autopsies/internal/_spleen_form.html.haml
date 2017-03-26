@@ -1,0 +1,7 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_spleen_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.number_field :weight
+  = f.select :hardness, translated_internal_spleen_hardnesses
+  = f.select :congestion, translated_internal_spleen_congestions
+  = f.select :pulp_distinct, translated_internal_spleen_pulp_distincts
+  = yield f
