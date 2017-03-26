@@ -1,0 +1,9 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_stomach_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.number_field :content_quantity
+  = f.select :content_color, translated_internal_stomach_content_colors
+  = f.select :content_smell, translated_internal_stomach_content_smells
+  = f.select :content_aspect, translated_internal_stomach_content_aspects
+  = f.select :content_digestion, translated_internal_stomach_content_digestions
+  = f.select :rugae, translated_internal_stomach_rugae
+  = yield f

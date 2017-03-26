@@ -21,4 +21,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'LivorMortis', 'LivoresMortis'
   inflect.irregular 'rigor_mortis', 'rigores_mortis'
   inflect.irregular 'RigorMortis', 'RigoresMortis'
+  inflect.irregular 'ruga', 'rugae'
 end

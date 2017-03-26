@@ -15,13 +15,13 @@
 #
 
 class InternalStomachExamination < ExaminationBase
-  enum content_color: [:yellow, :green], _prefix: 'content'
-  enum content_smell: [:putrid, :acid], _prefix: 'content'
-  enum content_aspect: [:watery], _prefix: 'content'
-  enum content_digestion: [:not_digested, :digested, :partly_digested, :unknown],
+  enum content_color: [:unknown, :yellow, :green], _prefix: 'color'
+  enum content_smell: [:unknown, :putrid, :acid], _prefix: 'smell'
+  enum content_aspect: [:unknown, :watery], _prefix: 'aspect'
+  enum content_digestion: [:unknown, :not_digested, :digested, :partly_digested],
        _prefix: 'content'
 
-  enum rugae: [:persistent, :not_persistent, :unknown], _prefix: true
+  enum rugae: [:unknown, :persistent, :not_persistent], _prefix: true
 
   def description
     "#{content_description}#{rugae_description}"
@@ -51,7 +51,7 @@ class InternalStomachExamination < ExaminationBase
 
   def filled_stomach_description
     digestion = content_digestion.present? ? I18n.t("digestion.#{content_digestion}") : ''
-    aspect = content_aspect.present? ? I18n.t("aspect.#{content_aspect}") : ''
+    aspect = content_aspect.present? ? I18n.t("aspects.#{content_aspect}") : ''
     color = content_color.present? ? I18n.t("colors.#{content_color}") : ''
     quantity = content_quantity.present? ? "#{content_quantity}mL" : ''
     "内に#{digestion}のものを含む#{aspect}#{color}内容#{quantity}あり。"
