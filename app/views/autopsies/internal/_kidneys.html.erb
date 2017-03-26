@@ -1,6 +1,6 @@
 <%
-left = exam.left.first
-right = exam.right.first
+left = exam.left.take
+right = exam.right.take
 
 weight_phrases = []
 weight_phrases.push("左#{left.weight}g") if left.try(:weight).present?

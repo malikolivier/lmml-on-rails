@@ -49,7 +49,7 @@ class InternalKidneysExamination < ExaminationBase
       pelvis_phrases.push("血管充盈#{I18n.t "intensity.#{pelvis_congestion}"}")
     end
     if pelvis_petechia.present?
-      pelvis_phrases.push("溢血点#{I18n.t "quantity.#{pelvis_congestion}"}")
+      pelvis_phrases.push("溢血点#{I18n.t "quantity.#{pelvis_petechia}"}")
     end
     pelvis_phrases.to_sentence_with_comma_and_full_stop
   end
