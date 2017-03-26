@@ -19,6 +19,8 @@ ja:
     false_red: 赤
   colors:
     unknown: 不明
+    amber: 琥珀色
+    red: 赤色
     pale: 蒼白
     fades_with_light_pressure: 指圧で退色
     fades_with_strong_pressure: 強い指圧で退色
@@ -240,6 +242,7 @@ ja:
     unknown: 不明
     watery: 水分の多い
   transparency:
+    unknown: 不明
     transparent: 透明
     opaque: 混濁
   directions:
@@ -499,6 +502,11 @@ ja:
       intestine_section:
         color: 内容物色
         quantity: 内容物量
+      internal_bladder_examination:
+        urine_quantity: 尿量(mL)
+        urine_color: 尿色
+        urine_transparency: 尿透明性
+        membrane_color: 粘膜色
     enums:
       coronary_artery:
         categories:
