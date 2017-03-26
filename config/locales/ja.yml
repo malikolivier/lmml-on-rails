@@ -18,6 +18,7 @@ ja:
     false_blond: 金髪
     false_red: 赤
   colors:
+    unknown: 不明
     pale: 蒼白
     fades_with_light_pressure: 指圧で退色
     fades_with_strong_pressure: 強い指圧で退色
@@ -35,8 +36,11 @@ ja:
     dark_green: 暗緑色
     brown: 茶色
   odors:
+    unknown: 不明
     no_odor: においのない
     rot: 腐敗の臭い
+    putrid: 腐敗の臭い
+    acid: 酸性
   organs:
     outline: 概観
     head: 頭部
@@ -232,7 +236,8 @@ ja:
     digested: 消化済
     partly_digested: 半消化
     unknown: 消化程度が不明
-  aspect:
+  aspects:
+    unknown: 不明
     watery: 水分の多い
   transparency:
     transparent: 透明
@@ -481,6 +486,13 @@ ja:
         gallstones_quantity: 胆石量
         gallstones_color: 胆石色
         gallstones_size: 胆石大きさ
+      internal_stomach_examination:
+        content_quantity: 内容物量(mL)
+        content_color: 内容物色
+        content_smell: 内容物におい
+        content_aspect: 内容物見た目
+        content_digestion: 消化の程度
+        rugae: 粘膜皺襞
     enums:
       coronary_artery:
         categories:
@@ -493,6 +505,11 @@ ja:
           right_ventricle: 右心室
           left_atrium: 左心房
           right_atrium: 右心房
+      internal_stomach_examination:
+        rugae:
+          persistent: 残る
+          not_persistent: 伸びる
+          unknown: 不明
   date:
     abbr_day_names:
     - 日
