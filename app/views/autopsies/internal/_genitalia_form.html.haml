@@ -1,0 +1,9 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_genitalia_examination' }, url: '') do |f|
+  = f.hidden_field :id
+  = f.number_field :length
+  = f.number_field :fundal_width
+  = f.number_field :cervical_width
+  = f.select :endometrium_color, translated_internal_genitalia_endometrium_colors
+  = f.select :ovaries_presence, translated_internal_genitalia_ovaries_presences
+  = f.number_field :ovaries_distance
+  = yield f
