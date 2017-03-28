@@ -17,8 +17,8 @@ LMML.loaders.autopsy = function () {
     httpVerb = 'post'
     updateAll = true
   } else {
-    updateUrl = `/autopsies/${LMML.autopsy_id()}/update`
-    httpVerb = 'put'
+    updateUrl = `/autopsies/${LMML.autopsy_id()}`
+    httpVerb = 'patch'
     updateAll = false
   }
   LMML.loadVueModel('autopsy', {

@@ -11,7 +11,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   var watch = {}
   var elementId = options.deixis ? `${model}_${options.deixis}` : model
   if (!options.httpVerb) {
-    options.httpVerb = 'put'
+    options.httpVerb = 'patch'
   }
   if (!options.updateUrl) {
     options.updateUrl = LMML.models_url(model)
