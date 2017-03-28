@@ -88,6 +88,9 @@ group :development do
 
   # Monitor queries to avoid N+1 query issues
   gem 'bullet'
+
+  # Haml generator
+  gem 'haml-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

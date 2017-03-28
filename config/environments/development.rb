@@ -56,5 +56,13 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.bullet_logger = true
     Bullet.rails_logger = true
-end
+  end
+
+  # Configure rails generators
+  config.generators do |g|
+    # Use HAML as default template engine
+    g.template_engine :haml
+    # Do not use coffee script, but plain JS files
+    g.javascript_engine :js
+  end
 end
