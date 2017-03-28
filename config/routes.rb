@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :autopsies do
     get :browse
-    put :update
+    post :preview
     get :edit_internal
     get :edit_analyses
     define_examination_routes = lambda { |category, part|
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
       define_examination_routes.call(:internal, part)
     end
   end
-  post 'autopsies/preview', to: 'autopsies#preview'
 
   resources :people, only: [:index]
 
