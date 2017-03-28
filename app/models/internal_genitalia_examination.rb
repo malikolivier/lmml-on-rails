@@ -15,9 +15,9 @@
 #
 
 class InternalGenitaliaExamination < ExaminationBase
-  enum endometrium_color: [:pale], _prefix: true
-  enum ovaries_presence: [:yes, :left_is_missing, :right_is_missing, :no],
-       _prefix: true
+  enum endometrium_color: [:unknown, :pale], _prefix: true
+  enum ovaries_presence: [:unknown, :yes, :left_is_missing, :right_is_missing,
+                          :no], _prefix: true
 
   def description
     description = ''
@@ -51,7 +51,7 @@ class InternalGenitaliaExamination < ExaminationBase
       when 'right_is_missing'
         '右卵巣は損失する。'
       when 'no'
-        '卵巣はない。'
+        '左右卵巣は損失する。'
       else
         "Unhandled ovaries_presence: #{ovaries_presence}"
       end
