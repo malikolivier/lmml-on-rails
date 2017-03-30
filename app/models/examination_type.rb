@@ -31,7 +31,16 @@ class ExaminationType < ApplicationRecord
     "#{category}_#{name}_examination"
   end
 
-  def self.by_name(name, category)
-    find_by!(name: name, category: category)
+  class << self
+    def by_name(name, category)
+      find_by!(name: name, category: category)
+    end
+
+    def all_names
+      path = Rails.root.join('test', 'fixtures', 'examination_types.yml')
+      YAML.load_file(path).map do |_, info|
+        "#{info['category']}_#{info['name']}_examination"
+      end
+    end
   end
 end

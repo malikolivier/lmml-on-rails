@@ -35,7 +35,7 @@ class AutopsiesController < ApplicationController
     respond_to do |format|
       if @autopsy.save
         format.html do
-          redirect_to action: :edit, id: @autopsy.id
+          redirect_to action: :edit_external, id: @autopsy.id
         end
         format.json { render :show, status: :created, location: @autopsy }
       else
@@ -72,10 +72,10 @@ class AutopsiesController < ApplicationController
     end
   end
 
-  # GET /autopsies/:autopsy_id/browse
+  # GET /autopsies/:id/browse
   def browse
     @autopsy = Autopsy.includes(:conclusions)
-                      .find(params[:autopsy_id])
+                      .find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -103,7 +103,7 @@ class AutopsiesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_autopsy
-    @autopsy = Autopsy.find(params[:id] || params[:autopsy_id])
+    @autopsy = Autopsy.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list

@@ -1,7 +1,7 @@
 class ExaminationsController < ApplicationController
   before_action :set_exam, only: [:update, :edit]
 
-  # POST /autopsies/:autopsy_id/***_examinations.json
+  # POST /autopsies/:id/***_examinations.json
   def create
     @exam = new_examination
     if @exam.save
@@ -11,7 +11,7 @@ class ExaminationsController < ApplicationController
     end
   end
 
-  # PUT /autopsies/:autopsy_id/***_examinations.json
+  # PUT /autopsies/:id/***_examinations.json
   def update
     if @exam.update(update_params)
       render_success
@@ -20,10 +20,10 @@ class ExaminationsController < ApplicationController
     end
   end
 
-  # GET /autopsies/:autopsy_id/***_examinations/edit
+  # GET /autopsies/:id/***_examinations/edit
   def edit; end
 
-  # GET /autopsies/:autopsy_id/***_examinations/new
+  # GET /autopsies/:id/***_examinations/new
   def new
     examination_type = ExaminationType.by_name(examination_name,
                                                examination_category)
@@ -52,7 +52,7 @@ class ExaminationsController < ApplicationController
       @exam = model_class.find(exam_params[:id])
       exam_params.delete(:id)
     else
-      autopsy = Autopsy.find(params[:autopsy_id])
+      autopsy = Autopsy.find(params[:id])
       @exam = model_class.joins(:examination)
                          .find_by(
                            examinations:
@@ -82,7 +82,7 @@ class ExaminationsController < ApplicationController
   end
 
   def new_examination
-    autopsy = Autopsy.find(params[:autopsy_id])
+    autopsy = Autopsy.find(params[:id])
     model_class.new(
       examination: Examination.create!(
         autopsy: autopsy,
