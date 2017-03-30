@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :autopsies do
-    get :browse
-    get :edit_internal
-    get :edit_analyses
+  resources :autopsies, except: :edit do
+    post :preview, on: :collection
+    member do
+      get :browse
+      get :edit_external
+      get :edit_internal
+      get :edit_analyses
+    end
     define_examination_routes = lambda { |category, part|
       key_string_plural = "#{category}_#{part}_examination".pluralize
       resources key_string_plural, only: [:create, :new]
@@ -28,7 +32,6 @@ Rails.application.routes.draw do
       define_examination_routes.call(:internal, part)
     end
   end
-  post 'autopsies/preview', to: 'autopsies#preview'
 
   resources :people, only: [:index]
 
