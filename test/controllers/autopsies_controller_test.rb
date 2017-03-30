@@ -32,7 +32,7 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
       post autopsies_url, params: @params
     end
 
-    assert_redirected_to edit_autopsy_url(Autopsy.last)
+    assert_redirected_to edit_external_autopsy_url(Autopsy.last)
   end
 
   test 'should show autopsy' do
@@ -40,8 +40,8 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get edit' do
-    get edit_autopsy_url(@autopsy)
+  test 'should get edit_external' do
+    get edit_external_autopsy_url(@autopsy)
     assert_response :success
   end
 
@@ -59,7 +59,7 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'browse autopsy' do
-    get "#{autopsy_url(@autopsy)}/browse"
+    get browse_autopsy_url(@autopsy)
     assert_response :success
   end
 end

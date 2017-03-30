@@ -2,16 +2,14 @@
   #leftCol.col-md-1.col-sm-2.col-xs-3
     %ul.nav.nav-stacked#sidebar
       %li.nav-item
-        %a.nav-big-item{href: '#autopsy_head'}= t '.title'
-      %li.nav-item
         .nav-big-item= t('section_title.external_examination')
       - ExaminationType.external.each do |examination_type|
         %li.nav-item
           %a{href: "##{examination_type.category}_#{examination_type.name}_examination_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
       %li.nav-item
-        = link_to t('section_title.internal_examination'), autopsy_edit_internal_path(@autopsy), class: 'nav-big-item'
+        = link_to t('section_title.internal_examination'), edit_internal_autopsy_path(@autopsy), class: 'nav-big-item'
       %li.nav-item
-        = link_to t('section_title.analyses_title'), autopsy_edit_analyses_path(@autopsy), class: 'nav-big-item'
+        = link_to t('section_title.analyses_title'), edit_analyses_autopsy_path(@autopsy), class: 'nav-big-item'
   #mainCol.col-md-11.col-sm-10.col-xs-9
     %h1#autopsy_head= t '.title'
 

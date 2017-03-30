@@ -20,7 +20,7 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id()}/${LMML.pluralize(model)}`
+    return `/autopsies/${LMML.autopsy_id()}/${model}`
   },
   add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)

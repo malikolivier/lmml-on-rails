@@ -1,6 +1,6 @@
 class AutopsiesController < ApplicationController
-  before_action :set_autopsy, only: [:show, :update, :edit_internal,
-                                     :edit_analyses, :destroy]
+  before_action :set_autopsy, only: [:show, :update, :edit_external,
+                                     :edit_internal, :edit_analyses, :destroy]
 
   # GET /autopsies
   # GET /autopsies.json
@@ -17,10 +17,8 @@ class AutopsiesController < ApplicationController
     @autopsy = Autopsy.new
   end
 
-  # GET /autopsies/1/edit
-  def edit
-    @autopsy = Autopsy.includes(:place).find(params[:id])
-  end
+  # GET /autopsies/1/edit_external
+  def edit_external; end
 
   # GET /autopsies/1/edit_internal
   def edit_internal; end
@@ -37,7 +35,7 @@ class AutopsiesController < ApplicationController
     respond_to do |format|
       if @autopsy.save
         format.html do
-          redirect_to action: :edit, id: @autopsy.id
+          redirect_to action: :edit_external, id: @autopsy.id
         end
         format.json { render :show, status: :created, location: @autopsy }
       else
@@ -74,10 +72,10 @@ class AutopsiesController < ApplicationController
     end
   end
 
-  # GET /autopsies/:autopsy_id/browse
+  # GET /autopsies/:id/browse
   def browse
     @autopsy = Autopsy.includes(:conclusions)
-                      .find(params[:autopsy_id])
+                      .find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
@@ -90,6 +88,7 @@ class AutopsiesController < ApplicationController
   end
 
   # POST /autopsies/preview
+  # Post autopsy data and return a textual description of the autopsy.
   def preview
     @autopsy = Autopsy.new(autopsy_params)
     setup_autopsy
@@ -104,7 +103,7 @@ class AutopsiesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_autopsy
-    @autopsy = Autopsy.find(params[:id] || params[:autopsy_id])
+    @autopsy = Autopsy.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list
