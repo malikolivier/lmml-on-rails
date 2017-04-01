@@ -19,6 +19,8 @@ class InternalLiverExamination < ExaminationBase
 
   has_one :gall_bladder, inverse_of: :internal_liver_examination
 
+  # TODO: Refactor
+  # rubocop:disable Metrics/LineLength
   def description
     description = ''
     description += "#{weight}g。" if weight.present?

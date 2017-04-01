@@ -23,7 +23,8 @@ class DualExamination
   def initialize(model_class, autopsy)
     @model = model_class
     @autopsy = autopsy
-    @examination_type = ExaminationType.by_name(examination_name, examination_category)
+    @examination_type = ExaminationType.by_name(examination_name,
+                                                examination_category)
     @exams = %i(left right).map do |deixis|
       model_class.joins(:examination)
                  .find_by(
@@ -35,7 +36,9 @@ class DualExamination
   end
 
   def update(params = {})
-    raise 'Expected "deixis" to be set to "left" of "right"' if params[:deixis].blank?
+    if params[:deixis].blank?
+      raise 'Expected "deixis" to be set to "left" of "right"'
+    end
     object = send(params[:deixis]).take
     if object.present?
       object.update(params)

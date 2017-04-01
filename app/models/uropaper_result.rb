@@ -16,7 +16,8 @@ class UropaperResult < ApplicationRecord
   enum category: Settings.uropaper_categories.keys
 
   def qualitative_result
-    Settings.uropaper_categories[category].values.keys[result] if result.present?
+    return if result.blank?
+    Settings.uropaper_categories[category].values.keys[result]
   end
 
   def descriptive_result

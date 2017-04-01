@@ -17,9 +17,12 @@ class AnalysisDiatomTest < ApplicationRecord
   has_many :diatom_counts, -> { order(:category) }
 
   def description
-    return '未記入な項目がございます。' if left_lung.quantity.blank? && right.quantity.blank?
-    "#{first_paragraph}
-  　<p>#{second_paragraph}</p>"
+    if left_lung.quantity.blank? && right.quantity.blank?
+      '未記入な項目がございます。'
+    else
+      "#{first_paragraph}
+    　<p>#{second_paragraph}</p>"
+    end
   end
 
   def left_lung
@@ -32,6 +35,8 @@ class AnalysisDiatomTest < ApplicationRecord
 
   private
 
+  # TODO: refactor
+  # rubocop:disable Metrics/LineLength
   def first_paragraph
     paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
     if right_lung.quantity == left_lung.quantity

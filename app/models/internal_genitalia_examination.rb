@@ -23,7 +23,9 @@ class InternalGenitaliaExamination < ExaminationBase
     description = ''
     description += '子宮に位置や形の異常なし。' if examination.injuries.none?
     description += uterus_dimension_description
-    description += "内膜は#{I18n.t("colors.#{endometrium_color}")}。" if endometrium_color.present?
+    if endometrium_color.present?
+      description += "内膜は#{I18n.t("colors.#{endometrium_color}")}。"
+    end
     description + ovaries_description
   end
 

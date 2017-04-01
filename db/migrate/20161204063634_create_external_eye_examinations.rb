@@ -17,6 +17,7 @@ class CreateExternalEyeExaminations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :external_eye_examinations, :external_face_examination_id, name: 'eye_on_face'
+    add_index :external_eye_examinations, :external_face_examination_id,
+              name: 'eye_on_face'
   end
 end

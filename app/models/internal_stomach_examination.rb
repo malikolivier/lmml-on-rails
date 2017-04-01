@@ -50,7 +50,8 @@ class InternalStomachExamination < ExaminationBase
   private
 
   def filled_stomach_description
-    digestion = content_digestion.present? ? I18n.t("digestion.#{content_digestion}") : ''
+    content_digestion_repr = I18n.t("digestion.#{content_digestion}")
+    digestion = content_digestion.present? ? content_digestion_repr : ''
     aspect = content_aspect.present? ? I18n.t("aspects.#{content_aspect}") : ''
     color = content_color.present? ? I18n.t("colors.#{content_color}") : ''
     quantity = content_quantity.present? ? "#{content_quantity}mL" : ''

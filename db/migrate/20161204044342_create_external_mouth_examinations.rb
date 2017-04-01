@@ -10,6 +10,7 @@ class CreateExternalMouthExaminations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :external_mouth_examinations, :external_face_examination_id, name: 'face'
+    add_index :external_mouth_examinations, :external_face_examination_id,
+              name: 'face'
   end
 end

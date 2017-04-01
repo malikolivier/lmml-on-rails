@@ -31,7 +31,8 @@ class InternalBladderExamination < ExaminationBase
   end
 
   def translated_transparency
-    urine_transparency.present? ? I18n.t("transparency.#{urine_transparency}") : ''
+    transparency = I18n.t("transparency.#{urine_transparency}")
+    urine_transparency.present? ? transparency : ''
   end
 
   def translated_quantity
@@ -43,7 +44,8 @@ class InternalBladderExamination < ExaminationBase
     if urine_quantity.zero?
       '空虚。'
     else
-      "内に#{translated_color}#{translated_transparency}尿#{translated_quantity}あり。"
+      "内に#{translated_color}#{translated_transparency}尿" \
+      "#{translated_quantity}あり。"
     end
   end
 end

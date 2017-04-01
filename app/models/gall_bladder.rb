@@ -45,6 +45,8 @@ class GallBladder < ApplicationRecord
     end
   end
 
+  # TODO: Refactor
+  # rubocop:disable Metrics/LineLength
   def gallstones_description
     if gallstones_quantity.blank?
       ''

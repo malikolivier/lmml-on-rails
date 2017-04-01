@@ -19,7 +19,8 @@ class Array
   end
 
   def to_sentence_with_comma
-    to_sentence(words_connector: '、', last_word_connector: '、', two_words_connector: '、')
+    to_sentence(words_connector: '、', last_word_connector: '、',
+                two_words_connector: '、')
   end
 
   def to_sentence_with_comma_and_full_stop

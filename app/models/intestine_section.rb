@@ -35,7 +35,8 @@ class IntestineSection < ApplicationRecord
     if quantity_none?
       "#{translated_name}に#{content_name}なし。"
     else
-      "#{translated_name}に#{translated_color}#{content_name}#{translated_quantity}量あり。"
+      "#{translated_name}に#{translated_color}" \
+      "#{content_name}#{translated_quantity}量あり。"
     end
   end
 end

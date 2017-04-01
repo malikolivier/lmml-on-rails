@@ -23,7 +23,8 @@ class AnalysisPoisoning < ApplicationRecord
              else
                '薬物が検出されなかった'
              end
-    "#{contract_description}本屍の血液について、#{chemical_analysis_method_description}をおこなった結果、#{result}旨報告を受けた#{date_description}。"
+    "#{contract_description}本屍の血液について、#{chemical_analysis_method_description}" \
+    "をおこなった結果、#{result}旨報告を受けた#{date_description}。"
   end
 
   def contract_description

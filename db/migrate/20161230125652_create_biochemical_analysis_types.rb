@@ -8,7 +8,8 @@ class CreateBiochemicalAnalysisTypes < ActiveRecord::Migration[5.0]
 
     reversible do |dir|
       dir.up do
-        BiochemicalAnalysisType.create_translation_table! title: :text, experiment_description: :text
+        BiochemicalAnalysisType
+          .create_translation_table! title: :text, experiment_description: :text
       end
       dir.down do
         BiochemicalAnalysisType.drop_translation_table!

@@ -14,6 +14,8 @@
 class AnalysisCarbonMonoxide < ApplicationRecord
   belongs_to :analysis, required: true
 
+  # TODO: Refactor
+  # rubocop:disable Metrics/LineLength
   def description
     results = []
     results.push("左心血で約#{left_heart_saturation}%") if left_heart_saturation.present?

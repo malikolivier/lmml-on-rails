@@ -66,7 +66,8 @@ class InternalHeartExamination < ExaminationBase
     end
   end
 
-  def heart_chambers_description # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  def heart_chambers_description
     return '' if heart_chambers.count.zero?
     grouped_heart_chambers = heart_chambers.group_by(&:size)
     chamber_descriptions = []

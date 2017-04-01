@@ -13,5 +13,6 @@ class Organ < ApplicationRecord
   has_many :organ_examinations
   has_many :examination_types, through: :organ_examinations
 
-  scope :subject_to_histopathology_analysis, -> { where(subject_to_histopathology_analysis: true) }
+  scope :subject_to_histopathology_analysis,
+        -> { where(subject_to_histopathology_analysis: true) }
 end

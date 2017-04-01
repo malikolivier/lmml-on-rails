@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       get :edit_external, :edit_internal, :edit_analyses
       ExaminationType.all_names.each do |examination_name|
         resource examination_name, only: %i(create update)
-        # new and edit routes are used for independent debugging of examination forms
+        # new and edit routes are used for independent debugging of
+        # examination forms
         resource examination_name, only: %i(new edit) if Rails.env.development?
       end
     end
