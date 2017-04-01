@@ -13,8 +13,8 @@
 class DiatomCount < ApplicationRecord
   belongs_to :analysis_diatom_test, required: true
 
-  enum category: [:water_no_destruction, :water_with_destruction,
-                  :left_lung, :right_lung]
+  enum category: %i(water_no_destruction water_with_destruction
+                    left_lung right_lung)
   enum quantity: Settings.enums.five_scale_quantity, _prefix: true
 
   def translated_quantity

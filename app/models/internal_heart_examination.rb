@@ -26,7 +26,7 @@ class InternalHeartExamination < ExaminationBase
   enum epicardial_lipomatosis: Settings.enums.existence, _prefix: true
   enum epicardial_petechia: Settings.enums.five_scale_quantity, _prefix: true
   # dark red: 暗赤色, florid: 鮮紅色
-  enum extracted_blood_color: [:dark_red, :florid], _prefix: true
+  enum extracted_blood_color: %i(dark_red florid), _prefix: true
   enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true
 
   has_many :coronary_arteries, -> { order(:category) },

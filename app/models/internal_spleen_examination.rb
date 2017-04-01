@@ -15,7 +15,7 @@
 class InternalSpleenExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum pulp_distinct: [:clear, :unclear, :unknown], _prefix: true
+  enum pulp_distinct: %i(clear unclear unknown), _prefix: true
 
   def description
     description = ''

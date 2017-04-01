@@ -36,7 +36,7 @@ class Person < ApplicationRecord
   end
 
   def institution_name
-    institution.name unless institution.blank?
+    institution.name if institution.present?
   end
 
   scope :been_examiner, lambda {

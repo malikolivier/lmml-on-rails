@@ -19,3 +19,7 @@ Style/FrozenStringLiteralComment:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/**
+
+Metrics/LineLength:
+  Exclude:
+    - spec/teaspoon_env.rb

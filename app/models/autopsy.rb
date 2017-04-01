@@ -69,11 +69,11 @@ class Autopsy < ApplicationRecord # rubocop:disable ClassLength
   end
 
   def victim_name
-    victim.name unless victim.blank?
+    victim.name if victim.present?
   end
 
   def suspect_name
-    suspect.name unless suspect.blank?
+    suspect.name if suspect.present?
   end
 
   def introduction_text

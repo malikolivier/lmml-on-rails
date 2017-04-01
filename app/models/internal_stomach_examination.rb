@@ -15,13 +15,13 @@
 #
 
 class InternalStomachExamination < ExaminationBase
-  enum content_color: [:unknown, :yellow, :green], _prefix: 'color'
-  enum content_smell: [:unknown, :putrid, :acid], _prefix: 'smell'
-  enum content_aspect: [:unknown, :watery], _prefix: 'aspect'
-  enum content_digestion: [:unknown, :not_digested, :digested, :partly_digested],
+  enum content_color: %i(unknown yellow green), _prefix: 'color'
+  enum content_smell: %i(unknown putrid acid), _prefix: 'smell'
+  enum content_aspect: %i(unknown watery), _prefix: 'aspect'
+  enum content_digestion: %i(unknown not_digested digested partly_digested),
        _prefix: 'content'
 
-  enum rugae: [:unknown, :persistent, :not_persistent], _prefix: true
+  enum rugae: %i(unknown persistent not_persistent), _prefix: true
 
   def description
     "#{content_description}#{rugae_description}"

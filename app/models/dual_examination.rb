@@ -24,7 +24,7 @@ class DualExamination
     @model = model_class
     @autopsy = autopsy
     @examination_type = ExaminationType.by_name(examination_name, examination_category)
-    @exams = [:left, :right].map do |deixis|
+    @exams = %i(left right).map do |deixis|
       model_class.joins(:examination)
                  .find_by(
                    deixis: deixis,
@@ -50,7 +50,7 @@ class DualExamination
 
   def errors
     full_messages = []
-    [:left, :right].each do |deixis|
+    %i(left right).each do |deixis|
       obj = send(deixis).take
       next if obj.try(:errors).blank?
       full_messages.push("#{deixis.capitalize}: #{obj.errors.full_messages}")
@@ -84,7 +84,7 @@ class DualExamination
     def take
       @object
     end
-    alias_method :first, :take
+    alias first take
   end
 
   class DualExaminationError

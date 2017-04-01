@@ -1,5 +1,5 @@
 class ExaminationsController < ApplicationController
-  before_action :set_exam, only: [:update, :edit]
+  before_action :set_exam, only: %i(update edit)
 
   # POST /autopsies/:id/***_examinations.json
   def create

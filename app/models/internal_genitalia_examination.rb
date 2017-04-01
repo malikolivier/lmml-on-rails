@@ -15,9 +15,9 @@
 #
 
 class InternalGenitaliaExamination < ExaminationBase
-  enum endometrium_color: [:unknown, :pale], _prefix: true
-  enum ovaries_presence: [:unknown, :yes, :left_is_missing, :right_is_missing,
-                          :no], _prefix: true
+  enum endometrium_color: %i(unknown pale), _prefix: true
+  enum ovaries_presence: %i(unknown yes left_is_missing right_is_missing
+                            no), _prefix: true
 
   def description
     description = ''
