@@ -28,7 +28,7 @@ class AutopsiesController < ApplicationController
 
   # POST /autopsies
   # POST /autopsies.json
-  def create
+  def create # rubocop:disable AbcSize, MethodLength # TODO
     @autopsy = Autopsy.new(autopsy_params)
     setup_autopsy
 
@@ -73,7 +73,7 @@ class AutopsiesController < ApplicationController
   end
 
   # GET /autopsies/:id/browse
-  def browse
+  def browse # rubocop:disable MethodLength # TODO
     @autopsy = Autopsy.includes(:conclusions)
                       .find(params[:id])
     respond_to do |format|
@@ -108,7 +108,7 @@ class AutopsiesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list
   # through.
-  def autopsy_params
+  def autopsy_params # rubocop:disable MethodLength
     params.require(:autopsy)
           .permit(:completed, :number, :conclusion,
                   :suspect_id, :victim_id, :place_id,

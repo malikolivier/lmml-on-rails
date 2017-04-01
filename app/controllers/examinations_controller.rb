@@ -46,7 +46,7 @@ class ExaminationsController < ApplicationController
           .permit(examination_attributes: [:note])
   end
 
-  def set_exam
+  def set_exam # rubocop:disable MethodLength, AbcSize # TODO
     exam_params = params[controller_name.singularize]
     if exam_params.present? && exam_params[:id].present?
       @exam = model_class.find(exam_params[:id])

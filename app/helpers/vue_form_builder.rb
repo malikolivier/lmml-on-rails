@@ -62,6 +62,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     wrap_with_label(method, input_html, label_options)
   end
 
+  # rubocop:disable Metrics/MethodLength # TODO
   def range_field(method, options = {}, unknown_value = -1)
     options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)

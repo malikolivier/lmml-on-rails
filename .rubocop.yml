@@ -19,7 +19,19 @@ Style/FrozenStringLiteralComment:
 Metrics/MethodLength:
   Exclude:
     - db/migrate/**
+    # TODO: method length in models sould be fixed!
+    - app/models/**
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/**
+    # TODO: abc size in models sould be fixed!
+    - app/models/**
 
 Metrics/LineLength:
   Exclude:
     - spec/teaspoon_env.rb
+
+# Below are TODO, these cops should be fixed!
+# Offense count: 252
+Style/Documentation:
+  Enabled: false
