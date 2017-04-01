@@ -39,7 +39,8 @@ class AutopsyTest < ActiveSupport::TestCase
                                 .order('`analysis_others`.`placement`')
                                 .to_a
     complete_autopsy.ordered_analyses.each_with_index do |analysis, i|
-      assert_equal(analysis.id, ordered_analyses[i].id, "#{i}th elements are equal")
+      assert_equal(analysis.id, ordered_analyses[i].id,
+                   "#{i}th elements are equal")
     end
   end
 end
