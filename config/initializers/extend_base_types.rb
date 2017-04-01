@@ -5,7 +5,7 @@ class String
   end
 end
 
-class Fixnum
+class Integer
   def to_full_width
     self.to_s.to_full_width
   end
