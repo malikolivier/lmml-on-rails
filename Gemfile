@@ -49,8 +49,8 @@ gem 'htmltoword'
 # Bootstrap CSS framework
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use vue's JS framework
-gem 'vuejs-rails'
 gem 'lodash-rails'
+gem 'vuejs-rails'
 
 # Translate model's field with globalize
 # TODO: update to the stable release when it is released officially for rails 5
@@ -60,24 +60,24 @@ group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
   gem 'pry-rails'
-  gem 'pry-doc'
+  gem 'pry-doc' # rubocop:disable Bundler/OrderedGems
   gem 'pry-remote'
-  gem 'pry-nav'
+  gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
   # Linter
   gem 'rubocop'
 
   # Javascript test framework
-  gem 'teaspoon-jasmine'
-  gem 'phantomjs'
   gem 'magic_lamp'
+  gem 'phantomjs'
+  gem 'teaspoon-jasmine'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -94,4 +94,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
