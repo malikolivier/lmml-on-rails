@@ -65,7 +65,7 @@ group :development, :test do
   gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
   # Linter
-  gem 'rubocop'
+  gem 'rubocop', github: 'bbatsov/rubocop', ref: 'f099043'
 
   # Javascript test framework
   gem 'magic_lamp'
