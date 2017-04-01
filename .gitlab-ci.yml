@@ -1,4 +1,4 @@
-image: lmml/on-rails-ci
+image: lmml/on-rails-ci:170402
 
 before_script:
   - ruby -v
