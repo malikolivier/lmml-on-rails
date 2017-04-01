@@ -36,9 +36,9 @@ class AnalysisDiatomTest < ApplicationRecord
     paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
     if right_lung.quantity == left_lung.quantity
       if left_lung.found?
-        paragraph += "肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
+        "#{paragraph}肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
       else
-        paragraph += '肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。'
+        "#{paragraph}肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。"
       end
     else
       phrases = []
