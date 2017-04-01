@@ -15,15 +15,17 @@
 #
 
 class InternalGenitaliaExamination < ExaminationBase
-  enum endometrium_color: [:unknown, :pale], _prefix: true
-  enum ovaries_presence: [:unknown, :yes, :left_is_missing, :right_is_missing,
-                          :no], _prefix: true
+  enum endometrium_color: %i(unknown pale), _prefix: true
+  enum ovaries_presence: %i(unknown yes left_is_missing right_is_missing
+                            no), _prefix: true
 
   def description
     description = ''
     description += '子宮に位置や形の異常なし。' if examination.injuries.none?
     description += uterus_dimension_description
-    description += "内膜は#{I18n.t("colors.#{endometrium_color}")}。" if endometrium_color.present?
+    if endometrium_color.present?
+      description += "内膜は#{I18n.t("colors.#{endometrium_color}")}。"
+    end
     description + ovaries_description
   end
 

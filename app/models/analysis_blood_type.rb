@@ -18,11 +18,12 @@ class AnalysisBloodType < ApplicationRecord
   enum anti_a: Settings.enums.tests.binary_result, _prefix: true
   enum anti_b: Settings.enums.tests.binary_result, _prefix: true
   enum anti_h: Settings.enums.tests.binary_result, _prefix: true
-  enum blood_type: [:A, :B, :O, :AB, :unknown]
+  enum blood_type: %i(A B O AB unknown)
 
   def description
     return '未記入な項目がございます。' if tried_antibodies.empty?
-    description = "心臓血の一部を生理食塩水でよく洗い、遠心分離した血球の微量をホールグラス上で#{tried_antibodies.join('・')}血清と反応させたところ、"
+    description = '心臓血の一部を生理食塩水でよく洗い、遠心分離した血球の微量をホールグラス上で' \
+                  "#{tried_antibodies.join('・')}血清と反応させたところ、"
     if positive_tries.any?
       description += "#{positive_tries.join('・')}血清とは明らかに陽性の凝集反応を示したが、"
     else

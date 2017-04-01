@@ -17,8 +17,8 @@
 #
 
 class Injury < ApplicationRecord
-  enum time_sustained: [:pre_mortem, :post_mortem, :unknown]
-  enum injury_type: [:abrasion, :bruise, :laceration, :incision, :gun, :other]
+  enum time_sustained: %i(pre_mortem post_mortem unknown)
+  enum injury_type: %i(abrasion bruise laceration incision gun other)
 
   belongs_to :examination
   belongs_to :body_area

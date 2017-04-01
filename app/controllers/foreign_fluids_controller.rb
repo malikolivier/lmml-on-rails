@@ -14,7 +14,7 @@ class ForeignFluidsController < ExaminationNestedModelsController
   end
 
   def create_face_foreign_fluids
-    return unless params[:external_face_examination_id].present?
+    return if params[:external_face_examination_id].blank?
     exam = ExternalFaceExamination.find(params[:external_face_examination_id])
     if exam.external_mouth_examination.blank?
       @external_mouth_examination = exam.create_external_mouth_examination!
@@ -23,7 +23,7 @@ class ForeignFluidsController < ExaminationNestedModelsController
   end
 
   def create_lungs_foreign_fluids
-    return unless params[:internal_lungs_examination_id].present?
+    return if params[:internal_lungs_examination_id].blank?
     exam = InternalLungsExamination.find(params[:internal_lungs_examination_id])
     exam.foreign_fluids.push(@nested_model)
   end

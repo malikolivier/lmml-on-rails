@@ -32,7 +32,7 @@ class AnalysisHistopathologyOnOrgan < ApplicationRecord
   private
 
   def organ?
-    return unless retrieve_organ.blank?
+    return if retrieve_organ.present?
     errors.add(:organ_missing,
                "At least one of 'organ' or 'other_organ' must be filled")
   end

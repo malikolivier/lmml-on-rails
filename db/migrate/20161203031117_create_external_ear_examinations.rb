@@ -8,6 +8,7 @@ class CreateExternalEarExaminations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :external_ear_examinations, :external_head_examination_id, name: 'ear'
+    add_index :external_ear_examinations, :external_head_examination_id,
+              name: 'ear'
   end
 end

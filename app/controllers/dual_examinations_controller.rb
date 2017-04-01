@@ -1,5 +1,5 @@
 class DualExaminationsController < ExaminationsController
-  before_action :deixis!, only: [:update, :create]
+  before_action :deixis!, only: %i(update create)
 
   # POST /autopsies/:id/***_examinations.json
   def create

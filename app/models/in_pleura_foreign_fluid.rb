@@ -1,3 +1,4 @@
+# rubocop:disable LineLength
 # == Schema Information
 #
 # Table name: in_pleura_foreign_fluids
@@ -8,6 +9,7 @@
 #  created_at                             :datetime         not null
 #  updated_at                             :datetime         not null
 #
+# rubocop:enable LineLength
 
 class InPleuraForeignFluid < ApplicationRecord
   belongs_to :internal_abdominal_wall_examination

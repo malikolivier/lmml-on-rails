@@ -9,6 +9,7 @@ module VueFormBuilderHelper
     options
   end
 
+  # rubocop:disable Metrics/MethodLength # TODO
   def wrap_with_label(object_name, input_html, options = {})
     label_name = options[:label_name]
     if label_name.nil?

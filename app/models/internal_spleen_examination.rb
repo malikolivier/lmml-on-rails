@@ -15,7 +15,7 @@
 class InternalSpleenExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
   enum congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum pulp_distinct: [:clear, :unclear, :unknown], _prefix: true
+  enum pulp_distinct: %i(clear unclear unknown), _prefix: true
 
   def description
     description = ''
@@ -23,7 +23,9 @@ class InternalSpleenExamination < ExaminationBase
     phrases.push("硬度は#{I18n.t "hardness.#{hardness}"}") if hardness.present?
     phrases.push("鬱血#{I18n.t "intensity.#{congestion}"}") if congestion.present?
     description += phrases.to_sentence_with_comma_and_full_stop
-    description += "赤脾髄・白脾髄の別は#{I18n.t "clarity.#{pulp_distinct}"}。" if pulp_distinct.present?
+    if pulp_distinct.present?
+      description += "赤脾髄・白脾髄の別は#{I18n.t "clarity.#{pulp_distinct}"}。"
+    end
     description
   end
 end

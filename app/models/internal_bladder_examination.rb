@@ -13,10 +13,10 @@
 #
 
 class InternalBladderExamination < ExaminationBase
-  enum urine_color: [:unknown, :yellowish, :yellow, :amber, :red,
-                     :brown], _prefix: true
-  enum urine_transparency: [:unknown, :transparent, :opaque], _prefix: 'urine'
-  enum membrane_color: [:unknown, :pale], _prefix: true
+  enum urine_color: %i(unknown yellowish yellow amber red
+                       brown), _prefix: true
+  enum urine_transparency: %i(unknown transparent opaque), _prefix: 'urine'
+  enum membrane_color: %i(unknown pale), _prefix: true
 
   def description
     description = content_description
@@ -31,7 +31,8 @@ class InternalBladderExamination < ExaminationBase
   end
 
   def translated_transparency
-    urine_transparency.present? ? I18n.t("transparency.#{urine_transparency}") : ''
+    transparency = I18n.t("transparency.#{urine_transparency}")
+    urine_transparency.present? ? transparency : ''
   end
 
   def translated_quantity
@@ -43,7 +44,8 @@ class InternalBladderExamination < ExaminationBase
     if urine_quantity.zero?
       '空虚。'
     else
-      "内に#{translated_color}#{translated_transparency}尿#{translated_quantity}あり。"
+      "内に#{translated_color}#{translated_transparency}尿" \
+      "#{translated_quantity}あり。"
     end
   end
 end

@@ -1,5 +1,5 @@
 class ExaminationsController < ApplicationController
-  before_action :set_exam, only: [:update, :edit]
+  before_action :set_exam, only: %i(update edit)
 
   # POST /autopsies/:id/***_examinations.json
   def create
@@ -46,7 +46,7 @@ class ExaminationsController < ApplicationController
           .permit(examination_attributes: [:note])
   end
 
-  def set_exam
+  def set_exam # rubocop:disable MethodLength, AbcSize # TODO
     exam_params = params[controller_name.singularize]
     if exam_params.present? && exam_params[:id].present?
       @exam = model_class.find(exam_params[:id])

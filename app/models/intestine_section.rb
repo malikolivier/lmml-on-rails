@@ -14,8 +14,8 @@
 class IntestineSection < ApplicationRecord
   belongs_to :internal_intestines_examination, required: true
 
-  enum category: [:duodenum, :jejunum, :ileum, :colon]
-  enum color: [:yellowish, :yellow_green, :dark_brown], _prefix: true
+  enum category: %i(duodenum jejunum ileum colon)
+  enum color: %i(yellowish yellow_green dark_brown), _prefix: true
   enum quantity: Settings.enums.five_scale_mass_quantity, _prefix: true
 
   def translated_name
@@ -35,7 +35,8 @@ class IntestineSection < ApplicationRecord
     if quantity_none?
       "#{translated_name}に#{content_name}なし。"
     else
-      "#{translated_name}に#{translated_color}#{content_name}#{translated_quantity}量あり。"
+      "#{translated_name}に#{translated_color}" \
+      "#{content_name}#{translated_quantity}量あり。"
     end
   end
 end

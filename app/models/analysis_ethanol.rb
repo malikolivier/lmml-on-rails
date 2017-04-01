@@ -20,8 +20,8 @@ class AnalysisEthanol < ApplicationRecord
   before_save :set_found
 
   def set_found
-    self.found = (heart_concentration.present? && heart_concentration.positive?) ||
-                 (iliac_vein_concentration.present? && iliac_vein_concentration.positive?)
+    self.found = heart_concentration_positive? ||
+                 iliac_vein_concentration_positive?
     true # Return true to show success
   end
 
@@ -35,7 +35,9 @@ class AnalysisEthanol < ApplicationRecord
              else
                'エタノールは検出されなかった'
              end
-    "#{contract_description}本屍の心臓・総腸骨静脈血について、気化平衡法によるガスクロマトグラフィーによりエタノールの定量試験をおこなったところ、#{result}旨報告を受けた#{date_description}。"
+    "#{contract_description}本屍の心臓・総腸骨静脈血について、" \
+    '気化平衡法によるガスクロマトグラフィーによりエタノールの定量試験をおこなったところ、' \
+    "#{result}旨報告を受けた#{date_description}。"
   end
 
   def contract_description
@@ -44,5 +46,13 @@ class AnalysisEthanol < ApplicationRecord
 
   def date_description
     "（#{date.to_era('%O%E年%m月%d日')}）" if date.present?
+  end
+
+  def heart_concentration_positive?
+    heart_concentration.present? && heart_concentration.positive?
+  end
+
+  def iliac_vein_concentration_positive?
+    iliac_vein_concentration.present? && iliac_vein_concentration.positive?
   end
 end

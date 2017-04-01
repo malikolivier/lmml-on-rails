@@ -6,6 +6,7 @@ class CreateMouthPhotographTakings < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :mouth_photograph_takings, :external_mouth_examination_id, name: 'mouth_has_photograph'
+    add_index :mouth_photograph_takings, :external_mouth_examination_id,
+              name: 'mouth_has_photograph'
   end
 end

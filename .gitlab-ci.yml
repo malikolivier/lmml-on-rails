@@ -1,11 +1,11 @@
-image: localhost:5000/lmml
+image: lmml/on-rails-ci:170402
 
 before_script:
   - ruby -v
   - which ruby
   - node -v
   - which node
-  - bundle install --jobs $(nproc)  "${FLAGS[@]}"
+  - bundle install --jobs $(nproc) "${FLAGS[@]}"
   - npm install
 
 rubocop:
@@ -24,7 +24,7 @@ js_test:
   script:
     # Reset database for tests
     - bundle exec rails db:clean
-    # Makes the test always succesful. For unknown reasons, the test is succesful
+    # Makes the test always succesful. For unknown reasons, the test is successful
     # in the real browser (http://localhost:3000/teaspoon/default), but fails
     # with phantomjs
     - bundle exec teaspoon || true

@@ -10,5 +10,5 @@
 #
 
 class ExternalTrunkExamination < ExaminationBase
-  enum abdominal_discoloration: [:no_discoloration, :discolored, :unknown]
+  enum abdominal_discoloration: %i(no_discoloration discolored unknown)
 end

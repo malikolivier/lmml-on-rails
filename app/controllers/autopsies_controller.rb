@@ -1,6 +1,6 @@
 class AutopsiesController < ApplicationController
-  before_action :set_autopsy, only: [:show, :update, :edit_external,
-                                     :edit_internal, :edit_analyses, :destroy]
+  before_action :set_autopsy, only: %i(show update edit_external
+                                       edit_internal edit_analyses destroy)
 
   # GET /autopsies
   # GET /autopsies.json
@@ -28,7 +28,7 @@ class AutopsiesController < ApplicationController
 
   # POST /autopsies
   # POST /autopsies.json
-  def create
+  def create # rubocop:disable AbcSize, MethodLength # TODO
     @autopsy = Autopsy.new(autopsy_params)
     setup_autopsy
 
@@ -73,7 +73,7 @@ class AutopsiesController < ApplicationController
   end
 
   # GET /autopsies/:id/browse
-  def browse
+  def browse # rubocop:disable MethodLength # TODO
     @autopsy = Autopsy.includes(:conclusions)
                       .find(params[:id])
     respond_to do |format|
@@ -108,7 +108,7 @@ class AutopsiesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list
   # through.
-  def autopsy_params
+  def autopsy_params # rubocop:disable MethodLength
     params.require(:autopsy)
           .permit(:completed, :number, :conclusion,
                   :suspect_id, :victim_id, :place_id,
@@ -116,9 +116,9 @@ class AutopsiesController < ApplicationController
                   :police_station_id, :police_inspector_id,
                   :court_id, :judge_id, :examiner_id,
                   :autopsy_type_id,
-                  suspect_attributes: [:id, :name],
-                  victim_attributes: [:id, :name, :death_age, :sex],
-                  place_attributes: [:name, :address, :autopsy_room],
+                  suspect_attributes: %i(id name),
+                  victim_attributes: %i(id name death_age sex),
+                  place_attributes: %i(name address autopsy_room),
                   examiner_attributes: [:name],
                   police_inspector_attributes: [:name],
                   police_station_attributes: [:name],
@@ -128,7 +128,7 @@ class AutopsiesController < ApplicationController
 
   def setup_autopsy
     @autopsy.court ||= @autopsy.judge.institution if @autopsy.judge.present?
-    return unless @autopsy.police_inspector.present?
+    return if @autopsy.police_inspector.blank?
     @autopsy.police_station ||= @autopsy.police_inspector.institution
   end
 end

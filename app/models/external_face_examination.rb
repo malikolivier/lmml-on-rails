@@ -18,10 +18,10 @@ class ExternalFaceExamination < ExaminationBase
   has_many :external_eye_examinations, -> { order(:deixis) },
            inverse_of: :external_face_examination
 
-  alias_method :eyes, :external_eye_examinations
+  alias eyes external_eye_examinations
 
   has_one :external_mouth_examination, inverse_of: :external_face_examination
-  alias_method :mouth, :external_mouth_examination
+  alias mouth external_mouth_examination
 
   accepts_nested_attributes_for :external_eye_examinations,
                                 reject_if: :all_blank

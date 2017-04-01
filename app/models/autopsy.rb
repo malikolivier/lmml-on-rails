@@ -22,7 +22,8 @@
 #  updated_at          :datetime         not null
 #
 
-class Autopsy < ApplicationRecord # rubocop:disable ClassLength
+# rubocop:disable ClassLength, Metrics/LineLength
+class Autopsy < ApplicationRecord
   belongs_to :autopsy_type
   belongs_to :examiner, class_name: Person, counter_cache: :autopsies_examiners_count
   belongs_to :suspect, class_name: Person, counter_cache: :autopsies_suspects_count
@@ -69,11 +70,11 @@ class Autopsy < ApplicationRecord # rubocop:disable ClassLength
   end
 
   def victim_name
-    victim.name unless victim.blank?
+    victim.name if victim.present?
   end
 
   def suspect_name
-    suspect.name unless suspect.blank?
+    suspect.name if suspect.present?
   end
 
   def introduction_text

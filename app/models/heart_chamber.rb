@@ -13,8 +13,8 @@
 class HeartChamber < ApplicationRecord
   belongs_to :internal_heart_examination, required: true
 
-  enum category: [:left_ventricle, :right_ventricle,
-                  :left_atrium, :right_atrium]
+  enum category: %i(left_ventricle right_ventricle
+                    left_atrium right_atrium)
   enum size: Settings.enums.size, _prefix: true
 
   def part_name

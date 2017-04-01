@@ -26,7 +26,7 @@ class InternalHeartExamination < ExaminationBase
   enum epicardial_lipomatosis: Settings.enums.existence, _prefix: true
   enum epicardial_petechia: Settings.enums.five_scale_quantity, _prefix: true
   # dark red: 暗赤色, florid: 鮮紅色
-  enum extracted_blood_color: [:dark_red, :florid], _prefix: true
+  enum extracted_blood_color: %i(dark_red florid), _prefix: true
   enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true
 
   has_many :coronary_arteries, -> { order(:category) },
@@ -66,7 +66,8 @@ class InternalHeartExamination < ExaminationBase
     end
   end
 
-  def heart_chambers_description # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  # rubocop:disable CyclomaticComplexity, PerceivedComplexity
+  def heart_chambers_description
     return '' if heart_chambers.count.zero?
     grouped_heart_chambers = heart_chambers.group_by(&:size)
     chamber_descriptions = []

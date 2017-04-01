@@ -12,6 +12,6 @@
 #
 
 class InjurySize < ApplicationRecord
-  enum shape: [:longitudinal, :round, :undefined]
+  enum shape: %i(longitudinal round undefined)
   belongs_to :in_body_orientation
 end

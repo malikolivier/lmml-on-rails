@@ -13,11 +13,11 @@
 class Molecule < ApplicationRecord
   translates :name
 
-  enum unit: [:%, :'μmol/L']
+  enum unit: %i(% μmol/L)
 
   def standard_description # rubocop:disable Metrics/CyclomaticComplexity
     mask = 0b0
-    mask += standard_quantity_min.present? && !standard_quantity_min.zero? ? 1 : 0
+    mask += standard_quantity_min_is_zero? ? 1 : 0
     mask += standard_quantity_max.present? ? 1 : 0
     case mask
     when 0b00
@@ -29,5 +29,11 @@ class Molecule < ApplicationRecord
     when 0b11
       "#{standard_quantity_min}〜#{standard_quantity_max}#{unit}"
     end
+  end
+
+  private
+
+  def standard_quantity_min_is_zero?
+    standard_quantity_min.present? && !standard_quantity_min.zero?
   end
 end

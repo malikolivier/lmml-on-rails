@@ -12,14 +12,17 @@
 class AnalysisDiatomTest < ApplicationRecord
   belongs_to :analysis, required: true
 
-  enum conclusion: [:contradiction, :no_contradiction, :impossible_to_conclude]
+  enum conclusion: %i(contradiction no_contradiction impossible_to_conclude)
 
   has_many :diatom_counts, -> { order(:category) }
 
   def description
-    return '未記入な項目がございます。' if left_lung.quantity.blank? && right.quantity.blank?
-    "#{first_paragraph}
-  　<p>#{second_paragraph}</p>"
+    if left_lung.quantity.blank? && right.quantity.blank?
+      '未記入な項目がございます。'
+    else
+      "#{first_paragraph}
+    　<p>#{second_paragraph}</p>"
+    end
   end
 
   def left_lung
@@ -32,13 +35,15 @@ class AnalysisDiatomTest < ApplicationRecord
 
   private
 
+  # TODO: refactor
+  # rubocop:disable Metrics/LineLength
   def first_paragraph
     paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
     if right_lung.quantity == left_lung.quantity
       if left_lung.found?
-        paragraph += "肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
+        "#{paragraph}肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
       else
-        paragraph += '肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。'
+        "#{paragraph}肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。"
       end
     else
       phrases = []

@@ -16,11 +16,11 @@
 class GallBladder < ApplicationRecord
   belongs_to :internal_liver_examination, required: true
 
-  enum bile_color: [:dark_green, :yellowish, :brown], _prefix: 'bile'
+  enum bile_color: %i(dark_green yellowish brown), _prefix: 'bile'
   enum bile_quantity: Settings.enums.five_scale_mass_quantity, _prefix: 'bile'
   enum gallstones_quantity: Settings.enums.five_scale_quantity,
        _prefix: 'gallstones'
-  enum gallstones_color: [:yellow, :yellow_green, :green, :brown],
+  enum gallstones_color: %i(yellow yellow_green green brown),
        _prefix: 'gallstones'
   enum gallstones_size: Settings.enums.size,
        _prefix: 'gallstones'
@@ -45,6 +45,8 @@ class GallBladder < ApplicationRecord
     end
   end
 
+  # TODO: Refactor
+  # rubocop:disable Metrics/LineLength
   def gallstones_description
     if gallstones_quantity.blank?
       ''

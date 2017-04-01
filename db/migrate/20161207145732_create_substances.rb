@@ -1,8 +1,6 @@
 class CreateSubstances < ActiveRecord::Migration[5.0]
   def change
-    create_table :substances do |t|
-      t.timestamps
-    end
+    create_table :substances, &:timestamps
 
     reversible do |dir|
       dir.up do
