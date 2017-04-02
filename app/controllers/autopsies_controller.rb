@@ -1,6 +1,7 @@
 class AutopsiesController < ApplicationController
   before_action :set_autopsy, only: %i(show update edit_external
                                        edit_internal edit_analyses destroy)
+  before_action :set_default_request_format, only: :update
 
   # GET /autopsies
   # GET /autopsies.json
@@ -47,17 +48,10 @@ class AutopsiesController < ApplicationController
     end
   end
 
-  # PUT /autopsies/1
+  # PATCH /autopsies/1
   def update
-    if @autopsy.update(autopsy_params)
-      html_preview = render_to_string 'preview', layout: false
-      render json: {
-        model: @autopsy,
-        description: html_preview
-      }
-    else
-      render json: { errors: @autopsy.errors.full_messages }, status: 422
-    end
+    return if @autopsy.update(autopsy_params)
+    render json: { errors: @autopsy.errors.full_messages }, status: 422
   end
 
   # DELETE /autopsies/1
@@ -70,33 +64,6 @@ class AutopsiesController < ApplicationController
       end
       format.json { head :no_content }
     end
-  end
-
-  # GET /autopsies/:id/browse
-  def browse # rubocop:disable MethodLength # TODO
-    @autopsy = Autopsy.includes(:conclusions)
-                      .find(params[:id])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: 'autopsy', template: 'autopsies/browse.html.erb'
-      end
-      format.docx do
-        render docx: 'autopsy', template: 'autopsies/browse.html.erb'
-      end
-    end
-  end
-
-  # POST /autopsies/preview
-  # Post autopsy data and return a textual description of the autopsy.
-  def preview
-    @autopsy = Autopsy.new(autopsy_params)
-    setup_autopsy
-    html_preview = render_to_string 'preview', layout: false
-    render json: {
-      model: @autopsy,
-      description: html_preview
-    }
   end
 
   private
@@ -130,5 +97,9 @@ class AutopsiesController < ApplicationController
     @autopsy.court ||= @autopsy.judge.institution if @autopsy.judge.present?
     return if @autopsy.police_inspector.blank?
     @autopsy.police_station ||= @autopsy.police_inspector.institution
+  end
+
+  def set_default_request_format
+    request.format = :json unless params[:format]
   end
 end
