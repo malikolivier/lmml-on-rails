@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :autopsies, except: :edit do
-    post :preview, on: :collection
+    collection do
+      post :preview, to: 'autopsies/preview#show'
+    end
     member do
-      get :browse
+      get :browse, to: 'autopsies/browse#show'
       get :edit_external, :edit_internal, :edit_analyses
       ExaminationType.all_names.each do |examination_name|
         resource examination_name, only: %i(create update)
