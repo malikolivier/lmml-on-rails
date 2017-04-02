@@ -32,6 +32,8 @@ gem 'paperclip', '~> 5.0.0'
 
 # Use haml for templates
 gem 'haml'
+# Allows to use markdown filter in haml files
+gem 'redcarpet'
 
 # Use settings.yml
 gem 'config'
