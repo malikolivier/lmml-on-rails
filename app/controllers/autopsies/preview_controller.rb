@@ -1,4 +1,5 @@
 module Autopsies
+  # Manages preview of autopsy description from autopsy metadata
   class PreviewController < AutopsiesController
     skip_before_action :set_autopsy
 
