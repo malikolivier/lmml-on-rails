@@ -304,6 +304,16 @@ ja:
       title: 剖検記録 - 外部所見
     edit_internal:
       title: 剖検記録 - 内部所見
+  external_outline_examinations:
+    body_sex: '%{sex}性屍。'
+    unknown_sex: 性別が不明な屍。
+    height: 身長
+    partial_height: 全長
+    weight: 体重
+    partial_weight: 重量
+    height_description: '%{label}%{height}cm'
+    weight_description: '%{label}%{weight}kg'
+    constitution: 体格、%{constitution}。
   activerecord:
     errors:
       messages:
@@ -739,6 +749,8 @@ ja:
       last_word_connector: と
       two_words_connector: と
       words_connector: と
+      comma_connector: 、
+      full_stop: 。
   time:
     am: 午前
     formats:

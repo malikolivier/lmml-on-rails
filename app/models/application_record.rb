@@ -1,6 +1,13 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  # Return the translated text value of an attribute defined with an enumeration
+  def translated_enum_value(attribute)
+    s = "activerecord.enums.#{self.class.model_name.singular}.#{attribute}"
+    attribute_value = send(attribute)
+    I18n.t(attribute_value, scope: s)
+  end
+
   class << self
     # Create a public method json_includes indicating the children than should
     # be included in JSON input. Children can be added using this method:

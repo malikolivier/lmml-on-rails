@@ -58,6 +58,9 @@ gem 'vuejs-rails'
 # TODO: update to the stable release when it is released officially for rails 5
 gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
 
+# Use draper for decorators
+gem 'draper', '3.0.0.pre1'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
