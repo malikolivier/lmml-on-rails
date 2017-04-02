@@ -8,7 +8,7 @@
 #  height             :float
 #  weight             :float
 #  partial_body       :boolean          default(FALSE)
-#  constitution       :text
+#  constitution       :integer
 #  livor_mortis_note  :text
 #  rigor_mortis_note  :text
 #  rectal_temperature :float
@@ -19,6 +19,7 @@
 
 class ExternalOutlineExamination < ExaminationBase
   enum sex: Settings.enums.sex
+  enum constitution: %i(unknown insufficient normal fat)
 
   has_many :livores_mortis, inverse_of: :external_outline_examination
   has_many :rigores_mortis, inverse_of: :external_outline_examination

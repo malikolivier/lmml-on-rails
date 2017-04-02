@@ -3,7 +3,7 @@
   .row
     = f.label :sex, class: 'col-sm-4'
     .col-sm-8
-      = f.select :sex, translated_sexes, prompt: true, label_name: false
+      = f.select :sex, translated_sexes
   .row
     .col-xs-4
       = f.check_box :partial_body
@@ -11,7 +11,7 @@
       = f.number_field :height
     .col-xs-4
       = f.number_field :weight
-  = f.text_field :constitution
+  = f.select :constitution, translated_external_outline_constitutions
 
   = render 'nested_array_form', form: f, method: :livores_mortis,
            fields: { color: { type: :select, encapsulating_element: {class: 'col-xs-3'} },

@@ -515,6 +515,12 @@ ja:
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
     enums:
+      external_outline_examination:
+        constitution:
+          unknown: 栄養不明
+          insufficient: 栄養不足
+          normal: 栄養通常
+          fat: 栄養良好
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝
