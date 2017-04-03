@@ -65,8 +65,6 @@ class ExaminationsController < ApplicationController
                                                 examination_category)
   end
 
-  private
-
   def render_success
     template_file = "autopsies/#{examination_category}/_#{examination_name}"
     html_preview = render_to_string template_file, locals: { exam: @exam },
