@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
-  protected
+  private
 
   def model_class
     controller_name.classify.constantize

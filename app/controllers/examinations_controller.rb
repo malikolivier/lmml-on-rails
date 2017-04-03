@@ -30,7 +30,7 @@ class ExaminationsController < ApplicationController
     @exam_base = Examination.new(examination_type: examination_type)
   end
 
-  protected
+  private
 
   def examination_category
     controller_name.split('_')[0]
