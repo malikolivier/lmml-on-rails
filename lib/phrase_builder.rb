@@ -17,6 +17,7 @@ class PhraseBuilder
       to_sentence_no_full_stop
     end
   end
+  alias to_s to_sentence
 
   private
 
