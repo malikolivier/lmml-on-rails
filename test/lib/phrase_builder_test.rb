@@ -5,8 +5,23 @@ class PhraseBuilderTest < ActiveSupport::TestCase
     @full_stop = I18n.t('support.array.full_stop')
   end
 
+  # Deleting nil or empty strings is convenient
   test 'return empty string for empty phrase' do
     assert_equal(PhraseBuilder.new.to_sentence, '')
+  end
+
+  test 'return empty string for empty phrase initialized with nil' do
+    assert_equal(PhraseBuilder.new(nil).to_sentence, '')
+  end
+
+  test 'return empty string for empty phrase initialized with ""' do
+    assert_equal(PhraseBuilder.new('').to_sentence, '')
+  end
+
+  test 'return empty string when add empty string' do
+    pb = PhraseBuilder.new
+    pb << ''
+    assert_equal(pb.to_sentence, '')
   end
 
   test 'Only use comma defined in I18n files as delimiter when asked to' do

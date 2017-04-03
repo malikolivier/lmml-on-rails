@@ -1,27 +1,27 @@
 class PhraseBuilder
+  # A class to build phrases. Used across the decorators.
   def initialize(*args)
     @options = args.last.is_a?(Hash) ? args.pop.dup : {}
-    @phrase = args
+    @phrase = args.select(&:present?)
     @options[:full_stop] = true if @options[:full_stop].nil?
   end
 
   def push(string)
-    @phrase.push(string)
+    @phrase.push(string) if string.present?
   end
+  alias << push
 
   def to_sentence
     return '' if @phrase.empty?
     if @options[:full_stop]
-      to_sentence_no_full_stop + I18n.t('support.array.full_stop')
+      to_sentence_no_dot + I18n.t('support.array.full_stop')
     else
-      to_sentence_no_full_stop
+      to_sentence_no_dot
     end
   end
   alias to_s to_sentence
 
-  private
-
-  def to_sentence_no_full_stop
+  def to_sentence_no_dot
     if @options[:only_comma]
       connector = if @options[:only_comma].equal?(true)
                     I18n.t('support.array.comma_connector')

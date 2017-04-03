@@ -17,14 +17,11 @@ ja:
     not_dyed: 染めていない
     false_blond: 金髪
     false_red: 赤
-  colors:
+  color: &color
     unknown: 不明
     amber: 琥珀色
     red: 赤色
     pale: 蒼白
-    fades_with_light_pressure: 指圧で退色
-    fades_with_strong_pressure: 強い指圧で退色
-    does_not_fade: 退色なし
     black: 黒色
     no_color: 色のない
     white: 白色
@@ -37,6 +34,7 @@ ja:
     green: 緑色
     dark_green: 暗緑色
     brown: 茶色
+  colors: *color # TODO: Delete me, only keep singular keys for enumerations
   odors:
     unknown: 不明
     no_odor: においのない
@@ -130,29 +128,6 @@ ja:
       uropaper: ウロペーパーⅢ検査
       biochemistry: 生化学検査
       diatom_test: 壊機試験
-  body_parts:
-    left_leg: 左足
-    right_leg: 右足
-    chin: 顎
-    neck: 頸部
-    left_shoulder: 左肩
-    right_shoulder: 右肩
-    left_elbow: 左肘
-    right_elbow: 右肘
-    left_hand: 左手
-    right_hand: 右手
-    left_hip: 左股関節
-    right_hip: 右股関節
-    left_knee: 左膝
-    right_knee: 右膝
-    left_foot: 左足部
-    right_foot: 右足部
-    back: 背部
-    belly: 腹部
-    trunk: 胸部
-    head: 頭部
-    left_arm: 左腕
-    right_arm: 右腕
   intensity:
     unknown: 不明
     weak: 弱い
@@ -314,6 +289,13 @@ ja:
     height_description: '%{label}%{height}cm'
     weight_description: '%{label}%{weight}kg'
     constitution: 体格、%{constitution}。
+    livor_mortis_color_description: '%{color}で'
+    livor_mortis_parts_description: '%{body_parts}面に'
+    livor_mortis_intensity_description: '%{intensity}に'
+    livor_mortis_1st_part_description: '%{body_parts}%{color}%{intensity}'
+    livor_mortis_description: '%{1st_part}発見し%{finger}'
+    livor_mortis_part_absent_description: '%{body_parts}は欠損する'
+    livores_mortis_description: 死斑は%{livores_mortis}。
   activerecord:
     errors:
       messages:
@@ -531,6 +513,38 @@ ja:
           insufficient: 栄養不足
           normal: 栄養通常
           fat: 栄養良好
+      livor_mortis:
+        intensity:
+          absent: 欠損
+        position: &body_parts
+          left_leg: 左足
+          right_leg: 右足
+          chin: 顎
+          neck: 頸部
+          left_shoulder: 左肩
+          right_shoulder: 右肩
+          left_elbow: 左肘
+          right_elbow: 右肘
+          left_hand: 左手
+          right_hand: 右手
+          left_hip: 左股関節
+          right_hip: 右股関節
+          left_knee: 左膝
+          right_knee: 右膝
+          left_foot: 左足部
+          right_foot: 右足部
+          back: 背部
+          belly: 腹部
+          trunk: 胸部
+          head: 頭部
+          left_arm: 左腕
+          right_arm: 右腕
+        on_finger_pressure:
+          fades_with_light_pressure: 指圧で退色
+          fades_with_strong_pressure: 強い指圧で退色
+          does_not_fade: 退色なし
+      rigor_mortis:
+        joint: *body_parts
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝
