@@ -19,9 +19,13 @@ class Analysis < ApplicationRecord
     analysis_type.this_analysis_model.find_by!(analysis: self)
   end
 
+  def serialize
+    get.as_lmml_json.except!('analysis')
+  end
+
   has_one :analysis_other
 
   delegate :other?, to: :analysis_type
 
-  includes_in_json :analysis_type, methods: :get
+  includes_in_json :analysis_type, methods: :serialize
 end
