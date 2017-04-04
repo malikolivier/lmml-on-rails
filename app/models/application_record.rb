@@ -41,4 +41,8 @@ class ApplicationRecord < ActiveRecord::Base
   def as_lmml_json
     as_json(include: self.class.json_includes)
   end
+
+  def to_lmml_xml
+    as_lmml_json.to_xml(root: self.class.model_name.singular)
+  end
 end

@@ -40,6 +40,22 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get lmml' do
+    get autopsy_url(@autopsy, format: :xml)
+    assert_response :success
+    assert_equal(response.header['Content-Type'],
+                 'application/xml; charset=utf-8', 'Get XML as response')
+    assert_not_equal(response.body, '', 'Body is not empty')
+  end
+
+  test 'should get json lmml' do
+    get autopsy_url(@autopsy, format: :json)
+    assert_response :success
+    assert_equal(response.header['Content-Type'],
+                 'application/json; charset=utf-8', 'Get JSON as response')
+    assert_nothing_raised { JSON.load(response.body) }
+  end
+
   test 'should get edit_external' do
     get edit_external_autopsy_url(@autopsy)
     assert_response :success
