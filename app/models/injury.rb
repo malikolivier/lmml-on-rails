@@ -29,4 +29,9 @@ class Injury < ApplicationRecord
   has_many :injury_photograph_takings
   has_many :photographs, through: :injury_photograph_takings
   has_many :child_injuries, foreign_key: :parent_injury_id, class_name: self
+
+  includes_in_json :photographs, :child_injuries,
+                   body_area: BodyArea.json_includes,
+                   injury_size: InjurySize.json_includes,
+                   injury_depth: InjuryDepth.json_includes
 end

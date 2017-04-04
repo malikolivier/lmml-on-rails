@@ -31,4 +31,8 @@ class Examination < ApplicationRecord
   def unique_examination?
     examination_type.organs.count <= 1
   end
+
+  includes_in_json examination_type: ExaminationType.json_includes,
+                   injuries: Injury.json_includes,
+                   methods: :get
 end

@@ -13,4 +13,6 @@
 class BodyArea < ApplicationRecord
   belongs_to :body_reference, required: true
   belongs_to :in_body_orientation
+
+  includes_in_json :body_reference, :in_body_orientation
 end

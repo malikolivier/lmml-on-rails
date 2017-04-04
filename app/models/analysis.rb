@@ -22,4 +22,6 @@ class Analysis < ApplicationRecord
   has_one :analysis_other
 
   delegate :other?, to: :analysis_type
+
+  includes_in_json :analysis_type, methods: :get
 end

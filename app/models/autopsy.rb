@@ -149,7 +149,7 @@ class Autopsy < ApplicationRecord
                 .find_by(examination_types: { id: examination_type.id })
   end
 
-  includes_in_json :autopsy_type, :place,
+  includes_in_json :autopsy_type, :place, :conclusions, :explanations,
                    examiner: Person::JSON_KEYS,
                    suspect: Person::JSON_KEYS,
                    victim: Person::VICTIM_JSON_KEYS,
@@ -157,6 +157,10 @@ class Autopsy < ApplicationRecord
                    police_station: Institution.json_includes,
                    police_inspector: Person::JSON_KEYS,
                    court: Institution.json_includes,
-                   judge: Person::JSON_KEYS
-
+                   judge: Person::JSON_KEYS,
+                   participations: Participation::JSON_KEYS_FOR_AUTOPSY,
+                   examinations: Examination.json_includes,
+                   analyses: Analysis.json_includes,
+                   autopsy_photograph_takings:
+                     AutopsyPhotographTaking.json_includes
 end

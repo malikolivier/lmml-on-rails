@@ -43,4 +43,6 @@ class ExaminationType < ApplicationRecord
       end
     end
   end
+
+  includes_in_json :organs
 end

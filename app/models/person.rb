@@ -23,6 +23,15 @@
 class Person < ApplicationRecord
   belongs_to :institution
 
+  VICTIM_JSON_EXCEPT_KEYS = %i(death_age autopsies_examiners_count
+                               autopsies_suspects_count autopsies_victims_count
+                               autopsies_police_inspectors_count
+                               autopsies_judges_count).freeze
+  JSON_EXCEPT_KEYS = (VICTIM_JSON_EXCEPT_KEYS.dup << :death_age).freeze
+  JSON_KEYS = { except: JSON_EXCEPT_KEYS, include: json_includes }.freeze
+  VICTIM_JSON_KEYS = { except: VICTIM_JSON_EXCEPT_KEYS,
+                       include: json_includes }.freeze
+
   has_many :autopsies_examiners, class_name: Autopsy, foreign_key: :examiner_id
   has_many :autopsies_suspects, class_name: Autopsy, foreign_key: :suspect_id
   has_many :autopsies_victims, class_name: Autopsy, foreign_key: :victim_id
@@ -54,13 +63,4 @@ class Person < ApplicationRecord
   }
 
   includes_in_json institution: { include: Institution.json_includes }
-
-  VICTIM_JSON_EXCEPT_KEYS = %i(death_age autopsies_examiners_count
-                               autopsies_suspects_count autopsies_victims_count
-                               autopsies_police_inspectors_count
-                               autopsies_judges_count).freeze
-  JSON_EXCEPT_KEYS = (VICTIM_JSON_EXCEPT_KEYS.dup << :death_age).freeze
-  JSON_KEYS = { except: JSON_EXCEPT_KEYS, include: json_includes }.freeze
-  VICTIM_JSON_KEYS = { except: VICTIM_JSON_EXCEPT_KEYS,
-                       include: json_includes }.freeze
 end
