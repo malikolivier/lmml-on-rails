@@ -148,4 +148,15 @@ class Autopsy < ApplicationRecord
     examinations.joins(:examination_type)
                 .find_by(examination_types: { id: examination_type.id })
   end
+
+  includes_in_json :autopsy_type, :place,
+                   examiner: Person::JSON_KEYS,
+                   suspect: Person::JSON_KEYS,
+                   victim: Person::VICTIM_JSON_KEYS,
+                   place: Institution.json_includes,
+                   police_station: Institution.json_includes,
+                   police_inspector: Person::JSON_KEYS,
+                   court: Institution.json_includes,
+                   judge: Person::JSON_KEYS
+
 end

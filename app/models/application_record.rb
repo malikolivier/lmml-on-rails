@@ -43,6 +43,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def to_lmml_xml
-    as_lmml_json.to_xml(root: self.class.model_name.singular)
+    as_lmml_json.to_xml(root: model_name.singular)
   end
 end

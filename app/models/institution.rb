@@ -28,4 +28,6 @@ class Institution < ApplicationRecord
     where('autopsies_places_count > 0')
       .order(autopsies_places_count: :desc)
   }
+
+  includes_in_json :institution_type
 end

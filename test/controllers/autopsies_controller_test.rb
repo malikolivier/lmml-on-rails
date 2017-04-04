@@ -53,7 +53,7 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_equal(response.header['Content-Type'],
                  'application/json; charset=utf-8', 'Get JSON as response')
-    assert_nothing_raised { JSON.load(response.body) }
+    assert_nothing_raised { JSON.parse(response.body) }
   end
 
   test 'should get edit_external' do
