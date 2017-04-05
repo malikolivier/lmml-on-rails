@@ -19,6 +19,7 @@ class Analysis < ApplicationRecord
     analysis_type.this_analysis_model.find_by!(analysis: self)
   end
 
+  # Return a JSON-like hash representing the given analysis
   def serialize
     get.as_lmml_json.except!('analysis')
   end
