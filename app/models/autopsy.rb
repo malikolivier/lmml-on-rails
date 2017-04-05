@@ -153,14 +153,14 @@ class Autopsy < ApplicationRecord
                    examiner: Person::JSON_KEYS,
                    suspect: Person::JSON_KEYS,
                    victim: Person::VICTIM_JSON_KEYS,
-                   place: Institution.json_includes,
-                   police_station: Institution.json_includes,
+                   place: Institution.as_lmml_params,
+                   police_station: Institution.as_lmml_params,
                    police_inspector: Person::JSON_KEYS,
-                   court: Institution.json_includes,
+                   court: Institution.as_lmml_params,
                    judge: Person::JSON_KEYS,
                    participations: Participation::JSON_KEYS_FOR_AUTOPSY,
-                   examinations: Examination.json_includes,
-                   analyses: Analysis.json_includes,
+                   examinations: Examination.as_lmml_params,
+                   analyses: Analysis.as_lmml_params,
                    autopsy_photograph_takings:
-                     AutopsyPhotographTaking.json_includes
+                     AutopsyPhotographTaking.as_lmml_params
 end

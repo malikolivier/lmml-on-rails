@@ -44,7 +44,7 @@ class Examination < ApplicationRecord
     examination_type.organs.count <= 1
   end
 
-  includes_in_json examination_type: ExaminationType.json_includes,
-                   injuries: Injury.json_includes,
-                   methods: :serialize
+  includes_in_json examination_type: ExaminationType.as_lmml_params,
+                   injuries: Injury.as_lmml_params
+  includes_method_in_json :serialize
 end

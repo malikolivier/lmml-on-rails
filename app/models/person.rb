@@ -23,6 +23,7 @@
 class Person < ApplicationRecord
   belongs_to :institution
 
+  includes_in_json institution: Institution.as_lmml_params
   VICTIM_JSON_EXCEPT_KEYS = %i(death_age autopsies_examiners_count
                                autopsies_suspects_count autopsies_victims_count
                                autopsies_police_inspectors_count
@@ -61,6 +62,4 @@ class Person < ApplicationRecord
     where('autopsies_police_inspectors_count > 0')
       .order(autopsies_police_inspectors_count: :desc)
   }
-
-  includes_in_json institution: { include: Institution.json_includes }
 end

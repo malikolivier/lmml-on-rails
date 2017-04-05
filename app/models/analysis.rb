@@ -28,5 +28,6 @@ class Analysis < ApplicationRecord
 
   delegate :other?, to: :analysis_type
 
-  includes_in_json :analysis_type, methods: :serialize
+  includes_in_json :analysis_type
+  includes_method_in_json :serialize
 end
