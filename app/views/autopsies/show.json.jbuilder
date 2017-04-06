@@ -1,1 +1,1 @@
-json.partial! 'autopsies/autopsy', autopsy: @autopsy
+json.autopsy @autopsy.as_lmml_json

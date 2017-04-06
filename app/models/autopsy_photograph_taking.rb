@@ -15,4 +15,6 @@ class AutopsyPhotographTaking < ApplicationRecord
 
   belongs_to :autopsy
   belongs_to :photograph
+
+  includes_in_json :photograph
 end

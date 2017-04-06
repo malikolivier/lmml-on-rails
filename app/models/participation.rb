@@ -14,4 +14,6 @@ class Participation < ApplicationRecord
   belongs_to :person, required: true
   belongs_to :autopsy, required: true
   belongs_to :role
+
+  JSON_KEYS_FOR_AUTOPSY = { include: [:role, person: Person::JSON_KEYS] }.freeze
 end

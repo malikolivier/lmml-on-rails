@@ -28,7 +28,23 @@ class Examination < ApplicationRecord
     end
   end
 
+  # Return a JSON-like hash representing the given examination
+  def serialize
+    examination = get
+    if examination.respond_to? :map
+      examination.map do |one|
+        one.as_lmml_json.except!('examination')
+      end
+    else
+      examination.as_lmml_json.except!('examination')
+    end
+  end
+
   def unique_examination?
     examination_type.organs.count <= 1
   end
+
+  includes_in_json examination_type: ExaminationType.as_lmml_params,
+                   injuries: Injury.as_lmml_params
+  includes_method_in_json :serialize
 end
