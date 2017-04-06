@@ -19,7 +19,7 @@
 
 class ExternalOutlineExamination < ExaminationBase
   enum sex: Settings.enums.sex
-  enum constitution: %i(unknown insufficient normal fat)
+  enum constitution: %i[unknown insufficient normal fat]
 
   has_many :livores_mortis, inverse_of: :external_outline_examination
   has_many :rigores_mortis, inverse_of: :external_outline_examination

@@ -27,12 +27,12 @@ class PhraseBuilderTest < ActiveSupport::TestCase
   test 'Only use comma defined in I18n files as delimiter when asked to' do
     pb = PhraseBuilder.new('I', 'am', 'a', 'cat', only_comma: true)
     connector = I18n.t('support.array.comma_connector')
-    expected = %w(I am a cat).join(connector) + @full_stop
+    expected = %w[I am a cat].join(connector) + @full_stop
     assert_equal(pb.to_sentence, expected)
   end
 
   test 'Only use specified comma as delimiter when asked to' do
     pb = PhraseBuilder.new('I', 'am', 'a', 'cat', only_comma: ',')
-    assert_equal(pb.to_sentence, %w(I am a cat).join(',') + @full_stop)
+    assert_equal(pb.to_sentence, %w[I am a cat].join(',') + @full_stop)
   end
 end
