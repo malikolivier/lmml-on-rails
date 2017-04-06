@@ -17,11 +17,11 @@ class LmmlFile
 
   # rubocop:disable Lint/UnusedMethodArgument
   def from_json(json)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
 
   def from_xml(xml)
-    raise 'Not implemented'
+    raise NotImplementedError
   end
   # rubocop:enable Lint/UnusedMethodArgument
 
