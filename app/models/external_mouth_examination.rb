@@ -17,7 +17,7 @@ class ExternalMouthExamination < ApplicationRecord
   belongs_to :external_face_examination, required: true
   enum closed: Settings.enums.closedness, _prefix: true
   enum petechia: Settings.enums.five_scale_quantity, _prefix: true
-  enum tongue_tip: %i(behind front unknown), _prefix: true
+  enum tongue_tip: %i[behind front unknown], _prefix: true
 
   has_many :in_mouth_foreign_fluids
   has_many :foreign_fluids, through: :in_mouth_foreign_fluids

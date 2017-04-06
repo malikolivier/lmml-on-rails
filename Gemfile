@@ -70,7 +70,7 @@ group :development, :test do
   gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
   # Linter
-  gem 'rubocop', github: 'bbatsov/rubocop', ref: 'f099043'
+  gem 'rubocop'
 
   # Javascript test framework
   gem 'magic_lamp'
@@ -99,4 +99,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

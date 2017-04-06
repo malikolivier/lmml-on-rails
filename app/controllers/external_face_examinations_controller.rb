@@ -10,14 +10,14 @@ class ExternalFaceExaminationsController < ExaminationsController
   end
 
   def eye_attributes
-    %i(id deixis closed aperture eyelid_congestion eyelid_petechia eyelid_note
+    %i[id deixis closed aperture eyelid_congestion eyelid_petechia eyelid_note
        conjunctiva_congestion conjunctiva_petechia conjunctiva_note cornea
-       pupil diameter)
+       pupil diameter]
   end
 
   def mouth_attributes
     [:id, :closed, :aperture, :petechia, :tongue_tip, :note,
-     foreign_fluids_attributes: %i(id name color odor description),
-     tooth_examinations_attributes: %i(id position rank condition note)]
+     foreign_fluids_attributes: %i[id name color odor description],
+     tooth_examinations_attributes: %i[id position rank condition note]]
   end
 end

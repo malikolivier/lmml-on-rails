@@ -3,7 +3,7 @@ class LmmlFilesControllerSchema < RootSchema
     operation :get do
       key :description, 'Return LMML file for designated autopsy'
       key :operationId, 'returnLmmlForAutopsy'
-      key :produces, %w(application/json application/xml)
+      key :produces, %w[application/json application/xml]
       key :tags, ['LMML file']
       parameter do
         key :name, :autopsy_id

@@ -13,7 +13,7 @@
 class CoronaryArtery < ApplicationRecord
   belongs_to :internal_heart_examination, required: true
 
-  enum category: %i(LAD LCX RCA)
+  enum category: %i[LAD LCX RCA]
 
   # stenosis is the proportion of the artery which is obstructed by coagulated
   # blood in percent. 100% means the blood does not flow at all.

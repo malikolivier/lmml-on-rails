@@ -13,7 +13,7 @@
 class Molecule < ApplicationRecord
   translates :name
 
-  enum unit: %i(% μmol/L)
+  enum unit: %i[% μmol/L]
 
   def standard_description # rubocop:disable Metrics/CyclomaticComplexity
     mask = 0b0
