@@ -289,13 +289,14 @@ ja:
     height_description: '%{label}%{height}cm'
     weight_description: '%{label}%{weight}kg'
     constitution: 体格、%{constitution}。
-    livor_mortis_color_description: '%{color}で'
-    livor_mortis_parts_description: '%{body_parts}面に'
-    livor_mortis_intensity_description: '%{intensity}に'
-    livor_mortis_1st_part_description: '%{body_parts}%{color}%{intensity}'
-    livor_mortis_description: '%{1st_part}発見し%{finger}'
-    livor_mortis_part_absent_description: '%{body_parts}は欠損する'
-    livores_mortis_description: 死斑は%{livores_mortis}。
+  livores_mortis:
+    color_description: '%{color}で'
+    body_parts_description: '%{body_parts}面に'
+    intensity_description: '%{intensity}に'
+    1st_part_description: '%{body_parts}%{color}%{intensity}'
+    single_description: '%{1st_part}発見し%{finger}'
+    body_parts_absent_description: '%{body_parts}は欠損する'
+    complete_description: 死斑は%{livores_mortis}。
   activerecord:
     errors:
       messages:
@@ -772,3 +773,6 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  punctuation:
+    sentence_joiner: ''
+    word_joiner: '・'

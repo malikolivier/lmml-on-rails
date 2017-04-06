@@ -7,4 +7,14 @@ module ApplicationHelper
       "#{method}_attributes"
     end
   end
+
+  def join_sentences(*sentences)
+    delimiter = I18n.translate!('punctuation.sentence_joiner')
+    sentences.join(delimiter)
+  end
+
+  def join_words(*words)
+    delimiter = I18n.translate!('punctuation.word_joiner')
+    words.join(delimiter)
+  end
 end
