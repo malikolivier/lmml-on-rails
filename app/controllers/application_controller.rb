@@ -3,9 +3,13 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
-  protected
+  private
 
   def model_class
     controller_name.classify.constantize
+  end
+
+  def set_default_request_format
+    request.format = :json unless params[:format]
   end
 end

@@ -1,9 +1,9 @@
-%w(
+%w[
   .ruby-version
   .rbenv-vars
   tmp/restart.txt
   tmp/caching-dev.txt
-).each { |path| Spring.watch(path) }
+].each { |path| Spring.watch(path) }
 
 Spring.watch 'config/settings.yml'
 Spring.watch 'config/settings/development.yml'

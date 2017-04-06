@@ -11,8 +11,10 @@
 #
 
 class AutopsyPhotographTaking < ApplicationRecord
-  enum category: %i(front back face other)
+  enum category: %i[front back face other]
 
   belongs_to :autopsy
   belongs_to :photograph
+
+  includes_in_json :photograph
 end

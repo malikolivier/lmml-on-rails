@@ -1,5 +1,5 @@
 class ExaminationsController < ApplicationController
-  before_action :set_exam, only: %i(update edit)
+  before_action :set_exam, only: %i[update edit]
 
   # POST /autopsies/:id/***_examinations.json
   def create
@@ -30,7 +30,7 @@ class ExaminationsController < ApplicationController
     @exam_base = Examination.new(examination_type: examination_type)
   end
 
-  protected
+  private
 
   def examination_category
     controller_name.split('_')[0]
@@ -64,8 +64,6 @@ class ExaminationsController < ApplicationController
     @examination_type = ExaminationType.by_name(examination_name,
                                                 examination_category)
   end
-
-  private
 
   def render_success
     template_file = "autopsies/#{examination_category}/_#{examination_name}"

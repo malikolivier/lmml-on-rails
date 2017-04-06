@@ -18,7 +18,7 @@ class AnalysisBloodType < ApplicationRecord
   enum anti_a: Settings.enums.tests.binary_result, _prefix: true
   enum anti_b: Settings.enums.tests.binary_result, _prefix: true
   enum anti_h: Settings.enums.tests.binary_result, _prefix: true
-  enum blood_type: %i(A B O AB unknown)
+  enum blood_type: %i[A B O AB unknown]
 
   def description
     return '未記入な項目がございます。' if tried_antibodies.empty?

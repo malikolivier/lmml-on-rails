@@ -1,5 +1,5 @@
 class DualExaminationsController < ExaminationsController
-  before_action :deixis!, only: %i(update create)
+  before_action :deixis!, only: %i[update create]
 
   # POST /autopsies/:id/***_examinations.json
   def create
@@ -9,7 +9,7 @@ class DualExaminationsController < ExaminationsController
     render_failure
   end
 
-  protected
+  private
 
   def set_exam
     autopsy = Autopsy.find(params[:id])

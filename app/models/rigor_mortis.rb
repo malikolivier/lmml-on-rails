@@ -12,11 +12,11 @@
 #
 
 class RigorMortis < ApplicationRecord
-  enum joint: %i(chin neck left_shoulder right_shoulder left_elbow
+  enum joint: %i[chin neck left_shoulder right_shoulder left_elbow
                  right_elbow left_hand right_hand left_hip right_hip
-                 left_knee right_knee left_foot right_foot)
+                 left_knee right_knee left_foot right_foot]
   enum intensity: Settings.enums.five_scale_intensity
-  enum category: %i(rigor_mortis heat_related freeze_related)
+  enum category: %i[rigor_mortis heat_related freeze_related]
 
   validates :joint, presence: true
 

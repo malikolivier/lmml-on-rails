@@ -54,6 +54,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'lodash-rails'
 gem 'vuejs-rails'
 
+# Document your API with Swagger
+gem 'swagger-blocks'
+
 # Translate model's field with globalize
 # TODO: update to the stable release when it is released officially for rails 5
 gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
@@ -70,7 +73,7 @@ group :development, :test do
   gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
   # Linter
-  gem 'rubocop', github: 'bbatsov/rubocop', ref: 'f099043'
+  gem 'rubocop', github: 'bbatsov/rubocop', ref: '2409f1c'
 
   # Javascript test framework
   gem 'magic_lamp'
@@ -99,4 +102,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

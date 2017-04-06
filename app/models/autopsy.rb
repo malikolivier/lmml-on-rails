@@ -148,4 +148,19 @@ class Autopsy < ApplicationRecord
     examinations.joins(:examination_type)
                 .find_by(examination_types: { id: examination_type.id })
   end
+
+  includes_in_json :autopsy_type, :place, :conclusions, :explanations,
+                   examiner: Person::JSON_KEYS,
+                   suspect: Person::JSON_KEYS,
+                   victim: Person::VICTIM_JSON_KEYS,
+                   place: Institution.as_lmml_params,
+                   police_station: Institution.as_lmml_params,
+                   police_inspector: Person::JSON_KEYS,
+                   court: Institution.as_lmml_params,
+                   judge: Person::JSON_KEYS,
+                   participations: Participation::JSON_KEYS_FOR_AUTOPSY,
+                   examinations: Examination.as_lmml_params,
+                   analyses: Analysis.as_lmml_params,
+                   autopsy_photograph_takings:
+                     AutopsyPhotographTaking.as_lmml_params
 end

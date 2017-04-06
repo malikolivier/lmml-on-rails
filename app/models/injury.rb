@@ -17,8 +17,8 @@
 #
 
 class Injury < ApplicationRecord
-  enum time_sustained: %i(pre_mortem post_mortem unknown)
-  enum injury_type: %i(abrasion bruise laceration incision gun other)
+  enum time_sustained: %i[pre_mortem post_mortem unknown]
+  enum injury_type: %i[abrasion bruise laceration incision gun other]
 
   belongs_to :examination
   belongs_to :body_area
@@ -29,4 +29,9 @@ class Injury < ApplicationRecord
   has_many :injury_photograph_takings
   has_many :photographs, through: :injury_photograph_takings
   has_many :child_injuries, foreign_key: :parent_injury_id, class_name: self
+
+  includes_in_json :photographs, :child_injuries,
+                   body_area: BodyArea.as_lmml_params,
+                   injury_size: InjurySize.as_lmml_params,
+                   injury_depth: InjuryDepth.as_lmml_params
 end

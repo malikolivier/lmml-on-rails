@@ -14,8 +14,8 @@
 class ExaminationType < ApplicationRecord
   default_scope { order(:placement) }
 
-  enum category: %i(internal external)
-  enum subdivision: %i(head torso)
+  enum category: %i[internal external]
+  enum subdivision: %i[head torso]
   has_many :organ_examinations
   has_many :organs, through: :organ_examinations
   has_many :examinations
@@ -43,4 +43,6 @@ class ExaminationType < ApplicationRecord
       end
     end
   end
+
+  includes_in_json :organs
 end

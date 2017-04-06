@@ -1,3 +1,4 @@
+lmml_version: '0.1'
 enums:
   existence:
     - unknown

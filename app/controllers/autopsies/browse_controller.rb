@@ -8,10 +8,10 @@ module Autopsies
       respond_to do |format|
         format.html
         format.pdf do
-          render pdf: 'autopsy', template: 'autopsies/browse.html'
+          render pdf: 'autopsy', template: 'autopsies/browse/show.html'
         end
         format.docx do
-          render docx: 'autopsy', template: 'autopsies/browse.html'
+          render docx: 'autopsy', template: 'autopsies/browse/show.html'
         end
       end
     end
