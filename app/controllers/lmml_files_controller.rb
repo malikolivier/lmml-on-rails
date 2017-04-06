@@ -1,17 +1,18 @@
 class LmmlFilesController < ApplicationController
   before_action :set_default_request_format
+  skip_before_action :verify_authenticity_token
 
+  # GET /lmml_files/:id
   def show
     @lmml_file = LmmlFile.new(params[:id])
   end
 
-  def post
-    # GET LMML FILE AS POST DATA
-    case post_data
-    when :json
-      @lmml_file = LmmlFile.from_json(post_data)
-    when :xml
-      @lmml_file = LmmlFile.from_xml(post_data)
-    end
+  # POST /lmml_files
+  def create
+    @lmml_file = if request.headers['Content-Type'] == 'application/xml'
+                   LmmlFile.from_xml(request.body.read)
+                 else
+                   LmmlFile.from_json(request.body.read)
+                 end
   end
 end

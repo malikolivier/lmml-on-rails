@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :apidocs, only: :index
   get '/docs' => redirect('/swagger-ui/dist/index.html?url=/apidocs')
 
-  resources :lmml_files, only: :show
+  resources :lmml_files, only: %i(show create)
 
   resources :autopsies, except: :edit do
     collection do
