@@ -12,7 +12,7 @@
 class AnalysisDiatomTest < ApplicationRecord
   belongs_to :analysis, required: true
 
-  enum conclusion: %i(contradiction no_contradiction impossible_to_conclude)
+  enum conclusion: %i[contradiction no_contradiction impossible_to_conclude]
 
   has_many :diatom_counts, -> { order(:category) }
 

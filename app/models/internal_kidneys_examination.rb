@@ -19,7 +19,7 @@ class InternalKidneysExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
 
   enum hardness: Settings.enums.hardness
-  enum capsule_removal: %i(easy hard unknown), _prefix: true
+  enum capsule_removal: %i[easy hard unknown], _prefix: true
   enum capsule_congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum pelvis_congestion: Settings.enums.three_scale_intensity, _prefix: true
   enum pelvis_petechia: Settings.enums.five_scale_quantity, _prefix: true

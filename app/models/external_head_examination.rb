@@ -13,9 +13,9 @@
 #
 
 class ExternalHeadExamination < ExaminationBase
-  enum hair_natural_color: %i(black brown blond auburn red gray
-                              white)
-  enum hair_dyed_color: %i(not_dyed false_blond false_red)
+  enum hair_natural_color: %i[black brown blond auburn red gray
+                              white]
+  enum hair_dyed_color: %i[not_dyed false_blond false_red]
 
   has_many :external_ear_examinations, -> { order(:deixis) },
            inverse_of: :external_head_examination

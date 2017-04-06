@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/bbatsov/rubocop.git
-  revision: f0990436f0c766747bbd37b164f43b00fb2d9785
-  ref: f099043
+  revision: 2409f1c2b511a7e87ea527be156a489ee5f8765c
+  ref: 2409f1c
   specs:
-    rubocop (0.48.0)
+    rubocop (0.48.1)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
