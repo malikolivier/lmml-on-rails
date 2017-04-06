@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def model_class
     controller_name.classify.constantize
   end
+
+  def set_default_request_format
+    request.format = :json unless params[:format]
+  end
 end

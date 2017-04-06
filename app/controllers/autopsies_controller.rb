@@ -98,8 +98,4 @@ class AutopsiesController < ApplicationController
     return if @autopsy.police_inspector.blank?
     @autopsy.police_station ||= @autopsy.police_inspector.institution
   end
-
-  def set_default_request_format
-    request.format = :json unless params[:format]
-  end
 end

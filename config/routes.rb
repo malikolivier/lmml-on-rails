@@ -3,11 +3,17 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :apidocs, only: :index
+  get '/docs' => redirect('/swagger-ui/dist/index.html?url=/apidocs')
+
+  resources :lmml_files, only: :show
+
   resources :autopsies, except: :edit do
     collection do
       post :preview, to: 'autopsies/preview#show'
     end
     member do
+      get :lmml_file, to: 'lmml_files#show'
       get :browse, to: 'autopsies/browse#show'
       get :edit_external, :edit_internal, :edit_analyses
       ExaminationType.all_names.each do |examination_name|

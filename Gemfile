@@ -54,6 +54,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'lodash-rails'
 gem 'vuejs-rails'
 
+# Document your API with Swagger
+gem 'swagger-blocks'
+
 # Translate model's field with globalize
 # TODO: update to the stable release when it is released officially for rails 5
 gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
