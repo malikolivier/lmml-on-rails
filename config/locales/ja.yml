@@ -183,10 +183,6 @@ ja:
     exists: あり
     does_not_exist: なし
     unknown: 不明
-  rigor_mortis:
-    rigor_mortis: 死後硬直
-    heat_related: 熱硬直
-    freeze_related: 凍結硬直
   closedness:
     closed: 閉じる
     open: 開く
@@ -297,6 +293,11 @@ ja:
     single_description: '%{1st_part}発見し%{finger}'
     body_parts_absent_description: '%{body_parts}は欠損する'
     complete_description: 死斑は%{livores_mortis}。
+  rigores_mortis:
+    joints_description: '%{joints}で'
+    intensity_description: '%{intensity}'
+    single_description: '%{joints}%{intensity}'
+    complete_description: 硬直は%{single_description}。
   activerecord:
     errors:
       messages:
@@ -546,6 +547,10 @@ ja:
           does_not_fade: 退色なし
       rigor_mortis:
         joint: *body_parts
+        category:
+          rigor_mortis: 死後硬直
+          heat_related: 熱硬直
+          freeze_related: 凍結硬直
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝

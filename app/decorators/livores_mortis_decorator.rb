@@ -9,7 +9,7 @@ class LivoresMortisDecorator < ApplicationCollectionDecorator
       end
       build_single_description(pb, intensity, livores)
     end
-    t('.complete_description', livores_mortis: pb.to_sentence_no_dot)
+    t('.complete_description', livores_mortis: pb.to_sentence_no_dot) if pb.any?
   end
 
   private

@@ -6,6 +6,14 @@ class PhraseBuilder
     @options[:full_stop] = true if @options[:full_stop].nil?
   end
 
+  def any?
+    @phrase.any?
+  end
+
+  def empty?
+    !any?
+  end
+
   def push(string)
     @phrase.push(string) if string.present?
   end

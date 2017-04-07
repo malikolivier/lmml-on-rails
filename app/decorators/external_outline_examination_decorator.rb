@@ -1,5 +1,6 @@
 class ExternalOutlineExaminationDecorator < ExaminationDecorator
   decorates_association :livores_mortis
+  decorates_association :rigores_mortis
 
   def sex_description
     if !model.O? && model.sex.present?
@@ -30,6 +31,11 @@ class ExternalOutlineExaminationDecorator < ExaminationDecorator
   def livores_mortis_description
     note = PhraseBuilder.new(model.livor_mortis_note).to_sentence
     h.join_sentences(livores_mortis.description, note)
+  end
+
+  def rigores_mortis_description
+    note = PhraseBuilder.new(model.rigor_mortis_note).to_sentence
+    h.join_sentences(rigores_mortis.description, note)
   end
 
   private

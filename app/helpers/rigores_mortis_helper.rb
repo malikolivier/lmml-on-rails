@@ -10,8 +10,6 @@ module RigoresMortisHelper
   end
 
   def translated_rigor_mortis_categories
-    RigorMortis.categories.map do |category, _|
-      [t("rigor_mortis.#{category}"), category]
-    end
+    RigorMortis.translated_enum(:category)
   end
 end
