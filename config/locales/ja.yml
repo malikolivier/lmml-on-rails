@@ -297,7 +297,7 @@ ja:
     joints_description: '%{joints}で'
     intensity_description: '%{intensity}'
     single_description: '%{joints}%{intensity}'
-    complete_description: 硬直は%{single_description}。
+    complete_description: '%{category}硬直は%{single_description}。'
   activerecord:
     errors:
       messages:
