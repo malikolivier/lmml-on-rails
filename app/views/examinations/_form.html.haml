@@ -16,7 +16,7 @@
       - rescue # TODO Falls back to deprecated implementation. Remove this begin/rescue when decorators are all implemented
         %div{style: 'color:red'} #{$!} (no decorator support)
         = render partial: examination_type.partial_show_path,
-          locals: { exam: exam.examination.get }
+          locals: { exam: exam }
       - unless exam.respond_to? :each
         = exam.examination.try(:note)
       - else

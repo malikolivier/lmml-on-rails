@@ -3,7 +3,7 @@
 .row
 - [:left, :right].each do |deixis|
   .col-sm-6
-    = t(deixis)
+    = t("deixis.#{deixis}")
     - organ = exam.send(deixis).take || exam.model.new(deixis: deixis)
     = form_for(organ, builder: VueFormBuilder, html: { id: "#{form_id_prefix}_#{deixis}" }, url: '') do |f|
       = f.hidden_field :id
