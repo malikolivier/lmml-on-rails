@@ -1,4 +1,6 @@
 class ExaminationTypeDecorator < ApplicationDecorator
+  delegate :key_string
+
   def section_title
     t("section_title.#{model.category}.#{model.name}")
   end

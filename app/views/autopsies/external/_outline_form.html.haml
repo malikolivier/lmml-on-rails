@@ -25,8 +25,10 @@
                      category: {type: :select, encapsulating_element: {class: 'col-xs-4'} } } do
     = f.text_field :rigor_mortis_note, label_name: t('activerecord.attributes.examination.note')
   .row
-    .col-xs-6
+    .col-xs-4
+      = f.check_box :cold
+    .col-xs-4
       = f.number_field :rectal_temperature
-    .col-xs-6
+    .col-xs-4
       = f.number_field :room_temperature
   = yield f

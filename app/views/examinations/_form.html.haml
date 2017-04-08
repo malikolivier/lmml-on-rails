@@ -1,9 +1,9 @@
 - key_string = examination_type.key_string
 .row
-  %h1{id: "#{key_string}_head"}= t "section_title.#{examination_type.category}.#{examination_type.name}"
+  %h1{id: "#{key_string}_head"}= examination_type.section_title
 .row
   .col-sm-6
-    = render "autopsies/#{examination_type.category}/#{examination_type.name}_form", exam: exam do |f|
+    = render "#{examination_type.partial_show_path}_form", exam: exam do |f|
       - # Initialize examination
       - f.object.examination ||= Examination.new(examination_type: examination_type)
       = f.fields_for :examination do |ff|
@@ -11,7 +11,12 @@
   .col-sm-6
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}
-      = render "autopsies/#{examination_type.category}/#{examination_type.name}", exam: exam
+      - begin
+        = render examination_type.partial_show_path, exam: exam.decorate
+      - rescue # TODO Falls back to deprecated implementation. Remove this begin/rescue when decorators are all implemented
+        %div{style: 'color:red'} #{$!} (no decorator support)
+        = render partial: examination_type.partial_show_path,
+          locals: { exam: exam.examination.get }
       - unless exam.respond_to? :each
         = exam.examination.try(:note)
       - else

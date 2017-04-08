@@ -288,7 +288,7 @@ ja:
     weight_description: '%{label}%{weight}kg'
     constitution: 体格、%{constitution}。
     cold_phrase: 全身は冷却し、
-    cold_sentence: 全身は冷却する。
+    cold_sentence: 全身は冷却する
     rectal_description: 剖検開始時の直腸温%{temperature}℃
     room_temperature: （室温%{temperature}℃）
   livores_mortis:
@@ -347,6 +347,7 @@ ja:
         height: 身長
         weight: 体重
         constitution: 体格
+        cold: 身体が冷却する
         rectal_temperature: 直腸温度
         room_temperature: 室温
         livores_mortis: 死斑
