@@ -72,7 +72,8 @@ group :development, :test do
   gem 'pry-remote'
   gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
-  # Linter
+  # Linters
+  gem 'haml_lint'
   gem 'rubocop', github: 'bbatsov/rubocop', ref: '2409f1c'
 
   # Javascript test framework

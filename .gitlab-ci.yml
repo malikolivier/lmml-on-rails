@@ -12,6 +12,10 @@ rubocop:
   script:
     - bundle exec rubocop
 
+haml_lint:
+  script:
+    - bundle exec haml-lint
+
 rails_test:
   script:
     - bundle exec rails test
