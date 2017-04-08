@@ -1,4 +1,4 @@
-- this.biochemical_analyses.includes(:contract_institution, biochemical_analysis_type: :translations, biochemical_analysis_results: { molecule: :translations}).each_with_index do |analysis, i|
+- exam.biochemical_analyses.includes(:contract_institution, biochemical_analysis_type: :translations, biochemical_analysis_results: { molecule: :translations}).each_with_index do |analysis, i|
   %h4= "#{i+1}) #{analysis.biochemical_analysis_type.translation.title}"
   %p= analysis.description
 

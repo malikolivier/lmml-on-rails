@@ -1,6 +1,7 @@
 class ExaminationDecorator < ApplicationDecorator
   decorates_association :examination_type
   decorates_association :get
+  delegate :section_title, :partial_show_path, to: :examination_type
 
   def external?
     model.examination_type.external?

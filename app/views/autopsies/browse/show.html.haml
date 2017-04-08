@@ -27,51 +27,6 @@
 
 %div= autopsy.victim_description
 
-- external_examination_started = false
-- internal_examination_started = false
-- analyses_started = false
-- internal_head_examination_started = false
-- internal_torso_examination_started = false
-- section_count = 0
-- syoken_count = 0
-- kaiken_count = 0
-- autopsy.examinations.each do |examination|
-  - if examination.external? && !external_examination_started
-    - external_examination_started = true
-    %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.external_examination')}
-  - if examination.internal?
-    - if !internal_examination_started
-      - internal_examination_started = true
-      %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.internal_examination')}
-    - if examination.head? && !internal_head_examination_started
-      - internal_head_examination_started = true
-      %h3 #{(kaiken_count+=1).to_full_width_letter}：頭腔開検
-    - if examination.torso? && !internal_torso_examination_started
-      - internal_torso_examination_started = true
-      %h3 #{(kaiken_count+=1).to_full_width_letter}：頸胸腹開検
-  %h4 #{section_count += 1}．#{examination.examination_type.section_title}
-  %p
-    - begin
-      = render partial: examination.examination_type.partial_show_path,
-               locals: { exam: examination.get }
-    - rescue # TODO Falls back to deprecated implementation. Remove this begin/rescue when decorators are all implemented
-      %div{style: 'color:red'} #{$!} (no decorator support)
-      = render partial: examination.examination_type.partial_show_path,
-               locals: { exam: examination.object.get }
-    = examination.note_description
-    = examination.injuries_description
-- @autopsy.ordered_analyses.each do |analysis|
-  - section_count += 1
-  - if analysis.analysis_type.other?
-    - section_title_content = analysis.get.title
-  - else
-    - section_title_content = t("section_title.analyses.#{analysis.analysis_type.name}")
-  - section_title = "#{section_count}．#{section_title_content}"
-  - if !analyses_started
-    - analyses_started = true
-    %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.analyses_title')}
-  %h4= section_title
-  %p= render partial: "autopsies/analyses/#{analysis.analysis_type.name}", locals: { this: analysis.get }
-  = analysis.note
+%div!= autopsy.autopsy_records
 
 = render 'sign', autopsy: @autopsy
