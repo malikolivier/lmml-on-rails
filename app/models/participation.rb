@@ -15,5 +15,5 @@ class Participation < ApplicationRecord
   belongs_to :autopsy, required: true
   belongs_to :role
 
-  JSON_KEYS_FOR_AUTOPSY = { include: [:role, person: Person::JSON_KEYS] }.freeze
+  includes_in_json :role, person: Person.as_lmml_params
 end
