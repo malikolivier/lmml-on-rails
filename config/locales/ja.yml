@@ -285,6 +285,10 @@ ja:
     height_description: '%{label}%{height}cm'
     weight_description: '%{label}%{weight}kg'
     constitution: 体格、%{constitution}。
+    cold_phrase: 全身は冷却し、
+    cold_sentence: 全身は冷却する。
+    rectal_description: 剖検開始時の直腸%{temperature}℃
+    room_temperature: （室温%{temperature}℃）
   livores_mortis:
     color_description: '%{color}で'
     body_parts_description: '%{body_parts}面に'

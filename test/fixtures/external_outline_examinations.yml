@@ -28,5 +28,6 @@ completed_autopsy_outline:
   constitution: normal
   livor_mortis_note: Pronounced livor mortis on bottom of the body
   rigor_mortis_note: No rigor mortis
+  cold: false
   rectal_temperature: 33.4
   room_temperature: 19.8

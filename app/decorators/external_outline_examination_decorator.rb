@@ -38,6 +38,19 @@ class ExternalOutlineExaminationDecorator < ExaminationDecorator
     h.join_sentences(rigores_mortis.description, note)
   end
 
+  def temperature_description
+    phrases = []
+    if model.rectal_temperature.present?
+      phrases << t('.cold_phrase') if model.cold
+      phrases << t('.rectal_description', temperature: model.rectal_temperature)
+    else
+      phrases << t('.cold_sentence')
+    end
+    if model.room_temperature.present?
+      phrases << t('.room_temperature', temperature: model.room_temperature)
+    end
+    h.join_sentences(phrases)
+  end
   private
 
   def height_label

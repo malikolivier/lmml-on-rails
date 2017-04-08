@@ -440,6 +440,7 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.integer  "constitution"
     t.text     "livor_mortis_note"
     t.text     "rigor_mortis_note"
+    t.boolean  "cold"
     t.float    "rectal_temperature"
     t.float    "room_temperature"
     t.datetime "created_at",                         null: false
