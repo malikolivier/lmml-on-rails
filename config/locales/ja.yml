@@ -73,7 +73,8 @@ ja:
     bladder: 膀胱
     myocardium: 心筋
   section_title:
-    external_examination: （%{number}）外部所見
+    subtitle: （%{number}）%{title}
+    external_examination: 外部所見
     external:
       outline: 概観
       head: 頭部
@@ -85,7 +86,7 @@ ja:
       lower_limbs: 下肢
       genitalia: 外陰部
       anus: 肛門
-    internal_examination: （%{number}）内部所見
+    internal_examination: 内部所見
     internal:
       cranium: 頭蓋
       brain: 脳
@@ -109,7 +110,7 @@ ja:
     inner_head_title: '%{letter}：頭腔開検'
     inner_torso_title: '%{letter}：頸胸腹開検'
     specific_examination_title: '%{number}. %{title}'
-    analyses_title: （%{number}）諸検査の成績
+    analyses_title: 諸検査の成績
     analyses:
       blood_type: 血液型
       histopathology: 病理組織学的所見

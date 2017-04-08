@@ -48,7 +48,8 @@ module LmmlOnRails
       return unless examination.external? && !@external_examination_started
       @external_examination_started = true
       @syoken_count += 1
-      subtitle = I18n.t('section_title.external_examination',
+      subtitle = I18n.t('section_title.subtitle',
+                        title: I18n.t('section_title.external_examination'),
                         number: @syoken_count.to_full_width)
       @html << content_tag(:h3, subtitle)
     end
@@ -64,7 +65,8 @@ module LmmlOnRails
       return if @internal_examination_started
       @internal_examination_started = true
       @syoken_count += 1
-      subtitle = I18n.t('section_title.internal_examination',
+      subtitle = I18n.t('section_title.subtitle',
+                        title: I18n.t('section_title.internal_examination'),
                         number: @syoken_count.to_full_width)
       @html << content_tag(:h3, subtitle)
     end
@@ -121,7 +123,8 @@ module LmmlOnRails
       return if @analyses_started
       @analyses_started = true
       @syoken_count += 1
-      subtitle = I18n.t('section_title.analyses_title',
+      subtitle = I18n.t('section_title.subtitle',
+                        title: I18n.t('section_title.analyses_title'),
                         number: @syoken_count.to_full_width)
       @html << content_tag(:h3, subtitle)
     end
