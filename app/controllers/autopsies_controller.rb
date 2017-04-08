@@ -3,6 +3,8 @@ class AutopsiesController < ApplicationController
                                        edit_internal edit_analyses destroy]
   before_action :set_default_request_format, only: :update
 
+  decorates_assigned :autopsy
+
   # GET /autopsies
   # GET /autopsies.json
   def index
