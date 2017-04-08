@@ -1,8 +1,8 @@
-%h1 鑑　定　書
+%h1= t('autopsies.browse.show.title')
 
-%p= @autopsy.introduction_text
+%p= autopsy.introduction_text
 
-%p= @autopsy.second_paragraph_text
+%p= autopsy.second_paragraph_text
 
 %h2 第　１　章　結　　　論
 
@@ -25,7 +25,7 @@
 
 %h2 第　3　章　 剖　　検　　記　　録
 
-%div= @autopsy.victim_description
+%div= autopsy.victim_description
 
 - external_examination_started = false
 - internal_examination_started = false

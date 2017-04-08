@@ -22,7 +22,7 @@
 #  updated_at          :datetime         not null
 #
 
-# rubocop:disable ClassLength, Metrics/LineLength
+# rubocop:disable Metrics/LineLength
 class Autopsy < ApplicationRecord
   belongs_to :autopsy_type
   belongs_to :examiner, class_name: Person, counter_cache: :autopsies_examiners_count
@@ -75,68 +75,6 @@ class Autopsy < ApplicationRecord
 
   def suspect_name
     suspect.name if suspect.present?
-  end
-
-  def introduction_text
-    date_description = autopsy_date.present? ? "#{autopsy_date.to_era('%O%E年%m月%d日')}、" : ''
-    if police_inspector.present?
-      policeman = "#{police_inspector.full_name_with_title('司法警察員')}は、"
-      final_verb = 'した'
-    else
-      policeman = ''
-      final_verb = 'された'
-    end
-    suspect_description = suspect.present? ? "被疑者・#{suspect.name}に対する殺人被疑事件に関し、" : ''
-    judge_description = judge.present? ? "#{judge.full_name_with_title}の発した鑑定処分許可状に基づき" : ''
-    "#{date_description}#{policeman}#{suspect_description}#{judge_description}#{victim_description}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託#{final_verb}。"
-  end
-
-  def victim_description
-    if victim.present?
-      age = victim.death_age.present? ? "（#{victim.death_age}歳）" : ''
-      "死者・#{victim.name}#{age}"
-    else
-      '身元不明の遺体'
-    end
-  end
-
-  def second_paragraph_text
-    place_description = place.present? ? "#{place.address}#{place.autopsy_room}において、" : ''
-    "よって、#{place_description}#{time_interval_description}#{participants_description}剖検した。"
-  end
-
-  def time_interval_description # rubocop:disable PerceivedComplexity, CyclomaticComplexity
-    from_am = starting_time.present? && starting_time.hour < 12
-    to_am = ending_time.present? && ending_time.hour < 12
-    if starting_time.present?
-      from = if from_am
-               "#{starting_time.to_era('%O%E年%m月%d日 午前%H時%M分')}より"
-             else
-               "#{starting_time.to_era('%O%E年%m月%d日 午後%H時%M分')}より"
-             end
-    end
-    if ending_time.present?
-      to = if from_am == to_am
-             "#{ending_time.to_era('%H時%M分')}まで"
-           elsif to_am
-             "#{ending_time.to_era('午前%H時%M分')}まで"
-           else
-             "#{ending_time.to_era('午後%H時%M分')}まで"
-           end
-    end
-    "#{from}#{to}、" if from.present? || to.present?
-  end
-
-  def participants_description
-    phrases = []
-    participations.includes(:role, person: :institution).each do |participation|
-      if participation.role.name == 'Spectator'
-        phrases.push("#{participation.person.full_name_with_title}の立ち会いの上")
-      elsif participation.role.name == 'Assistant'
-        phrases.push("#{participation.person.full_name_with_title}の補助を受けて")
-      end
-    end
-    phrases.join('、')
   end
 
   accepts_nested_attributes_for :suspect, :victim, :place, :examiner,

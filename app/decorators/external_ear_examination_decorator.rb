@@ -1,4 +1,6 @@
 class ExternalEarExaminationDecorator < ApplicationDecorator
+  delegate :bleeding?
+
   def description
     injury_description + bleeding_description
   end
@@ -6,7 +8,6 @@ class ExternalEarExaminationDecorator < ApplicationDecorator
   def no_injury?
     model.injury.blank?
   end
-  delegate :bleeding?, to: :model
 
   private
 

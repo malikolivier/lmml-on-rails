@@ -32,10 +32,6 @@ class Person < ApplicationRecord
 
   enum sex: Settings.enums.sex
 
-  def full_name_with_title(position = '')
-    "#{institution_name}#{position}・#{name}#{title}"
-  end
-
   def institution_name
     institution.name if institution.present?
   end

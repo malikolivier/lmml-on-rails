@@ -265,6 +265,30 @@ ja:
       title: 剖検記録 - 外部所見
     edit_internal:
       title: 剖検記録 - 内部所見
+    browse:
+      show:
+        title: 鑑　定　書
+    date_chunk: '%{date}、'
+    policeman_chunk: '%{policeman}は、'
+    police_inspector: 司法警察員
+    suspect_chunk: 被疑者・%{suspect_name}に対する殺人被疑事件に関し、
+    judge_chunk: '%{judge}の発した鑑定処分許可状に基づき'
+    victim_chunk: 死者・%{victim}
+    unknown_victim: 身元不明の遺体
+    introduction_text_with_policeman: '%{date}%{policeman}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。'
+    introduction_text_without_policeman: '%{date}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託された。'
+    place_chunk: '%{place}において、'
+    interval_chunk: '%{interval}、'
+    second_paragraph: 'よって、%{place}%{time_interval}%{participants}剖検した。'
+  people:
+    full_name_with_title: '%{institution_name}%{position}・%{name}%{title}'
+    death_age_information: （%{age}歳）
+    death_information: '%{name}%{age}'
+  institutions:
+    autopsy_room_address: '%{address}%{autopsy_room}'
+  participations:
+    spectator: '%{person}の立ち会いの上'
+    assitant: '%{person}の補助を受けて'
   examinations:
     no_injury: 損傷等の異常なし。
   external_outline_examinations:
@@ -802,6 +826,9 @@ ja:
       default: "%Y/%m/%d %H:%M:%S"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
+      official_date: "%O%E年%m月%d日"
+      interval_from: '%O%E年%m月%d日 %{meridian}%H時%M分より'
+      interval_to: '%{meridian}%H時%M分まで'
     pm: 午後
   punctuation:
     sentence_joiner: ''
