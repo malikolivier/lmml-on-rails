@@ -4,15 +4,15 @@
 
 %p= autopsy.second_paragraph_text
 
-%h2 第　１　章　結　　　論
+%h2= t('autopsies.browse.show.conclusions')
 
 %ol
   - @autopsy.conclusions.each do |conclusion|
     %li= conclusion.content
 
-%h2 第　２　章　説　　　明
+%h2= t('autopsies.browse.show.explanations')
 
-%h3 鑑　定　事　項
+%h3= t('autopsies.browse.show.results')
 
 %ol
   - @autopsy.explanations.each do |explanation|
@@ -23,7 +23,7 @@
   %h4 #{i+1}. #{explanation.title}
   %p= explanation.content
 
-%h2 第　3　章　 剖　　検　　記　　録
+%h2= t('autopsies.browse.show.autopsy_records')
 
 %div= autopsy.victim_description
 

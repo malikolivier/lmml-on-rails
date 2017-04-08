@@ -268,6 +268,10 @@ ja:
     browse:
       show:
         title: 鑑　定　書
+        conclusions: 第　１　章　結　　　論
+        explanations: 第　２　章　説　　　明
+        results: 鑑　定　事　項
+        autopsy_records: 第　3　章　 剖　　検　　記　　録
     date_chunk: '%{date}、'
     policeman_chunk: '%{policeman}は、'
     police_inspector: 司法警察員
