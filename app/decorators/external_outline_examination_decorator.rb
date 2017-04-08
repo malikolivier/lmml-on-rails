@@ -1,4 +1,4 @@
-class ExternalOutlineExaminationDecorator < ExaminationDecorator
+class ExternalOutlineExaminationDecorator < ExaminationBaseDecorator
   decorates_association :livores_mortis
   decorates_association :rigores_mortis
 

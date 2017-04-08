@@ -275,6 +275,8 @@ ja:
       title: 剖検記録 - 外部所見
     edit_internal:
       title: 剖検記録 - 内部所見
+  examinations:
+    no_injury: 損傷等の異常なし。
   external_outline_examinations:
     body_sex: '%{sex}性屍。'
     unknown_sex: 性別が不明な屍。

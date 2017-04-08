@@ -1,0 +1,2 @@
+class ExaminationsDecorator < ApplicationCollectionDecorator
+end

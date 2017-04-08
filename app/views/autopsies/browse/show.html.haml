@@ -35,27 +35,31 @@
 - section_count = 0
 - syoken_count = 0
 - kaiken_count = 0
-- @autopsy.examinations.includes(:examination_type, :injuries).each do |examination|
-  - if examination.examination_type.external? && !external_examination_started
+- autopsy.examinations.each do |examination|
+  - if examination.external? && !external_examination_started
     - external_examination_started = true
     %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.external_examination')}
-  - if examination.examination_type.internal?
+  - if examination.internal?
     - if !internal_examination_started
       - internal_examination_started = true
       %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.internal_examination')}
-    - if examination.examination_type.head? && !internal_head_examination_started
+    - if examination.head? && !internal_head_examination_started
       - internal_head_examination_started = true
       %h3 #{(kaiken_count+=1).to_full_width_letter}：頭腔開検
-    - if examination.examination_type.torso? && !internal_torso_examination_started
+    - if examination.torso? && !internal_torso_examination_started
       - internal_torso_examination_started = true
       %h3 #{(kaiken_count+=1).to_full_width_letter}：頸胸腹開検
-  %h4 #{section_count += 1}．#{t("section_title.#{examination.examination_type.category}.#{examination.examination_type.name}")}
+  %h4 #{section_count += 1}．#{examination.examination_type.section_title}
   %p
-    = render partial: "autopsies/#{examination.examination_type.category}/#{examination.examination_type.name}",
-             locals: { exam: examination.get }
-    = examination.note
-    - if examination.injuries.none?
-      損傷等の異常なし。
+    - begin
+      = render partial: examination.examination_type.partial_show_path,
+               locals: { exam: examination.get }
+    - rescue # TODO Falls back to deprecated implementation. Remove this begin/rescue when decorators are all implemented
+      %div{style: 'color:red'} #{$!} (no decorator support)
+      = render partial: examination.examination_type.partial_show_path,
+               locals: { exam: examination.object.get }
+    = examination.note_description
+    = examination.injuries_description
 - @autopsy.ordered_analyses.each do |analysis|
   - section_count += 1
   - if analysis.analysis_type.other?
