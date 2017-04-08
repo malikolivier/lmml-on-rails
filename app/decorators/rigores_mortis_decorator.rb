@@ -22,13 +22,17 @@ class RigoresMortisDecorator < ApplicationCollectionDecorator
     pb = PhraseBuilder.new(only_comma: true)
     category = RigorMortis.translated_enum_value(:category, category)
     rigores_mortis.group_by(&:intensity).each do |intensity, rigores|
-      joints_desc = joints_description(rigores)
-      next if joints_desc.empty?
-      int_desc = RigorMortisDecorator.intensity_description(intensity)
-      pb << t('.single_description', intensity: int_desc, joints: joints_desc)
+      pb << single_description(intensity, rigores)
     end
     return '' if pb.empty?
     t('.complete_description', single_description: pb.to_sentence_no_dot,
                                category: category)
+  end
+
+  def single_description(intensity, rigor_mortis = self)
+    joints_desc = joints_description(rigor_mortis)
+    return '' if joints_desc.empty?
+    intensity_desc = RigorMortisDecorator.intensity_description(intensity)
+    t('.single_description', intensity: intensity_desc, joints: joints_desc)
   end
 end

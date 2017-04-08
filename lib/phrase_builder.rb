@@ -30,15 +30,22 @@ class PhraseBuilder
   alias to_s to_sentence
 
   def to_sentence_no_dot
-    if @options[:only_comma]
-      connector = if @options[:only_comma].equal?(true)
-                    I18n.t('support.array.comma_connector')
-                  else
-                    @options[:only_comma]
-                  end
+    if @options[:only_comma] || @options[:only_space]
       @phrase.join(connector)
     else
       @phrase.to_sentence
+    end
+  end
+
+  private
+
+  def connector
+    if @options[:only_comma].equal?(true)
+      I18n.t('support.array.comma_connector')
+    elsif @options[:only_space].equal?(true)
+      I18n.t('support.array.space')
+    else
+      @options[:only_comma]
     end
   end
 end

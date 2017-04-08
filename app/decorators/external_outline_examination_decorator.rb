@@ -39,18 +39,14 @@ class ExternalOutlineExaminationDecorator < ExaminationDecorator
   end
 
   def temperature_description
-    phrases = []
-    if model.rectal_temperature.present?
-      phrases << t('.cold_phrase') if model.cold
-      phrases << t('.rectal_description', temperature: model.rectal_temperature)
-    else
-      phrases << t('.cold_sentence')
-    end
+    pb = PhraseBuilder.new(only_space: true)
+    pb << body_temperature_description
     if model.room_temperature.present?
-      phrases << t('.room_temperature', temperature: model.room_temperature)
+      pb << t('.room_temperature', temperature: model.room_temperature)
     end
-    h.join_sentences(phrases)
+    pb.to_sentence
   end
+
   private
 
   def height_label
@@ -59,5 +55,25 @@ class ExternalOutlineExaminationDecorator < ExaminationDecorator
 
   def weight_label
     model.partial_body ? t('.partial_height') : t('.height')
+  end
+
+  def body_temperature_description
+    pb = PhraseBuilder.new(only_space: true, full_stop: false)
+    if model.rectal_temperature.present?
+      pb << cold_description
+      pb << t('.rectal_description', temperature: model.rectal_temperature)
+      pb.to_sentence
+    else
+      cold_description
+    end
+  end
+
+  def cold_description
+    return '' unless model.cold
+    if model.rectal_temperature.present?
+      t('.cold_phrase')
+    else
+      t('.cold_sentence')
+    end
   end
 end

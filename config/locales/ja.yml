@@ -287,7 +287,7 @@ ja:
     constitution: 体格、%{constitution}。
     cold_phrase: 全身は冷却し、
     cold_sentence: 全身は冷却する。
-    rectal_description: 剖検開始時の直腸%{temperature}℃
+    rectal_description: 剖検開始時の直腸温%{temperature}℃
     room_temperature: （室温%{temperature}℃）
   livores_mortis:
     color_description: '%{color}で'
@@ -775,6 +775,7 @@ ja:
       words_connector: と
       comma_connector: 、
       full_stop: 。
+      space: ''
   time:
     am: 午前
     formats:
