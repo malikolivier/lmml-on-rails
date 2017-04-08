@@ -11,7 +11,8 @@
       = f.number_field :height
     .col-xs-4
       = f.number_field :weight
-  = f.select :constitution, translated_external_outline_constitutions
+  = f.select :constitution,
+             ExternalOutlineExamination.translated_enum(:constitution)
 
   = render 'nested_array_form', form: f, method: :livores_mortis,
            fields: { color: { type: :select, encapsulating_element: {class: 'col-xs-3'} },

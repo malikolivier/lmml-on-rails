@@ -1,22 +1,12 @@
 ja:
   unknown: 不明
-  left: 左
-  right: 右
+  deixis:
+    left: 左
+    right: 右
   sex:
     M: 男
     F: 女
     O: 不明
-  hair_colors:
-    black: 黒
-    brown: 茶色
-    blond: 金髪
-    auburn: 赤褐色
-    red: 赤髪
-    gray: 灰
-    white: 白
-    not_dyed: 染めていない
-    false_blond: 金髪
-    false_red: 赤
   color: &color
     unknown: 不明
     amber: 琥珀色
@@ -304,6 +294,19 @@ ja:
     intensity_description: '%{intensity}'
     single_description: '%{joints}%{intensity}'
     complete_description: '%{category}硬直は%{single_description}。'
+  external_head_examinations:
+    natural_hair_color_only: 頭髪は%{natural}。
+    all_hair_colors: 頭髪は%{natural}で%{dyed}に染められる。
+    dyed_hair_color_only: 頭髪は%{dyed}に染められる。
+    top_hair_length_description: 頭頂部で%{length}㎝
+    side_hair_length_description: 側頭部で%{length}㎝
+    hair_length_description: 長さ%{description}
+  external_ear_examinations:
+    no_issue: 左右耳介に損傷なく、外耳道に出血なし。
+    has_injury: '%{deixis}耳介に損傷あり、'
+    no_injury: '%{deixis}耳介に損傷なく、'
+    has_bleeding: 外耳道に出血あり。
+    no_bleeding: 外耳道に出血なし。
   activerecord:
     errors:
       messages:
@@ -558,6 +561,20 @@ ja:
           rigor_mortis: 死後硬直
           heat_related: 熱硬直
           freeze_related: 凍結硬直
+      external_head_examination:
+        hair_natural_color: &hair_natural_color
+          black: 黒
+          brown: 茶色
+          blond: 金髪
+          auburn: 赤褐色
+          red: 赤髪
+          gray: 灰
+          white: 白
+        hair_dyed_color:
+          <<: *hair_natural_color
+          not_dyed: 染めていない
+          false_blond: 金髪
+          false_red: 赤
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝
