@@ -31,7 +31,7 @@ class RigoresMortisDecorator < ApplicationCollectionDecorator
 
   def single_description(intensity, rigor_mortis = self)
     joints_desc = joints_description(rigor_mortis)
-    return '' if joints_desc.empty?
+    return '' if joints_desc.blank?
     intensity_desc = RigorMortisDecorator.intensity_description(intensity)
     t('.single_description', intensity: intensity_desc, joints: joints_desc)
   end
