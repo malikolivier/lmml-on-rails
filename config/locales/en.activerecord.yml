@@ -1,7 +1,7 @@
 en:
   activerecord:
     models:
-      autopsy: 解剖
+      autopsy: autopsy
       external_mouth_examination: 口
       gall_bladder: 胆嚢
     attributes:

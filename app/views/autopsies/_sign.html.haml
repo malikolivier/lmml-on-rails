@@ -9,6 +9,7 @@
   = @autopsy.examiner.try(:institution).try(:name)
   = @autopsy.examiner.affiliation
   %br
-  %span 鑑定人　#{@autopsy.examiner.name}　医師
+  %span= t('autopsies.browse.show.signature',
+    examiner_name: @autopsy.examiner.name)
 
-%p 以下余白
+%p= t('autopsies.browse.show.end_of_text')

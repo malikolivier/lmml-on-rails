@@ -265,6 +265,8 @@ ja:
   autopsies:
     new:
       title: 新しい解剖所見を作成
+    preview:
+      content_placeholder: 解剖所見
     edit_external:
       title: 剖検記録 - 外部所見
     edit_internal:
@@ -276,6 +278,8 @@ ja:
         explanations: 第　２　章　説　　　明
         results: 鑑　定　事　項
         autopsy_records: 第　3　章　 剖　　検　　記　　録
+        signature: 鑑定人　%{examiner_name}　医師
+        end_of_text: 以下余白
     date_chunk: '%{date}、'
     policeman_chunk: '%{policeman}は、'
     police_inspector: 司法警察員

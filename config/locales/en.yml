@@ -286,6 +286,8 @@ en:
   autopsies:
     new:
       title: Start a new autopsy
+    preview:
+      content_placeholder: AUTOPSY REPORT IS HERE
     edit_external:
       title: Autopsy Record - External Examination
     edit_internal:
@@ -297,6 +299,8 @@ en:
         explanations: 'Part 2: Exaplanations'
         results: Results
         autopsy_records: Autopsy Records
+        signature: '%{examiner_name}'
+        end_of_text: ''
     date_chunk: 'On %{date}, '
     policeman_chunk: '%{policeman}, '
     police_inspector: the officer
