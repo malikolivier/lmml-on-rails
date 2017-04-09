@@ -285,11 +285,11 @@ en:
       impossible_to_conclude: 本検査で得た情報で結論付けられない
   autopsies:
     new:
-      title: 新しい解剖所見を作成
+      title: Start a new autopsy
     edit_external:
-      title: 剖検記録 - 外部所見
+      title: Autopsy Record - External Examination
     edit_internal:
-      title: 剖検記録 - 内部所見
+      title: Autopsy Record - Internal Examination
     browse:
       show:
         title:  Autopsy Report

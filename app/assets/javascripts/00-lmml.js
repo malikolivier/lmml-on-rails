@@ -8,6 +8,14 @@ var LMML = {
   isEmpty: function isLmmlObjectEmpty (object) {
     return object === null || object === '' || object === undefined
   },
+  get locale () {
+    var match = window.location.href.match(/locale=(\w+)/)
+    if (match) {
+      return match[1]
+    } else {
+      return ''
+    }
+  },
   httpErrorHandler: function httpErrorHandler (model) {
     return function httpErrorHandler (response) {
       console.error(response)
@@ -20,7 +28,7 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id()}/${model}`
+    return `/autopsies/${LMML.autopsy_id()}/${model}?locale=${LMML.locale}`
   },
   add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)
