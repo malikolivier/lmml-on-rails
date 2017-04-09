@@ -39,33 +39,9 @@ class Autopsy < ApplicationRecord
   has_many :conclusions
   has_many :explanations
   has_many :examinations
-  has_many :analyses, lambda {
-    joins(:analysis_type).order('`analysis_types`.`placement`')
-  }
+  has_many :analyses
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings
-
-  def ordered_analyses
-    analyses = Analysis.find_by_sql("SELECT `analyses`.*,
-                                 `analysis_types`.`placement`,
-                                  0 AS '`analysis_others`.`placement`'
-                          FROM `analyses`
-                          INNER JOIN `analysis_types` ON `analysis_types`.`id` = `analyses`.`analysis_type_id`
-                          WHERE `analysis_types`.`name` != 'other'
-                          AND `analyses`.`autopsy_id` = '#{id}'
-                          UNION
-                          SELECT `analyses`.*,
-                                `analysis_types`.`placement`,
-                                `analysis_others`.`placement`
-                          FROM `analyses`
-                          INNER JOIN `analysis_types` ON `analysis_types`.`id` = `analyses`.`analysis_type_id`
-                          INNER JOIN `analysis_others` ON `analysis_others`.`analysis_id` = `analyses`.`id`
-                          WHERE `analysis_types`.`name` = 'other'
-                          AND `analyses`.`autopsy_id` = '#{id}'
-                          ORDER BY `analysis_types`.`placement`, `analysis_others`.`placement`;")
-    ActiveRecord::Associations::Preloader.new.preload(analyses, :analysis_type)
-    analyses
-  end
 
   def victim_name
     victim.name if victim.present?
