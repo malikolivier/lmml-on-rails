@@ -308,7 +308,7 @@ en:
     introduction_text_without_policeman: '%{date}%{suspect} I was entruted the legal autopsy of %{victim}%{judge}'
     place_chunk: 'at %{place}, '
     interval_chunk: '%{interval}, '
-    second_paragraph: 'Thus, %{place}%{time_interval}%{participants}, I conducted an autopsy.'
+    second_paragraph: 'Thus %{place}%{time_interval}%{participants} I conducted an autopsy.'
   people:
     full_name_with_title: '%{position} %{name} (%{institution_name})'
     death_age_information: ', %{age}'
@@ -372,8 +372,8 @@ en:
   time:
     formats:
       official_date: '%Y/%m/%d'
-      interval_from: 'from %Y/%m/%d %H:%M%{meridian}'
-      interval_to: ' to %H:%M%%{meridian}'
+      interval_from: 'from %Y/%m/%d %k:%M%{meridian}'
+      interval_to: ' to %k:%M%{meridian}'
   punctuation:
     sentence_joiner: ' '
     word_joiner: ', '
