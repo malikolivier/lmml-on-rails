@@ -6,24 +6,24 @@ en:
       gall_bladder: 胆嚢
     attributes:
       autopsy:
-        number: 解剖番号
-        suspect: 被疑者
-        suspect_name: 被疑者名
-        victim: 被害者
-        victim_name: 被害者名
-        place_id: 鑑定機関
-        autopsy_date: 日付
-        starting_time: 開始時刻
-        ending_time: 終了時刻
-        police_station: 警察署
-        police_inspector: 警視正
-        autopsy_type_id: 鑑定種別
-        court: 裁判所
-        judge: 裁判官
-        examiner: 執刀者
+        number: Autopsy number
+        suspect: Suspect
+        suspect_name: Suspect's name
+        victim: Victim
+        victim_name: Victim's name
+        place_id: Autopsy facility
+        autopsy_date: Date
+        starting_time: Start time
+        ending_time: End time
+        police_station: Police station
+        police_inspector: Police inspector
+        autopsy_type_id: Autopsy type
+        court: Court
+        judge: Judge
+        examiner: Examinor
       person:
-        age: 年齢
-        sex: 性
+        age: Age
+        sex: Sex
       institution:
         name: 名義
         address: 住所

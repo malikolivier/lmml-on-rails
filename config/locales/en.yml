@@ -297,27 +297,27 @@ en:
         explanations: 'Part 2: Exaplanations'
         results: Results
         autopsy_records: Autopsy Records
-    date_chunk: '%{date}、'
-    policeman_chunk: '%{policeman}は、'
-    police_inspector: 司法警察員
-    suspect_chunk: 被疑者・%{suspect_name}に対する殺人被疑事件に関し、
-    judge_chunk: '%{judge}の発した鑑定処分許可状に基づき'
-    victim_chunk: 死者・%{victim}
-    unknown_victim: 身元不明の遺体
-    introduction_text_with_policeman: '%{date}%{policeman}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。'
-    introduction_text_without_policeman: '%{date}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託された。'
-    place_chunk: '%{place}において、'
-    interval_chunk: '%{interval}、'
-    second_paragraph: 'よって、%{place}%{time_interval}%{participants}剖検した。'
+    date_chunk: 'On %{date}, '
+    policeman_chunk: '%{policeman}, '
+    police_inspector: the officer
+    suspect_chunk: 'regarding the suspected murder charges on %{suspect_name}, '
+    judge_chunk: 'with the authorization from %{judge}'
+    victim_chunk: 'the victim, %{victim}, '
+    unknown_victim: an unidentified victim
+    introduction_text_with_policeman: '%{date}%{policeman}%{suspect} entrusted me with the legal autopsy of %{victim}%{judge}.'
+    introduction_text_without_policeman: '%{date}%{suspect} I was entruted the legal autopsy of %{victim}%{judge}'
+    place_chunk: 'at %{place}, '
+    interval_chunk: '%{interval}, '
+    second_paragraph: 'Thus, %{place}%{time_interval}%{participants}, I conducted an autopsy.'
   people:
-    full_name_with_title: '%{institution_name}%{position}・%{name}%{title}'
-    death_age_information: （%{age}歳）
+    full_name_with_title: '%{position} %{name} (%{institution_name})'
+    death_age_information: ', %{age}'
     death_information: '%{name}%{age}'
   institutions:
     autopsy_room_address: '%{address}%{autopsy_room}'
   participations:
-    spectator: '%{person}の立ち会いの上'
-    assitant: '%{person}の補助を受けて'
+    spectator: 'under the supervion of %{person}'
+    assitant: 'with the help of %{person}'
   examinations:
     no_injury: No injury.
   external_outline_examinations:
