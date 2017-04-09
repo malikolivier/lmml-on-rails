@@ -17,6 +17,10 @@ class Examination < ApplicationRecord
 
   has_many :injuries
 
+  default_scope do
+    joins(:examination_type).order('`examination_types`.`placement`')
+  end
+
   def get
     if unique_examination?
       examination = examination_type.this_examination_model

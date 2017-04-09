@@ -38,9 +38,7 @@ class Autopsy < ApplicationRecord
   has_many :participants, through: :participations, source: :person
   has_many :conclusions
   has_many :explanations
-  has_many :examinations, lambda {
-    joins(:examination_type).order('`examination_types`.`placement`')
-  }
+  has_many :examinations
   has_many :analyses, lambda {
     joins(:analysis_type).order('`analysis_types`.`placement`')
   }
@@ -83,8 +81,8 @@ class Autopsy < ApplicationRecord
                                 reject_if: :all_blank
 
   def examination(examination_type)
-    examinations.joins(:examination_type)
-                .find_by(examination_types: { id: examination_type.id })
+    examinations.find_by(examination_types: { id: examination_type.id }) ||
+      Examination.new(examination_type: examination_type)
   end
 
   includes_in_json :autopsy_type, :place, :conclusions, :explanations,

@@ -1,6 +1,6 @@
 class ExaminationsController < ApplicationController
   before_action :set_exam, only: %i[update edit]
-  decorates_assigned :exam
+  decorates_assigned :exam, :examination_type
 
   # POST /autopsies/:id/***_examinations.json
   def create
