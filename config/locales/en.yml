@@ -20,4 +20,360 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  unknown: 不明
+  deixis:
+    left: 左
+    right: 右
+  sex:
+    M: 男
+    F: 女
+    O: 不明
+  color: &color
+    unknown: 不明
+    amber: 琥珀色
+    red: 赤色
+    pale: 蒼白
+    black: 黒色
+    no_color: 色のない
+    white: 白色
+    dark_red: 暗赤色
+    florid: 鮮紅色
+    yellow: 黄色
+    yellowish: 黄白色
+    yellow_green: 黄緑色
+    dark_brown: 茶褐色
+    green: 緑色
+    dark_green: 暗緑色
+    brown: 茶色
+  colors: *color # TODO: Delete me, only keep singular keys for enumerations
+  odors:
+    unknown: 不明
+    no_odor: においのない
+    rot: 腐敗の臭い
+    putrid: 腐敗の臭い
+    acid: 酸性
+  organs:
+    outline: 概観
+    head: 頭部
+    face: 顔面
+    neck: 頸部・項部
+    trunk: 胸腹部
+    back: 背部
+    upper_limbs: 上肢
+    lower_limbs: 下肢
+    genitalia: 陰部
+    anus: 肛門
+    cranium: 頭蓋
+    brain: 脳
+    abdominal_wall: 胸腹壁および胸腹腔
+    neck_organs: 頸部器官
+    larynx: 喉頭
+    trachea: 気管
+    main_bronchi: 主気管支
+    pericardium: 心嚢
+    heart: 心臓
+    LAD: 冠状動脈前下行枝
+    LCX: 回旋枝
+    RCA: 右冠状動脈
+    ventricle: 心室
+    atrium: 心房
+    thoracic_aorta: 胸部大動脈
+    lungs: 肺臓
+    abdominal_aorta: 腹部大動脈
+    adrenal_glands: 副腎
+    kidneys: 腎臓
+    spleen: 脾臓
+    pancreas: 膵臓
+    liver: 肝臓
+    stomach: 胃
+    intestines: 腸管
+    duodenum: 十二指腸
+    jejunum: 空腸
+    ileum: 回腸
+    colon: 大腸
+    bladder: 膀胱
+    myocardium: 心筋
+  section_title:
+    subtitle: （%{number}）%{title}
+    external_examination: 外部所見
+    external:
+      outline: 概観
+      head: 頭部
+      face: 顔面
+      neck: 頸部・項部
+      trunk: 胸腹部
+      back: 背部
+      upper_limbs: 上肢
+      lower_limbs: 下肢
+      genitalia: 外陰部
+      anus: 肛門
+    internal_examination: 内部所見
+    internal:
+      cranium: 頭蓋
+      brain: 脳
+      abdominal_wall: 胸腹壁および胸腹腔
+      neck_organs: 頸部器官
+      pericardium: 心嚢
+      heart: 心臓
+      thoracic_aorta: 胸部大動脈
+      lungs: 肺臓
+      abdominal_aorta: 胸部大動脈
+      adrenal_glands: 副腎
+      kidneys: 腎臓
+      spleen: 脾臓
+      pancreas: 膵臓
+      liver: 肝臓
+      stomach: 胃
+      intestines: 腸管
+      bladder: 膀胱
+      genitalia: 内陰部
+      back: 背部開検
+    inner_head_title: '%{letter}：頭腔開検'
+    inner_torso_title: '%{letter}：頸胸腹開検'
+    specific_examination_title: '%{number}. %{title}'
+    analyses_title: 諸検査の成績
+    analyses:
+      blood_type: 血液型
+      histopathology: 病理組織学的所見
+      instant_view: インスタントビュー濫用薬物スクリーニング検査
+      triage: トライエージ濫用薬物スクリーニング検査
+      poisoning: 血中薬毒物検査
+      ethanol: 血中エタノール濃度
+      carbon_monoxide: 血中ヘモグロビンの一酸化炭素飽和度
+      uropaper: ウロペーパーⅢ検査
+      biochemistry: 生化学検査
+      diatom_test: 壊機試験
+  intensity:
+    unknown: unknown
+    weak: weak
+    rather_weak: rather weak
+    mid: mid
+    rather_strong: rather strong
+    strong: strong
+    light: light
+    middle: middle
+    heavy: heavy
+  quantity:
+    unknown: 不明
+    none: なし
+    extremely_few: 極少数
+    few: 少数
+    middle: 中等数
+    mid: 中等数
+    many: 多数
+    extremely_many: 極多数
+  mass_quantity: # mass as in "mass noun"
+    unknown: 不明
+    none: なし
+    little: 少ない
+    rather_little: やや少ない
+    mid: 中等
+    rather_much: やや多い
+    much: 多い
+  concentration:
+    undetected: 未検出
+    little: 少ない
+    rather_little: やや少ない
+    mid: 中等
+    rather_much: やや多い
+    much: 多い
+  growth:
+    unknown: 不明
+    abundant: 良好
+    normal: 中等
+    insufficient: 不良
+  size:
+    unknown: 不明
+    small: 小さい
+    usual: 大きさ尋常
+    big: 大きい
+  thickness:
+    unknown: 不明
+    very_thin: 非常に萎縮
+    thin: 萎縮
+    usual: 厚さ尋常
+    thick: 肥厚
+    very_thick: 非常に肥厚
+  existence:
+    exists: あり
+    does_not_exist: なし
+    unknown: 不明
+  closedness:
+    closed: 閉じる
+    open: 開く
+    other: その他
+    unknown: 不明
+  tongue_tips:
+    behind: 下歯槽の後方
+    front: 下歯槽の前方
+    unknown: 不明
+  hardness:
+    hard: 弾性硬
+    soft: 弾性軟
+    unknown: 不明
+  difficulty:
+    easy: 容易
+    hard: 困難
+    unknown: 不明
+  clarity:
+    clear: 明瞭
+    unclear: 不明瞭
+    unknown: 不明
+  digestion:
+    not_digested: 未消化
+    digested: 消化済
+    partly_digested: 半消化
+    unknown: 消化程度が不明
+  aspects:
+    unknown: 不明
+    watery: 水分の多い
+  transparency:
+    unknown: 不明
+    transparent: 透明
+    opaque: 混濁
+  directions:
+    upper_left: 左上側
+    upper_right: 右上側
+    lower_left: 左下側
+    lower_right: 右下側
+  tooth_condition:
+    normal: 治療痕なし
+    pulled_pre_mortem: 生前抜歯
+    pulled_post_mortem: 死後抜歯
+    was_treated: 治療痕あり
+  discoloration:
+    discolored: 腐敗変色あり
+    no_discoloration: 腐敗変色なし
+    unknown: 不明
+  pubic_hair_colors:
+    black: 黒
+    gray: 灰色
+    white: 白
+    blond: 金髪
+    red: 赤
+    no_hair: なし
+    unknown: 不明
+  uropapers:
+    leukocytes: 白血球
+    urobilinogen: ウロビリノーゲン
+    occult_blood_hemoglobin: 潜血（ヘモグロビン）
+    occult_blood_erythrocytes: 潜血（赤血球）
+    bilirubin: ビリルビン
+    ketone_bodies: ケトン体
+    glucose: ブドウ糖
+    protein: 蛋白質
+    nitrite: 亜硝酸塩
+    relative_density: 比重
+    category:
+      urobilinogen:
+        usual: 正常
+      nitrite:
+        weak_positive: 弱陽性
+        strong_positive: 強陽性
+  diatom_test:
+    descriptive_quantity:
+      unknown: 不明
+      none: 0個
+      extremely_few: 全視野で1個
+      few: 数視野で0～数個
+      middle: 1視野で0～数個
+      many: 1視野で数個以上
+      extremely_many: 1視野で10個以上
+    conclusion:
+      contradiction: 肺にみられた珪藻との種類に矛盾はあった
+      no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
+      impossible_to_conclude: 本検査で得た情報で結論付けられない
+  autopsies:
+    new:
+      title: 新しい解剖所見を作成
+    edit_external:
+      title: 剖検記録 - 外部所見
+    edit_internal:
+      title: 剖検記録 - 内部所見
+    browse:
+      show:
+        title:  Autopsy Report
+        conclusions: 'Part 1: Conclusions'
+        explanations: 'Part 2: Exaplanations'
+        results: Results
+        autopsy_records: Autopsy Records
+    date_chunk: '%{date}、'
+    policeman_chunk: '%{policeman}は、'
+    police_inspector: 司法警察員
+    suspect_chunk: 被疑者・%{suspect_name}に対する殺人被疑事件に関し、
+    judge_chunk: '%{judge}の発した鑑定処分許可状に基づき'
+    victim_chunk: 死者・%{victim}
+    unknown_victim: 身元不明の遺体
+    introduction_text_with_policeman: '%{date}%{policeman}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。'
+    introduction_text_without_policeman: '%{date}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託された。'
+    place_chunk: '%{place}において、'
+    interval_chunk: '%{interval}、'
+    second_paragraph: 'よって、%{place}%{time_interval}%{participants}剖検した。'
+  people:
+    full_name_with_title: '%{institution_name}%{position}・%{name}%{title}'
+    death_age_information: （%{age}歳）
+    death_information: '%{name}%{age}'
+  institutions:
+    autopsy_room_address: '%{address}%{autopsy_room}'
+  participations:
+    spectator: '%{person}の立ち会いの上'
+    assitant: '%{person}の補助を受けて'
+  examinations:
+    no_injury: No injury.
+  external_outline_examinations:
+    body_sex: '%{sex}性屍。'
+    unknown_sex: 性別が不明な屍。
+    height: 身長
+    partial_height: 全長
+    weight: 体重
+    partial_weight: 重量
+    height_description: '%{label}%{height}cm'
+    weight_description: '%{label}%{weight}kg'
+    constitution: 体格、%{constitution}。
+    cold_phrase: 全身は冷却し、
+    cold_sentence: 全身は冷却する
+    rectal_description: 剖検開始時の直腸温%{temperature}℃
+    room_temperature: （室温%{temperature}℃）
+  livores_mortis:
+    color_description: '%{color}で'
+    body_parts_description: '%{body_parts}面に'
+    intensity_description: '%{intensity}に'
+    1st_part_description: '%{body_parts}%{color}%{intensity}'
+    single_description: '%{1st_part}発見し%{finger}'
+    body_parts_absent_description: '%{body_parts}は欠損する'
+    complete_description: 死斑は%{livores_mortis}。
+  rigores_mortis:
+    joints_description: '%{joints}で'
+    intensity_description: '%{intensity}'
+    single_description: '%{joints}%{intensity}'
+    complete_description: '%{category}硬直は%{single_description}。'
+  external_head_examinations:
+    natural_hair_color_only: 頭髪は%{natural}。
+    all_hair_colors: 頭髪は%{natural}で%{dyed}に染められる。
+    dyed_hair_color_only: 頭髪は%{dyed}に染められる。
+    top_hair_length_description: 頭頂部で%{length}㎝
+    side_hair_length_description: 側頭部で%{length}㎝
+    hair_length_description: 長さ%{description}
+  external_ear_examinations:
+    no_issue: 左右耳介に損傷なく、外耳道に出血なし。
+    has_injury: 'Injury on %{deixis} ear, '
+    no_injury: 'No injury on %{deixis} ear, '
+    has_bleeding: bleeding spotted on external ear.
+    no_bleeding: no bleeding on external ear.
+  helpers:
+    back: Back
+    new: New
+    add: Add
+  support:
+    array:
+      comma_connector: ', '
+      full_stop: '.'
+      space: ' '
+  time:
+    formats:
+      official_date: '%Y/%m/%d'
+      interval_from: 'from %Y/%m/%d %H:%M%{meridian}'
+      interval_to: ' to %H:%M%%{meridian}'
+  punctuation:
+    sentence_joiner: ' '
+    word_joiner: ', '
