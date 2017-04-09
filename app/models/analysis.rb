@@ -16,8 +16,9 @@ class Analysis < ApplicationRecord
   belongs_to :analysis_type, required: true
 
   default_scope do
-    # Order analyses by type
-    joins(:analysis_type).left_outer_joins(:analysis_other)
+    # Order analyses
+    joins(:analysis_type)
+      .left_outer_joins(:analysis_other)
       .order('`analysis_types`.`placement`, `analysis_others`.`placement`')
   end
 
