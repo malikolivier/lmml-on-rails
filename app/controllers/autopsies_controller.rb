@@ -38,7 +38,8 @@ class AutopsiesController < ApplicationController
     respond_to do |format|
       if @autopsy.save
         format.html do
-          redirect_to action: :edit_external, id: @autopsy.id
+          redirect_to action: :edit_external, id: @autopsy.id,
+                      locale: I18n.locale
         end
         format.json { render :show, status: :created, location: @autopsy }
       else
@@ -62,7 +63,8 @@ class AutopsiesController < ApplicationController
     @autopsy.destroy
     respond_to do |format|
       format.html do
-        redirect_to autopsies_url, notice: 'Autopsy was successfully destroyed.'
+        redirect_to autopsies_url(locale: I18n.locale),
+                    notice: 'Autopsy was successfully destroyed.'
       end
       format.json { head :no_content }
     end

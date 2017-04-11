@@ -37,7 +37,7 @@
         <td><%= autopsy.court_id %></td>
         <td><%= autopsy.judge_id %></td>
         <td><%= link_to 'Show', autopsy %></td>
-        <td><%= link_to 'Edit', edit_external_autopsy_path(autopsy) %></td>
+        <td><%= link_to 'Edit', edit_external_autopsy_path(autopsy, locale: I18n.locale) %></td>
         <td><%= link_to 'Destroy', autopsy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

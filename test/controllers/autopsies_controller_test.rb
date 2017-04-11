@@ -31,7 +31,6 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Autopsy.count') do
       post autopsies_url, params: @params
     end
-
     assert_redirected_to edit_external_autopsy_url(Autopsy.last)
   end
 
