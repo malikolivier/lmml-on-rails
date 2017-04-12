@@ -8,7 +8,7 @@
   .col-sm-6
     = render "#{examination_type.partial_show_path}_form", exam: exam do |f|
       - # Initialize examination
-      - f.object.examination ||= Examination.new(examination_type: examination_type)
+      - f.object.examination ||= Examination.new(examination_type: examination_type.object)
       = f.fields_for :examination do |ff|
         = ff.text_field :note
   .col-sm-6
