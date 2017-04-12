@@ -6,11 +6,11 @@ MagicLamp.define(controller: AutopsiesController) do
 
   fixture(name: 'edit_empty') do
     @autopsy = Autopsy.create!
-    render 'edit'
+    render 'edit_external'
   end
 
   fixture(name: 'edit_completed') do
     @autopsy = Autopsy.find_by(number: '000001')
-    render 'edit'
+    render 'edit_external'
   end
 end
