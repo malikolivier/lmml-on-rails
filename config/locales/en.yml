@@ -46,7 +46,7 @@ en:
     dark_green: 暗緑色
     brown: 茶色
   colors: *color # TODO: Delete me, only keep singular keys for enumerations
-  odors:
+  odor:
     unknown: 不明
     no_odor: においのない
     rot: 腐敗の臭い
@@ -198,7 +198,7 @@ en:
     exists: あり
     does_not_exist: なし
     unknown: 不明
-  closedness:
+  closed:
     closed: 閉じる
     open: 開く
     other: その他
@@ -219,14 +219,6 @@ en:
     clear: 明瞭
     unclear: 不明瞭
     unknown: 不明
-  digestion:
-    not_digested: 未消化
-    digested: 消化済
-    partly_digested: 半消化
-    unknown: 消化程度が不明
-  aspects:
-    unknown: 不明
-    watery: 水分の多い
   transparency:
     unknown: 不明
     transparent: 透明

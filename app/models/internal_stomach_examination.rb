@@ -15,8 +15,9 @@
 #
 
 class InternalStomachExamination < ExaminationBase
-  enum content_color: %i[unknown yellow green], _prefix: 'color'
-  enum content_smell: %i[unknown putrid acid], _prefix: 'smell'
+  enum content_color: %i[unknown yellow green], _prefix: 'color',
+       i18n_key: :color
+  enum content_smell: %i[unknown putrid acid], _prefix: 'smell', i18n_key: :odor
   enum content_aspect: %i[unknown watery], _prefix: 'aspect'
   enum content_digestion: %i[unknown not_digested digested partly_digested],
        _prefix: 'content'

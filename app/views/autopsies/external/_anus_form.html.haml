@@ -2,7 +2,7 @@
   = f.hidden_field :id
   .row
     .col-xs-6
-      = f.select :closed, translated_anus_closeds
+      = f.smart_select :closed
     .col-xs-6
-      = f.select :feces_quantity, translated_anus_feces_quantities
+      = f.smart_select :feces_quantity
   = yield f

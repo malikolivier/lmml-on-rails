@@ -25,7 +25,7 @@
         = ff.hidden_field :id
         .row
           .col-xs-6
-            = ff.select :closed, translated_external_mouth_examination_closeds
+            = ff.smart_select :closed
           .col-xs-6
             = ff.number_field :aperture
         .row

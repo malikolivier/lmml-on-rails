@@ -1,5 +1,9 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+  # i18n_keys is used to contain the key leading to the translation of a value
+  # of an attribute defined in locale/*.yml
+  class_attribute :i18n_keys
+  self.i18n_keys = {}
 
   # Return the translated text value of an attribute defined with an enumeration
   def translated_enum_value(attribute)
@@ -9,20 +13,30 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def translated_enum_value!(attribute)
-    s = "activerecord.enums.#{self.class.model_name.singular}.#{attribute}"
+    i18n_key = self.class.i18n_keys[attribute.to_sym]
+    s = "activerecord.enums.#{self.class.model_name.singular}.#{i18n_key}"
     attribute_value = send(attribute)
     I18n.translate!(attribute_value, scope: s)
   rescue I18n::MissingTranslationData
     begin
-      I18n.translate!(attribute_value, scope: attribute)
+      I18n.translate!(attribute_value, scope: i18n_key)
     rescue I18n::MissingTranslationData
       message = "translation missing: #{I18n.locale}.#{s}.#{attribute_value} " \
-                "or #{I18n.locale}.#{attribute}.#{attribute_value}"
+                "or #{I18n.locale}.#{i18n_key}.#{attribute_value}"
       raise LmmlOnRails::MissingTranslationData, message
     end
   end
 
   class << self
+    def enum(definitions)
+      i18n_key = definitions.delete(:i18n_key)
+      definitions.each do |name, _values|
+        next if %i[_prefix _suffix].include?(name)
+        i18n_keys[name] = i18n_key.present? ? i18n_key : name
+      end
+      super(definitions)
+    end
+
     def translated_enum_value(attribute, value)
       return nil if value.blank?
       new(attribute => value).translated_enum_value(attribute)

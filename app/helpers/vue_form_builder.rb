@@ -8,6 +8,10 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
     wrap_with_label(method, super(method, options), label_options)
   end
 
+  def smart_select(method, html_options = {})
+    select(method, object.class.translated_enum!(method), {}, html_options)
+  end
+
   def select(method, choices = nil, options = {}, html_options = {}, &block)
     html_options[:'v-model'] ||= v_model_value(method)
     add_form_control(html_options)
