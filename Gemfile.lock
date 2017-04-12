@@ -11,6 +11,17 @@ GIT
       unicode-display_width (~> 1.0, >= 1.0.1)
 
 GIT
+  remote: git://github.com/drapergem/draper.git
+  revision: a1d854a7f4c996e1553919cf6669677ac75e2d96
+  specs:
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
+      request_store (~> 1.0)
+
+GIT
   remote: git://github.com/globalize/globalize.git
   revision: 5b0ff2c92e7536f908dc82a4c2a15b04be79e821
   ref: 5b0ff2c
@@ -96,12 +107,6 @@ GEM
       activesupport (>= 3.0)
       deep_merge (~> 1.1.1)
     deep_merge (1.1.1)
-    draper (3.0.0.pre1)
-      actionpack (~> 5.0)
-      activemodel (~> 5.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (~> 5.0)
-      request_store (~> 1.0)
     era_ja (0.5.1)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -284,7 +289,7 @@ DEPENDENCIES
   bullet
   coffee-rails (~> 4.2)
   config
-  draper (= 3.0.0.pre1)
+  draper!
   era_ja
   globalize!
   haml

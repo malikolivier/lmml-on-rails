@@ -62,7 +62,7 @@ gem 'swagger-blocks'
 gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
 
 # Use draper for decorators
-gem 'draper', '3.0.0.pre1'
+gem 'draper', github: 'drapergem/draper'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
