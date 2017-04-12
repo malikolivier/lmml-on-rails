@@ -11,6 +11,7 @@
 #  constitution       :integer
 #  livor_mortis_note  :text
 #  rigor_mortis_note  :text
+#  cold               :boolean
 #  rectal_temperature :float
 #  room_temperature   :float
 #  created_at         :datetime         not null
