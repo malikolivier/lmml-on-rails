@@ -203,10 +203,6 @@ en:
     open: 開く
     other: その他
     unknown: 不明
-  tongue_tips:
-    behind: 下歯槽の後方
-    front: 下歯槽の前方
-    unknown: 不明
   hardness:
     hard: 弾性硬
     soft: 弾性軟

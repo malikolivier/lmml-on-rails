@@ -267,6 +267,11 @@ ja:
           not_dyed: 染めていない
           false_blond: 金髪
           false_red: 赤
+      external_mouth_examination:
+        tongue_tip:
+          behind: 下歯槽の後方
+          front: 下歯槽の前方
+          unknown: 不明
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝

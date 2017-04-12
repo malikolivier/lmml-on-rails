@@ -2,9 +2,9 @@
   = f.hidden_field :id
   .row
     .col-xs-6
-      = f.select :congestion, translated_congestions
+      = f.smart_select :congestion
     .col-xs-6
-      = f.select :swelling, translated_swellings
+      = f.smart_select :swelling
   = f.text_field :nasal_cavity_content
   = render 'nested_dual_form', form: f, method: :external_eye_examinations,
            fields: { closed: { type: :select },
@@ -30,9 +30,9 @@
             = ff.number_field :aperture
         .row
           .col-xs-6
-            = ff.select :petechia, translated_external_mouth_examination_petechia
+            = ff.smart_select :petechia
           .col-xs-6
-            = ff.select :tongue_tip, translated_external_mouth_examination_tongue_tips
+            = ff.smart_select :tongue_tip
         = render 'foreign_fluids_form', form: ff
         = ff.text_field :note
         .row
