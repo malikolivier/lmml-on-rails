@@ -6,20 +6,14 @@ module LivoresMortisHelper
   end
 
   def translated_livor_mortis_positions
-    LivorMortis.positions.map do |position, _|
-      [t("body_parts.#{position}"), position]
-    end
+    LivorMortis.translated_enum!(:position)
   end
 
   def translated_livor_mortis_intensities
-    LivorMortis.intensities.map do |intensity, _|
-      [t("intensity.#{intensity}"), intensity]
-    end
+    LivorMortis.translated_enum!(:intensity)
   end
 
   def translated_livor_mortis_on_finger_pressures
-    LivorMortis.on_finger_pressures.map do |on_finger_pressure, _|
-      [t("colors.#{on_finger_pressure}"), on_finger_pressure]
-    end
+    LivorMortis.translated_enum!(:on_finger_pressure)
   end
 end

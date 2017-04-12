@@ -1,5 +1,5 @@
 解剖時採取した諸臓器の小片をフォルマリン固定・パラフィン包埋後薄切し、ヘマトキシリン・エオジン等の染色を施し、病理組織学的検査を行なった。
 
-- this.analysis_histopathology_on_organs.includes(:organ).each do |histopatho_analysis|
+- exam.analysis_histopathology_on_organs.includes(:organ).each do |histopatho_analysis|
   :markdown
     **#{histopatho_analysis.organ_name}**：#{histopatho_analysis.result}

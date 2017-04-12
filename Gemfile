@@ -61,6 +61,9 @@ gem 'swagger-blocks'
 # TODO: update to the stable release when it is released officially for rails 5
 gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
 
+# Use draper for decorators
+gem 'draper', github: 'drapergem/draper'
+
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
   # console
@@ -69,7 +72,8 @@ group :development, :test do
   gem 'pry-remote'
   gem 'pry-nav' # rubocop:disable Bundler/OrderedGems
 
-  # Linter
+  # Linters
+  gem 'haml_lint'
   gem 'rubocop', github: 'bbatsov/rubocop', ref: '2409f1c'
 
   # Javascript test framework

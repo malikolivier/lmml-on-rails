@@ -19,8 +19,8 @@
 .panel.panel-default
   .panel-heading
     %div= t("activerecord.attributes.#{object.model_name.param_key}.#{association_info.plural_name}")
-    .col-xs-6= t('left')
-    .col-xs-6= t('right')
+    .col-xs-6= t('deixis.left')
+    .col-xs-6= t('deixis.right')
   .panel-body
     - # These hidden fields will initialize the Vue values
     - left = object.send(method).left.take || association_class.new(deixis: 'left')

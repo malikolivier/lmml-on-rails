@@ -8,7 +8,7 @@
 #  height             :float
 #  weight             :float
 #  partial_body       :boolean          default(FALSE)
-#  constitution       :text
+#  constitution       :integer
 #  livor_mortis_note  :text
 #  rigor_mortis_note  :text
 #  rectal_temperature :float
@@ -25,8 +25,9 @@ completed_autopsy_outline:
   height: 166
   weight: 67
   partial_body: false
-  constitution: Small and frail
+  constitution: normal
   livor_mortis_note: Pronounced livor mortis on bottom of the body
   rigor_mortis_note: No rigor mortis
+  cold: false
   rectal_temperature: 33.4
   room_temperature: 19.8

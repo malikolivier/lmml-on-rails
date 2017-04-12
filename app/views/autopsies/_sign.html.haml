@@ -1,6 +1,7 @@
 %p 以　上
 
-= @autopsy.autopsy_date.to_era("%O%E年%m月%d日") if @autopsy.autopsy_date.present?
+- date_format = t('time.formats.official_date')
+= @autopsy.autopsy_date.to_era(date_format) if @autopsy.autopsy_date.present?
 %br
 = @autopsy.place.try(:address)
 %br
@@ -8,6 +9,7 @@
   = @autopsy.examiner.try(:institution).try(:name)
   = @autopsy.examiner.affiliation
   %br
-  %span 鑑定人　#{@autopsy.examiner.name}　医師
+  %span= t('autopsies.browse.show.signature',
+    examiner_name: @autopsy.examiner.name)
 
-%p 以下余白
+%p= t('autopsies.browse.show.end_of_text')

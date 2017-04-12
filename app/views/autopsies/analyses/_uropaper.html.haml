@@ -2,11 +2,11 @@
 
 %table
   %tbody
-    - this.uropaper_results.each do |result|
+    - exam.uropaper_results.each do |result|
       %tr
         %td= I18n.t "uropapers.#{result.category}"
         %td= result.descriptive_result
-    - if this.ph.present?
+    - if exam.ph.present?
       %tr
         %td pH
-        %td= this.ph
+        %td= exam.ph

@@ -1,4 +1,4 @@
-image: lmml/on-rails-ci:170406
+image: lmml/on-rails-ci:170412
 
 before_script:
   - ruby -v
@@ -11,6 +11,10 @@ before_script:
 rubocop:
   script:
     - bundle exec rubocop
+
+haml_lint:
+  script:
+    - bundle exec haml-lint
 
 rails_test:
   script:

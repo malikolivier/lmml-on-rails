@@ -22,6 +22,10 @@ class ExternalHeadExamination < ExaminationBase
 
   alias ears external_ear_examinations
 
+  def not_dyed_or_not_specified?
+    hair_dyed_color.blank? || not_dyed?
+  end
+
   accepts_nested_attributes_for :external_ear_examinations,
                                 reject_if: :all_blank
 

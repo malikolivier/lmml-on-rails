@@ -6,9 +6,10 @@ class CreateExternalOutlineExaminations < ActiveRecord::Migration[5.0]
       t.float :height
       t.float :weight
       t.boolean :partial_body, default: false
-      t.text :constitution
+      t.integer :constitution
       t.text :livor_mortis_note
       t.text :rigor_mortis_note
+      t.boolean :cold
       t.float :rectal_temperature
       t.float :room_temperature
 

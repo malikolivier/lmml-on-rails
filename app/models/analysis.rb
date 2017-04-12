@@ -15,6 +15,13 @@ class Analysis < ApplicationRecord
   belongs_to :autopsy, required: true
   belongs_to :analysis_type, required: true
 
+  default_scope do
+    # Order analyses
+    joins(:analysis_type)
+      .left_outer_joins(:analysis_other)
+      .order('`analysis_types`.`placement`, `analysis_others`.`placement`')
+  end
+
   def get
     analysis_type.this_analysis_model.find_by!(analysis: self)
   end

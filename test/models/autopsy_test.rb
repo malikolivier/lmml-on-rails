@@ -27,18 +27,18 @@ require 'test_helper'
 class AutopsyTest < ActiveSupport::TestCase
   test 'analyses should be properly ordered' do
     complete_autopsy = autopsies(:completed_autopsy)
-    ordered_analyses = Analysis.where(autopsy: complete_autopsy)
+    ordered_analyses = Analysis.unscoped.where(autopsy: complete_autopsy)
                                .joins(:analysis_type)
                                .where.not(analysis_types: { name: 'other' })
                                .order('`analysis_types`.`placement`')
                                .to_a
-    ordered_analyses += Analysis.where(autopsy: complete_autopsy)
+    ordered_analyses += Analysis.unscoped.where(autopsy: complete_autopsy)
                                 .joins(:analysis_type)
                                 .joins(:analysis_other)
                                 .where(analysis_types: { name: 'other' })
                                 .order('`analysis_others`.`placement`')
                                 .to_a
-    complete_autopsy.ordered_analyses.each_with_index do |analysis, i|
+    complete_autopsy.analyses.each_with_index do |analysis, i|
       assert_equal(analysis.id, ordered_analyses[i].id,
                    "#{i}th elements are equal")
     end

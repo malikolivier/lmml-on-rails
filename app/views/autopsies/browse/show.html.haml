@@ -1,18 +1,18 @@
-%h1 鑑　定　書
+%h1= t('autopsies.browse.show.title')
 
-%p= @autopsy.introduction_text
+%p= autopsy.introduction_text
 
-%p= @autopsy.second_paragraph_text
+%p= autopsy.second_paragraph_text
 
-%h2 第　１　章　結　　　論
+%h2= t('autopsies.browse.show.conclusions')
 
 %ol
   - @autopsy.conclusions.each do |conclusion|
     %li= conclusion.content
 
-%h2 第　２　章　説　　　明
+%h2= t('autopsies.browse.show.explanations')
 
-%h3 鑑　定　事　項
+%h3= t('autopsies.browse.show.results')
 
 %ol
   - @autopsy.explanations.each do |explanation|
@@ -23,51 +23,10 @@
   %h4 #{i+1}. #{explanation.title}
   %p= explanation.content
 
-%h2 第　3　章　 剖　　検　　記　　録
+%h2= t('autopsies.browse.show.autopsy_records')
 
-%div= @autopsy.victim_description
+%div= autopsy.victim_description
 
-- external_examination_started = false
-- internal_examination_started = false
-- analyses_started = false
-- internal_head_examination_started = false
-- internal_torso_examination_started = false
-- section_count = 0
-- syoken_count = 0
-- kaiken_count = 0
-- @autopsy.examinations.includes(:examination_type, :injuries).each do |examination|
-  - if examination.examination_type.external? && !external_examination_started
-    - external_examination_started = true
-    %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.external_examination')}
-  - if examination.examination_type.internal?
-    - if !internal_examination_started
-      - internal_examination_started = true
-      %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.internal_examination')}
-    - if examination.examination_type.head? && !internal_head_examination_started
-      - internal_head_examination_started = true
-      %h3 #{(kaiken_count+=1).to_full_width_letter}：頭腔開検
-    - if examination.examination_type.torso? && !internal_torso_examination_started
-      - internal_torso_examination_started = true
-      %h3 #{(kaiken_count+=1).to_full_width_letter}：頸胸腹開検
-  %h4 #{section_count += 1}．#{t("section_title.#{examination.examination_type.category}.#{examination.examination_type.name}")}
-  %p
-    = render partial: "autopsies/#{examination.examination_type.category}/#{examination.examination_type.name}",
-             locals: { exam: examination.get }
-    = examination.note
-    - if examination.injuries.none?
-      損傷等の異常なし。
-- @autopsy.ordered_analyses.each do |analysis|
-  - section_count += 1
-  - if analysis.analysis_type.other?
-    - section_title_content = analysis.get.title
-  - else
-    - section_title_content = t("section_title.analyses.#{analysis.analysis_type.name}")
-  - section_title = "#{section_count}．#{section_title_content}"
-  - if !analyses_started
-    - analyses_started = true
-    %h3（#{(syoken_count+=1).to_full_width}）　#{t('section_title.analyses_title')}
-  %h4= section_title
-  %p= render partial: "autopsies/analyses/#{analysis.analysis_type.name}", locals: { this: analysis.get }
-  = analysis.note
+%div!= autopsy.autopsy_records
 
 = render 'sign', autopsy: @autopsy

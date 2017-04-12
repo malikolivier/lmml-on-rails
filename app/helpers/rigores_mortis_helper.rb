@@ -1,8 +1,6 @@
 module RigoresMortisHelper
   def translated_rigor_mortis_joints
-    RigorMortis.joints.map do |joint, _|
-      [t("body_parts.#{joint}"), joint]
-    end
+    RigorMortis.translated_enum!(:joint)
   end
 
   def translated_rigor_mortis_intensities
@@ -12,8 +10,6 @@ module RigoresMortisHelper
   end
 
   def translated_rigor_mortis_categories
-    RigorMortis.categories.map do |category, _|
-      [t("rigor_mortis.#{category}"), category]
-    end
+    RigorMortis.translated_enum(:category)
   end
 end

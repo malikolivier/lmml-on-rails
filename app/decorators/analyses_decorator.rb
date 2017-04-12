@@ -1,0 +1,2 @@
+class AnalysesDecorator < ApplicationCollectionDecorator
+end

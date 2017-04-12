@@ -1,30 +1,17 @@
 ja:
   unknown: 不明
-  left: 左
-  right: 右
+  deixis:
+    left: 左
+    right: 右
   sex:
     M: 男
     F: 女
     O: 不明
-  hair_colors:
-    black: 黒
-    brown: 茶色
-    blond: 金髪
-    auburn: 赤褐色
-    red: 赤髪
-    gray: 灰
-    white: 白
-    not_dyed: 染めていない
-    false_blond: 金髪
-    false_red: 赤
-  colors:
+  color: &color
     unknown: 不明
     amber: 琥珀色
     red: 赤色
     pale: 蒼白
-    fades_with_light_pressure: 指圧で退色
-    fades_with_strong_pressure: 強い指圧で退色
-    does_not_fade: 退色なし
     black: 黒色
     no_color: 色のない
     white: 白色
@@ -37,6 +24,7 @@ ja:
     green: 緑色
     dark_green: 暗緑色
     brown: 茶色
+  colors: *color # TODO: Delete me, only keep singular keys for enumerations
   odors:
     unknown: 不明
     no_odor: においのない
@@ -85,6 +73,7 @@ ja:
     bladder: 膀胱
     myocardium: 心筋
   section_title:
+    subtitle: （%{number}）%{title}
     external_examination: 外部所見
     external:
       outline: 概観
@@ -118,6 +107,9 @@ ja:
       bladder: 膀胱
       genitalia: 内陰部
       back: 背部開検
+    inner_head_title: '%{letter}：頭腔開検'
+    inner_torso_title: '%{letter}：頸胸腹開検'
+    specific_examination_title: '%{number}. %{title}'
     analyses_title: 諸検査の成績
     analyses:
       blood_type: 血液型
@@ -130,29 +122,6 @@ ja:
       uropaper: ウロペーパーⅢ検査
       biochemistry: 生化学検査
       diatom_test: 壊機試験
-  body_parts:
-    left_leg: 左足
-    right_leg: 右足
-    chin: 顎
-    neck: 頸部
-    left_shoulder: 左肩
-    right_shoulder: 右肩
-    left_elbow: 左肘
-    right_elbow: 右肘
-    left_hand: 左手
-    right_hand: 右手
-    left_hip: 左股関節
-    right_hip: 右股関節
-    left_knee: 左膝
-    right_knee: 右膝
-    left_foot: 左足部
-    right_foot: 右足部
-    back: 背部
-    belly: 腹部
-    trunk: 胸部
-    head: 頭部
-    left_arm: 左腕
-    right_arm: 右腕
   intensity:
     unknown: 不明
     weak: 弱い
@@ -208,10 +177,6 @@ ja:
     exists: あり
     does_not_exist: なし
     unknown: 不明
-  rigor_mortis:
-    rigor_mortis: 死後硬直
-    heat_related: 熱硬直
-    freeze_related: 凍結硬直
   closedness:
     closed: 閉じる
     open: 開く
@@ -300,250 +265,84 @@ ja:
   autopsies:
     new:
       title: 新しい解剖所見を作成
+    preview:
+      content_placeholder: 解剖所見
     edit_external:
       title: 剖検記録 - 外部所見
     edit_internal:
       title: 剖検記録 - 内部所見
-  activerecord:
-    errors:
-      messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
-    models:
-      autopsy: 解剖
-      external_mouth_examination: 口
-      gall_bladder: 胆嚢
-    attributes:
-      autopsy:
-        number: 解剖番号
-        suspect: 被疑者
-        suspect_name: 被疑者名
-        victim: 被害者
-        victim_name: 被害者名
-        place_id: 鑑定機関
-        autopsy_date: 日付
-        starting_time: 開始時刻
-        ending_time: 終了時刻
-        police_station: 警察署
-        police_inspector: 警視正
-        autopsy_type_id: 鑑定種別
-        court: 裁判所
-        judge: 裁判官
-        examiner: 執刀者
-      person:
-        age: 年齢
-        sex: 性
-      institution:
-        name: 名義
-        address: 住所
-        autopsy_room: 解剖室
-      examination:
-        note: 特記
-      external_outline_examination:
-        sex: 性別
-        partial_body: 部位欠損
-        height: 身長
-        weight: 体重
-        constitution: 体格
-        rectal_temperature: 直腸温度
-        room_temperature: 室温
-        livores_mortis: 死斑
-        rigores_mortis: 死後硬直
-      livor_mortis:
-        color: 色
-        position: 部位
-        intensity: 程度
-        on_finger_pressure: 指圧で
-      rigor_mortis:
-        joint: 関節
-        intensity: 程度
-        category: 種類
-      external_head_examination:
-        hair: 頭髪
-        hair_natural_color: 色
-        hair_dyed_color: 染色
-        top_hair_length: 頭頂部での長さ(cm)
-        side_hair_length: 側頭部での長さ(cm)
-        external_ear_examinations: 外耳道
-      external_ear_examination:
-        bleeding: 出血
-      external_face_examination:
-        congestion: 鬱血
-        swelling: 腫脹
-        nasal_cavity_content: 鼻腔内
-        external_eye_examinations: 眼
-      external_eye_examination:
-        closed: 開閉
-        aperture: 開閉(cm)
-        eyelid_congestion: 眼瞼血管充盈
-        eyelid_petechia: 眼瞼溢血点
-        eyelid_note: 眼瞼結膜特記
-        conjunctiva_congestion: 眼球血管充盈
-        conjunctiva_petechia: 眼球溢血点
-        conjunctiva_note: 眼球結膜特記
-        cornea: 角膜
-        pupil: 瞳孔
-        diameter: 瞳孔直径
-      external_mouth_examination:
-        closed: 開閉
-        aperture: 開閉(cm)
-        petechia: 溢血点
-        tongue_tip: 舌尖
-        note: 特記
-        foreign_fluids: 異液
-        tooth_examinations: 歯
-      foreign_fluid:
-        name: 名称
-        color: 色
-        odor: におい
-        description: 記述
-      external_trunk_examination:
-        abdominal_discoloration: 下腹部腐敗変色
-      external_genitalia_examination:
-        hair_color: 陰毛色
-        hair_length: 陰毛長さ
-        sex: 形状
-      external_anus_examination:
-        closed: 開閉
-        feces_quantity: 流出量
-      internal_brain_examination:
-        weight: 重量(g)
-        pia_congestion: 軟膜血管充盈
-        blood_spots: 大脳髄質血点
-      internal_abdominal_wall_examination:
-        subcutaneous_fat_level: 皮下脂肪
-        subcutaneous_fat_thickness: 皮下脂肪厚さ
-        diaphragm_height_left: 左横隔膜高さ
-        diaphragm_height_right: 右横隔膜高さ
-        pleura_adhesion: 胸膜癒着
-        peritoneum_adhesion: 腹膜癒着
-        air_in_digestive_track: 腸管含気量
-        pleura_foreign_fluids: 胸膜異液
-        peritoneum_foreign_fluids: 腹膜異液
-      internal_neck_organs_examination:
-        lymph_level: 舌根部リンパ装置発育
-        oesophagus_substance_id: 食道内容物
-        larynx_substance_id: 喉頭内容物
-        trachea_substance_id: 気管内容物
-        main_bronchi_substance_id: 主気管支内容物
-      internal_pericardium_examination:
-        congestion: 血管充盈
-        petechia: 溢血点
-      internal_heart_examination:
-        weight: 重量(g)
-        rigor_mortis: 硬直
-        epicardial_lipomatosis: 心外膜下脂肪沈
-        epicardial_petechia: 心外膜下に溢血点
-        extracted_blood_quantity: 血摘出量(ml)
-        extracted_blood_color: 色
-        extracted_blood_coagulation: 凝血
-        coronary_arteries: 動脈
-        heart_chambers: 心室・心房
-        thickness_left: 左心筋厚さ(cm)
-        thickness_right: 右心筋厚さ(cm)
-        scar_left: 瘢痕(左)
-        scar_right: 瘢痕(右)
-        pulmonary_artery_width: 肺動脈起始部の幅(cm)
-        pulmonary_artery_thrombus: 肺動脈起始部血栓
-      coronary_artery:
-        stenosis: 狭窄
-      heart_chamber:
-        size: 大きさ
-      internal_thoracic_aorta_examination:
-        width: 起始部 幅(cm)
-        arteriosclerosis: 動脈硬化性変化
-      internal_lungs_examination:
-        weight: 重量(g)
-        air_content: 含気量
-        congestion: 鬱血
-        foreign_fluids: 気管支内異液
-      internal_abdominal_aorta_examination:
-        arteriosclerosis: 動脈硬化性変化
-      internal_adrenal_glands_examination:
-        cortex_thickness: 皮質厚さ
-        medulla_thickness: 皮質厚さ
-      internal_kidneys_examination:
-        weight: 重量(g)
-        hardness: 硬度
-        capsule_removal: 腎被膜剥離
-        capsule_congestion: 腎被膜鬱血
-        pelvis_congestion: 腎盂粘膜血管充盈
-        pelvis_petechia: 腎盂粘膜溢血点
-      internal_spleen_examination:
-        weight: 重量(g)
-        hardness: 硬度
-        congestion: 鬱血
-        pulp_distinct: 赤脾髄・白脾髄の別
-      internal_pancreas_examination:
-        hardness: 硬度
-      internal_liver_examination:
-        weight: 重量(g)
-        hardness: 硬度
-        congestion: 鬱血
-        steatosis: 脂肪変性
-      gall_bladder:
-        bile_color: 胆汁色
-        bile_quantity: 胆汁量
-        gallstones_quantity: 胆石量
-        gallstones_color: 胆石色
-        gallstones_size: 胆石大きさ
-      internal_stomach_examination:
-        content_quantity: 内容物量(mL)
-        content_color: 内容物色
-        content_smell: 内容物におい
-        content_aspect: 内容物見た目
-        content_digestion: 消化の程度
-        rugae: 粘膜皺襞
-      internal_intestines_examination:
-        appendix: 虫垂
-        intestine_sections: 消化管区分
-      intestine_section:
-        color: 内容物色
-        quantity: 内容物量
-      internal_bladder_examination:
-        urine_quantity: 尿量(mL)
-        urine_color: 尿色
-        urine_transparency: 尿透明性
-        membrane_color: 粘膜色
-      internal_genitalia_examination:
-        length: 子宮長さ(cm)
-        fundal_width: 子宮底部幅(cm)
-        cervical_width: 至急頸部幅(cm)
-        endometrium_color: 粘膜色
-        ovaries_presence: 卵巣有無
-        ovaries_distance: 卵巣距離
-    enums:
-      coronary_artery:
-        categories:
-          LAD: 冠状動脈前下行枝
-          LCX: 回旋枝
-          RCA: 右冠状動脈
-      heart_chamber:
-        categories:
-          left_ventricle: 左心室
-          right_ventricle: 右心室
-          left_atrium: 左心房
-          right_atrium: 右心房
-      internal_stomach_examination:
-        rugae:
-          persistent: 残る
-          not_persistent: 伸びる
-          unknown: 不明
-      intestine_section:
-        categories:
-          duodenum: 十二指腸
-          jejunum: 空腸
-          ileum: 回腸
-          colon: 大腸
-      internal_genitalia_examination:
-        ovaries_presence:
-          unknown: 不明
-          'yes': 左右共
-          left_is_missing: 左卵巣は損失
-          right_is_missing: 右卵巣は損失
-          'no': 左右卵巣は損失
+    browse:
+      show:
+        title: 鑑　定　書
+        conclusions: 第　１　章　結　　　論
+        explanations: 第　２　章　説　　　明
+        results: 鑑　定　事　項
+        autopsy_records: 第　3　章　 剖　　検　　記　　録
+        signature: 鑑定人　%{examiner_name}　医師
+        end_of_text: 以下余白
+    date_chunk: '%{date}、'
+    policeman_chunk: '%{policeman}は、'
+    police_inspector: 司法警察員
+    suspect_chunk: 被疑者・%{suspect_name}に対する殺人被疑事件に関し、
+    judge_chunk: '%{judge}の発した鑑定処分許可状に基づき'
+    victim_chunk: 死者・%{victim}
+    unknown_victim: 身元不明の遺体
+    introduction_text_with_policeman: '%{date}%{policeman}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託した。'
+    introduction_text_without_policeman: '%{date}%{suspect}%{judge}%{victim}を解剖の上、下記事項に就き鑑定すべき旨私に嘱託された。'
+    place_chunk: '%{place}において、'
+    interval_chunk: '%{interval}、'
+    second_paragraph: 'よって、%{place}%{time_interval}%{participants}剖検した。'
+  people:
+    full_name_with_title: '%{institution_name}%{position}・%{name}%{title}'
+    death_age_information: （%{age}歳）
+    death_information: '%{name}%{age}'
+  institutions:
+    autopsy_room_address: '%{address}%{autopsy_room}'
+  participations:
+    spectator: '%{person}の立ち会いの上'
+    assitant: '%{person}の補助を受けて'
+  examinations:
+    no_injury: 損傷等の異常なし。
+  external_outline_examinations:
+    body_sex: '%{sex}性屍。'
+    unknown_sex: 性別が不明な屍。
+    height: 身長
+    partial_height: 全長
+    weight: 体重
+    partial_weight: 重量
+    height_description: '%{label}%{height}cm'
+    weight_description: '%{label}%{weight}kg'
+    constitution: 体格、%{constitution}。
+    cold_phrase: 全身は冷却し、
+    cold_sentence: 全身は冷却する
+    rectal_description: 剖検開始時の直腸温%{temperature}℃
+    room_temperature: （室温%{temperature}℃）
+  livores_mortis:
+    color_description: '%{color}で'
+    body_parts_description: '%{body_parts}面に'
+    intensity_description: '%{intensity}に'
+    1st_part_description: '%{body_parts}%{color}%{intensity}'
+    single_description: '%{1st_part}発見し%{finger}'
+    body_parts_absent_description: '%{body_parts}は欠損する'
+    complete_description: 死斑は%{livores_mortis}。
+  rigores_mortis:
+    joints_description: '%{joints}で'
+    intensity_description: '%{intensity}'
+    single_description: '%{joints}%{intensity}'
+    complete_description: '%{category}硬直は%{single_description}。'
+  external_head_examinations:
+    natural_hair_color_only: 頭髪は%{natural}。
+    all_hair_colors: 頭髪は%{natural}で%{dyed}に染められる。
+    dyed_hair_color_only: 頭髪は%{dyed}に染められる。
+    top_hair_length_description: 頭頂部で%{length}㎝
+    side_hair_length_description: 側頭部で%{length}㎝
+    hair_length_description: 長さ%{description}
+  external_ear_examinations:
+    no_issue: 左右耳介に損傷なく、外耳道に出血なし。
+    has_injury: '%{deixis}耳介に損傷あり、'
+    no_injury: '%{deixis}耳介に損傷なく、'
+    has_bleeding: 外耳道に出血あり。
+    no_bleeding: 外耳道に出血なし。
   date:
     abbr_day_names:
     - 日
@@ -733,10 +532,19 @@ ja:
       last_word_connector: と
       two_words_connector: と
       words_connector: と
+      comma_connector: 、
+      full_stop: 。
+      space: ''
   time:
     am: 午前
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
+      official_date: "%O%E年%m月%d日"
+      interval_from: '%O%E年%m月%d日 %{meridian}%H時%M分より'
+      interval_to: '%{meridian}%H時%M分まで'
     pm: 午後
+  punctuation:
+    sentence_joiner: ''
+    word_joiner: '・'

@@ -5,9 +5,11 @@
     .panel-body
       .row
         .col-xs-6
-          = f.select :hair_natural_color, translated_hair_natural_colors, prompt: true
+          = f.select :hair_natural_color,
+                     ExternalHeadExamination.translated_enum(:hair_natural_color)
         .col-xs-6
-          = f.select :hair_dyed_color, translated_hair_dyed_colors, prompt: true
+          = f.select :hair_dyed_color,
+                     ExternalHeadExamination.translated_enum(:hair_dyed_color)
       .row
         .col-xs-6
           = f.number_field :top_hair_length

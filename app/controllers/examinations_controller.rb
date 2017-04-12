@@ -1,5 +1,6 @@
 class ExaminationsController < ApplicationController
   before_action :set_exam, only: %i[update edit]
+  decorates_assigned :exam, :examination_type
 
   # POST /autopsies/:id/***_examinations.json
   def create
@@ -65,10 +66,16 @@ class ExaminationsController < ApplicationController
                                                 examination_category)
   end
 
-  def render_success
+  def render_success # rubocop:disable MethodLength
     template_file = "autopsies/#{examination_category}/_#{examination_name}"
-    html_preview = render_to_string template_file, locals: { exam: @exam },
-                                                   layout: false
+    begin
+      html_preview = render_to_string template_file, locals: { exam: exam },
+                                                     layout: false
+    rescue # TODO: Falls back to deprecated implementation. Remove this
+      # rubocop:disable SpecialGlobalVars
+      html_preview = render_to_string(template_file, locals: { exam: @exam },
+                                                     layout: false) + $!
+    end
     render json: {
       model: @exam.as_lmml_json,
       description: html_preview + @exam.examination.note

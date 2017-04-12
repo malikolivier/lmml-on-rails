@@ -15,5 +15,4 @@
     %h1#autopsy_head= t '.title'
     - ExaminationType.internal.each do |examination_type|
       - examination = @autopsy.examination(examination_type)
-      - examination ||= Examination.new(examination_type: examination_type)
-      = render 'examinations/form', exam: examination.get, examination_type: examination_type
+      = render 'examinations/form', exam: examination.get, examination_type: examination_type.decorate
