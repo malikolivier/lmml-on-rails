@@ -12,8 +12,9 @@
 #
 
 class ExternalFaceExamination < ExaminationBase
-  enum congestion: Settings.enums.existence, _prefix: true
-  enum swelling: Settings.enums.three_scale_intensity, _prefix: true
+  enum congestion: Settings.enums.existence, _prefix: true, i18n_key: :existence
+  enum swelling: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
 
   has_many :external_eye_examinations, -> { order(:deixis) },
            inverse_of: :external_face_examination

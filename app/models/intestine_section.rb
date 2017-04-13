@@ -16,7 +16,8 @@ class IntestineSection < ApplicationRecord
 
   enum category: %i[duodenum jejunum ileum colon]
   enum color: %i[yellowish yellow_green dark_brown], _prefix: true
-  enum quantity: Settings.enums.five_scale_mass_quantity, _prefix: true
+  enum quantity: Settings.enums.five_scale_mass_quantity, _prefix: true,
+       i18n_key: :mass_quantity
 
   def translated_name
     I18n.t "organs.#{category}"

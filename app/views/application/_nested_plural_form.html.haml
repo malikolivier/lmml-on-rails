@@ -46,7 +46,9 @@
             - html_options[:'v-model'] = "#{v_model}.#{field_name}"
             - case field_info[:type]
               - when :select
-                = select association_name, field_name, send("translated_#{associated_class_name}_#{field_name.to_s.pluralize}"), {}, html_options
+                = select association_name, field_name,
+                         association_info.klass.translated_enum!(field_name), {},
+                         html_options
               - when :check_box, :number_field, :text_field
                 = send(field_info[:type], association_name, field_name, html_options)
               - else

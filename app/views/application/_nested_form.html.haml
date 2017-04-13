@@ -7,7 +7,10 @@
       = label association_name, field_name, t("activerecord.attributes.#{associated_class_name}.#{field_name}")
       - case field_info[:type]
         - when :select
-          = select association_name, field_name, send("translated_#{associated_class_name}_#{field_name.to_s.pluralize}"), {prompt: true}, {class: 'form-control', 'v-model': "#{association_name}.#{field_name}"}
+          = select association_name, field_name,
+                   association_info.klass.translated_enum!(field_name), {},
+                   class: 'form-control',
+                   'v-model': "#{association_name}.#{field_name}"
         - when :check_box, :number_field, :text_field
           = send(field_info[:type], association_name, field_name, class: 'form-control', 'v-model': "#{association_name}.#{field_name}")
         - else

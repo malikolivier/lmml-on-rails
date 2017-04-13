@@ -267,6 +267,11 @@ ja:
           not_dyed: 染めていない
           false_blond: 金髪
           false_red: 赤
+      external_mouth_examination:
+        tongue_tip:
+          behind: 下歯槽の後方
+          front: 下歯槽の前方
+          unknown: 不明
       coronary_artery:
         categories:
           LAD: 冠状動脈前下行枝
@@ -279,6 +284,14 @@ ja:
           left_atrium: 左心房
           right_atrium: 右心房
       internal_stomach_examination:
+        content_digestion:
+          not_digested: 未消化
+          digested: 消化済
+          partly_digested: 半消化
+          unknown: 消化程度が不明
+        content_aspect:
+          unknown: 不明
+          watery: 水分の多い
         rugae:
           persistent: 残る
           not_persistent: 伸びる
