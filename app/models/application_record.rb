@@ -1,3 +1,6 @@
+# rubocop:disable ClassLength
+# TODO; split and simplify this class
+# Base class for all active record. Defines a few handy helper methods
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
   # i18n_keys is used to contain the key leading to the translation of a value
@@ -28,11 +31,14 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   class << self
+    # Extends enum with a i18n_key options. This options allows to set the
+    # i18n translation key used for this attribute.
     def enum(definitions)
       i18n_key = definitions.delete(:i18n_key)
       definitions.each do |name, _values|
         next if %i[_prefix _suffix].include?(name)
-        i18n_keys[name] = i18n_key.present? ? i18n_key : name
+        i18n_key = i18n_key.present? ? i18n_key : name
+        self.i18n_keys = i18n_keys.merge(name => i18n_key)
       end
       super(definitions)
     end
