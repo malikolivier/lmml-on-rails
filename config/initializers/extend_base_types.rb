@@ -13,6 +13,8 @@ class Integer
   end
 end
 
+# TODO: Delete this monkey-patch on arrays. This is to be replaced by the
+# PhraseBuilder class
 class Array
   def to_sentence_with_full_stop(options = {})
     empty? ? '' : "#{to_sentence(options)}。"

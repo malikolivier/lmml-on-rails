@@ -352,6 +352,37 @@ en:
     no_injury: 'No injury on %{deixis} ear, '
     has_bleeding: bleeding spotted on external ear.
     no_bleeding: no bleeding on external ear.
+  external_face_examinations:
+    has_congestion: 鬱血あり
+    no_congestion: 鬱血なし
+    congestion_unknown: 鬱血の有無は不明
+    swelling_description: 腫脹は%{intensity}
+    nasal_cavity_description: 鼻腔内に%{content}。
+  external_eye_examinations:
+    all_eyes_identical: 両眼は%{aperture_chunk}%{closedness}。
+    different_apertures: 左眼は%{left_aperture}cm、右眼は%{right_aperture}cm開く。
+    aperture_chunk: '%{aperture}cm'
+    closedness_description: '%{deixis}眼は%{aperture_chunk}%{closedness}。'
+    eyelid_congestion_description: '%{deixis}眼瞼の血管充盈は%{intensity}。'
+    eyelid_petechia_description: '%{deixis}眼瞼の溢血点は%{quantity}。'
+    conjunctiva_congestion_description: '%{deixis}眼球結膜の血管充盈は%{intensity}。'
+    conjunctiva_petechia_description: '%{deixis}眼球結膜の溢血点は%{quantity}。'
+    corneas_description: 角膜は%{cornea}。
+    cornea_description: '%{deixis}角膜は%{cornea}'
+    pupils_description: 瞳孔は%{pupil}。
+    pupil_description: '%{deixis}瞳孔は%{pupil}'
+    diameters_description: 左右共直径は%{diameter}cm。
+    diameter_description: '%{deixis}の方の直径は%{diameter}cm'
+  external_mouth_examinations:
+    aperture_chunk: '%{aperture}cm'
+    closedness_description: 口は%{aperture_chunk}%{closedness}。
+    has_foreign_fluids: 口腔内に次の異液がある：%{fluids}。
+    no_foreign_fluid: 口腔内に異液なし。
+    petechia_description: 口腔粘膜に溢血点は%{quantity}。
+    tongue_tip_description: 舌尖は下歯列の%{tongue_tip}。
+  foreign_fluids:
+    unknown_fluid: 不明な異液
+    description: '%{appearance}の%{name}'
   helpers:
     back: Back
     new: New

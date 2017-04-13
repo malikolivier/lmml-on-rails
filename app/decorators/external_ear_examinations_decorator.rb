@@ -1,6 +1,4 @@
-class ExternalEarExaminationsDecorator < ApplicationCollectionDecorator
-  include DualObjectDecoratorHelper
-
+class ExternalEarExaminationsDecorator < DualExaminationBasesDecorator
   def description
     if no_issue?
       t('.no_issue')

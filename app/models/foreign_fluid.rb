@@ -15,21 +15,10 @@ class ForeignFluid < ApplicationRecord
   enum color: %i[no_color green white]
   enum odor: %i[no_odor putrid]
 
-  def explanation
-    expl = name.present? ? name : '不明な異液'
-    odor_expl = I18n.t "odors.#{odor}" if odor.present?
-    odor_expl = '' if odor.blank?
-    color_expl = I18n.t "colors.#{color}" if color.present?
-    color_expl = '' if color.blank?
-    "#{[odor_expl, color_expl].join('、')}の#{expl}"
-  end
-
+  # TODO: Delete me. I am deprecated and should be deleted as soon as all
+  # views using foreign_fluids will be updated to use decorators.
   def self.explanation_of_array(foreign_fluids)
-    explanations = []
-    foreign_fluids.each do |fluid|
-      explanations.push(fluid.explanation)
-    end
-    explanations.join('、')
+    ForeignFluidDecorator.decorate_collection(foreign_fluids).description
   end
 
   after_destroy :destroy_relationships

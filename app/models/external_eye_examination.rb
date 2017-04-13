@@ -22,7 +22,7 @@
 
 class ExternalEyeExamination < ApplicationRecord
   enum deixis: Settings.enums.deixes
-  enum closed: Settings.enums.closedness
+  enum closed: Settings.enums.closedness, _prefix: 'eye'
 
   enum eyelid_congestion: Settings.enums.three_scale_intensity, _prefix: true,
        i18n_key: :intensity
@@ -36,15 +36,4 @@ class ExternalEyeExamination < ApplicationRecord
   belongs_to :external_face_examination, required: true
 
   validates :deixis, presence: true
-
-  def closedness_report
-    if !other?
-      aperture_sentence = open? && aperture.positive? ? "#{aperture}cm" : ''
-      closedness = I18n.t "closedness.#{closed}"
-      sentence = "#{I18n.t deixis}眼は#{aperture_sentence}#{closedness}。"
-    else
-      sentence = ''
-    end
-    sentence
-  end
 end
