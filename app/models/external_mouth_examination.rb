@@ -29,20 +29,6 @@ class ExternalMouthExamination < ApplicationRecord
   has_many :mouth_photograph_takings
   has_many :photographs, through: :mouth_photograph_takings
 
-  # TODO: 舌尖 tongue_tip, what should be written there?
-
-  def closedness_report
-    if !closed_other?
-      opened = closed_open? && aperture.present? && aperture.positive?
-      aperture_sentence = opened ? "#{aperture}cm" : ''
-      closedness = I18n.t "closedness.#{closed}"
-      sentence = "口は#{aperture_sentence}#{closedness}。"
-    else
-      sentence = ''
-    end
-    sentence
-  end
-
   accepts_nested_attributes_for :foreign_fluids, :tooth_examinations,
                                 reject_if: :all_blank
 end

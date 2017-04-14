@@ -1,4 +1,4 @@
-class ExternalEarExaminationDecorator < ApplicationDecorator
+class ExternalEarExaminationDecorator < DualExaminationBaseDecorator
   delegate :bleeding?
 
   def description
@@ -13,9 +13,9 @@ class ExternalEarExaminationDecorator < ApplicationDecorator
 
   def injury_description
     if no_injury?
-      t('.no_injury', deixis: model.translated_enum_value(:deixis))
+      t('.no_injury', deixis: translated_deixis)
     else
-      t('.has_injury', deixis: model.translated_enum_value(:deixis))
+      t('.has_injury', deixis: translated_deixis)
     end
   end
 
