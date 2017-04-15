@@ -289,6 +289,13 @@ ja:
   participations:
     spectator: '%{person}の立ち会いの上'
     assitant: '%{person}の補助を受けて'
+  participants:
+    title:  参加者情報
+  photographs:
+    title: 撮影画像登録
+    front: 前面 撮影画像
+    back: 背面 撮影画像
+    face: 顔面 撮影画像
   examinations:
     no_injury: 損傷等の異常なし。
   external_outline_examinations:

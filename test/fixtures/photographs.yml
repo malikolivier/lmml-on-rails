@@ -16,3 +16,7 @@
 
 face_autopsy_one:
   caption: Face of the victim, smeared in blood
+  picture_file_name: test_front_photo.jpg
+  picture_content_type: image/jpg
+  picture_file_size: 13382
+  picture_updated_at: Sat, 15 Apr 2017 06:57:13 UTC +00:00

@@ -11,7 +11,7 @@
       %li.nav-item
         = link_to t('section_title.analyses_title'), edit_analyses_autopsy_path(@autopsy), class: 'nav-big-item'
   #mainCol.col-md-11.col-sm-10.col-xs-9
-    %h1#autopsy_head= t '.title'
+    %h1#autopsy_head= t('autopsies.edit_external.title')
 
     .row
       .col-sm-6
@@ -19,6 +19,13 @@
       .col-sm-6
         #autopsy_errors.alert.alert-danger
         #autopsy_preview= render 'preview'
+    -# Participants
+    .row
+      = render 'autopsies/participants_form', autopsy: @autopsy
+    -# Photographs
+    .row
+      = render 'autopsy_photograph_takings/form', autopsy: @autopsy
+
     - ExaminationType.external.each do |examination_type|
       - examination = @autopsy.examination(examination_type)
       = render 'examinations/form', exam: examination.get, examination_type: examination_type.decorate

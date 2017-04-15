@@ -1,0 +1,25 @@
+%h1#photographs_head= t('photographs.title')
+- photograph_taking = @autopsy.autopsy_photograph_takings.new
+- photograph_taking.build_photograph
+.col-xs-4
+  %h2= t('photographs.front')
+  = form_for photograph_taking, builder: VueFormBuilder, html: { multipart: true, id: 'photographs' }, url: autopsy_autopsy_photograph_takings_path(autopsy) do |f|
+    = f.hidden_field :category, value: 'front'
+    = f.fields_for :photograph do |ff|
+      = ff.file_field :picture
+      = ff.text_field :caption
+    = f.button
+.col-xs-4
+  %h2= t('photographs.back')
+  = form_for photograph_taking, builder: VueFormBuilder, html: { multipart: true, id: 'photographs' }, url: autopsy_autopsy_photograph_takings_path(autopsy) do |f|
+    = f.hidden_field :category, value: 'back'
+    = f.fields_for :photograph do |ff|
+      = ff.file_field :picture
+      = ff.text_field :caption
+.col-xs-4
+  %h2= t('photographs.face')
+  = form_for photograph_taking, builder: VueFormBuilder, html: { multipart: true, id: 'photographs' }, url: autopsy_autopsy_photograph_takings_path(autopsy) do |f|
+    = f.hidden_field :category, value: 'face'
+    = f.fields_for :photograph do |ff|
+      = ff.file_field :picture
+      = ff.text_field :caption
