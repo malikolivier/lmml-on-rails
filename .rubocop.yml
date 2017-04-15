@@ -31,6 +31,12 @@ Metrics/LineLength:
   Exclude:
     - spec/teaspoon_env.rb
 
+Metrics/BlockLength:
+  Exclude:
+    # routes naturally has long blocks
+    - config/routes.rb
+
+
 # Below are TODO, these cops should be fixed!
 # Offense count: 252
 Style/Documentation:

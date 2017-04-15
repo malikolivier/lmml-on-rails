@@ -7,6 +7,7 @@ class AutopsyDecorator < ApplicationDecorator
   decorates_association :victim
   decorates_association :place
   decorates_association :participations
+  decorates_association :autopsy_photograph_takings
 
   def introduction_text
     if police_inspector.present?

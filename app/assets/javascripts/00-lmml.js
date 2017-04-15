@@ -1,8 +1,8 @@
-// Define global object for this app: LMML
+2// Define global object for this app: LMML
 var LMML = {
   vms: {},
   loaders: {},
-  autopsy_id: function getAutopsyId () {
+  get autopsy_id () {
     return document.getElementById('autopsy_id').value
   },
   isEmpty: function isLmmlObjectEmpty (object) {
@@ -28,7 +28,7 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id()}/${model}?locale=${LMML.locale}`
+    return `/autopsies/${LMML.autopsy_id}/${model}?locale=${LMML.locale}`
   },
   add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)

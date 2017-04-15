@@ -1,0 +1,2 @@
+class AutopsyPhotographTakingsDecorator < ApplicationCollectioDecorator
+end
