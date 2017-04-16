@@ -6,7 +6,10 @@ class AutopsyPhotographTakingsController < AutopsiesController
   def new; end
 
   # GET /autopsies/:id/autopsy_photograph_takings
-  def index; end
+  def index
+    @autopsy = Autopsy.includes(autopsy_photograph_takings: :photograph)
+                      .find(params[:autopsy_id])
+  end
 
   # POST /autopsies/:id/autopsy_photograph_takings
   def create

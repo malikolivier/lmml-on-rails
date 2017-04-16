@@ -1,3 +1,4 @@
+json.id photograph_taking.id
 json.category photograph_taking.category
 json.photograph do
   json.caption photograph_taking.caption

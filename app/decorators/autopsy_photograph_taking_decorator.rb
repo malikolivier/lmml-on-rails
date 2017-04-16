@@ -1,5 +1,5 @@
 class AutopsyPhotographTakingDecorator < ApplicationDecorator
-  delegate :category
+  delegate :id, :category
 
   # Use "safe-navifation operator" (&.) to get less verbose code
   # Equivalent to model.photograph.caption unless model.photograph.caption.nil?

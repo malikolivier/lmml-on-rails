@@ -46,14 +46,20 @@ LMML.loaders.autopsy_photograph_taking = function () {
             this.autopsy_photograph_takings = response.body
           }, this._errorHandler)
       },
-      _errorHandler: function (errorResponse) {
-        this.errors = JSON.stringify(errorResponse)
-      },
       onFileChange: function (category, event) {
         var files = event.target.files
         for (var file of files) {
           this._uploadPicture(category, file)
         }
+      },
+      deleteTaking: function (taking) {
+        this.$http.delete(`/autopsy_photograph_takings/${taking.id}`)
+          .then(function (response) {
+            this.reload()
+          }, this._errorHandler)
+      },
+      _errorHandler: function (errorResponse) {
+        this.errors = JSON.stringify(errorResponse)
       },
       _uploadPicture: function (category, file) {
         var formData = new window.FormData()

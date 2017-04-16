@@ -10,6 +10,7 @@
         = text_field_tag :caption, '',
                          class: 'form-control',
                          'v-model': 'taking.photograph.caption'
+        %button.btn.btn-danger.btn-xs{ '@click': 'deleteTaking(taking)' } X
       %label Add a picture:
       = file_field_tag :picture,
                        '@change': "onFileChange('#{category}', $event)"
