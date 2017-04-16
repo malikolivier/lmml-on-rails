@@ -52,6 +52,18 @@ LMML.loaders.autopsy_photograph_taking = function () {
           this._uploadPicture(category, file)
         }
       },
+      onCaptionChange: LMML.debounce(function updateCaption(taking) {
+        vm.$http.patch(`/autopsy_photograph_takings/${taking.id}`, {
+          autopsy_photograph_taking: {
+            photograph_attributes: {
+              id: taking.photograph.id,
+              caption: taking.photograph.caption
+            }
+          }
+        }).then(function (response) {
+          console.log('Update success!')
+        }, this._errorHandler)
+      }),
       deleteTaking: function (taking) {
         this.$http.delete(`/autopsy_photograph_takings/${taking.id}`)
           .then(function (response) {

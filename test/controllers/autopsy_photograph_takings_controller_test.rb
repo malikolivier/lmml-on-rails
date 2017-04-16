@@ -18,7 +18,8 @@ class AutopsyPhotographTakingsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create new photo' do
     assert_difference -> { @autopsy.photographs.count } do
-      post autopsy_autopsy_photograph_takings_path(@autopsy), params: @params
+      post autopsy_autopsy_photograph_takings_path(@autopsy, format: :json),
+           params: @params
     end
     assert_response :success
   end

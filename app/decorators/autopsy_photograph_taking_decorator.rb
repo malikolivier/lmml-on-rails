@@ -10,4 +10,8 @@ class AutopsyPhotographTakingDecorator < ApplicationDecorator
   def picture_url
     model.photograph &.picture &.url
   end
+
+  def photograph_id
+    model.photograph &.id
+  end
 end

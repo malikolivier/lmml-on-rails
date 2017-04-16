@@ -23,11 +23,11 @@ Rails.application.routes.draw do
         resource examination_name, only: %i[new edit] if Rails.env.development?
       end
     end
-    resources :autopsy_photograph_takings, only: %i[index create]
+    resources :autopsy_photograph_takings, shallow: true,
+                                           only: %i[index create update destroy]
     resources :autopsy_photograph_takings, only: :new if Rails.env.development?
   end
 
-  resources :autopsy_photograph_takings, only: :destroy
   resources :people, only: [:index]
 
   # Resources for has-many relations (for examinations)

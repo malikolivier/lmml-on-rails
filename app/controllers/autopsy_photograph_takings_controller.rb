@@ -1,6 +1,6 @@
-class AutopsyPhotographTakingsController < AutopsiesController
+class AutopsyPhotographTakingsController < ApplicationController
   before_action :set_autopsy_no_preload, only: %i[new create]
-  decorates_assigned :autopsy_photograph_taking
+  decorates_assigned :autopsy_photograph_taking, :autopsy
 
   # GET /autopsies/:id/autopsy_photograph_takings/new
   def new; end
@@ -17,8 +17,12 @@ class AutopsyPhotographTakingsController < AutopsiesController
                                          .create!(create_params)
   end
 
-  # DELETE /autopsies/:id/
-  #                    autopsy_photograph_takings/:autopsy_photograph_taking_id
+  # PATCH /autopsy_photograph_takings/:id
+  def update
+    AutopsyPhotographTaking.find(params[:id]).update!(update_params)
+  end
+
+  # DELETE /autopsy_photograph_takings/:id
   def destroy
     AutopsyPhotographTaking.destroy(params[:id])
   end
@@ -32,5 +36,10 @@ class AutopsyPhotographTakingsController < AutopsiesController
   def create_params
     params.require(:autopsy_photograph_taking)
           .permit(:category, photograph_attributes: %i[caption picture])
+  end
+
+  def update_params
+    params.require(:autopsy_photograph_taking)
+          .permit(:category, photograph_attributes: %i[id caption])
   end
 end

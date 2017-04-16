@@ -16,6 +16,9 @@ var LMML = {
       return ''
     }
   },
+  debounce: function debounce (func) {
+    return _.debounce(func, 500)
+  },
   httpErrorHandler: function httpErrorHandler (model) {
     return function httpErrorHandler (response) {
       console.error(response)

@@ -9,7 +9,8 @@
         = label_tag t('activerecord.attributes.photograph.caption')
         = text_field_tag :caption, '',
                          class: 'form-control',
-                         'v-model': 'taking.photograph.caption'
+                         'v-model': 'taking.photograph.caption',
+                         '@keyup': 'onCaptionChange(taking)'
         %button.btn.btn-danger.btn-xs{ '@click': 'deleteTaking(taking)' } X
       %label Add a picture:
       = file_field_tag :picture,
