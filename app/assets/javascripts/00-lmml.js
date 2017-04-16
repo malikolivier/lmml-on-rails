@@ -1,4 +1,4 @@
-2// Define global object for this app: LMML
+// Define global object for this app: LMML
 var LMML = {
   vms: {},
   loaders: {},

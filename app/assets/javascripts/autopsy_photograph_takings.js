@@ -35,7 +35,7 @@ LMML.loaders.autopsy_photograph_taking = function () {
           return taking.category === 'other'
         })
       },
-      api: function() {
+      api: function () {
         return `/autopsies/${LMML.autopsy_id}/autopsy_photograph_takings`
       }
     },
@@ -43,11 +43,11 @@ LMML.loaders.autopsy_photograph_taking = function () {
       reload: function () {
         this.$http.get(this.api)
           .then(function (response) {
-            this.autopsy_photograph_takings = response.body;
-          }, this._errorHandler);
+            this.autopsy_photograph_takings = response.body
+          }, this._errorHandler)
       },
-      _errorHandler: function(errorResponse) {
-        this.errors = JSON.stringify(errorResponse);
+      _errorHandler: function (errorResponse) {
+        this.errors = JSON.stringify(errorResponse)
       },
       onFileChange: function (category, event) {
         var files = event.target.files
@@ -56,15 +56,15 @@ LMML.loaders.autopsy_photograph_taking = function () {
         }
       },
       _uploadPicture: function (category, file) {
-        var formData = new FormData()
+        var formData = new window.FormData()
         formData.append('autopsy_photograph_taking[category]', category)
         formData.append('autopsy_photograph_taking[photograph_attributes][picture]', file)
         this.$http.post(this.api, formData)
           .then(function (response) {
             this.autopsy_photograph_takings.push(response.body)
-          }, this._errorHandler);
+          }, this._errorHandler)
       }
     }
   })
-  vm.reload();
+  vm.reload()
 }
