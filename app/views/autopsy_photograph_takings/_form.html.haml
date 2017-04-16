@@ -5,7 +5,7 @@
     .col-sm-3
       %h2= t("autopsy_photograph_takings.#{category}")
       %div{ 'v-for': "taking in #{category}Takings" }
-        %img{ ':src': 'taking.photograph.picture' }
+        %img{ ':src': 'taking.photograph.picture', class: 'img-responsive' }
         = label_tag t('activerecord.attributes.photograph.caption')
         = text_field_tag :caption, '',
                          class: 'form-control',
