@@ -297,6 +297,7 @@ ja:
     back: 背面 撮影画像
     face: 顔面 撮影画像
     other: その他 撮影画像
+    add_photograph: 写真を追加
   examinations:
     no_injury: 損傷等の異常なし。
   external_outline_examinations:

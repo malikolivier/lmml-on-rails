@@ -12,6 +12,6 @@
                          'v-model': 'taking.photograph.caption',
                          '@keyup': 'onCaptionChange(taking)'
         %button.btn.btn-danger.btn-xs{ '@click': 'deleteTaking(taking)' } X
-      %label Add a picture:
+      %label= t('autopsy_photograph_takings.add_photograph')
       = file_field_tag :picture,
                        '@change': "onFileChange('#{category}', $event)"
