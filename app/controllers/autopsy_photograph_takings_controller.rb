@@ -1,5 +1,5 @@
 class AutopsyPhotographTakingsController < AutopsiesController
-  before_action :set_autopsy, except: :destroy
+  before_action :set_autopsy_no_preload, only: %i[new create]
   decorates_assigned :autopsy_photograph_taking
 
   # GET /autopsies/:id/autopsy_photograph_takings/new
@@ -25,7 +25,7 @@ class AutopsyPhotographTakingsController < AutopsiesController
 
   private
 
-  def set_autopsy
+  def set_autopsy_no_preload
     @autopsy = Autopsy.find(params[:autopsy_id])
   end
 
