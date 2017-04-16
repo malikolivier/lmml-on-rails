@@ -1,3 +1,8 @@
 inherits_from:
   - .rubocop.yml
   - .haml-lint_todo.yml
+
+linters:
+  IdNames:
+    # This is rails's default for generating IDs, so keep it this way
+    style: snake_case

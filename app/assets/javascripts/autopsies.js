@@ -17,7 +17,7 @@ LMML.loaders.autopsy = function () {
     httpVerb = 'post'
     updateAll = true
   } else {
-    updateUrl = `/autopsies/${LMML.autopsy_id()}?locale=${LMML.locale}`
+    updateUrl = `/autopsies/${LMML.autopsy_id}?locale=${LMML.locale}`
     httpVerb = 'patch'
     updateAll = false
   }

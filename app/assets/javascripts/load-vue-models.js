@@ -18,10 +18,6 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   }
 
   // IIFE GLOBAL FUNCTIONS
-  function debounce (func) {
-    return _.debounce(func, 500)
-  }
-
   // this should be resolved to Vue Model instance
   function updateHandler (response) {
     document.getElementById(model + '_preview').innerHTML = response.body.description
@@ -61,7 +57,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
           } else if (arrayIndex === -1 || hasMultiData) {
             // Do not add watcher if the object is an ID, as an ID is not updatable.
             if (names[names.length - 1] !== 'id') {
-              watch[joinedNames] = debounce(
+              watch[joinedNames] = LMML.debounce(
                 function onIndividualChange (newValue, oldValue) {
                   console.log(`Updating ${model}'s ${joinedNames} to: ${newValue}`)
                   var params = {}
@@ -127,7 +123,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
             arrayName = names.slice(0, arrayIndex).concat(arrayName).join('.')
             if (!watch[arrayName]) {
               watch[arrayName] = {
-                handler: debounce(
+                handler: LMML.debounce(
                   function onArrayChange (newValue, oldValue) {
                     // Old value and new value do not work for arrays:
                     // https://forum-archive.vuejs.org/topic/4012/watch-array-mutations-newval-oldval-issue/3
@@ -202,7 +198,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
   console.log(_.clone(watch))
 
   var methods = {
-    updateAll: debounce(
+    updateAll: LMML.debounce(
       function () {
         console.log('Updating ' + model)
         this.$http[options.httpVerb](options.updateUrl, {[model]: data})

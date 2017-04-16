@@ -34,6 +34,8 @@ ja:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      photograph:
+        caption: 説明文
       examination:
         note: 特記
       external_outline_examination:

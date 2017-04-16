@@ -2,7 +2,7 @@
 var LMML = {
   vms: {},
   loaders: {},
-  autopsy_id: function getAutopsyId () {
+  get autopsy_id () {
     return document.getElementById('autopsy_id').value
   },
   isEmpty: function isLmmlObjectEmpty (object) {
@@ -16,6 +16,9 @@ var LMML = {
       return ''
     }
   },
+  debounce: function debounce (func) {
+    return _.debounce(func, 500)
+  },
   httpErrorHandler: function httpErrorHandler (model) {
     return function httpErrorHandler (response) {
       console.error(response)
@@ -28,7 +31,7 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id()}/${model}?locale=${LMML.locale}`
+    return `/autopsies/${LMML.autopsy_id}/${model}?locale=${LMML.locale}`
   },
   add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)

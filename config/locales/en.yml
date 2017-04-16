@@ -310,6 +310,15 @@ en:
   participations:
     spectator: 'under the supervion of %{person}'
     assitant: 'with the help of %{person}'
+  participants:
+    title:  Participants
+  autopsy_photograph_takings:
+    title: Photograph Registration
+    front: Front
+    back: Back
+    face: Face
+    other: Misc.
+    add_photograph: Add a photograph
   examinations:
     no_injury: No injury.
   external_outline_examinations:

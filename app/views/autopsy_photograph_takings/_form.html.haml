@@ -1,0 +1,17 @@
+%h1#autopsy_photograph_taking_head= t('autopsy_photograph_takings.title')
+#autopsy_photograph_taking
+  %div{ 'v-if': 'errors', 'v-text': 'errors' }
+  - AutopsyPhotographTaking.categories.each do |category, _|
+    .col-sm-3
+      %h2= t("autopsy_photograph_takings.#{category}")
+      %div{ 'v-for': "taking in #{category}Takings" }
+        %img.img-responsive{ ':src': 'taking.photograph.picture' }
+        = label_tag t('activerecord.attributes.photograph.caption')
+        = text_field_tag :caption, '',
+                         class: 'form-control',
+                         'v-model': 'taking.photograph.caption',
+                         '@keyup': 'onCaptionChange(taking)'
+        %button.btn.btn-danger.btn-xs{ '@click': 'deleteTaking(taking)' } X
+      %label= t('autopsy_photograph_takings.add_photograph')
+      = file_field_tag :picture,
+                       '@change': "onFileChange('#{category}', $event)"
