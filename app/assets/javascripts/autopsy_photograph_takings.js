@@ -35,16 +35,34 @@ LMML.loaders.autopsy_photograph_taking = function () {
           return taking.category === 'other'
         })
       },
+      api: function() {
+        return `/autopsies/${LMML.autopsy_id}/autopsy_photograph_takings`
+      }
     },
     methods: {
       reload: function () {
-        this.$http.get(`/autopsies/${LMML.autopsy_id}/autopsy_photograph_takings`)
+        this.$http.get(this.api)
           .then(function (response) {
-            console.log(response.body);
             this.autopsy_photograph_takings = response.body;
-          }, function (errorResponse) {
-            this.errors = JSON.stringify(errorResponse);
-          });
+          }, this._errorHandler);
+      },
+      _errorHandler: function(errorResponse) {
+        this.errors = JSON.stringify(errorResponse);
+      },
+      onFileChange: function (category, event) {
+        var files = event.target.files
+        for (var file of files) {
+          this._uploadPicture(category, file)
+        }
+      },
+      _uploadPicture: function (category, file) {
+        var formData = new FormData()
+        formData.append('autopsy_photograph_taking[category]', category)
+        formData.append('autopsy_photograph_taking[photograph_attributes][picture]', file)
+        this.$http.post(this.api, formData)
+          .then(function (response) {
+            this.autopsy_photograph_takings.push(response.body)
+          }, this._errorHandler);
       }
     }
   })
