@@ -1,2 +1,2 @@
-class AutopsyPhotographTakingsDecorator < ApplicationCollectioDecorator
+class AutopsyPhotographTakingsDecorator < ApplicationCollectionDecorator
 end
