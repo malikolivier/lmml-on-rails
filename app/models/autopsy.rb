@@ -53,7 +53,7 @@ class Autopsy < ApplicationRecord
 
   accepts_nested_attributes_for :suspect, :victim, :place, :examiner,
                                 :police_inspector, :judge, :police_station,
-                                :court,
+                                :court, :participations,
                                 reject_if: :all_blank
 
   def examination(examination_type)

@@ -213,6 +213,15 @@ ja:
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
     enums:
+      participation:
+        role:
+          examiner: 解剖医
+          requester: 依頼人
+          authorizer: 許可者
+          writer: 執筆係
+          assistant: 助手
+          student: 学生
+          spectator: 立会人
       external_outline_examination:
         constitution:
           unknown: 栄養不明

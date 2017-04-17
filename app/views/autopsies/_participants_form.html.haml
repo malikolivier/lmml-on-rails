@@ -1,1 +1,6 @@
 %h1#participants_head= t('participants.title')
+#participants
+= form_for(autopsy, builder: VueFormBuilder, html: { id: 'participants' },
+                    url: '') do |f|
+  = f.fields_for :participations do |ff|
+    = ff.smart_select :role

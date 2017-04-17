@@ -2,9 +2,9 @@ class ParticipationDecorator < ApplicationDecorator
   decorates_association :person
 
   def description_chunk
-    if object.role.name == 'Spectator'
+    if object.spectator?
       t('.spectator', person: person.full_name_with_title)
-    elsif object.role.name == 'Assistant'
+    elsif object.assistant?
       t('.assitant', person: person.full_name_with_title)
     end
   end
