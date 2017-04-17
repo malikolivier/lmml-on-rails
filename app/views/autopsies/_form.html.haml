@@ -71,6 +71,9 @@
         = ff.text_field :name, no_field: true, label_name: false
         .input-group-btn
           %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
+   = f.fields_for :participations do |ff|
+    = ff.smart_select :role
+    = ff.collection_select :person_id, Person.all, :id, :name
   .actions
     = f.submit if action_name == 'new'
   %div.hide{id: 'autopsy_action_name'}= action_name
