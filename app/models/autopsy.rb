@@ -34,7 +34,7 @@ class Autopsy < ApplicationRecord
   belongs_to :police_station, class_name: Institution, counter_cache: :autopsies_police_stations_count
   belongs_to :court, class_name: Institution, counter_cache: :autopsies_courts_count
 
-  has_many :participations
+  has_many :participations, inverse_of: :autopsy
   has_many :participants, through: :participations, source: :person
   has_many :conclusions
   has_many :explanations
@@ -42,6 +42,8 @@ class Autopsy < ApplicationRecord
   has_many :analyses
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings
+
+  before_create :setup_new_autopsy
 
   def victim_name
     victim.name if victim.present?
@@ -77,4 +79,12 @@ class Autopsy < ApplicationRecord
                      AutopsyPhotographTaking.as_lmml_params
 
   define_method 'participations_attributes[]', -> {}
+
+  private
+
+  def setup_new_autopsy
+    self.court ||= judge.institution if judge.present?
+    return if police_inspector.blank?
+    self.police_station ||= self.police_inspector.institution
+  end
 end

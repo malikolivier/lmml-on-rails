@@ -10,18 +10,41 @@ $(function () {
 })
 
 LMML.loaders.autopsy = function () {
+  var model = 'autopsy'
   var actionNameElement = document.getElementById('autopsy_action_name')
-  var updateUrl, httpVerb, updateAll
+  var updateUrl, httpVerb, updateAll, addParticipation, deleteParticipation,
+      onVueReady
   if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
     updateUrl = `/autopsies/preview?locale=${LMML.locale}`
     httpVerb = 'post'
     updateAll = true
+    addParticipation = function addParticipationWithoutServerUpdate () {
+      this.participations_attributes.push({
+        role: null,
+        person_id: null
+      })
+    }
+    deleteParticipation = function deleteParticipWithoutServer (participation) {
+      var i = this.participations_attributes.findIndex(function (submodel) {
+        return submodel.role === participation.role &&
+          submodel.person_id === participation.person_id
+      })
+      this.participations_attributes.splice(i, 1)
+    }
+    onVueReady = function removeArrayEmptyAttribute() {
+      console.log('VueJS READY!')
+      var elem = document.getElementById('autopsy_participations_attributes[]')
+      elem.parentNode.removeChild(elem);
+    }
   } else {
     updateUrl = `/autopsies/${LMML.autopsy_id}?locale=${LMML.locale}`
     httpVerb = 'patch'
     updateAll = false
+    addParticipation = LMML.add_('participation', model)
+    deleteParticipation = LMML.delete_('participation', model)
+    onVueReady = function doNothing() {}
   }
-  LMML.loadVueModel('autopsy', {
+  LMML.loadVueModel(model, {
     updateUrl,
     httpVerb,
     updateAll,
@@ -57,8 +80,11 @@ LMML.loaders.autopsy = function () {
         if (!this.new_examiner) {
           this.examiner_attributes.name = ''
         }
-      }
-    }
+      },
+      add_participation: addParticipation,
+      delete_participation: deleteParticipation
+    },
+    mounted: onVueReady
   })
 
   /*
