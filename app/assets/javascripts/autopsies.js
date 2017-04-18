@@ -60,7 +60,7 @@ LMML.loaders.autopsy = function () {
         }
       },
       add_participation: LMML.add_('participation', model),
-      delete_participation: LMML.delete_('participation', model),
+      delete_participation: LMML.delete_('participation', model)
     }
   })
 

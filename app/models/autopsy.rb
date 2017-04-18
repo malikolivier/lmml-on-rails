@@ -85,6 +85,6 @@ class Autopsy < ApplicationRecord
   def setup_new_autopsy
     self.court ||= judge.institution if judge.present?
     return if police_inspector.blank?
-    self.police_station ||= self.police_inspector.institution
+    self.police_station ||= police_inspector.institution
   end
 end

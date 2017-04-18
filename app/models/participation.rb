@@ -16,5 +16,5 @@ class Participation < ApplicationRecord
   enum role: %i[examiner requester authorizer writer assistant student
                 spectator]
 
-  includes_in_json :role, person: Person.as_lmml_params
+  includes_in_json person: Person.as_lmml_params
 end
