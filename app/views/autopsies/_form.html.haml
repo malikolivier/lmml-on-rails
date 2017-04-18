@@ -71,14 +71,15 @@
         = ff.text_field :name, no_field: true, label_name: false
         .input-group-btn
           %button.btn.btn-default{type: 'button', 'v-on:click': 'switch_new_examiner()'}= t 'helpers.back'
-  = render 'nested_array_form', form: f, method: :participations,
-           fields: { role: { type: :select,
-                       encapsulating_element: { class: 'col-xs-6'} },
-                     person_id: { type: :collection_select,
-                       encapsulating_element: { class: 'col-xs-5'},
-                       collection: Person.all,
-                       value_method: :id,
-                       text_method: :name } }
+  - if action_name != 'new'
+    = render 'nested_array_form', form: f, method: :participations,
+             fields: { role: { type: :select,
+                         encapsulating_element: { class: 'col-xs-6'} },
+                       person_id: { type: :collection_select,
+                         encapsulating_element: { class: 'col-xs-5'},
+                         collection: Person.all,
+                         value_method: :id,
+                         text_method: :name } }
   .actions
     = f.submit if action_name == 'new'
   %div.hide{id: 'autopsy_action_name'}= action_name

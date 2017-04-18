@@ -11,7 +11,7 @@ module AutopsiesHelper
     autopsy.court ||= Institution.new
     autopsy.judge ||= Person.new
     autopsy.examiner ||= Person.new
-    autopsy.participations.build
+    autopsy.participations.build if autopsy.participations.empty?
     autopsy
   end
 

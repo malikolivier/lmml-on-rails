@@ -11,7 +11,7 @@
 #
 
 class Participation < ApplicationRecord
-  belongs_to :person, required: true
+  belongs_to :person
   belongs_to :autopsy, required: true
   enum role: %i[examiner requester authorizer writer assistant student
                 spectator]
