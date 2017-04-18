@@ -11,6 +11,7 @@
       - f.object.examination ||= Examination.new(examination_type: examination_type.object)
       = f.fields_for :examination do |ff|
         = ff.text_field :note
+    = render 'examinations/injury_form', examination: exam.examination
   .col-sm-6
     %div.alert.alert-danger{id: "#{key_string}_errors"}
     %div{id: "#{key_string}_preview"}
