@@ -20,7 +20,4 @@
         %div{style: 'color:red'} #{$!} (no decorator support)
         = render partial: examination_type.partial_show_path,
           locals: { exam: exam }
-      - unless exam.respond_to? :each
-        = exam.examination.try(:note)
-      - else
-        = exam.first.try(:examination).try(:note)
+        = exam.examination &.note
