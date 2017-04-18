@@ -27,6 +27,7 @@ ja:
         court: 裁判所
         judge: 裁判官
         examiner: 執刀者
+        participations: 参加
       person:
         age: 年齢
         sex: 性
@@ -34,6 +35,9 @@ ja:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      participation:
+        role: 役割
+        person_id: 参加者
       photograph:
         caption: 説明文
       examination:

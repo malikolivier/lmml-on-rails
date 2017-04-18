@@ -94,7 +94,8 @@ class AutopsiesController < ApplicationController
                   police_inspector_attributes: [:name],
                   police_station_attributes: [:name],
                   court_attributes: [:name],
-                  judge_attributes: [:name])
+                  judge_attributes: [:name],
+                  participations_attributes: %i[id role person_id])
   end
 
   def setup_autopsy

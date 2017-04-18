@@ -75,4 +75,6 @@ class Autopsy < ApplicationRecord
                    analyses: Analysis.as_lmml_params,
                    autopsy_photograph_takings:
                      AutopsyPhotographTaking.as_lmml_params
+
+  define_method 'participations_attributes[]', -> {}
 end
