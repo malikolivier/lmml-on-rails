@@ -34,7 +34,7 @@ class Autopsy < ApplicationRecord
   belongs_to :police_station, class_name: Institution, counter_cache: :autopsies_police_stations_count
   belongs_to :court, class_name: Institution, counter_cache: :autopsies_courts_count
 
-  has_many :participations, inverse_of: :autopsy
+  has_many :participations
   has_many :participants, through: :participations, source: :person
   has_many :conclusions
   has_many :explanations
@@ -78,6 +78,12 @@ class Autopsy < ApplicationRecord
                    autopsy_photograph_takings:
                      AutopsyPhotographTaking.as_lmml_params
 
+  # For reasons I do not understand, the following helper throws an error saying
+  # that the method "participations_attributes[]" does not exist (used in
+  # autopsy form).
+  #    hidden_field :autopsy, 'participations_attributes[]'
+  # The method is completetely useless, however to avoid errors to be thrown I
+  # defined an empty method with this name.
   define_method 'participations_attributes[]', -> {}
 
   private
