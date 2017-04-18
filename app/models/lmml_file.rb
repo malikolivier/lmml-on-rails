@@ -13,7 +13,10 @@ class LmmlFile
     { version: VERSION, autopsy: @autopsy.as_lmml_json }
   end
   delegate :to_json, to: :as_json
-  delegate :to_xml, to: :as_json
+
+  def to_xml
+    as_json.to_xml(root: 'lmml')
+  end
 
   # rubocop:disable Lint/UnusedMethodArgument
   def from_json(json)
