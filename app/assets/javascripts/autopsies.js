@@ -10,6 +10,7 @@ $(function () {
 })
 
 LMML.loaders.autopsy = function () {
+  var model = 'autopsy'
   var actionNameElement = document.getElementById('autopsy_action_name')
   var updateUrl, httpVerb, updateAll
   if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
@@ -21,7 +22,7 @@ LMML.loaders.autopsy = function () {
     httpVerb = 'patch'
     updateAll = false
   }
-  LMML.loadVueModel('autopsy', {
+  LMML.loadVueModel(model, {
     updateUrl,
     httpVerb,
     updateAll,
@@ -57,7 +58,9 @@ LMML.loaders.autopsy = function () {
         if (!this.new_examiner) {
           this.examiner_attributes.name = ''
         }
-      }
+      },
+      add_participation: LMML.add_('participation', model),
+      delete_participation: LMML.delete_('participation', model)
     }
   })
 

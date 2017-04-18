@@ -33,8 +33,6 @@ class AutopsiesController < ApplicationController
   # POST /autopsies.json
   def create # rubocop:disable AbcSize, MethodLength # TODO
     @autopsy = Autopsy.new(autopsy_params)
-    setup_autopsy
-
     respond_to do |format|
       if @autopsy.save
         format.html do
@@ -94,12 +92,7 @@ class AutopsiesController < ApplicationController
                   police_inspector_attributes: [:name],
                   police_station_attributes: [:name],
                   court_attributes: [:name],
-                  judge_attributes: [:name])
-  end
-
-  def setup_autopsy
-    @autopsy.court ||= @autopsy.judge.institution if @autopsy.judge.present?
-    return if @autopsy.police_inspector.blank?
-    @autopsy.police_station ||= @autopsy.police_inspector.institution
+                  judge_attributes: [:name],
+                  participations_attributes: %i[id role person_id])
   end
 end

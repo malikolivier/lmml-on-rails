@@ -27,6 +27,7 @@ ja:
         court: 裁判所
         judge: 裁判官
         examiner: 執刀者
+        participations: 参加
       person:
         age: 年齢
         sex: 性
@@ -34,6 +35,9 @@ ja:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      participation:
+        role: 役割
+        person_id: 参加者
       photograph:
         caption: 説明文
       examination:
@@ -213,6 +217,15 @@ ja:
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
     enums:
+      participation:
+        role:
+          examiner: 解剖医
+          requester: 依頼人
+          authorizer: 許可者
+          writer: 執筆係
+          assistant: 助手
+          student: 学生
+          spectator: 立会人
       external_outline_examination:
         constitution:
           unknown: 栄養不明

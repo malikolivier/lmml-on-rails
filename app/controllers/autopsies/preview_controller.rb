@@ -7,7 +7,7 @@ module Autopsies
     # Post autopsy data and return a textual description of the autopsy.
     def show
       @autopsy = Autopsy.new(autopsy_params)
-      setup_autopsy
+      @autopsy.send(:setup_new_autopsy)
     end
   end
 end

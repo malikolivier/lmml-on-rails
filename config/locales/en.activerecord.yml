@@ -21,6 +21,7 @@ en:
         court: Court
         judge: Judge
         examiner: Examinor
+        participations: Participations
       person:
         age: Age
         sex: Sex
@@ -28,6 +29,9 @@ en:
         name: 名義
         address: 住所
         autopsy_room: 解剖室
+      participation:
+        role: Role
+        person_id: Participant
       photograph:
         caption: Caption
       examination:
@@ -207,6 +211,15 @@ en:
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
     enums:
+      participation:
+        role:
+          examiner: Examiner
+          requester: Requestor
+          authorizer: Authorizer
+          writer: Writer
+          assistant: Assistant
+          student: Student
+          spectator: Spectator
       external_outline_examination:
         constitution:
           unknown: 栄養不明

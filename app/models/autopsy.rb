@@ -43,6 +43,8 @@ class Autopsy < ApplicationRecord
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings
 
+  before_create :setup_new_autopsy
+
   def victim_name
     victim.name if victim.present?
   end
@@ -53,7 +55,7 @@ class Autopsy < ApplicationRecord
 
   accepts_nested_attributes_for :suspect, :victim, :place, :examiner,
                                 :police_inspector, :judge, :police_station,
-                                :court,
+                                :court, :participations,
                                 reject_if: :all_blank
 
   def examination(examination_type)
@@ -75,4 +77,20 @@ class Autopsy < ApplicationRecord
                    analyses: Analysis.as_lmml_params,
                    autopsy_photograph_takings:
                      AutopsyPhotographTaking.as_lmml_params
+
+  # For reasons I do not understand, the following helper throws an error saying
+  # that the method "participations_attributes[]" does not exist (used in
+  # autopsy form).
+  #    hidden_field :autopsy, 'participations_attributes[]'
+  # The method is completetely useless, however to avoid errors to be thrown I
+  # defined an empty method with this name.
+  define_method 'participations_attributes[]', -> {}
+
+  private
+
+  def setup_new_autopsy
+    self.court ||= judge.institution if judge.present?
+    return if police_inspector.blank?
+    self.police_station ||= police_inspector.institution
+  end
 end

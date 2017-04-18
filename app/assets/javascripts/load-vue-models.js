@@ -221,7 +221,8 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
     el: '#' + elementId,
     data,
     watch,
-    methods
+    methods,
+    mounted: options.mounted
   })
   if (options.updateAll) newModelVm.updateAll()
   LMML.vms[model] = newModelVm

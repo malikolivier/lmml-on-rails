@@ -903,12 +903,12 @@ ActiveRecord::Schema.define(version: 20161230154629) do
   create_table "participations", force: :cascade do |t|
     t.integer  "person_id"
     t.integer  "autopsy_id"
-    t.integer  "role_id"
+    t.integer  "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["autopsy_id"], name: "index_participations_on_autopsy_id"
     t.index ["person_id"], name: "index_participations_on_person_id"
-    t.index ["role_id"], name: "index_participations_on_role_id"
+    t.index ["role"], name: "index_participations_on_role"
   end
 
   create_table "people", force: :cascade do |t|
@@ -948,12 +948,6 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["external_outline_examination_id"], name: "index_rigores_mortis_on_external_outline_examination_id"
-  end
-
-  create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "substance_translations", force: :cascade do |t|

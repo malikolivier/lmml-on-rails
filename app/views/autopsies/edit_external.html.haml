@@ -19,9 +19,6 @@
       .col-sm-6
         #autopsy_errors.alert.alert-danger
         #autopsy_preview= render 'preview'
-    -# Participants
-    .row
-      = render 'autopsies/participants_form', autopsy: @autopsy
     -# Photographs
     .row
       = render 'autopsy_photograph_takings/form', autopsy: @autopsy
