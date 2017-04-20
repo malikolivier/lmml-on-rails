@@ -51,4 +51,8 @@ class Examination < ApplicationRecord
   includes_in_json examination_type: ExaminationType.as_lmml_params,
                    injuries: Injury.as_lmml_params
   includes_method_in_json :serialize
+
+  def expected_body_references
+    examination_type.body_references
+  end
 end

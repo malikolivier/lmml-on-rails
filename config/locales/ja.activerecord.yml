@@ -226,6 +226,18 @@ ja:
           assistant: 助手
           student: 学生
           spectator: 立会人
+      injury:
+        time_sustained:
+          pre_mortem: 生活反応あり
+          post_mortem: 生活反応なし
+          unknown: 不明
+        injury_type:
+          abrasion: 擦り傷
+          bruise: 打ち傷
+          laceration: 裂創
+          incision: 刺傷
+          gun: 銃傷
+          other: その他
       external_outline_examination:
         constitution:
           unknown: 栄養不明

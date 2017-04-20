@@ -13,7 +13,7 @@ class ExaminationBase < ApplicationRecord
     # When the items in the relation all holds the same examination, returns
     # the examination. Returns nil if the relation is empty.
     def examination
-      take.examination if count > 0
+      take.examination if any?
     end
   end
 end

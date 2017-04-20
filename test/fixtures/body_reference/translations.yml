@@ -1,0 +1,9 @@
+supramenton_en:
+  globalized_model: supramenton
+  locale: en
+  name: Supramenton
+
+supramenton_ja:
+  globalized_model: supramenton
+  locale: ja
+  name: supramenton

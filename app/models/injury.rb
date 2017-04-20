@@ -34,4 +34,6 @@ class Injury < ApplicationRecord
                    body_area: BodyArea.as_lmml_params,
                    injury_size: InjurySize.as_lmml_params,
                    injury_depth: InjuryDepth.as_lmml_params
+
+  delegate :expected_body_references, to: :examination
 end

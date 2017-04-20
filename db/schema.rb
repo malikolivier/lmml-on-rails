@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230154629) do
+ActiveRecord::Schema.define(version: 20170420065858) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -235,8 +235,18 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.index ["in_body_orientation_id"], name: "index_body_areas_on_in_body_orientation_id"
   end
 
-  create_table "body_references", force: :cascade do |t|
+  create_table "body_reference_translations", force: :cascade do |t|
+    t.integer  "body_reference_id", null: false
+    t.string   "locale",            null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.text     "name"
+    t.index ["body_reference_id"], name: "index_body_reference_translations_on_body_reference_id"
+    t.index ["locale"], name: "index_body_reference_translations_on_locale"
+  end
+
+  create_table "body_references", force: :cascade do |t|
+    t.text     "abbr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -882,6 +892,15 @@ ActiveRecord::Schema.define(version: 20161230154629) do
     t.datetime "updated_at",                    null: false
     t.index ["external_mouth_examination_id"], name: "mouth_has_photograph"
     t.index ["photograph_id"], name: "index_mouth_photograph_takings_on_photograph_id"
+  end
+
+  create_table "organ_body_references", force: :cascade do |t|
+    t.integer  "organ_id"
+    t.integer  "body_reference_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["body_reference_id"], name: "index_organ_body_references_on_body_reference_id"
+    t.index ["organ_id"], name: "index_organ_body_references_on_organ_id"
   end
 
   create_table "organ_examinations", force: :cascade do |t|
