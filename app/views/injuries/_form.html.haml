@@ -5,7 +5,8 @@
     = ff.collection_select :body_reference, injury.expected_body_references,
                            :id, :name
     = ff.fields_for ff.object.in_body_orientation do |fff|
-      -# TODO: limit coordinate_system choice to what is available in the selected body_reference
+      -# TODO: limit coordinate_system choice to what is available in
+        the selected body_reference
       = fff.smart_select :coordinate_system
       = fff.number_field :x
       = fff.number_field :y
