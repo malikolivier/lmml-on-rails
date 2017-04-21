@@ -15,6 +15,11 @@ class InjuriesController < ApplicationController
     @injuries = @examination.injuries
   end
 
+  # POST /autopsies/:id/:examination_name/injuries
+  def create
+    @injury = Injury.create!(injury_params)
+  end
+
   private
 
   def set_autopsy
@@ -33,5 +38,15 @@ class InjuriesController < ApplicationController
       raise ActionController::RoutingError, 'Did not found examination type ' \
                                             'in URL!'
     end
+  end
+
+  def injury_params
+    body_area = [:id, :body_reference_id,
+                 in_body_orientation_attributes: %i[id coordinate_system x y
+                                                    distance angle]]
+    params.require(:injury)
+          .permit(:time_sustained, :injury_type,
+                  body_area_attributes: body_area,
+                  injury_depth_attributes: %i[id depth reached_organ_id])
   end
 end

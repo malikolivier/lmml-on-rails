@@ -1,4 +1,4 @@
-= form_for injury, builder: VueFormBuilder, url: '' do |f|
+= form_for injury, builder: VueFormBuilder, url: "/autopsies/#{injury.examination.autopsy.id}/#{injury.examination.examination_type.key_string}/injuries" do |f|
   = f.smart_select :time_sustained
   = f.smart_select :injury_type
   = f.fields_for injury.body_area do |ff|
@@ -15,3 +15,4 @@
   = f.fields_for injury.injury_depth do |ff|
     = ff.number_field :depth
     = ff.collection_select :reached_organ, injury.reachable_organs, :id, :name
+  = f.button
