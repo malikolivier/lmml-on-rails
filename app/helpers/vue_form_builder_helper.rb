@@ -44,4 +44,15 @@ module VueFormBuilderHelper
       "#{methods.join('.')}.#{object_name}"
     end
   end
+
+  # Get the class of the target object for this form
+  # (I guess there is a more straightforward way to do this)
+  def klass
+    match = object_name.to_s.match(%r{\[(\w+)\]$})
+    if match
+      match[1].classify.constantize
+    else
+      object_name.to_s.classify.constantize
+    end
+  end
 end
