@@ -1,10 +1,11 @@
-= form_for injury, builder: VueFormBuilder, url: "/autopsies/#{injury.examination.autopsy.id}/#{injury.examination.examination_type.key_string}/injuries" do |f|
+= form_for injury, builder: VueFormBuilder, url: '',
+                   html: {  id: 'injury_app' } do |f|
   = f.smart_select :time_sustained
   = f.smart_select :injury_type
-  = f.fields_for injury.body_area do |ff|
+  = f.fields_for :body_area do |ff|
     = ff.collection_select :body_reference, injury.expected_body_references,
                            :id, :name
-    = ff.fields_for ff.object.in_body_orientation do |fff|
+    = ff.fields_for :in_body_orientation do |fff|
       -# TODO: limit coordinate_system choice to what is available in
         the selected body_reference
       = fff.smart_select :coordinate_system
@@ -12,7 +13,12 @@
       = fff.number_field :y
       = fff.number_field :distance
       = fff.number_field :angle
-  = f.fields_for injury.injury_depth do |ff|
+  = f.fields_for :injury_size do |ff|
+    = ff.smart_select :shape
+    = ff.number_field :length
+    = ff.number_field :width
+    = ff.smart_select :coordinate_system
+    = ff.number_field :angle
+  = f.fields_for :injury_depth do |ff|
     = ff.number_field :depth
     = ff.collection_select :reached_organ, injury.reachable_organs, :id, :name
-  = f.button

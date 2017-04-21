@@ -610,10 +610,10 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.integer  "shape"
     t.float    "length"
     t.float    "width"
-    t.integer  "in_body_orientation_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["in_body_orientation_id"], name: "index_injury_sizes_on_in_body_orientation_id"
+    t.integer  "coordinate_system"
+    t.float    "angle"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "instant_view_drug_results", force: :cascade do |t|

@@ -14,4 +14,7 @@ class BodyArea < ApplicationRecord
   belongs_to :in_body_orientation
 
   includes_in_json :body_reference, :in_body_orientation
+
+  accepts_nested_attributes_for :in_body_orientation,
+                                reject_if: :all_blank
 end

@@ -239,11 +239,17 @@ ja:
           gun: 銃傷
           other: その他
       in_body_orientation:
-        coordinate_system:
+        coordinate_system: &coordinate_system
           distal_proximal: 遠位・近位
           radial_ulnar: 橈側・尺側
           lateral_medial: 外側・内側
           front_behind: 前・後ろ
+      injury_size:
+        shape:
+          longitudinal: 縦断
+          round: 円形
+          undefined: 不定形
+        coordinate_system: *coordinate_system
       external_outline_examination:
         constitution:
           unknown: 栄養不明

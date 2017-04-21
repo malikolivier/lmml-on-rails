@@ -36,4 +36,7 @@ class Injury < ApplicationRecord
                    injury_depth: InjuryDepth.as_lmml_params
 
   delegate :expected_body_references, :reachable_organs, to: :examination
+
+  accepts_nested_attributes_for :body_area, :injury_size, :injury_depth,
+                                reject_if: :all_blank
 end

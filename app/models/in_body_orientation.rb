@@ -11,8 +11,7 @@
 #
 
 class InBodyOrientation < ApplicationRecord
-  enum coordinate_system: %i[distal_proximal radial_ulnar
-                             lateral_medial front_behind]
+  enum coordinate_system: Settings.enums.coordinate_system
 
   validates :coordinate_system, presence: true
 

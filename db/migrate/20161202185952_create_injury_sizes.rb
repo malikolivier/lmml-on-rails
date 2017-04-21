@@ -4,7 +4,8 @@ class CreateInjurySizes < ActiveRecord::Migration[5.0]
       t.integer :shape
       t.float :length
       t.float :width
-      t.belongs_to :in_body_orientation, index: true
+      t.integer :coordinate_system
+      t.float :angle
 
       t.timestamps
     end
