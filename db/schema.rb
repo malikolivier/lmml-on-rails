@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420065858) do
+ActiveRecord::Schema.define(version: 20170421063619) do
 
   create_table "analyses", force: :cascade do |t|
     t.boolean  "completed"
@@ -228,7 +228,6 @@ ActiveRecord::Schema.define(version: 20170420065858) do
   create_table "body_areas", force: :cascade do |t|
     t.integer  "body_reference_id",      null: false
     t.integer  "in_body_orientation_id"
-    t.float    "distance"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["body_reference_id"], name: "index_body_areas_on_body_reference_id"
@@ -494,6 +493,15 @@ ActiveRecord::Schema.define(version: 20170420065858) do
     t.index ["analysis_poisoning_id"], name: "index_found_poisons_on_analysis_poisoning_id"
     t.index ["chemical_analysis_method_id"], name: "index_found_poisons_on_chemical_analysis_method_id"
     t.index ["drug_id"], name: "index_found_poisons_on_drug_id"
+  end
+
+  create_table "from_reference_reachable_organs", force: :cascade do |t|
+    t.integer  "body_reference_id"
+    t.integer  "organ_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["body_reference_id"], name: "index_from_reference_reachable_organs_on_body_reference_id"
+    t.index ["organ_id"], name: "index_from_reference_reachable_organs_on_organ_id"
   end
 
   create_table "gall_bladders", force: :cascade do |t|
@@ -910,6 +918,16 @@ ActiveRecord::Schema.define(version: 20170420065858) do
     t.datetime "updated_at",          null: false
     t.index ["examination_type_id"], name: "index_organ_examinations_on_examination_type_id"
     t.index ["organ_id"], name: "index_organ_examinations_on_organ_id"
+  end
+
+  create_table "organ_translations", force: :cascade do |t|
+    t.integer  "organ_id",   null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "name"
+    t.index ["locale"], name: "index_organ_translations_on_locale"
+    t.index ["organ_id"], name: "index_organ_translations_on_organ_id"
   end
 
   create_table "organs", force: :cascade do |t|

@@ -5,7 +5,6 @@
 #  id                     :integer          not null, primary key
 #  body_reference_id      :integer          not null
 #  in_body_orientation_id :integer
-#  distance               :float
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #

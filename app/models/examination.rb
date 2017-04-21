@@ -55,4 +55,5 @@ class Examination < ApplicationRecord
   def expected_body_references
     examination_type.body_references
   end
+  delegate :reachable_organs, to: :examination_type
 end

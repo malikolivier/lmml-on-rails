@@ -6,5 +6,14 @@ class CreateOrgans < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    reversible do |dir|
+      dir.up do
+        Organ.create_translation_table! name: :text
+      end
+      dir.down do
+        Organ.drop_translation_table!
+      end
+    end
   end
 end

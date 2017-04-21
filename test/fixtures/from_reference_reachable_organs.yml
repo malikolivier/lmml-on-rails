@@ -1,0 +1,14 @@
+# == Schema Information
+#
+# Table name: from_reference_reachable_organs
+#
+#  id                :integer          not null, primary key
+#  body_reference_id :integer
+#  organ_id          :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+from_supramenton_tooth_gum_is_reachable:
+  organ: tooth_gum
+  body_reference: supramenton

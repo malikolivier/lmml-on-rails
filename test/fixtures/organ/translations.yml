@@ -1,0 +1,199 @@
+outline_ja:
+  globalized_model: outline
+  locale: ja
+  name: outline
+
+head_ja:
+  globalized_model: head
+  locale: ja
+  name: head
+
+face_ja:
+  globalized_model: face
+  locale: ja
+  name: face
+
+neck_ja:
+  globalized_model: neck
+  locale: ja
+  name: neck
+
+trunk_ja:
+  globalized_model: trunk
+  locale: ja
+  name: trunk
+
+upper_limbs_ja:
+  globalized_model: upper_limbs
+  locale: ja
+  name: upper_limbs
+
+lower_limbs_ja:
+  globalized_model: lower_limbs
+  locale: ja
+  name: lower_limbs
+
+genitalia_ja:
+  globalized_model: genitalia
+  locale: ja
+  name: genitalia
+
+anus_ja:
+  globalized_model: anus
+  locale: ja
+  name: anus
+
+cranium_ja:
+  globalized_model: cranium
+  locale: ja
+  name: cranium
+
+brain_ja:
+  globalized_model: brain
+  locale: ja
+  name: brain
+
+abdominal_wall_ja:
+  globalized_model: abdominal_wall
+  locale: ja
+  name: abdominal_wall
+
+neck_organs_ja:
+  globalized_model: neck_organs
+  locale: ja
+  name: neck_organs
+
+pericardium_ja:
+  globalized_model: pericardium
+  locale: ja
+  name: pericardium
+
+heart_ja:
+  globalized_model: heart
+  locale: ja
+  name: heart
+
+thoracic_aorta_ja:
+  globalized_model: thoracic_aorta
+  locale: ja
+  name: thoracic_aorta
+
+lung_left_ja:
+  globalized_model: left_lung
+  locale: ja
+  name: left_lung
+
+lung_right_ja:
+  globalized_model: right_lung
+  locale: ja
+  name: right_lung
+
+abdominal_aorta_ja:
+  globalized_model: abdominal_aorta
+  locale: ja
+  name: abdominal_aorta
+
+adrenal_gland_left_ja:
+  globalized_model: left_adrenal_gland
+  locale: ja
+  name: left_adrenal_gland
+
+adrenal_gland_right_ja:
+  globalized_model: right_adrenal_gland
+  locale: ja
+  name: right_adrenal_gland
+
+kidney_left_ja:
+  globalized_model: left_kidney
+  locale: ja
+  name: left_kidney
+
+kidney_right_ja:
+  globalized_model: right_kidney
+  locale: ja
+  name: right_kidney
+
+spleen_ja:
+  globalized_model: spleen
+  locale: ja
+  name: spleen
+
+pancreas_ja:
+  globalized_model: pancreas
+  locale: ja
+  name: pancreas
+
+liver_ja:
+  globalized_model: liver
+  locale: ja
+  name: liver
+
+stomach_ja:
+  globalized_model: stomach
+  locale: ja
+  name: stomach
+
+intestines_ja:
+  globalized_model: intestines
+  locale: ja
+  name: intestines
+
+bladder_ja:
+  globalized_model: bladder
+  locale: ja
+  name: bladder
+
+back_ja:
+  globalized_model: back
+  locale: ja
+  name: back
+
+coronary_artery_ja:
+  globalized_model: coronary_artery
+  locale: ja
+  name: coronary_artery
+
+myocardium_ja:
+  globalized_model: myocardium
+  locale: ja
+  name: myocardium
+
+cerebrum_ja:
+  globalized_model: cerebrum
+  locale: ja
+  name: cerebrum
+
+cerebellum_ja:
+  globalized_model: cerebellum
+  locale: ja
+  name: cerebellum
+
+pons_ja:
+  globalized_model: pons
+  locale: ja
+  name: pons
+
+medulla_oblongata_ja:
+  globalized_model: medulla_oblongata
+  locale: ja
+  name: medulla_oblongata
+
+psoas_major_muscle_ja:
+  globalized_model: psoas_major_muscle
+  locale: ja
+  name: psoas_major_muscle
+
+thyroid_gland_ja:
+  globalized_model: thyroid_gland
+  locale: ja
+  name: thyroid_gland
+
+bone_marrow_ja:
+  globalized_model: bone_marrow
+  locale: ja
+  name: bone_marrow
+
+tooth_gum_ja:
+  globalized_model: tooth_gum
+  locale: ja
+  name: 歯肉

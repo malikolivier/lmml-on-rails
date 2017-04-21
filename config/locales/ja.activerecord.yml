@@ -238,6 +238,12 @@ ja:
           incision: 刺傷
           gun: 銃傷
           other: その他
+      in_body_orientation:
+        coordinate_system:
+          distal_proximal: 遠位・近位
+          radial_ulnar: 橈側・尺側
+          lateral_medial: 外側・内側
+          front_behind: 前・後ろ
       external_outline_examination:
         constitution:
           unknown: 栄養不明

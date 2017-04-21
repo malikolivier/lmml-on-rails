@@ -21,6 +21,7 @@ class ExaminationType < ApplicationRecord
   has_many :examinations
 
   has_many :body_references, through: :organs
+  has_many :reachable_organs, through: :body_references
 
   validates :name, uniqueness: { scope: :category }
   validates :placement, uniqueness: true
