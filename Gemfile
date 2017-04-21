@@ -59,7 +59,7 @@ gem 'swagger-blocks'
 
 # Translate model's field with globalize
 # TODO: update to the stable release when it is released officially for rails 5
-gem 'globalize', github: 'globalize/globalize', ref: '5b0ff2c'
+gem 'globalize', github: 'globalize/globalize'
 
 # Use draper for decorators
 gem 'draper', github: 'drapergem/draper'
