@@ -10,6 +10,11 @@ class InjuriesController < ApplicationController
     @injury.build_injury_depth
   end
 
+  # GET /autopsies/:id/:examination_name/injuries
+  def index
+    @injuries = @examination.injuries
+  end
+
   private
 
   def set_autopsy
@@ -17,7 +22,7 @@ class InjuriesController < ApplicationController
   end
 
   FIND_EXAMINATION_TYPE_REGEX =
-    %r{^/autopsies/\d+/([a-zA-Z]+)_([a-zA-Z]+)_examination/injuries}
+    %r{^/autopsies/\d+/(external|internal)_(\w+)_examination/injuries}
 
   def set_examination
     match_data = request.path.match(FIND_EXAMINATION_TYPE_REGEX)
