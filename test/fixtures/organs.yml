@@ -3,7 +3,6 @@
 # Table name: organs
 #
 #  id                                 :integer          not null, primary key
-#  name                               :text
 #  subject_to_histopathology_analysis :boolean          default(FALSE)
 #  created_at                         :datetime         not null
 #  updated_at                         :datetime         not null

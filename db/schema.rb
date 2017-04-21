@@ -931,7 +931,6 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   end
 
   create_table "organs", force: :cascade do |t|
-    t.text     "name"
     t.boolean  "subject_to_histopathology_analysis", default: false
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
