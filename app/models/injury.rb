@@ -39,4 +39,8 @@ class Injury < ApplicationRecord
 
   accepts_nested_attributes_for :body_area, :injury_size, :injury_depth,
                                 reject_if: :all_blank
+
+  def examination_name
+    examination.examination_type.key_string
+  end
 end

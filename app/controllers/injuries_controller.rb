@@ -1,6 +1,6 @@
 class InjuriesController < ApplicationController
-  before_action :set_autopsy, only: %i[new index create]
-  before_action :set_examination
+  before_action :set_autopsy, :set_examination, only: %i[new index create]
+  before_action :set_injury, only: %i[edit update destroy]
 
   # GET /autopsies/:id/:examination_name/injuries/new
   def new
@@ -18,8 +18,16 @@ class InjuriesController < ApplicationController
 
   # POST /autopsies/:id/:examination_name/injuries
   def create
-    @injury = Injury.create!(injury_params)
+    @injury = @examination.injuries.create!(injury_params)
   end
+
+  # PATCH /injuries/:id
+  def update
+    @injury.update!(injury_params)
+  end
+
+  # GET /injuries/:id/edit
+  def edit; end
 
   private
 
@@ -39,6 +47,10 @@ class InjuriesController < ApplicationController
       raise ActionController::RoutingError, 'Did not found examination type ' \
                                             'in URL!'
     end
+  end
+
+  def set_injury
+    @injury = Injury.find(params[:id])
   end
 
   def injury_params

@@ -13,8 +13,6 @@
 class InBodyOrientation < ApplicationRecord
   enum coordinate_system: Settings.enums.coordinate_system
 
-  validates :coordinate_system, presence: true
-
   before_save :set_x_y
 
   def distance
@@ -27,7 +25,6 @@ class InBodyOrientation < ApplicationRecord
     # First perform checks for specific values and edge cases
     return @angle if @angle.present?
     return nil if x.blank? || y.blank?
-    return 0 if x.zero? && y.zero?
     # Return the angle now assuming all values are present and not zero
     angle_no_check
   end
@@ -49,7 +46,7 @@ class InBodyOrientation < ApplicationRecord
   end
 
   def angle_no_check
-    result = if x.zero?
+    result = if x.zero? && !y.zero?
                Math::PI / 2
              else
                Math.atan2(y, x)

@@ -226,7 +226,7 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   end
 
   create_table "body_areas", force: :cascade do |t|
-    t.integer  "body_reference_id",      null: false
+    t.integer  "body_reference_id"
     t.integer  "in_body_orientation_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -526,7 +526,7 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   end
 
   create_table "in_body_orientations", force: :cascade do |t|
-    t.integer  "coordinate_system", null: false
+    t.integer  "coordinate_system"
     t.float    "x"
     t.float    "y"
     t.datetime "created_at",        null: false

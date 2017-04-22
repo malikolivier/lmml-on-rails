@@ -1,24 +1,31 @@
-= form_for injury, builder: VueFormBuilder, url: '',
-                   html: {  id: 'injury_app' } do |f|
-  = f.smart_select :time_sustained
-  = f.smart_select :injury_type
-  = f.fields_for :body_area do |ff|
-    = ff.collection_select :body_reference, injury.expected_body_references,
-                           :id, :name
-    = ff.fields_for :in_body_orientation do |fff|
-      -# TODO: limit coordinate_system choice to what is available in
-        the selected body_reference
-      = fff.smart_select :coordinate_system
-      = fff.number_field :x
-      = fff.number_field :y
-      = fff.number_field :distance
-      = fff.number_field :angle
-  = f.fields_for :injury_size do |ff|
-    = ff.smart_select :shape
-    = ff.number_field :length
-    = ff.number_field :width
-    = ff.smart_select :coordinate_system
-    = ff.number_field :angle
-  = f.fields_for :injury_depth do |ff|
-    = ff.number_field :depth
-    = ff.collection_select :reached_organ, injury.reachable_organs, :id, :name
+#injury_app{ url: send("#{injury.examination_name}_injuries_path") }
+  %injury-component
+%script#in_body_orientation_component{ type: 'text/x-template' }
+  = form_for :in_body_orientation, builder: VueFormBuilder do |f|
+    -# TODO: limit coordinate_system choice to what is available in
+      the selected body_reference
+    = f.smart_select :coordinate_system, '@change': 'updateCoordinateSystem'
+    = f.number_field :x, '@keyup': 'recomputeDistanceAngle'
+    = f.number_field :y, '@keyup': 'recomputeDistanceAngle'
+    = f.number_field :distance, '@keyup': 'recomputeXY'
+    = f.number_field :angle, '@keyup': 'recomputeXY'
+
+%script#injury_component{ type: 'text/x-template' }
+  {{ errors }}
+  = form_for injury, builder: VueFormBuilder, url: '' do |f|
+    = f.smart_select :time_sustained
+    = f.smart_select :injury_type
+    = f.fields_for :body_area do |ff|
+      = ff.collection_select :body_reference, injury.expected_body_references,
+                             :id, :name
+      %in-body-orientation-component{ 'v-on:update': 'saveBodyOrientation',
+        'v-on:coordinate-system-update': 'updateCoordinateSystem' }
+    = f.fields_for :injury_size do |ff|
+      = ff.smart_select :shape
+      = ff.number_field :length
+      = ff.number_field :width
+      = ff.smart_select :coordinate_system
+      = ff.number_field :angle
+    = f.fields_for :injury_depth do |ff|
+      = ff.number_field :depth
+      = ff.collection_select :reached_organ, injury.reachable_organs, :id, :name
