@@ -24,10 +24,12 @@ class InBodyOrientation < ApplicationRecord
   end
 
   def angle
+    # First perform checks for specific values and edge cases
     return @angle if @angle.present?
     return nil if x.blank? || y.blank?
-    return 0 if x.zero?
-    Math.atan(y / x)
+    return 0 if x.zero? && y.zero?
+    # Return the angle now assuming all values are present and not zero
+    angle_no_check
   end
 
   def distance=(distance)
@@ -42,7 +44,17 @@ class InBodyOrientation < ApplicationRecord
 
   def set_x_y
     return if @distance.blank? || @angle.blank?
-    self.x = @distance * Math.sin(@angle.degrees)
-    self.y = @distance * Math.cos(@angle.degrees)
+    self.x = @distance * Math.cos(@angle.degrees)
+    self.y = @distance * Math.sin(@angle.degrees)
+  end
+
+  def angle_no_check
+    result = if x.zero?
+               Math::PI / 2
+             else
+               Math.atan2(y, x)
+             end
+    result -= Math::PI if y.negative?
+    result.to_deg
   end
 end
