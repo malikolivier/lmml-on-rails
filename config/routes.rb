@@ -39,6 +39,6 @@ Rails.application.routes.draw do
             :participations,
             only: %i[create destroy]
 
-  resources :injuries, only: %i[update destroy]
+  resources :injuries, only: %i[show update destroy]
   resources :injuries, only: :edit if Rails.env.development?
 end

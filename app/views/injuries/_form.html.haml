@@ -1,3 +1,4 @@
 = render 'components', injury: injury
-#injury_app{ url: send("#{injury.examination_name}_injuries_path") }
+#injury_app{ 'data-url': send("#{injury.examination_name}_injuries_path"),
+             'data-injury-id': injury.id }
   %injury-component

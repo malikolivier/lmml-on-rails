@@ -1,11 +1,14 @@
 class InjuriesController < ApplicationController
   before_action :set_autopsy, :set_examination, only: %i[new index create]
-  before_action :set_injury, only: %i[edit update destroy]
+  before_action :set_injury, only: %i[show edit update destroy]
 
   # GET /autopsies/:id/:examination_name/injuries/new
   def new
     @injury = Injury.new(examination: @examination)
   end
+
+  # GET /injuries/:id
+  def show; end
 
   # GET /autopsies/:id/:examination_name/injuries
   def index
