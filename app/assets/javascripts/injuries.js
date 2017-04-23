@@ -8,12 +8,12 @@ $(function () {
 
 LMML.loaders.injury = function () {
   function emitUpdate(attribute) {
-    return function(newValue) {
+    return LMML.debounce(function(newValue) {
       this.$emit('update', {
         id: this.id,
         [attribute]: newValue
       })
-    }
+    })
   }
 
   var inBodyOrientation = {
