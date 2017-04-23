@@ -64,6 +64,11 @@ LMML.loaders.injury = function () {
     }
   })
 
+
+  function saveInjury() {
+    return LMML.debounce(function() { this._save({ injury }) })
+  }
+
   var injury = {
     id: null,
     time_sustained: '',
@@ -129,6 +134,18 @@ LMML.loaders.injury = function () {
       _logError: function (errorResponse) {
         this.error = errorResponse
       }
+    },
+    watch: {
+      time_sustained: saveInjury(),
+      injury_type: saveInjury(),
+      'body_area_attributes.body_reference_id': saveInjury(),
+      'injury_size_attributes.shape': saveInjury(),
+      'injury_size_attributes.length': saveInjury(),
+      'injury_size_attributes.width': saveInjury(),
+      'injury_size_attributes.coordinate_system': saveInjury(),
+      'injury_size_attributes.angle': saveInjury(),
+      'injury_depth_attributes.depth': saveInjury(),
+      'injury_depth_attributes.reached_organ_id': saveInjury()
     }
   })
 
