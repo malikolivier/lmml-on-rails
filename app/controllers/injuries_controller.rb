@@ -5,10 +5,6 @@ class InjuriesController < ApplicationController
   # GET /autopsies/:id/:examination_name/injuries/new
   def new
     @injury = Injury.new(examination: @examination)
-    @injury.build_body_area
-    @injury.body_area.build_in_body_orientation
-    @injury.build_injury_size
-    @injury.build_injury_depth
   end
 
   # GET /autopsies/:id/:examination_name/injuries
