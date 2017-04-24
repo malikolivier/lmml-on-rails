@@ -14,7 +14,8 @@
       "$",
       "jQuery",
       "_",
-      "Vue"
+      "Vue",
+      "Vuex"
     ],
     "ignore": [
       "public/swagger-ui"

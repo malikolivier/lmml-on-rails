@@ -1,8 +1,10 @@
-(function() {
+/* global LMML */
+
+(function () {
   LMML.stores = {
-    get injuryStore() {
-      return new Promise(function(resolve, reject) {
-        Vue.http.get('/injuries/store').then(function loadInjuriesStore(response) {
+    get injuryStore () {
+      return new Promise(function (resolve, reject) {
+        Vue.http.get('/injuries/store').then(function loadInjuriesStore (response) {
           const state = response.body
           var store = new Vuex.Store({
             state,

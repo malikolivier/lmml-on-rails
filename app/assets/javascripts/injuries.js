@@ -30,31 +30,31 @@ LMML.loaders.injury = function (injuryId, examinationType) {
     }
   }
 
-  function railsifyObject(object) {
+  function railsifyObject (object) {
     var railsified = {}
-    _.each(object, function(value, key) {
+    _.each(object, function (value, key) {
       if (value instanceof Object) {
         railsified[`${key}_attributes`] = railsifyObject(value)
       } else {
         railsified[key] = value
       }
-    });
+    })
     return railsified
   }
 
   var injuryPromise
   if (injuryId) {
     injuryPromise = Vue.http.get(`/injuries/${injuryId}`)
-      .then(function(response) {
+      .then(function (response) {
         var injury = railsifyObject(response.body.injury)
         return injury
-      }, function(errorResponse) {
+      }, function (errorResponse) {
         return { error: errorResponse }
       })
   } else {
     injuryPromise = Promise.resolve(defaultInjury)
   }
-  Promise.all([injuryPromise, LMML.stores.injuryStore]).then(function(results) {
+  Promise.all([injuryPromise, LMML.stores.injuryStore]).then(function (results) {
     var injury = results[0]
     var store = results[1]
     var inBodyOrientation
@@ -85,8 +85,8 @@ LMML.loaders.injury = function (injuryId, examinationType) {
       angle: null
     })
 
-    function emitUpdate(attribute) {
-      return LMML.debounce(function(newValue) {
+    function emitUpdate (attribute) {
+      return LMML.debounce(function (newValue) {
         this.$emit('update', {
           id: this.id,
           [attribute]: newValue
@@ -133,10 +133,9 @@ LMML.loaders.injury = function (injuryId, examinationType) {
       }
     })
 
-    function saveInjury() {
-      return LMML.debounce(function() { this._save({ injury }) })
+    function saveInjury () {
+      return LMML.debounce(function () { this._save({ injury }) })
     }
-
 
     Vue.component('injury-component', {
       template: '#injury_component',
@@ -195,10 +194,10 @@ LMML.loaders.injury = function (injuryId, examinationType) {
         'injury_depth_attributes.reached_organ_id': saveInjury()
       },
       computed: {
-        reachableOrgans: function() {
+        reachableOrgans: function () {
           return this.$store.getters.getReachableOrgans(examinationType)
         },
-        expectedBodyReferences: function() {
+        expectedBodyReferences: function () {
           return this.$store.getters.getExpectedBodyReferences(examinationType)
         }
       }
