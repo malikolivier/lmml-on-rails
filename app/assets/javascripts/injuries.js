@@ -46,9 +46,9 @@ LMML.loaders.injury = function (injuryId) {
     injuryPromise = Vue.http.get(`/injuries/${injuryId}`)
       .then(function(response) {
         var injury = railsifyObject(response.body.injury)
-        return Promise.resolve(injury)
+        return injury
       }, function(errorResponse) {
-        return Promise.resolve({ error: errorResponse })
+        return { error: errorResponse }
       })
   } else {
     injuryPromise = Promise.resolve(defaultInjury)
