@@ -39,6 +39,10 @@ Rails.application.routes.draw do
             :participations,
             only: %i[create destroy]
 
-  resources :injuries, only: %i[show update destroy]
+  resources :injuries, only: %i[show update destroy] do
+    collection do
+      get :store, to: 'injuries/store#show'
+    end
+  end
   resources :injuries, only: :edit if Rails.env.development?
 end

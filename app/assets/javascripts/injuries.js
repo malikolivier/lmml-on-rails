@@ -3,11 +3,12 @@
 $(function () {
   var injuryApp = document.getElementById('injury_app')
   if (injuryApp !== null) {
-    LMML.loaders.injury(injuryApp.getAttribute('data-injury-id'))
+    LMML.loaders.injury(injuryApp.getAttribute('data-injury-id'),
+                        injuryApp.getAttribute('data-examination-type'))
   }
 })
 
-LMML.loaders.injury = function (injuryId) {
+LMML.loaders.injury = function (injuryId, examinationType) {
   var defaultInjury = {
     id: null,
     time_sustained: '',
@@ -53,7 +54,9 @@ LMML.loaders.injury = function (injuryId) {
   } else {
     injuryPromise = Promise.resolve(defaultInjury)
   }
-  injuryPromise.then(function(injury) {
+  Promise.all([injuryPromise, LMML.stores.injuryStore]).then(function(results) {
+    var injury = results[0]
+    var store = results[1]
     var inBodyOrientation
 
     if (!injury.error) injury.error = null
@@ -190,14 +193,20 @@ LMML.loaders.injury = function (injuryId) {
         'injury_size_attributes.angle': saveInjury(),
         'injury_depth_attributes.depth': saveInjury(),
         'injury_depth_attributes.reached_organ_id': saveInjury()
+      },
+      computed: {
+        reachableOrgans: function() {
+          return this.$store.getters.getReachableOrgans(examinationType)
+        },
+        expectedBodyReferences: function() {
+          return this.$store.getters.getExpectedBodyReferences(examinationType)
+        }
       }
     })
 
-    var data = {}
-    /* eslint-disable no-new */
     return new Vue({
       el: '#injury_app',
-      data
+      store
     })
   })
 }

@@ -10,12 +10,13 @@
 
 %script#injury_component{ type: 'text/x-template' }
   {{ errors }}
-  = form_for setup_injury(injury), builder: VueFormBuilder, url: '' do |f|
+  = form_for setup_injury(Injury.new), builder: VueFormBuilder, url: '' do |f|
     = f.smart_select :time_sustained
     = f.smart_select :injury_type
     = f.fields_for :body_area do |ff|
-      = ff.collection_select :body_reference_id,
-                             injury.expected_body_references, :id, :name
+      = ff.select :body_reference_id do
+        %option{ 'v-for': 'bodyReference in expectedBodyReferences',
+                 ':value': 'bodyReference.id' } {{ bodyReference.name }}
       %in-body-orientation-component{ 'v-on:update': 'saveBodyOrientation',
         'v-on:coordinate-system-update': 'updateCoordinateSystem' }
     = f.fields_for :injury_size do |ff|
@@ -26,5 +27,6 @@
       = ff.number_field :angle
     = f.fields_for :injury_depth do |ff|
       = ff.number_field :depth
-      = ff.collection_select :reached_organ_id, injury.reachable_organs,
-                             :id, :name
+      = ff.select :reached_organ_id do
+        %option{ 'v-for': 'organ in reachableOrgans',
+                 ':value': 'organ.id' } {{ organ.name }}
