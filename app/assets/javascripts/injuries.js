@@ -14,7 +14,7 @@ $(function () {
 })
 
 LMML.loaders.injury = function (injuryId, examinationType) {
-  return LMML.components.loadInjuryComponents(injuryId, examinationType)
+  return LMML.components.loadInjuryComponents()
     .then(function (store) {
       return new Vue({
         el: '#injury_app',
@@ -25,23 +25,35 @@ LMML.loaders.injury = function (injuryId, examinationType) {
 
 LMML.loaders.external_head_examination_injuries = function () {
   var injuriesApp = document.getElementById('external_head_examination_injuries_app');
-  return new Vue({
-    el: '#external_head_examination_injuries_app',
-    data: {
-      toggled: true,
-      injuries: [],
-      error: null
-    },
-    methods: {
-      editInjuries() {
-        this.toggled = !this.toggled
-        var url = injuriesApp.getAttribute('data-url')
-        this.$http.get(url).then(function (response) {
-          this.injuries = response.body.injuries
-        }, function(errorResponse) {
-          this.error = errorResponse
-        })
-      }
-    }
+  return LMML.components.loadInjuryComponents()
+    .then(function(store) {
+      return new Vue({
+        el: '#external_head_examination_injuries_app',
+        data: {
+          toggled: false,
+          injuries: [],
+          error: null,
+          examination_type: 'external_head_examination'
+        },
+        methods: {
+          toggleInjuries() {
+            this.toggled = !this.toggled
+            if (!this.toggled) return
+            var url = injuriesApp.getAttribute('data-url')
+            this.$http.get(url).then(function (response) {
+              this.injuries = response.body.injuries
+              setTimeout(function() {
+                for (var i in this.$refs.injuryComponent) {
+                  var injury = this.$refs.injuryComponent[i]
+                  injury.setInjury(this.injuries[i])
+                }
+              }.bind(this))
+            }, function(errorResponse) {
+              this.error = errorResponse
+            })
+          }
+        },
+        store
+    })
   })
 }

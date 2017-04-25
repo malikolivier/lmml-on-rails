@@ -1,7 +1,7 @@
 /* global LMML */
 
 LMML.components = {
-  loadInjuryComponents (injuryId, examinationType) {
+  loadInjuryComponents () {
     var defaultInjury = {
       id: null,
       time_sustained: '',
@@ -20,64 +20,20 @@ LMML.components = {
       injury_depth_attributes: {
         depth: null,
         reached_organ_id: null
-      }
+      },
+      error: null
     }
 
-    function railsifyObject (object) {
-      var railsified = {}
-      _.each(object, function (value, key) {
-        if (value instanceof Object) {
-          railsified[`${key}_attributes`] = railsifyObject(value)
-        } else {
-          railsified[key] = value
-        }
-      })
-      return railsified
+    var defaultInBodyOrientation = {
+      id: null,
+      coordinate_system: '',
+      x: null,
+      y: null,
+      distance: null,
+      angle: null
     }
 
-    var injuryPromise
-    if (injuryId) {
-      injuryPromise = Vue.http.get(`/injuries/${injuryId}`)
-        .then(function (response) {
-          var injury = railsifyObject(response.body.injury)
-          return injury
-        }, function (errorResponse) {
-          return { error: errorResponse }
-        })
-    } else {
-      injuryPromise = Promise.resolve(defaultInjury)
-    }
-    var startPromise = Promise.all([injuryPromise, LMML.stores.injuryStore])
-    startPromise.then(function (results) {
-      var injury = results[0]
-      var inBodyOrientation
-
-      if (!injury.error) injury.error = null
-      if (!injury.body_area_attributes) {
-        injury.body_area_attributes = defaultInjury.body_area_attributes
-      }
-      if (!injury.injury_size_attributes) {
-        injury.injury_size_attributes = defaultInjury.injury_size_attributes
-      }
-      if (!injury.injury_depth_attributes) {
-        injury.injury_depth_attributes = defaultInjury.injury_depth_attributes
-      }
-      if (injury.body_area_attributes.in_body_orientation_attributes) {
-        inBodyOrientation = injury.body_area_attributes.in_body_orientation_attributes
-        delete injury.body_area_attributes.in_body_orientation_attributes
-      } else {
-        inBodyOrientation = {
-          id: null,
-          coordinate_system: '',
-          x: null,
-          y: null
-        }
-      }
-      _.extend(inBodyOrientation, {
-        distance: null,
-        angle: null
-      })
-
+    return LMML.stores.injuryStore.then(function (store) {
       function emitUpdate (attribute) {
         return LMML.debounce(function (newValue) {
           this.$emit('update', {
@@ -90,7 +46,7 @@ LMML.components = {
       Vue.component('in-body-orientation-component', {
         template: '#in_body_orientation_component',
         data: function () {
-          return inBodyOrientation
+          return defaultInBodyOrientation
         },
         methods: {
           recomputeXY: function () {
@@ -133,7 +89,10 @@ LMML.components = {
       Vue.component('injury-component', {
         template: '#injury_component',
         data: function () {
-          return injury
+          return defaultInjury
+        },
+        props: {
+          examination_type: String
         },
         methods: {
           updateCoordinateSystem: function (newCoordinateSystem) {
@@ -154,7 +113,7 @@ LMML.components = {
           _save: function (object) {
             var url
             if (LMML.isEmpty(this.id)) {
-              url = document.getElementById('injury_app').getAttribute('data-url')
+              var url = this._fullUrl
               this.$http.post(url, object).then(this._setIds, this._logError)
             } else {
               url = `/injuries/${this.id}`
@@ -172,6 +131,14 @@ LMML.components = {
           },
           _logError: function (errorResponse) {
             this.error = errorResponse
+          },
+          setInjury: function(injury) {
+            this.id = injury.id
+            this.time_sustained = injury.time_sustained
+            this.injury_type = injury.injury_type
+            this.body_area_attributes = injury.body_area
+            this.injury_size_attributes = injury.injury_size
+            this.injury_depth_attributes = injury.injury_depth
           }
         },
         watch: {
@@ -188,14 +155,27 @@ LMML.components = {
         },
         computed: {
           reachableOrgans: function () {
-            return this.$store.getters.getReachableOrgans(examinationType)
+            return this.$store.getters
+              .getReachableOrgans(this.examination_type)
           },
           expectedBodyReferences: function () {
-            return this.$store.getters.getExpectedBodyReferences(examinationType)
+            return this.$store.getters
+              .getExpectedBodyReferences(this.examination_type)
+          },
+          _fullUrl: function() {
+            var id = `${this.examination_type}_injuries_app`
+            var appElement = document.getElementById(id)
+            if (appElement) {
+              return appElement.getAttribute('data-url')
+            } else {
+              // Fall back to default ID
+              appElement = document.getElementById('injury_app')
+              return appElement.getAttribute('data-url')
+            }
           }
         }
       })
+      return store
     })
-    return startPromise.then(function (results) { return results[1] })
   }
 }

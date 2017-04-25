@@ -1,12 +1,15 @@
 /* global LMML */
 
 (function () {
+  var store = null
+
   LMML.stores = {
     get injuryStore () {
       return new Promise(function (resolve, reject) {
+        if (store) resolve(store)
         Vue.http.get('/injuries/store').then(function loadInjuriesStore (response) {
           const state = response.body
-          var store = new Vuex.Store({
+          store = new Vuex.Store({
             state,
             getters: {
               getReachableOrgans: (state, getters) => (examinationType) => {
