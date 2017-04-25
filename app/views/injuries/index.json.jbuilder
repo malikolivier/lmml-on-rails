@@ -1,3 +1,1 @@
-json.array! @injuries do |injury|
-  json.partial! 'injury', injury: injury
-end
+json.injuries @injuries.map(&:as_lmml_json)

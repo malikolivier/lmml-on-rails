@@ -56,4 +56,8 @@ class Examination < ApplicationRecord
     examination_type.body_references
   end
   delegate :reachable_organs, to: :examination_type
+
+  def name
+    examination_type.key_string
+  end
 end
