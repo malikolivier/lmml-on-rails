@@ -9,5 +9,6 @@
   %div{ 'v-if': 'toggled' }
     %injury-component{ 'v-for': 'injury in injuries',
                        ':examination_type': 'examination_type',
-                       ':key': 'injury.id',
+                       ':id': 'injury.id',
                        'ref': 'injuryComponent'}
+    %button{ '@click': 'addInjury' } Add injury

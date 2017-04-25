@@ -82,10 +82,6 @@ LMML.components = {
         }
       })
 
-      function saveInjury () {
-        return LMML.debounce(function () { this._save({ injury }) })
-      }
-
       Vue.component('injury-component', {
         template: '#injury_component',
         data: function () {
@@ -136,13 +132,21 @@ LMML.components = {
             this.id = injury.id
             this.time_sustained = injury.time_sustained
             this.injury_type = injury.injury_type
-            this.body_area_attributes = injury.body_area
-            this.injury_size_attributes = injury.injury_size
-            this.injury_depth_attributes = injury.injury_depth
+            this.body_area_attributes.id = injury.body_area_id
+            this.body_area_attributes.body_reference_id = injury.body_area && injury.body_area.body_reference_id
+            this.injury_size_attributes.id = injury.injury_size_id
+            this.injury_size_attributes.shape = injury.injury_size && injury.injury_size.shape
+            this.injury_size_attributes.length = injury.injury_size && injury.injury_size.length
+            this.injury_size_attributes.width = injury.injury_size && injury.injury_size.coordinate_system
+            this.injury_size_attributes.shape = injury.injury_size && injury.injury_size.coordinate_system
+            this.injury_size_attributes.angle = injury.injury_size && injury.injury_size.angle
+            this.injury_depth_attributes.id = injury.injury_depth_id
+            this.injury_depth_attributes.depth = injury.injury_depth && injury.injury_depth.depth
+            this.injury_depth_attributes.reached_organ_id = injury.injury_depth && injury.injury_depth.reached_organ_id
           }
         },
         watch: {
-          time_sustained: saveInjury(),
+          time_sustained: LMML.debounce(function () { this._save({ injury }) }),
           injury_type: saveInjury(),
           'body_area_attributes.body_reference_id': saveInjury(),
           'injury_size_attributes.shape': saveInjury(),

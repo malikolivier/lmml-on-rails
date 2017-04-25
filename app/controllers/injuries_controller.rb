@@ -56,7 +56,7 @@ class InjuriesController < ApplicationController
     body_area = [:id, :body_reference_id,
                  in_body_orientation_attributes: %i[id coordinate_system x y
                                                     distance angle]]
-    params.require(:injury)
+    params.permit(:injury)
           .permit(:time_sustained, :injury_type,
                   body_area_attributes: body_area,
                   injury_size_attributes: %i[id shape length width

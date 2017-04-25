@@ -48,9 +48,18 @@ LMML.loaders.external_head_examination_injuries = function () {
                   injury.setInjury(this.injuries[i])
                 }
               }.bind(this))
-            }, function(errorResponse) {
-              this.error = errorResponse
-            })
+            }, this._logError)
+          },
+          addInjury() {
+            var url = injuriesApp.getAttribute('data-url')
+            this.$http.post(url)
+              .then(function (response) {
+                this.injuries.push(response.body.injury)
+              }, this._logError)
+          },
+          _logError(errorResponse) {
+            this.error = errorResponse
+            console.error(errorResponse)
           }
         },
         store
