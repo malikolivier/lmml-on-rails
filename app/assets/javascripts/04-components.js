@@ -2,37 +2,6 @@
 
 LMML.components = {
   loadInjuryComponents () {
-    var defaultInjury = {
-      id: null,
-      time_sustained: '',
-      injury_type: '',
-      body_area_attributes: {
-        id: null,
-        body_reference_id: null
-      },
-      injury_size_attributes: {
-        shape: '',
-        length: null,
-        width: null,
-        coordinate_system: '',
-        angle: null
-      },
-      injury_depth_attributes: {
-        depth: null,
-        reached_organ_id: null
-      },
-      error: null
-    }
-
-    var defaultInBodyOrientation = {
-      id: null,
-      coordinate_system: '',
-      x: null,
-      y: null,
-      distance: null,
-      angle: null
-    }
-
     return LMML.stores.injuryStore.then(function (store) {
       function emitUpdate (attribute) {
         return LMML.debounce(function (newValue) {
@@ -46,7 +15,13 @@ LMML.components = {
       Vue.component('in-body-orientation-component', {
         template: '#in_body_orientation_component',
         data: function () {
-          return defaultInBodyOrientation
+          return {
+            distance: null,
+            angle: null
+          }
+        },
+        props: {
+          in_body_orientation: Object
         },
         methods: {
           recomputeXY: function () {
@@ -85,10 +60,11 @@ LMML.components = {
       Vue.component('injury-component', {
         template: '#injury_component',
         data: function () {
-          return defaultInjury
+          return { error: null }
         },
         props: {
-          examination_type: String
+          examination_type: String,
+          injury: Object
         },
         methods: {
           updateCoordinateSystem: function (newCoordinateSystem) {
@@ -128,34 +104,16 @@ LMML.components = {
           _logError: function (errorResponse) {
             this.error = errorResponse
           },
-          setInjury: function(injury) {
-            this.id = injury.id
-            this.time_sustained = injury.time_sustained
-            this.injury_type = injury.injury_type
-            this.body_area_attributes.id = injury.body_area_id
-            this.body_area_attributes.body_reference_id = injury.body_area && injury.body_area.body_reference_id
-            this.injury_size_attributes.id = injury.injury_size_id
-            this.injury_size_attributes.shape = injury.injury_size && injury.injury_size.shape
-            this.injury_size_attributes.length = injury.injury_size && injury.injury_size.length
-            this.injury_size_attributes.width = injury.injury_size && injury.injury_size.coordinate_system
-            this.injury_size_attributes.shape = injury.injury_size && injury.injury_size.coordinate_system
-            this.injury_size_attributes.angle = injury.injury_size && injury.injury_size.angle
-            this.injury_depth_attributes.id = injury.injury_depth_id
-            this.injury_depth_attributes.depth = injury.injury_depth && injury.injury_depth.depth
-            this.injury_depth_attributes.reached_organ_id = injury.injury_depth && injury.injury_depth.reached_organ_id
-          }
         },
         watch: {
-          time_sustained: LMML.debounce(function () { this._save({ injury }) }),
-          injury_type: saveInjury(),
-          'body_area_attributes.body_reference_id': saveInjury(),
-          'injury_size_attributes.shape': saveInjury(),
-          'injury_size_attributes.length': saveInjury(),
-          'injury_size_attributes.width': saveInjury(),
-          'injury_size_attributes.coordinate_system': saveInjury(),
-          'injury_size_attributes.angle': saveInjury(),
-          'injury_depth_attributes.depth': saveInjury(),
-          'injury_depth_attributes.reached_organ_id': saveInjury()
+          injury:  {
+            handler: function onChange (newValue, oldValue) {
+              LMML.debounce(function () {
+                this._save(this.injury)
+              })
+            },
+            deep: true
+          }
         },
         computed: {
           reachableOrgans: function () {

@@ -1,7 +1,8 @@
 -# @examination: An instance of the Examination class
 %div{ 'data-url': send("#{examination.name}_injuries_path"),
       'data-examination-type': examination.name,
-      id: "#{examination.name}_injuries_app" }
+      id: "#{examination.name}_injuries_app",
+      class: 'injuries-form' }
   %div{ 'v-if': 'error' } {{ error }}
   %button{ '@click': 'toggleInjuries' }
     %span{ 'v-if': 'toggled' } Hide injuries
@@ -9,6 +10,6 @@
   %div{ 'v-if': 'toggled' }
     %injury-component{ 'v-for': 'injury in injuries',
                        ':examination_type': 'examination_type',
-                       ':id': 'injury.id',
-                       'ref': 'injuryComponent'}
+                       ':injury': 'injury',
+                       ':key': 'injury.id' }
     %button{ '@click': 'addInjury' } Add injury

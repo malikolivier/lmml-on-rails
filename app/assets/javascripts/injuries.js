@@ -7,9 +7,9 @@ $(function () {
                         injuryApp.getAttribute('data-examination-type'))
   }
 
-
-  if (document.getElementById('external_head_examination_injuries_app') !== null) {
-    LMML.loaders.external_head_examination_injuries()
+  var injuriesApps = document.getElementsByClassName('injuries-form')
+  for (var injuriesApp of injuriesApps) {
+    LMML.loaders.injuries(injuriesApp)
   }
 })
 
@@ -23,39 +23,30 @@ LMML.loaders.injury = function (injuryId, examinationType) {
     })
 }
 
-LMML.loaders.external_head_examination_injuries = function () {
-  var injuriesApp = document.getElementById('external_head_examination_injuries_app');
+LMML.loaders.injuries = function(injuriesApp) {
   return LMML.components.loadInjuryComponents()
     .then(function(store) {
+      var url = injuriesApp.getAttribute('data-url')
       return new Vue({
-        el: '#external_head_examination_injuries_app',
+        el: injuriesApp,
         data: {
           toggled: false,
           injuries: [],
           error: null,
-          examination_type: 'external_head_examination'
+          examination_type: injuriesApp.getAttribute('data-examination-type')
         },
         methods: {
           toggleInjuries() {
             this.toggled = !this.toggled
             if (!this.toggled) return
-            var url = injuriesApp.getAttribute('data-url')
             this.$http.get(url).then(function (response) {
               this.injuries = response.body.injuries
-              setTimeout(function() {
-                for (var i in this.$refs.injuryComponent) {
-                  var injury = this.$refs.injuryComponent[i]
-                  injury.setInjury(this.injuries[i])
-                }
-              }.bind(this))
             }, this._logError)
           },
           addInjury() {
-            var url = injuriesApp.getAttribute('data-url')
-            this.$http.post(url)
-              .then(function (response) {
-                this.injuries.push(response.body.injury)
-              }, this._logError)
+            this.$http.post(url).then(function (response) {
+              this.injuries.push(response.body.injury)
+            }, this._logError)
           },
           _logError(errorResponse) {
             this.error = errorResponse
@@ -63,6 +54,6 @@ LMML.loaders.external_head_examination_injuries = function () {
           }
         },
         store
+      })
     })
-  })
 }

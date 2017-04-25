@@ -1,6 +1,6 @@
 # Extend FormBuilder to build Vue-friendly forms
 class VueFormBuilder < ActionView::Helpers::FormBuilder
-  include VueFormBuilderHelper
+  include VueFormBuilder::Helper
   def text_field(method, options = {})
     options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
