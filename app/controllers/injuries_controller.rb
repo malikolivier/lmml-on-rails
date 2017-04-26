@@ -59,8 +59,8 @@ class InjuriesController < ApplicationController
   def injury_params
     return {} if params[:injury].blank?
     body_area = [:id, :body_reference_id,
-               in_body_orientation_attributes: %i[id coordinate_system x y
-                                                  distance angle]]
+                 in_body_orientation_attributes: %i[id coordinate_system x y
+                                                    distance angle]]
     params.require(:injury)
           .permit(:time_sustained, :injury_type, :description, :note,
                   body_area_attributes: body_area,
