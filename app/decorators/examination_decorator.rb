@@ -24,6 +24,10 @@ class ExaminationDecorator < ApplicationDecorator
   end
 
   def injuries_description
-    t('.no_injury') if examination.injuries.none?
+    if examination.injuries.none?
+      t('.no_injury')
+    else
+      ''
+    end
   end
 end
