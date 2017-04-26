@@ -7,8 +7,10 @@
     %span{ 'v-if': 'toggled' } Hide injuries
     %span{ 'v-else': true } Edit injuries
   %div{ 'v-if': 'toggled' }
-    %injury-component{ 'v-for': 'injury in injuries',
-                       ':examination_type': 'examination_type',
-                       ':injury_from_parent': 'injury',
-                       ':key': 'injury.id' }
-    %button{ '@click': 'addInjury' } Add injury
+    %modal{ title: 'Edit injuries', ':show.sync': 'toggled' } 
+      %div
+        %injury-component{ 'v-for': 'injury in injuries',
+                           ':examination_type': 'examination_type',
+                           ':injury_from_parent': 'injury',
+                           ':key': 'injury.id' }
+        %button{ '@click': 'addInjury' } Add injury

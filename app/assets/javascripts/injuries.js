@@ -65,7 +65,10 @@ LMML.loaders.injuries = function (injuriesApp) {
             console.error(errorResponse)
           }
         },
-        store
+        store,
+        components: {
+          modal: LMML.components.modal
+        }
       })
     })
 }
