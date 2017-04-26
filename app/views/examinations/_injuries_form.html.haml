@@ -1,8 +1,7 @@
 -# @examination: An instance of the Examination class
-%div{ 'data-url': send("#{examination.name}_injuries_path"),
-      'data-examination-type': examination.name,
-      id: "#{examination.name}_injuries_app",
-      class: 'injuries-form' }
+.injuries-form{ 'data-url': send("#{examination.name}_injuries_path"),
+                'data-examination-type': examination.name,
+                id: "#{examination.name}_injuries_app" }
   %div{ 'v-if': 'error' } {{ error }}
   %button{ '@click': 'toggleInjuries' }
     %span{ 'v-if': 'toggled' } Hide injuries
