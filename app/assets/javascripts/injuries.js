@@ -15,8 +15,8 @@ $(function () {
 LMML.loaders.injury = function (injuryApp) {
   var id = injuryApp.getAttribute('data-injury-id')
   var examinationType = injuryApp.getAttribute('data-examination-type')
-  var actionPromise = id ?
-    Vue.http.get(`/injuries/${id}`) : Vue.http.post(injuryApp.getAttribute('data-url'))
+  var actionPromise = id
+    ? Vue.http.get(`/injuries/${id}`) : Vue.http.post(injuryApp.getAttribute('data-url'))
   return Promise.all([
     LMML.components.loadInjuryComponents(),
     actionPromise
@@ -32,9 +32,9 @@ LMML.loaders.injury = function (injuryApp) {
   })
 }
 
-LMML.loaders.injuries = function(injuriesApp) {
+LMML.loaders.injuries = function (injuriesApp) {
   return LMML.components.loadInjuryComponents()
-    .then(function(store) {
+    .then(function (store) {
       var url = injuriesApp.getAttribute('data-url')
       return new Vue({
         el: injuriesApp,
@@ -45,22 +45,22 @@ LMML.loaders.injuries = function(injuriesApp) {
           examination_type: injuriesApp.getAttribute('data-examination-type')
         },
         methods: {
-          toggleInjuries() {
+          toggleInjuries () {
             this.toggled = !this.toggled
             if (!this.toggled) return
             this.$http.get(url).then(function (response) {
               this.injuries = response.body.injuries.map(function (injury) {
                 return LMML.utils.railsifyObject(injury)
-              });
+              })
             }, this._logError)
           },
-          addInjury() {
+          addInjury () {
             this.$http.post(url).then(function (response) {
               var raisified = LMML.utils.railsifyObject(response.body.injury)
               this.injuries.push(raisified)
             }, this._logError)
           },
-          _logError(errorResponse) {
+          _logError (errorResponse) {
             this.error = errorResponse
             console.error(errorResponse)
           }

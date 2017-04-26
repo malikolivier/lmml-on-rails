@@ -84,13 +84,13 @@ LMML.components = {
             }
             this.update()
           },
-          update: LMML.debounce( function () {
+          update: LMML.debounce(function () {
             this._save({ injury: this.injury })
           }),
           _save (object) {
             var url
             if (LMML.isEmpty(this.injury.id)) {
-              var url = this._fullUrl
+              url = this._fullUrl
               this.$http.post(url, object).then(this._setIds, this._logError)
             } else {
               url = `/injuries/${this.injury.id}`
@@ -109,32 +109,32 @@ LMML.components = {
           _logError (errorResponse) {
             this.error = errorResponse
           },
-          _bodyReferenceProperty(propName) {
+          _bodyReferenceProperty (propName) {
             return this._bodyReference && this._bodyReference[propName]
           }
         },
         computed: {
-          injury() {
+          injury () {
             return this.injury_from_parent
           },
-          reachableOrgans() {
+          reachableOrgans () {
             return this.$store.getters
               .getReachableOrgans(this.examination_type)
           },
-          expectedBodyReferences() {
+          expectedBodyReferences () {
             return this.$store.getters
               .getExpectedBodyReferences(this.examination_type)
           },
-          bodyReferenceCoordinateSystem() {
+          bodyReferenceCoordinateSystem () {
             return this._bodyReferenceProperty('coordinate_system')
           },
-          bodyReferenceX() {
+          bodyReferenceX () {
             return this._bodyReferenceProperty('x')
           },
-          bodyReferenceY() {
+          bodyReferenceY () {
             return this._bodyReferenceProperty('y')
           },
-          _bodyReference() {
+          _bodyReference () {
             return this.injury.body_area_attributes
               .in_body_orientation_attributes
           },

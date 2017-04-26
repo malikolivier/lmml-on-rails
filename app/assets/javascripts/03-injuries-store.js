@@ -7,12 +7,13 @@
   LMML.stores = {
     get injuryStore () {
       return new Promise(function (resolve, reject) {
+        function wait () {
+          if (store) resolve(store)
+          else setTimeout(wait, 500)
+        }
+
         if (store) resolve(store)
         else if (loadingStore) {
-          function wait() {
-            if (store) resolve(store)
-            else setTimeout(wait, 500)
-          }
           wait()
         } else {
           loadingStore = true
