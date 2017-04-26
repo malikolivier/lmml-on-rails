@@ -3,6 +3,9 @@ class InjuriesController < ApplicationController
   before_action :set_autopsy, :set_examination, only: %i[new index create]
   before_action :set_injury, only: %i[show edit update destroy]
 
+  QUERY_PRELOAD = [:injury_size, :injury_depth, :photographs,
+                   body_area: :in_body_orientation].freeze
+
   # GET /autopsies/:id/:examination_name/injuries/new
   def new
     @injury = Injury.new(examination: @examination)
@@ -13,7 +16,7 @@ class InjuriesController < ApplicationController
 
   # GET /autopsies/:id/:examination_name/injuries
   def index
-    @injuries = @examination.injuries
+    @injuries = @examination.injuries.includes(QUERY_PRELOAD)
   end
 
   # POST /autopsies/:id/:examination_name/injuries
@@ -50,7 +53,7 @@ class InjuriesController < ApplicationController
   end
 
   def set_injury
-    @injury = Injury.find(params[:id])
+    @injury = Injury.includes(QUERY_PRELOAD).find(params[:id])
   end
 
   def injury_params
