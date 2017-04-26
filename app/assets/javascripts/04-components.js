@@ -21,7 +21,10 @@ LMML.components = {
           }
         },
         props: {
-          in_body_orientation: Object
+          id: Number,
+          coordinate_system: String,
+          x: String,
+          y: String
         },
         methods: {
           recomputeXY: function () {
@@ -67,12 +70,12 @@ LMML.components = {
           injury: Object
         },
         methods: {
-          updateCoordinateSystem: function (newCoordinateSystem) {
+          updateCoordinateSystem (newCoordinateSystem) {
             if (LMML.isEmpty(this.injury_size_attributes.coordinate_system)) {
               this.injury_size_attributes.coordinate_system = newCoordinateSystem
             }
           },
-          saveBodyOrientation: function (attributes) {
+          saveBodyOrientation (attributes) {
             this._save({
               injury: {
                 body_area_attributes: {
@@ -82,7 +85,7 @@ LMML.components = {
               }
             })
           },
-          _save: function (object) {
+          _save (object) {
             var url
             if (LMML.isEmpty(this.id)) {
               var url = this._fullUrl
@@ -92,7 +95,7 @@ LMML.components = {
               this.$http.patch(url, object).then(this._setIds, this._logError)
             }
           },
-          _setIds: function (response) {
+          _setIds (response) {
             var injury = response.body.injury
             this.id = injury.id
             this.body_area_attributes.id = injury.body_area_id
@@ -101,9 +104,13 @@ LMML.components = {
             this.injury_depth_attributes.id = injury.injury_depth_id
             console.log('Update success!!')
           },
-          _logError: function (errorResponse) {
+          _logError (errorResponse) {
             this.error = errorResponse
           },
+          _bodyReferenceProperty(propName) {
+            return this.injury.body_area_attributes
+              .in_body_orientation_attributes[propName]
+          }
         },
         watch: {
           injury:  {
@@ -116,15 +123,24 @@ LMML.components = {
           }
         },
         computed: {
-          reachableOrgans: function () {
+          reachableOrgans() {
             return this.$store.getters
               .getReachableOrgans(this.examination_type)
           },
-          expectedBodyReferences: function () {
+          expectedBodyReferences() {
             return this.$store.getters
               .getExpectedBodyReferences(this.examination_type)
           },
-          _fullUrl: function() {
+          bodyReferenceCoordinateSystem() {
+            return this._bodyReferenceProperty('coordinate_system')
+          },
+          bodyReferenceX() {
+            return this._bodyReferenceProperty('x')
+          },
+          bodyReferenceY() {
+            return this._bodyReferenceProperty('x')
+          },
+          _fullUrl () {
             var id = `${this.examination_type}_injuries_app`
             var appElement = document.getElementById(id)
             if (appElement) {

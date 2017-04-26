@@ -1,5 +1,5 @@
 %script#in_body_orientation_component{ type: 'text/x-template' }
-  = form_for :in_body_orientation, builder: VueFormBuilder::Prefixed, url: '' do |f|
+  = form_for :in_body_orientation, builder: VueFormBuilder, url: '' do |f|
     -# TODO: limit coordinate_system choice to what is available in
       the selected body_reference
     = f.smart_select :coordinate_system, '@change': 'updateCoordinateSystem'
@@ -9,17 +9,19 @@
     = f.number_field :angle, '@keyup': 'recomputeXY'
 
 %script#injury_component{ type: 'text/x-template' }
-  = form_for :injury, builder: VueFormBuilder::Prefixed, url: '' do |f|
+  = form_for setup_injury(Injury.new), builder: VueFormBuilder::Prefixed,
+                                       url: '' do |f|
     %div{ 'v-if': 'error' } {{ error }}
     = f.smart_select :time_sustained
     = f.smart_select :injury_type
+    = f.text_field :description
     = f.fields_for :body_area do |ff|
       = ff.select :body_reference_id do
         %option{ 'v-for': 'bodyReference in expectedBodyReferences',
                  ':value': 'bodyReference.id' } {{ bodyReference.name }}
       %in-body-orientation-component{ 'v-on:update': 'saveBodyOrientation',
         'v-on:coordinate-system-update': 'updateCoordinateSystem',
-     ':in_body_orientation': 'injury.body_area_attributes.in_body_orientation' }
+        ':coordinate_system': 'bodyReferenceCoordinateSystem' }
     = f.fields_for :injury_size do |ff|
       = ff.smart_select :shape
       = ff.number_field :length
@@ -31,3 +33,4 @@
       = ff.select :reached_organ_id do
         %option{ 'v-for': 'organ in reachableOrgans',
                  ':value': 'organ.id' } {{ organ.name }}
+    = f.text_field :note

@@ -3,8 +3,7 @@
 $(function () {
   var injuryApp = document.getElementById('injury_app')
   if (injuryApp !== null) {
-    LMML.loaders.injury(injuryApp.getAttribute('data-injury-id'),
-                        injuryApp.getAttribute('data-examination-type'))
+    LMML.loaders.injury(injuryApp)
   }
 
   var injuriesApps = document.getElementsByClassName('injuries-form')
@@ -13,14 +12,24 @@ $(function () {
   }
 })
 
-LMML.loaders.injury = function (injuryId, examinationType) {
-  return LMML.components.loadInjuryComponents()
-    .then(function (store) {
-      return new Vue({
-        el: '#injury_app',
-        store
-      })
+LMML.loaders.injury = function (injuryApp) {
+  var id = injuryApp.getAttribute('data-injury-id')
+  var examinationType = injuryApp.getAttribute('data-examination-type')
+  var actionPromise = id ?
+    Vue.http.get(`/injuries/${id}`) : Vue.http.post('/injuries')
+  return Promise.all([
+    LMML.components.loadInjuryComponents(),
+    actionPromise
+  ]).then(function (results) {
+    return new Vue({
+      el: '#injury_app',
+      data: {
+        injury: LMML.utils.railsifyObject(results[1].body.injury),
+        examination_type: examinationType
+      },
+      store: results[0]
     })
+  })
 }
 
 LMML.loaders.injuries = function(injuriesApp) {
@@ -40,12 +49,15 @@ LMML.loaders.injuries = function(injuriesApp) {
             this.toggled = !this.toggled
             if (!this.toggled) return
             this.$http.get(url).then(function (response) {
-              this.injuries = response.body.injuries
+              this.injuries = response.body.injuries.map(function (injury) {
+                return LMML.utils.railsifyObject(injury)
+              });
             }, this._logError)
           },
           addInjury() {
             this.$http.post(url).then(function (response) {
-              this.injuries.push(response.body.injury)
+              var raisified = LMML.utils.railsifyObject(response.body.injury)
+              this.injuries.push(raisified)
             }, this._logError)
           },
           _logError(errorResponse) {

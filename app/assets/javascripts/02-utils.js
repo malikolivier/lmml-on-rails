@@ -9,7 +9,7 @@ LMML.utils = {
     var railsified = {}
     _.each(object, function (value, key) {
       if (value instanceof Object) {
-        railsified[`${key}_attributes`] = railsifyObject(value)
+        railsified[`${key}_attributes`] = LMML.utils.railsifyObject(value)
       } else {
         railsified[key] = value
       }
