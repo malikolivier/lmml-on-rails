@@ -62,12 +62,12 @@ LMML.components = {
 
       Vue.component('injury-component', {
         template: '#injury_component',
-        data: function () {
-          return { error: null }
-        },
         props: {
           examination_type: String,
-          injury: Object
+          injury_from_parent: Object
+        },
+        data: function () {
+          return { error: null }
         },
         methods: {
           updateCoordinateSystem (newCoordinateSystem) {
@@ -123,6 +123,9 @@ LMML.components = {
           }
         },
         computed: {
+          injury() {
+            return this.injury_from_parent
+          },
           reachableOrgans() {
             return this.$store.getters
               .getReachableOrgans(this.examination_type)

@@ -1,4 +1,5 @@
 class InjuriesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_autopsy, :set_examination, only: %i[new index create]
   before_action :set_injury, only: %i[show edit update destroy]
 

@@ -16,13 +16,13 @@ LMML.loaders.injury = function (injuryApp) {
   var id = injuryApp.getAttribute('data-injury-id')
   var examinationType = injuryApp.getAttribute('data-examination-type')
   var actionPromise = id ?
-    Vue.http.get(`/injuries/${id}`) : Vue.http.post('/injuries')
+    Vue.http.get(`/injuries/${id}`) : Vue.http.post(injuryApp.getAttribute('data-url'))
   return Promise.all([
     LMML.components.loadInjuryComponents(),
     actionPromise
   ]).then(function (results) {
     return new Vue({
-      el: '#injury_app',
+      el: injuryApp,
       data: {
         injury: LMML.utils.railsifyObject(results[1].body.injury),
         examination_type: examinationType
