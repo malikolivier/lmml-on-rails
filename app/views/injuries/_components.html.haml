@@ -10,7 +10,9 @@
 
 %script#injury_component{ type: 'text/x-template' }
   = form_for setup_injury(Injury.new), builder: VueFormBuilder::Prefixed,
-                                       url: '' do |f|
+                                       url: '',
+                                       html: { '@keyup': 'update',
+                                               '@click': 'update' } do |f|
     %div{ 'v-if': 'error' } {{ error }}
     = f.smart_select :time_sustained
     = f.smart_select :injury_type

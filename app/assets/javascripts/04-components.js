@@ -85,23 +85,26 @@ LMML.components = {
               }
             })
           },
+          update: LMML.debounce( function () {
+            this._save({ injury: this.injury })
+          }),
           _save (object) {
             var url
-            if (LMML.isEmpty(this.id)) {
+            if (LMML.isEmpty(this.injury.id)) {
               var url = this._fullUrl
               this.$http.post(url, object).then(this._setIds, this._logError)
             } else {
-              url = `/injuries/${this.id}`
+              url = `/injuries/${this.injury.id}`
               this.$http.patch(url, object).then(this._setIds, this._logError)
             }
           },
           _setIds (response) {
             var injury = response.body.injury
-            this.id = injury.id
-            this.body_area_attributes.id = injury.body_area_id
-            inBodyOrientation.id = injury.body_area && injury.body_area.in_body_orientation_id
-            this.injury_size_attributes.id = injury.injury_size_id
-            this.injury_depth_attributes.id = injury.injury_depth_id
+            this.injury.id = injury.id
+            this.injury.body_area_attributes.id = injury.body_area_id
+            this.injury.body_area_attributes.in_body_orientation_attributes.id = injury.body_area && injury.body_area.in_body_orientation_id
+            this.injury.injury_size_attributes.id = injury.injury_size_id
+            this.injury.injury_depth_attributes.id = injury.injury_depth_id
             console.log('Update success!!')
           },
           _logError (errorResponse) {
@@ -110,16 +113,6 @@ LMML.components = {
           _bodyReferenceProperty(propName) {
             return this.injury.body_area_attributes
               .in_body_orientation_attributes[propName]
-          }
-        },
-        watch: {
-          injury:  {
-            handler: function onChange (newValue, oldValue) {
-              LMML.debounce(function () {
-                this._save(this.injury)
-              })
-            },
-            deep: true
           }
         },
         computed: {
