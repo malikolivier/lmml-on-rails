@@ -23,7 +23,9 @@
                  ':value': 'bodyReference.id' } {{ bodyReference.name }}
       %in-body-orientation-component{ 'v-on:update': 'saveBodyOrientation',
         'v-on:coordinate-system-update': 'updateCoordinateSystem',
-        ':coordinate_system': 'bodyReferenceCoordinateSystem' }
+        ':initial_coordinate_system': 'bodyReferenceCoordinateSystem',
+        ':initial_x': 'bodyReferenceX',
+        ':initial_y': 'bodyReferenceY' }
     = f.fields_for :injury_size do |ff|
       = ff.smart_select :shape
       = ff.number_field :length

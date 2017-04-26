@@ -4,27 +4,28 @@ LMML.components = {
   loadInjuryComponents () {
     return LMML.stores.injuryStore.then(function (store) {
       function emitUpdate (attribute) {
-        return LMML.debounce(function (newValue) {
+        return function (newValue) {
           this.$emit('update', {
-            id: this.id,
             [attribute]: newValue
           })
-        })
+        }
       }
 
       Vue.component('in-body-orientation-component', {
         template: '#in_body_orientation_component',
         data: function () {
           return {
+            coordinate_system: this.initial_coordination_system,
+            x: this.initial_x,
+            y: this.initial_y,
             distance: null,
             angle: null
           }
         },
         props: {
-          id: Number,
-          coordinate_system: String,
-          x: String,
-          y: String
+          initial_coordinate_system: String,
+          initial_x: Number,
+          initial_y: Number
         },
         methods: {
           recomputeXY: function () {
@@ -57,6 +58,9 @@ LMML.components = {
           coordinate_system: emitUpdate('coordinate_system'),
           x: emitUpdate('x'),
           y: emitUpdate('y')
+        },
+        mounted () {
+          this.recomputeDistanceAngle()
         }
       })
 
@@ -71,19 +75,14 @@ LMML.components = {
         },
         methods: {
           updateCoordinateSystem (newCoordinateSystem) {
-            if (LMML.isEmpty(this.injury_size_attributes.coordinate_system)) {
-              this.injury_size_attributes.coordinate_system = newCoordinateSystem
-            }
+            this.injury.injury_size_attributes.coordinate_system = newCoordinateSystem
           },
           saveBodyOrientation (attributes) {
-            this._save({
-              injury: {
-                body_area_attributes: {
-                  id: this.body_area_attributes.id,
-                  in_body_orientation_attributes: attributes
-                }
-              }
-            })
+            if (!this._bodyReference) return
+            for (var property in attributes) {
+              this._bodyReference[property] = attributes[property]
+            }
+            this.update()
           },
           update: LMML.debounce( function () {
             this._save({ injury: this.injury })
@@ -111,8 +110,7 @@ LMML.components = {
             this.error = errorResponse
           },
           _bodyReferenceProperty(propName) {
-            return this.injury.body_area_attributes
-              .in_body_orientation_attributes[propName]
+            return this._bodyReference && this._bodyReference[propName]
           }
         },
         computed: {
@@ -134,7 +132,11 @@ LMML.components = {
             return this._bodyReferenceProperty('x')
           },
           bodyReferenceY() {
-            return this._bodyReferenceProperty('x')
+            return this._bodyReferenceProperty('y')
+          },
+          _bodyReference() {
+            return this.injury.body_area_attributes
+              .in_body_orientation_attributes
           },
           _fullUrl () {
             var id = `${this.examination_type}_injuries_app`
