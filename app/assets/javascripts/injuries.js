@@ -47,7 +47,11 @@ LMML.loaders.injuries = function (injuriesApp) {
         methods: {
           toggleInjuries () {
             this.toggled = !this.toggled
-            if (!this.toggled) return
+            /*if (this.toggled) {
+              document.body.className += ' modal-open';
+            } else {
+              document.body.className = document.body.className.replace(/\s?modal-open/, '');
+            }*/
             this.$http.get(url).then(function (response) {
               this.injuries = response.body.injuries.map(function (injury) {
                 return LMML.utils.railsifyObject(injury)
@@ -65,10 +69,14 @@ LMML.loaders.injuries = function (injuriesApp) {
             console.error(errorResponse)
           }
         },
-        store,
-        components: {
-          modal: LMML.components.modal
-        }
+        computed: {
+          styleObject() {
+            return {
+              display: this.toggled ? 'block' : 'none'
+            }
+          }
+        },
+        store
       })
     })
 }

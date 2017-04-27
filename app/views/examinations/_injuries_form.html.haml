@@ -6,11 +6,15 @@
   %button{ '@click': 'toggleInjuries' }
     %span{ 'v-if': 'toggled' } Hide injuries
     %span{ 'v-else': true } Edit injuries
-  %div{ 'v-if': 'toggled' }
-    %modal{ title: 'Edit injuries', ':show.sync': 'toggled' } 
-      %div
-        %injury-component{ 'v-for': 'injury in injuries',
-                           ':examination_type': 'examination_type',
-                           ':injury_from_parent': 'injury',
-                           ':key': 'injury.id' }
-        %button{ '@click': 'addInjury' } Add injury
+  .modal.fade{ 'v-show': 'toggled', '@click.self': 'toggleInjuries',
+               'v-bind:class': '{ in: toggled }',
+               'v-bind:style': 'styleObject' }
+    .modal-dialog
+      .modal-content
+        .modal-body
+          %injury-component{ 'v-for': 'injury in injuries',
+                             ':examination_type': 'examination_type',
+                             ':injury_from_parent': 'injury',
+                             ':key': 'injury.id' }
+        .modal-footer
+          %button{ '@click': 'addInjury' } Add injury

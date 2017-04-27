@@ -156,9 +156,8 @@ LMML.components = {
   },
   modal: {
     props: {
-      show: {
+      initialShow: {
         type: Boolean,
-        twoWay: true,
         default: false
       },
       title: {
@@ -216,7 +215,8 @@ LMML.components = {
     },
     data () {
       return {
-        duration: null
+        duration: null,
+        show: this.initialShow
       }
     },
     computed: {
