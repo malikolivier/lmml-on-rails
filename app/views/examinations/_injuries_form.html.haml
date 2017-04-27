@@ -9,7 +9,7 @@
   .modal.fade{ 'v-show': 'toggled', '@click.self': 'toggleInjuries',
                'v-bind:class': '{ in: toggled }',
                'v-bind:style': 'styleObject' }
-    .modal-dialog
+    .modal-dialog.modal-lg
       .modal-content
         .modal-body
           %injury-component{ 'v-for': 'injury in injuries',
