@@ -1,5 +1,5 @@
 %script#in_body_orientation_component{ type: 'text/x-template' }
-  = form_for :in_body_orientation, builder: VueFormBuilder, url: '' do |f|
+  = form_for InBodyOrientation.new, builder: VueFormBuilder, url: '' do |f|
     -# TODO: limit coordinate_system choice to what is available in
       the selected body_reference
     = f.smart_select :coordinate_system, '@change': 'updateCoordinateSystem'

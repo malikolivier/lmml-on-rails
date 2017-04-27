@@ -42,6 +42,28 @@ ja:
         caption: 説明文
       examination:
         note: 特記
+      injury:
+        time_sustained: 生活反応の有無
+        injury_type: 損傷の種類
+        description: 記述
+        note: 特記
+      body_area:
+        body_reference_id: 特徴点
+      in_body_orientation:
+        coordinate_system: 座標系
+        x: X軸(cm)
+        y: Y軸(cm)
+        distance: 距離(cm)
+        angle: 角度(°)
+      injury_size:
+        shape: 形
+        length: 長さ(cm)
+        width: 幅(cm)
+        coordinate_system: 座標系
+        angle: 角度(°)
+      injury_depth:
+        depth: 深さ(cm)
+        reached_organ_id: 届いた器官
       external_outline_examination:
         sex: 性別
         partial_body: 部位欠損
