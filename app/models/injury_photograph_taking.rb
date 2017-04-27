@@ -12,4 +12,12 @@
 class InjuryPhotographTaking < ApplicationRecord
   belongs_to :injury
   belongs_to :photograph
+
+  after_destroy :destroy_photograph
+
+  private
+
+  def destroy_photograph
+    photograph &.destroy!
+  end
 end

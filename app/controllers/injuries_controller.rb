@@ -34,7 +34,6 @@ class InjuriesController < ApplicationController
 
   # DELETE /injuries/:id
   def destroy
-    binding.pry
     @injury.destroy!
   end
 

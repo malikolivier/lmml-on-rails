@@ -2,7 +2,6 @@
 .injuries-form{ 'data-url': send("#{examination.name}_injuries_path"),
                 'data-examination-type': examination.name,
                 id: "#{examination.name}_injuries_app" }
-  %div{ 'v-if': 'error' } {{ error }}
   %button{ '@click': 'toggleInjuries' }
     %span{ 'v-if': 'toggled' } Hide injuries
     %span{ 'v-else': true } Edit injuries
@@ -12,6 +11,7 @@
     .modal-dialog.modal-lg
       .modal-content
         .modal-body
+          %div{ 'v-if': 'error' } {{ error }}
           %div{ 'v-for': 'injury in injuries' }
             = delete_button('deleteInjury(injury.id)')
             %injury-component{ ':examination_type': 'examination_type',
