@@ -12,9 +12,10 @@
     .modal-dialog.modal-lg
       .modal-content
         .modal-body
-          %injury-component{ 'v-for': 'injury in injuries',
-                             ':examination_type': 'examination_type',
-                             ':injury_from_parent': 'injury',
-                             ':key': 'injury.id' }
+          %div{ 'v-for': 'injury in injuries' }
+            = delete_button('deleteInjury(injury.id)')
+            %injury-component{ ':examination_type': 'examination_type',
+                               ':injury_from_parent': 'injury',
+                               ':key': 'injury.id' }
         .modal-footer
           %button{ '@click': 'addInjury' } Add injury

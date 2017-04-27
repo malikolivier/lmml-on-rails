@@ -32,6 +32,12 @@ class InjuriesController < ApplicationController
   # GET /injuries/:id/edit
   def edit; end
 
+  # DELETE /injuries/:id
+  def destroy
+    binding.pry
+    @injury.destroy!
+  end
+
   private
 
   def set_autopsy

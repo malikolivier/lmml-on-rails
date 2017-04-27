@@ -59,6 +59,14 @@ LMML.loaders.injuries = function (injuriesApp) {
               this.injuries.push(raisified)
             }, this._logError)
           },
+          deleteInjury (injuryId) {
+            this.$http.delete(`/injuries/${injuryId}`).then(function () {
+              var indexToRemove = this.injuries.findIndex(function (injury) {
+                return injury.id === injuryId
+              })
+              this.injuries.splice(indexToRemove, 1)
+            }, this._logError)
+          },
           _logError (errorResponse) {
             this.error = errorResponse
             console.error(errorResponse)
