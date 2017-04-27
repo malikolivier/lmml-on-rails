@@ -6,7 +6,7 @@
   %button{ '@click': 'toggleInjuries' }
     %span{ 'v-if': 'toggled' } Hide injuries
     %span{ 'v-else': true } Edit injuries
-  .modal.fade{ 'v-show': 'toggled', '@click.self': 'toggleInjuries',
+  .modal.fade{ 'v-if': 'toggled', '@click.self': 'toggleInjuries',
                'v-bind:class': '{ in: toggled }',
                'v-bind:style': 'styleObject' }
     .modal-dialog.modal-lg

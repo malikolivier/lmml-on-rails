@@ -28,14 +28,14 @@ LMML.components = {
           initial_y: Number
         },
         methods: {
-          recomputeXY: function () {
+          recomputeXY () {
             if (this.angle !== null && this.distance !== null) {
               var radAngle = this.angle * Math.PI / 180
               this.x = LMML.utils.round(this.distance * Math.cos(radAngle))
               this.y = LMML.utils.round(this.distance * Math.sin(radAngle))
             }
           },
-          recomputeDistanceAngle: function () {
+          recomputeDistanceAngle () {
             var angle
             if (this.x !== null && this.y !== null) {
               this.distance = LMML.utils.round(Math.sqrt(this.x ** 2 + this.y ** 2))
@@ -50,7 +50,7 @@ LMML.components = {
               this.angle = LMML.utils.round(angle / Math.PI * 180)
             }
           },
-          updateCoordinateSystem: function () {
+          updateCoordinateSystem () {
             this.$emit('coordinate-system-update', this.coordinate_system)
           }
         },
@@ -70,7 +70,7 @@ LMML.components = {
           examination_type: String,
           injury_from_parent: Object
         },
-        data: function () {
+        data () {
           return { error: null }
         },
         methods: {
