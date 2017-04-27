@@ -47,6 +47,7 @@ LMML.loaders.injuries = function (injuriesApp) {
         methods: {
           toggleInjuries () {
             this.toggled = !this.toggled
+            if (!this.toggled) return
             this.$http.get(url).then(function (response) {
               this.injuries = response.body.injuries.map(function (injury) {
                 return LMML.utils.railsifyObject(injury)
