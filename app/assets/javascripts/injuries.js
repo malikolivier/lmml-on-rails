@@ -52,6 +52,10 @@ LMML.loaders.injuries = function (injuriesApp) {
               this.injuries = response.body.injuries.map(function (injury) {
                 return LMML.utils.railsifyObject(injury)
               })
+              // Add a blank injury to start filling
+              if (this.injuries.length === 0) {
+                this.addInjury()
+              }
             }, this._logError)
           },
           addInjury () {
