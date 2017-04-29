@@ -44,3 +44,16 @@
                  ':value': 'organ.id' } {{ organ.name }}
     = f.smart_select :time_sustained
     = f.text_field :note
+    .panel.panel-default
+      .panel-heading= t('activerecord.attributes.injury.photographs')
+      .panel-body
+        %div{ 'v-for': 'photograph in injury.photographs' }
+          %img.img-responsive{ ':src': 'photograph.picture' }
+          = label_tag t('activerecord.attributes.photograph.caption')
+          = text_field_tag :caption, '',
+                           class: 'form-control',
+                           'v-model': 'photograph.caption',
+                           '@keyup': 'onCaptionChange(taking)'
+      .panel-footer
+        %label= t('autopsy_photograph_takings.add_photograph')
+        = file_field_tag :picture, '@change': "onFileChange"

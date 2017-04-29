@@ -41,6 +41,7 @@ class Injury < ApplicationRecord
   delegate :name, to: :examination, prefix: true
 
   accepts_nested_attributes_for :body_area, :injury_size, :injury_depth,
+                                :photographs,
                                 reject_if: :all_blank
 
   private

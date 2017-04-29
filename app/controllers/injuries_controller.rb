@@ -71,6 +71,7 @@ class InjuriesController < ApplicationController
                   body_area_attributes: body_area,
                   injury_size_attributes: %i[id shape length width
                                              coordinate_system angle],
-                  injury_depth_attributes: %i[id depth reached_organ_id])
+                  injury_depth_attributes: %i[id depth reached_organ_id],
+                  photographs_attributes: %i[id picture caption])
   end
 end
