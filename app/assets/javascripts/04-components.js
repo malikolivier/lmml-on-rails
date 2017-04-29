@@ -15,7 +15,7 @@ LMML.components = {
         template: '#in_body_orientation_component',
         data: function () {
           return {
-            coordinate_system: this.initial_coordination_system,
+            coordinate_system: this.initial_coordination_system || '',
             x: this.initial_x,
             y: this.initial_y,
             distance: null,
@@ -148,6 +148,28 @@ LMML.components = {
               appElement = document.getElementById('injury_app')
               return appElement.getAttribute('data-url')
             }
+          }
+        },
+        mounted () {
+          // Replace null values with empty strings for enumerations
+          // This allows to have the "Please select" visible
+          if (!this.injury.time_sustained) {
+            this.injury.time_sustained = ''
+          }
+          if (!this.injury.injury_type) {
+            this.injury.injury_type = ''
+          }
+          if (!this.injury.body_area_attributes.body_reference_id) {
+            this.injury.body_area_attributes.body_reference_id = ''
+          }
+          if (!this.injury.injury_size_attributes.shape) {
+            this.injury.injury_size_attributes.shape = ''
+          }
+          if (!this.injury.injury_size_attributes.coordinate_system) {
+            this.injury.injury_size_attributes.coordinate_system = ''
+          }
+          if (!this.injury.injury_depth_attributes.reached_organ_id) {
+            this.injury.injury_depth_attributes.reached_organ_id = ''
           }
         }
       })
