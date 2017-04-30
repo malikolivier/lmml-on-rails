@@ -32,7 +32,7 @@ class Injury < ApplicationRecord
 
   after_destroy :destroy_relationships
 
-  includes_in_json :photographs, :child_injuries,
+  includes_in_json :child_injuries, photographs: Photograph.as_lmml_params,
                    body_area: BodyArea.as_lmml_params,
                    injury_size: InjurySize.as_lmml_params,
                    injury_depth: InjuryDepth.as_lmml_params
