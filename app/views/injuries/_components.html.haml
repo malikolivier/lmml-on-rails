@@ -48,7 +48,7 @@
       .panel-heading= t('activerecord.attributes.injury.photographs')
       .panel-body
         %div{ 'v-for': 'photograph in injury.photographs' }
-          %img.img-responsive{ ':src': 'photograph.picture' }
+          %img.img-responsive{ ':src': 'photograph.picture_url' }
           = label_tag t('activerecord.attributes.photograph.caption')
           = text_field_tag :caption, '',
                            class: 'form-control',

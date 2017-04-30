@@ -119,13 +119,17 @@ LMML.components = {
           },
           _uploadPicture: function(file) {
             var formData = new window.FormData()
-            formData.append('injury[photographs_attributes][picture]')
+            formData.append('injury[photographs_attributes][picture]', file)
             var request
             if (LMML.isEmpty(this.injury.id)) {
-              request = this.$http.post(this.url, formData)
-            else {
-              request = this.$http.patch(this.url, formData)
+              request = this.$http.post(this._url, formData)
+            } else {
+              request = this.$http.patch(this._url, formData)
             }
+            request.then(function (response) {
+              this.injury.photographs_attributes =
+                response.body.injury.photographs_attributes
+            }, this._logError)
           }
         },
         computed: {
