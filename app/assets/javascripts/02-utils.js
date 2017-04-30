@@ -8,7 +8,11 @@ LMML.utils = {
   railsifyObject (object) {
     var railsified = {}
     _.each(object, function (value, key) {
-      if (value instanceof Object) {
+      if (value instanceof Array) {
+        railsified[`${key}_attributes`] = value.map(function (element) {
+          return LMML.utils.railsifyObject(element)
+        })
+      } else if (value instanceof Object) {
         railsified[`${key}_attributes`] = LMML.utils.railsifyObject(value)
       } else {
         railsified[key] = value
