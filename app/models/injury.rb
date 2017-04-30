@@ -30,7 +30,7 @@ class Injury < ApplicationRecord
   has_many :photographs, through: :injury_photograph_takings
   has_many :child_injuries, foreign_key: :parent_injury_id, class_name: self
 
-  includes_in_json :photographs, :child_injuries,
+  includes_in_json :child_injuries, photographs: Photograph.as_lmml_params,
                    body_area: BodyArea.as_lmml_params,
                    injury_size: InjurySize.as_lmml_params,
                    injury_depth: InjuryDepth.as_lmml_params
