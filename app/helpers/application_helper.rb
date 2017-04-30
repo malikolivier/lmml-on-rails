@@ -8,7 +8,7 @@ module ApplicationHelper
     end
   end
 
-  def delete_button(action, event_type = '@click', html_options = {})
+  def delete_button(action, event_type = '@click.prevent', html_options = {})
     html_options[:class] = '' if html_options[:class].blank?
     html_options[:class] = "btn btn-danger btn-xs #{html_options[:class]}"
     html_options[event_type] = action

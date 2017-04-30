@@ -50,9 +50,13 @@
         %div{ 'v-for': 'photograph in injury.photographs_attributes' }
           %img.img-responsive{ ':src': 'photograph.picture_url' }
           = label_tag t('activerecord.attributes.photograph.caption')
-          = text_field_tag :caption, '',
-                           class: 'form-control',
-                           'v-model': 'photograph.caption'
+          .input-group
+            = text_field_tag :caption, '',
+                             class: 'form-control',
+                             'v-model': 'photograph.caption',
+                             '@keyup': 'update'
+            %span.input-group-addon
+              = delete_button 'deletePhotograph(photograph.id)'
       .panel-footer
         %label= t('autopsy_photograph_takings.add_photograph')
         = file_field_tag :picture, '@change': "onFileChange"

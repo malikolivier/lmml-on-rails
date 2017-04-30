@@ -93,6 +93,15 @@ LMML.components = {
               this._uploadPicture(file)
             }
           },
+          deletePhotograph (photographId) {
+            this.$http.delete(`/photographs/${photographId}`)
+              .then(function deleteFromDOM() {
+                var id = this.injury.photographs_attributes.findIndex(function (p) {
+                  return p.id === photographId
+                })
+                this.injury.photographs_attributes.splice(id, 1);
+              }, this._logError)
+          },
           _save (object) {
             if (LMML.isEmpty(this.injury.id)) {
               this.$http.post(this._url, object)
