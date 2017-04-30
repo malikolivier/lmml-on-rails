@@ -130,6 +130,21 @@ class ApplicationRecord < ActiveRecord::Base
       { include: json_includes, except: json_excludes,
         methods: json_method_includes }
     end
+
+    # Extends paperclip's has_attached_file method to create a
+    # "#{name}_url" method to directly retrieve the url of the image.
+    # Includes the result of this method into lmml_json.
+    # rubocop:disable PredicateName
+    def has_attached_file(*attachment_names)
+      attachment_names.each do |attachment_name|
+        next if attachment_name.is_a? Hash
+        define_method "#{attachment_name}_url" do
+          send(attachment_name).url unless picture_file_name.nil?
+        end
+        includes_method_in_json "#{attachment_name}_url"
+      end
+      super
+    end
   end
 
   def as_lmml_json
