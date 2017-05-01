@@ -95,11 +95,11 @@ LMML.components = {
           },
           deletePhotograph (photographId) {
             this.$http.delete(`/photographs/${photographId}`)
-              .then(function deleteFromDOM() {
+              .then(function deleteFromDOM () {
                 var id = this.injury.photographs_attributes.findIndex(function (p) {
                   return p.id === photographId
                 })
-                this.injury.photographs_attributes.splice(id, 1);
+                this.injury.photographs_attributes.splice(id, 1)
               }, this._logError)
           },
           _save (object) {
@@ -126,7 +126,7 @@ LMML.components = {
           _bodyReferenceProperty (propName) {
             return this._bodyReference && this._bodyReference[propName]
           },
-          _uploadPicture: function(file) {
+          _uploadPicture: function (file) {
             var formData = new window.FormData()
             formData.append('injury[photographs_attributes][][picture]', file)
             var request
@@ -138,8 +138,8 @@ LMML.components = {
             request.then(function (response) {
               var oldPhotographs = this.injury.photographs_attributes
               var newPhotographs = response.body.injury.photographs
-              var newPhoto = newPhotographs.find( photo => {
-                var oldPhotoIndex = oldPhotographs.findIndex( oldPhoto => {
+              var newPhoto = newPhotographs.find(photo => {
+                var oldPhotoIndex = oldPhotographs.findIndex(oldPhoto => {
                   return oldPhoto.id !== photo.id
                 })
                 return oldPhotoIndex < 0

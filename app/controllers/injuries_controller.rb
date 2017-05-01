@@ -61,14 +61,15 @@ class InjuriesController < ApplicationController
     @injury = Injury.includes(QUERY_PRELOAD).find(params[:id])
   end
 
+  BODY_AREA = [:id, :body_reference_id,
+               in_body_orientation_attributes: %i[id coordinate_system x y
+                                                  distance angle]].freeze
+
   def injury_params
     return {} if params[:injury].blank?
-    body_area = [:id, :body_reference_id,
-                 in_body_orientation_attributes: %i[id coordinate_system x y
-                                                    distance angle]]
     params.require(:injury)
           .permit(:time_sustained, :injury_type, :description, :note,
-                  body_area_attributes: body_area,
+                  body_area_attributes: BODY_AREA,
                   injury_size_attributes: %i[id shape length width
                                              coordinate_system angle],
                   injury_depth_attributes: %i[id depth reached_organ_id],
