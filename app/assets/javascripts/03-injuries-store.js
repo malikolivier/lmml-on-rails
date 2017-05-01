@@ -30,7 +30,7 @@
                   }
                 },
                 getExpectedBodyReferences: (state, getters) => (examinationType) => {
-                  if (state[examinationType]) return state[examinationType].expected_body_references
+                  if (state[examinationType]) return state[examinationType].body_references
                   else {
                     console.error(`Examination type not found! ${examinationType}`)
                     return []
