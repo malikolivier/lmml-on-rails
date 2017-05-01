@@ -13,12 +13,13 @@ mental_protuberance_ja:
 acromion_left_ja: &acromion
   globalized_model: acromion_left
   locale: ja
-  name: 肩峰
+  name: 左肩峰
   description: 肩の尖った部分
 
 acromion_right_ja:
   <<: *acromion
-  id: 1000
+  name: 右肩峰
+  globalized_model: acromion_right
 
 jugular_notch_ja:
   globalized_model: jugular_notch
@@ -29,35 +30,38 @@ jugular_notch_ja:
 olecranon_left_ja: &olecranon
   globalized_model: olecranon_left
   locale: ja
-  name: 肘頭
+  name: 左肘頭
   description: 肘の関節の後方にある突き出た部分
 
 olecranon_right_ja:
   <<: *olecranon
-  id: 1001
+  name: 右肘頭
+  globalized_model: olecranon_right
 
 middle_finger_left_ja: &middle_finger
   globalized_model: middle_finger_left
   locale: ja
-  name: 中指指尖
+  name: 左中指指尖
   description: 中指の先端の部分
 
 middle_finger_right_ja:
   <<: *middle_finger
-  id: 1002
+  name: 右中指指尖
+  globalized_model: middle_finger_right
 
 anterior_superior_iliac_spine_left_ja: &asis
   globalized_model: anterior_superior_iliac_spine_left
   locale: ja
-  name: 上前腸骨棘
+  name: 左上前腸骨棘
   description: 骨盤のでっぱりの部分
 
 anterior_superior_iliac_spine_right_ja:
   <<: *asis
-  id: 1003
+  name: 右上前腸骨棘
+  globalized_model: anterior_superior_iliac_spine_right
 
 pubic_symphysis_ja:
-  globalized_model: anterior_superior_iliac_spine_left
+  globalized_model: pubic_symphysis
   locale: ja
   name: 恥骨結合上端
   description: 骨盤の前部の接合部分
@@ -65,22 +69,24 @@ pubic_symphysis_ja:
 tibial_tuberosity_left_ja: &tibial_tuberosity
   globalized_model: tibial_tuberosity_left
   locale: ja
-  name: 脛骨粗面
+  name: 左脛骨粗面
   description: 脛骨の前面の上端の部分
 
 tibial_tuberosity_right_ja:
   <<: *tibial_tuberosity
-  id: 1004
+  name: 右脛骨粗面
+  globalized_model: tibial_tuberosity_right
 
 second_toe_left_ja: &second_toe
   globalized_model: second_toe_left
   locale: ja
-  name: 第2趾指尖
+  name: 左第2趾指尖
   description: 足の人指し指の先端の部分
 
 second_toe_right_ja:
   <<: *second_toe
-  id: 1005
+  name: 右第2趾指尖
+  globalized_model: second_toe_right
 
 
 head_top_en:
@@ -96,11 +102,12 @@ mental_protuberance_en:
 acromion_left_en: &acromion_en
   globalized_model: acromion_left
   locale: en
-  name: Acromion
+  name: Acromion (left)
 
 acromion_right_en:
   <<: *acromion_en
-  id: 2000
+  globalized_model: acromion_right
+  name: Acromion (right)
 
 jugular_notch_en:
   globalized_model: jugular_notch
@@ -110,50 +117,55 @@ jugular_notch_en:
 olecranon_left_en: &olecranon_en
   globalized_model: olecranon_left
   locale: en
-  name: Olecranon
+  name: Olecranon (left)
 
 olecranon_right_en:
   <<: *olecranon_en
-  id: 2001
+  globalized_model: olecranon_right
+  name: Olecranon (right)
 
 middle_finger_left_en: &middle_finger_en
   globalized_model: middle_finger_left
   locale: en
-  name: Third finger tip
+  name: Third finger tip (left)
 
 middle_finger_right_en:
   <<: *middle_finger_en
-  id: 2002
+  globalized_model: middle_finger_right
+  name: Third finger tip (right)
 
 anterior_superior_iliac_spine_left_en: &asis_en
   globalized_model: anterior_superior_iliac_spine_left
   locale: en
-  name: ASIS
+  name: ASIS (left)
   description: Anterior superior iliac spine
 
 anterior_superior_iliac_spine_right_en:
   <<: *asis_en
-  id: 2003
+  globalized_model: anterior_superior_iliac_spine_right
+  name: ASIS (right)
 
 pubic_symphysis_en:
-  globalized_model: anterior_superior_iliac_spine_left
+  globalized_model: pubic_symphysis
   locale: en
   name: Pubic symphysis
 
 tibial_tuberosity_left_en: &tibial_tuberosity_en
   globalized_model: tibial_tuberosity_left
   locale: en
-  name: Tibial tuberosity
+  name: Tibial tuberosity (left)
 
 tibial_tuberosity_right_en:
   <<: *tibial_tuberosity_en
-  id: 2004
+  globalized_model: tibial_tuberosity_right
+  name: Tibial tuberosity (right)
 
 second_toe_left_en: &second_toe_en
   globalized_model: second_toe_left
   locale: en
-  name: Second toe tip
+  name: Second toe tip (left)
 
 second_toe_right_en:
   <<: *second_toe_en
-  id: 2005
+  globalized_model: second_toe_right
+  name: Second toe tip (right)
