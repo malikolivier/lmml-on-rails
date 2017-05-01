@@ -3,7 +3,7 @@
 # Table name: in_body_orientations
 #
 #  id                :integer          not null, primary key
-#  coordinate_system :integer          not null
+#  coordinate_system :integer
 #  x                 :float
 #  y                 :float
 #  created_at        :datetime         not null
