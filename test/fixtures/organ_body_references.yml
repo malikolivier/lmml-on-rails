@@ -9,10 +9,10 @@
 #  updated_at        :datetime         not null
 #
 
-face_supramenton:
+face_mental_protuberance:
   organ: face
-  body_reference: supramenton
+  body_reference: mental_protuberance
 
-head_supramenton:
+head_mental_protuberance:
   organ: head
-  body_reference: supramenton
+  body_reference: mental_protuberance

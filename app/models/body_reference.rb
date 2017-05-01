@@ -10,7 +10,11 @@
 
 # 身体の特徴点
 class BodyReference < ApplicationRecord
-  translates :name
+  default_scope -> { order(:position, :deixis) }
+
+  enum deixis: Settings.enums.deixes
+
+  translates :name, :description
 
   has_many :from_reference_reachable_organs
   has_many :reachable_organs, through: :from_reference_reachable_organs,

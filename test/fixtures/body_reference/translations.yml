@@ -1,9 +1,83 @@
-supramenton_en:
-  globalized_model: supramenton
-  locale: en
-  name: Supramenton
-
-supramenton_ja:
-  globalized_model: supramenton
+head_top_ja:
+  globalized_model: head_top
   locale: ja
-  name: supramenton
+  name: 頭頂
+  description: 頭の一番上の部分
+
+mental_protuberance_ja:
+  globalized_model: mental_protuberance
+  locale: ja
+  name: オトガイ隆起正中部
+  description: 下あごの出っ張った部分の正中部
+
+acromion_left_ja: &acromion
+  globalized_model: acromion_left
+  locale: ja
+  name: 肩峰
+  description: 肩の尖った部分
+
+acromion_right_ja:
+  <<: *acromion
+  id: 1000
+
+jugular_notch_ja:
+  globalized_model: jugular_notch
+  locale: ja
+  name: 頚切痕
+  description: のどの下、左右の鎖骨で挟まれた部位
+
+olecranon_left_ja: &olecranon
+  globalized_model: olecranon_left
+  locale: ja
+  name: 肘頭
+  description: 肘の関節の後方にある突き出た部分
+
+olecranon_right_ja:
+  <<: *olecranon
+  id: 1001
+
+middle_finger_left_ja: &middle_finger
+  globalized_model: middle_finger_left
+  locale: ja
+  name: 中指指尖
+  description: 中指の先端の部分
+
+middle_finger_right_ja:
+  <<: *middle_finger
+  id: 1002
+
+anterior_superior_iliac_spine_left_ja: &asis
+  globalized_model: anterior_superior_iliac_spine_left
+  locale: ja
+  name: 上前腸骨棘
+  description: 骨盤のでっぱりの部分
+
+anterior_superior_iliac_spine_right_ja:
+  <<: *asis
+  id: 1003
+
+pubic_symphysis_ja:
+  globalized_model: anterior_superior_iliac_spine_left
+  locale: ja
+  name: 恥骨結合上端
+  description: 骨盤の前部の接合部分
+
+tibial_tuberosity_left_ja: &tibial_tuberosity
+  globalized_model: tibial_tuberosity_left
+  locale: ja
+  name: 脛骨粗面
+  description: 脛骨の前面の上端の部分
+
+tibial_tuberosity_right_ja:
+  <<: *tibial_tuberosity
+  id: 1004
+
+second_toe_left_ja: &second_toe
+  globalized_model: second_toe_left
+  locale: ja
+  name: 第2趾指尖
+  description: 足の人指し指の先端の部分
+
+second_toe_right_ja:
+  <<: *second_toe
+  id: 1005

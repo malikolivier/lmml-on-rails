@@ -9,6 +9,6 @@
 #  updated_at        :datetime         not null
 #
 
-from_supramenton_tooth_gum_is_reachable:
+from_mental_protuberance_tooth_gum_is_reachable:
   organ: tooth_gum
-  body_reference: supramenton
+  body_reference: mental_protuberance

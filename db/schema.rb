@@ -240,11 +240,14 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.text     "name"
+    t.text     "description"
     t.index ["body_reference_id"], name: "index_body_reference_translations_on_body_reference_id"
     t.index ["locale"], name: "index_body_reference_translations_on_locale"
   end
 
   create_table "body_references", force: :cascade do |t|
+    t.integer  "position"
+    t.integer  "deixis"
     t.text     "abbr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

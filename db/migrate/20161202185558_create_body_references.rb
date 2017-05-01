@@ -1,6 +1,8 @@
 class CreateBodyReferences < ActiveRecord::Migration[5.0]
   def change
     create_table :body_references do |t|
+      t.integer :position
+      t.integer :deixis
       t.text :abbr
 
       t.timestamps
@@ -8,7 +10,7 @@ class CreateBodyReferences < ActiveRecord::Migration[5.0]
 
     reversible do |dir|
       dir.up do
-        BodyReference.create_translation_table! name: :text
+        BodyReference.create_translation_table! name: :text, description: :text
       end
       dir.down do
         BodyReference.drop_translation_table!
