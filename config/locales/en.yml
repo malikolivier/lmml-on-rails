@@ -321,6 +321,9 @@ en:
     add_photograph: Add a photograph
   examinations:
     no_injury: No injury.
+  injuries:
+    edit_injuries: Edit injuries
+    add_injury: Add injury
   external_outline_examinations:
     body_sex: '%{sex}性屍。'
     unknown_sex: 性別が不明な屍。

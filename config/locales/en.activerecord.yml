@@ -36,6 +36,29 @@ en:
         caption: Caption
       examination:
         note: 特記
+      injury:
+        time_sustained: Time sustained
+        injury_type: Injury type
+        description: Description
+        note: Note
+        photographs: Photographs
+      body_area:
+        body_reference_id: Landmark
+      in_body_orientation:
+        coordinate_system: Coordinates
+        x: X-axis (cm)
+        y: Y-axis (cm)
+        distance: Distance (cm)
+        angle: Angle (°)
+      injury_size:
+        shape: Shape
+        length: Length (cm)
+        width: Width (cm)
+        coordinate_system: Coordinates
+        angle: Angle (°)
+      injury_depth:
+        depth: Depth (cm)
+        reached_organ_id: Reached organ
       external_outline_examination:
         sex: 性別
         partial_body: 部位欠損
@@ -220,6 +243,30 @@ en:
           assistant: Assistant
           student: Student
           spectator: Spectator
+      injury:
+        time_sustained:
+          pre_mortem: Pre-mortem
+          post_mortem: Post-mortem
+          unknown: Unknown
+        injury_type:
+          abrasion: Abrasion
+          bruise: Bruise
+          laceration: Laceration
+          incision: Incision
+          gun: Gun wound
+          other: Other
+      in_body_orientation:
+        coordinate_system: &coordinate_system
+          distal_proximal: Distal/Proximal
+          radial_ulnar: Radial/Ulnar
+          lateral_medial: Lateral/Medial
+          front_behind: Front/Behind
+      injury_size:
+        shape:
+          longitudinal: Longitudinal
+          round: Round
+          undefined: Undefined
+        coordinate_system: *coordinate_system
       external_outline_examination:
         constitution:
           unknown: 栄養不明
