@@ -4,7 +4,6 @@ class ApidocsController < ActionController::Base
   # These files define the API specification.
   # rubocop:disable Rails/FilePath
   SWAGGERED_MODULES = Dir.glob(Rails.root.join('doc/**/*.rb')).map do |path|
-    require(path)
     %r{/doc/swagger_schemas/(\w+).rb$}.match(path)[1]
                                       .classify.constantize
   end # rubocop:enable Rails/FilePath
