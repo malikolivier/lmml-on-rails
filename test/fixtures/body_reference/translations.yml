@@ -81,3 +81,79 @@ second_toe_left_ja: &second_toe
 second_toe_right_ja:
   <<: *second_toe
   id: 1005
+
+
+head_top_en:
+  globalized_model: head_top
+  locale: en
+  name: Head top
+
+mental_protuberance_en:
+  globalized_model: mental_protuberance
+  locale: en
+  name: Mental protuberance
+
+acromion_left_en: &acromion_en
+  globalized_model: acromion_left
+  locale: en
+  name: Acromion
+
+acromion_right_en:
+  <<: *acromion_en
+  id: 2000
+
+jugular_notch_en:
+  globalized_model: jugular_notch
+  locale: en
+  name: Jugular notch
+
+olecranon_left_en: &olecranon_en
+  globalized_model: olecranon_left
+  locale: en
+  name: Olecranon
+
+olecranon_right_en:
+  <<: *olecranon_en
+  id: 2001
+
+middle_finger_left_en: &middle_finger_en
+  globalized_model: middle_finger_left
+  locale: en
+  name: Third finger tip
+
+middle_finger_right_en:
+  <<: *middle_finger_en
+  id: 2002
+
+anterior_superior_iliac_spine_left_en: &asis_en
+  globalized_model: anterior_superior_iliac_spine_left
+  locale: en
+  name: ASIS
+  description: Anterior superior iliac spine
+
+anterior_superior_iliac_spine_right_en:
+  <<: *asis_en
+  id: 2003
+
+pubic_symphysis_en:
+  globalized_model: anterior_superior_iliac_spine_left
+  locale: en
+  name: Pubic symphysis
+
+tibial_tuberosity_left_en: &tibial_tuberosity_en
+  globalized_model: tibial_tuberosity_left
+  locale: en
+  name: Tibial tuberosity
+
+tibial_tuberosity_right_en:
+  <<: *tibial_tuberosity_en
+  id: 2004
+
+second_toe_left_en: &second_toe_en
+  globalized_model: second_toe_left
+  locale: en
+  name: Second toe tip
+
+second_toe_right_en:
+  <<: *second_toe_en
+  id: 2005
