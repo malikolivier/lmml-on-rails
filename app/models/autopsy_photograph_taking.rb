@@ -22,7 +22,7 @@ class AutopsyPhotographTaking < ApplicationRecord
 
   after_destroy :destroy_photograph
 
-  includes_in_json :photograph
+  includes_in_json photograph: Photograph.as_lmml_params
 
   accepts_nested_attributes_for :photograph, reject_if: :all_blank
 

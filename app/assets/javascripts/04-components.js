@@ -87,14 +87,28 @@ LMML.components = {
           update: LMML.debounce(function () {
             this._save({ injury: this.injury })
           }),
+          onFileChange (event) {
+            var files = event.target.files
+            for (var file of files) {
+              this._uploadPicture(file)
+            }
+          },
+          deletePhotograph (photographId) {
+            this.$http.delete(`/photographs/${photographId}`)
+              .then(function deleteFromDOM () {
+                var id = this.injury.photographs_attributes.findIndex(function (p) {
+                  return p.id === photographId
+                })
+                this.injury.photographs_attributes.splice(id, 1)
+              }, this._logError)
+          },
           _save (object) {
-            var url
             if (LMML.isEmpty(this.injury.id)) {
-              url = this._fullUrl
-              this.$http.post(url, object).then(this._setIds, this._logError)
+              this.$http.post(this._url, object)
+                .then(this._setIds, this._logError)
             } else {
-              url = `/injuries/${this.injury.id}`
-              this.$http.patch(url, object).then(this._setIds, this._logError)
+              this.$http.patch(this._url, object)
+                .then(this._setIds, this._logError)
             }
           },
           _setIds (response) {
@@ -111,6 +125,28 @@ LMML.components = {
           },
           _bodyReferenceProperty (propName) {
             return this._bodyReference && this._bodyReference[propName]
+          },
+          _uploadPicture: function (file) {
+            var formData = new window.FormData()
+            formData.append('injury[photographs_attributes][][picture]', file)
+            var request
+            if (LMML.isEmpty(this.injury.id)) {
+              request = this.$http.post(this._url, formData)
+            } else {
+              request = this.$http.patch(this._url, formData)
+            }
+            request.then(function (response) {
+              var oldPhotographs = this.injury.photographs_attributes
+              var newPhotographs = response.body.injury.photographs
+              var newPhoto = newPhotographs.find(photo => {
+                var oldPhotoIndex = oldPhotographs.findIndex(oldPhoto => {
+                  return oldPhoto.id !== photo.id
+                })
+                return oldPhotoIndex < 0
+              })
+              // Only add the newly uploaded photograph
+              this.injury.photographs_attributes.push(newPhoto)
+            }, this._logError)
           }
         },
         computed: {
@@ -147,6 +183,13 @@ LMML.components = {
               // Fall back to default ID
               appElement = document.getElementById('injury_app')
               return appElement.getAttribute('data-url')
+            }
+          },
+          _url () {
+            if (LMML.isEmpty(this.injury.id)) {
+              return this._fullUrl
+            } else {
+              return `/injuries/${this.injury.id}`
             }
           }
         },

@@ -15,15 +15,14 @@
             = f.number_field :angle, '@keyup': 'recomputeXY'
 
 %script#injury_component{ type: 'text/x-template' }
-  = form_for setup_injury(Injury.new), builder: VueFormBuilder::Prefixed,
-                                       url: '',
-                                       html: { '@keyup': 'update',
-                                               '@click': 'update' } do |f|
+  = form_for setup_injury(Injury.new),
+             builder: VueFormBuilder::Prefixed,
+             url: '', html: { '@keydown.enter.prevent': '' } do |f|
     %div{ 'v-if': 'error' } {{ error }}
-    = f.smart_select :injury_type
-    = f.text_field :description
+    = f.smart_select :injury_type, '@click': 'update'
+    = f.text_field :description, '@keyup': 'update'
     = f.fields_for :body_area do |ff|
-      = ff.select :body_reference_id do
+      = ff.select :body_reference_id, '@click': 'update' do
         %option{ 'v-for': 'bodyReference in expectedBodyReferences',
                  ':value': 'bodyReference.id' } {{ bodyReference.name }}
       %in-body-orientation-component{ 'v-on:update': 'saveBodyOrientation',
@@ -32,15 +31,31 @@
         ':initial_x': 'bodyReferenceX',
         ':initial_y': 'bodyReferenceY' }
     = f.fields_for :injury_size do |ff|
-      = ff.smart_select :shape
-      = ff.number_field :length
-      = ff.number_field :width
-      = ff.smart_select :coordinate_system
-      = ff.number_field :angle
+      = ff.smart_select :shape, '@click': 'update'
+      = ff.number_field :length, '@keyup': 'update'
+      = ff.number_field :width, '@keyup': 'update'
+      = ff.smart_select :coordinate_system, '@click': 'update'
+      = ff.number_field :angle, '@keyup': 'update'
     = f.fields_for :injury_depth do |ff|
-      = ff.number_field :depth
-      = ff.select :reached_organ_id do
+      = ff.number_field :depth, '@keyup': 'update'
+      = ff.select :reached_organ_id, '@click': 'update' do
         %option{ 'v-for': 'organ in reachableOrgans',
                  ':value': 'organ.id' } {{ organ.name }}
-    = f.smart_select :time_sustained
-    = f.text_field :note
+    = f.smart_select :time_sustained, '@click': 'update'
+    = f.text_field :note, '@keyup': 'update'
+    .panel.panel-default
+      .panel-heading= t('activerecord.attributes.injury.photographs')
+      .panel-body
+        %div{ 'v-for': 'photograph in injury.photographs_attributes' }
+          %img.img-responsive{ ':src': 'photograph.picture_url' }
+          = label_tag t('activerecord.attributes.photograph.caption')
+          .input-group
+            = text_field_tag :caption, '',
+                             class: 'form-control',
+                             'v-model': 'photograph.caption',
+                             '@keyup': 'update'
+            %span.input-group-addon
+              = delete_button 'deletePhotograph(photograph.id)'
+      .panel-footer
+        %label= t('autopsy_photograph_takings.add_photograph')
+        = file_field_tag :picture, '@change': "onFileChange"

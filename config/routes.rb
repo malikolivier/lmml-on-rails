@@ -45,4 +45,6 @@ Rails.application.routes.draw do
     end
   end
   resources :injuries, only: :edit if Rails.env.development?
+
+  resources :photographs, only: :destroy
 end

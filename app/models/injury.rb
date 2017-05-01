@@ -32,15 +32,16 @@ class Injury < ApplicationRecord
 
   after_destroy :destroy_relationships
 
-  includes_in_json :photographs, :child_injuries,
-                   body_area: BodyArea.as_lmml_params,
-                   injury_size: InjurySize.as_lmml_params,
-                   injury_depth: InjuryDepth.as_lmml_params
+  includes_in_json :child_injuries, photographs: Photograph.as_lmml_params,
+                                    body_area: BodyArea.as_lmml_params,
+                                    injury_size: InjurySize.as_lmml_params,
+                                    injury_depth: InjuryDepth.as_lmml_params
 
   delegate :expected_body_references, :reachable_organs, to: :examination
   delegate :name, to: :examination, prefix: true
 
   accepts_nested_attributes_for :body_area, :injury_size, :injury_depth,
+                                :photographs,
                                 reject_if: :all_blank
 
   private

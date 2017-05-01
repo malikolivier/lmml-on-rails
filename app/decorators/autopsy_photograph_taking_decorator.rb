@@ -8,7 +8,7 @@ class AutopsyPhotographTakingDecorator < ApplicationDecorator
   end
 
   def picture_url
-    model.photograph &.picture &.url
+    model.photograph &.picture_url
   end
 
   def photograph_id

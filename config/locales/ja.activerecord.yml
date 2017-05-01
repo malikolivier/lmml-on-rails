@@ -47,6 +47,7 @@ ja:
         injury_type: 損傷の種類
         description: 記述
         note: 特記
+        photographs: 写真
       body_area:
         body_reference_id: 特徴点
       in_body_orientation:
