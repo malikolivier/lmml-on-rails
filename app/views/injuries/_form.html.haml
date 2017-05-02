@@ -1,0 +1,6 @@
+= render 'components'
+#injury_app{ 'data-url': send("#{injury.examination_name}_injuries_path"),
+             'data-examination-type': injury.examination_name,
+             'data-injury-id': injury.id }
+  %injury-component{ ':examination_type': 'examination_type',
+                     ':injury_from_parent': 'injury' }

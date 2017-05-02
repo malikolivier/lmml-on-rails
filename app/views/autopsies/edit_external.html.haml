@@ -26,3 +26,4 @@
     - ExaminationType.external.each do |examination_type|
       - examination = @autopsy.examination(examination_type)
       = render 'examinations/form', exam: examination.get, examination_type: examination_type.decorate
+= render 'injuries/components'

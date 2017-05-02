@@ -13,6 +13,17 @@ class Integer
   end
 end
 
+class Numeric
+  def degrees
+    self * Math::PI / 180
+  end
+  alias degree degrees
+
+  def to_deg
+    self / Math::PI * 180
+  end
+end
+
 # TODO: Delete this monkey-patch on arrays. This is to be replaced by the
 # PhraseBuilder class
 class Array

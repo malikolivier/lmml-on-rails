@@ -1,0 +1,113 @@
+# == Schema Information
+#
+# Table name: organ_body_references
+#
+#  id                :integer          not null, primary key
+#  organ_id          :integer
+#  body_reference_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+head_head_top:
+  organ: head
+  body_reference: head_top
+
+
+face_mental_protuberance:
+  organ: face
+  body_reference: mental_protuberance
+
+
+neck_jugular_notch:
+  organ: neck
+  body_reference: jugular_notch
+
+
+trunk_jugular_notch:
+  organ: trunk
+  body_reference: jugular_notch
+
+trunk_jugular_notch:
+  organ: trunk
+  body_reference: jugular_notch
+
+
+upper_limbs_acromion_left:
+  organ: upper_limbs
+  body_reference: acromion_left
+
+upper_limbs_acromion_right:
+  organ: upper_limbs
+  body_reference: acromion_right
+
+upper_limbs_olecranon_left:
+  organ: upper_limbs
+  body_reference: olecranon_left
+
+upper_limbs_olecranon_right:
+  organ: upper_limbs
+  body_reference: olecranon_right
+
+upper_limbs_middle_finger_left:
+  organ: upper_limbs
+  body_reference: middle_finger_left
+
+upper_limbs_middle_finger_right:
+  organ: upper_limbs
+  body_reference: middle_finger_right
+
+
+lower_limbs_asis_left:
+  organ: lower_limbs
+  body_reference: anterior_superior_iliac_spine_left
+
+lower_limbs_asis_right:
+  organ: lower_limbs
+  body_reference: anterior_superior_iliac_spine_right
+
+lower_limbs_pubic_symphysis:
+  organ: lower_limbs
+  body_reference: pubic_symphysis
+
+lower_limbs_tuberosity_left:
+  organ: lower_limbs
+  body_reference: tuberosity_left
+
+lower_limbs_tuberosity_right:
+  organ: lower_limbs
+  body_reference: tuberosity_right
+
+lower_limbs_second_toe_left:
+  organ: lower_limbs
+  body_reference: second_toe_left
+
+lower_limbs_second_toe_right:
+  organ: lower_limbs
+  body_reference: second_toe_right
+
+
+genitalia_asis_left:
+  organ: genitalia
+  body_reference: anterior_superior_iliac_spine_left
+
+genitalia_asis_right:
+  organ: genitalia
+  body_reference: anterior_superior_iliac_spine_right
+
+genitalia_pubic_symphysis:
+  organ: genitalia
+  body_reference: pubic_symphysis
+
+
+anus_asis_left:
+  organ: anus
+  body_reference: anterior_superior_iliac_spine_left
+
+anus_asis_right:
+  organ: anus
+  body_reference: anterior_superior_iliac_spine_right
+
+anus_pubic_symphysis:
+  organ: anus
+  body_reference: pubic_symphysis

@@ -12,8 +12,78 @@
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
+head_top:
+  position: 1
+  abbr: head_top
 
-two:
-  name: MyText
+mental_protuberance:
+  position: 2
+  abbr: mental_protuberance
+
+acromion_left:
+  position: 3
+  deixis: left
+  abbr: acromion
+
+acromion_right:
+  position: 3
+  deixis: right
+  abbr: acromion
+
+jugular_notch:
+  position: 4
+  abbr: jugular_notch
+
+olecranon_left:
+  position: 5
+  deixis: left
+  abbr: olecranon
+
+olecranon_right:
+  position: 5
+  deixis: right
+  abbr: olecranon
+
+middle_finger_left:
+  position: 6
+  deixis: left
+  abbr: middle_finger
+
+middle_finger_right:
+  position: 6
+  deixis: right
+  abbr: middle_finger
+
+anterior_superior_iliac_spine_left:
+  position: 7
+  deixis: left
+  abbr: asis
+
+anterior_superior_iliac_spine_right:
+  position: 7
+  deixis: right
+  abbr: asis
+
+pubic_symphysis:
+  position: 8
+  abbr: pubic_symphysis
+
+tibial_tuberosity_left:
+  position: 9
+  deixis: left
+  abbr: tibial_tuberosity
+
+tibial_tuberosity_right:
+  position: 9
+  deixis: right
+  abbr: tibial_tuberosity
+
+second_toe_left:
+  position: 10
+  deixis: left
+  abbr: second_toe
+
+second_toe_right:
+  position: 10
+  deixis: right
+  abbr: second_toe

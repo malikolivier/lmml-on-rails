@@ -1,6 +1,6 @@
 # Extend FormBuilder to build Vue-friendly forms
 class VueFormBuilder < ActionView::Helpers::FormBuilder
-  include VueFormBuilderHelper
+  include VueFormBuilder::Helper
   def text_field(method, options = {})
     options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
@@ -9,7 +9,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def smart_select(method, html_options = {})
-    select(method, object.class.translated_enum!(method), {}, html_options)
+    select(method, klass.translated_enum!(method), {}, html_options)
   end
 
   def select(method, choices = nil, options = {}, html_options = {}, &block)
@@ -43,7 +43,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
   def time_field(method, options = {})
     options[:'v-model'] ||= v_model_value(method)
     add_form_control(options)
-    if object.send(method).present?
+    if object && object.send(method).present?
       options[:value] ||= object.send(method).strftime('%H:%M')
     end
     label_options = wrap_with_label_options(options)

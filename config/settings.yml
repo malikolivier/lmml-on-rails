@@ -1,5 +1,10 @@
 lmml_version: '0.1'
 enums:
+  coordinate_system:
+    - distal_proximal
+    - radial_ulnar
+    - lateral_medial
+    - front_behind
   existence:
     - unknown
     - exists

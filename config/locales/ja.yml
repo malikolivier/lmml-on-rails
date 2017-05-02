@@ -300,6 +300,9 @@ ja:
     add_photograph: 写真を追加
   examinations:
     no_injury: 損傷等の異常なし。
+  injuries:
+    edit_injuries: 損傷を編集
+    add_injury: 損傷を追加
   external_outline_examinations:
     body_sex: '%{sex}性屍。'
     unknown_sex: 性別が不明な屍。

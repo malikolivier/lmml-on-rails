@@ -42,6 +42,29 @@ ja:
         caption: 説明文
       examination:
         note: 特記
+      injury:
+        time_sustained: 生活反応の有無
+        injury_type: 損傷の種類
+        description: 記述
+        note: 特記
+        photographs: 写真
+      body_area:
+        body_reference_id: 特徴点
+      in_body_orientation:
+        coordinate_system: 座標系
+        x: X軸(cm)
+        y: Y軸(cm)
+        distance: 距離(cm)
+        angle: 角度(°)
+      injury_size:
+        shape: 形
+        length: 長さ(cm)
+        width: 幅(cm)
+        coordinate_system: 座標系
+        angle: 角度(°)
+      injury_depth:
+        depth: 深さ(cm)
+        reached_organ_id: 届いた器官
       external_outline_examination:
         sex: 性別
         partial_body: 部位欠損
@@ -226,6 +249,30 @@ ja:
           assistant: 助手
           student: 学生
           spectator: 立会人
+      injury:
+        time_sustained:
+          pre_mortem: 生活反応あり
+          post_mortem: 生活反応なし
+          unknown: 不明
+        injury_type:
+          abrasion: 擦り傷
+          bruise: 打ち傷
+          laceration: 裂創
+          incision: 刺傷
+          gun: 銃傷
+          other: その他
+      in_body_orientation:
+        coordinate_system: &coordinate_system
+          distal_proximal: 遠位・近位
+          radial_ulnar: 橈側・尺側
+          lateral_medial: 外側・内側
+          front_behind: 前・後ろ
+      injury_size:
+        shape:
+          longitudinal: 縦断
+          round: 円形
+          undefined: 不定形
+        coordinate_system: *coordinate_system
       external_outline_examination:
         constitution:
           unknown: 栄養不明

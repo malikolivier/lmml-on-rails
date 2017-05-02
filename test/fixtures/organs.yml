@@ -11,137 +11,100 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # Not exactly an organ, but anyway...
-outline:
-  name: outline
+outline: {}
 
-head:
-  name: head
+head: {}
 
-face:
-  name: face
+face: {}
 
-neck:
-  name: neck
+neck: {}
 
-trunk:
-  name: trunk
+trunk: {}
 
-upper_limbs:
-  name: upper_limbs
+upper_limbs: {}
 
-lower_limbs:
-  name: lower_limbs
+lower_limbs: {}
 
-genitalia:
-  name: genitalia
+genitalia: {}
 
-anus:
-  name: anus
+anus: {}
 
-cranium:
-  name: cranium
+cranium: {}
 
-brain:
-  name: brain
+brain: {}
 
-abdominal_wall:
-  name: abdominal_wall
+abdominal_wall: {}
 
-neck_organs:
-  name: neck_organs
+neck_organs: {}
 
-pericardium:
-  name: pericardium
+pericardium: {}
 
-heart:
-  name: heart
+heart: {}
 
-thoracic_aorta:
-  name: thoracic_aorta
+thoracic_aorta: {}
 
 lung_left:
-  name: left_lung
   subject_to_histopathology_analysis: true
 
 lung_right:
-  name: right_lung
   subject_to_histopathology_analysis: true
 
-abdominal_aorta:
-  name: abdominal_aorta
+abdominal_aorta: {}
 
 adrenal_gland_left:
-  name: left_adrenal_gland
   subject_to_histopathology_analysis: true
 
 adrenal_gland_right:
-  name: right_adrenal_gland
   subject_to_histopathology_analysis: true
 
 kidney_left:
-  name: left_kidney
   subject_to_histopathology_analysis: true
 
 kidney_right:
-  name: right_kidney
   subject_to_histopathology_analysis: true
 
 spleen:
-  name: spleen
   subject_to_histopathology_analysis: true
 
 pancreas:
-  name: pancreas
   subject_to_histopathology_analysis: true
 
 liver:
-  name: liver
   subject_to_histopathology_analysis: true
 
-stomach:
-  name: stomach
+stomach: {}
 
-intestines:
-  name: intestines
+intestines: {}
 
-bladder:
-  name: bladder
+bladder: {}
 
-back:
-  name: back
+back: {}
 
 coronary_artery:
-  name: coronary_artery
   subject_to_histopathology_analysis: true
 
 myocardium:
-  name: myocardium
   subject_to_histopathology_analysis: true
 
 cerebrum:
-  name: cerebrum
   subject_to_histopathology_analysis: true
 
 cerebellum:
-  name: cerebellum
   subject_to_histopathology_analysis: true
 
 pons:
-  name: pons
   subject_to_histopathology_analysis: true
 
 medulla_oblongata:
-  name: medulla_oblongata
   subject_to_histopathology_analysis: true
 
 psoas_major_muscle:
-  name: psoas_major_muscle
   subject_to_histopathology_analysis: true
 
 thyroid_gland:
-  name: thyroid_gland
   subject_to_histopathology_analysis: true
 
 bone_marrow:
-  name: bone_marrow
   subject_to_histopathology_analysis: true
+
+tooth_gum: {}

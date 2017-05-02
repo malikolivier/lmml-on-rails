@@ -15,3 +15,8 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ .modal {
+   // Override default for blocks (hidden by default on bootstrap)
+   display: block;
+   overflow: scroll;
+ }

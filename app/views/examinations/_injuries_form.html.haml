@@ -1,0 +1,19 @@
+-# @examination: An instance of the Examination class
+.injuries-form{ 'data-url': send("#{examination.name}_injuries_path"),
+                'data-examination-type': examination.name,
+                id: "#{examination.name}_injuries_app" }
+  %button{ '@click': 'toggleInjuries' }= t('injuries.edit_injuries')
+  .modal.fade{ 'v-if': 'toggled', '@click.self': 'toggleInjuries',
+               'v-bind:class': '{ in: toggled }',
+               'v-bind:style': 'styleObject' }
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-body
+          %div{ 'v-if': 'error' } {{ error }}
+          %div{ 'v-for': 'injury in injuries' }
+            = delete_button('deleteInjury(injury.id)')
+            %injury-component{ ':examination_type': 'examination_type',
+                               ':injury_from_parent': 'injury',
+                               ':key': 'injury.id' }
+        .modal-footer
+          %button{ '@click': 'addInjury' }= t('injuries.add_injury')
