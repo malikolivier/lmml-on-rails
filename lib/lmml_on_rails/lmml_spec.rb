@@ -1,10 +1,14 @@
 module LmmlOnRails
+  # This module is not ready for use
+  # It should serialize a swagger-like or XSD-like spec for LMML
+  # However, it sucks and everything seems to show that it is garbage. I don't
+  # even know how to use it yet (why not in the Rails console?)
   module LmmlSpec
     def lmml_spec(formatting = :json)
       builder = SpecBuilder.new(self)
       case formatting
       when :json, :swagger
-        builder.to_json
+        builder.as_json
       when :xml, :xsd
         builder.to_xsd
       else
@@ -58,6 +62,14 @@ module LmmlOnRails
 
       def to_json
         @schema.to_json
+      end
+
+      def as_json
+        @schema
+      end
+
+      def to_xsd
+        raise 'XSD format unsupported'
       end
     end
   end
