@@ -1,3 +1,8 @@
+# rubocop:disable Metrics/AbcSize
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/LineLength
+# rubocop:disable Style/MultilineOperationIndentation
+# rubocop:disable Lint/UnreachableCode
 module LmmlOnRails
   # This module is not ready for use
   # It should serialize a swagger-like or XSD-like spec for LMML
