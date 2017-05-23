@@ -2,6 +2,8 @@
 # TODO; split and simplify this class
 # Base class for all active record. Defines a few handy helper methods
 class ApplicationRecord < ActiveRecord::Base
+  extend LmmlOnRails::LmmlSpec
+
   self.abstract_class = true
   # i18n_keys is used to contain the key leading to the translation of a value
   # of an attribute defined in locale/*.yml
