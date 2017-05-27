@@ -1,0 +1,10 @@
+= form_for(exam, builder: VueFormBuilder, html: { id: 'analysis_blood_type' }, url: '') do |f|
+  .row
+    .col-sm-4
+      = f.smart_select :anti_a, '@change': 'updateConclusion'
+    .col-sm-4
+      = f.smart_select :anti_b, '@change': 'updateConclusion'
+    .col-sm-4
+      = f.smart_select :anti_h, '@change': 'updateConclusion'
+  = f.smart_select :blood_type
+  = yield f
