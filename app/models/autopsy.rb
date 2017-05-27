@@ -63,6 +63,11 @@ class Autopsy < ApplicationRecord
       Examination.new(examination_type: examination_type)
   end
 
+  def analysis(analysis_type)
+    analyses.find_by(analysis_types: { id: analysis_type.id }) ||
+      Analysis.new(analysis_type: analysis_type)
+  end
+
   includes_in_json :autopsy_type, :place, :conclusions, :explanations,
                    examiner: Person.as_lmml_params,
                    suspect: Person.as_lmml_params,
