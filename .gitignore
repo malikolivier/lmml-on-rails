@@ -28,3 +28,6 @@ config/environments/*.local.yml
 public/assets/
 
 node_modules
+
+# Ignore test coverage report
+coverage
