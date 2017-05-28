@@ -14,8 +14,8 @@
     - rescue ActionView::MissingTemplate # TODO Remove when all forms are done
       %div{ style: 'color:red' }= $! if true
   .col-sm-6
-    .alert.alert-danger{ id: "#{analysis_type.name}_errors" }
-    %div{ id: "#{analysis_type.name}_preview" }
+    .alert.alert-danger{ id: "analysis_#{analysis_type.name}_errors" }
+    %div{ id: "analysis_#{analysis_type.name}_preview" }
       -# Remove this begin/rescue when decorators are all implemented
       - begin
         = render analysis_type.partial_show_path, exam: exam.decorate
