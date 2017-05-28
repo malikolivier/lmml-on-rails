@@ -122,6 +122,7 @@ ja:
       uropaper: ウロペーパーⅢ検査
       biochemistry: 生化学検査
       diatom_test: 壊機試験
+      other: その他
   intensity:
     unknown: 不明
     weak: 弱い
@@ -259,6 +260,8 @@ ja:
       title: 剖検記録 - 外部所見
     edit_internal:
       title: 剖検記録 - 内部所見
+    edit_analyses:
+      title: 剖検記録 - 諸検査
     browse:
       show:
         title: 鑑　定　書

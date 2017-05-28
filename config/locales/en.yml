@@ -143,6 +143,7 @@ en:
       uropaper: ウロペーパーⅢ検査
       biochemistry: 生化学検査
       diatom_test: 壊機試験
+      other: Other
   intensity:
     unknown: unknown
     weak: weak
@@ -280,6 +281,8 @@ en:
       title: Autopsy Record - External Examination
     edit_internal:
       title: Autopsy Record - Internal Examination
+    edit_analyses:
+      title: Autopsy Record - Misc. Tests
     browse:
       show:
         title:  Autopsy Report

@@ -25,6 +25,13 @@ Rails.application.routes.draw do
         # examination forms
         resource examination_name, only: %i[new edit] if Rails.env.development?
       end
+      AnalysisType.all_names.each do |analysis_name|
+        resource analysis_name, only: %i[create update]
+        # new and edit routes are used for independent debugging of
+        # analysis forms
+        resource analysis_name, only: %i[new edit] if Rails.env.development?
+      end
+      resources :analysis_others, only: %i[create update]
     end
     resources :autopsy_photograph_takings, shallow: true,
                                            only: %i[index create update destroy]

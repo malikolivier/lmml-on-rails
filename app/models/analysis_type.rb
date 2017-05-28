@@ -22,4 +22,15 @@ class AnalysisType < ApplicationRecord
   def other?
     name == 'other'
   end
+
+  scope :by_name, ->(name) { find_by!(name: name) }
+
+  class << self
+    def all_names
+      path = Rails.root.join('test', 'fixtures', 'analysis_types.yml')
+      YAML.load_file(path)
+          .reject { |_, info| info['name'] == 'other' }
+          .map { |_, info| "analysis_#{info['name']}" }
+    end
+  end
 end

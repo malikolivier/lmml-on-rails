@@ -1,0 +1,21 @@
+= hidden_field :autopsy, :id, value: @autopsy.id
+- analysis_types = AnalysisType.decorate
+.row
+  .col-md-1.col-sm-2.col-xs-3#left_col
+    %ul.nav.nav-stacked#sidebar
+      %li.nav-item
+        = link_to t('section_title.external_examination'),
+                  edit_external_autopsy_path(@autopsy), class: 'nav-big-item'
+      %li.nav-item
+        = link_to t('section_title.internal_examination'),
+                  edit_internal_autopsy_path(@autopsy), class: 'nav-big-item'
+      %li.nav-item
+        .nav-big-item= t('section_title.analyses_title')
+        - analysis_types.each do |analysis_type|
+          %li.nav-item
+            = link_to analysis_type.section_title, "##{analysis_type.head_id}"
+  .col-md-11.col-sm-10.col-xs-9#main_col
+    %h1= t '.title'
+    - analysis_types.each do |analysis_type|
+      - analysis = @autopsy.analysis(analysis_type.object)
+      = render 'analyses/form', exam: analysis.get, analysis_type: analysis_type
