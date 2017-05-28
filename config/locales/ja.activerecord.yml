@@ -239,6 +239,13 @@ ja:
         endometrium_color: 粘膜色
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
+      analysis:
+        note: 特記
+      analysis_blood_type:
+        anti_a: 抗Ａ血清と反応
+        anti_b: 抗Ｂ血清と反応
+        anti_h: 抗Ｈ血清と反応
+        blood_type: 結論付けた血液型
     enums:
       participation:
         role:
@@ -371,3 +378,16 @@ ja:
           left_is_missing: 左卵巣は損失
           right_is_missing: 右卵巣は損失
           'no': 左右卵巣は損失
+      analysis_blood_type:
+        anti_a: &experiment_binary_results
+          positive: 陽性
+          negative: 陰性
+          unknown: 不明
+        anti_b: *experiment_binary_results
+        anti_h: *experiment_binary_results
+        blood_type:
+          A: Ａ型
+          B: Ｂ型
+          O: Ｏ型
+          AB: ＡＢ型
+          unknown: 不明

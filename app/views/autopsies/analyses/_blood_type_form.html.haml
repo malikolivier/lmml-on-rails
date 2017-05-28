@@ -1,0 +1,10 @@
+= vue_form_for(exam) do |f|
+  .row
+    .col-sm-4
+      = f.smart_select :anti_a, '@change': 'updateConclusion'
+    .col-sm-4
+      = f.smart_select :anti_b, '@change': 'updateConclusion'
+    .col-sm-4
+      = f.smart_select :anti_h, '@change': 'updateConclusion'
+  = f.smart_select :blood_type
+  = yield f
