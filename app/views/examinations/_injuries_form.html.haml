@@ -1,5 +1,6 @@
 -# @examination: An instance of the Examination class
-.injuries-form{ 'data-url': send("#{examination.name}_injuries_path"),
+.injuries-form{ 'data-url': send("#{examination.name}_injuries_path",
+                            @autopsy.id),
                 'data-examination-type': examination.name,
                 id: "#{examination.name}_injuries_app" }
   %button{ '@click': 'toggleInjuries' }= t('injuries.edit_injuries')
