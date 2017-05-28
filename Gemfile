@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -62,7 +62,7 @@ gem 'swagger-blocks'
 gem 'globalize', github: 'globalize/globalize'
 
 # Use draper for decorators
-gem 'draper', github: 'drapergem/draper'
+gem 'draper'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger
@@ -74,7 +74,7 @@ group :development, :test do
 
   # Linters
   gem 'haml_lint'
-  gem 'rubocop', github: 'bbatsov/rubocop', ref: '2409f1c'
+  gem 'rubocop'
 
   # Javascript test framework
   gem 'magic_lamp'
