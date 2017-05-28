@@ -1,4 +1,4 @@
-= form_for(exam, builder: VueFormBuilder, html: { id: 'analysis_blood_type' }, url: '') do |f|
+= vue_form_for(exam) do |f|
   .row
     .col-sm-4
       = f.smart_select :anti_a, '@change': 'updateConclusion'
