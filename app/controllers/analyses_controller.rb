@@ -27,7 +27,7 @@ class AnalysesController < ApplicationController
     controller_name.match(/^analysis_(.+)$/)[1].singularize
   end
 
-  # This method should be overriden if the examination requires more params
+  # This method should be overriden if the analysis requires more params
   def update_params
     params.require(controller_name.singularize)
           .permit(analysis_attributes: [:note])
