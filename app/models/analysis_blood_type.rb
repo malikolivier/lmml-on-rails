@@ -12,9 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisBloodType < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisBloodType < AnalysisBase
   enum anti_a: Settings.enums.tests.binary_result, _prefix: true
   enum anti_b: Settings.enums.tests.binary_result, _prefix: true
   enum anti_h: Settings.enums.tests.binary_result, _prefix: true

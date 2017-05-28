@@ -9,7 +9,7 @@
       = render "#{analysis_type.partial_show_path}_form", exam: exam do |f|
         -# Initialize analysis
         - exam.analysis ||= Analysis.new(analysis_type: analysis_type.object)
-        = f.fields_for exam.analysis do |ff|
+        = f.fields_for :analysis do |ff|
           = ff.text_field :note
     - rescue ActionView::MissingTemplate # TODO Remove when all forms are done
       %div{ style: 'color:red' }= $! if true
