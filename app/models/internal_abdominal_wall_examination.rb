@@ -58,7 +58,7 @@ class InternalAbdominalWallExamination < ExaminationBase
 
   def between_rib?(deixis)
     height = send("diaphragm_height_#{deixis}")
-    0.25 < height % 1 && height % 1 <= 0.75
+    height % 1 > 0.25 && height % 1 <= 0.75
   end
 
   def rib_position_sentence(deixis)

@@ -3,7 +3,7 @@ class VueFormBuilder
     def wrap_with_label_options(input_options)
       options = {}
       input_options.each do |k, v|
-        next unless k == :label_name || k == :no_field
+        next unless %i[label_name no_field].include?(k)
         options[k] = v
         input_options.delete(k)
       end
