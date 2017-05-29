@@ -25,4 +25,4 @@
           - raise "Unhandled field_type: #{field_info[:type]}"
   = yield
   - if !dual
-    %hr{style: 'clear: both', 'v-if': "#{array_name}.length - 1 !== index"}
+    %hr.clear-both{ 'v-if': "#{array_name}.length - 1 !== index" }
