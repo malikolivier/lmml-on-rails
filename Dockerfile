@@ -1,4 +1,4 @@
-FROM ruby:2.3.4
+FROM ruby:2.4.1
 RUN mkdir -p /builds/CF/lmml-on-rails
 WORKDIR  /builds/CF/lmml-on-rails
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
