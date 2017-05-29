@@ -18,6 +18,7 @@
       - begin
         = render examination_type.partial_show_path, exam: exam.decorate
       - rescue # TODO Falls back to deprecated implementation. Remove this begin/rescue when decorators are all implemented
+        -# haml-lint:disable InlineStyles
         %div{style: 'color:red'} #{$!} (no decorator support)
         = render partial: examination_type.partial_show_path,
           locals: { exam: exam }
