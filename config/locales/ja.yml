@@ -377,6 +377,21 @@ ja:
   foreign_fluids:
     unknown_fluid: 不明な異液
     description: '%{appearance}の%{name}'
+  analysis_blood_types:
+    anti_a: 抗Ａ
+    anti_b: 抗Ｂ
+    anti_h: 抗Ｈ
+    uncomplete: 未記入な項目がございます。
+    experiment: 心臓血の一部を生理食塩水でよく洗い、遠心分離した血球の微量をホールグラス上で%{tried_antibodies}血清と反応させたところ、
+    there_is_positive_result: '%{positive_tries}血清とは明らかに陽性の凝集反応を示したが、'
+    there_is_no_positive_result: 明らかに陽性の凝集反応を示した血清はなかったが、
+    positive_result:
+      zero: 明らかに陽性の凝集反応を示した血清はなかったが、
+      other: '%{positive_tries}血清とは明らかに陽性の凝集反応を示したが、'
+    negative_result:
+      zero: 明らかに反応が陰性であった血清がなかった。
+      other: '%{negative_tries}血清とは明らかに反応が陰性であった。'
+    complete_description: '%{experiment}%{positive_tries}%{negative_tries}'
   date:
     abbr_day_names:
     - 日
