@@ -9,8 +9,6 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisUropaper < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisUropaper < AnalysisBase
   has_many :uropaper_results, -> { order(:category) }
 end

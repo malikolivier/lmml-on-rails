@@ -8,9 +8,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisBiochemistry < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisBiochemistry < AnalysisBase
   has_many :biochemical_analyses, lambda {
     joins(:biochemical_analysis_type)
       .order('`biochemical_analysis_types`.`placement`')

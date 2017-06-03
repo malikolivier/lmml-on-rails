@@ -11,9 +11,7 @@
 #  updated_at             :datetime         not null
 #
 
-class AnalysisCarbonMonoxide < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisCarbonMonoxide < AnalysisBase
   # TODO: Refactor
   # rubocop:disable Metrics/LineLength
   def description

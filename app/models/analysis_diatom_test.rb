@@ -9,9 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisDiatomTest < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisDiatomTest < AnalysisBase
   enum conclusion: %i[contradiction no_contradiction impossible_to_conclude]
 
   has_many :diatom_counts, -> { order(:category) }

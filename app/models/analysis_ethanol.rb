@@ -13,8 +13,7 @@
 #  updated_at               :datetime         not null
 #
 
-class AnalysisEthanol < ApplicationRecord
-  belongs_to :analysis, required: true
+class AnalysisEthanol < AnalysisBase
   belongs_to :contract_institution, class_name: Institution
 
   before_save :set_found

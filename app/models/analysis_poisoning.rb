@@ -10,8 +10,7 @@
 #  updated_at              :datetime         not null
 #
 
-class AnalysisPoisoning < ApplicationRecord
-  belongs_to :analysis, required: true
+class AnalysisPoisoning < AnalysisBase
   belongs_to :contract_institution, class_name: Institution
 
   has_many :found_poisons

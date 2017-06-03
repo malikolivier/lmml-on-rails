@@ -8,9 +8,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisInstantView < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisInstantView < AnalysisBase
   has_many :instant_view_drug_results
   has_many :drugs, through: :instant_view_drug_results
 

@@ -8,9 +8,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisHistopathology < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisHistopathology < AnalysisBase
   has_many :analysis_histopathology_on_organs
   has_many :organs, through: :analysis_histopathology_on_organs
 end

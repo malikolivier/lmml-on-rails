@@ -8,9 +8,7 @@
 #  updated_at  :datetime         not null
 #
 
-class AnalysisTriage < ApplicationRecord
-  belongs_to :analysis, required: true
-
+class AnalysisTriage < AnalysisBase
   has_many :triage_drug_results
   has_many :drugs, through: :triage_drug_results
 
