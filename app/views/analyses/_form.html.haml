@@ -13,7 +13,7 @@
           = ff.text_field :note
     - rescue ActionView::MissingTemplate # TODO Remove when all forms are done
       -# haml-lint:disable InlineStyles
-      %div{ style: 'color:red' }= $! if true
+      %div{ style: 'color:red' }= $!
   .col-sm-6
     .alert.alert-danger{ id: "analysis_#{analysis_type.name}_errors" }
     %div{ id: "analysis_#{analysis_type.name}_preview" }
