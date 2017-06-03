@@ -15,3 +15,7 @@ module ActionDispatch
     end
   end
 end
+
+# Include support for custom pluralization rules
+# Pluralization rules are defined per locale in config/locales/XX.rb
+I18n::Backend::Simple.send(:include, I18n::Backend::Pluralization)

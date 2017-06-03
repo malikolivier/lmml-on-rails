@@ -398,6 +398,23 @@ en:
   foreign_fluids:
     unknown_fluid: 不明な異液
     description: '%{appearance}の%{name}'
+  analysis_blood_types:
+    anti_a: anti-A
+    anti_b: anti-B
+    anti_h: anti-H
+    uncomplete: Some required items are not filled.
+    experiment:
+      one: 'After having carefully washed cardiac blood with a saline solution, we had a small sample of red cells react with %{tried_antibodies} serum on a slide. '
+      other: 'After having carefully washed cardiac blood with a saline solution, we had a small sample of red cells react with %{tried_antibodies} sera on a slide. '
+    positive_result:
+      zero: 'No serum showed a clearly positive result'
+      one: 'The %{positive_tries} serum showed a positive result'
+      other: 'The %{positive_tries} sera showed a positive result'
+    negative_result:
+      zero: no serum showed a clearly negative result.
+      one: the %{negative_tries} serum showed a positive result.
+      other: the %{negative_tries} sera showed a positive result.
+    complete_description: '%{experiment}%{positive_tries}, while %{negative_tries}'
   helpers:
     back: Back
     new: New
