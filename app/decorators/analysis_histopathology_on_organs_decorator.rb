@@ -1,0 +1,2 @@
+class AnalysisHistopathologyOnOrgansDecorator < ApplicationCollectionDecorator
+end

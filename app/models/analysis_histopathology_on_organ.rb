@@ -21,14 +21,6 @@ class AnalysisHistopathologyOnOrgan < ApplicationRecord
     organ || other_organ
   end
 
-  def organ_name
-    if organ.present?
-      I18n.t "organs.#{organ.name}"
-    else
-      other_organ
-    end
-  end
-
   private
 
   def organ?

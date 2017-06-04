@@ -392,6 +392,10 @@ ja:
       zero: 明らかに反応が陰性であった血清がなかった。
       other: '%{negative_tries}血清とは明らかに反応が陰性であった。'
     complete_description: '%{experiment}%{positive_tries}%{negative_tries}'
+  analysis_histopathologies:
+    experiment: 解剖時採取した諸臓器の小片をフォルマリン固定・パラフィン包埋後薄切し、ヘマトキシリン・エオジン等の染色を施し、病理組織学的検査を行なった。
+  analysis_histopathology_on_organs:
+    description: '**%{organ_name}**：%{result}'
   date:
     abbr_day_names:
     - 日

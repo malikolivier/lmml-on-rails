@@ -156,7 +156,12 @@ coronary_artery_ja:
 myocardium_ja:
   globalized_model: myocardium
   locale: ja
-  name: myocardium
+  name: 心筋
+
+myocardium_en:
+  globalized_model: myocardium
+  locale: en
+  name: Myocardium
 
 cerebrum_ja:
   globalized_model: cerebrum
