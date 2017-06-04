@@ -1,3 +1,5 @@
 class AnalysisHistopathologyDecorator < AnalysisBaseDecorator
-  decorates_association :analysis_histopathology_on_organs
+  def analyses_with_organs
+    object.analysis_histopathology_on_organs.includes(:organ).decorate
+  end
 end
