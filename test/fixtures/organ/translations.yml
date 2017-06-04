@@ -79,12 +79,12 @@ thoracic_aorta_ja:
   name: thoracic_aorta
 
 lung_left_ja:
-  globalized_model: left_lung
+  globalized_model: lung_left
   locale: ja
   name: left_lung
 
 lung_right_ja:
-  globalized_model: right_lung
+  globalized_model: lung_right
   locale: ja
   name: right_lung
 
@@ -94,22 +94,22 @@ abdominal_aorta_ja:
   name: abdominal_aorta
 
 adrenal_gland_left_ja:
-  globalized_model: left_adrenal_gland
+  globalized_model: adrenal_gland_left
   locale: ja
   name: left_adrenal_gland
 
 adrenal_gland_right_ja:
-  globalized_model: right_adrenal_gland
+  globalized_model: adrenal_gland_right
   locale: ja
   name: right_adrenal_gland
 
 kidney_left_ja:
-  globalized_model: left_kidney
+  globalized_model: kidney_left
   locale: ja
   name: left_kidney
 
 kidney_right_ja:
-  globalized_model: right_kidney
+  globalized_model: kidney_right
   locale: ja
   name: right_kidney
 
