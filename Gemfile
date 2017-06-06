@@ -52,7 +52,8 @@ gem 'htmltoword'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use vue's JS framework
 gem 'lodash-rails'
-gem 'vuejs-rails'
+# TODO: Use standard release when adambutler/vuejs-rails/pull/42 is merged
+gem 'vuejs-rails', github: 'malikolivier/vuejs-rails'
 
 # Document your API with Swagger
 gem 'swagger-blocks'
