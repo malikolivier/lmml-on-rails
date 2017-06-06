@@ -7,8 +7,10 @@
                                  collection: analyzed_organs,
                                  value_method: :id,
                                  text_method: :name,
+                                 html: { '@change': 'deleteOtherOrgan' },
                                  encapsulating_element: { class: 'col-xs-6' } },
                  other_organ: { type: :text_field,
+                                html: { '@keyup': 'deleteOrganId' },
                                 encapsulating_element: { class: 'col-xs-6' } },
                  result: { type: :text_field,
                            encapsulating_element: { class: 'col-xs-12' } } }
