@@ -3,7 +3,7 @@
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "standard": "8.6.0"
+    "standard": "10.0.2"
   },
   "scripts": {
     "test": "standard",
