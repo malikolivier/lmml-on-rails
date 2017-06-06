@@ -1,4 +1,5 @@
 = vue_form_for(exam) do |f|
+  = f.hidden_field :id
   - analyzed_organs = Organ.subject_to_histopathology_analysis
   = render 'nested_array_form', form: f,
            method: :analysis_histopathology_on_organs,

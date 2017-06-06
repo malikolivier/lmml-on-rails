@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   resources :livores_mortis, :rigores_mortis, :foreign_fluids,
             :pleura_foreign_fluids, :peritoneum_foreign_fluids,
             :participations,
+            :analysis_histopathology_on_organs,
             only: %i[create destroy]
 
   resources :injuries, only: %i[show update destroy] do

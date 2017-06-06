@@ -15,17 +15,7 @@ class AnalysisHistopathologyOnOrgan < ApplicationRecord
   belongs_to :organ
   belongs_to :analysis_histopathology, required: true
 
-  validate :organ?
-
   def retrieve_organ
     organ || other_organ
-  end
-
-  private
-
-  def organ?
-    return if retrieve_organ.present?
-    errors.add(:organ_missing,
-               "At least one of 'organ' or 'other_organ' must be filled")
   end
 end
