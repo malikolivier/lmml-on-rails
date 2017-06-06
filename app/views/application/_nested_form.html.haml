@@ -5,22 +5,21 @@
   - fields.each do |field_name, field_info|
     %div{class: field_info.try(:[], :encapsulating_element).try(:[], :class)}
       = label association_name, field_name, t("activerecord.attributes.#{associated_class_name}.#{field_name}")
+      - html_options = vue_nested_model_html_attrs(association_name, field_name, field_info)
       - case field_info[:type]
         - when :select
           = select association_name, field_name,
                    association_info.klass.translated_enum!(field_name), {},
-                   class: 'form-control',
-                   'v-model': "#{association_name}.#{field_name}"
+                   html_options
         - when :collection_select
           = collection_select association_name, field_name,
                               field_info[:collection],
                               field_info[:value_method],
                               field_info[:text_method],
                               { prompt: true },
-                              class: 'form-control',
-                              'v-model': "#{association_name}.#{field_name}"
+                              html_options
         - when :check_box, :number_field, :text_field
-          = send(field_info[:type], association_name, field_name, class: 'form-control', 'v-model': "#{association_name}.#{field_name}")
+          = send(field_info[:type], association_name, field_name, html_options)
         - else
           - raise "Unhandled field_type: #{field_info[:type]}"
   = yield
