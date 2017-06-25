@@ -28,6 +28,10 @@ en:
     M: 男
     F: 女
     O: 不明
+  unit:
+    mg/mL: mg/mL
+    ng/mL: ng/mL
+    qualitative: qualitative
   color: &color
     unknown: 不明
     amber: 琥珀色

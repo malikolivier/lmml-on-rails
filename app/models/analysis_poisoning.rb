@@ -16,6 +16,8 @@ class AnalysisPoisoning < AnalysisBase
   has_many :found_poisons
   has_many :chemical_analysis_methods, through: :found_poisons
 
+  accepts_nested_attributes_for :found_poisons, reject_if: :all_blank
+
   def description
     result = if found_poisons.any?
                '以下の薬物が検出され、その血中濃度は以下のごとくであった'

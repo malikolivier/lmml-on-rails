@@ -1,0 +1,24 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  - target_drugs = Drug.all
+  = f.collection_select :contract_institution_id, Institution.all, :id, :name
+  = f.date_field :date
+  = render 'nested_array_form', form: f,
+           method: :found_poisons,
+           fields: { drug_id: { type: :collection_select,
+                                collection: target_drugs,
+                                value_method: :id,
+                                text_method: :name,
+                                encapsulating_element: { class: 'col-xs-6' } },
+                     chemical_analysis_method_id: { type: :collection_select,
+                                collection: ChemicalAnalysisMethod.all,
+                                value_method: :id,
+                                text_method: :name,
+                                encapsulating_element: { class: 'col-xs-5' } },
+                     quantitative_concentration: { type: :number_field,
+                             encapsulating_element: { class: 'col-xs-4' } },
+                     qualitative_concentration: { type: :select,
+                             encapsulating_element: { class: 'col-xs-4' } },
+                     unit: { type: :select,
+                             encapsulating_element: { class: 'col-xs-3' } } }
+  = yield f

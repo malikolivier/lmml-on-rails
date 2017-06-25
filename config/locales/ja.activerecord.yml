@@ -262,6 +262,16 @@ ja:
       triage_drug_result:
         drug_id: 薬物
         result: 結果
+      analysis_poisoning:
+        contract_institution_id: 依頼先
+        date: 日付
+        found_poisons: 検出薬物
+      found_poison:
+        drug_id: 薬物
+        chemical_analysis_method_id: 検出手法
+        quantitative_concentration: 量的濃度
+        qualitative_concentration: 質的濃度
+        unit: 単位
     enums:
       participation:
         role:

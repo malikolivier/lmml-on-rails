@@ -256,6 +256,16 @@ en:
       triage_drug_result:
         drug_id: Drug
         result: Result
+      analysis_poisoning:
+        contract_institution_id: Contract institution
+        date: Date
+        found_poisons: Detected substances
+      found_poison:
+        drug_id: Drug
+        chemical_analysis_method_id: Detection method
+        quantitative_concentration: Quant. Conc.
+        qualitative_concentration: Qual. Conc.
+        unit: Unit
     enums:
       participation:
         role:

@@ -9,5 +9,5 @@
     %tbody
       - exam.found_poisons.includes(:drug).each do |poison|
         %tr
-          %td= poison.drug.decorate.description
+          %td= poison.drug &.decorate &.description
           %td= poison.concentration_description
