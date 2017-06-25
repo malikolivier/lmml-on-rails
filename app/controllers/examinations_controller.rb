@@ -78,7 +78,7 @@ class ExaminationsController < ApplicationController
     end
     render json: {
       model: @exam.as_lmml_json,
-      description: html_preview + @exam.examination.note
+      description: html_preview + exam.examination_note
     }
   end
 
