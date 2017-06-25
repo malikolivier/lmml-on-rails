@@ -1,0 +1,17 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  - analyzed_organs = Organ.subject_to_histopathology_analysis
+  = render 'nested_array_form', form: f,
+           method: :analysis_histopathology_on_organs,
+           fields: { organ_id: { type: :collection_select,
+                                 collection: analyzed_organs,
+                                 value_method: :id,
+                                 text_method: :name,
+                                 html: { '@change': 'deleteOtherOrgan' },
+                                 encapsulating_element: { class: 'col-xs-6' } },
+                 other_organ: { type: :text_field,
+                                html: { '@keyup': 'deleteOrganId' },
+                                encapsulating_element: { class: 'col-xs-6' } },
+                 result: { type: :text_field,
+                           encapsulating_element: { class: 'col-xs-12' } } }
+  = yield f

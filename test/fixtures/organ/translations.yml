@@ -81,12 +81,22 @@ thoracic_aorta_ja:
 lung_left_ja:
   globalized_model: lung_left
   locale: ja
-  name: left_lung
+  name: 左肺
+
+lung_left_en:
+  globalized_model: lung_left
+  locale: en
+  name: Left lung
 
 lung_right_ja:
   globalized_model: lung_right
   locale: ja
-  name: right_lung
+  name: 右肺
+
+lung_right_en:
+  globalized_model: lung_right
+  locale: en
+  name: Right lung
 
 abdominal_aorta_ja:
   globalized_model: abdominal_aorta
@@ -96,37 +106,72 @@ abdominal_aorta_ja:
 adrenal_gland_left_ja:
   globalized_model: adrenal_gland_left
   locale: ja
-  name: left_adrenal_gland
+  name: 左副腎
+
+adrenal_gland_left_en:
+  globalized_model: adrenal_gland_left
+  locale: en
+  name: Left adrenal gland
 
 adrenal_gland_right_ja:
   globalized_model: adrenal_gland_right
   locale: ja
-  name: right_adrenal_gland
+  name: 右副腎
+
+adrenal_gland_right_en:
+  globalized_model: adrenal_gland_right
+  locale: en
+  name: Right adrenal gland
 
 kidney_left_ja:
   globalized_model: kidney_left
   locale: ja
-  name: left_kidney
+  name: 左腎臓
+
+kidney_left_en:
+  globalized_model: kidney_left
+  locale: en
+  name: Left kidney
 
 kidney_right_ja:
   globalized_model: kidney_right
   locale: ja
-  name: right_kidney
+  name: 右腎臓
+
+kidney_right_en:
+  globalized_model: kidney_right
+  locale: en
+  name: Right kidney
 
 spleen_ja:
   globalized_model: spleen
   locale: ja
-  name: spleen
+  name: 脾臓
+
+spleen_en:
+  globalized_model: spleen
+  locale: en
+  name: Spleen
 
 pancreas_ja:
   globalized_model: pancreas
   locale: ja
-  name: pancreas
+  name: 膵臓
+
+pancreas_en:
+  globalized_model: pancreas
+  locale: en
+  name: Pancreas
 
 liver_ja:
   globalized_model: liver
   locale: ja
-  name: liver
+  name: 肝臓
+
+liver_en:
+  globalized_model: liver
+  locale: en
+  name: Liver
 
 stomach_ja:
   globalized_model: stomach
@@ -151,47 +196,92 @@ back_ja:
 coronary_artery_ja:
   globalized_model: coronary_artery
   locale: ja
-  name: coronary_artery
+  name: 冠状動脈
+
+coronary_artery_en:
+  globalized_model: coronary_artery
+  locale: en
+  name: Coronary artery
 
 myocardium_ja:
   globalized_model: myocardium
   locale: ja
-  name: myocardium
+  name: 心筋
+
+myocardium_en:
+  globalized_model: myocardium
+  locale: en
+  name: Myocardium
 
 cerebrum_ja:
   globalized_model: cerebrum
   locale: ja
-  name: cerebrum
+  name: 大脳
+
+cerebrum_en:
+  globalized_model: cerebrum
+  locale: en
+  name: Cerebrum
 
 cerebellum_ja:
   globalized_model: cerebellum
   locale: ja
-  name: cerebellum
+  name: 小脳
+
+cerebellum_en:
+  globalized_model: cerebellum
+  locale: en
+  name: Cerebellum
 
 pons_ja:
   globalized_model: pons
   locale: ja
-  name: pons
+  name: 橋
+
+pons_en:
+  globalized_model: pons
+  locale: en
+  name: Pons
 
 medulla_oblongata_ja:
   globalized_model: medulla_oblongata
   locale: ja
-  name: medulla_oblongata
+  name: 延髄
+
+medulla_oblongata_en:
+  globalized_model: medulla_oblongata
+  locale: en
+  name: Medulla oblongata
 
 psoas_major_muscle_ja:
   globalized_model: psoas_major_muscle
   locale: ja
-  name: psoas_major_muscle
+  name: 大腰筋
+
+psoas_major_muscle_en:
+  globalized_model: psoas_major_muscle
+  locale: en
+  name: Psoas major muscle
 
 thyroid_gland_ja:
   globalized_model: thyroid_gland
   locale: ja
-  name: thyroid_gland
+  name: 甲状腺
+
+thyroid_gland_en:
+  globalized_model: thyroid_gland
+  locale: en
+  name: Thyroid gland
 
 bone_marrow_ja:
   globalized_model: bone_marrow
   locale: ja
-  name: bone_marrow
+  name: 骨髄
+
+bone_marrow_en:
+  globalized_model: bone_marrow
+  locale: en
+  name: Bone marrow
 
 tooth_gum_ja:
   globalized_model: tooth_gum

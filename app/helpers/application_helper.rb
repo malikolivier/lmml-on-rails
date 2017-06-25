@@ -20,6 +20,18 @@ module ApplicationHelper
     form_for(object, params) { |f| yield f }
   end
 
+  def vue_nested_model_html_attrs(association_name, field_name, field_info)
+    html = {
+      class: 'form-control',
+      'v-model': "#{association_name}.#{field_name}"
+    }
+    return html if field_info[:html].blank?
+    field_info[:html].each do |key, value|
+      html[key] = value
+    end
+    html
+  end
+
   def delete_button(action, event_type = '@click.prevent', html_options = {})
     html_options[:class] = '' if html_options[:class].blank?
     html_options[:class] = "btn btn-danger btn-xs #{html_options[:class]}"

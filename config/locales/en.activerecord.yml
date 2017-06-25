@@ -240,6 +240,12 @@ en:
         anti_b: Reaction to anti-B serum
         anti_h: Reaction to anti-H serum
         blood_type: Concluded blood type
+      analysis_histopathology:
+        analysis_histopathology_on_organs: Organ-wise histopathology
+      analysis_histopathology_on_organ:
+        organ_id: Organ
+        other_organ: Organ not included in the list
+        result: Result
     enums:
       participation:
         role:

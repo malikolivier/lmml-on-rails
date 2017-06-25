@@ -246,6 +246,12 @@ ja:
         anti_b: 抗Ｂ血清と反応
         anti_h: 抗Ｈ血清と反応
         blood_type: 結論付けた血液型
+      analysis_histopathology:
+        analysis_histopathology_on_organs: 病理組織学分析
+      analysis_histopathology_on_organ:
+        organ_id: 臓器
+        other_organ: リストに含まれていない臓器
+        result: 結果
     enums:
       participation:
         role:

@@ -415,6 +415,10 @@ en:
       one: the %{negative_tries} serum showed a positive result.
       other: the %{negative_tries} sera showed a positive result.
     complete_description: '%{experiment}%{positive_tries}, while %{negative_tries}'
+  analysis_histopathologies:
+    experiment: The following organs extracted during the autopsy underwent a histopathology test mainly based on the H&E staining technique. Small slices of the organs, submersed into formalin and embedded into parafin, were observed.
+  analysis_histopathology_on_organs:
+    description: '**%{organ_name}:** %{result}'
   helpers:
     back: Back
     new: New
