@@ -251,6 +251,11 @@ en:
       instant_view_drug_result:
         drug_id: Drug
         result: Result
+      analysis_triage:
+        triage_drug_results: Test results
+      triage_drug_result:
+        drug_id: Drug
+        result: Result
     enums:
       participation:
         role:
@@ -397,4 +402,6 @@ en:
           AB: AB
           unknown: Unknown
       instant_view_drug_result:
+        result: *experiment_binary_results
+      triage_drug_result:
         result: *experiment_binary_results

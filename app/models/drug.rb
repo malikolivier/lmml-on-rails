@@ -16,11 +16,5 @@ class Drug < ApplicationRecord
     triage_supported_drug.concentration_threshold
   end
 
-  def description
-    if abbr.present?
-      "#{abbr}：#{long_name}"
-    else
-      long_name
-    end
-  end
+  scope :triage_supported, -> { joins(:triage_supported_drug) }
 end
