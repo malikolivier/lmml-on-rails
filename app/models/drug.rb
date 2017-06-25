@@ -17,12 +17,4 @@ class Drug < ApplicationRecord
   end
 
   scope :triage_supported, -> { joins(:triage_supported_drug) }
-
-  def description
-    if abbr.present?
-      "#{abbr}：#{long_name}"
-    else
-      long_name
-    end
-  end
 end

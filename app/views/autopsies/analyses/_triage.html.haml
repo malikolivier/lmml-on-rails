@@ -1,13 +1,13 @@
 = exam.description
 
-- if exam.triage_drug_results.not_positive.any?
+- if exam.not_positive_results.any?
   %table
     %thead
       %tr
         %th 薬物
         %th 検出限界濃度(ng/mL)
     %tbody
-      - exam.triage_drug_results.includes(drug: [:translations, :triage_supported_drug]).not_positive.each do |result|
+      - exam.not_positive_results.each do |result|
         %tr
-          %td= result.drug.description
-          %td= result.drug.triage_concentration_threshold
+          %td= result.drug_description
+          %td= result.drug_concentration_threshold
