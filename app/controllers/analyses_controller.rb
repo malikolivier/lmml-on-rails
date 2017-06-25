@@ -21,6 +21,9 @@ class AnalysesController < ApplicationController
     end
   end
 
+  # GET /autopsies/:id/analysis_***/edit
+  def edit; end
+
   private
 
   def analysis_name
