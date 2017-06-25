@@ -1,0 +1,13 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  - target_drugs = Drug.all
+  = render 'nested_array_form', form: f,
+           method: :instant_view_drug_results,
+           fields: { drug_id: { type: :collection_select,
+                                 collection: target_drugs,
+                                 value_method: :id,
+                                 text_method: :name,
+                                 encapsulating_element: { class: 'col-xs-8' } },
+                 result: { type: :select,
+                                encapsulating_element: { class: 'col-xs-3' } } }
+  = yield f
