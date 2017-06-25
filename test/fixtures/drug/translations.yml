@@ -4,16 +4,31 @@ cocaine_ja:
   name: コカイン
   long_name: ｺｶｲﾝ､ﾍﾞﾝｿﾞｲﾙｴｸｺﾞﾆﾝ等（コカイン系麻薬）
 
+cocaine_en:
+  globalized_model: cocaine
+  locale: en
+  name: cocaine
+
 amphetamine_ja:
   globalized_model: amphetamine
   locale: ja
   name: アンフェタミン
   long_name: ｱﾝﾌｪﾀﾐﾝ､ﾒﾀﾝﾌｪﾀﾐﾝ（覚醒剤）
 
+amphetamine_en:
+  globalized_model: amphetamine
+  locale: en
+  name: amphetamine
+
 methamphetamine_ja:
   globalized_model: methamphetamine
   locale: ja
   name: メタンフェタミン
+
+methamphetamine_en:
+  globalized_model: methamphetamine
+  locale: en
+  name: methamphetamine
 
 cannabis_ja:
   globalized_model: cannabis
@@ -21,11 +36,22 @@ cannabis_ja:
   name: 大麻
   long_name: ﾃﾄﾗﾋﾄﾞﾛｶﾝﾅﾋﾞﾉｰﾙ（大麻）
 
+cannabis_en:
+  globalized_model: cannabis
+  locale: en
+  name: tetrahydrocannabinol
+
 opiates_ja:
   globalized_model: opiates
   locale: ja
   name: オピエート
   long_name: モルヒネ、ヘロイン等（モルヒネ系麻薬）
+
+opiates_en:
+  globalized_model: opiates
+  locale: en
+  name: opiates
+  long_name: morphin, heroin, etc.
 
 PCP_ja:
   globalized_model: PCP
@@ -33,11 +59,21 @@ PCP_ja:
   name: フェンシクリジン
   long_name: フェンシクリジン（幻覚剤）
 
+PCP_en:
+  globalized_model: PCP
+  locale: en
+  name: phencyclidine
+
 benzos_ja:
   globalized_model: benzos
   locale: ja
   name: ベンゾ
   long_name: ベンゾジアゼピン類（向精神薬）
+
+benzos_en:
+  globalized_model: benzos
+  locale: en
+  name: benzos
 
 barbiturates_ja:
   globalized_model: barbiturates
@@ -45,8 +81,18 @@ barbiturates_ja:
   name: バルビツール酸系
   long_name: バルビツール酸類（向精神薬）
 
+barbiturates_en:
+  globalized_model: barbiturates
+  locale: en
+  name: barbiturates
+
 TCA_ja:
   globalized_model: TCA
   locale: ja
   name: TCA
   long_name: 三環系抗うつ剤（向精神薬）
+
+TCA_en:
+  globalized_model: TCA
+  locale: en
+  name: TCA
