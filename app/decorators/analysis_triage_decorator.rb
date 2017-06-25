@@ -2,19 +2,40 @@ class AnalysisTriageDecorator < AnalysisBaseDecorator
   decorates_association :triage_drug_results
 
   def description
-    description = '本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、'
-    if triage_drug_results.positive.any?
-      description += "#{triage_drug_results.positive_drugs_description}陽性対照領域に明瞭なバンドが出現する"
-    end
-    if triage_drug_results.not_positive.any?
-      description += '一方で、以下の全ての薬物領域ならびに陰性対照領域には明らかなバンドは出現しなかった。'
-    else
-      description += '。'
-    end
-    description
+    return '' if result_description.blank?
+    t('.complete_description', result: result_description)
   end
 
   def not_positive_results
     triage_drug_results.not_positive
+  end
+
+  private
+
+  def result_description
+    if any_positive_results?
+      result_including_positives
+    elsif any_not_positive_results?
+      t('.no_positive')
+    end
+  end
+
+  def result_including_positives
+    drugs = triage_drug_results.positive_drugs_description
+    positive_results = t('.has_positive', drugs_description: drugs)
+    if any_not_positive_results?
+      t('.full_result', has_positive: positive_results,
+                        no_positive: t('.no_positive'))
+    else
+      t('.only_positive_result', has_positive: positive_results)
+    end
+  end
+
+  def any_positive_results?
+    triage_drug_results.positive.any?
+  end
+
+  def any_not_positive_results?
+    triage_drug_results.not_positive.any?
   end
 end

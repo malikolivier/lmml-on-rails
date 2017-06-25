@@ -402,6 +402,12 @@ ja:
     complete_description: 本屍の尿につき検査キット添付の検査方法に準じてインスタントビュー濫用薬物スクリーニングをおこなったところ、%{result}
   drugs:
     description: '%{abbr}：%{long_name}'
+  analysis_triages:
+    has_positive: '%{drugs_description}陽性対照領域に明瞭なバンドが出現する'
+    no_positive: 以下の全ての薬物領域ならびに陰性対照領域には明らかなバンドは出現しなかった。
+    full_result: '%{has_positive}一方で、%{no_positive}'
+    only_positive_result: '%{has_positive}。'
+    complete_description: 本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、%{result}
   date:
     abbr_day_names:
     - 日
