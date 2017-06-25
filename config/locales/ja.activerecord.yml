@@ -252,6 +252,11 @@ ja:
         organ_id: 臓器
         other_organ: リストに含まれていない臓器
         result: 結果
+      analysis_instant_view:
+        instant_view_drug_results: 諸検査結果
+      instant_view_drug_result:
+        drug_id: 薬物
+        result: 結果
     enums:
       participation:
         role:
@@ -397,3 +402,5 @@ ja:
           O: Ｏ型
           AB: ＡＢ型
           unknown: 不明
+      instant_view_drug_result:
+        result: *experiment_binary_results

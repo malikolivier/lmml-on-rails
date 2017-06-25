@@ -12,7 +12,7 @@
 
 class InstantViewDrugResult < ApplicationRecord
   belongs_to :analysis_instant_view, required: true
-  belongs_to :drug, required: true
+  belongs_to :drug
 
   enum result: Settings.enums.tests.binary_result
 end

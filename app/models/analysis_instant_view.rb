@@ -11,4 +11,7 @@
 class AnalysisInstantView < AnalysisBase
   has_many :instant_view_drug_results
   has_many :drugs, through: :instant_view_drug_results
+
+  accepts_nested_attributes_for :instant_view_drug_results,
+                                reject_if: :all_blank
 end

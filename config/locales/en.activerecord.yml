@@ -246,6 +246,11 @@ en:
         organ_id: Organ
         other_organ: Organ not included in the list
         result: Result
+      analysis_instant_view:
+        instant_view_drug_results: Test results
+      instant_view_drug_result:
+        drug_id: Drug
+        result: Result
     enums:
       participation:
         role:
@@ -391,3 +396,5 @@ en:
           O: O
           AB: AB
           unknown: Unknown
+      instant_view_drug_result:
+        result: *experiment_binary_results
