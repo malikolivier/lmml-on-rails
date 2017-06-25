@@ -419,6 +419,10 @@ en:
     experiment: The following organs extracted during the autopsy underwent a histopathology test mainly based on the H&E staining technique. Small slices of the organs, submersed into formalin and embedded into parafin, were observed.
   analysis_histopathology_on_organs:
     description: '**%{organ_name}:** %{result}'
+  analysis_instant_views:
+    no_positive: Of all the target substances, no clear positive reaction was observed.
+    has_positive: 'A clear positive reaction was observed for %{drugs_description}, while no clear positive reaction was observed for the other target substances.'
+    complete_description: The instant view drug screening was conducted on the body's urine according to the protocol provided with the test kit. %{result}
   helpers:
     back: Back
     new: New
