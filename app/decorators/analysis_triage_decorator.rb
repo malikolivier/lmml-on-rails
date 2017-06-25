@@ -3,7 +3,7 @@ class AnalysisTriageDecorator < AnalysisBaseDecorator
 
   def description
     description = '本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、'
-    if triage_drug_results.none_positive?
+    if triage_drug_results.positive.any?
       description += "#{triage_drug_results.positive_drugs_description}陽性対照領域に明瞭なバンドが出現する"
     end
     if triage_drug_results.not_positive.any?
