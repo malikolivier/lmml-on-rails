@@ -3,7 +3,7 @@ class DrugDecorator < ApplicationDecorator
 
   def description
     if object.abbr.present?
-      "#{object.abbr}：#{object.long_name}"
+      t('.description', abbr: object.abbr, long_name: object.long_name)
     else
       object.long_name
     end

@@ -423,6 +423,8 @@ en:
     no_positive: Of all the target substances, no clear positive reaction was observed.
     has_positive: 'A clear positive reaction was observed for %{drugs_description}, while no clear positive reaction was observed for the other target substances.'
     complete_description: The instant view drug screening was conducted on the body's urine according to the protocol provided with the test kit. %{result}
+  drugs:
+    description: '%{abbr}: %{long_name}'
   helpers:
     back: Back
     new: New
