@@ -257,6 +257,11 @@ ja:
       instant_view_drug_result:
         drug_id: 薬物
         result: 結果
+      analysis_triage:
+        triage_drug_results: 諸検査結果
+      triage_drug_result:
+        drug_id: 薬物
+        result: 結果
     enums:
       participation:
         role:
@@ -403,4 +408,6 @@ ja:
           AB: ＡＢ型
           unknown: 不明
       instant_view_drug_result:
+        result: *experiment_binary_results
+      triage_drug_result:
         result: *experiment_binary_results

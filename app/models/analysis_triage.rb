@@ -12,6 +12,8 @@ class AnalysisTriage < AnalysisBase
   has_many :triage_drug_results
   has_many :drugs, through: :triage_drug_results
 
+  accepts_nested_attributes_for :triage_drug_results, reject_if: :all_blank
+
   def description
     description = '本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、'
     if triage_drug_results.any?(&:positive?)

@@ -12,7 +12,7 @@
 
 class TriageDrugResult < ApplicationRecord
   belongs_to :analysis_triage, required: true
-  belongs_to :drug, required: true
+  belongs_to :drug
 
   enum result: Settings.enums.tests.binary_result
 
