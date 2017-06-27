@@ -4,10 +4,10 @@
   %table
     %thead
       %tr
-        %th 薬物
-        %th 血中濃度
+        %th= t('activerecord.attributes.found_poison.drug_id')
+        %th= t('analysis_poisonings.in_blood_concentration')
     %tbody
-      - exam.found_poisons.includes(:drug).each do |poison|
+      - exam.found_poisons.each do |poison|
         %tr
-          %td= poison.drug.decorate.description
+          %td= poison.drug_description
           %td= poison.concentration_description

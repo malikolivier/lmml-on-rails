@@ -28,6 +28,10 @@ en:
     M: 男
     F: 女
     O: 不明
+  unit:
+    mg/mL: mg/mL
+    ng/mL: ng/mL
+    qualitative: qualitative
   color: &color
     unknown: 不明
     amber: 琥珀色
@@ -431,6 +435,17 @@ en:
     full_result: '%{has_positive}. %{no_positive}'
     only_positive_result: '%{has_positive}.'
     complete_description: The triage drug screening was conducted on the body's urine according to the protocol provided with the test kit. %{result}
+    threshold_concentration: Detection threshold (ng/mL)
+  analysis_poisonings:
+    no_drug: no poisonous substance detected
+    drugs_found: poisonous substances were detected with the concentration given as follows
+    full_description: '%{contract}Using %{methods}, it was concluded that %{result}%{date}.'
+    contract_description: 'Analysis was contucted by %{institution}. '
+    date_description: ' (%{formatted_date})'
+    in_blood_concentration: In-blood concentration
+  found_poisons:
+    concentration_description: '%{concentration} %{unit}'
+    no_data: '-'
   helpers:
     back: Back
     new: New

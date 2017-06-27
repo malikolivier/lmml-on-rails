@@ -1,0 +1,2 @@
+class ChemicalAnalysisMethodDecorator < ApplicationDecorator
+end

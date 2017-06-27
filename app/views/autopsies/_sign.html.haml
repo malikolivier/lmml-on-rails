@@ -1,7 +1,6 @@
 %p 以　上
 
-- date_format = t('time.formats.official_date')
-= @autopsy.autopsy_date.to_era(date_format) if @autopsy.autopsy_date.present?
+= format_official_date(@autopsy.autopsy_date) if @autopsy.autopsy_date.present?
 %br
 = @autopsy.place.try(:address)
 %br

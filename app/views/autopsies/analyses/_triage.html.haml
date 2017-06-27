@@ -4,8 +4,8 @@
   %table
     %thead
       %tr
-        %th 薬物
-        %th 検出限界濃度(ng/mL)
+        %th= t('activerecord.attributes.triage_drug_result.drug_id')
+        %th= t('analysis_triages.threshold_concentration')
     %tbody
       - exam.not_positive_results.each do |result|
         %tr

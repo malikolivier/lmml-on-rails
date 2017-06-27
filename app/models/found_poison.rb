@@ -15,17 +15,10 @@
 
 class FoundPoison < ApplicationRecord
   belongs_to :analysis_poisoning, required: true
-  belongs_to :drug, required: true
+  belongs_to :drug
   belongs_to :chemical_analysis_method
 
   enum unit: Settings.enums.units
-  enum qualitative_concentration: Settings.enums.concentration
-
-  def concentration_description
-    if qualitative?
-      I18n.t "concentration.#{qualitative_concentration}"
-    else
-      "#{quantitative_concentration} #{unit}"
-    end
-  end
+  enum qualitative_concentration: Settings.enums.concentration,
+       i18n_key: :concentration
 end

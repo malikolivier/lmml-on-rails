@@ -42,7 +42,7 @@ class AutopsyDecorator < ApplicationDecorator
 
   def date_chunk
     return '' if model.autopsy_date.blank?
-    date = model.autopsy_date.to_era(t('time.formats.official_date'))
+    date = h.format_official_date(model.autopsy_date)
     t('.date_chunk', date: date)
   end
 

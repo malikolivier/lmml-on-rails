@@ -1,0 +1,2 @@
+class FoundPoisonsDecorator < ApplicationCollectionDecorator
+end
