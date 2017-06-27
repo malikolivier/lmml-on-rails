@@ -4,21 +4,25 @@ class AnalysisPoisoningDecorator < AnalysisBaseDecorator
 
   def description
     result = if found_poisons.any?
-               '以下の薬物が検出され、その血中濃度は以下のごとくであった'
+               t('.drugs_found')
              else
-               '薬物が検出されなかった'
+               t('.no_drug')
              end
-    "#{contract_description}本屍の血液について、#{chemical_analysis_methods.description}" \
-    "をおこなった結果、#{result}旨報告を受けた#{date_description}。"
+    t('.full_description', contract: contract_description,
+                           methods: chemical_analysis_methods.description,
+                           result: result,
+                           date: date_description)
   end
 
   private
 
   def contract_description
-    "#{object.contract_institution.name}に依頼し、" if object.contract_institution.present?
+    return '' if object.contract_institution.blank?
+    t('.contract_description', institution: object.contract_institution.name)
   end
 
   def date_description
-    "（#{h.format_official_date(object.date)}）" if object.date.present?
+    return '' if object.date.blank?
+    t('.date_description', formatted_date: h.format_official_date(object.date))
   end
 end
