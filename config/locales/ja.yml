@@ -412,12 +412,14 @@ ja:
     full_result: '%{has_positive}一方で、%{no_positive}'
     only_positive_result: '%{has_positive}。'
     complete_description: 本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、%{result}
+    threshold_concentration: 検出限界濃度(ng/mL)
   analysis_poisonings:
     no_drug: 薬物が検出されなかった
     drugs_found: 以下の薬物が検出され、その血中濃度は以下のごとくであった
     full_description: '%{contract}本屍の血液について、%{methods}をおこなった結果、%{result}旨報告を受けた%{date}。'
     contract_description: '%{institution}に依頼し、'
     date_description: （%{formatted_date}）
+    in_blood_concentration: 血中濃度
   found_poisons:
     concentration_description: '%{concentration} %{unit}'
     no_data: '-'
