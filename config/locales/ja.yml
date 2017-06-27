@@ -412,6 +412,9 @@ ja:
     full_result: '%{has_positive}一方で、%{no_positive}'
     only_positive_result: '%{has_positive}。'
     complete_description: 本屍の尿につき、検査キット添付の検査方法に準じてトライエージ乱用薬物スクリーニングを行ったところ、%{result}
+  found_poisons:
+    concentration_description: '%{concentration} %{unit}'
+    no_data: '-'
   date:
     abbr_day_names:
     - 日

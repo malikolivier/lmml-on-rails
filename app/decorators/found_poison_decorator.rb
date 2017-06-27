@@ -4,9 +4,13 @@ class FoundPoisonDecorator < ApplicationDecorator
 
   def concentration_description
     if object.qualitative?
-      I18n.t "concentration.#{object.qualitative_concentration}"
+      object.translated_enum_value(:qualitative_concentration)
+    elsif object.quantitative_concentration.present?
+      t('.concentration_description',
+        concentration: object.quantitative_concentration,
+        unit: object.unit)
     else
-      "#{object.quantitative_concentration} #{object.unit}"
+      t('.no_data')
     end
   end
 end

@@ -435,6 +435,9 @@ en:
     full_result: '%{has_positive}. %{no_positive}'
     only_positive_result: '%{has_positive}.'
     complete_description: The triage drug screening was conducted on the body's urine according to the protocol provided with the test kit. %{result}
+  found_poisons:
+    concentration_description: '%{concentration} %{unit}'
+    no_data: '-'
   helpers:
     back: Back
     new: New
