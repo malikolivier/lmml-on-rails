@@ -21,12 +21,4 @@ class FoundPoison < ApplicationRecord
   enum unit: Settings.enums.units
   enum qualitative_concentration: Settings.enums.concentration,
        i18n_key: :concentration
-
-  def concentration_description
-    if qualitative?
-      I18n.t "concentration.#{qualitative_concentration}"
-    else
-      "#{quantitative_concentration} #{unit}"
-    end
-  end
 end
