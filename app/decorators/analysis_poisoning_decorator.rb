@@ -19,6 +19,6 @@ class AnalysisPoisoningDecorator < AnalysisBaseDecorator
   end
 
   def date_description
-    "（#{object.date.to_era('%O%E年%m月%d日')}）" if object.date.present?
+    "（#{h.format_official_date(object.date)}）" if object.date.present?
   end
 end

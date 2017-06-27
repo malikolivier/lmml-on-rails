@@ -48,4 +48,8 @@ module ApplicationHelper
     delimiter = I18n.translate!('punctuation.word_joiner')
     words.join(delimiter)
   end
+
+  def format_official_date(date)
+    date.to_era(I18n.translate!('time.formats.official_date'))
+  end
 end
