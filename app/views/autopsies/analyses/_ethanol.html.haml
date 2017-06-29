@@ -3,15 +3,13 @@
 - if exam.found?
   %table
     %tbody
-      - if exam.heart_concentration.present?
+      - if exam.heart_concentration_present?
         %tr
           %td 心臓血中エタノール濃度
           %td
-            = exam.heart_concentration
-            mg/mL
-      - if exam.iliac_vein_concentration.present?
+            = exam.heart_concentration_description
+      - if exam.iliac_vein_concentration_present?
         %tr
           %td 総腸骨静脈血中エタノール濃度
           %td
-            = exam.iliac_vein_concentration
-            mg/mL
+            = exam.iliac_vein_concentration_description
