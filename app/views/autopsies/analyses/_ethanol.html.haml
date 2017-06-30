@@ -5,11 +5,9 @@
     %tbody
       - if exam.heart_concentration_present?
         %tr
-          %td 心臓血中エタノール濃度
-          %td
-            = exam.heart_concentration_description
+          %td= t('activerecord.attributes.analysis_ethanol.heart_concentration')
+          %td= exam.heart_concentration_description
       - if exam.iliac_vein_concentration_present?
         %tr
-          %td 総腸骨静脈血中エタノール濃度
-          %td
-            = exam.iliac_vein_concentration_description
+          %td= t('activerecord.attributes.analysis_ethanol.iliac_vein_concentration')
+          %td= exam.iliac_vein_concentration_description

@@ -266,6 +266,9 @@ en:
         quantitative_concentration: Quant. Conc.
         qualitative_concentration: Qual. Conc.
         unit: Unit
+      analysis_ethanol:
+        heart_concentration: Ethanol concentration in cardiac blood
+        iliac_vein_concentration: Ethanol concentration in iliac vein blood
     enums:
       participation:
         role:
