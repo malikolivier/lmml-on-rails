@@ -1,9 +1,26 @@
 class AnalysisCarbonMonoxideDecorator < AnalysisBaseDecorator
   def description
     pb = PhraseBuilder.new(only_comma: true)
-    pb << "左心血で約#{object.left_heart_saturation}%" if object.left_heart_saturation.present?
-    pb << "右心血で約#{object.left_heart_saturation}%" if object.right_heart_saturation.present?
-    pb << "総腸骨静脈血で約#{object.iliac_vein_saturation}%" if object.iliac_vein_saturation.present?
-    "本屍の心臓血および総腸骨静脈血について、吸光度法にて血中ヘモグロビンの一酸化炭素飽和度を検査したところ、#{pb.to_sentence_no_dot}であった。"
+    pb << left_heart_description
+    pb << right_heart_description
+    pb << iliac_vein_description
+    t('.full_description', result: pb.to_sentence_no_dot)
+  end
+
+  private
+
+  def left_heart_description
+    return '' if object.left_heart_saturation.blank?
+    t('.left_heart', saturation: object.left_heart_saturation)
+  end
+
+  def right_heart_description
+    return '' if object.right_heart_saturation.blank?
+    t('.right_heart', saturation: object.right_heart_saturation)
+  end
+
+  def iliac_vein_description
+    return '' if object.iliac_vein_saturation.blank?
+    t('.iliac_vein', saturation: object.iliac_vein_saturation)
   end
 end
