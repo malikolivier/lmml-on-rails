@@ -440,7 +440,7 @@ en:
     no_drug: no poisonous substance detected
     drugs_found: poisonous substances were detected with the concentration given as follows
     full_description: "%{contract}Using %{methods} on the victim's blood, it was concluded that %{result}%{date}."
-    contract_description: 'Analysis was contucted by %{institution}. '
+    contract_description: 'Analysis was conducted by %{institution}. '
     date_description: ' (%{formatted_date})'
     in_blood_concentration: In-blood concentration
   found_poisons:
@@ -449,7 +449,7 @@ en:
   analysis_ethanols:
     detected: ethanol was detected with the concentration given as follows
     not_detected: no ethanol was detected
-    contract_description: 'Ethanol analysis was contucted by %{institution}. '
+    contract_description: 'Ethanol analysis was conducted by %{institution}. '
     date_description: ' (%{formatted_date})'
     full_description: "%{contract}Using gas chromatography to determine quantitative ethanol concentration in two different samples of the victim's blood (cardiac and iliac vein), %{result}%{date}."
   analysis_carbon_monoxides:
