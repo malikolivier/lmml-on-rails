@@ -423,6 +423,12 @@ ja:
   found_poisons:
     concentration_description: '%{concentration} %{unit}'
     no_data: '-'
+  analysis_ethanols:
+    detected: 次の結果を得た
+    not_detected: エタノールは検出されなかった
+    contract_description: '%{institution}に依頼し、'
+    date_description: （%{formatted_date}）
+    full_description: '%{contract}本屍の心臓・総腸骨静脈血について、気化平衡法によるガスクロマトグラフィーによりエタノールの定量試験をおこなったところ、%{result}旨報告を受けた%{date}。'
   date:
     abbr_day_names:
     - 日

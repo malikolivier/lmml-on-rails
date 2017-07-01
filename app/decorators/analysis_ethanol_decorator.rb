@@ -3,13 +3,12 @@ class AnalysisEthanolDecorator < AnalysisBaseDecorator
 
   def description
     result = if object.found?
-               '次の結果を得た'
+               t('.detected')
              else
-               'エタノールは検出されなかった'
+               t('.not_detected')
              end
-    "#{contract_description}本屍の心臓・総腸骨静脈血について、" \
-    '気化平衡法によるガスクロマトグラフィーによりエタノールの定量試験をおこなったところ、' \
-    "#{result}旨報告を受けた#{date_description}。"
+    t('.full_description', contract: contract_description, result: result,
+                           date: date_description)
   end
 
   def heart_concentration_present?
@@ -32,10 +31,11 @@ class AnalysisEthanolDecorator < AnalysisBaseDecorator
 
   def contract_description
     return '' if object.contract_institution.blank?
-    "#{object.contract_institution.name}に依頼し、"
+    t('.contract_description', institution: object.contract_institution.name)
   end
 
   def date_description
-    "（#{object.date.to_era('%O%E年%m月%d日')}）" if object.date.present?
+    return '' if object.date.present?
+    t('.date_description', formatted_date: h.format_official_date(object.date))
   end
 end
