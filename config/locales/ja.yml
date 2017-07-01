@@ -446,6 +446,10 @@ ja:
     approximate_quantity: '約%{quantity}%{unit}'
     exact_quantity: '%{quantity}%{unit}'
     standard: （正常値 %{standard}）
+  molecules:
+    more_than: '%{min}%{unit} 以上'
+    less_than: '%{max}%{unit} 以下'
+    interval: '%{min}〜%{max}%{unit}'
   date:
     abbr_day_names:
     - 日

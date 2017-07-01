@@ -469,6 +469,10 @@ en:
     approximate_quantity: 'around %{quantity} %{unit}'
     exact_quantity: '%{quantity} %{unit}'
     standard: '(Normal value: %{standard})'
+  molecules:
+    more_than: 'more than %{min} %{unit}'
+    less_than: 'less than %{max} %{unit}'
+    interval: '%{min}~%{max} %{unit}'
   helpers:
     back: Back
     new: New
