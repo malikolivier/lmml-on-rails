@@ -434,6 +434,8 @@ ja:
     right_heart: 右心血で約%{saturation}%
     iliac_vein: 総腸骨静脈血で約%{saturation}%
     full_description: 本屍の心臓血および総腸骨静脈血について、吸光度法にて血中ヘモグロビンの一酸化炭素飽和度を検査したところ、%{result}であった。
+  analysis_uropapers:
+    description: 本屍の尿について、キットのマニュアルに従ってウロペーパーⅢ検査をおこなったところ、以下のような結果を得た。
   date:
     abbr_day_names:
     - 日
