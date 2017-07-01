@@ -465,6 +465,10 @@ en:
     with_contractor_description: '%{experiment}%{contract}The following results were obtained%{date}.'
     contract_description: 'This biochemical analysis was entrusted to %{institution}. '
     date_description: ' (%{formatted_date})'
+  biochemical_analysis_results:
+    approximate_quantity: 'around %{quantity} %{unit}'
+    exact_quantity: '%{quantity} %{unit}'
+    standard: '(Normal value: %{standard})'
   helpers:
     back: Back
     new: New

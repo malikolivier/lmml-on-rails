@@ -442,6 +442,10 @@ ja:
     with_contractor_description: '%{contract}%{experiment}ところ、以下のような結果を得た旨報告を受けた%{date}。'
     contract_description: '%{institution}に委託し、'
     date_description: （%{formatted_date}）
+  biochemical_analysis_results:
+    approximate_quantity: '約%{quantity}%{unit}'
+    exact_quantity: '%{quantity}%{unit}'
+    standard: （正常値 %{standard}）
   date:
     abbr_day_names:
     - 日

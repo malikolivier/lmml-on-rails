@@ -3,12 +3,15 @@ class BiochemicalAnalysisResultDecorator < ApplicationDecorator
   delegate :name, to: :molecule, prefix: true
 
   def quantity_description
-    about = object.approximate ? '約' : ''
-    "#{about}#{object.quantity}#{object.unit}"
+    if object.approximate
+      t('.approximate_quantity', quantity: object.quantity, unit: object.unit)
+    else
+      t('.exact_quantity', quantity: object.quantity, unit: object.unit)
+    end
   end
 
   def standard_description
     return if molecule.standard_description.blank?
-    "（正常値 #{molecule.standard_description}）"
+    t('.standard', standard: molecule.standard_description)
   end
 end
