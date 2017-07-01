@@ -459,6 +459,12 @@ en:
     full_description: Using absorption spectroscopy carbon monoxide saturation rates in the heart and the iliac vein's blood were measured. It was found that %{result}.
   analysis_uropapers:
     description: Uropaper III test was conducted on the victim's urine according to the manual provided with the test kit. The following results were obtained.
+  biochemical_analyses:
+    title: '%{index}) %{title}'
+    no_contractor_description: '%{experiment}The following results were obtained.'
+    with_contractor_description: '%{experiment}%{contract}The following results were obtained%{date}.'
+    contract_description: 'This biochemical analysis was entrusted to %{institution}. '
+    date_description: ' (%{formatted_date})'
   helpers:
     back: Back
     new: New

@@ -436,6 +436,12 @@ ja:
     full_description: 本屍の心臓血および総腸骨静脈血について、吸光度法にて血中ヘモグロビンの一酸化炭素飽和度を検査したところ、%{result}であった。
   analysis_uropapers:
     description: 本屍の尿について、キットのマニュアルに従ってウロペーパーⅢ検査をおこなったところ、以下のような結果を得た。
+  biochemical_analyses:
+    title: '%{index}) %{title}'
+    no_contractor_description: '%{experiment}ところ、以下のような結果を得た。'
+    with_contractor_description: '%{contract}%{experiment}ところ、以下のような結果を得た旨報告を受けた%{date}。'
+    contract_description: '%{institution}に委託し、'
+    date_description: （%{formatted_date}）
   date:
     abbr_day_names:
     - 日

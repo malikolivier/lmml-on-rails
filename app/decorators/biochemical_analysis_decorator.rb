@@ -2,15 +2,16 @@ class BiochemicalAnalysisDecorator < ApplicationDecorator
   decorates_association :biochemical_analysis_results
 
   def title(index)
-    "#{index}) #{object.biochemical_analysis_type.title}"
+    t('.title', index: index, title: object.biochemical_analysis_type.title)
   end
 
   def description
     if object.contract_institution.present?
-      "#{contract_description}#{experiment_description}ところ、" \
-      "以下のような結果を得た旨報告を受けた#{date_description}。"
+      t('.with_contractor_description', contract: contract_description,
+                                        experiment: experiment_description,
+                                        date: date_description)
     else
-      "#{experiment_description}ところ、以下のような結果を得た。"
+      t('.no_contractor_description', experiment: experiment_description)
     end
   end
 
@@ -21,10 +22,12 @@ class BiochemicalAnalysisDecorator < ApplicationDecorator
   end
 
   def contract_description
-    "#{object.contract_institution.name}に委託し、" if object.contract_institution.present?
+    return '' if object.contract_institution.blank?
+    t('.contract_description', institution: object.contract_institution.name)
   end
 
   def date_description
-    "（#{object.date.to_era('%O%E年%m月%d日')}）" if object.date.present?
+    return '' if object.date.blank?
+    t('.date_description', formatted_date: h.format_official_date(object.date))
   end
 end
