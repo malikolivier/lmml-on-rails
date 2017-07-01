@@ -1,0 +1,2 @@
+class UropaperResultsDecorator < ApplicationCollectionDecorator
+end
