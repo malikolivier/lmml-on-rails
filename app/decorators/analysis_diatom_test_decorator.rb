@@ -5,7 +5,7 @@ class AnalysisDiatomTestDecorator < AnalysisBaseDecorator
 
   def description
     if left_lung.quantity.blank? && right_lung.quantity.blank?
-      '未記入な項目がございます。'
+      t('.uncomplete_report')
     else
       "#{first_paragraph}
     　<p>#{second_paragraph}</p>"
@@ -14,41 +14,46 @@ class AnalysisDiatomTestDecorator < AnalysisBaseDecorator
 
   private
 
-  # TODO: refactor
-  # rubocop:disable Metrics/LineLength
   def first_paragraph
-    paragraph = '肺臓の一部につき、式に従って壊機試験を行なった。1回の鏡検で明らかな珪藻形態の有するもののみをカウントしたところ、'
     if right_lung.quantity == left_lung.quantity
-      if left_lung.found?
-        "#{paragraph}肺臓では#{left_lung.translated_quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{left_lung.descriptive_quantity}の珪藻が観察）の珪藻が観察された。"
-      else
-        "#{paragraph}肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。"
-      end
+      lungs_same_quantity
     else
-      phrases = []
-      descriptive_phrases = []
-      if left_lung.quantity.present?
-        phrases.push("左肺臓では#{left_lung.translated_quantity}")
-        descriptive_phrases.push("左肺に#{left_lung.descriptive_quantity}")
-      end
-      if right_lung.quantity.present?
-        phrases.push("右肺臓では#{right_lung.translated_quantity}")
-        descriptive_phrases.push("左肺に#{right_lung.descriptive_quantity}")
-      end
-      paragraph += phrases.to_sentence_with_comma
-      "#{paragraph}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、#{descriptive_phrases.to_sentence_with_comma}の珪藻が観察）の珪藻が観察された。"
+      found_in_lungs_different_quantities
     end
   end
 
   def second_paragraph
     if water_with_destruction.found?
-      "なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は#{water.translated_quantity}レベルであり、#{conclusion_description}。"
+      t('.water_with_destruction_found', quantity: water.translated_quantity,
+                                         conclusion: conclusion_description)
     else
-      "なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は検出されなく、#{conclusion_description}。"
+      t('.water_with_destruction_not_found', conclusion: conclusion_description)
     end
   end
 
+  def lungs_same_quantity
+    if left_lung.found?
+      t('.found_in_lungs_same_quantity',
+        experiment: t('.experiment'), quantity: left_lung.translated_quantity,
+        descriptive_quantity: left_lung.descriptive_quantity)
+    else
+      t('.not_found_in_lungs', experiment: t('.experiment'))
+    end
+  end
+
+  def found_in_lungs_different_quantities
+    results = PhraseBuilder.new(left_lung.quantity_description,
+                                right_lung.quantity_description)
+    descriptive_results = PhraseBuilder.new(
+      left_lung.descriptive_quantity_description,
+      right_lung.descriptive_quantity_description
+    )
+    t('.found_in_lungs_different_quantities',
+      experiment: t('.experiment'), results: results.to_sentence,
+      descriptive_results: descriptive_results.to_sentence)
+  end
+
   def conclusion_description
-    I18n.t("diatom_test.conclusion.#{object.conclusion}")
+    object.translated_enum_value(:conclusion)
   end
 end
