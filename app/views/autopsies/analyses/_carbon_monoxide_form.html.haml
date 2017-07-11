@@ -1,0 +1,10 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  .row
+    .col-xs-4
+      = f.number_field :left_heart_saturation
+    .col-xs-4
+      = f.number_field :right_heart_saturation
+    .col-xs-4
+      = f.number_field :iliac_vein_saturation
+  = yield f
