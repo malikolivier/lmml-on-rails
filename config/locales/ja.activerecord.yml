@@ -283,6 +283,9 @@ ja:
         iliac_vein_saturation: 総腸骨静脈血飽和度
       analysis_uropaper:
         ph: pH
+        uropaper_results: 諸結果
+      uropaper_result:
+        result: 結果
     enums:
       participation:
         role:

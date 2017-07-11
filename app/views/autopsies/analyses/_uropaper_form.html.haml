@@ -1,0 +1,6 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  = f.number_field :ph, min: '0', max: '14'
+  = render 'nested_plural_form', form: f, method: :uropaper_results,
+                                 fields: { result: { type: :number_field } }
+  = yield f
