@@ -1,0 +1,10 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  = f.collection_select :contract_institution_id, Institution.all, :id, :name
+  = f.date_field :date
+  .row
+    .col-xs-6
+      = f.number_field :heart_concentration
+    .col-xs-6
+      = f.number_field :iliac_vein_concentration
+  = yield f
