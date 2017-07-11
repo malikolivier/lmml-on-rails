@@ -35,7 +35,7 @@ class AnalysisEthanolDecorator < AnalysisBaseDecorator
   end
 
   def date_description
-    return '' if object.date.present?
+    return '' if object.date.blank?
     t('.date_description', formatted_date: h.format_official_date(object.date))
   end
 end
