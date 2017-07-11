@@ -35,14 +35,24 @@ class VueFormBuilder
       html_options
     end
 
-    # Return v-model attributes for current object. Work even for nested objects
+    # Return v-model attributes for current object.
+    # Work even for arrays and nested objects.
     def v_model_value(object_name)
       matched_attributes = @object_name.match(/^\w+\[(.*)\]$/) { |m| m[1] }
       if matched_attributes.nil?
         object_name
       else
-        methods = matched_attributes.split('][')
-        "#{methods.join('.')}.#{object_name}"
+        accumulator = ''
+        matched_attributes.split('][').each_with_index do |key, i|
+          accumulator += if i.zero?
+                           key
+                         elsif key.to_i.to_s == key
+                           "[#{key}]"
+                         else
+                           ".#{key}"
+                         end
+        end
+        "#{accumulator}.#{object_name}"
       end
     end
 
