@@ -16,11 +16,11 @@
 class InternalNeckOrgansExamination < ExaminationBase
   enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph'
 
-  belongs_to :oesophagus_substance, class_name: Substance
+  belongs_to :oesophagus_substance, class_name: 'Substance'
   # Usually, subtances go from top to bottom, so if something is in the bronchi,
   # it is as well inside the trachea and the larynx.
   Settings.air_track_organs.each do |air_track_organ|
-    belongs_to "#{air_track_organ}_substance".to_sym, class_name: Substance
+    belongs_to "#{air_track_organ}_substance".to_sym, class_name: 'Substance'
   end
 
   def air_track_organs_description

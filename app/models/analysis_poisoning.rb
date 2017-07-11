@@ -11,7 +11,7 @@
 #
 
 class AnalysisPoisoning < AnalysisBase
-  belongs_to :contract_institution, class_name: Institution
+  belongs_to :contract_institution, class_name: 'Institution'
 
   has_many :found_poisons
   has_many :chemical_analysis_methods, through: :found_poisons

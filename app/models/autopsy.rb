@@ -25,14 +25,14 @@
 # rubocop:disable Metrics/LineLength
 class Autopsy < ApplicationRecord
   belongs_to :autopsy_type
-  belongs_to :examiner, class_name: Person, counter_cache: :autopsies_examiners_count
-  belongs_to :suspect, class_name: Person, counter_cache: :autopsies_suspects_count
-  belongs_to :victim, class_name: Person, counter_cache: :autopsies_victims_count
-  belongs_to :police_inspector, class_name: Person, counter_cache: :autopsies_police_inspectors_count
-  belongs_to :judge, class_name: Person, counter_cache: :autopsies_judges_count
-  belongs_to :place, class_name: Institution, counter_cache: :autopsies_places_count
-  belongs_to :police_station, class_name: Institution, counter_cache: :autopsies_police_stations_count
-  belongs_to :court, class_name: Institution, counter_cache: :autopsies_courts_count
+  belongs_to :examiner, class_name: 'Person', counter_cache: :autopsies_examiners_count
+  belongs_to :suspect, class_name: 'Person', counter_cache: :autopsies_suspects_count
+  belongs_to :victim, class_name: 'Person', counter_cache: :autopsies_victims_count
+  belongs_to :police_inspector, class_name: 'Person', counter_cache: :autopsies_police_inspectors_count
+  belongs_to :judge, class_name: 'Person', counter_cache: :autopsies_judges_count
+  belongs_to :place, class_name: 'Institution', counter_cache: :autopsies_places_count
+  belongs_to :police_station, class_name: 'Institution', counter_cache: :autopsies_police_stations_count
+  belongs_to :court, class_name: 'Institution', counter_cache: :autopsies_courts_count
 
   has_many :participations
   has_many :participants, through: :participations, source: :person

@@ -24,11 +24,11 @@ class Injury < ApplicationRecord
   belongs_to :body_area
   belongs_to :injury_size
   belongs_to :injury_depth
-  belongs_to :parent_injury, class_name: self
+  belongs_to :parent_injury, class_name: 'Injury'
 
   has_many :injury_photograph_takings
   has_many :photographs, through: :injury_photograph_takings
-  has_many :child_injuries, foreign_key: :parent_injury_id, class_name: self
+  has_many :child_injuries, foreign_key: :parent_injury_id, class_name: 'Injury'
 
   after_destroy :destroy_relationships
 

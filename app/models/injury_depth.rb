@@ -10,7 +10,7 @@
 #
 
 class InjuryDepth < ApplicationRecord
-  belongs_to :reached_organ, class_name: Organ
+  belongs_to :reached_organ, class_name: 'Organ'
 
   includes_in_json reached_organ:
                      { except: :subject_to_histopathology_analysis }

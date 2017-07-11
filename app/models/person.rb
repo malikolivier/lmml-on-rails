@@ -23,12 +23,13 @@
 class Person < ApplicationRecord
   belongs_to :institution
 
-  has_many :autopsies_examiners, class_name: Autopsy, foreign_key: :examiner_id
-  has_many :autopsies_suspects, class_name: Autopsy, foreign_key: :suspect_id
-  has_many :autopsies_victims, class_name: Autopsy, foreign_key: :victim_id
-  has_many :autopsies_police_inspectors, class_name: Autopsy,
+  has_many :autopsies_examiners, class_name: 'Autopsy',
+                                 foreign_key: :examiner_id
+  has_many :autopsies_suspects, class_name: 'Autopsy', foreign_key: :suspect_id
+  has_many :autopsies_victims, class_name: 'Autopsy', foreign_key: :victim_id
+  has_many :autopsies_police_inspectors, class_name: 'Autopsy',
                                          foreign_key: :police_inspector_id
-  has_many :autopsies_judges, class_name: Autopsy, foreign_key: :judge_id
+  has_many :autopsies_judges, class_name: 'Autopsy', foreign_key: :judge_id
 
   enum sex: Settings.enums.sex
 

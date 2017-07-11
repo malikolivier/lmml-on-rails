@@ -13,7 +13,7 @@
 
 class BiochemicalAnalysis < ApplicationRecord
   belongs_to :analysis_biochemistry, required: true
-  belongs_to :contract_institution, class_name: Institution
+  belongs_to :contract_institution, class_name: 'Institution'
   belongs_to :biochemical_analysis_type, required: true
 
   has_many :biochemical_analysis_results

@@ -14,7 +14,7 @@
 #
 
 class AnalysisEthanol < AnalysisBase
-  belongs_to :contract_institution, class_name: Institution
+  belongs_to :contract_institution, class_name: 'Institution'
 
   before_save :set_found
 
