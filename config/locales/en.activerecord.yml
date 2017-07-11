@@ -426,6 +426,18 @@ en:
         result: *experiment_binary_results
       triage_drug_result:
         result: *experiment_binary_results
+      uropaper_result:
+        category:
+          leukocytes: Leukocytes
+          urobilinogen: Urobilinogen
+          occult_blood_hemoglobin: Occult blood (hemoglobin)
+          occult_blood_erythrocytes: Occult blood (erythrocytes)
+          bilirubin: Bilirubin
+          ketone_bodies: Ketone bodies
+          glucose: Glucose
+          protein: Protein
+          nitrite: Nitrite
+          relative_density: Relative density
       analysis_diatom_test:
         conclusion:
           contradiction: 肺にみられた珪藻との種類に矛盾はあった
