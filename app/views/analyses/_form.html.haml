@@ -17,14 +17,6 @@
   .col-sm-6
     .alert.alert-danger{ id: "analysis_#{analysis_type.name}_errors" }
     %div{ id: "analysis_#{analysis_type.name}_preview" }
-      -# Remove this begin/rescue when decorators are all implemented
-      - begin
-        - decorated_exam = exam.decorate
-        = render analysis_type.partial_show_path, exam: decorated_exam
-        = decorated_exam.analysis_note
-      - rescue # TODO: Falls back to deprecated implementation.
-        -# haml-lint:disable InlineStyles
-        %div{ style: 'color:red' } #{$ERROR_INFO} (no decorator support)
-        = render partial: analysis_type.partial_show_path,
-          locals: { exam: exam }
-        = exam.analysis &.note
+      - decorated_exam = exam.decorate
+      = render analysis_type.partial_show_path, exam: decorated_exam
+      = decorated_exam.analysis_note
