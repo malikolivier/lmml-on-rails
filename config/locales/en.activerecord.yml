@@ -267,6 +267,8 @@ en:
         qualitative_concentration: Qual. Conc.
         unit: Unit
       analysis_ethanol:
+        contract_institution_id: Contractor
+        date: Date
         heart_concentration: Ethanol concentration in cardiac blood
         iliac_vein_concentration: Ethanol concentration in iliac vein blood
     enums:

@@ -273,6 +273,8 @@ ja:
         qualitative_concentration: 質的濃度
         unit: 単位
       analysis_ethanol:
+        contract_institution_id: 依頼先
+        date: 日付
         heart_concentration: 心臓血中エタノール濃度
         iliac_vein_concentration: 総腸骨静脈血中エタノール濃度
     enums:
