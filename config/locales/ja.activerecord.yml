@@ -281,6 +281,8 @@ ja:
         left_heart_saturation: 左心血飽和度
         right_heart_saturation: 右心血飽和度
         iliac_vein_saturation: 総腸骨静脈血飽和度
+      analysis_uropaper:
+        ph: pH
     enums:
       participation:
         role:

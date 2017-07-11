@@ -275,6 +275,8 @@ en:
         left_heart_saturation: Left heart saturation
         right_heart_saturation: Right heart saturation
         iliac_vein_saturation: Iliac vein saturation
+      analysis_uropaper:
+        ph: pH
     enums:
       participation:
         role:
