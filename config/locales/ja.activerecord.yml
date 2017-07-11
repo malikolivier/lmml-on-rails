@@ -377,12 +377,12 @@ ja:
           front: 下歯槽の前方
           unknown: 不明
       coronary_artery:
-        categories:
+        category:
           LAD: 冠状動脈前下行枝
           LCX: 回旋枝
           RCA: 右冠状動脈
       heart_chamber:
-        categories:
+        category:
           left_ventricle: 左心室
           right_ventricle: 右心室
           left_atrium: 左心房
@@ -401,7 +401,7 @@ ja:
           not_persistent: 伸びる
           unknown: 不明
       intestine_section:
-        categories:
+        category:
           duodenum: 十二指腸
           jejunum: 空腸
           ileum: 回腸

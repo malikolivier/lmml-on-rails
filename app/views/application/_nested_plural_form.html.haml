@@ -21,7 +21,7 @@
   .panel-heading
     %div= t("activerecord.attributes.#{object.model_name.param_key}.#{association_info.plural_name}")
     - categories.each do |category|
-      %div{class: "col-xs-#{12/categories.length}"}= t("activerecord.enums.#{association_name}.categories.#{category}")
+      %div{class: "col-xs-#{12/categories.length}"}= t("activerecord.enums.#{association_name}.category.#{category}")
   .panel-body
     - # These hidden fields will initialize the Vue values
     - categories.each_with_index do |category, i|
