@@ -1,0 +1,2 @@
+class BiochemicalAnalysisResultsDecorator < ApplicationCollectionDecorator
+end

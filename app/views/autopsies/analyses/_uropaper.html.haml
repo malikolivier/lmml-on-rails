@@ -1,10 +1,10 @@
-本屍の尿について、キットのマニュアルに従ってウロペーパーⅢ検査をおこなったところ、以下のような結果を得た。
+= t('analysis_uropapers.description')
 
 %table
   %tbody
     - exam.uropaper_results.each do |result|
       %tr
-        %td= I18n.t "uropapers.#{result.category}"
+        %td= result.translated_category
         %td= result.descriptive_result
     - if exam.ph.present?
       %tr

@@ -17,15 +17,7 @@ class DiatomCount < ApplicationRecord
                     left_lung right_lung]
   enum quantity: Settings.enums.five_scale_quantity, _prefix: true
 
-  def translated_quantity
-    I18n.t "quantity.#{quantity}"
-  end
-
   def found?
     !(quantity_none? || quantity_unknown?)
-  end
-
-  def descriptive_quantity
-    I18n.t "diatom_test.descriptive_quantity.#{quantity}"
   end
 end

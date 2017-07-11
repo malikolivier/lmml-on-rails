@@ -1,11 +1,11 @@
-- exam.biochemical_analyses.includes(:contract_institution, biochemical_analysis_type: :translations, biochemical_analysis_results: { molecule: :translations}).each_with_index do |analysis, i|
-  %h4= "#{i+1}) #{analysis.biochemical_analysis_type.translation.title}"
+- exam.each_biochemical_analyses do |analysis, i|
+  %h4= analysis.title(i)
   %p= analysis.description
 
   %table
     %tbody
       - analysis.biochemical_analysis_results.each do |result|
         %tr
-          %td= result.molecule.translation.name
+          %td= result.molecule_name
           %td= result.quantity_description
-          %td= "（正常値 #{result.molecule.standard_description}）" if result.molecule.standard_description.present?
+          %td= result.standard_description

@@ -1,3 +1,3 @@
-class AnalysisOtherDecorator < ApplicationDecorator
-  delegate :title
+class AnalysisOtherDecorator < AnalysisBaseDecorator
+  delegate :title, :content
 end

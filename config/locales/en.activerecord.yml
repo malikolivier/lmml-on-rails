@@ -266,6 +266,9 @@ en:
         quantitative_concentration: Quant. Conc.
         qualitative_concentration: Qual. Conc.
         unit: Unit
+      analysis_ethanol:
+        heart_concentration: Ethanol concentration in cardiac blood
+        iliac_vein_concentration: Ethanol concentration in iliac vein blood
     enums:
       participation:
         role:
@@ -415,3 +418,8 @@ en:
         result: *experiment_binary_results
       triage_drug_result:
         result: *experiment_binary_results
+      analysis_diatom_test:
+        conclusion:
+          contradiction: 肺にみられた珪藻との種類に矛盾はあった
+          no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
+          impossible_to_conclude: 本検査で得た情報で結論付けられない

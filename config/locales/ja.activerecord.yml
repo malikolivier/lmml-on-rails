@@ -272,6 +272,9 @@ ja:
         quantitative_concentration: 量的濃度
         qualitative_concentration: 質的濃度
         unit: 単位
+      analysis_ethanol:
+        heart_concentration: 心臓血中エタノール濃度
+        iliac_vein_concentration: 総腸骨静脈血中エタノール濃度
     enums:
       participation:
         role:
@@ -421,3 +424,8 @@ ja:
         result: *experiment_binary_results
       triage_drug_result:
         result: *experiment_binary_results
+      analysis_diatom_test:
+        conclusion:
+          contradiction: 肺にみられた珪藻との種類に矛盾はあった
+          no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
+          impossible_to_conclude: 本検査で得た情報で結論付けられない

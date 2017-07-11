@@ -23,13 +23,7 @@ class UropaperResult < ApplicationRecord
   def descriptive_result
     value = Settings.uropaper_categories[category].values[qualitative_result]
     if value.nil?
-      string = qualitative_result.to_s
-      if string.match?(/^(\+|\-)+$/)
-        # Return strings that only have '+' or '-' as is
-        string
-      else
-        I18n.t "uropapers.category.#{category}.#{string}"
-      end
+      printable_qualitative_result
     elsif unit.present?
       "#{value} #{unit}"
     else
@@ -39,5 +33,17 @@ class UropaperResult < ApplicationRecord
 
   def unit
     Settings.uropaper_categories[category].unit
+  end
+
+  private
+
+  def printable_qualitative_result
+    string = qualitative_result.to_s
+    if string.match?(/^(\+|\-)+$/)
+      # Return strings that only have '+' or '-' as is
+      string
+    else
+      I18n.t("uropapers.category.#{category}.#{string}")
+    end
   end
 end
