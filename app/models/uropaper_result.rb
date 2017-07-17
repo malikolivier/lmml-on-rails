@@ -49,11 +49,8 @@ class UropaperResult < ApplicationRecord
 
   def printable_qualitative_result
     string = qualitative_result.to_s
-    if string.match?(/^(\+|\-)+$/)
-      # Return strings that only have '+' or '-' as is
-      string
-    else
-      I18n.t("uropapers.category.#{category}.#{string}")
-    end
+    I18n.translate!("uropapers.category.#{category}.#{string}")
+  rescue I18n::MissingTranslationData
+    string
   end
 end
