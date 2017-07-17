@@ -40,7 +40,7 @@ var LMML = {
     }
     var model = modelPath[0]
     return function () {
-      new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
         if (this.id !== '') {
           resolve()
         } else {
