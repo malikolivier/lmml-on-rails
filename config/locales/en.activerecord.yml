@@ -277,6 +277,9 @@ en:
         iliac_vein_saturation: Iliac vein saturation
       analysis_uropaper:
         ph: pH
+        uropaper_results: Uropaper results
+      uropaper_result:
+        result: Result
     enums:
       participation:
         role:

@@ -3,6 +3,7 @@
 %table
   %tbody
     - exam.uropaper_results.each do |result|
+      - next if result.no_result?
       %tr
         %td= result.translated_category
         %td= result.descriptive_result

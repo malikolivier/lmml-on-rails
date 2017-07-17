@@ -11,13 +11,15 @@
 #
 
 class UropaperResult < ApplicationRecord
+  default_scope -> { order(:category) }
+
   belongs_to :analysis_uropaper, required: true
 
   enum category: Settings.uropaper_categories.keys
+  validates :category, uniqueness: { scope: :analysis_uropaper }
 
   def qualitative_result
-    return if result.blank?
-    Settings.uropaper_categories[category].values.keys[result]
+    self.class.qualitative_result(category, result)
   end
 
   def descriptive_result
@@ -35,15 +37,30 @@ class UropaperResult < ApplicationRecord
     Settings.uropaper_categories[category].unit
   end
 
+  class << self
+    def category_select_choices(category)
+      Settings.uropaper_categories[category]
+              .values.each_with_index.map do |_v, i|
+        [printable_qualitative_result(category, i), i]
+      end
+    end
+
+    def qualitative_result(category, result)
+      return if result.blank?
+      Settings.uropaper_categories[category].values.keys[result]
+    end
+
+    def printable_qualitative_result(category, result)
+      string = qualitative_result(category, result).to_s
+      I18n.translate!("uropapers.category.#{category}.#{string}")
+    rescue I18n::MissingTranslationData
+      string
+    end
+  end
+
   private
 
   def printable_qualitative_result
-    string = qualitative_result.to_s
-    if string.match?(/^(\+|\-)+$/)
-      # Return strings that only have '+' or '-' as is
-      string
-    else
-      I18n.t("uropapers.category.#{category}.#{string}")
-    end
+    self.class.printable_qualitative_result(category, result)
   end
 end

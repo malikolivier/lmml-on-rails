@@ -11,4 +11,8 @@
 
 class AnalysisUropaper < AnalysisBase
   has_many :uropaper_results, -> { order(:category) }
+
+  accepts_nested_attributes_for :uropaper_results, reject_if: :all_blank
+
+  includes_in_json :uropaper_results
 end
