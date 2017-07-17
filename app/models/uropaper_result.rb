@@ -19,8 +19,7 @@ class UropaperResult < ApplicationRecord
   validates :category, uniqueness: { scope: :analysis_uropaper }
 
   def qualitative_result
-    return if result.blank?
-    Settings.uropaper_categories[category].values.keys[result]
+    self.class.qualitative_result(category, result)
   end
 
   def descriptive_result
@@ -41,16 +40,27 @@ class UropaperResult < ApplicationRecord
   class << self
     def category_select_choices(category)
       Settings.uropaper_categories[category]
-              .values.each_with_index.map { |v, i| [v[0], i] }
+              .values.each_with_index.map do |_v, i|
+        [printable_qualitative_result(category, i), i]
+      end
+    end
+
+    def qualitative_result(category, result)
+      return if result.blank?
+      Settings.uropaper_categories[category].values.keys[result]
+    end
+
+    def printable_qualitative_result(category, result)
+      string = qualitative_result(category, result).to_s
+      I18n.translate!("uropapers.category.#{category}.#{string}")
+    rescue I18n::MissingTranslationData
+      string
     end
   end
 
   private
 
   def printable_qualitative_result
-    string = qualitative_result.to_s
-    I18n.translate!("uropapers.category.#{category}.#{string}")
-  rescue I18n::MissingTranslationData
-    string
+    self.class.printable_qualitative_result(category, result)
   end
 end
