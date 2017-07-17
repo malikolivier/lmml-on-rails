@@ -281,6 +281,9 @@ en:
       uropaper_result:
         result: Result
       biochemical_analysis:
+        contract_institution_id: Contractor
+        date: Date
+        biochemical_analysis_type_id: Analysis
         biochemical_analysis_results: Results
       biochemical_analysis_result:
         molecule_id: Substance
