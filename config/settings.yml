@@ -154,10 +154,11 @@ uropaper_categories:
       weak_positive: null
       strong_positive: null
   relative_density:
-    1.000: null
-    1.005: null
-    1.010: null
-    1.015: null
-    1.020: null
-    1.025: null
-    1.030: null
+    values:
+      1.000: null
+      1.005: null
+      1.010: null
+      1.015: null
+      1.020: null
+      1.025: null
+      1.030: null
