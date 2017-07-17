@@ -11,9 +11,12 @@
 #
 
 class UropaperResult < ApplicationRecord
+  default_scope -> { order(:category) }
+
   belongs_to :analysis_uropaper, required: true
 
   enum category: Settings.uropaper_categories.keys
+  validates :category, uniqueness: { scope: :analysis_uropaper }
 
   def qualitative_result
     return if result.blank?
@@ -33,6 +36,13 @@ class UropaperResult < ApplicationRecord
 
   def unit
     Settings.uropaper_categories[category].unit
+  end
+
+  class << self
+    def category_select_choices(category)
+      Settings.uropaper_categories[category]
+              .values.each_with_index.map { |v, i| [v[0], i] }
+    end
   end
 
   private

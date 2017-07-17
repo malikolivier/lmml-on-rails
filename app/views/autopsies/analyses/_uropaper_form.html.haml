@@ -1,6 +1,23 @@
-= vue_form_for(exam) do |f|
+= vue_form_for(setup_analysis_uropaper(exam)) do |f|
   = f.hidden_field :id
-  = f.number_field :ph, min: '0', max: '14'
-  = render 'nested_plural_form', form: f, method: :uropaper_results,
-                                 fields: { result: { type: :number_field } }
+  .panel.panel-default
+    .panel-heading
+      %div= t('activerecord.attributes.analysis_uropaper.uropaper_results')
+    .panel-body
+      - item_count = 0
+      .row
+        .col-xs-3
+          = f.number_field :ph, min: '0', max: '14'
+          - item_count += 1
+        = f.fields_for :uropaper_results do |ff|
+          - choices = UropaperResult.category_select_choices(ff.object.category)
+          .col-xs-3
+            = ff.hidden_field :id, 'multi-data': true
+            = ff.hidden_field :category, 'multi-data': true
+            = ff.select :result, choices,
+                        { label_name: t("activerecord.enums.uropaper_result.category.#{ff.object.category}") },
+                        'multi-data': true
+            - if (item_count += 1) >= 4
+              %br
+              - item_count = 0
   = yield f
