@@ -286,6 +286,13 @@ ja:
         uropaper_results: 諸結果
       uropaper_result:
         result: 結果
+      biochemical_analysis:
+        biochemical_analysis_results: 諸結果
+      biochemical_analysis_result:
+        molecule_id: 物質
+        quantity: 量
+        unit: 単位
+        approximate: おおよそ
     enums:
       participation:
         role:
@@ -447,6 +454,10 @@ ja:
           protein: 蛋白質
           nitrite: 亜硝酸塩
           relative_density: 比重
+      biochemical_analysis_result:
+        unit:
+          '%': '%'
+          μmol/L: μmol/L
       analysis_diatom_test:
         conclusion:
           contradiction: 肺にみられた珪藻との種類に矛盾はあった

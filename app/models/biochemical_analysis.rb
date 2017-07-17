@@ -17,4 +17,9 @@ class BiochemicalAnalysis < ApplicationRecord
   belongs_to :biochemical_analysis_type, required: true
 
   has_many :biochemical_analysis_results
+
+  accepts_nested_attributes_for :biochemical_analysis_results,
+                                reject_if: :all_blank
+
+  includes_in_json :biochemical_analysis_results
 end

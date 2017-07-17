@@ -45,7 +45,7 @@ Rails.application.routes.draw do
             :pleura_foreign_fluids, :peritoneum_foreign_fluids,
             :participations,
             :analysis_histopathology_on_organs, :instant_view_drug_results,
-            :triage_drug_results, :found_poisons,
+            :triage_drug_results, :found_poisons, :biochemical_analysis_results,
             only: %i[create destroy]
 
   resources :injuries, only: %i[show update destroy] do
@@ -56,4 +56,6 @@ Rails.application.routes.draw do
   resources :injuries, only: :edit if Rails.env.development?
 
   resources :photographs, only: :destroy
+
+  resources :biochemical_analyses, only: %i[show update]
 end

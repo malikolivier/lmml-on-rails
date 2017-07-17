@@ -280,6 +280,13 @@ en:
         uropaper_results: Uropaper results
       uropaper_result:
         result: Result
+      biochemical_analysis:
+        biochemical_analysis_results: Results
+      biochemical_analysis_result:
+        molecule_id: Substance
+        quantity: Quantity
+        unit: Unit
+        approximate: Approximate
     enums:
       participation:
         role:
@@ -441,6 +448,10 @@ en:
           protein: Protein
           nitrite: Nitrite
           relative_density: Relative density
+      biochemical_analysis_result:
+        unit:
+          '%': '%'
+          μmol/L: μmol/L
       analysis_diatom_test:
         conclusion:
           contradiction: 肺にみられた珪藻との種類に矛盾はあった

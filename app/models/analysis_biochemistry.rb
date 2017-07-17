@@ -13,4 +13,6 @@ class AnalysisBiochemistry < AnalysisBase
     joins(:biochemical_analysis_type)
       .order('`biochemical_analysis_types`.`placement`')
   }
+
+  accepts_nested_attributes_for :biochemical_analyses, reject_if: :all_blank
 end
