@@ -11,4 +11,7 @@ describe('Pluralize', function () {
   it('inflects external_examination', function () {
     expect(LMML.pluralize('external_examination')).toBe('external_examinations')
   })
+  it('inflects biochemical_analysis', function () {
+    expect(LMML.pluralize('biochemical_analysis')).toBe('biochemical_analyses')
+  })
 })
