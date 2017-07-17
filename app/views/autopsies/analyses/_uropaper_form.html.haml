@@ -15,7 +15,7 @@
             = ff.hidden_field :id, 'multi-data': true
             = ff.hidden_field :category, 'multi-data': true
             = ff.select :result, choices,
-                        { label_name: t("activerecord.enums.uropaper_result.category.#{ff.object.category}") },
+                        { label_name: ff.object.translated_enum_value(:category) },
                         'multi-data': true
             - if (item_count += 1) >= 4
               %br
