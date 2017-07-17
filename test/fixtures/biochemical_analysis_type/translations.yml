@@ -9,3 +9,15 @@ ketone_body_fraction_ja:
   locale: ja
   title: 血中ケトン体分画
   experiment_description: 本屍の血中ケトン体分画を検査した
+
+hemoglobin_a1c_en:
+  globalized_model: hemoglobin_a1c
+  locale: en
+  title: Hemoglobin A1c exam
+  experiment_description: 'Concentration of hemoglobin A1c in heart blood was measured. '
+
+ketone_body_fraction_en:
+  globalized_model: ketone_body_fraction
+  locale: en
+  title: Ketone body fraction
+  experiment_description: 'Fraction of ketone body in blood was examined. '
