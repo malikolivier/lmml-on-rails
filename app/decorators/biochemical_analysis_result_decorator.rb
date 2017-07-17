@@ -1,6 +1,6 @@
 class BiochemicalAnalysisResultDecorator < ApplicationDecorator
   decorates_association :molecule
-  delegate :name, to: :molecule, prefix: true
+  delegate :name, to: :molecule, prefix: true, allow_nil: true
 
   def quantity_description
     if object.approximate
@@ -11,7 +11,7 @@ class BiochemicalAnalysisResultDecorator < ApplicationDecorator
   end
 
   def standard_description
-    return if molecule.standard_description.blank?
+    return if molecule.blank? || molecule.standard_description.blank?
     t('.standard', standard: molecule.standard_description)
   end
 end

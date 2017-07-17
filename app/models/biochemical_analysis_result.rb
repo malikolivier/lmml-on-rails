@@ -14,7 +14,7 @@
 
 class BiochemicalAnalysisResult < ApplicationRecord
   belongs_to :biochemical_analysis, required: true
-  belongs_to :molecule, required: true
+  belongs_to :molecule
 
   enum unit: %i[% μmol/L]
 end

@@ -10,7 +10,9 @@
 
 class AnalysisBiochemistry < AnalysisBase
   has_many :biochemical_analyses, lambda {
-    joins(:biochemical_analysis_type)
+    left_outer_joins(:biochemical_analysis_type)
       .order('`biochemical_analysis_types`.`placement`')
   }
+
+  accepts_nested_attributes_for :biochemical_analyses, reject_if: :all_blank
 end

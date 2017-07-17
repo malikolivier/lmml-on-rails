@@ -7,6 +7,8 @@ LMML.pluralize = function pluralize (word) {
     return 'livores_mortis'
   } else if (word === 'rigor_mortis') {
     return 'rigores_mortis'
+  } else if (word.endsWith('is')) {
+    return word.replace(/^(.*)is$/, '$1es')
   } else {
     return `${word}s`
   }

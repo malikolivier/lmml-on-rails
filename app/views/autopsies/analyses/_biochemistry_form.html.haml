@@ -1,0 +1,36 @@
+:ruby
+  institutions = Institution.all
+  analysis_types = BiochemicalAnalysisType.all
+  molecules = Molecule.all
+- exam.biochemical_analyses.each do |analysis|
+  = vue_form_for(analysis, html: { class: 'biochemical_analysis',
+                                   'data-id': analysis.id }) do |f|
+    = f.hidden_field :id
+    .row
+      .col-xs-11
+        = f.collection_select :contract_institution_id, institutions, :id, :name
+      = delete_button 'delete_me'
+    .row
+      .col-xs-6
+        = f.date_field :date
+      .col-xs-6
+        = f.collection_select :biochemical_analysis_type_id,
+                           analysis_types, :id, :title
+    = render 'nested_array_form', form: f,
+             method: :biochemical_analysis_results,
+             fields: { molecule_id: { type: :collection_select,
+                                      collection: molecules,
+                                      value_method: :id,
+                                      text_method: :name,
+                                      encapsulating_element: { class: 'col-xs-3' } },
+                       quantity: { type: :number_field,
+                                   encapsulating_element: { class: 'col-xs-3' } },
+                       unit: { type: :select,
+                               encapsulating_element: { class: 'col-xs-3' } },
+                       approximate: { type: :check_box,
+                               encapsulating_element: { class: 'col-xs-2' } } }
+    %hr
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  %button.btn.btn-default{ '@click.prevent': 'add_biochemical_analysis' }= t('biochemical_analyses.add')
+  = yield f

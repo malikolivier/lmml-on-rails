@@ -2,6 +2,7 @@ class BiochemicalAnalysisDecorator < ApplicationDecorator
   decorates_association :biochemical_analysis_results
 
   def title(index)
+    return if object.biochemical_analysis_type.blank?
     t('.title', index: index, title: object.biochemical_analysis_type.title)
   end
 
@@ -18,6 +19,7 @@ class BiochemicalAnalysisDecorator < ApplicationDecorator
   private
 
   def experiment_description
+    return if object.biochemical_analysis_type.blank?
     object.biochemical_analysis_type.experiment_description
   end
 
