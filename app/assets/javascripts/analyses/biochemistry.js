@@ -13,7 +13,19 @@ $(function () {
 
 LMML.loaders.analysis_biochemistry = function () {
   var model = 'analysis_biochemistry'
-  LMML.loadVueModel(model)
+  var addBiochemicalAnalysis = LMML.add_('biochemical_analysis', model)
+  LMML.loadVueModel(model, {
+    data: {
+      biochemical_analyses_attributes: []
+    },
+    methods: {
+      add_biochemical_analysis () {
+        addBiochemicalAnalysis.apply(this).then(function () {
+          document.location.reload(true)
+        })
+      }
+    }
+  })
 }
 
 LMML.loaders.biochemical_analysis = function (element) {
@@ -58,6 +70,12 @@ LMML.loaders.biochemical_analysis = function (element) {
               return submodel.id === result.id
             })
             this.biochemical_analysis_results_attributes.splice(i, 1)
+          }, LMML.httpErrorHandler(model))
+        },
+        delete_me () {
+          this.$http.delete(`/biochemical_analyses/${this.id}`)
+          .then(function () {
+            document.location.reload(true)
           }, LMML.httpErrorHandler(model))
         }
       }

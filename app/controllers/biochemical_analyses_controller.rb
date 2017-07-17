@@ -1,5 +1,9 @@
 class BiochemicalAnalysesController < ApplicationController
-  before_action :set_biochemical_analysis
+  before_action :set_biochemical_analysis, only: %i[show update destroy]
+
+  def create
+    @biochemical_analysis = BiochemicalAnalysis.create!(create_params)
+  end
 
   def show; end
 
@@ -7,10 +11,19 @@ class BiochemicalAnalysesController < ApplicationController
     @biochemical_analysis.update(update_params)
   end
 
+  def destroy
+    @biochemical_analysis.destroy!
+  end
+
   private
 
   def set_biochemical_analysis
     @biochemical_analysis = BiochemicalAnalysis.find(params[:id])
+  end
+
+  def create_params
+    params.require(:biochemical_analysis)
+          .permit(:analysis_biochemistry_id)
   end
 
   def update_params

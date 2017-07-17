@@ -6,7 +6,10 @@
   = vue_form_for(analysis, html: { class: 'biochemical_analysis',
                                    'data-id': analysis.id }) do |f|
     = f.hidden_field :id
-    = f.collection_select :contract_institution_id, institutions, :id, :name
+    .row
+      .col-xs-11
+        = f.collection_select :contract_institution_id, institutions, :id, :name
+      = delete_button 'delete_me'
     .row
       .col-xs-6
         = f.date_field :date
@@ -28,4 +31,6 @@
                                encapsulating_element: { class: 'col-xs-2' } } }
     %hr
 = vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  %button.btn.btn-default{ '@click.prevent': 'add_biochemical_analysis' }= t('biochemical_analyses.add')
   = yield f
