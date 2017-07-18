@@ -1,0 +1,6 @@
+= vue_form_for(exam) do |f|
+  = f.hidden_field :id
+  = f.smart_select :conclusion
+  = render 'nested_plural_form', form: f, method: :diatom_counts,
+                                 fields: { quantity: { type: :select } }
+  = yield f

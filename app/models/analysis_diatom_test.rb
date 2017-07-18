@@ -25,4 +25,6 @@ class AnalysisDiatomTest < AnalysisBase
   def water
     diatom_counts.water.take
   end
+
+  accepts_nested_attributes_for :diatom_counts, reject_if: :all_blank
 end

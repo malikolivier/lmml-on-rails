@@ -11,6 +11,8 @@
 #
 
 class DiatomCount < ApplicationRecord
+  default_scope -> { order(:category) }
+
   belongs_to :analysis_diatom_test, required: true
 
   enum category: %i[water left_lung right_lung]
