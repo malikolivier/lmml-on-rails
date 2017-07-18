@@ -6,7 +6,7 @@ class DiatomCountDecorator < ApplicationDecorator
   end
 
   def descriptive_quantity
-    I18n.t(".descriptive_quantity.#{quantity}")
+    I18n.t("diatom_counts.descriptive_quantity.#{quantity}")
   end
 
   def quantity_description
@@ -21,9 +21,9 @@ class DiatomCountDecorator < ApplicationDecorator
   def descriptive_quantity_description
     return if object.quantity.blank?
     if object.left_lung?
-      t('.descriptive_left_lung', quantity: translated_quantity)
+      t('.descriptive_left_lung', descriptive_quantity: descriptive_quantity)
     elsif object.right_lung?
-      t('.descriptive_right_lung', quantity: translated_quantity)
+      t('.descriptive_right_lung', descriptive_quantity: descriptive_quantity)
     end
   end
 end

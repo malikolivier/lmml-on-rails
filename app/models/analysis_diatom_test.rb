@@ -22,7 +22,9 @@ class AnalysisDiatomTest < AnalysisBase
     diatom_counts.right_lung.take
   end
 
-  def water_with_destruction
-    diatom_counts.water_with_destruction.take
+  def water
+    diatom_counts.water.take
   end
+
+  accepts_nested_attributes_for :diatom_counts, reject_if: :all_blank
 end

@@ -290,6 +290,11 @@ en:
         quantity: Quantity
         unit: Unit
         approximate: Approximate
+      analysis_diatom_test:
+        diatom_counts: Diatom counts
+        conclusion: Conclusion
+      diatom_count:
+        quantity: Quantity
     enums:
       participation:
         role:
@@ -460,3 +465,8 @@ en:
           contradiction: 肺にみられた珪藻との種類に矛盾はあった
           no_contradiction: 肺にみられた珪藻との種類に大きな矛盾はなかった
           impossible_to_conclude: 本検査で得た情報で結論付けられない
+      diatom_count:
+        category:
+          water: Water at the scene
+          left_lung: Left lung
+          right_lung: Right lung
