@@ -442,7 +442,7 @@ ja:
       none: 0個
       extremely_few: 全視野で1個
       few: 数視野で0～数個
-      middle: 1視野で0～数個
+      mid: 1視野で0～数個
       many: 1視野で数個以上
       extremely_many: 1視野で10個以上
     left_lung: 左肺臓では%{quantity}
