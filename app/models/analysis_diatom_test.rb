@@ -22,7 +22,7 @@ class AnalysisDiatomTest < AnalysisBase
     diatom_counts.right_lung.take
   end
 
-  def water_with_destruction
-    diatom_counts.water_with_destruction.take
+  def water
+    diatom_counts.water.take
   end
 end

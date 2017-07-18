@@ -434,8 +434,8 @@ ja:
     found_in_lungs_same_quantity: '%{experiment}肺臓では%{quantity}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、%{descriptive_quantity}の珪藻が観察）の珪藻が観察された。'
     not_found_in_lungs: '%{experiment}肺臓では検出されなかった（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、珪藻が未観察）。'
     found_in_lungs_different_quantities: '%{experiment}%{results}（肺約２ｇを壊機し、ポアサイズ5μｍ、径25mmのメンブランフィルタ−上で200倍視野で鏡検したところ、%{descriptive_results}の珪藻が観察）の珪藻が観察された。'
-    water_with_destruction_found: なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は%{quantity}レベルであり、%{conclusion}。
-    water_with_destruction_not_found: なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は検出されなく、%{conclusion}。
+    water_found: なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は%{quantity}レベルであり、%{conclusion}。
+    water_not_found: なお、死体発見場所の対照水（約50mLを壊機し、同様に鏡検）に含まれる珪藻数は検出されなく、%{conclusion}。
   diatom_counts:
     descriptive_quantity:
       unknown: 不明

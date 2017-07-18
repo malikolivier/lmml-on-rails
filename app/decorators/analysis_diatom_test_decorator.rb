@@ -1,7 +1,7 @@
 class AnalysisDiatomTestDecorator < AnalysisBaseDecorator
   decorates_association :left_lung
   decorates_association :right_lung
-  decorates_association :water_with_destruction
+  decorates_association :water
 
   def description
     if left_lung.quantity.blank? && right_lung.quantity.blank?
@@ -23,12 +23,12 @@ class AnalysisDiatomTestDecorator < AnalysisBaseDecorator
   end
 
   def second_paragraph
-    if water_with_destruction.found?
-      t('.water_with_destruction_found',
-        quantity: water_with_destruction.translated_quantity,
+    if water.found?
+      t('.water_found',
+        quantity: water.translated_quantity,
         conclusion: conclusion_description)
     else
-      t('.water_with_destruction_not_found', conclusion: conclusion_description)
+      t('.water_not_found', conclusion: conclusion_description)
     end
   end
 
