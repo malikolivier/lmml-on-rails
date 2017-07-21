@@ -3,8 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :apidocs, only: :index
-  get '/docs' => redirect('/swagger-ui/dist/index.html?url=/apidocs')
+
+  get '/docs' => redirect('/swagger-ui/dist/index.html?url=/api/docs')
+
+  namespace :api, format: :json do
+    resources :docs, only: :index
+  end
 
   resources :lmml_files, only: %i[show create]
 
