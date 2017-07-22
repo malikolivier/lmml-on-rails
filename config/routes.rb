@@ -4,23 +4,30 @@ Rails.application.routes.draw do
   root to: 'application#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :autopsies, only: %i[new show index create destroy] do
+    get :lmml_file, to: 'api/lmml_files#show'
+    member do
+      get :browse, to: 'autopsies/browse#show'
+      get :edit_external, :edit_internal, :edit_analyses
+    end
+  end
+
   get '/docs' => redirect('/swagger-ui/dist/index.html?url=/api/docs')
 
   namespace :api, format: :json do
     resources :docs, only: :index
     resources :lmml_files, only: %i[show create]
+    resources :autopsies, only: %i[show index create update destroy] do
+      collection do
+        post :preview, to: 'autopsies/preview#show'
+      end
+    end
 
     resources :people, only: :index
   end
 
-  resources :autopsies, except: :edit do
-    collection do
-      post :preview, to: 'autopsies/preview#show'
-    end
+  resources :autopsies, only: [] do
     member do
-      get :lmml_file, to: 'lmml_files#show'
-      get :browse, to: 'autopsies/browse#show'
-      get :edit_external, :edit_internal, :edit_analyses
       ExaminationType.all_names.each do |examination_name|
         resource examination_name, only: %i[create update] do
           resources :injuries, only: %i[index create]
