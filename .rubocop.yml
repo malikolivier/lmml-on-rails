@@ -41,3 +41,6 @@ Metrics/BlockLength:
 # Offense count: 252
 Style/Documentation:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
