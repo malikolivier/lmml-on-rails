@@ -8,9 +8,8 @@ Rails.application.routes.draw do
 
   namespace :api, format: :json do
     resources :docs, only: :index
+    resources :lmml_files, only: %i[show create]
   end
-
-  resources :lmml_files, only: %i[show create]
 
   resources :autopsies, except: :edit do
     collection do
