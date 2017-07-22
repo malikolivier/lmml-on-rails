@@ -1,4 +1,4 @@
-require 'rails/commands/server'
+require 'rails/commands/server/server_command'
 
 class RootSchema
   include Swagger::Blocks
