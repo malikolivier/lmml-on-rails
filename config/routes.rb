@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   namespace :api, format: :json do
     resources :docs, only: :index
     resources :lmml_files, only: %i[show create]
+
+    resources :people, only: :index
   end
 
   resources :autopsies, except: :edit do
@@ -40,8 +42,6 @@ Rails.application.routes.draw do
                                            only: %i[index create update destroy]
     resources :autopsy_photograph_takings, only: :new if Rails.env.development?
   end
-
-  resources :people, only: [:index]
 
   # Resources for has-many relations (esp. for examinations)
   resources :livores_mortis, :rigores_mortis, :foreign_fluids,

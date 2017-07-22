@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class Api::PeopleController < ApplicationController
   def index
     params = index_params
     @people = Person.order(params[:order_by] => params[:asc])
