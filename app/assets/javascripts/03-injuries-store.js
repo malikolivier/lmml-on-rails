@@ -17,7 +17,7 @@
           wait()
         } else {
           loadingStore = true
-          Vue.http.get('/injuries/store').then(function loadInjuriesStore (response) {
+          Vue.http.get('/api/injuries/store').then(function loadInjuriesStore (response) {
             const state = response.body
             store = new Vuex.Store({
               state,

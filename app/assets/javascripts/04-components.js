@@ -189,7 +189,7 @@ LMML.components = {
             if (LMML.isEmpty(this.injury.id)) {
               return this._fullUrl
             } else {
-              return `/injuries/${this.injury.id}`
+              return `/api/injuries/${this.injury.id}`
             }
           }
         },

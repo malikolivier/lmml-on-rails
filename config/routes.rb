@@ -24,11 +24,18 @@ Rails.application.routes.draw do
       member do
         ExaminationType.all_names.each do |examination_name|
           resource examination_name, only: %i[create update] do
+            resources :injuries, only: %i[index create]
           end
         end
         AnalysisType.all_names.each do |analysis_name|
           resource analysis_name, only: %i[create update]
         end
+      end
+    end
+
+    resources :injuries, only: %i[show update destroy] do
+      collection do
+        get :store, to: 'injuries/store#show'
       end
     end
 
@@ -43,6 +50,7 @@ Rails.application.routes.draw do
           exam_controller = "api/#{examination_name.pluralize}"
           resource examination_name, only: %i[new edit],
                                      controller: exam_controller do
+            resources :injuries, only: :new
           end
         end
         AnalysisType.all_names.each do |analysis_name|
@@ -51,16 +59,11 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :injuries, only: :edit
   end
 
   resources :autopsies, only: [] do
     member do
-      ExaminationType.all_names.each do |examination_name|
-        resource examination_name, only: %i[] do
-          resources :injuries, only: %i[index create]
-          resources :injuries, only: :new if Rails.env.development?
-        end
-      end
       resources :analysis_others, only: %i[create update]
     end
     resources :autopsy_photograph_takings, shallow: true,
@@ -76,13 +79,6 @@ Rails.application.routes.draw do
             :triage_drug_results, :found_poisons, :biochemical_analyses,
             :biochemical_analysis_results,
             only: %i[create destroy]
-
-  resources :injuries, only: %i[show update destroy] do
-    collection do
-      get :store, to: 'injuries/store#show'
-    end
-  end
-  resources :injuries, only: :edit if Rails.env.development?
 
   resources :photographs, only: :destroy
 

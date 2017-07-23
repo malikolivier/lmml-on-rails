@@ -11,31 +11,8 @@ class InjuriesController < ApplicationController
     @injury = Injury.new(examination: @examination)
   end
 
-  # GET /injuries/:id
-  def show; end
-
-  # GET /autopsies/:id/:examination_name/injuries
-  def index
-    @injuries = @examination.injuries.includes(QUERY_PRELOAD)
-  end
-
-  # POST /autopsies/:id/:examination_name/injuries
-  def create
-    @injury = @examination.injuries.create!(injury_params)
-  end
-
-  # PATCH /injuries/:id
-  def update
-    @injury.update!(injury_params)
-  end
-
   # GET /injuries/:id/edit
   def edit; end
-
-  # DELETE /injuries/:id
-  def destroy
-    @injury.destroy!
-  end
 
   private
 
@@ -44,7 +21,7 @@ class InjuriesController < ApplicationController
   end
 
   FIND_EXAMINATION_TYPE_REGEX =
-    %r{^/autopsies/\d+/(external|internal)_(\w+)_examination/injuries}
+    %r{^(?:/api)?/autopsies/\d+/(external|internal)_(\w+)_examination/injuries}
 
   def set_examination
     match_data = request.path.match(FIND_EXAMINATION_TYPE_REGEX)
@@ -59,20 +36,5 @@ class InjuriesController < ApplicationController
 
   def set_injury
     @injury = Injury.includes(QUERY_PRELOAD).find(params[:id])
-  end
-
-  BODY_AREA = [:id, :body_reference_id,
-               in_body_orientation_attributes: %i[id coordinate_system x y
-                                                  distance angle]].freeze
-
-  def injury_params
-    return {} if params[:injury].blank?
-    params.require(:injury)
-          .permit(:time_sustained, :injury_type, :description, :note,
-                  body_area_attributes: BODY_AREA,
-                  injury_size_attributes: %i[id shape length width
-                                             coordinate_system angle],
-                  injury_depth_attributes: %i[id depth reached_organ_id],
-                  photographs_attributes: %i[id picture caption])
   end
 end

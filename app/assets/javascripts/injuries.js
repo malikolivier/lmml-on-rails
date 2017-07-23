@@ -16,7 +16,7 @@ LMML.loaders.injury = function (injuryApp) {
   var id = injuryApp.getAttribute('data-injury-id')
   var examinationType = injuryApp.getAttribute('data-examination-type')
   var actionPromise = id
-    ? Vue.http.get(`/injuries/${id}`) : Vue.http.post(injuryApp.getAttribute('data-url'))
+    ? Vue.http.get(`/api/injuries/${id}`) : Vue.http.post(injuryApp.getAttribute('data-url'))
   return Promise.all([
     LMML.components.loadInjuryComponents(),
     actionPromise
@@ -65,7 +65,7 @@ LMML.loaders.injuries = function (injuriesApp) {
             }, this._logError)
           },
           deleteInjury (injuryId) {
-            this.$http.delete(`/injuries/${injuryId}`).then(function () {
+            this.$http.delete(`/api/injuries/${injuryId}`).then(function () {
               var indexToRemove = this.injuries.findIndex(function (injury) {
                 return injury.id === injuryId
               })

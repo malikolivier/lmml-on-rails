@@ -7,8 +7,8 @@ class InjuriesControllerTest < ActionDispatch::IntegrationTest
 
   ExaminationType.all_names.each do |examination_name|
     test "Can index injuries in #{examination_name}" do
-      get send("#{examination_name}_injuries_url", id: @autopsy.id,
-                                                   format: :json)
+      get send("api_#{examination_name}_injuries_url", id: @autopsy.id,
+                                                       format: :json)
       assert_response :success
     end
   end
