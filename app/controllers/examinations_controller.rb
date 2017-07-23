@@ -2,25 +2,6 @@ class ExaminationsController < ApplicationController
   before_action :set_exam, only: %i[update edit]
   decorates_assigned :exam, :examination_type
 
-  # POST /autopsies/:id/***_examinations.json
-  def create
-    @exam = new_examination
-    if @exam.save
-      render_success
-    else
-      render_failure
-    end
-  end
-
-  # PUT /autopsies/:id/***_examinations.json
-  def update
-    if @exam.update(update_params)
-      render_success
-    else
-      render_failure
-    end
-  end
-
   # GET /autopsies/:id/***_examinations/edit
   def edit; end
 
@@ -41,12 +22,6 @@ class ExaminationsController < ApplicationController
     controller_name.match(/^[a-z]+_(.+)_examinations$/)[1]
   end
 
-  # This method should be overriden if the examination requires more params
-  def update_params
-    params.require(controller_name.singularize)
-          .permit(examination_attributes: [:note])
-  end
-
   def set_exam # rubocop:disable MethodLength, AbcSize # TODO
     exam_params = params[controller_name.singularize]
     if exam_params.present? && exam_params[:id].present?
@@ -64,26 +39,6 @@ class ExaminationsController < ApplicationController
     ActiveRecord::Associations::Preloader.new.preload(@exam, :examination)
     @examination_type = ExaminationType.by_name(examination_name,
                                                 examination_category)
-  end
-
-  def render_success # rubocop:disable MethodLength
-    template_file = "autopsies/#{examination_category}/_#{examination_name}"
-    begin
-      html_preview = render_to_string template_file, locals: { exam: exam },
-                                                     layout: false
-    rescue # TODO: Falls back to deprecated implementation. Remove this
-      # rubocop:disable SpecialGlobalVars
-      html_preview = render_to_string(template_file, locals: { exam: @exam },
-                                                     layout: false) + $!
-    end
-    render json: {
-      model: @exam.as_lmml_json,
-      description: html_preview + exam.examination_note
-    }
-  end
-
-  def render_failure
-    render json: { errors: @exam.errors.full_messages }, status: 422
   end
 
   def new_examination

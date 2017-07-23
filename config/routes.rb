@@ -39,11 +39,15 @@ Rails.application.routes.draw do
     resources :autopsies, only: %i[] do
       member do
         ExaminationType.all_names.each do |examination_name|
-          resource examination_name, only: %i[new edit] do
+          # Uses API controller directly to avoid controller duplication
+          exam_controller = "api/#{examination_name.pluralize}"
+          resource examination_name, only: %i[new edit],
+                                     controller: exam_controller do
           end
         end
         AnalysisType.all_names.each do |analysis_name|
-          resource analysis_name, only: %i[new edit]
+          resource analysis_name, only: %i[new edit],
+                                  controller: "api/#{analysis_name.pluralize}"
         end
       end
     end
