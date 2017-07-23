@@ -1,6 +1,5 @@
 # TODO: ExaminationNestedModelsController should be renamed as it is used for
 # analyses AND examinations.
-# rubocop:disable LineLength
 class AnalysisHistopathologyOnOrgansController < ExaminationNestedModelsController
   private
 
