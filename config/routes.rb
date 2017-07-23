@@ -21,27 +21,41 @@ Rails.application.routes.draw do
       collection do
         post :preview, to: 'autopsies/preview#show'
       end
+      member do
+        ExaminationType.all_names.each do |examination_name|
+          resource examination_name, only: %i[create update] do
+          end
+        end
+        AnalysisType.all_names.each do |analysis_name|
+          resource analysis_name, only: %i[create update]
+        end
+      end
     end
 
     resources :people, only: :index
   end
 
+  if Rails.env.development?
+    resources :autopsies, only: %i[] do
+      member do
+        ExaminationType.all_names.each do |examination_name|
+          resource examination_name, only: %i[new edit] do
+          end
+        end
+        AnalysisType.all_names.each do |analysis_name|
+          resource analysis_name, only: %i[new edit]
+        end
+      end
+    end
+  end
+
   resources :autopsies, only: [] do
     member do
       ExaminationType.all_names.each do |examination_name|
-        resource examination_name, only: %i[create update] do
+        resource examination_name, only: %i[] do
           resources :injuries, only: %i[index create]
           resources :injuries, only: :new if Rails.env.development?
         end
-        # new and edit routes are used for independent debugging of
-        # examination forms
-        resource examination_name, only: %i[new edit] if Rails.env.development?
-      end
-      AnalysisType.all_names.each do |analysis_name|
-        resource analysis_name, only: %i[create update]
-        # new and edit routes are used for independent debugging of
-        # analysis forms
-        resource analysis_name, only: %i[new edit] if Rails.env.development?
       end
       resources :analysis_others, only: %i[create update]
     end

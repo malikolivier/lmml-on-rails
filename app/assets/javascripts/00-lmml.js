@@ -31,7 +31,7 @@ var LMML = {
     }
   },
   models_url: function getModelUrl (model) {
-    return `/autopsies/${LMML.autopsy_id}/${model}?locale=${LMML.locale}`
+    return `/api/autopsies/${LMML.autopsy_id}/${model}?locale=${LMML.locale}`
   },
   add_: function addNestedModel (nestedModel, modelPath, attributes = {}) {
     var nestedModelPlural = LMML.pluralize(nestedModel)
