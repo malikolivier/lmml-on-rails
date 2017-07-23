@@ -1,7 +1,7 @@
 -# @examination_name: Examination type key string
   (ex: 'internal_lungs_examination')
 .injuries-form{ 'data-url': send("#{examination_name}_injuries_path",
-                            autopsy.object.id),
+                            params[:id]),
                 'data-examination-type': examination_name,
                 id: "#{examination_name}_injuries_app" }
   %button{ '@click': 'toggleInjuries' }= t('injuries.edit_injuries')
