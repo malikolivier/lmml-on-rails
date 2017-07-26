@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AutopsyPhotographTakingsControllerTest < ActionDispatch::IntegrationTest
+class Api::AutopsyPhotographTakingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @autopsy = autopsies(:completed_autopsy)
     @photo_taking = autopsy_photograph_takings(:completed_autopsy_photo_face)
@@ -18,7 +18,7 @@ class AutopsyPhotographTakingsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create new photo' do
     assert_difference -> { @autopsy.photographs.count } do
-      post autopsy_autopsy_photograph_takings_path(@autopsy, format: :json),
+      post api_autopsy_autopsy_photograph_takings_path(@autopsy, format: :json),
            params: @params
     end
     assert_response :success
@@ -26,7 +26,7 @@ class AutopsyPhotographTakingsControllerTest < ActionDispatch::IntegrationTest
 
   test 'delete photo' do
     assert_difference('AutopsyPhotographTaking.count', -1) do
-      delete autopsy_photograph_taking_path(@photo_taking)
+      delete api_autopsy_photograph_taking_path(@photo_taking)
     end
     assert_response :success
   end

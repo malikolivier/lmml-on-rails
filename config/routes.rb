@@ -32,6 +32,8 @@ Rails.application.routes.draw do
         end
         resources :analysis_others, only: %i[create update]
       end
+      resources :autopsy_photograph_takings,
+                only: %i[index create update destroy], shallow: true
     end
 
     resources :injuries, only: %i[show update destroy] do
@@ -59,14 +61,9 @@ Rails.application.routes.draw do
                                   controller: "api/#{analysis_name.pluralize}"
         end
       end
+      resources :autopsy_photograph_takings, only: :new
     end
     resources :injuries, only: :edit
-  end
-
-  resources :autopsies, only: [] do
-    resources :autopsy_photograph_takings, shallow: true,
-                                           only: %i[index create update destroy]
-    resources :autopsy_photograph_takings, only: :new if Rails.env.development?
   end
 
   # Resources for has-many relations (esp. for examinations)

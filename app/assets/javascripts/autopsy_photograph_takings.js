@@ -36,7 +36,7 @@ LMML.loaders.autopsy_photograph_taking = function () {
         })
       },
       api: function () {
-        return `/autopsies/${LMML.autopsy_id}/autopsy_photograph_takings`
+        return `/api/autopsies/${LMML.autopsy_id}/autopsy_photograph_takings`
       }
     },
     methods: {
@@ -53,7 +53,7 @@ LMML.loaders.autopsy_photograph_taking = function () {
         }
       },
       onCaptionChange: LMML.debounce(function updateCaption (taking) {
-        vm.$http.patch(`/autopsy_photograph_takings/${taking.id}`, {
+        vm.$http.patch(`/api/autopsy_photograph_takings/${taking.id}`, {
           autopsy_photograph_taking: {
             photograph_attributes: {
               id: taking.photograph.id,
@@ -65,7 +65,7 @@ LMML.loaders.autopsy_photograph_taking = function () {
         }, this._errorHandler)
       }),
       deleteTaking: function (taking) {
-        this.$http.delete(`/autopsy_photograph_takings/${taking.id}`)
+        this.$http.delete(`/api/autopsy_photograph_takings/${taking.id}`)
           .then(function (response) {
             this.reload()
           }, this._errorHandler)
