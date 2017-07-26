@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         AnalysisType.all_names.each do |analysis_name|
           resource analysis_name, only: %i[create update]
         end
+        resources :analysis_others, only: %i[create update]
       end
     end
 
@@ -63,9 +64,6 @@ Rails.application.routes.draw do
   end
 
   resources :autopsies, only: [] do
-    member do
-      resources :analysis_others, only: %i[create update]
-    end
     resources :autopsy_photograph_takings, shallow: true,
                                            only: %i[index create update destroy]
     resources :autopsy_photograph_takings, only: :new if Rails.env.development?
