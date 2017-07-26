@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     end
 
     resources :people, only: :index
+
+    resources :photographs, only: :destroy
   end
 
   if Rails.env.development?
@@ -74,8 +76,6 @@ Rails.application.routes.draw do
             :triage_drug_results, :found_poisons, :biochemical_analyses,
             :biochemical_analysis_results,
             only: %i[create destroy]
-
-  resources :photographs, only: :destroy
 
   resources :biochemical_analyses, only: %i[show update]
 end

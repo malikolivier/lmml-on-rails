@@ -1,4 +1,4 @@
-class PhotographsController < ApplicationController
+class Api::PhotographsController < ApplicationController
   before_action :set_photograph, only: :destroy
 
   def destroy

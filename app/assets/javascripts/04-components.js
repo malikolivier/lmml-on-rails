@@ -94,7 +94,7 @@ LMML.components = {
             }
           },
           deletePhotograph (photographId) {
-            this.$http.delete(`/photographs/${photographId}`)
+            this.$http.delete(`/api/photographs/${photographId}`)
               .then(function deleteFromDOM () {
                 var id = this.injury.photographs_attributes.findIndex(function (p) {
                   return p.id === photographId
