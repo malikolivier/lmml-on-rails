@@ -1,4 +1,4 @@
-class InstantViewDrugResultsController < ExaminationNestedModelsController
+class Api::InstantViewDrugResultsController < Api::ExaminationNestedModelsController
   private
 
   def create_params

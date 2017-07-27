@@ -1,4 +1,4 @@
-class TriageDrugResultsController < ExaminationNestedModelsController
+class Api::TriageDrugResultsController < Api::ExaminationNestedModelsController
   private
 
   def create_params

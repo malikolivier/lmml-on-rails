@@ -1,4 +1,4 @@
-class BiochemicalAnalysisResultsController < ExaminationNestedModelsController
+class Api::BiochemicalAnalysisResultsController < Api::ExaminationNestedModelsController
   private
 
   def create_params

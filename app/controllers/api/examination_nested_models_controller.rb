@@ -1,4 +1,4 @@
-class ExaminationNestedModelsController < ApplicationController
+class Api::ExaminationNestedModelsController < ApplicationController
   before_action :set_nested_model, only: [:destroy]
 
   def create

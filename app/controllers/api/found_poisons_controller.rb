@@ -1,4 +1,4 @@
-class FoundPoisonsController < ExaminationNestedModelsController
+class Api::FoundPoisonsController < Api::ExaminationNestedModelsController
   private
 
   def create_params

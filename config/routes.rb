@@ -42,6 +42,16 @@ Rails.application.routes.draw do
       end
     end
 
+    # Resources for has-many relations (esp. for examinations)
+    resources :livores_mortis, :rigores_mortis, :foreign_fluids,
+              :pleura_foreign_fluids, :peritoneum_foreign_fluids,
+              :participations,
+              :analysis_histopathology_on_organs, :instant_view_drug_results,
+              :triage_drug_results, :found_poisons, :biochemical_analyses,
+              :biochemical_analysis_results,
+              only: %i[create destroy]
+    resources :biochemical_analyses, only: %i[show update]
+
     resources :people, only: :index
 
     resources :photographs, only: :destroy
@@ -67,15 +77,4 @@ Rails.application.routes.draw do
     end
     resources :injuries, only: :edit
   end
-
-  # Resources for has-many relations (esp. for examinations)
-  resources :livores_mortis, :rigores_mortis, :foreign_fluids,
-            :pleura_foreign_fluids, :peritoneum_foreign_fluids,
-            :participations,
-            :analysis_histopathology_on_organs, :instant_view_drug_results,
-            :triage_drug_results, :found_poisons, :biochemical_analyses,
-            :biochemical_analysis_results,
-            only: %i[create destroy]
-
-  resources :biochemical_analyses, only: %i[show update]
 end

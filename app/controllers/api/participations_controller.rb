@@ -1,4 +1,4 @@
-class ParticipationsController < ExaminationNestedModelsController
+class Api::ParticipationsController < Api::ExaminationNestedModelsController
   private
 
   def create_params

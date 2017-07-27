@@ -58,7 +58,7 @@ var LMML = {
         .then(() => {
           var newAttributes = _.clone(attributes)
           newAttributes[`${model}_id`] = this.id
-          return this.$http.post(`/${nestedModelPlural}`, newAttributes)
+          return this.$http.post(`/api/${nestedModelPlural}`, newAttributes)
         })
         .then((response) => {
           var scopedVueModel = this
@@ -77,7 +77,7 @@ var LMML = {
     }
     var model = modelPath[0]
     return function (nestedModelVal) {
-      this.$http.delete(`/${nestedModelPlural}/${nestedModelVal.id}`)
+      this.$http.delete(`/api/${nestedModelPlural}/${nestedModelVal.id}`)
       .then(function (response) {
         var scopedVueModel = this
         for (var j = 1; j < modelPath.length; j++) {

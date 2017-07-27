@@ -1,4 +1,4 @@
-class BiochemicalAnalysesController < ApplicationController
+class Api::BiochemicalAnalysesController < ApplicationController
   before_action :set_biochemical_analysis, only: %i[show update destroy]
 
   def create

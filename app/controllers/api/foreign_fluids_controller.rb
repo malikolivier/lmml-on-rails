@@ -1,4 +1,4 @@
-class ForeignFluidsController < ExaminationNestedModelsController
+class Api::ForeignFluidsController < Api::ExaminationNestedModelsController
   def create
     super
     create_face_foreign_fluids

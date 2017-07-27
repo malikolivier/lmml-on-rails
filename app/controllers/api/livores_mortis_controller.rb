@@ -1,4 +1,4 @@
-class LivoresMortisController < ExaminationNestedModelsController
+class Api::LivoresMortisController < Api::ExaminationNestedModelsController
   private
 
   def create_params
