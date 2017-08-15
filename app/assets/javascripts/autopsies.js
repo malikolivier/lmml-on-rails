@@ -14,11 +14,11 @@ LMML.loaders.autopsy = function () {
   var actionNameElement = document.getElementById('autopsy_action_name')
   var updateUrl, httpVerb, updateAll
   if (actionNameElement !== null && actionNameElement.innerHTML === 'new') {
-    updateUrl = `/autopsies/preview?locale=${LMML.locale}`
+    updateUrl = `/api/autopsies/preview?locale=${LMML.locale}`
     httpVerb = 'post'
     updateAll = true
   } else {
-    updateUrl = `/autopsies/${LMML.autopsy_id}?locale=${LMML.locale}`
+    updateUrl = `/api/autopsies/${LMML.autopsy_id}?locale=${LMML.locale}`
     httpVerb = 'patch'
     updateAll = false
   }
@@ -66,7 +66,7 @@ LMML.loaders.autopsy = function () {
 
   /*
   // Scrap autocomplete for now (not a priority)
-  autopsyVm.$http.get('/people?order_by=autopsies_examiners_count')
+  autopsyVm.$http.get('/api/people?order_by=autopsies_examiners_count')
   .then(function(response) {
     this.examiner_autocomplete = response.body;
   });

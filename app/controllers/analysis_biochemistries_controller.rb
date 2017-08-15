@@ -1,2 +1,0 @@
-class AnalysisBiochemistriesController < AnalysesController
-end

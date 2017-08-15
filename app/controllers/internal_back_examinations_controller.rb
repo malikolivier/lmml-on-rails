@@ -1,2 +1,0 @@
-class InternalBackExaminationsController < ExaminationsController
-end

@@ -1,2 +1,0 @@
-class ExternalUpperLimbsExaminationsController < ExaminationsController
-end

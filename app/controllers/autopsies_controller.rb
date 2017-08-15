@@ -6,13 +6,11 @@ class AutopsiesController < ApplicationController
   decorates_assigned :autopsy
 
   # GET /autopsies
-  # GET /autopsies.json
   def index
     @autopsies = Autopsy.all
   end
 
   # GET /autopsies/1
-  # GET /autopsies/1.json
   def show; end
 
   # GET /autopsies/new
@@ -30,42 +28,21 @@ class AutopsiesController < ApplicationController
   def edit_analyses; end
 
   # POST /autopsies
-  # POST /autopsies.json
-  def create # rubocop:disable AbcSize, MethodLength # TODO
+  def create
     @autopsy = Autopsy.new(autopsy_params)
-    respond_to do |format|
-      if @autopsy.save
-        format.html do
-          redirect_to action: :edit_external, id: @autopsy.id,
-                      locale: I18n.locale
-        end
-        format.json { render :show, status: :created, location: @autopsy }
-      else
-        format.html { render :new }
-        format.json do
-          render json: @autopsy.errors, status: :unprocessable_entity
-        end
-      end
+    if @autopsy.save
+      redirect_to action: :edit_external, id: @autopsy.id,
+                  locale: I18n.locale
+    else
+      render :new
     end
-  end
-
-  # PATCH /autopsies/1
-  def update
-    return if @autopsy.update(autopsy_params)
-    render json: { errors: @autopsy.errors.full_messages }, status: 422
   end
 
   # DELETE /autopsies/1
-  # DELETE /autopsies/1.json
   def destroy
-    @autopsy.destroy
-    respond_to do |format|
-      format.html do
-        redirect_to autopsies_url(locale: I18n.locale),
-                    notice: 'Autopsy was successfully destroyed.'
-      end
-      format.json { head :no_content }
-    end
+    @autopsy.destroy!
+    redirect_to autopsies_url(locale: I18n.locale),
+                notice: 'Autopsy was successfully destroyed.'
   end
 
   private

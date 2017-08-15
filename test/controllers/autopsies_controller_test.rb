@@ -60,11 +60,6 @@ class AutopsiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should update autopsy' do
-    patch autopsy_url(@autopsy), params: @params
-    assert_response :success
-  end
-
   test 'should destroy autopsy' do
     assert_difference('Autopsy.count', -1) do
       delete autopsy_url(@autopsy)

@@ -31,14 +31,14 @@ LMML.loaders.analysis_biochemistry = function () {
 LMML.loaders.biochemical_analysis = function (element) {
   var model = 'analysis_biochemistry'
   var id = element.getAttribute('data-id')
-  Vue.http.get(`/biochemical_analyses/${id}`)
+  Vue.http.get(`/api/biochemical_analyses/${id}`)
   .then(function (response) {
     var data = response.body.biochemical_analysis
     data.biochemical_analysis_results_attributes = data.biochemical_analysis_results
     delete data.biochemical_analysis_results
     var updater = LMML.debounce(
       function onChange () {
-        this.$http.put(`/biochemical_analyses/${id}`, {
+        this.$http.put(`/api/biochemical_analyses/${id}`, {
           biochemical_analysis: data
         }, LMML.httpErrorHandler(model))
       }
@@ -57,14 +57,14 @@ LMML.loaders.biochemical_analysis = function (element) {
       },
       methods: {
         add_biochemical_analysis_result () {
-          this.$http.post('/biochemical_analysis_results', {
+          this.$http.post('/api/biochemical_analysis_results', {
             biochemical_analysis_result: { biochemical_analysis_id: this.id }
           }).then(function (response) {
             this.biochemical_analysis_results_attributes.push(response.body)
           }, LMML.httpErrorHandler(model))
         },
         delete_biochemical_analysis_result (result) {
-          this.$http.delete(`/biochemical_analysis_results/${result.id}`)
+          this.$http.delete(`/api/biochemical_analysis_results/${result.id}`)
           .then(function () {
             var i = this.biochemical_analysis_results_attributes.findIndex(function (submodel) {
               return submodel.id === result.id
@@ -73,7 +73,7 @@ LMML.loaders.biochemical_analysis = function (element) {
           }, LMML.httpErrorHandler(model))
         },
         delete_me () {
-          this.$http.delete(`/biochemical_analyses/${this.id}`)
+          this.$http.delete(`/api/biochemical_analyses/${this.id}`)
           .then(function () {
             document.location.reload(true)
           }, LMML.httpErrorHandler(model))

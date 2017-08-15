@@ -30,6 +30,8 @@ Metrics/AbcSize:
 Metrics/LineLength:
   Exclude:
     - spec/teaspoon_env.rb
+  # Allow long line length for class declaration with an inherited class
+  IgnoredPatterns: ['^class (.*) < (.*)$']
 
 Metrics/BlockLength:
   Exclude:
@@ -40,4 +42,7 @@ Metrics/BlockLength:
 # Below are TODO, these cops should be fixed!
 # Offense count: 252
 Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
   Enabled: false
