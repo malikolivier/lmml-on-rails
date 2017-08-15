@@ -1,0 +1,30 @@
+$column-tablet-width: 20vw;
+$column-desktop-width: 10vw;
+$tablet-or-smaller: "(max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+
+.left_col {
+  position: fixed;
+  width: $column-desktop-width;
+  @media #{$tablet-or-smaller} {
+    width: $column-tablet-width;
+  }
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.main_col {
+  position: absolute;
+  left: 1.1 * $column-desktop-width;
+  @media #{$tablet-or-smaller} {
+    left: 1.1 * $column-tablet-width;
+  }
+}
+
+ul.nav {
+	margin: 2px;
+}
+
+.nav > li > a {
+  padding-right: 5px !important;
+}
