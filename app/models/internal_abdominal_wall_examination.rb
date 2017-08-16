@@ -31,8 +31,12 @@ class InternalAbdominalWallExamination < ExaminationBase
                                        class_name: 'ForeignFluid',
                                        source: :foreign_fluid
 
-  validates :diaphragm_height_left, inclusion: -1..12
-  validates :diaphragm_height_right, inclusion: -1..12
+  validates :diaphragm_height_left,
+            inclusion: -1..12,
+            if: proc { |model| model.diaphragm_height_left.present? }
+  validates :diaphragm_height_right,
+            inclusion: -1..12,
+            if: proc { |model| model.diaphragm_height_right.present? }
 
   def any_diaphragm_height?
     diaphragm_height_right.present? || diaphragm_height_left.present?
