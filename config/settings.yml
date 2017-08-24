@@ -11,11 +11,13 @@ enums:
     - does_not_exist
   three_scale_intensity:
     - unknown
+    - nothing
     - light
     - middle
     - heavy
   five_scale_intensity:
     - unknown
+    - nothing
     - weak
     - rather_weak
     - mid

@@ -150,6 +150,7 @@ en:
       other: Other
   intensity:
     unknown: unknown
+    nothing: nothing
     weak: weak
     rather_weak: rather weak
     mid: mid

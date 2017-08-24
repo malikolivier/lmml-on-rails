@@ -129,6 +129,7 @@ ja:
       other: その他
   intensity:
     unknown: 不明
+    nothing: 無し
     weak: 弱い
     rather_weak: やや弱い
     mid: 中等
