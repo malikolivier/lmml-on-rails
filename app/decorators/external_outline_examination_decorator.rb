@@ -25,6 +25,7 @@ class ExternalOutlineExaminationDecorator < ExaminationBaseDecorator
   end
 
   def constitution_description
+    return '' if model.constitution.blank?
     t('.constitution', constitution: model.translated_enum_value(:constitution))
   end
 
