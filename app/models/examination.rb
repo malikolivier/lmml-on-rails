@@ -21,6 +21,11 @@ class Examination < ApplicationRecord
     joins(:examination_type).order('`examination_types`.`placement`')
   end
 
+  scope :by_autopsy, ->(autopsy) { where(autopsy: autopsy) }
+  scope :by_examination_type, lambda { |examination_type|
+    where(examination_type: examination_type)
+  }
+
   def get
     if unique_examination?
       examination = examination_type.this_examination_model
