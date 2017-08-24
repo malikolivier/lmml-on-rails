@@ -1,9 +1,7 @@
 = form_for(exam, builder: VueFormBuilder, html: { id: 'external_outline_examination' }, url: '') do |f|
   = f.hidden_field :id
   .row
-    = f.label :sex, class: 'col-sm-4'
-    .col-sm-8
-      = f.select :sex, translated_sexes
+    = f.select :sex, translated_sexes
   .row
     .col-xs-4
       = f.check_box :partial_body
