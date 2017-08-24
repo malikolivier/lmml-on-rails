@@ -1,7 +1,7 @@
 # rubocop:disable Metrics/AbcSize
 # rubocop:disable Metrics/MethodLength
 # rubocop:disable Metrics/LineLength
-# rubocop:disable Style/MultilineOperationIndentation
+# rubocop:disable Layout/MultilineOperationIndentation
 # rubocop:disable Lint/UnreachableCode
 module LmmlOnRails
   # This module is not ready for use
