@@ -15,6 +15,7 @@ ja:
     unknown: 不明
     amber: 琥珀色
     red: 赤色
+    milky: 乳白色
     pale: 蒼白
     black: 黒色
     no_color: 色のない
@@ -100,7 +101,7 @@ ja:
       heart: 心臓
       thoracic_aorta: 胸部大動脈
       lungs: 肺臓
-      abdominal_aorta: 胸部大動脈
+      abdominal_aorta: 腹部大動脈
       adrenal_glands: 副腎
       kidneys: 腎臓
       spleen: 脾臓
@@ -129,6 +130,7 @@ ja:
       other: その他
   intensity:
     unknown: 不明
+    nothing: 無し
     weak: 弱い
     rather_weak: やや弱い
     mid: 中等

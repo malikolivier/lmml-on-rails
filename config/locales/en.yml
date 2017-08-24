@@ -36,6 +36,7 @@ en:
     unknown: 不明
     amber: 琥珀色
     red: 赤色
+    milky: milky
     pale: 蒼白
     black: 黒色
     no_color: 色のない
@@ -121,7 +122,7 @@ en:
       heart: 心臓
       thoracic_aorta: 胸部大動脈
       lungs: 肺臓
-      abdominal_aorta: 胸部大動脈
+      abdominal_aorta: Abnominal aorta
       adrenal_glands: 副腎
       kidneys: 腎臓
       spleen: 脾臓
@@ -150,6 +151,7 @@ en:
       other: Other
   intensity:
     unknown: unknown
+    nothing: nothing
     weak: weak
     rather_weak: rather weak
     mid: mid

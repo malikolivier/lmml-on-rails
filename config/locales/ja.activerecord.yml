@@ -235,7 +235,7 @@ ja:
       internal_genitalia_examination:
         length: 子宮長さ(cm)
         fundal_width: 子宮底部幅(cm)
-        cervical_width: 至急頸部幅(cm)
+        cervical_width: 子宮頸部幅(cm)
         endometrium_color: 粘膜色
         ovaries_presence: 卵巣有無
         ovaries_distance: 卵巣距離
