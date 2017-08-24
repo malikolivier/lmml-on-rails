@@ -1,7 +1,7 @@
-class DualExaminationsController < ExaminationsController
+class Api::DualExaminationsController < Api::ExaminationsController
   before_action :deixis!, only: %i[update create]
 
-  # POST /autopsies/:id/***_examinations.json
+  # POST /api/autopsies/:id/***_examinations.json
   def create
     @exam = new_examination!
     render_success
