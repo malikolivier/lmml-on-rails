@@ -43,7 +43,7 @@ class DualExamination
     if object.present?
       object.update(params)
     else
-      params[:examination] = Examination.create!(
+      params[:examination] = examination || Examination.create!(
         autopsy: @autopsy,
         examination_type: @examination_type
       )
@@ -67,6 +67,12 @@ class DualExamination
 
   def examination_name
     name.underscore.match(/^[a-z]+_(.+)_examination$/)[1]
+  end
+
+  def examination
+    Examination.by_autopsy(@autopsy)
+               .by_examination_type(@examination_type)
+               .take
   end
 
   private
