@@ -31,8 +31,10 @@
         .row
           .col-xs-6
             = ff.smart_select :petechia
-          .col-xs-6
+          .col-xs-3
             = ff.smart_select :tongue_tip
+          .col-xs-3
+            = ff.number_field :tongue_tip_distance
         = render 'foreign_fluids_form', form: ff
         = ff.text_field :note
         .row

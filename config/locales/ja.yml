@@ -357,6 +357,7 @@ ja:
     no_foreign_fluid: 口腔内に異液なし。
     petechia_description: 口腔粘膜に溢血点は%{quantity}。
     tongue_tip_description: 舌尖は下歯列の%{tongue_tip}。
+    tongue_tip_with_distance_description: 舌尖は下歯列の%{tongue_tip}(%{distance}cm)。
   foreign_fluids:
     unknown_fluid: 不明な異液
     description: '%{appearance}の%{name}'

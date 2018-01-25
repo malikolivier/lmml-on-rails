@@ -110,6 +110,7 @@ en:
         aperture: 開閉(cm)
         petechia: 溢血点
         tongue_tip: 舌尖
+        tongue_tip_distance: Distance from teeth
         note: 特記
         foreign_fluids: 異液
         tooth_examinations: 歯

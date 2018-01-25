@@ -7,6 +7,7 @@
 #  aperture                     :float
 #  petechia                     :integer
 #  tongue_tip                   :integer
+#  tongue_tip_distance          :float
 #  note                         :text
 #  external_face_examination_id :integer          not null
 #  created_at                   :datetime         not null

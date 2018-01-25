@@ -429,6 +429,7 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.float    "aperture"
     t.integer  "petechia"
     t.integer  "tongue_tip"
+    t.float    "tongue_tip_distance"
     t.text     "note"
     t.integer  "external_face_examination_id", null: false
     t.datetime "created_at",                   null: false

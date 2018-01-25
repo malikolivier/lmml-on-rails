@@ -39,6 +39,12 @@ class ExternalMouthExaminationDecorator < ApplicationDecorator
   def tongue_tip_description
     return '' if model.tongue_tip.blank?
     tongue_tip_chunk = model.translated_enum_value(:tongue_tip)
-    t('.tongue_tip_description', tongue_tip: tongue_tip_chunk)
+    if model.tongue_tip_distance.present?
+      t('.tongue_tip_with_distance_description',
+        tongue_tip: tongue_tip_chunk,
+        distance: model.tongue_tip_distance)
+    else
+      t('.tongue_tip_description', tongue_tip: tongue_tip_chunk)
+    end
   end
 end
