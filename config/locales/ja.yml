@@ -29,7 +29,14 @@ ja:
     green: 緑色
     dark_green: 暗緑色
     brown: 茶色
+    gray: 灰色
   colors: *color # TODO: Delete me, only keep singular keys for enumerations
+  hair_color:
+    <<: *color
+    black_white: 黒毛を混ずる白毛
+    blond: 金髪
+    shaved: 剃る
+    not_grown: 放出しない
   odor:
     unknown: 不明
     no_odor: においのない

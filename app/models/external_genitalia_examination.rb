@@ -12,6 +12,6 @@
 #
 
 class ExternalGenitaliaExamination < ExaminationBase
-  enum hair_color: %i[black gray blond red no_hair unknown]
+  enum hair_color: %i[black gray black_white blond red shaved not_grown unknown]
   enum sex: Settings.enums.sex
 end

@@ -50,7 +50,14 @@ en:
     green: 緑色
     dark_green: 暗緑色
     brown: 茶色
+    gray: Gray
   colors: *color # TODO: Delete me, only keep singular keys for enumerations
+  hair_color:
+    <<: *color
+    black_white: Black and white
+    blond: Blond
+    shaved: Shaved
+    not_grown: Not grown
   odor:
     unknown: 不明
     no_odor: においのない
