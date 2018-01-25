@@ -796,9 +796,13 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.integer  "examination_id"
     t.integer  "lymph_level"
     t.integer  "oesophagus_substance_id"
+    t.integer  "oesophagus_substance_quantity"
     t.integer  "larynx_substance_id"
+    t.integer  "larynx_substance_quantity"
     t.integer  "trachea_substance_id"
+    t.integer  "trachea_substance_quantity"
     t.integer  "main_bronchi_substance_id"
+    t.integer  "main_bronchi_substance_quantity"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["examination_id"], name: "index_internal_neck_organs_examinations_on_examination_id"

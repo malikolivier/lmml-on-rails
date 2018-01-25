@@ -151,9 +151,13 @@ ja:
       internal_neck_organs_examination:
         lymph_level: 舌根部リンパ装置発育
         oesophagus_substance_id: 食道内容物
+        oesophagus_substance_quantity: 食道内容物量
         larynx_substance_id: 喉頭内容物
+        larynx_substance_quantity: 喉頭内容物量
         trachea_substance_id: 気管内容物
+        trachea_substance_quantity: 気管内容物量
         main_bronchi_substance_id: 主気管支内容物
+        main_bronchi_substance_quantity: 主気管支内容物量
       internal_pericardium_examination:
         congestion: 血管充盈
         petechia: 溢血点

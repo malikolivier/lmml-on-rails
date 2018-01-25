@@ -2,15 +2,19 @@
 #
 # Table name: internal_neck_organs_examinations
 #
-#  id                        :integer          not null, primary key
-#  examination_id            :integer
-#  lymph_level               :integer
-#  oesophagus_substance_id   :integer
-#  larynx_substance_id       :integer
-#  trachea_substance_id      :integer
-#  main_bronchi_substance_id :integer
-#  created_at                :datetime         not null
-#  updated_at                :datetime         not null
+#  id                              :integer          not null, primary key
+#  examination_id                  :integer
+#  lymph_level                     :integer
+#  oesophagus_substance_id         :integer
+#  oesophagus_substance_quantity   :integer
+#  larynx_substance_id             :integer
+#  larynx_substance_quantity       :integer
+#  trachea_substance_id            :integer
+#  trachea_substance_quantity      :integer
+#  main_bronchi_substance_id       :integer
+#  main_bronchi_substance_quantity :integer
+#  created_at                      :datetime         not null
+#  updated_at                      :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
