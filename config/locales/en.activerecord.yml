@@ -310,6 +310,7 @@ en:
         time_sustained:
           pre_mortem: Pre-mortem
           post_mortem: Post-mortem
+          undecidable: Undecidable
           unknown: Unknown
         injury_type:
           abrasion: Abrasion

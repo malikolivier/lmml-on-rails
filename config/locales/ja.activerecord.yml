@@ -316,6 +316,7 @@ ja:
         time_sustained:
           pre_mortem: 生活反応あり
           post_mortem: 生活反応なし
+          undecidable: 判然としない
           unknown: 不明
         injury_type:
           abrasion: 擦り傷
