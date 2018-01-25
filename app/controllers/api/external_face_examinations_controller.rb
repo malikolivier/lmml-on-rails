@@ -16,7 +16,8 @@ class Api::ExternalFaceExaminationsController < Api::ExaminationsController
   end
 
   def mouth_attributes
-    [:id, :closed, :aperture, :petechia, :tongue_tip, :note,
+    [:id, :closed, :aperture, :petechia, :tongue_tip, :tongue_tip_distance,
+     :note,
      foreign_fluids_attributes: %i[id name color odor description],
      tooth_examinations_attributes: %i[id position rank condition note]]
   end

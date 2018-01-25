@@ -4,7 +4,8 @@ class AnalysisDiatomTestDecorator < AnalysisBaseDecorator
   decorates_association :water
 
   def description
-    if left_lung.quantity.blank? && right_lung.quantity.blank?
+    if (left_lung.blank? || left_lung.quantity.blank?) &&
+       (right_lung.blank? || right_lung.quantity.blank?)
       t('.uncomplete_report')
     else
       "#{first_paragraph}

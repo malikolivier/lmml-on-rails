@@ -2,8 +2,8 @@
   = f.hidden_field :id
   .row
     .col-xs-6
-      = f.select :hair_color, translated_genitalia_hair_colors
+      = f.smart_select :hair_color
     .col-xs-6
       = f.number_field :hair_length
-  = f.select :sex, translated_genitalia_sexes
+  = f.smart_select :sex
   = yield f

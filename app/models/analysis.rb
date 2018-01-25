@@ -23,7 +23,8 @@ class Analysis < ApplicationRecord
   end
 
   def get
-    analysis_type.this_analysis_model.find_by!(analysis: self)
+    analysis = analysis_type.this_analysis_model.find_by(analysis: self)
+    analysis || analysis_type.this_analysis_model.new(analysis: self)
   end
 
   # Return a JSON-like hash representing the given analysis

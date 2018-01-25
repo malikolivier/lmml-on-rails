@@ -4,9 +4,13 @@ class CreateInternalNeckOrgansExaminations < ActiveRecord::Migration[5.0]
       t.belongs_to :examination, index: true
       t.integer :lymph_level
       t.integer :oesophagus_substance_id
+      t.integer :oesophagus_substance_quantity
       t.integer :larynx_substance_id
+      t.integer :larynx_substance_quantity
       t.integer :trachea_substance_id
+      t.integer :trachea_substance_quantity
       t.integer :main_bronchi_substance_id
+      t.integer :main_bronchi_substance_quantity
 
       t.timestamps
     end

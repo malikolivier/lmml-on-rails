@@ -116,6 +116,7 @@ ja:
         aperture: 開閉(cm)
         petechia: 溢血点
         tongue_tip: 舌尖
+        tongue_tip_distance: 下歯槽からの距離(cm)
         note: 特記
         foreign_fluids: 異液
         tooth_examinations: 歯
@@ -150,9 +151,13 @@ ja:
       internal_neck_organs_examination:
         lymph_level: 舌根部リンパ装置発育
         oesophagus_substance_id: 食道内容物
+        oesophagus_substance_quantity: 食道内容物量
         larynx_substance_id: 喉頭内容物
+        larynx_substance_quantity: 喉頭内容物量
         trachea_substance_id: 気管内容物
+        trachea_substance_quantity: 気管内容物量
         main_bronchi_substance_id: 主気管支内容物
+        main_bronchi_substance_quantity: 主気管支内容物量
       internal_pericardium_examination:
         congestion: 血管充盈
         petechia: 溢血点
@@ -315,6 +320,7 @@ ja:
         time_sustained:
           pre_mortem: 生活反応あり
           post_mortem: 生活反応なし
+          undecidable: 判然としない
           unknown: 不明
         injury_type:
           abrasion: 擦り傷
