@@ -20,7 +20,7 @@ class ExternalMouthExaminationDecorator < ApplicationDecorator
   def aperture_chunk
     return '' unless model.closed_open? && model.aperture.present? &&
                      model.aperture.positive?
-    t('.aperture_chunk', aperture: aperture)
+    t('.aperture_chunk', aperture: model.aperture)
   end
 
   def foreign_fluid_description
