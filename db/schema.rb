@@ -616,6 +616,7 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.float    "width"
     t.integer  "coordinate_system"
     t.float    "angle"
+    t.integer  "tohoku_ryu_size"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

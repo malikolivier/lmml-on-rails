@@ -34,7 +34,8 @@ class Api::InjuriesController < InjuriesController
           .permit(:time_sustained, :injury_type, :description, :note,
                   body_area_attributes: BODY_AREA,
                   injury_size_attributes: %i[id shape length width
-                                             coordinate_system angle],
+                                             coordinate_system angle
+                                             tohoku_ryu_size],
                   injury_depth_attributes: %i[id depth reached_organ_id],
                   photographs_attributes: %i[id picture caption])
   end

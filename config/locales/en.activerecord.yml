@@ -56,6 +56,7 @@ en:
         width: Width (cm)
         coordinate_system: Coordinates
         angle: Angle (°)
+        tohoku_ryu_size: Subjective size
       injury_depth:
         depth: Depth (cm)
         reached_organ_id: Reached organ
@@ -334,6 +335,21 @@ en:
           longitudinal: Longitudinal
           round: Round
           undefined: Undefined
+        tohoku_ryu_size:
+          lt_pinhead: Smaller than pinhead
+          pinhead: Pinhead
+          lt_azuki: Smaller than azuki
+          azuki: Azuki
+          lt_soy: Smaller than soy bean
+          soy: Soy bean
+          lt_fava: Smaller than fava bean
+          fava: Fava bean
+          lt_ginkgo: Smaller than ginkgo fruit
+          ginkgo: Ginkgo fruit
+          lt_chestnut: Smaller than chestnut
+          chestnut: Chestnut
+          lt_chicken_egg: Smaller than chicken egg
+          chicken_egg: Chicken egg
         coordinate_system: *coordinate_system
       external_outline_examination:
         constitution:

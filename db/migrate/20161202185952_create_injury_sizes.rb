@@ -6,6 +6,7 @@ class CreateInjurySizes < ActiveRecord::Migration[5.0]
       t.float :width
       t.integer :coordinate_system
       t.float :angle
+      t.integer :tohoku_ryu_size
 
       t.timestamps
     end

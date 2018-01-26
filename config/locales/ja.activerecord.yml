@@ -62,6 +62,7 @@ ja:
         width: 幅(cm)
         coordinate_system: 座標系
         angle: 角度(°)
+        tohoku_ryu_size: 客観形容寸法
       injury_depth:
         depth: 深さ(cm)
         reached_organ_id: 届いた器官
@@ -340,6 +341,21 @@ ja:
           longitudinal: 縦断
           round: 円形
           undefined: 不定形
+        tohoku_ryu_size:
+          lt_pinhead: 針頭大以下
+          pinhead: 針頭大
+          lt_azuki: 小豆大以下
+          azuki: 小豆大
+          lt_soy: 大豆大以下
+          soy: 大豆大
+          lt_fava: 空豆大以下
+          fava: 空豆大
+          lt_ginkgo: 銀杏大以下
+          ginkgo: 銀杏大
+          lt_chestnut: 粟粒大以下
+          chestnut: 粟粒大
+          lt_chicken_egg: 鶏卵面大以下
+          chicken_egg: 鶏卵面大
         coordinate_system: *coordinate_system
       external_outline_examination:
         constitution:
