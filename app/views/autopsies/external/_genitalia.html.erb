@@ -1,6 +1,6 @@
 <% phrases = []
    if exam.hair_color.present?
-     phrases.push("#{t "pubic_hair_colors.#{exam.hair_color}"}")
+     phrases.push(exam.translated_enum_value(:hair_color))
    end
    if exam.hair_length.present?
      phrases.push("長さ#{exam.hair_length}cm")
