@@ -1,0 +1,2 @@
+class ExternalUpperLimbsExaminationDecorator < ExaminationBaseDecorator
+end

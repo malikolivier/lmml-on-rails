@@ -1,0 +1,2 @@
+class ExternalBackExaminationDecorator < ExaminationBaseDecorator
+end
