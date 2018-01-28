@@ -1,0 +1,2 @@
+class InjuriesDecorator < ApplicationCollectionDecorator
+end

@@ -368,6 +368,8 @@ ja:
   foreign_fluids:
     unknown_fluid: 不明な異液
     description: '%{appearance}の%{name}'
+  external_neck_examinations:
+    no_injury: '変色・陥凹・創傷等の異常なし。'
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
