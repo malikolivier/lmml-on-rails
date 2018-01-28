@@ -1,6 +1,0 @@
-<% if exam.closed.present? %>
-  <% if exam.closed? %>閉じる。<% else %>開く。<% end %>
-<% end %>
-<% if exam.feces_quantity.present? %>
-  糞便の流出<%= I18n.t "quantity.#{exam.feces_quantity}" %>。
-<% end %>

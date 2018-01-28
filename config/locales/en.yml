@@ -399,6 +399,10 @@ en:
     hair_length: Pubic hairs are %{length} cm long.
     sex: The shape is %{sex}.
     unknown_sex: Unknown sex.
+  external_anus_examinations:
+    open: Open.
+    closed: Closed.
+    feces_quantity: '%{quantity} of feces are leaking.'
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
