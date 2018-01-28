@@ -379,6 +379,10 @@ ja:
     hair_length: 陰毛の長さは%{length}cm。
     sex: '%{sex}性外陰の形態を有する。'
     unknown_sex: 外陰の形態は不明。
+  external_anus_examinations:
+    open: 開く。
+    closed: 閉じる。
+    feces_quantity: 糞便の流出%{quantity}。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
