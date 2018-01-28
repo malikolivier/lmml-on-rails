@@ -2,7 +2,8 @@ class ApplicationCollectionDecorator < Draper::CollectionDecorator
   # Super class from which all the collection decorators inherit
   def initialize(*args)
     super
-    @model_plural_name = object.class.to_s.split('::')[0].underscore.pluralize
+    @model_plural_name = self.class.to_s.split('::')[0].underscore
+                             .split('_decorator')[0]
   end
 
   private

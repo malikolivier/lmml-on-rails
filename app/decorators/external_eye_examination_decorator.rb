@@ -33,8 +33,6 @@ class ExternalEyeExaminationDecorator < DualExaminationBaseDecorator
                                diameter: model.diameter)
   end
 
-  private
-
   def aperture_chunk
     return '' unless eye_open? && aperture.present? && aperture.positive?
     t('.aperture_chunk', aperture: aperture)
@@ -43,6 +41,8 @@ class ExternalEyeExaminationDecorator < DualExaminationBaseDecorator
   def closedness_chunk
     model.translated_enum_value(:closed)
   end
+
+  private
 
   def eyelid_congestion_description
     return '' if model.eyelid_congestion.blank?
