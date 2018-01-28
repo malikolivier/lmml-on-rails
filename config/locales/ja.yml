@@ -373,6 +373,12 @@ ja:
   external_trunk_examinations:
     discoloration: 下腹部に腐敗変色あり。
     no_discoloration: 下腹部に腐敗変色なし。
+  external_genitalia_examinations:
+    hair_color_length: 陰毛は%{color}で、長さ%{length}cm。
+    hair_color: 陰毛は%{color}。
+    hair_length: 陰毛の長さは%{length}cm。
+    sex: '%{sex}性外陰の形態を有する。'
+    unknown_sex: 外陰の形態は不明。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ

@@ -393,6 +393,12 @@ en:
   external_trunk_examinations:
     discoloration: Discoloration due to putrefaction on the belly.
     no_discoloration: No discoloration due to putrefaction on the belly.
+  external_genitalia_examinations:
+    hair_color_length: Pubic hairs are %{color}, %{length} cm long.
+    hair_color: Pubic hairs are %{color}.
+    hair_length: Pubic hairs are %{length} cm long.
+    sex: The shape is %{sex}.
+    unknown_sex: Unknown sex.
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
