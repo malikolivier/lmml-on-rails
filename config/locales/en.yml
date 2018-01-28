@@ -390,6 +390,9 @@ en:
     description: '%{appearance}の%{name}'
   external_neck_examinations:
     no_injury: 'No discoloration, depression or cut injury.'
+  external_trunk_examinations:
+    discoloration: Discoloration due to putrefaction on the belly.
+    no_discoloration: No discoloration due to putrefaction on the belly.
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
