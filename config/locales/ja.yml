@@ -383,6 +383,8 @@ ja:
     open: 開く。
     closed: 閉じる。
     feces_quantity: 糞便の流出%{quantity}。
+  internal_cranium_examinations:
+    no_injury: 皮下軟部組織に出血なく、頭蓋冠に骨折なし。硬膜外・下に出血なし。頭蓋底に出血・骨折なし。
   internal_brain_examinations:
     weight: '%{weight}g。'
     pia_congestion: 軟膜の血管充盈%{intensity}。
