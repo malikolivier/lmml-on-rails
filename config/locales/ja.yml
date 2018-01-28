@@ -370,6 +370,9 @@ ja:
     description: '%{appearance}の%{name}'
   external_neck_examinations:
     no_injury: '変色・陥凹・創傷等の異常なし。'
+  external_trunk_examinations:
+    discoloration: 下腹部に腐敗変色あり。
+    no_discoloration: 下腹部に腐敗変色なし。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
