@@ -12,6 +12,8 @@
 #
 
 class InternalBrainExamination < ExaminationBase
-  enum pia_congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum blood_spots: Settings.enums.five_scale_quantity, _prefix: true
+  enum pia_congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum blood_spots: Settings.enums.five_scale_quantity, _prefix: true,
+       i18n_key: :quantity
 end
