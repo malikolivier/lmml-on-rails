@@ -17,12 +17,13 @@
 
 class InternalAbdominalWallExamination < ExaminationBase
   enum subcutaneous_fat_level: Settings.enums.three_scale_growth,
-       _prefix: 'fat'
+       _prefix: 'fat', i18n_key: :growth
   enum pleura_adhesion: Settings.enums.five_scale_intensity, _prefix: true,
        i18n_key: :intensity
   enum peritoneum_adhesion: Settings.enums.five_scale_intensity, _prefix: true,
        i18n_key: :intensity
-  enum air_in_digestive_track: Settings.enums.five_scale_quantity, _prefix: true
+  enum air_in_digestive_track: Settings.enums.five_scale_mass_quantity,
+       _prefix: true, i18n_key: :mass_quantity
 
   has_many :in_pleura_foreign_fluids
   has_many :pleura_foreign_fluids, through: :in_pleura_foreign_fluids,

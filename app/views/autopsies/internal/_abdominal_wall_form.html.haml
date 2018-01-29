@@ -2,7 +2,7 @@
   = f.hidden_field :id
   .row
     .col-xs-6
-      = f.select :subcutaneous_fat_level, translated_internal_abdomnial_walls_subcutaneous_fat_levels
+      = f.smart_select :subcutaneous_fat_level
     .col-xs-6
       = f.number_field :subcutaneous_fat_thickness
   .row
@@ -11,7 +11,7 @@
     .col-xs-6
       = f.range_field :diaphragm_height_right, in: -1..12, step: 0.5
   = f.smart_select :pleura_adhesion
-  = f.select :air_in_digestive_track, translated_internal_abdomnial_walls_air_in_digestive_tracks
+  = f.smart_select :air_in_digestive_track
   = render 'foreign_fluids_form', form: f, prefix: :pleura
   = f.smart_select :peritoneum_adhesion
   = render 'foreign_fluids_form', form: f, prefix: :peritoneum
