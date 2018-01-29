@@ -10,7 +10,7 @@ class InternalAbdominalWallExaminationDecorator < ExaminationBaseDecorator
   end
 
   def thorax_no_injury_description
-    return if examination.injuries.any?
+    return if any_injury?
     t('.thorax_no_injury')
   end
 
@@ -56,7 +56,7 @@ class InternalAbdominalWallExaminationDecorator < ExaminationBaseDecorator
   end
 
   def peritoneum_no_injury_description
-    return if examination.injuries.any?
+    return if any_injury?
     t('.peritoneum_no_injury')
   end
 

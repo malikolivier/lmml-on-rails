@@ -11,7 +11,7 @@ class InternalBrainExaminationDecorator < ExaminationBaseDecorator
   end
 
   def arachnoid_no_injury_description
-    return if examination.injuries.any?
+    return if any_injury?
     t('.no_injury_arachnoid')
   end
 
@@ -21,7 +21,7 @@ class InternalBrainExaminationDecorator < ExaminationBaseDecorator
   end
 
   def no_injury_remaining_description
-    return if examination.injuries.any?
+    return if any_injury?
     t('.no_injury')
   end
 end
