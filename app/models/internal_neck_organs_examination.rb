@@ -18,7 +18,8 @@
 #
 
 class InternalNeckOrgansExamination < ExaminationBase
-  enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph'
+  enum lymph_level: Settings.enums.three_scale_growth, _prefix: 'lymph',
+       i18n_key: :growth
 
   belongs_to :oesophagus_substance, class_name: 'Substance'
   enum oesophagus_substance_quantity: Settings.enums.five_scale_quantity,
