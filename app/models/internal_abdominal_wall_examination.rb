@@ -17,10 +17,13 @@
 
 class InternalAbdominalWallExamination < ExaminationBase
   enum subcutaneous_fat_level: Settings.enums.three_scale_growth,
-       _prefix: 'fat'
-  enum pleura_adhesion: Settings.enums.five_scale_quantity, _prefix: true
-  enum peritoneum_adhesion: Settings.enums.five_scale_quantity, _prefix: true
-  enum air_in_digestive_track: Settings.enums.five_scale_quantity, _prefix: true
+       _prefix: 'fat', i18n_key: :growth
+  enum pleura_adhesion: Settings.enums.five_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum peritoneum_adhesion: Settings.enums.five_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum air_in_digestive_track: Settings.enums.five_scale_mass_quantity,
+       _prefix: true, i18n_key: :mass_quantity
 
   has_many :in_pleura_foreign_fluids
   has_many :pleura_foreign_fluids, through: :in_pleura_foreign_fluids,
@@ -42,32 +45,8 @@ class InternalAbdominalWallExamination < ExaminationBase
     diaphragm_height_right.present? || diaphragm_height_left.present?
   end
 
-  def diaphragm_height_description
-    if diaphragm_height_left.present? &&
-       diaphragm_height_left == diaphragm_height_right
-      "左右#{rib_position_sentence(:left)}"
-    else
-      phrases = []
-      if diaphragm_height_left.present?
-        phrases.push("左#{rib_position_sentence(:left)}")
-      end
-      if diaphragm_height_right.present?
-        phrases.push("右#{rib_position_sentence(:right)}")
-      end
-      phrases.to_sentence two_words_connector: '、'
-    end
-  end
-
-  private
-
-  def between_rib?(deixis)
-    height = send("diaphragm_height_#{deixis}")
-    height % 1 > 0.25 && height % 1 <= 0.75
-  end
-
-  def rib_position_sentence(deixis)
-    height = send("diaphragm_height_#{deixis}")
-    "第#{height.truncate}#{between_rib?(deixis) ? '肋間' : '肋骨'}"
+  def same_diaphragm_height?
+    any_diaphragm_height? && diaphragm_height_left == diaphragm_height_right
   end
 
   accepts_nested_attributes_for :pleura_foreign_fluids,
