@@ -411,6 +411,24 @@ en:
     no_injury_arachnoid: クモ膜下出血なし。
     blood_spots: 大脳髄質の血点%{quantity}。
     no_injury: 脳室内に異液なし。大脳実質に出血・軟化なく、小脳・脳脚・脳橋・延髄に出血等の異常なし。脳底部の動脈に硬化性変化なし。脳下垂体に異常なし。
+  internal_abdominal_wall_examinations:
+    fat_level: 皮下脂肪発育%{growth}
+    fat_thickness: 臍下部で厚さ%{thickness}cm
+    thorax_no_injury: 胸郭に損傷なし。
+    diaphragm: 横隔膜の高さ、%{description}。
+    diaphragm_height_left_right: 左右%{description}
+    diaphragm_height_left: 左%{description}
+    diaphragm_height_right: 右%{description}
+    nth_rib: 第%{count}肋骨
+    nth_intercostal_space: 第%{count}肋間
+    pleura_adhesion: 胸膜に癒着%{intensity}。
+    pleura_has_foreign_fluids: 胸膜腔に次の異液がある：%{description}。
+    pleura_no_foreign_fluid: 胸膜腔に異液なし。
+    peritoneum_adhesion: 胸膜に癒着%{intensity}。
+    air_in_digestive_track: 腸管の含気量%{quantity}。
+    peritoneum_has_foreign_fluids: 腹膜腔に次の異液がある：%{description}。
+    peritoneum_no_foreign_fluid: 腹膜腔に異液なし。
+    peritoneum_no_injury: 後腹膜に出血等の異常なし。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
