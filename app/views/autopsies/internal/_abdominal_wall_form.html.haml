@@ -10,9 +10,9 @@
       = f.range_field :diaphragm_height_left, in: -1..12, step: 0.5
     .col-xs-6
       = f.range_field :diaphragm_height_right, in: -1..12, step: 0.5
-  = f.select :pleura_adhesion, translated_internal_abdomnial_walls_pleura_adhesions
+  = f.smart_select :pleura_adhesion
   = f.select :air_in_digestive_track, translated_internal_abdomnial_walls_air_in_digestive_tracks
   = render 'foreign_fluids_form', form: f, prefix: :pleura
-  = f.select :peritoneum_adhesion, translated_internal_abdomnial_walls_peritoneum_adhesions
+  = f.smart_select :peritoneum_adhesion
   = render 'foreign_fluids_form', form: f, prefix: :peritoneum
   = yield f

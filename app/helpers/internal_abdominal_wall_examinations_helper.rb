@@ -5,18 +5,6 @@ module InternalAbdominalWallExaminationsHelper
     end
   end
 
-  def translated_internal_abdomnial_walls_pleura_adhesions
-    InternalAbdominalWallExamination.pleura_adhesions.map do |adhesion, _|
-      [t("quantity.#{adhesion}"), adhesion]
-    end
-  end
-
-  def translated_internal_abdomnial_walls_peritoneum_adhesions
-    InternalAbdominalWallExamination.peritoneum_adhesions.map do |adhesion, _|
-      [t("quantity.#{adhesion}"), adhesion]
-    end
-  end
-
   def translated_internal_abdomnial_walls_air_in_digestive_tracks
     InternalAbdominalWallExamination
       .air_in_digestive_tracks.map do |air_quantity, _|
