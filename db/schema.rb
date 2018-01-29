@@ -796,21 +796,17 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   create_table "internal_neck_organs_examinations", force: :cascade do |t|
     t.integer  "examination_id"
     t.integer  "lymph_level"
-    t.integer  "oesophagus_substance_id"
+    t.integer  "oesophagus_substance"
     t.integer  "oesophagus_substance_quantity"
-    t.integer  "larynx_substance_id"
+    t.integer  "larynx_substance"
     t.integer  "larynx_substance_quantity"
-    t.integer  "trachea_substance_id"
+    t.integer  "trachea_substance"
     t.integer  "trachea_substance_quantity"
-    t.integer  "main_bronchi_substance_id"
+    t.integer  "main_bronchi_substance"
     t.integer  "main_bronchi_substance_quantity"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["examination_id"], name: "index_internal_neck_organs_examinations_on_examination_id"
-    t.index ["larynx_substance_id"], name: "in_larynx_substance"
-    t.index ["main_bronchi_substance_id"], name: "in_main_bronchi_substance"
-    t.index ["oesophagus_substance_id"], name: "in_oesophagus_substance"
-    t.index ["trachea_substance_id"], name: "in_trachea_substance"
   end
 
   create_table "internal_pancreas_examinations", force: :cascade do |t|

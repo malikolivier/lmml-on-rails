@@ -234,6 +234,12 @@ ja:
     red: 赤
     no_hair: なし
     unknown: 不明
+  substance:
+    none: なし
+    unknown: 不明
+    water: 水
+    saltwater: 塩水
+    food: 食べ物
   uropapers:
     category:
       urobilinogen:

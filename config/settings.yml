@@ -82,6 +82,12 @@ enums:
     - mid
     - rather_much
     - much
+  substance:
+    - none
+    - unknown
+    - water
+    - saltwater
+    - food
   tests:
     binary_result:
       - positive

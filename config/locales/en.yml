@@ -255,6 +255,12 @@ en:
     red: 赤
     no_hair: なし
     unknown: 不明
+  substance:
+    none: None
+    unknown: Unknown
+    water: Water
+    saltwater: Saltwater
+    food: Food
   uropapers:
     category:
       urobilinogen:

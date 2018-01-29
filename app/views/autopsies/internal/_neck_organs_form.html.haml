@@ -3,13 +3,13 @@
   = f.smart_select :lymph_level
   .row
     .col-xs-6
-      = f.select :oesophagus_substance_id, translated_substances
+      = f.smart_select :oesophagus_substance
     .col-xs-6
       = f.smart_select :oesophagus_substance_quantity
   - Settings.air_track_organs.each do |air_track_organ|
     .row
       .col-xs-6
-        = f.select "#{air_track_organ}_substance_id", translated_substances
+        = f.smart_select "#{air_track_organ}_substance"
       .col-xs-6
         = f.smart_select "#{air_track_organ}_substance_quantity"
   = yield f
