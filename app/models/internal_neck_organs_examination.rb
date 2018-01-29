@@ -34,24 +34,4 @@ class InternalNeckOrgansExamination < ExaminationBase
             Settings.enums.five_scale_quantity,
          _prefix: true, i18n_key: :quantity
   end
-
-  def air_track_organs_description
-    organ_names = []
-    reached_air_track_organs.each do |organ|
-      organ_names.push(I18n.t("organs.#{organ}"))
-    end
-    organ_names.join('・')
-  end
-
-  private
-
-  def reached_air_track_organs
-    reached_organs = []
-    Settings.air_track_organs.each do |air_track_organ|
-      substance = send("#{air_track_organ}_substance")
-      break if substance.nil? || substance.nothing?
-      reached_organs.push(air_track_organ)
-    end
-    reached_organs
-  end
 end

@@ -415,6 +415,13 @@ ja:
     peritoneum_has_foreign_fluids: 腹膜腔に次の異液がある：%{description}。
     peritoneum_no_foreign_fluid: 腹膜腔に異液なし。
     peritoneum_no_injury: 後腹膜に出血等の異常なし。
+  internal_neck_organs_examinations:
+    no_skin_injury: 頸部の皮下および筋肉に出血なし。舌に損傷なし。
+    lymph_level: 舌根部リンパ装置発育%{growth}。
+    oesophagus_substance: 食道内に%{substance}。
+    no_injury_membrane: 粘膜に出血等の異常なし。
+    air_track_organs_subtance: '%{organs}内に%{substance}。'
+    no_remaining_injury: 舌骨・喉頭軟骨・気管軟骨に骨折なく、その周囲の軟部組織に出血なし。頸椎前面に出血なく、頸椎の脱臼・易移動性なし。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
