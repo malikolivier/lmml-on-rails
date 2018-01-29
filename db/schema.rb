@@ -991,22 +991,6 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.index ["external_outline_examination_id"], name: "index_rigores_mortis_on_external_outline_examination_id"
   end
 
-  create_table "substance_translations", force: :cascade do |t|
-    t.integer  "substance_id", null: false
-    t.string   "locale",       null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.text     "name"
-    t.text     "description"
-    t.index ["locale"], name: "index_substance_translations_on_locale"
-    t.index ["substance_id"], name: "index_substance_translations_on_substance_id"
-  end
-
-  create_table "substances", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "tooth_examinations", force: :cascade do |t|
     t.integer  "external_mouth_examination_id",             null: false
     t.integer  "position",                                  null: false
