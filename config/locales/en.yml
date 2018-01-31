@@ -442,6 +442,9 @@ en:
     no_injury_membrane: 粘膜に出血等の異常なし。
     air_track_organs_subtance: '%{organs}内に%{substance}。'
     no_remaining_injury: 舌骨・喉頭軟骨・気管軟骨に骨折なく、その周囲の軟部組織に出血なし。頸椎前面に出血なく、頸椎の脱臼・易移動性なし。
+  internal_pericardium_examinations:
+    congestion: 血管充盈%{intensity}。
+    petechia: 溢血点%{quantity}。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B

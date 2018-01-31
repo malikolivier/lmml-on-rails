@@ -11,6 +11,8 @@
 #
 
 class InternalPericardiumExamination < ExaminationBase
-  enum congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum petechia: Settings.enums.five_scale_quantity, _prefix: true
+  enum congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum petechia: Settings.enums.five_scale_quantity, _prefix: true,
+       i18n_key: :quantity
 end
