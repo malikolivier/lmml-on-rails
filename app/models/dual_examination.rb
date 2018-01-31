@@ -75,6 +75,10 @@ class DualExamination
                .take
   end
 
+  def decorate
+    "#{@model.to_s.pluralize}Decorator".constantize.decorate(@exams)
+  end
+
   private
 
   def left=(object)
