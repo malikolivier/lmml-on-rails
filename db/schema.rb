@@ -796,21 +796,17 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   create_table "internal_neck_organs_examinations", force: :cascade do |t|
     t.integer  "examination_id"
     t.integer  "lymph_level"
-    t.integer  "oesophagus_substance_id"
+    t.integer  "oesophagus_substance"
     t.integer  "oesophagus_substance_quantity"
-    t.integer  "larynx_substance_id"
+    t.integer  "larynx_substance"
     t.integer  "larynx_substance_quantity"
-    t.integer  "trachea_substance_id"
+    t.integer  "trachea_substance"
     t.integer  "trachea_substance_quantity"
-    t.integer  "main_bronchi_substance_id"
+    t.integer  "main_bronchi_substance"
     t.integer  "main_bronchi_substance_quantity"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["examination_id"], name: "index_internal_neck_organs_examinations_on_examination_id"
-    t.index ["larynx_substance_id"], name: "in_larynx_substance"
-    t.index ["main_bronchi_substance_id"], name: "in_main_bronchi_substance"
-    t.index ["oesophagus_substance_id"], name: "in_oesophagus_substance"
-    t.index ["trachea_substance_id"], name: "in_trachea_substance"
   end
 
   create_table "internal_pancreas_examinations", force: :cascade do |t|
@@ -993,22 +989,6 @@ ActiveRecord::Schema.define(version: 20170421063619) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["external_outline_examination_id"], name: "index_rigores_mortis_on_external_outline_examination_id"
-  end
-
-  create_table "substance_translations", force: :cascade do |t|
-    t.integer  "substance_id", null: false
-    t.string   "locale",       null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.text     "name"
-    t.text     "description"
-    t.index ["locale"], name: "index_substance_translations_on_locale"
-    t.index ["substance_id"], name: "index_substance_translations_on_substance_id"
-  end
-
-  create_table "substances", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tooth_examinations", force: :cascade do |t|

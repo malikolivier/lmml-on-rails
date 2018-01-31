@@ -5,13 +5,13 @@
 #  id                              :integer          not null, primary key
 #  examination_id                  :integer
 #  lymph_level                     :integer
-#  oesophagus_substance_id         :integer
+#  oesophagus_substance            :integer
 #  oesophagus_substance_quantity   :integer
-#  larynx_substance_id             :integer
+#  larynx_substance                :integer
 #  larynx_substance_quantity       :integer
-#  trachea_substance_id            :integer
+#  trachea_substance               :integer
 #  trachea_substance_quantity      :integer
-#  main_bronchi_substance_id       :integer
+#  main_bronchi_substance          :integer
 #  main_bronchi_substance_quantity :integer
 #  created_at                      :datetime         not null
 #  updated_at                      :datetime         not null
