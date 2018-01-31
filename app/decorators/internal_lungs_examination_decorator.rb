@@ -1,0 +1,2 @@
+class InternalLungsExaminationDecorator < DualExaminationBaseDecorator
+end
