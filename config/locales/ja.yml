@@ -443,6 +443,22 @@ ja:
     stenosis_no_blood_clot: '%{arteries_desc}の硬化性狭窄があるが、血栓はない。'
     stenosis_blood_clot: '%{arteries_desc}の硬化性狭窄がある。' # TODO: Make it more descriptive
     description: '%{name}に%{stenosis}%'
+  heart_chambers:
+    left_ventricle: 左心室は%{size}
+    right_ventricle: 右心室は%{size}
+    left_right_ventricle: 左右心室は%{size}
+    left_atrium: 左心房は%{size}
+    right_ventricle_left_atrium: 右心室・左心房は%{size}
+    left_ventricle_left_atrium: 左心室・左心房は%{size}
+    left_right_ventricle_left_atrium: 左右の心室・左心房は%{size}
+    right_atrium: 右心房は%{size}
+    left_ventricle_right_atrium: 左心室・右心房は%{size}
+    right_ventricle_right_atrium: 右心室・右心房は%{size}
+    left_right_ventricle_right_atrium: 左右心室・右心房は%{size}
+    left_right_atrium: 左右心房は%{size}
+    right_ventricle_left_right_atrium: 右心室・左右心房は%{size}
+    left_ventricle_left_right_atrium: 左心室・左右心房は%{size}
+    left_right_ventricle_left_right_atrium: 左右の心室・心房は%{size}
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
