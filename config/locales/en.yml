@@ -445,6 +445,52 @@ en:
   internal_pericardium_examinations:
     congestion: 血管充盈%{intensity}。
     petechia: 溢血点%{quantity}。
+  internal_heart_examinations:
+    weight: '%{weight}g。'
+    rigor_mortis: 心筋に硬直%{existence}。
+    epicardial_lipomatosis: 心外膜下脂肪沈着%{existence}。
+    epicardial_petechia: 心外膜下に溢血点%{quantity}。
+    extracted_blood_quantity: 摘出量%{quantity}mL
+    extracted_blood_color: '%{color}'
+    extracted_blood_coagulation: 凝血%{existence}
+    extracted_blood_2props: '%{prop1}で、%{prop2}'
+    extracted_blood_3props: '%{prop1}、%{prop2}で、%{prop3}'
+    extracted_blood: 心臓血%{chunk}。
+    heart_chambers_injury: '%{description}。'
+    heart_chambers_no_injury: '%{description}、内膜および各弁膜に異常なし。'
+    muscles: 心筋は%{description}
+    thickness_left_right: 厚さ左右%{thickness}cm
+    thickness_left: 左%{thickness}cm
+    thickness_right: 右%{thickness}cm
+    thickness: 厚さ%{description}
+    no_scar: 瘢痕なし
+    left_right_scars: 左右瘢痕あり
+    right_scar: 右側瘢痕あり
+    left_scar: 左側瘢痕あり
+    pulmonary_artery_width_thrombus: 肺動脈起始部の幅%{width}cm、血栓%{thrombus}。
+    pulmonary_artery_width: 肺動脈起始部の幅%{width}cm。
+    pulmonary_artery_thrombus: 肺動脈起始部に血栓%{thrombus}。
+  coronary_arteries:
+    no_stenosis: '%{arteries}に硬化性狭窄なし。'
+    stenosis_no_blood_clot: '%{arteries_desc}の硬化性狭窄があるが、血栓はない。'
+    stenosis_blood_clot: '%{arteries_desc}の硬化性狭窄がある。' # TODO: Make it more descriptive
+    description: '%{name}に%{stenosis}%'
+  heart_chambers:
+    left_ventricle: 左心室は%{size}
+    right_ventricle: 右心室は%{size}
+    left_right_ventricle: 左右心室は%{size}
+    left_atrium: 左心房は%{size}
+    right_ventricle_left_atrium: 右心室・左心房は%{size}
+    left_ventricle_left_atrium: 左心室・左心房は%{size}
+    left_right_ventricle_left_atrium: 左右の心室・左心房は%{size}
+    right_atrium: 右心房は%{size}
+    left_ventricle_right_atrium: 左心室・右心房は%{size}
+    right_ventricle_right_atrium: 右心室・右心房は%{size}
+    left_right_ventricle_right_atrium: 左右心室・右心房は%{size}
+    left_right_atrium: 左右心房は%{size}
+    right_ventricle_left_right_atrium: 右心室・左右心房は%{size}
+    left_ventricle_left_right_atrium: 左心室・左右心房は%{size}
+    left_right_ventricle_left_right_atrium: 左右の心室・心房は%{size}
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
