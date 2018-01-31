@@ -24,11 +24,11 @@ class Api::DualExaminationsController < Api::ExaminationsController
 
   def render_success
     template_file = "autopsies/#{examination_category}/_#{examination_name}"
-    html_preview = render_to_string template_file, locals: { exam: @exam },
+    html_preview = render_to_string template_file, locals: { exam: exam },
                                                    layout: false
     render json: {
       model: @exam.send(deixis!).take.as_lmml_json,
-      description: html_preview + @exam.first.try(:examination).try(:note)
+      description: html_preview + exam.examination_note
     }
   end
 
@@ -43,5 +43,9 @@ class Api::DualExaminationsController < Api::ExaminationsController
       )
     )
     DualExamination.new(model_class, autopsy)
+  end
+
+  def exam
+    @decorated_exam ||= @exam.decorate
   end
 end
