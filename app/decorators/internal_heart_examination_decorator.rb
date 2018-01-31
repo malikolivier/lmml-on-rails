@@ -48,6 +48,15 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     t('.muscles', description: muscle_phrases.to_sentence)
   end
 
+  def pulmonary_artery_description
+    if object.pulmonary_artery_width.present?
+      pulmonary_artery_with_width_description
+    elsif object.pulmonary_artery_thrombus.present?
+      t('.pulmonary_artery_thrombus',
+        width: object.translated_enum_value(:pulmonary_artery_thrombus))
+    end
+  end
+
   private
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
@@ -117,5 +126,15 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
 
   def no_scar?
     object.scar_left_does_not_exist? && object.scar_right_does_not_exist?
+  end
+
+  def pulmonary_artery_with_width_description
+    if object.pulmonary_artery_thrombus.present?
+      t('.pulmonary_artery_width_thrombus',
+        width: object.pulmonary_artery_width,
+        thrombus: object.translated_enum_value(:pulmonary_artery_thrombus))
+    else
+      t('.pulmonary_artery_width', width: object.pulmonary_artery_width)
+    end
   end
 end

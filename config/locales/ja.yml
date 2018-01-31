@@ -447,6 +447,9 @@ ja:
     left_right_scars: 左右瘢痕あり
     right_scar: 右側瘢痕あり
     left_scar: 左側瘢痕あり
+    pulmonary_artery_width_thrombus: 肺動脈起始部の幅%{width}cm、血栓%{thrombus}。
+    pulmonary_artery_width: 肺動脈起始部の幅%{width}cm。
+    pulmonary_artery_thrombus: 肺動脈起始部に血栓%{thrombus}。
   coronary_arteries:
     no_stenosis: '%{arteries}に硬化性狭窄なし。'
     stenosis_no_blood_clot: '%{arteries_desc}の硬化性狭窄があるが、血栓はない。'

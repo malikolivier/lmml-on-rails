@@ -6,14 +6,4 @@
 = exam.coronary_arteries_description
 = exam.heart_chambers_description
 = exam.muscles_description
--# <%
--# pulmonary_artery_description = ''
--# if exam.pulmonary_artery_width.present? && exam.pulmonary_artery_thrombus.present?
--#   pulmonary_artery_description = "肺動脈起始部の幅#{exam.pulmonary_artery_width}cm、血栓#{I18n.t "existence.#{exam.pulmonary_artery_thrombus}"}。"
--# elsif exam.pulmonary_artery_width.present? && exam.pulmonary_artery_thrombus.blank?
--#   pulmonary_artery_description = "肺動脈起始部の幅#{exam.pulmonary_artery_width}cm。"
--# elsif exam.pulmonary_artery_width.blank? && exam.pulmonary_artery_thrombus.present?
--#   pulmonary_artery_description = "肺動脈起始部に血栓#{I18n.t "existence.#{exam.pulmonary_artery_thrombus}"}。"
--# end
--# %>
--# <%= pulmonary_artery_description %>
+= exam.pulmonary_artery_description
