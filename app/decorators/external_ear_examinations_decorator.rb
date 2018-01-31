@@ -1,4 +1,4 @@
-class ExternalEarExaminationsDecorator < DualExaminationBasesDecorator
+class ExternalEarExaminationsDecorator < DualRecordsDecorator
   def description
     if no_issue?
       t('.no_issue')
