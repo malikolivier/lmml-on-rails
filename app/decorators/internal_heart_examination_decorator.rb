@@ -1,5 +1,6 @@
 class InternalHeartExaminationDecorator < ExaminationBaseDecorator
   decorates_association :coronary_arteries
+  decorates_association :heart_chambers
 
   def weight_description
     return if object.weight.blank?
@@ -30,6 +31,14 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
   end
 
   delegate :description, to: :coronary_arteries, prefix: true
+
+  def heart_chambers_description
+    if any_injury?
+      t('.heart_chambers_injury', description: heart_chambers.description)
+    else
+      t('.heart_chambers_no_injury', description: heart_chambers.description)
+    end
+  end
 
   private
 
