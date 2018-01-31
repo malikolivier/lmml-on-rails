@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/ClassLength
 class InternalHeartExaminationDecorator < ExaminationBaseDecorator
   decorates_association :coronary_arteries
   decorates_association :heart_chambers
