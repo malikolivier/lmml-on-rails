@@ -40,6 +40,14 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     end
   end
 
+  def muscles_description
+    muscle_phrases = PhraseBuilder.new(only_comma: true)
+    muscle_phrases << thickness_description
+    muscle_phrases << scar_description
+    return if muscle_phrases.empty?
+    t('.muscles', description: muscle_phrases.to_sentence)
+  end
+
   private
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
@@ -72,5 +80,42 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
                                            prop3: props[2])
       t('.extracted_blood', chunk: chunk)
     end
+  end
+
+  def thickness_description
+    same_thickness = object.thickness_left == object.thickness_right
+    if object.thickness_left.present? && same_thickness
+      t('.thickness_left_right', thickness: object.thickness_left)
+    else
+      different_thickness_description
+    end
+  end
+
+  def different_thickness_description
+    phrases = PhraseBuilder.new(only_comma: true)
+    if object.thickness_left.present?
+      phrases << t('.thickness_left', thickness: object.thickness_left)
+    end
+    if object.thickness_right.present?
+      phrases << t('.thickness_right', thickness: object.thickness_right)
+    end
+    description = phrases.to_sentence_no_dot
+    t('.thickness', description: description) if description.present?
+  end
+
+  def scar_description
+    if no_scar?
+      t('.no_scar')
+    elsif object.scar_left_exists? && object.scar_right_exists?
+      t('.left_right_scars')
+    elsif object.scar_left_exists?
+      t('.left_scar')
+    elsif object.scar_right_exists?
+      t('.right_scar')
+    end
+  end
+
+  def no_scar?
+    object.scar_left_does_not_exist? && object.scar_right_does_not_exist?
   end
 end

@@ -438,6 +438,15 @@ ja:
     extracted_blood: 心臓血%{chunk}。
     heart_chambers_injury: '%{description}。'
     heart_chambers_no_injury: '%{description}、内膜および各弁膜に異常なし。'
+    muscles: 心筋は%{description}
+    thickness_left_right: 厚さ左右%{thickness}cm
+    thickness_left: 左%{thickness}cm
+    thickness_right: 右%{thickness}cm
+    thickness: 厚さ%{description}
+    no_scar: 瘢痕なし
+    left_right_scars: 左右瘢痕あり
+    right_scar: 右側瘢痕あり
+    left_scar: 左側瘢痕あり
   coronary_arteries:
     no_stenosis: '%{arteries}に硬化性狭窄なし。'
     stenosis_no_blood_clot: '%{arteries_desc}の硬化性狭窄があるが、血栓はない。'
