@@ -29,9 +29,7 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     _extracted_blood_description(props)
   end
 
-  def arteries_description
-    coronary_arteries.description
-  end
+  delegate :description, to: :coronary_arteries, prefix: true
 
   private
 

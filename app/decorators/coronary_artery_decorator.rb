@@ -1,6 +1,6 @@
 class CoronaryArteryDecorator < ApplicationDecorator
   def description
-    "#{name}に#{object.stenosis}%"
+    t('.description', name: name, stenosis: object.stenosis)
   end
 
   def stenosis?
@@ -8,6 +8,6 @@ class CoronaryArteryDecorator < ApplicationDecorator
   end
 
   def name
-    I18n.t "organs.#{object.category}"
+    object.translated_enum_value(:category)
   end
 end

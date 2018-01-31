@@ -1,29 +1,26 @@
 class CoronaryArteriesDecorator < ApplicationCollectionDecorator
   def description
     return if object.none?
-    phrases = []
-    stenosis_count = 0
-    each do |artery|
-      phrases.push(artery.description)
-      stenosis_count += 1 if artery.stenosis?
-    end
-    if stenosis_count.zero?
-      phrases = []
-      each do |artery|
-        phrases.push(artery.name)
-      end
-      "#{phrases.to_sentence}に硬化性狭窄なし。"
+    if no_stenosis?
+      t('.no_stenosis', arteries: artery_names)
+    elsif object.blood_clot.none?
+      t('.stenosis_no_blood_clot', arteries_desc: artery_descriptions)
     else
-      description = "#{phrases.to_sentence(words_connector: '、',
-                                           last_word_connector: '、')}" \
-                    'の硬化性狭窄がある'
-      if object.blood_clot.none?
-        "#{description}が、血栓はない。"
-      else
-        # TODO: make something more descriptive,
-        # though I do not really know what to say
-        "#{description}。"
-      end
+      t('.stenosis_blood_clot', arteries_desc: artery_descriptions)
     end
+  end
+
+  private
+
+  def artery_descriptions
+    PhraseBuilder.new(map(&:description), only_comma: true).to_sentence_no_dot
+  end
+
+  def artery_names
+    map(&:name).to_sentence
+  end
+
+  def no_stenosis?
+    map(&:stenosis?).none?
   end
 end
