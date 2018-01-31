@@ -13,8 +13,10 @@
 #
 
 class InternalLungsExamination < DualExaminationBase
-  enum air_content: Settings.enums.five_scale_mass_quantity, _prefix: true
-  enum congestion: Settings.enums.three_scale_intensity, _prefix: true
+  enum air_content: Settings.enums.five_scale_mass_quantity, _prefix: true,
+       i18n_key: :mass_quantity
+  enum congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
 
   has_many :in_lung_foreign_fluids
   has_many :foreign_fluids, through: :in_lung_foreign_fluids
