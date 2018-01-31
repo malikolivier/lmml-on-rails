@@ -22,21 +22,29 @@
 #
 
 class InternalHeartExamination < ExaminationBase
-  enum rigor_mortis: Settings.enums.existence, _prefix: true
-  enum epicardial_lipomatosis: Settings.enums.existence, _prefix: true
-  enum epicardial_petechia: Settings.enums.five_scale_quantity, _prefix: true
+  enum rigor_mortis: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
+  enum epicardial_lipomatosis: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
+  enum epicardial_petechia: Settings.enums.five_scale_quantity, _prefix: true,
+       i18n_key: :quantity
   # dark red: 暗赤色, florid: 鮮紅色
-  enum extracted_blood_color: %i[dark_red florid], _prefix: true
-  enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true
+  enum extracted_blood_color: %i[dark_red florid], _prefix: true,
+       i18n_key: :color
+  enum extracted_blood_coagulation: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
 
   has_many :coronary_arteries, -> { order(:category) },
            inverse_of: :internal_heart_examination
   has_many :heart_chambers, -> { order(:category) },
            inverse_of: :internal_heart_examination
 
-  enum scar_left: Settings.enums.existence, _prefix: true
-  enum scar_right: Settings.enums.existence, _prefix: true
-  enum pulmonary_artery_thrombus: Settings.enums.existence, _prefix: true
+  enum scar_left: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
+  enum scar_right: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
+  enum pulmonary_artery_thrombus: Settings.enums.existence, _prefix: true,
+       i18n_key: :existence
 
   def arteries_description
     return '' if coronary_arteries.count.zero?
