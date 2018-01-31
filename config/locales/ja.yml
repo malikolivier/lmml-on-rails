@@ -471,6 +471,10 @@ ja:
     right_ventricle_left_right_atrium: 右心室・左右心房は%{size}
     left_ventricle_left_right_atrium: 左心室・左右心房は%{size}
     left_right_ventricle_left_right_atrium: 左右の心室・心房は%{size}
+  internal_thoracic_aorta_examinations:
+    width: 起始部の幅%{width}cm
+    arteriosclerosis: 内膜の動脈硬化性変化%{intensity}
+    no_injury: 冠状動脈口に異常なし
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
