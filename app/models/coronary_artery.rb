@@ -20,15 +20,4 @@ class CoronaryArtery < ApplicationRecord
   validates :stenosis, inclusion: 0..100
   scope :blood_clot, -> { where(stenosis: 100) }
   scope :no_stenosis, -> { where(stenosis: 0) }
-  def stenosis?
-    stenosis.positive?
-  end
-
-  def description
-    "#{name}に#{stenosis}%"
-  end
-
-  def name
-    I18n.t "organs.#{category}"
-  end
 end

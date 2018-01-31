@@ -46,34 +46,6 @@ class InternalHeartExamination < ExaminationBase
   enum pulmonary_artery_thrombus: Settings.enums.existence, _prefix: true,
        i18n_key: :existence
 
-  def arteries_description
-    return '' if coronary_arteries.count.zero?
-    phrases = []
-    stenosis_count = 0
-    coronary_arteries.each do |artery|
-      phrases.push(artery.description)
-      stenosis_count += 1 if artery.stenosis?
-    end
-    if stenosis_count.zero?
-      phrases = []
-      coronary_arteries.each do |artery|
-        phrases.push(artery.name)
-      end
-      "#{phrases.to_sentence}に硬化性狭窄なし。"
-    else
-      description = "#{phrases.to_sentence(words_connector: '、',
-                                           last_word_connector: '、')}" \
-                    'の硬化性狭窄がある'
-      if coronary_arteries.blood_clot.none?
-        "#{description}が、血栓はない。"
-      else
-        # TODO: make something more descriptive,
-        # though I do not really know what to say
-        "#{description}。"
-      end
-    end
-  end
-
   # rubocop:disable CyclomaticComplexity, PerceivedComplexity
   def heart_chambers_description
     return '' if heart_chambers.count.zero?

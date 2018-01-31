@@ -1,4 +1,6 @@
 class InternalHeartExaminationDecorator < ExaminationBaseDecorator
+  decorates_association :coronary_arteries
+
   def weight_description
     return if object.weight.blank?
     t('.weight', weight: object.weight)
@@ -25,6 +27,10 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     props = extracted_blood_props
     return if props.blank?
     _extracted_blood_description(props)
+  end
+
+  def arteries_description
+    coronary_arteries.description
   end
 
   private
