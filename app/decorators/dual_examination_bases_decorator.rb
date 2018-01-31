@@ -6,4 +6,12 @@ class DualExaminationBasesDecorator < DualRecordsDecorator
       right.examination.note_description
     end
   end
+
+  def any_injury?
+    if left.present?
+      left.examination.injuries.any?
+    elsif right.present?
+      right.examination.injuries.any?
+    end
+  end
 end

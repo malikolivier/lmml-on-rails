@@ -28,4 +28,12 @@ class DualRecordsDecorator < ApplicationCollectionDecorator
   def attribute_equal_and_present?(attribute)
     attribute_equal?(attribute) && left.object.send(attribute).present?
   end
+
+  def paired_attribute(attribute)
+    left.object.send(attribute)
+  end
+
+  def translated_paired_attribute(attribute)
+    left.object.translated_enum_value(attribute)
+  end
 end
