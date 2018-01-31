@@ -425,6 +425,17 @@ ja:
   internal_pericardium_examinations:
     congestion: 血管充盈%{intensity}。
     petechia: 溢血点%{quantity}。
+  internal_heart_examinations:
+    weight: '%{weight}g。'
+    rigor_mortis: 心筋に硬直%{existence}。
+    epicardial_lipomatosis: 心外膜下脂肪沈着%{existence}。
+    epicardial_petechia: 心外膜下に溢血点%{quantity}。
+    extracted_blood_quantity: 摘出量%{quantity}mL
+    extracted_blood_color: '%{color}'
+    extracted_blood_coagulation: 凝血%{existence}
+    extracted_blood_2props: '%{prop1}で、%{prop2}'
+    extracted_blood_3props: '%{prop1}、%{prop2}で、%{prop3}'
+    extracted_blood: 心臓血%{chunk}。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ

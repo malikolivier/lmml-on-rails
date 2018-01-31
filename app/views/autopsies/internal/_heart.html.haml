@@ -1,0 +1,42 @@
+= exam.weight_description
+= exam.rigor_mortis_description
+= exam.epicardial_lipomatosis_description
+= exam.epicardial_petechia_description
+= exam.extracted_blood_description
+-# <%= exam.arteries_description %>
+-# <%= exam.heart_chambers_description %>
+-#
+-# <%
+-# no_scar = exam.scar_left_does_not_exist? && exam.scar_right_does_not_exist?
+-# same_thickness = exam.thickness_left == exam.thickness_right
+-# muscle_phrases = []
+-# if exam.thickness_left.present? && same_thickness
+-#   muscle_phrases.push("厚さ左右#{exam.thickness_left}cm")
+-# else
+-#   thickness_phrases = []
+-#   thickness_phrases.push("左#{exam.thickness_left}cm") if exam.thickness_left.present?
+-#   thickness_phrases.push("右#{exam.thickness_right}cm") if exam.thickness_right.present?
+-#   muscle_phrases.push("厚さ#{thickness_phrases.to_sentence two_words_connector: '、'}") if thickness_phrases.any?
+-# end
+-# if no_scar
+-#   muscle_phrases.push('瘢痕なし')
+-# elsif exam.scar_left_exists? && exam.scar_right_exists?
+-#   muscle_phrases.push('左右瘢痕あり')
+-# else
+-#   muscle_phrases.push('左側瘢痕あり') if exam.scar_left_exists?
+-#   muscle_phrases.push('右側瘢痕あり') if exam.scar_right_exists?
+-# end
+-# %>
+-# <%= "心筋は#{muscle_phrases.to_sentence_with_comma_and_full_stop}" if muscle_phrases.any? %>
+-#
+-# <%
+-# pulmonary_artery_description = ''
+-# if exam.pulmonary_artery_width.present? && exam.pulmonary_artery_thrombus.present?
+-#   pulmonary_artery_description = "肺動脈起始部の幅#{exam.pulmonary_artery_width}cm、血栓#{I18n.t "existence.#{exam.pulmonary_artery_thrombus}"}。"
+-# elsif exam.pulmonary_artery_width.present? && exam.pulmonary_artery_thrombus.blank?
+-#   pulmonary_artery_description = "肺動脈起始部の幅#{exam.pulmonary_artery_width}cm。"
+-# elsif exam.pulmonary_artery_width.blank? && exam.pulmonary_artery_thrombus.present?
+-#   pulmonary_artery_description = "肺動脈起始部に血栓#{I18n.t "existence.#{exam.pulmonary_artery_thrombus}"}。"
+-# end
+-# %>
+-# <%= pulmonary_artery_description %>
