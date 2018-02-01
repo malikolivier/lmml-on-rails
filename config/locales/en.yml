@@ -529,6 +529,15 @@ en:
     left_cortex_left_right_medulla: 左皮質・左右髄質は%{thickness}
     right_cortex_left_right_medulla: 右皮質・左右髄質は%{thickness}
     left_right_cortex_left_right_medulla: 左右の皮質・髄質は%{thickness}
+  internal_kidneys_examinations:
+    same_weight: 左右%{weight}g
+    weight: '%{deixis}%{weight}g'
+    organ_description: '%{deixis}腎臓：%{description}'
+    hardness: 硬度は%{hardness}。
+    capsule_removal: 被膜剥離%{intensity}
+    capsule_congestion: 鬱血%{intensity}
+    pelvis_congestion: 血管充盈%{intensity}
+    pelvis_petechia: 溢血点%{quantity}
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
