@@ -561,6 +561,12 @@ en:
     gallstones_color_quantity: '%{color}胆石%{quantity}。'
     gallstones_quantity: 胆石%{quantity}。
     gallstones_size: 胆石は%{size}。
+  internal_stomach_examinations:
+    almost_empty: ほとんど空虚。
+    rugae_persistent: 粘膜の皺襞残る。
+    rugae_not_persistent: 粘膜の皺襞伸びる。
+    content_quality: '%{quantity}mL'
+    filled_stomach: 内に%{digestion}のものを含む%{aspect}%{color}内容%{quantity}あり。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
