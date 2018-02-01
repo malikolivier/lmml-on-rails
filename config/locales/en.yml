@@ -576,6 +576,11 @@ en:
     feces: 便
     no_content: '%{organ}に%{content}なし。'
     has_content: '%{organ}に%{color}%{content}%{quantity}量あり。'
+  internal_bladder_examinations:
+    empty: 空虚。
+    content: 内に%{color}%{transparency}尿%{quantity}あり。
+    urine_quantity: '%{quantity}mL'
+    membrane: 粘膜%{color}。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
