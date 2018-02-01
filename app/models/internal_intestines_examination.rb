@@ -10,7 +10,7 @@
 #
 
 class InternalIntestinesExamination < ExaminationBase
-  enum appendix: Settings.enums.existence, _prefix: true
+  enum appendix: Settings.enums.existence, _prefix: true, i18n_key: :existence
 
   has_many :intestine_sections, -> { order(:category) },
            inverse_of: :internal_intestines_examination

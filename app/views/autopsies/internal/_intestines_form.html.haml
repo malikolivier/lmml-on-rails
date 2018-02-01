@@ -1,6 +1,6 @@
 = form_for(exam, builder: VueFormBuilder, html: { id: 'internal_intestines_examination' }, url: '') do |f|
   = f.hidden_field :id
-  = f.select :appendix, translated_internal_intestines_appendixes
+  = f.smart_select :appendix
   = render 'nested_plural_form', form: f, method: :intestine_sections,
                                  fields: { color: { type: :select },
                                            quantity: { type: :select } }
