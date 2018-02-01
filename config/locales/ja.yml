@@ -475,6 +475,22 @@ ja:
     width: 起始部の幅%{width}cm
     arteriosclerosis: 内膜の動脈硬化性変化%{intensity}
     no_injury: 冠状動脈口に異常なし
+  internal_lungs_examinations:
+    same_weight: 左右%{weight}g
+    weight: '%{deixis}%{weight}g'
+    same_air_content: 左右%{quantity}
+    air_content: 含気量%{quantity}
+    air_content_deixis: '%{deixis}%{quantity}'
+    air_content_description: 含気量%{chunk}
+    same_congestion: 左右%{intensity}
+    congestion: 鬱血%{intensity}
+    congestion_deixis: '%{deixis}%{intensity}'
+    congestion_description: 鬱血%{chunk}
+    no_injury_misc: 気腫・結節・瘢痕等の異常なし。
+    no_foreign_fluid: 左右気管支内に異液なし。
+    has_foreign_fluids: '%{deixis}気管支内に次の異液がある：%{description}。'
+    no_foreign_fluid_deixis: '%{deixis}気管支内に異液なし。'
+    no_injury_lymph: 肺門部リンパ節に異常なし。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ

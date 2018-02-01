@@ -1,4 +1,4 @@
-class ExternalEyeExaminationsDecorator < DualExaminationBasesDecorator
+class ExternalEyeExaminationsDecorator < DualRecordsDecorator
   def closedness_description
     if attribute_equal?(:closed)
       same_closedness_descripton

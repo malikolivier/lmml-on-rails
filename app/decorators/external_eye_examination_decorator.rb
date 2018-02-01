@@ -1,4 +1,4 @@
-class ExternalEyeExaminationDecorator < DualExaminationBaseDecorator
+class ExternalEyeExaminationDecorator < DualRecordDecorator
   delegate :aperture, :closed, :eye_closed?, :eye_open?
 
   def closedness_description

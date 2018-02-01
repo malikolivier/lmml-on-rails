@@ -1,4 +1,4 @@
-class ExternalEarExaminationDecorator < DualExaminationBaseDecorator
+class ExternalEarExaminationDecorator < DualRecordDecorator
   delegate :bleeding?
 
   def description
