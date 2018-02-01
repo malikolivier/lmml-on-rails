@@ -561,6 +561,18 @@ ja:
     content: 内に%{color}%{transparency}尿%{quantity}あり。
     urine_quantity: '%{quantity}mL'
     membrane: 粘膜%{color}。
+  internal_genitalia_examinations:
+    no_injury: 子宮に位置や形の異常なし。
+    endometrium_color: 内膜は%{color}。
+    length: 長さ%{length}cm
+    fundal_width: 幅底部で%{width}㎝
+    cervical_width: 頸部で%{width}㎝
+    uterus_dimension: 子宮は%{description}。
+    both_ovaries_distance: 卵巣は左右共%{distance}cm大。
+    both_ovaries_no_distance: 卵巣は左右共。
+    left_ovary_missing: 左卵巣は損失する。
+    right_ovary_missing: 右卵巣は損失する。
+    no_ovary: 左右卵巣は損失する。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
