@@ -546,6 +546,12 @@ en:
   internal_pancreas_examinations:
     hardness: 硬度は%{hardness}。
     no_injury: 肉眼的に出血・脂肪壊死の異常なし。
+  internal_liver_examinations:
+    weight: '%{weight}g。'
+    hardness: 硬度は%{hardness}。
+    congestion: 鬱血%{intensity}。
+    steatosis: 肉眼的に脂肪変性%{intensity}。
+    no_injury: 胆管・血管に異常なし。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
