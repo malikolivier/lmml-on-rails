@@ -3,15 +3,11 @@
 # The decorated single object should respond to the :left? and :right? messages.
 class DualRecordsDecorator < ApplicationCollectionDecorator
   def left
-    decorated_collection.select do |single_decorated_object|
-      single_decorated_object.object.left?
-    end.first
+    object.compact.select(&:left?).first&.decorate
   end
 
   def right
-    decorated_collection.select do |single_decorated_object|
-      single_decorated_object.object.right?
-    end.first
+    object.compact.select(&:right?).first&.decorate
   end
 
   private
