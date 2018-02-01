@@ -511,6 +511,8 @@ en:
     has_foreign_fluids: '%{deixis}気管支内に次の異液がある：%{description}。'
     no_foreign_fluid_deixis: '%{deixis}気管支内に異液なし。'
     no_injury_lymph: 肺門部リンパ節に異常なし。
+  internal_abdominal_aorta_examinations:
+    arteriosclerosis: 内膜の動脈硬化性変化%{intensity}。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
