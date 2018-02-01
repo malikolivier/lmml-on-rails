@@ -15,7 +15,7 @@ class InternalAdrenalGlandsExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
 
   enum cortex_thickness: Settings.enums.five_scale_thickness,
-       _prefix: 'cortex'
+       _prefix: 'cortex', i18n_key: :thickness
   enum medulla_thickness: Settings.enums.five_scale_thickness,
-       _prefix: 'medulla'
+       _prefix: 'medulla', i18n_key: :thickness
 end
