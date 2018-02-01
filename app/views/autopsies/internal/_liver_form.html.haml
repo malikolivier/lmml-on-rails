@@ -8,9 +8,9 @@
     .panel-heading= t('activerecord.models.gall_bladder')
     .panel-body
       = f.fields_for :gall_bladder do |ff|
-        = ff.select :bile_color, translated_gall_bladder_bile_colors
-        = ff.select :bile_quantity, translated_gall_bladder_bile_quantities
-        = ff.select :gallstones_quantity, translated_gall_bladder_gallstones_quantities
-        = ff.select :gallstones_color, translated_gall_bladder_gallstones_colors
-        = ff.select :gallstones_size, translated_gall_bladder_gallstones_sizes
+        = ff.smart_select :bile_color
+        = ff.smart_select :bile_quantity
+        = ff.smart_select :gallstones_quantity
+        = ff.smart_select :gallstones_color
+        = ff.smart_select :gallstones_size
   = yield f
