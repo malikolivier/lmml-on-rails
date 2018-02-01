@@ -511,6 +511,24 @@ en:
     has_foreign_fluids: '%{deixis}気管支内に次の異液がある：%{description}。'
     no_foreign_fluid_deixis: '%{deixis}気管支内に異液なし。'
     no_injury_lymph: 肺門部リンパ節に異常なし。
+  internal_abdominal_aorta_examinations:
+    arteriosclerosis: 内膜の動脈硬化性変化%{intensity}。
+  internal_adrenal_glands_examinations:
+    left_cortex: 左皮質は%{thickness}
+    right_cortex: 右皮質は%{thickness}
+    left_right_cortex: 左右皮質は%{thickness}
+    left_medulla: 左髄質は%{thickness}
+    left_cortex_left_medulla: 左皮質・左髄質は%{thickness}
+    right_cortex_left_medulla: 右皮質・左髄質は%{thickness}
+    left_right_cortex_left_medulla: 左右の皮質・左髄質は%{thickness}
+    right_medulla: 右髄質は%{thickness}
+    left_cortex_right_medulla: 左皮質・右髄質は%{thickness}
+    right_cortex_right_medulla: 右皮質・右髄質は%{thickness}
+    left_right_cortex_right_medulla: 左右皮質・右髄質は%{thickness}
+    left_right_medulla: 左右髄質%{thickness}
+    left_cortex_left_right_medulla: 左皮質・左右髄質は%{thickness}
+    right_cortex_left_right_medulla: 右皮質・左右髄質は%{thickness}
+    left_right_cortex_left_right_medulla: 左右の皮質・髄質は%{thickness}
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
