@@ -1,7 +1,7 @@
 = form_for(exam, builder: VueFormBuilder, html: { id: 'internal_bladder_examination' }, url: '') do |f|
   = f.hidden_field :id
   = f.number_field :urine_quantity
-  = f.select :urine_color, translated_internal_bladder_urine_colors
-  = f.select :urine_transparency, translated_internal_bladder_urine_transparencies
-  = f.select :membrane_color, translated_internal_bladder_membrane_colors
+  = f.smart_select :urine_color
+  = f.smart_select :urine_transparency
+  = f.smart_select :membrane_color
   = yield f
