@@ -18,12 +18,15 @@
 class InternalKidneysExamination < ExaminationBase
   enum deixis: Settings.enums.deixes
 
-  enum hardness: Settings.enums.hardness
+  enum hardness: Settings.enums.hardness, i18n_key: :hardness
   enum capsule_removal: Settings.enums.five_scale_intensity, _prefix: true,
        i18n_key: :intensity
-  enum capsule_congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum pelvis_congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum pelvis_petechia: Settings.enums.five_scale_quantity, _prefix: true
+  enum capsule_congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum pelvis_congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum pelvis_petechia: Settings.enums.five_scale_quantity, _prefix: true,
+       i18n_key: :quantity
 
   def description
     description = ''
