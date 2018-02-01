@@ -547,6 +547,15 @@ ja:
     rugae_not_persistent: 粘膜の皺襞伸びる。
     content_quality: '%{quantity}mL'
     filled_stomach: 内に%{digestion}のものを含む%{aspect}%{color}内容%{quantity}あり。
+  internal_intestines_examinations:
+    no_injury: 諸腸の粘膜に出血等の異常なし。
+    with_appendix: 虫垂あり。
+    no_appendix: 虫垂なし。
+  intestine_sections:
+    contents: 内容
+    feces: 便
+    no_content: '%{organ}に%{content}なし。'
+    has_content: '%{organ}に%{color}%{content}%{quantity}量あり。'
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
