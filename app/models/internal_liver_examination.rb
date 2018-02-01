@@ -14,8 +14,10 @@
 
 class InternalLiverExamination < ExaminationBase
   enum hardness: Settings.enums.hardness
-  enum congestion: Settings.enums.three_scale_intensity, _prefix: true
-  enum steatosis: Settings.enums.five_scale_intensity, _prefix: true
+  enum congestion: Settings.enums.three_scale_intensity, _prefix: true,
+       i18n_key: :intensity
+  enum steatosis: Settings.enums.five_scale_intensity, _prefix: true,
+       i18n_key: :intensity
 
   has_one :gall_bladder, inverse_of: :internal_liver_examination
 

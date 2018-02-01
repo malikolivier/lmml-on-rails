@@ -1,9 +1,9 @@
 = form_for(setup_internal_liver_examination(exam), builder: VueFormBuilder, html: { id: 'internal_liver_examination' }, url: '') do |f|
   = f.hidden_field :id
   = f.number_field :weight
-  = f.select :hardness, translated_internal_liver_hardnesses
-  = f.select :congestion, translated_internal_liver_congestions
-  = f.select :steatosis, translated_internal_liver_steatoses
+  = f.smart_select :hardness
+  = f.smart_select :congestion
+  = f.smart_select :steatosis
   .panel.panel-default
     .panel-heading= t('activerecord.models.gall_bladder')
     .panel-body
