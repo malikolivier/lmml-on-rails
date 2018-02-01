@@ -13,7 +13,7 @@ class InternalSpleenExaminationDecorator < ExaminationBaseDecorator
 
   def pulp_distinct_description
     return if object.pulp_distinct.blank?
-    "赤脾髄・白脾髄の別は#{I18n.t "clarity.#{object.pulp_distinct}"}。"
+    t('.pulp_distinct', clarity: object.translated_enum_value(:pulp_distinct))
   end
 
   private

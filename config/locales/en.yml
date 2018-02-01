@@ -542,6 +542,7 @@ en:
     weight: '%{weight}g。'
     hardness: 硬度は%{hardness}
     congestion: 鬱血%{intensity}
+    pulp_distinct: 赤脾髄・白脾髄の別は%{clarity}。
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
