@@ -10,5 +10,6 @@
 #
 
 class InternalAbdominalAortaExamination < ExaminationBase
-  enum arteriosclerosis: Settings.enums.five_scale_intensity, _prefix: true
+  enum arteriosclerosis: Settings.enums.five_scale_intensity, _prefix: true,
+       i18n_key: :intensity
 end
