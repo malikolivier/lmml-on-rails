@@ -538,6 +538,10 @@ en:
     capsule_congestion: 鬱血%{intensity}
     pelvis_congestion: 血管充盈%{intensity}
     pelvis_petechia: 溢血点%{quantity}
+  internal_spleen_examinations:
+    weight: '%{weight}g。'
+    hardness: 硬度は%{hardness}
+    congestion: 鬱血%{intensity}
   analysis_blood_types:
     anti_a: anti-A
     anti_b: anti-B
