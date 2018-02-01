@@ -532,6 +532,15 @@ ja:
     congestion: 鬱血%{intensity}。
     steatosis: 肉眼的に脂肪変性%{intensity}。
     no_injury: 胆管・血管に異常なし。
+  gall_bladders:
+    no_bile: 胆嚢内に胆汁なし。
+    bile_unknown: 胆嚢内に胆汁があるかどうかは不明。
+    bile_color_quantity: 胆嚢内に%{color}胆汁%{quantity}。
+    bile_quantity: 胆嚢内に胆汁%{quantity}。
+    no_gallstones: 胆石なし。
+    gallstones_color_quantity: '%{color}胆石%{quantity}。'
+    gallstones_quantity: 胆石%{quantity}。
+    gallstones_size: 胆石は%{size}。
   analysis_blood_types:
     anti_a: 抗Ａ
     anti_b: 抗Ｂ
