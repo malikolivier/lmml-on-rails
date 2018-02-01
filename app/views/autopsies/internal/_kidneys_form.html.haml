@@ -1,11 +1,11 @@
 - left = true
 = render 'primary_dual_form', exam: exam do |f|
   = f.number_field :weight
-  = f.select :hardness, translated_internal_kidneys_hardnesses
+  = f.smart_select :hardness
   = f.smart_select :capsule_removal
-  = f.select :capsule_congestion, translated_internal_kidneys_capsule_congestions
-  = f.select :pelvis_congestion, translated_internal_kidneys_pelvis_congestions
-  = f.select :pelvis_petechia, translated_internal_kidneys_pelvis_petechia
+  = f.smart_select :capsule_congestion
+  = f.smart_select :pelvis_congestion
+  = f.smart_select :pelvis_petechia
   - if left
     - # Only show common fields (examination note) once
     = yield f
