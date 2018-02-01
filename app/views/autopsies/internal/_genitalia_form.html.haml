@@ -3,7 +3,7 @@
   = f.number_field :length
   = f.number_field :fundal_width
   = f.number_field :cervical_width
-  = f.select :endometrium_color, translated_internal_genitalia_endometrium_colors
-  = f.select :ovaries_presence, translated_internal_genitalia_ovaries_presences
+  = f.smart_select :endometrium_color
+  = f.smart_select :ovaries_presence
   = f.number_field :ovaries_distance
   = yield f
