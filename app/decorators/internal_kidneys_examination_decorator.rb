@@ -5,15 +5,15 @@ class InternalKidneysExaminationDecorator < DualExaminationBaseDecorator
   end
 
   def description
-    description = ''
-    description += hardness_description
-    description += capsule_description
-    description += pelvis_description
-    description
+    h.join_sentences([hardness_description,
+                      capsule_description,
+                      pelvis_description])
   end
 
   def description_with_deixis
-    t('.organ_description', deixis: translated_deixis, description: description)
+    desc = description
+    return if desc.blank?
+    t('.organ_description', deixis: translated_deixis, description: desc)
   end
 
   private
