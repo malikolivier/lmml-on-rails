@@ -5,15 +5,11 @@
   %h1{ id: analysis_type.head_id }= analysis_type.section_title
 .row
   .col-sm-6
-    - begin
-      = render "#{analysis_type.partial_show_path}_form", exam: exam do |f|
-        -# Initialize analysis
-        - exam.analysis ||= Analysis.new(analysis_type: analysis_type.object)
-        = f.fields_for :analysis do |ff|
-          = ff.text_field :note
-    - rescue ActionView::MissingTemplate # TODO: Remove when all forms are done
-      -# haml-lint:disable InlineStyles
-      %div{ style: 'color:red' }= $ERROR_INFO
+    = render "#{analysis_type.partial_show_path}_form", exam: exam do |f|
+      -# Initialize analysis
+      - exam.analysis ||= Analysis.new(analysis_type: analysis_type.object)
+      = f.fields_for :analysis do |ff|
+        = ff.text_field :note
   .col-sm-6
     .alert.alert-danger{ id: "analysis_#{analysis_type.name}_errors" }
     %div{ id: "analysis_#{analysis_type.name}_preview" }
