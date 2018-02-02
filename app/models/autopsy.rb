@@ -44,6 +44,7 @@ class Autopsy < ApplicationRecord
   has_many :photographs, through: :autopsy_photograph_takings
 
   before_create :setup_new_autopsy
+  after_create :create_examinations!
 
   def victim_name
     victim.name if victim.present?
@@ -60,7 +61,7 @@ class Autopsy < ApplicationRecord
 
   def examination(examination_type)
     examinations.find_by(examination_types: { id: examination_type.id }) ||
-      Examination.new(examination_type: examination_type)
+      Examination.new(examination_type: examination_type, autopsy: self)
   end
 
   def analysis(analysis_type)
@@ -97,5 +98,11 @@ class Autopsy < ApplicationRecord
     self.court ||= judge.institution if judge.present?
     return if police_inspector.blank?
     self.police_station ||= police_inspector.institution
+  end
+
+  def create_examinations!
+    ExaminationType.find_each do |examination_type|
+      examination(examination_type).save!
+    end
   end
 end
