@@ -1,4 +1,4 @@
-= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_bladder_examination' }, url: '') do |f|
+= vue_form_for(exam) do |f|
   = f.hidden_field :id
   = f.number_field :urine_quantity
   = f.smart_select :urine_color

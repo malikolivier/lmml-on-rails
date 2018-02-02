@@ -1,4 +1,4 @@
-= form_for(exam, builder: VueFormBuilder, html: { id: 'external_head_examination' }, url: '') do |f|
+= vue_form_for(exam) do |f|
   = f.hidden_field :id
   .panel.panel-default
     .panel-heading= t('activerecord.attributes.external_head_examination.hair')

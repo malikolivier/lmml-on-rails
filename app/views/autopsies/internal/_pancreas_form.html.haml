@@ -1,4 +1,4 @@
-= form_for(exam, builder: VueFormBuilder, html: { id: 'internal_pancreas_examination' }, url: '') do |f|
+= vue_form_for(exam) do |f|
   = f.hidden_field :id
   = f.smart_select :hardness
   = yield f
