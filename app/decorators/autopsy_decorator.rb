@@ -28,7 +28,7 @@ class AutopsyDecorator < ApplicationDecorator
   end
 
   def victim_description
-    victim.death_information
+    victim&.death_information
   end
 
   def autopsy_records
