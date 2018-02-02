@@ -98,17 +98,8 @@ module LmmlOnRails
     end
 
     def insert_paragraph(object)
-      begin
-        paragraph = render(partial: object.partial_show_path,
-                           locals: { exam: object.get })
-      rescue
-        # TODO: Print error and falls back to deprecated implementation.
-        # Remove this begin/rescue when decorators are all implemented
-        paragraph = content_tag(:div, "#{$ERROR_INFO} (no decorator support)",
-                                style: 'color:red')
-        paragraph << render(partial: object.partial_show_path,
-                            locals: { exam: object.object.get })
-      end
+      paragraph = render(partial: object.partial_show_path,
+                         locals: { exam: object.get })
       @html << content_tag(:p, paragraph)
     end
 
