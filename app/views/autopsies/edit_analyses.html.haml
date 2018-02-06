@@ -1,5 +1,5 @@
 = hidden_field :autopsy, :id, value: @autopsy.id
-- analysis_types = AnalysisType.decorate
+- analysis_types = AnalysisType.except_other.decorate
 .left_col
   %ul.nav.nav-stacked
     %li.nav-item
