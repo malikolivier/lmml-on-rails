@@ -13,8 +13,12 @@
       - analysis_types.each do |analysis_type|
         %li.nav-item
           = link_to analysis_type.section_title, "##{analysis_type.head_id}"
+      %li.nav-item
+        = link_to 'その他', '#analysis_other_head'
 .main_col
   %h1= t '.title'
   - analysis_types.each do |analysis_type|
     - analysis = @autopsy.analysis(analysis_type.object)
     = render 'analyses/form', exam: analysis.get, analysis_type: analysis_type
+  = render 'analysis_others/form',
+           analysis_others: @autopsy.analysis_others

@@ -1,0 +1,14 @@
+-#
+  @analysis_others
+.row
+  %h1#analysis_other_head その他
+.row
+  .col-sm-12#analysis_other
+    %div.alert.alert-danger{ 'v-if': 'errors', 'v-text': 'errors' }
+    %div{ 'v-for': 'analysis in analysis_others' }
+      = label_tag '検査名称'
+      %button.btn.btn-danger.btn-xs{ '@click': 'deleteAnalysis(analysis)' } X
+      = text_field_tag :title, '', class: 'form-control', 'v-model': 'analysis.title', '@keyup': 'save(analysis)'
+      = label_tag '検査内容'
+      = text_area_tag :content, '', class: 'form-control', 'v-model': 'analysis.content', '@keyup': 'save(analysis)'
+    %button.btn.btn-default{ '@click': 'addAnalysis()' } その他検査を追加
