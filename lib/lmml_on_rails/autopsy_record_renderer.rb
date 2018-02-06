@@ -28,6 +28,8 @@ module LmmlOnRails
         add_examination(object)
       elsif object.instance_of? AnalysisDecorator
         add_analysis(object)
+      elsif object.instance_of? AnalysisOtherDecorator
+        add_analysis(object)
       else
         raise PushError, 'Can only push instances of examinations or analyses'
       end

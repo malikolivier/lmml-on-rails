@@ -40,6 +40,7 @@ class Autopsy < ApplicationRecord
   has_many :explanations
   has_many :examinations
   has_many :analyses
+  has_many :analysis_others
   has_many :autopsy_photograph_takings
   has_many :photographs, through: :autopsy_photograph_takings
 

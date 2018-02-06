@@ -15,14 +15,8 @@ class AnalysisType < ApplicationRecord
   validates :name, uniqueness: true
   validates :placement, uniqueness: true
 
-  scope :except_other, -> { where.not(name: 'other') }
-
   def this_analysis_model
     "analysis_#{name}".camelize.constantize
-  end
-
-  def other?
-    name == 'other'
   end
 
   scope :by_name, ->(name) { find_by!(name: name) }
