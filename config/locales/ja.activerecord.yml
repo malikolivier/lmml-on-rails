@@ -307,6 +307,9 @@ ja:
         conclusion: 結論
       diatom_count:
         quantity: 数
+      analysis_other:
+        title: 検査名称
+        content: 検査内容
     enums:
       participation:
         role:

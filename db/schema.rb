@@ -98,13 +98,13 @@ ActiveRecord::Schema.define(version: 20170421063619) do
   end
 
   create_table "analysis_others", force: :cascade do |t|
-    t.integer  "analysis_id"
+    t.integer  "autopsy_id"
     t.text     "title"
     t.text     "content"
     t.integer  "placement"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["analysis_id"], name: "index_analysis_others_on_analysis_id"
+    t.index ["autopsy_id"], name: "index_analysis_others_on_autopsy_id"
   end
 
   create_table "analysis_poisonings", force: :cascade do |t|

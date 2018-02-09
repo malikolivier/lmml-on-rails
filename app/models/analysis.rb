@@ -17,9 +17,7 @@ class Analysis < ApplicationRecord
 
   default_scope do
     # Order analyses
-    joins(:analysis_type)
-      .left_outer_joins(:analysis_other)
-      .order('`analysis_types`.`placement`, `analysis_others`.`placement`')
+    joins(:analysis_type).order('`analysis_types`.`placement`')
   end
 
   def get
@@ -31,10 +29,6 @@ class Analysis < ApplicationRecord
   def serialize
     get.as_lmml_json.except!('analysis')
   end
-
-  has_one :analysis_other
-
-  delegate :other?, to: :analysis_type
 
   includes_in_json :analysis_type
   includes_method_in_json :serialize

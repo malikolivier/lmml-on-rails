@@ -30,7 +30,8 @@ Rails.application.routes.draw do
         AnalysisType.all_names.each do |analysis_name|
           resource analysis_name, only: %i[create update]
         end
-        resources :analysis_others, only: %i[create update]
+        resources :analysis_others, only: %i[index create update destroy],
+                                    shallow: true
       end
       resources :autopsy_photograph_takings,
                 only: %i[index create update destroy], shallow: true
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
           resource analysis_name, only: %i[new edit],
                                   controller: "api/#{analysis_name.pluralize}"
         end
+        resources :analysis_others, only: :new
       end
       resources :autopsy_photograph_takings, only: :new
     end

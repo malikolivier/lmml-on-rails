@@ -301,6 +301,9 @@ en:
         conclusion: Conclusion
       diatom_count:
         quantity: Quantity
+      analysis_other:
+        title: Title
+        content: Content
     enums:
       participation:
         role:

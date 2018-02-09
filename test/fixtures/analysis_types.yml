@@ -50,7 +50,3 @@ biochemistry:
 diatom_test:
   placement: 10
   name: diatom_test
-
-other:
-  placement: 1000
-  name: other

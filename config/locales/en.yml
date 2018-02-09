@@ -686,6 +686,9 @@ en:
     descriptive_left_lung: 左肺に%{descriptive_quantity}
     right_lung: 右肺臓では%{quantity}
     descriptive_right_lung: 右肺に%{descriptive_quantity}
+  analysis_others:
+    form_section_title: Miscellaneous analyses
+    add: Add another miscellaneous analysis
   helpers:
     back: Back
     new: New

@@ -19,10 +19,6 @@ class AnalysisType < ApplicationRecord
     "analysis_#{name}".camelize.constantize
   end
 
-  def other?
-    name == 'other'
-  end
-
   scope :by_name, ->(name) { find_by!(name: name) }
 
   class << self

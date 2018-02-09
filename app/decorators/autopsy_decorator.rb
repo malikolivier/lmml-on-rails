@@ -1,6 +1,7 @@
 class AutopsyDecorator < ApplicationDecorator
   decorates_association :examinations
   decorates_association :analyses
+  decorates_association :analysis_others
   decorates_association :police_inspector
   decorates_association :suspect
   decorates_association :judge
@@ -35,6 +36,7 @@ class AutopsyDecorator < ApplicationDecorator
     generator = LmmlOnRails::AutopsyRecordRenderer.new
     examinations.each { |examination| generator << examination }
     analyses.each { |analysis| generator << analysis }
+    analysis_others.each { |analysis_other| generator << analysis_other }
     generator.html
   end
 
