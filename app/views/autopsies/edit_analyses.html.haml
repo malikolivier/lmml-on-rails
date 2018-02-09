@@ -20,5 +20,4 @@
   - analysis_types.each do |analysis_type|
     - analysis = @autopsy.analysis(analysis_type.object)
     = render 'analyses/form', exam: analysis.get, analysis_type: analysis_type
-  = render 'analysis_others/form',
-           analysis_others: @autopsy.analysis_others
+  = render 'analysis_others/form'
