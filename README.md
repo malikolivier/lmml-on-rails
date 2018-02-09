@@ -72,3 +72,7 @@ rails server
 ```
 
 Go to http://localhost:3000 and get started to development.
+
+# App architecture
+
+See HACKING.md
