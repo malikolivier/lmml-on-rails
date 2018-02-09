@@ -14,7 +14,8 @@
         %li.nav-item
           = link_to analysis_type.section_title, "##{analysis_type.head_id}"
       %li.nav-item
-        = link_to 'その他', '#analysis_other_head'
+        = link_to t('analysis_others.form_section_title'),
+                  '#analysis_other_head'
 .main_col
   %h1= t '.title'
   - analysis_types.each do |analysis_type|
