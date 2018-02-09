@@ -17,6 +17,11 @@ LMML.loaders.analysis_other = function () {
     computed: {
       api () {
         return `/api/autopsies/${LMML.autopsy_id}/analysis_others`
+      },
+      placementOfLast () {
+        return this.analysis_others.reduce(function (max, analysis) {
+          return analysis.placement
+        }, 0)
       }
     },
     methods: {
@@ -25,6 +30,20 @@ LMML.loaders.analysis_other = function () {
           .then(function (response) {
             this.analysis_others = response.body
           }, this._errorHandler)
+      },
+      addAnalysis () {
+        this.$http.post(this.api, {
+          analysis_other: { placement: this.placementOfLast + 1 }
+        }).then(this.reload, this._errorHandler)
+      },
+      save: LMML.debounce(function updateAnalysis (analysis) {
+        vm.$http.patch(`/api/analysis_others/${analysis.id}`, {
+          analysis_other: analysis
+        }).then(function () {}, this._errorHandler)
+      }),
+      deleteAnalysis (analysis) {
+        this.$http.delete(`/api/analysis_others/${analysis.id}`)
+          .then(this.reload, this._errorHandler)
       },
       _errorHandler (errorResponse) {
         this.errors = errorResponse.body
