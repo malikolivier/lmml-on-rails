@@ -11,6 +11,8 @@ rvm install 2.4.1
 ## System dependencies
 
 ```sh
+# This installs git and tzdata (on Ubuntu).
+# tzdata should be included as is in most environment
 apt install git tzdata
 ```
 
