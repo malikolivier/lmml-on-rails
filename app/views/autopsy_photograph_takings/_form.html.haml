@@ -1,6 +1,6 @@
 %h1#autopsy_photograph_taking_head= t('autopsy_photograph_takings.title')
 #autopsy_photograph_taking
-  %div{ 'v-if': 'errors', 'v-text': 'errors' }
+  %div.alert.alert-danger{ 'v-if': 'errors', 'v-text': 'errors' }
   - AutopsyPhotographTaking.categories.each do |category, _|
     .col-sm-3
       %h2= t("autopsy_photograph_takings.#{category}")
