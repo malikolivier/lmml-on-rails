@@ -1,24 +1,78 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version: 2.4.1
 
-Things you may want to cover:
+Suggest to install ruby with ![rvm](https://rvm.io/):
 
-* Ruby version
+```sh
+rvm install 2.4.1
+```
 
-* System dependencies
+## System dependencies
 
-* Configuration
+```sh
+# This installs git and tzdata (on Ubuntu).
+# tzdata should be included as is in most environment
+apt install git tzdata
+```
 
-* Database creation
+Clone the repository with git. Then install the dependencies:
 
-* Database initialization
+```sh
+cd lmml-on-rails
+gem install bundler
+bundle install
+```
 
-* How to run the test suite
+You will need to install a `node` to run some tests. It is suggested to manage
+your node install with ![nvm](https://github.com/creationix/nvm).
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+nvm install 6  # Install latest node version in the 6.x.x branch
+npm install
+```
 
-* Deployment instructions
+# Database initialization
 
-* ...
+Use sqlite3 for development. Run the following command to clean and reset the
+database.
+
+```sh
+rails db:clean
+```
+
+# How to run the test suite
+
+As a counter-measure against regressions, except for teaspoon (JS tests), all
+the following test suite and commands are run during the CI.
+
+- Back-end tests
+```sh
+rails test
+```
+- Front-end tests
+
+Run `bundle exec teaspoon` from CLI or go
+![there](http://localhost:3000/teaspoon/default) to run tests (broken now).
+
+- Linters
+
+```sh
+rubocop    # Run ruby linter
+haml-lint  # Run Haml linter
+standard   # Run JS linter
+```
+
+# Run the server
+
+When all is set up:
+
+```sh
+rails server
+```
+
+Go to http://localhost:3000 and get started to development.
+
+# App architecture
+
+See HACKING.md
