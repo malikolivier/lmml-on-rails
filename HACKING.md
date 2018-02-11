@@ -81,7 +81,11 @@ There are two kinds of routes:
 - API routes: These routes start from /api/ and mainly return JSON.
   They are to be used by external services for interaction with the LMML server.
   These routes are also used for dynamic content generation in the
-  `lmml-on-rails` interface.
+  `lmml-on-rails` interface. [1]
   API doc can be found here: http://localhost:3000/docs.
 - Application routes: These are the other routes use for standard web browsing.
   They include autopsy browsing and editing.
+
+[1] *Generation of API doc:* Swagger 2.0 documentation is generated in the
+controller `Api::DocsController` from swagger schema files included in
+`doc/swagger_schemas/*.rb`.
