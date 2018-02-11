@@ -82,5 +82,6 @@ There are two kinds of routes:
   They are to be used by external services for interaction with the LMML server.
   These routes are also used for dynamic content generation in the
   `lmml-on-rails` interface.
+  API doc can be found here: http://localhost:3000/docs.
 - Application routes: These are the other routes use for standard web browsing.
   They include autopsy browsing and editing.
