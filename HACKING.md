@@ -74,3 +74,13 @@ Text generation is handled by instances of classes derived from
 `ApplicationDecorator`.
 
 All translations can be found in `config/locales/*.yml`.
+
+### Routes
+
+There are two kinds of routes:
+- API routes: These routes start from /api/ and mainly return JSON.
+  They are to be used by external services for interaction with the LMML server.
+  These routes are also used for dynamic content generation in the
+  `lmml-on-rails` interface.
+- Application routes: These are the other routes use for standard web browsing.
+  They include autopsy browsing and editing.
