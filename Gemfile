@@ -59,8 +59,7 @@ gem 'vuejs-rails', github: 'malikolivier/vuejs-rails'
 gem 'swagger-blocks'
 
 # Translate model's field with globalize
-# TODO: update to the stable release when it is released officially for rails 5
-gem 'globalize', github: 'globalize/globalize'
+gem 'globalize'
 
 # Use draper for decorators
 gem 'draper'
