@@ -5,7 +5,7 @@ class HeartChambersDecorator < ApplicationCollectionDecorator
     return if object.none?
     grouped_heart_chambers = group_by(&:size)
     chamber_descriptions = PhraseBuilder.new
-    HeartChamber.sizes.each do |size, _| # rubocop:disable Metrics/BlockLength
+    HeartChamber.sizes.each_key do |size| # rubocop:disable Metrics/BlockLength
       next if grouped_heart_chambers[size].blank?
       size_name = HeartChamber.translated_enum_value(:size, size)
       status = 0b0

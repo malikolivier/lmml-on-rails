@@ -39,7 +39,7 @@ module LmmlOnRails
             type: @klass.columns_hash[included_column].type
           }
         end
-        @klass.json_includes.each do |relation, _|
+        @klass.json_includes.each_key do |relation|
           reflection = @klass.reflections[relation.to_s]
           relation_class_name = reflection.klass
           type = if reflection.is_a?(ActiveRecord::Reflection::HasManyReflection) ||

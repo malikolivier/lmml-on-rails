@@ -37,7 +37,7 @@ class ApplicationRecord < ActiveRecord::Base
     # i18n translation key used for this attribute.
     def enum(definitions)
       i18n_key = definitions.delete(:i18n_key)
-      definitions.each do |name, _values|
+      definitions.each_key do |name|
         next if %i[_prefix _suffix].include?(name)
         i18n_key = i18n_key.presence || name
         self.i18n_keys = i18n_keys.merge(name => i18n_key)

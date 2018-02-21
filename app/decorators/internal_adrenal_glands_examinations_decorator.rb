@@ -5,7 +5,7 @@ class InternalAdrenalGlandsExaminationsDecorator < DualExaminationBasesDecorator
     cortex_group = group_by(&:cortex_thickness)
     medulla_group = group_by(&:medulla_thickness)
     descriptions = PhraseBuilder.new(only_comma: true)
-    InternalAdrenalGlandsExamination.cortex_thicknesses.each do |thickness, _|
+    InternalAdrenalGlandsExamination.cortex_thicknesses.each_key do |thickness|
       next if cortex_group[thickness].blank? && medulla_group[thickness].blank?
       thickness_name = InternalAdrenalGlandsExamination
                        .translated_enum_value(:cortex_thickness, thickness)
