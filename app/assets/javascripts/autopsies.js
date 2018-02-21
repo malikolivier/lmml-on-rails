@@ -33,7 +33,7 @@ LMML.loaders.autopsy = function () {
       new_police_inspector: false
     },
     methods: {
-      switch_new_place: function () {
+      switch_new_place () {
         this.new_place = !this.new_place
         if (!this.new_place) {
           this.place_attributes.name = ''
@@ -41,19 +41,19 @@ LMML.loaders.autopsy = function () {
           this.place_attributes.autopsy_room = ''
         }
       },
-      switch_new_police_inspector: function () {
+      switch_new_police_inspector () {
         this.new_police_inspector = !this.new_police_inspector
         if (!this.new_police_inspector) {
           this.police_inspector_attributes.name = ''
         }
       },
-      switch_new_judge: function () {
+      switch_new_judge () {
         this.new_judge = !this.new_judge
         if (!this.new_judge) {
           this.judge_attributes.name = ''
         }
       },
-      switch_new_examiner: function () {
+      switch_new_examiner () {
         this.new_examiner = !this.new_examiner
         if (!this.new_examiner) {
           this.examiner_attributes.name = ''
