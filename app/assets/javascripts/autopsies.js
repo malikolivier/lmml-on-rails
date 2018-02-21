@@ -63,12 +63,4 @@ LMML.loaders.autopsy = function () {
       delete_participation: LMML.delete_('participation', model)
     }
   })
-
-  /*
-  // Scrap autocomplete for now (not a priority)
-  autopsyVm.$http.get('/api/people?order_by=autopsies_examiners_count')
-  .then(function(response) {
-    this.examiner_autocomplete = response.body;
-  });
-  */
 }
