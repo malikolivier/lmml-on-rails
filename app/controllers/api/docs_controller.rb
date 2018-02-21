@@ -7,7 +7,8 @@ module Api
     SWAGGERED_MODULES = Dir.glob(Rails.root.join('doc/**/*.rb')).map do |path|
       %r{/doc/swagger_schemas/(\w+).rb$}.match(path)[1]
                                         .classify.constantize
-    end # rubocop:enable Rails/FilePath
+    end
+    # rubocop:enable Rails/FilePath
 
     # GET /api/docs
     def index
