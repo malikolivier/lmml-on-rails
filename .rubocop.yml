@@ -42,6 +42,12 @@ Metrics/BlockLength:
 Rails/LexicallyScopedActionFilter:
   Enabled: false
 
+Style/MixinUsage:
+  # Do not check these Rails-generated files
+  Exclude:
+    - bin/setup
+    - bin/update
+
 # Below are TODO, these cops should be fixed!
 # Offense count: 252
 Style/Documentation:
