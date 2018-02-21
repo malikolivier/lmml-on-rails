@@ -12,7 +12,7 @@ class PersonDecorator < ApplicationDecorator
   end
 
   def institution_name
-    model.institution && model.institution.name
+    model.institution&.name
   end
 
   private

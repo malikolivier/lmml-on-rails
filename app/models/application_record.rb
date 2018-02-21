@@ -39,7 +39,7 @@ class ApplicationRecord < ActiveRecord::Base
       i18n_key = definitions.delete(:i18n_key)
       definitions.each do |name, _values|
         next if %i[_prefix _suffix].include?(name)
-        i18n_key = i18n_key.present? ? i18n_key : name
+        i18n_key = i18n_key.presence || name
         self.i18n_keys = i18n_keys.merge(name => i18n_key)
       end
       super(definitions)
