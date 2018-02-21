@@ -1,8 +1,8 @@
 module AutopsiesHelper
   # rubocop:disable MethodLength, AbcSize
   def setup_autopsy(autopsy)
-    autopsy.autopsy_date ||= DateTime.current
-    autopsy.starting_time ||= DateTime.current
+    autopsy.autopsy_date ||= Date.current
+    autopsy.starting_time ||= Time.current
     autopsy.place ||= Institution.new
     autopsy.suspect ||= Person.new
     autopsy.victim ||= Person.new
