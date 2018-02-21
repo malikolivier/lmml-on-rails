@@ -20,15 +20,10 @@ class Api::AnalysesController < AnalysesController
 
   private
 
-  def render_success # rubocop:disable MethodLength
+  def render_success
     template_file = "autopsies/analyses/_#{analysis_name}"
-    begin
-      html_preview = render_to_string template_file, locals: { exam: exam },
-                                                     layout: false
-    rescue => e # TODO: Falls back to deprecated implementation. Remove this
-      html_preview = render_to_string(template_file, locals: { exam: @exam },
-                                                     layout: false) + e
-    end
+    html_preview = render_to_string template_file, locals: { exam: exam },
+                                                   layout: false
     render json: {
       model: @exam.as_lmml_json,
       description: html_preview + exam.analysis_note
