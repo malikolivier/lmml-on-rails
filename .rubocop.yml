@@ -38,6 +38,9 @@ Metrics/BlockLength:
     # routes naturally has long blocks
     - config/routes.rb
 
+# Action filters are used in a few abstract classes, so disable this cop
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
 
 # Below are TODO, these cops should be fixed!
 # Offense count: 252
