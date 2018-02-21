@@ -1,11 +1,11 @@
 # README
 
-## Ruby version: 2.4.1
+## Ruby version: 2.4.3
 
 Suggest to install ruby with ![rvm](https://rvm.io/):
 
 ```sh
-rvm install 2.4.1
+rvm install 2.4.3
 ```
 
 ## System dependencies
