@@ -18,49 +18,49 @@ class InternalAdrenalGlandsExaminationsDecorator < DualExaminationBasesDecorator
         status |= medulla_group[thickness].any?(&:left?) ? 4 : 0
         status |= medulla_group[thickness].any?(&:right?) ? 8 : 0
       end
-      case status
-      when 0b0001
-        descriptions << t('.left_cortex', thickness: thickness_name)
-      when 0b0010
-        descriptions << t('.right_cortex', thickness: thickness_name)
-      when 0b0011
-        descriptions << t('.left_right_cortex', thickness: thickness_name)
-      when 0b0100
-        descriptions << t('.left_medulla', thickness: thickness_name)
-      when 0b0101
-        descriptions << t('.left_cortex_left_medulla',
+      descriptions << case status
+                      when 0b0001
+                        t('.left_cortex', thickness: thickness_name)
+                      when 0b0010
+                        t('.right_cortex', thickness: thickness_name)
+                      when 0b0011
+                        t('.left_right_cortex', thickness: thickness_name)
+                      when 0b0100
+                        t('.left_medulla', thickness: thickness_name)
+                      when 0b0101
+                        t('.left_cortex_left_medulla',
                           thickness: thickness_name)
-      when 0b0110
-        descriptions << t('.right_cortex_left_medulla',
+                      when 0b0110
+                        t('.right_cortex_left_medulla',
                           thickness: thickness_name)
-      when 0b0111
-        descriptions << t('.left_right_cortex_left_medulla',
+                      when 0b0111
+                        t('.left_right_cortex_left_medulla',
                           thickness: thickness_name)
-      when 0b1000
-        descriptions << t('.right_medulla', thickness: thickness_name)
-      when 0b1001
-        descriptions << t('.left_cortex_right_medulla',
+                      when 0b1000
+                        t('.right_medulla', thickness: thickness_name)
+                      when 0b1001
+                        t('.left_cortex_right_medulla',
                           thickness: thickness_name)
-      when 0b1010
-        descriptions << t('.right_cortex_right_medulla',
+                      when 0b1010
+                        t('.right_cortex_right_medulla',
                           thickness: thickness_name)
-      when 0b1011
-        descriptions << t('.left_right_cortex_right_medulla',
+                      when 0b1011
+                        t('.left_right_cortex_right_medulla',
                           thickness: thickness_name)
-      when 0b1100
-        descriptions << t('.left_right_medulla', thickness: thickness_name)
-      when 0b1101
-        descriptions << t('.left_cortex_left_right_medulla',
+                      when 0b1100
+                        t('.left_right_medulla', thickness: thickness_name)
+                      when 0b1101
+                        t('.left_cortex_left_right_medulla',
                           thickness: thickness_name)
-      when 0b1110
-        descriptions << t('.right_cortex_left_right_medulla',
+                      when 0b1110
+                        t('.right_cortex_left_right_medulla',
                           thickness: thickness_name)
-      when 0b1111
-        descriptions << t('.left_right_cortex_left_right_medulla',
+                      when 0b1111
+                        t('.left_right_cortex_left_right_medulla',
                           thickness: thickness_name)
-      else
-        descriptions << "Unhandled status value: #{status}"
-      end
+                      else
+                        "Unhandled status value: #{status}"
+                      end
     end
     descriptions.to_sentence
   end

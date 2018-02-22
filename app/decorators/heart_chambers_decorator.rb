@@ -13,50 +13,50 @@ class HeartChambersDecorator < ApplicationCollectionDecorator
       status |= grouped_heart_chambers[size].any?(&:right_ventricle?) ? 2 : 0
       status |= grouped_heart_chambers[size].any?(&:left_atrium?) ? 4 : 0
       status |= grouped_heart_chambers[size].any?(&:right_atrium?) ? 8 : 0
-      case status
-      when 0b0001
-        chamber_descriptions << t('.left_ventricle', size: size_name)
-      when 0b0010
-        chamber_descriptions << t('.right_ventricle', size: size_name)
-      when 0b0011
-        chamber_descriptions << t('.left_right_ventricle', size: size_name)
-      when 0b0100
-        chamber_descriptions << t('.left_atrium', size: size_name)
-      when 0b0101
-        chamber_descriptions << t('.right_ventricle_left_atrium',
+      chamber_descriptions << case status
+                              when 0b0001
+                                t('.left_ventricle', size: size_name)
+                              when 0b0010
+                                t('.right_ventricle', size: size_name)
+                              when 0b0011
+                                t('.left_right_ventricle', size: size_name)
+                              when 0b0100
+                                t('.left_atrium', size: size_name)
+                              when 0b0101
+                                t('.right_ventricle_left_atrium',
                                   size: size_name)
-      when 0b0110
-        chamber_descriptions << t('.left_ventricle_left_atrium',
+                              when 0b0110
+                                t('.left_ventricle_left_atrium',
                                   size: size_name)
-      when 0b0111
-        chamber_descriptions << t('.left_right_ventricle_left_atrium',
+                              when 0b0111
+                                t('.left_right_ventricle_left_atrium',
                                   size: size_name)
-      when 0b1000
-        chamber_descriptions << t('.right_atrium', size: size_name)
-      when 0b1001
-        chamber_descriptions << t('.left_ventricle_right_atrium',
+                              when 0b1000
+                                t('.right_atrium', size: size_name)
+                              when 0b1001
+                                t('.left_ventricle_right_atrium',
                                   size: size_name)
-      when 0b1010
-        chamber_descriptions << t('.right_ventricle_right_atrium',
+                              when 0b1010
+                                t('.right_ventricle_right_atrium',
                                   size: size_name)
-      when 0b1011
-        chamber_descriptions << t('.left_right_ventricle_right_atrium',
+                              when 0b1011
+                                t('.left_right_ventricle_right_atrium',
                                   size: size_name)
-      when 0b1100
-        chamber_descriptions << t('.left_right_atrium',
+                              when 0b1100
+                                t('.left_right_atrium',
                                   size: size_name)
-      when 0b1101
-        chamber_descriptions << t('.right_ventricle_left_right_atrium',
+                              when 0b1101
+                                t('.right_ventricle_left_right_atrium',
                                   size: size_name)
-      when 0b1110
-        chamber_descriptions << t('.left_ventricle_left_right_atrium',
+                              when 0b1110
+                                t('.left_ventricle_left_right_atrium',
                                   size: size_name)
-      when 0b1111
-        chamber_descriptions << t('.left_right_ventricle_left_right_atrium',
+                              when 0b1111
+                                t('.left_right_ventricle_left_right_atrium',
                                   size: size_name)
-      else
-        chamber_descriptions << "Unhandled status value: #{status}"
-      end
+                              else
+                                "Unhandled status value: #{status}"
+                              end
     end
     chamber_descriptions.to_sentence_no_dot
   end
