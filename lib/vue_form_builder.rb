@@ -32,6 +32,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
                        options, html_options)
     wrap_with_label(method, input_html, label_options)
   end
+  # rubocop:enable ParameterLists
 
   def number_field(method, options = {})
     options[:'v-model.number'] ||= v_model_value(method)
@@ -86,6 +87,7 @@ class VueFormBuilder < ActionView::Helpers::FormBuilder
                                        class: 'input-group')
     wrap_with_label(method, inner_html, label_options)
   end
+  # rubocop:enable Metrics/MethodLength
 
   def submit(value = nil, options = {})
     class_def = 'btn btn-default'

@@ -134,4 +134,5 @@ module LmmlOnRails
       ApplicationController.render(*args)
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end

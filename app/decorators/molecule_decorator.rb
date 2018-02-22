@@ -18,4 +18,5 @@ class MoleculeDecorator < ApplicationDecorator
                      unit: unit)
     end
   end
+  # rubocop:enable CyclomaticComplexity, MethodLength, AbcSize
 end

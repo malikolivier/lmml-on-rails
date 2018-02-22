@@ -79,3 +79,8 @@ module LmmlOnRails
     end
   end
 end
+# rubocop:enable Metrics/AbcSize
+# rubocop:enable Metrics/MethodLength
+# rubocop:enable Metrics/LineLength
+# rubocop:enable Layout/MultilineOperationIndentation
+# rubocop:enable Lint/UnreachableCode

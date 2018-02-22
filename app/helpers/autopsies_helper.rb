@@ -14,6 +14,7 @@ module AutopsiesHelper
     autopsy.participations.build if autopsy.participations.empty?
     autopsy
   end
+  # rubocop:enable MethodLength, AbcSize
 
   def translated_sexes
     Person.sexes.map do |sex, _|

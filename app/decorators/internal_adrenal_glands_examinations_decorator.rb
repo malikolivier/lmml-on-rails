@@ -64,4 +64,6 @@ class InternalAdrenalGlandsExaminationsDecorator < DualExaminationBasesDecorator
     end
     descriptions.to_sentence
   end
+  # rubocop:enable AbcSize, BlockLength, CyclomaticComplexity, MethodLength
+  # rubocop:enable PerceivedComplexity
 end

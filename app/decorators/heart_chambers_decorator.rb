@@ -60,4 +60,6 @@ class HeartChambersDecorator < ApplicationCollectionDecorator
     end
     chamber_descriptions.to_sentence_no_dot
   end
+  # rubocop:enable AbcSize, CyclomaticComplexity
+  # rubocop:enable PerceivedComplexity, MethodLength
 end

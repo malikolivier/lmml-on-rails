@@ -147,6 +147,7 @@ class ApplicationRecord < ActiveRecord::Base
       end
       super
     end
+    # rubocop:enable PredicateName
   end
 
   def as_lmml_json
@@ -157,3 +158,4 @@ class ApplicationRecord < ActiveRecord::Base
     as_lmml_json.to_xml(root: model_name.singular, dasherize: false)
   end
 end
+# rubocop:enable ClassLength
