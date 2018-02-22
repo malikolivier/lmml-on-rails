@@ -38,6 +38,22 @@ Metrics/BlockLength:
     # routes naturally has long blocks
     - config/routes.rb
 
+# Action filters are used in a few abstract classes, so disable this cop
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+# InverseOf and HasManyOrHasOneDependent are newer cops and fixing them would
+# take much time with little benefit
+Rails/InverseOf:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Style/MixinUsage:
+  # Do not check these Rails-generated files
+  Exclude:
+    - bin/setup
+    - bin/update
 
 # Below are TODO, these cops should be fixed!
 # Offense count: 252

@@ -55,6 +55,7 @@ class VueFormBuilder
         "#{accumulator}.#{object_name}"
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     # Get the class of the target object for this form
     # (I guess there is a more straightforward way to do this)

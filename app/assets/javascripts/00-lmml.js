@@ -78,16 +78,16 @@ var LMML = {
     var model = modelPath[0]
     return function (nestedModelVal) {
       this.$http.delete(`/api/${nestedModelPlural}/${nestedModelVal.id}`)
-      .then(function (response) {
-        var scopedVueModel = this
-        for (var j = 1; j < modelPath.length; j++) {
-          scopedVueModel = scopedVueModel[`${modelPath[j]}_attributes`]
-        }
-        var i = scopedVueModel[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
-          return submodel.id === nestedModelVal.id
-        })
-        scopedVueModel[`${nestedModelPlural}_attributes`].splice(i, 1)
-      }, LMML.httpErrorHandler(model))
+        .then(function (response) {
+          var scopedVueModel = this
+          for (var j = 1; j < modelPath.length; j++) {
+            scopedVueModel = scopedVueModel[`${modelPath[j]}_attributes`]
+          }
+          var i = scopedVueModel[`${nestedModelPlural}_attributes`].findIndex(function (submodel) {
+            return submodel.id === nestedModelVal.id
+          })
+          scopedVueModel[`${nestedModelPlural}_attributes`].splice(i, 1)
+        }, LMML.httpErrorHandler(model))
     }
   }
 }

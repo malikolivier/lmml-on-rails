@@ -49,4 +49,5 @@ class InternalKidneysExaminationDecorator < DualExaminationBaseDecorator
     end
     phrase.to_sentence
   end
+  # rubocop:enable AbcSize
 end

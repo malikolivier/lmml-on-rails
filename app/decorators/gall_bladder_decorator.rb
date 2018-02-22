@@ -21,6 +21,7 @@ class GallBladderDecorator < ApplicationDecorator
         quantity: object.translated_enum_value(:bile_quantity))
     end
   end
+  # rubocop:enable AbcSize, MethodLength
 
   def gallstones_description
     return if object.gallstones_quantity.blank?

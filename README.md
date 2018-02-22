@@ -1,11 +1,11 @@
 # README
 
-## Ruby version: 2.4.1
+## Ruby version: 2.4.3
 
 Suggest to install ruby with ![rvm](https://rvm.io/):
 
 ```sh
-rvm install 2.4.1
+rvm install 2.4.3
 ```
 
 ## System dependencies
@@ -28,7 +28,7 @@ You will need to install a `node` to run some tests. It is suggested to manage
 your node install with ![nvm](https://github.com/creationix/nvm).
 
 ```sh
-nvm install 6  # Install latest node version in the 6.x.x branch
+nvm install 8  # Install latest node version in the 8.x.x branch
 npm install
 ```
 

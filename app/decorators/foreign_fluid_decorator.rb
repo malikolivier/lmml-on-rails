@@ -13,10 +13,6 @@ class ForeignFluidDecorator < ApplicationDecorator
   private
 
   def name
-    if model.name.present?
-      model.name
-    else
-      t('.unknown_fluid')
-    end
+    model.name.presence || t('.unknown_fluid')
   end
 end

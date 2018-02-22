@@ -112,6 +112,7 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     description = phrases.to_sentence_no_dot
     t('.thickness', description: description) if description.present?
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   def scar_description
     if no_scar?
@@ -139,3 +140,4 @@ class InternalHeartExaminationDecorator < ExaminationBaseDecorator
     end
   end
 end
+# rubocop:enable Metrics/ClassLength
