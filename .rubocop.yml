@@ -42,6 +42,13 @@ Metrics/BlockLength:
 Rails/LexicallyScopedActionFilter:
   Enabled: false
 
+# InverseOf and HasManyOrHasOneDependent are newer cops and fixing them would
+# take much time with little benefit
+Rails/InverseOf:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
 Style/MixinUsage:
   # Do not check these Rails-generated files
   Exclude:
