@@ -82,39 +82,39 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                   }
                   scopedParams[names[names.length - 1]] = newValue
                   this.$http[options.httpVerb](options.updateUrl, {[model]: params})
-                  .then(function (response) {
-                    var noId = _.isEmpty(scopedData.id)
-                    if (noId) {
+                    .then(function (response) {
+                      var noId = _.isEmpty(scopedData.id)
+                      if (noId) {
                       // Set ID of inner element from request (if not set)
-                      var scopedResponseModel = response.body.model
-                      for (var i = 0; i < names.length - 1; i++) {
-                        var name = names[i]
-                        var isLastNestedModel = i === names.length - 2
-                        if (scopedData.hasOwnProperty('deixis') && isLastNestedModel) {
+                        var scopedResponseModel = response.body.model
+                        for (var i = 0; i < names.length - 1; i++) {
+                          var name = names[i]
+                          var isLastNestedModel = i === names.length - 2
+                          if (scopedData.hasOwnProperty('deixis') && isLastNestedModel) {
                           // Set right model for dual models
-                          var changedDualIndex = scopedResponseModel.findIndex(function (rModel) {
-                            return rModel.deixis === scopedData.deixis
-                          })
-                          name = '' + changedDualIndex
-                        }
-                        if (scopedData.hasOwnProperty('position') && scopedData.hasOwnProperty('rank') && isLastNestedModel) {
+                            var changedDualIndex = scopedResponseModel.findIndex(function (rModel) {
+                              return rModel.deixis === scopedData.deixis
+                            })
+                            name = '' + changedDualIndex
+                          }
+                          if (scopedData.hasOwnProperty('position') && scopedData.hasOwnProperty('rank') && isLastNestedModel) {
                           // Set right model for teeth
-                          var changedToothIndex = scopedResponseModel.findIndex(function (rModel) {
-                            return rModel.position === scopedData.position && rModel.rank === Number(scopedData.rank)
-                          })
-                          name = '' + changedToothIndex
+                            var changedToothIndex = scopedResponseModel.findIndex(function (rModel) {
+                              return rModel.position === scopedData.position && rModel.rank === Number(scopedData.rank)
+                            })
+                            name = '' + changedToothIndex
+                          }
+                          // Remove attributes affix (not there in JSON output)
+                          var match = name.match(/^(\w+)_attributes$/)
+                          if (match) {
+                            name = match[1]
+                          }
+                          scopedResponseModel = scopedResponseModel[name]
                         }
-                        // Remove attributes affix (not there in JSON output)
-                        var match = name.match(/^(\w+)_attributes$/)
-                        if (match) {
-                          name = match[1]
-                        }
-                        scopedResponseModel = scopedResponseModel[name]
+                        scopedData.id = scopedResponseModel.id
                       }
-                      scopedData.id = scopedResponseModel.id
-                    }
-                    updateHandler(response)
-                  }, errorHandler)
+                      updateHandler(response)
+                    }, errorHandler)
                 }
               )
             }
@@ -147,7 +147,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
                       }
                     })
                     this.$http[options.httpVerb](options.updateUrl, params)
-                    .then(updateHandler, errorHandler)
+                      .then(updateHandler, errorHandler)
                   }
                 ),
                 deep: true
@@ -202,7 +202,7 @@ LMML.loadVueModel = function loadVueModel (model, options = {}) {
       function () {
         console.log('Updating ' + model)
         this.$http[options.httpVerb](options.updateUrl, {[model]: data})
-        .then(updateHandler, errorHandler)
+          .then(updateHandler, errorHandler)
       }
     )
   }

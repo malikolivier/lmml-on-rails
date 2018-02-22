@@ -28,7 +28,7 @@ You will need to install a `node` to run some tests. It is suggested to manage
 your node install with ![nvm](https://github.com/creationix/nvm).
 
 ```sh
-nvm install 6  # Install latest node version in the 6.x.x branch
+nvm install 8  # Install latest node version in the 8.x.x branch
 npm install
 ```
 
