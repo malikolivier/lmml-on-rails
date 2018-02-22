@@ -1,6 +1,6 @@
 class HeartChambersDecorator < ApplicationCollectionDecorator
   # rubocop:disable AbcSize, CyclomaticComplexity
-  # rubocop:disable PerceivedComplexity, MethodLength,
+  # rubocop:disable PerceivedComplexity, MethodLength
   def description
     return if object.none?
     grouped_heart_chambers = group_by(&:size)
