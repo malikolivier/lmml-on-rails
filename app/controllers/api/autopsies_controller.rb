@@ -1,8 +1,6 @@
 class Api::AutopsiesController < AutopsiesController
   # GET /api/autopsies
-  def index
-    @autopsies = Autopsy.all
-  end
+  # def index; end   # defined in parent class AutopsiesController
 
   # GET /api/autopsies/:id
   def show; end
