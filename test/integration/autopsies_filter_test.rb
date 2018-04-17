@@ -27,4 +27,28 @@ class AutopsiesFilterTest < ActionDispatch::IntegrationTest
     assert_equal @autopsy.police_inspector_id,
                  JSON.parse(@response.body)[0]['police_inspector_id']
   end
+
+  test 'sort autopsies by increasing starting time' do
+    get api_autopsies_url(order: 'starting_time',
+                          format: :json)
+    response = JSON.parse(@response.body)
+    assert_equal Autopsy.count, response.length
+    response.map { |autopsy| Time.zone.parse(autopsy['starting_time']) }
+            .inject do |prev_time, next_time|
+              assert prev_time < next_time
+              next_time
+            end
+  end
+
+  test 'sort autopsies by decreasing starting time' do
+    get api_autopsies_url(order: 'starting_time DESC',
+                          format: :json)
+    response = JSON.parse(@response.body)
+    assert_equal Autopsy.count, response.length
+    response.map { |autopsy| Time.zone.parse(autopsy['starting_time']) }
+            .inject do |prev_time, next_time|
+              assert prev_time > next_time
+              next_time
+            end
+  end
 end
