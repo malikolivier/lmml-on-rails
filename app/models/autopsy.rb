@@ -23,6 +23,14 @@
 #
 
 class Autopsy < ApplicationRecord
+  include Filterable
+
+  scope :number, ->(number) { where(number: number) }
+  scope :examiner_id, ->(examiner_id) { where(examiner_id: examiner_id) }
+  scope :police_inspector_id, lambda { |police_inspector_id|
+    where(police_inspector_id: police_inspector_id)
+  }
+
   belongs_to :autopsy_type
   # rubocop:disable Metrics/LineLength
   belongs_to :examiner, class_name: 'Person', counter_cache: :autopsies_examiners_count
