@@ -1,8 +1,8 @@
-%p{:id=>'notice'}
+%p{ :id => 'notice' }
 = notice
 
 /todoリソース化 New Autopsy
-= button_to 'New Autopsy', new_autopsy_path,{method: :get,class:'btn btn-default'}
+= button_to 'New Autopsy', new_autopsy_path, { method: :get, class: 'btn btn-default' }
 
 %h1
   /todoリソース化
@@ -19,120 +19,120 @@
   Police Inspector Id
   = text_field_tag('fsilter')
 
-  = button_to('Filtering','',{class:'btn btn-default'})
+  = button_to('Filtering', '', { class: 'btn btn-default' })
 
 %table
   %thead
     %tr
       %th
-        -if (request.url).index('completed+DESC')!=nil
+        - if request.url.index('completed+DESC').nil
           /todoリソース化 Completed
-          =link_to('Completed','./autopsies?order=completed')
+          = link_to('Completed', './autopsies?order=completed')
           ▲
-        -else
+        - else
           /todoリソース化 Completed
-          =link_to('Completed','./autopsies?order=completed+DESC')
+          = link_to('Completed', './autopsies?order=completed+DESC')
           ▼
       %th
-        -if (request.url).index('number+DESC')!=nil
+        - if request.url.index('number+DESC').nil
           /todoリソース化 Number
-          =link_to('Number','./autopsies?order=number')
+          = link_to('Number', './autopsies?order=number')
           ▲
-        -else
+        - else
           /todoリソース化 Number
-          =link_to('Number','./autopsies?order=number+DESC')
+          = link_to('Number', './autopsies?order=number+DESC')
           ▼
       %th
-        -if (request.url).index('suspect_id+DESC')!=nil
+        - if request.url.index('suspect_id+DESC').nil
           /todoリソース化 Suspect
-          =link_to('Suspect','./autopsies?order=suspect_id')
+          = link_to('Suspect', './autopsies?order=suspect_id')
           ▲
-        -else
+        - else
           /todoリソース化 Suspect
-          =link_to('Suspect','./autopsies?order=suspect_id+DESC')
+          = link_to('Suspect', './autopsies?order=suspect_id+DESC')
           ▼
       %th
-        -if (request.url).index('victim_id+DESC')!=nil
+        - if request.url.index('victim_id+DESC').nil
           /todoリソース化 Victim
-          =link_to('Victim','./autopsies?order=victim_id')
+          = link_to('Victim', './autopsies?order=victim_id')
           ▲
-        -else
+        - else
           /todoリソース化 Victim
-          =link_to('Victim','./autopsies?order=victim_id+DESC')
+          = link_to('Victim', './autopsies?order=victim_id+DESC')
           ▼
       %th
-        -if (request.url).index('place_id+DESC')!=nil
+        - if request.url.index('place_id+DESC').nil
           /todoリソース化 Place
-          =link_to('Place','./autopsies?order=place_id')
+          = link_to('Place', './autopsies?order=place_id')
           ▲
-        -else
+        - else
           /todoリソース化 Place
-          =link_to('Place','./autopsies?order=place_id+DESC')
+          = link_to('Place', './autopsies?order=place_id+DESC')
           ▼
       %th
-        -if (request.url).index('autopsy_id+DESC')!=nil
+        - if request.url.index('autopsy_date+DESC').nil
           /todoリソース化 Autopsy date
-          =link_to('Autopsy date','./autopsies?order=autopsy_date')
+          = link_to('Autopsy date', './autopsies?order=autopsy_date')
           ▲
-        -else
+        - else
           /todoリソース化 Autopsy date
-          =link_to('Autopsy date','./autopsies?order=autopsy_date+DESC')
+          = link_to('Autopsy date', './autopsies?order=autopsy_date+DESC')
           ▼
       %th
-        -if (request.url).index('starting_time+DESC')!=nil
+        - if request.url.index('starting_time+DESC').nil
           /todoリソース化 Starting time
-          =link_to('Starting time','./autopsies?order=starting_time')
+          = link_to('Starting time', './autopsies?order=starting_time')
           ▲
-        -else
+        - else
           /todoリソース化 Starting time
-          =link_to('Starting time','./autopsies?order=starting_time+DESC')
+          = link_to('Starting time', './autopsies?order=starting_time+DESC')
           ▼
       %th
-        -if (request.url).index('ending_time+DESC')!=nil
+        - if request.url.index('ending_time+DESC').nil
           /todoリソース化 Ending time
-          =link_to('Ending time','./autopsies?order=ending_time')
+          = link_to('Ending time', './autopsies?order=ending_time')
           ▲
-        -else
+        - else
           /todoリソース化 Ending time
-          =link_to('Ending time','./autopsies?order=ending_time+DESC')
+          = link_to('Ending time', './autopsies?order=ending_time+DESC')
           ▼
       %th
-        -if (request.url).index('police_station_id+DESC')!=nil
+        - if request.url.index('police_station_id+DESC').nil
           /todoリソース化 Police station
-          =link_to('Police station','./autopsies?order=police_station_id')
+          = link_to('Police station', './autopsies?order=police_station_id')
           ▲
-        -else
+        - else
           /todoリソース化 Police station
-          =link_to('Police station','./autopsies?order=police_station_id+DESC')
+          = link_to('Police station', './autopsies?order=police_station_id+DESC')
           ▼
       %th
-        -if (request.url).index('police_inspector_id+DESC')!=nil
+        - if request.url.index('police_inspector_id+DESC').nil
           /todoリソース化 inspector
-          =link_to('Police inspector','./autopsies?order=police_inspector_id')
+          = link_to('Police inspector', './autopsies?order=police_inspector_id')
           ▲
-        -else
+        - else
           /todoリソース化 inspector
-          =link_to('Police inspector','./autopsies?order=police_inspector_id+DESC')
+          = link_to('Police inspector', './autopsies?order=police_inspector_id+DESC')
           ▼
       %th
-        -if (request.url).index('court_id+DESC')!=nil
+        - if request.url.index('court_id+DESC').nil
           /todoリソース化 Court
-          =link_to('Court','./autopsies?order=court_id')
+          = link_to('Court', './autopsies?order=court_id')
           ▲
-        -else
+        - else
           /todoリソース化 Court
-          =link_to('Court','./autopsies?order=court_id+DESC')
+          = link_to('Court', './autopsies?order=court_id+DESC')
           ▼
       %th
-        -if (request.url).index('judge_id+DESC')!=nil
+        - if request.url.index('judge_id+DESC').nil
           /todoリソース化 Judge
-          =link_to('Judge','./autopsies?order=judge_id')
+          = link_to('Judge', './autopsies?order=judge_id')
           ▲
-        -else
+        - else
           /todoリソース化 Judge
-          =link_to('Judge','./autopsies?order=judge_id+DESC')
+          = link_to('Judge', './autopsies?order=judge_id+DESC')
           ▼
-      %th{:colspan => '3'}
+      %th{ :colspan => '3' }
 
   %tbody
     - @autopsies.each do |autopsy|
@@ -150,7 +150,7 @@
         %td= autopsy.court_id
         %td= autopsy.judge_id
         /todoリソース化 Show Edit Download
-        %td= button_to 'Show', browse_autopsy_path(autopsy,locale: I18n.locale),{method: :get,class:'btn btn-default'}
-        %td= button_to 'Edit', edit_external_autopsy_path(autopsy, locale: I18n.locale),{method: :get,class:'btn btn-default'}
-        %td= button_to 'Download',autopsy_lmml_file_path(autopsy,locale: I18n.locale),{method: :get,class:'btn btn-default'}
+        %td= button_to 'Show', browse_autopsy_path(autopsy, locale: I18n.locale), { method: :get, class:'btn btn-default' }
+        %td= button_to 'Edit', edit_external_autopsy_path(autopsy, locale: I18n.locale), { method: :get, class:'btn btn-default' }
+        %td= button_to 'Download', autopsy_lmml_file_path(autopsy, locale: I18n.locale), { method: :get, class:'btn btn-default' }
 %br
