@@ -13,11 +13,12 @@ $desktop: "(min-width: 1024px)";
   overflow-y: auto;
 }
 
+// 100vw-100%でスクロールバーの幅を取得している
 .main_col {
   position: absolute;
-  left: 1.1 * $column-desktop-width;
+  left: calc(#{$column-desktop-width} + 100vw - 100%);
   @media #{$tablet-or-smaller} {
-    left: 1.1 * $column-tablet-width;
+    left: calc(#{$column-tablet-width} + 100vw - 100%);
   }
 }
 
