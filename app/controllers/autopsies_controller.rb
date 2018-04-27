@@ -9,7 +9,19 @@ class AutopsiesController < ApplicationController
   def index
     filter_params = params.slice(:number, :examiner_id, :police_inspector_id,
                                  :order)
-    @autopsies = Autopsy.filter(filter_params)
+    @autopsies = Autopsy.filter(filter_params).find_by_sql("
+      select  *,suspect.name as suspect_name,victim.name as victim_name,
+              place.name as place_name,policeStation.name as police_station_name,
+              police.name as police_name,court.name as court_name,judge.name as judge_name
+      from autopsies
+      join People        as suspect        on autopsies.suspect_id           =suspect.id
+      join People        as victim         on autopsies.victim_id            =victim.id
+      join institutions  as place          on autopsies.place_id             =place.id
+      join people        as police         on autopsies.police_inspector_id  =police.id
+      join institutions  as policeStation  on autopsies.police_station_id    = policeStation.id
+      join institutions  as court          on autopsies.court_id             =court.id
+      join people        as judge          on autopsies.judge_id             =judge.id
+      ")
   end
 
   # GET /autopsies/1
