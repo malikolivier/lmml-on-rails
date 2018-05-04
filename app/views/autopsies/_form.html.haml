@@ -1,4 +1,4 @@
-= vue_form_for(setup_autopsy(autopsy)) do |f|
+= form_for(setup_autopsy(autopsy), builder: VueFormBuilder, html: { id: 'autopsy' }) do |f|
   - if autopsy.errors.any?
     #error_explanation
       %h2
