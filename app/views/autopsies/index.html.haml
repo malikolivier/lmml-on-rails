@@ -8,14 +8,7 @@
     = text_field_tag('filterExaminer')
     Police Inspector Id
     = text_field_tag('filterPoliceInspector')
-    %input{ id: 'Filtering', value: 'Filtering', class: 'btn btn-default', type: 'button' }
-  :javascript
-    $('#Filtering').on('click',function(){
-      var number = $('#filterNumber').val();var examiner = $('#filterExaminer').val();
-      var policeInspector = $('#filterPoliceInspector').val();
-      var a = $('<a>',{ css:{display:'none'}, id:'link', href:'./autopsies?number='+number+'&examiner_id='+examiner+'&police_inspector_id='+policeInspector });
-      $('body').append(a);$('#link')[0].click();
-    });
+    %input#autopsy_filtering.btn.btn-default{ value: 'Filtering', type: 'button' }
   %table
     %thead
       %tr
