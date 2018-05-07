@@ -8,6 +8,9 @@ $(function () {
 
 LMML.loaders.autopsy_filtering = function () {
   $('#autopsy_filtering').on('click',function(){
+    if(document.getElementById('link') !== null){
+      $('#link').remove();
+    }
     var number = $('#filterNumber').val();
     var examiner = $('#filterExaminer').val();
     var policeInspector = $('#filterPoliceInspector').val();
