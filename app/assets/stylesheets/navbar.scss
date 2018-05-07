@@ -3,6 +3,10 @@ $column-desktop-width: 10vw;
 $tablet-or-smaller: "(max-width: 1023px)";
 $desktop: "(min-width: 1024px)";
 
+body.container-fluid {
+  padding-left: 0px;
+}
+
 .left_col {
   position: fixed;
   width: $column-desktop-width;
@@ -11,14 +15,14 @@ $desktop: "(min-width: 1024px)";
   }
   max-height: 100vh;
   overflow-y: auto;
+  padding-left: 15px;
 }
 
-// 100vw-100%でスクロールバーの幅を取得している
 .main_col {
   position: absolute;
-  left: calc(#{$column-desktop-width} + 100vw - 100%);
+  left: $column-desktop-width;
   @media #{$tablet-or-smaller} {
-    left: calc(#{$column-tablet-width} + 100vw - 100%);
+    left: $column-tablet-width;
   }
 }
 
