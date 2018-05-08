@@ -84,3 +84,7 @@ linters:
     exclude:
       - "app/views/autopsies/edit_external.html.haml"
       - "app/views/autopsies/new.html.haml"
+
+  ViewLength:
+    exclude:
+      - "app/views/autopsies/index.html.haml"
