@@ -1,11 +1,11 @@
 = button_to 'New Autopsy', new_autopsy_path, method: :get, class: 'btn btn-default'
-%h1 Autopsies
+%h1= t '.title'
 %h4
-  Number
+  = t '.filter_number'
   = text_field_tag('filterNumber')
-  Examiner Id
+  = t '.filter_examiner'
   = text_field_tag('filterExaminer')
-  Police Inspector Id
+  = t '.filter_police_inspector'
   = text_field_tag('filterPoliceInspector')
   %input.btn.btn-default#autopsy_filtering{ value: 'Filtering', type: 'button' }
 %table
@@ -13,70 +13,81 @@
     %tr
       %th
         - if request.url.index('completed+DESC').nil?
-          = link_to 'Completed▼', api_autopsies_url(order: 'completed DESC')
+          = link_to "#{t'.table.completed'}#{t'.table.descending'}", api_autopsies_url(order: 'completed DESC')
         - else
-          = link_to 'Completed▲', api_autopsies_url(order: 'completed')
+          = link_to "#{t'.table.completed'}#{t'.table.ascending'}", api_autopsies_url(order: 'completed')
       %th
         - if request.url.index('number+DESC').nil?
-          = link_to 'Number▼', api_autopsies_url(order: 'number DESC')
+          = link_to "#{t'.table.number'}#{t'.table.descending'}", api_autopsies_url(order: 'number DESC')
         - else
-          = link_to 'Number▲', api_autopsies_url(order: 'number')
+          = link_to "#{t'.table.number'}#{t'.table.ascending'}", api_autopsies_url(order: 'number')
+      %th
+        - if request.url.index('approved+DESC').nil?
+          = link_to "#{t'.table.approved'}#{t'.table.descending'}", api_autopsies_url(order: 'approved DESC')
+        - else
+          = link_to "#{t'.table.approved'}#{t'.table.ascending'}", api_autopsies_url(order: 'approved')
       %th
         - if request.url.index('suspect_id+DESC').nil?
-          = link_to 'Suspect▼', api_autopsies_url(order: 'suspect DESC')
+          = link_to "#{t'.table.suspect'}#{t'.table.descending'}", api_autopsies_url(order: 'suspect DESC')
         - else
-          = link_to 'Suspect▲', api_autopsies_url(order: 'suspect')
+          = link_to "#{t'.table.suspect'}#{t'.table.ascending'}", api_autopsies_url(order: 'suspect')
       %th
         - if request.url.index('victim_id+DESC').nil?
-          = link_to 'Victim▼', api_autopsies_url(order: 'victim_id DESC')
+          = link_to "#{t'.table.victim'}#{t'.table.descending'}", api_autopsies_url(order: 'victim_id DESC')
         - else
-          = link_to 'Victim▲', api_autopsies_url(order: 'victim_id')
+          = link_to "#{t'.table.victim'}#{t'.table.ascending'}", api_autopsies_url(order: 'victim_id')
       %th
         - if request.url.index('place_id+DESC').nil?
-          = link_to 'Place▼', api_autopsies_url(order: 'place_id DESC')
+          = link_to "#{t'.table.place'}#{t'.table.descending'}", api_autopsies_url(order: 'place_id DESC')
         - else
-          = link_to 'Place▲', api_autopsies_url(order: 'place_id')
+          = link_to "#{t'.table.place'}#{t'.table.ascending'}", api_autopsies_url(order: 'place_id')
       %th
         - if request.url.index('autopsy_date+DESC').nil?
-          = link_to 'Autopsy date▼', api_autopsies_url(order: 'autopsy_date DESC')
+          = link_to "#{t'.table.autopsy_date'}#{t'.table.descending'}", api_autopsies_url(order: 'autopsy_date DESC')
         - else
-          = link_to 'Autopsy date▲', api_autopsies_url(order: 'autopsy_date')
+          = link_to "#{t'.table.autopsy_date'}#{t'.table.ascending'}", api_autopsies_url(order: 'autopsy_date')
       %th
         - if request.url.index('starting_time+DESC').nil?
-          = link_to 'Starting time▼', api_autopsies_url(order: 'starting_time DESC')
+          = link_to "#{t'.table.starting_time'}#{t'.table.descending'}", api_autopsies_url(order: 'starting_time DESC')
         - else
-          = link_to 'Starting time▲', api_autopsies_url(order: 'starting_time')
+          = link_to "#{t'.table.starting_time'}#{t'.table.ascending'}", api_autopsies_url(order: 'starting_time')
       %th
         - if request.url.index('ending_time+DESC').nil?
-          = link_to 'Ending time▼', api_autopsies_url(order: 'ending_time DESC')
+          = link_to "#{t'.table.ending_time'}#{t'.table.descending'}", api_autopsies_url(order: 'ending_time DESC')
         - else
-          = link_to 'Ending time▲', api_autopsies_url(order: 'ending_time')
+          = link_to "#{t'.table.ending_time'}#{t'.table.ascending'}", api_autopsies_url(order: 'ending_time')
       %th
         - if request.url.index('police_station_id+DESC').nil?
-          = link_to 'Police station▼', api_autopsies_url(order: 'police_station_id DESC')
+          = link_to "#{t'.table.police_station'}#{t'.table.descending'}", api_autopsies_url(order: 'police_station_id DESC')
         - else
-          = link_to 'Police station▲', api_autopsies_url(order: 'police_station_id')
+          = link_to "#{t'.table.police_station'}#{t'.table.ascending'}", api_autopsies_url(order: 'police_station_id')
       %th
         - if request.url.index('police_inspector_id+DESC').nil?
-          = link_to 'Police inspector▼', api_autopsies_url(order: 'police_inspector_id DESC')
+          = link_to "#{t'.table.police_inspector'}#{t'.table.descending'}", api_autopsies_url(order: 'police_inspector_id DESC')
         - else
-          = link_to 'Police inspector▲', api_autopsies_url(order: 'police_inspector_id')
+          = link_to "#{t'.table.police_inspector'}#{t'.table.ascending'}", api_autopsies_url(order: 'police_inspector_id')
       %th
         - if request.url.index('court_id+DESC').nil?
-          = link_to 'Court▼', api_autopsies_url(order: 'court_id DESC')
+          = link_to "#{t'.table.court'}#{t'.table.descending'}", api_autopsies_url(order: 'court_id DESC')
         - else
-          = link_to 'Court▲', api_autopsies_url(order: 'court_id')
+          = link_to "#{t'.table.court'}#{t'.table.ascending'}", api_autopsies_url(order: 'court_id')
       %th
         - if request.url.index('judge_id+DESC').nil?
-          = link_to 'Judge▼', api_autopsies_url(order: 'judge_id DESC')
+          = link_to "#{t'.table.judge'}#{t'.table.descending'}", api_autopsies_url(order: 'judge_id DESC')
         - else
-          = link_to 'Judge▲', api_autopsies_url(order: 'judge_id')
+          = link_to "#{t'.table.judge'}#{t'.table.ascending'}", api_autopsies_url(order: 'judge_id')
+      %th
+        - if request.url.index('examiner_id+DESC').nil?
+          = link_to "#{t'.table.examiner'}#{t'.table.descending'}", api_autopsies_url(order: 'examiner_id DESC')
+        - else
+          = link_to "#{t'.table.examiner'}#{t'.table.ascending'}", api_autopsies_url(order: 'examiner_id')
       %th{ colspan: '3' }
   %tbody
     - @autopsies.each do |autopsy|
       %tr
         %td= autopsy.completed
         %td= autopsy.number
+        %td= autopsy.approved
         %td= autopsy.suspect&.name
         %td= autopsy.victim&.name
         %td= autopsy.place&.name
@@ -87,6 +98,7 @@
         %td= autopsy.police_inspector&.name
         %td= autopsy.court&.name
         %td= autopsy.judge&.name
+        %td= autopsy.examiner&.name
         %td= button_to 'Show', browse_autopsy_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'
         %td= button_to 'Edit', edit_external_autopsy_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'
         %td= button_to 'Download', autopsy_lmml_file_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'

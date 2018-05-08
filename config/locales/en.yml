@@ -269,6 +269,28 @@ en:
         weak_positive: 弱陽性
         strong_positive: 強陽性
   autopsies:
+    index:
+      title: Autopsies
+      filter_number: Number
+      filter_examiner: Examiner Id
+      filter_police_inspector: Police Inspector Id
+      table:
+        descending: ▼
+        ascending: ▲
+        completed: Completed
+        number: Number
+        approved: Approved
+        suspect: Suspect
+        victim: Victim
+        place: Place
+        autopsy_date: Autopsy date
+        starting_time: Starting time
+        ending_time: Ending time
+        police_station: Police station
+        police_inspector: Police inspector
+        court: Court
+        judge: Judge
+        examiner: Examiner
     new:
       title: Start a new autopsy
     preview:
