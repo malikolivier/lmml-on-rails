@@ -14,11 +14,7 @@ LMML.loaders.autopsy_filtering = function () {
     var number = $('#filterNumber').val()
     var examiner = $('#filterExaminer').val()
     var policeInspector = $('#filterPoliceInspector').val()
-    var a = $('<a>', { 
-      css:{ display: 'none'}, 
-      id:'link', 
-      href:'./autopsies?number=' + number + '&examiner_id=' + examiner + '&police_inspector_id=' + policeInspector
-    })
+    var a = $('<a>', { css:{ display: 'none'}, id:'link', href:'./autopsies?number=' + number + '&examiner_id=' + examiner + '&police_inspector_id=' + policeInspector})
     $('body').append(a)
     $('#link')[0].click()
   })
