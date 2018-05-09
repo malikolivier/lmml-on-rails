@@ -14,14 +14,13 @@ LMML.loaders.autopsy_filtering = function () {
     var number = $('#filterNumber').val()
     var examiner = $('#filterExaminer').val()
     var policeInspector = $('#filterPoliceInspector').val()
-    var queryParam = location.search.substring(1)
+    var queryParam = window.location.search.substring(1)
     var order
     if (queryParam) {
-      query = queryParam.split('&')
+      var query = queryParam.split('&')
       query.forEach(function (value) {
-        if (value.split('=')[0] == 'order') {
+        if (value.split('=')[0] === 'order') {
           order = value
-          return;
         }
       })
     } else {
@@ -30,7 +29,7 @@ LMML.loaders.autopsy_filtering = function () {
     var a = $('<a>', {
       css: {display: 'none'},
       id: 'link',
-      href: './autopsies?'+order + '&number=' + number + '&examiner_id=' + examiner + '&police_inspector_id=' + policeInspector
+      href: './autopsies?' + order + '&number=' + number + '&examiner_id=' + examiner + '&police_inspector_id=' + policeInspector
     })
     $('body').append(a)
     $('#link')[0].click()
