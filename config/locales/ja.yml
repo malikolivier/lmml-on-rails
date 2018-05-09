@@ -256,6 +256,8 @@ ja:
       table:
         descending: ▼
         ascending: ▲
+        id: Id
+        autopsy_type: Autopsy_type
         completed: Completed
         number: Number
         approved: Approved
@@ -270,6 +272,8 @@ ja:
         court: Court
         judge: Judge
         examiner: Examiner
+        created_at: Created at
+        updated_at: Updated at
     new:
       title: 新しい解剖所見を作成
     preview:

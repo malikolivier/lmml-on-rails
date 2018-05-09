@@ -277,6 +277,8 @@ en:
       table:
         descending: ▼
         ascending: ▲
+        id: Id
+        autopsy_type: Autopsy_type
         completed: Completed
         number: Number
         approved: Approved
@@ -291,6 +293,8 @@ en:
         court: Court
         judge: Judge
         examiner: Examiner
+        created_at: Created at
+        updated_at: Updated at
     new:
       title: Start a new autopsy
     preview:

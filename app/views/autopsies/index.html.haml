@@ -1,16 +1,32 @@
+-# haml-lint:disable all
 = button_to 'New Autopsy', new_autopsy_path, method: :get, class: 'btn btn-default'
 %h1= t '.title'
-%h4
-  = t '.filter_number'
-  = text_field_tag('filterNumber')
-  = t '.filter_examiner'
-  = text_field_tag('filterExaminer')
-  = t '.filter_police_inspector'
-  = text_field_tag('filterPoliceInspector')
-  %input.btn.btn-default#autopsy_filtering{ value: 'Filtering', type: 'button' }
+%label
+  %h4
+    = t '.filter_number'
+    = text_field_tag('filterNumber')
+%label
+  %h4
+    = t '.filter_examiner'
+    = text_field_tag('filterExaminer')
+%label
+  %h4
+    = t '.filter_police_inspector'
+    = text_field_tag('filterPoliceInspector')
+%input.btn.btn-default#autopsy_filtering{ value: 'Filtering', type: 'button' }
 %table
   %thead
     %tr
+      %th
+        - if request.url.index('id+DESC').nil?
+          = link_to "#{t'.table.id'}#{t'.table.descending'}", api_autopsies_url(order: 'id DESC')
+        - else
+          = link_to "#{t'.table.id'}#{t'.table.ascending'}", api_autopsies_url(order: 'id')
+      %th
+        - if request.url.index('autopsy_type_id+DESC').nil?
+          = link_to "#{t'.table.autopsy_type'}#{t'.table.descending'}", api_autopsies_url(order: 'autopsy_type_id DESC')
+        - else
+          = link_to "#{t'.table.autopsy_type'}#{t'.table.ascending'}", api_autopsies_url(order: 'autopsy_type_id')
       %th
         - if request.url.index('completed+DESC').nil?
           = link_to "#{t'.table.completed'}#{t'.table.descending'}", api_autopsies_url(order: 'completed DESC')
@@ -81,10 +97,22 @@
           = link_to "#{t'.table.examiner'}#{t'.table.descending'}", api_autopsies_url(order: 'examiner_id DESC')
         - else
           = link_to "#{t'.table.examiner'}#{t'.table.ascending'}", api_autopsies_url(order: 'examiner_id')
+      %th
+        - if request.url.index('created_at+DESC').nil?
+          = link_to "#{t'.table.created_at'}#{t'.table.descending'}", api_autopsies_url(order: 'created_at DESC')
+        - else
+          = link_to "#{t'.table.created_at'}#{t'.table.ascending'}", api_autopsies_url(order: 'created_at')
+      %th
+        - if request.url.index('updated_at+DESC').nil?
+          = link_to "#{t'.table.updated_at'}#{t'.table.descending'}", api_autopsies_url(order: 'updated_at DESC')
+        - else
+          = link_to "#{t'.table.updated_at'}#{t'.table.ascending'}", api_autopsies_url(order: 'updated_at')
       %th{ colspan: '3' }
   %tbody
     - @autopsies.each do |autopsy|
       %tr
+        %td= autopsy.id
+        %td= autopsy.autopsy_type&.name
         %td= autopsy.completed
         %td= autopsy.number
         %td= autopsy.approved
@@ -99,6 +127,8 @@
         %td= autopsy.court&.name
         %td= autopsy.judge&.name
         %td= autopsy.examiner&.name
+        %td= autopsy.created_at
+        %td= autopsy.updated_at
         %td= button_to 'Show', browse_autopsy_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'
         %td= button_to 'Edit', edit_external_autopsy_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'
         %td= button_to 'Download', autopsy_lmml_file_path(autopsy, locale: I18n.locale), method: :get, class: 'btn btn-default'
