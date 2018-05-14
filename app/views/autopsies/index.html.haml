@@ -3,15 +3,15 @@
 %label
   %h4
     = t '.filter_number'
-    = text_field_tag('filterNumber')
+    = text_field_tag('filterNumber', '', class: 'filtering_textarea')
 %label
   %h4
     = t '.filter_examiner'
-    = text_field_tag('filterExaminer')
+    = text_field_tag('filterExaminer', '', class: 'filtering_textarea')
 %label
   %h4
     = t '.filter_police_inspector'
-    = text_field_tag('filterPoliceInspector')
+    = text_field_tag('filterPoliceInspector', '', class: 'filtering_textarea')
 %input.btn.btn-default#autopsy_filtering{ value: 'Filtering', type: 'button' }
 %table
   %thead

@@ -1,7 +1,7 @@
 /* global LMML */
 
 $(function () {
-  if (document.getElementById('autopsy_filtering') !== null) {
+  if (document.getElementById('autopsy_filtering') !== null && document.getElementsByClassName('filtering_textarea') !== null) {
     LMML.loaders.autopsy_filtering()
   }
 })
@@ -33,5 +33,10 @@ LMML.loaders.autopsy_filtering = function () {
     })
     $('body').append(a)
     $('#link')[0].click()
+  })
+  $('.filtering_textarea').on('keypress', function (e) {
+    if (e.keyCode === 13) {
+      $('#autopsy_filtering')[0].click()
+    }
   })
 }
