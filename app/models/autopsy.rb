@@ -26,9 +26,17 @@ class Autopsy < ApplicationRecord
   include Filterable
 
   scope :number, ->(number) { where(number: number) }
-  scope :examiner_id, ->(examiner_id) { where(examiner_id: examiner_id) }
+  scope :examiner_id, lambda { |examiner_id|
+    like_examiner = '%' + examiner_id + '%'
+    joins(:examiner)
+      .where(examiner_id: examiner_id)
+      .or(joins(:examiner).where('people.name LIKE ?', like_examiner))
+  }
   scope :police_inspector_id, lambda { |police_inspector_id|
-    where(police_inspector_id: police_inspector_id)
+    like_inspector = '%' + police_inspector_id + '%'
+    joins(:police_inspector)
+      .where(police_inspector_id: police_inspector_id)
+      .or(joins(:police_inspector).where('people.name LIKE ?', like_inspector))
   }
 
   belongs_to :autopsy_type
