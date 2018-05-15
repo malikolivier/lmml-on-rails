@@ -21,4 +21,26 @@ module AutopsiesHelper
       [t("sex.#{sex}"), sex]
     end
   end
+
+  # rubocop:disable MethodLength,AbcSize
+  def autopsy_header(query_params, key, sort_key)
+    if request.url.index("#{sort_key}+DESC").nil?
+      link_to "#{key}#{t'.table.descending'}",
+              api_autopsies_url(
+                order: "#{sort_key} DESC",
+                number: query_params['number'],
+                examiner_id: query_params['examiner_id'],
+                police_inspector_id: query_params['police_inspector_id']
+              )
+    else
+      link_to "#{key}#{t '.table.ascending'}",
+              api_autopsies_url(
+                order: sort_key.to_s,
+                number: query_params['number'],
+                examiner_id: query_params['examiner_id'],
+                police_inspector_id: query_params['police_inspector_id']
+              )
+    end
+  end
+  # rubocop:enable MethodLength, AbcSize
 end
