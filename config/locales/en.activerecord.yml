@@ -6,6 +6,11 @@ en:
       gall_bladder: 胆嚢
     attributes:
       autopsy:
+        id: ID
+        completed: completed
+        approved: approved
+        created_at: created_at
+        updated_at: updated_at
         number: Autopsy number
         suspect: Suspect
         suspect_name: Suspect's name
