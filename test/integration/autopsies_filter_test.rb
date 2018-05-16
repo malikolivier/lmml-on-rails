@@ -21,6 +21,15 @@ class AutopsiesFilterTest < ActionDispatch::IntegrationTest
                  JSON.parse(@response.body)[0]['examiner_id']
   end
 
+  test 'only get autopsy by examiner name' do
+    filter = @autopsy.examiner.name[1..10]
+    get api_autopsies_url(examiner_id: filter, format: :json)
+    JSON.parse(@response.body).each do |autopsy|
+      autopsy = Autopsy.find(autopsy['id'])
+      assert autopsy.examiner.name.include?(filter)
+    end
+  end
+
   test 'only get autopsy by police_inspector_id' do
     get api_autopsies_url(police_inspector_id: @autopsy.police_inspector_id,
                           format: :json)
