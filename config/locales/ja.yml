@@ -249,31 +249,12 @@ ja:
         strong_positive: 強陽性
   autopsies:
     index:
-      title: Autopsies
-      filter_number: Number
-      filter_examiner: Examiner Id
-      filter_police_inspector: Police Inspector Id
-      table:
-        descending: ▼
-        ascending: ▲
-        id: Id
-        autopsy_type: Autopsy_type
-        completed: Completed
-        number: Number
-        approved: Approved
-        suspect: Suspect
-        victim: Victim
-        place: Place
-        autopsy_date: Autopsy date
-        starting_time: Starting time
-        ending_time: Ending time
-        police_station: Police station
-        police_inspector: Police inspector
-        court: Court
-        judge: Judge
-        examiner: Examiner
-        created_at: Created at
-        updated_at: Updated at
+      title: 剖検
+      filter_number: 剖検番号
+      filter_examiner: 執刀者
+      filter_police_inspector: 警視正
+      descending: ▼
+      ascending: ▲
     new:
       title: 新しい解剖所見を作成
     preview:

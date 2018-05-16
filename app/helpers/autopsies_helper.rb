@@ -24,8 +24,9 @@ module AutopsiesHelper
 
   # rubocop:disable MethodLength,AbcSize
   def autopsy_header(query_params, key, sort_key)
+    @display_name = I18n.t("activerecord.attributes.autopsy.#{key}")
     if request.url.index("#{sort_key}+DESC").nil?
-      link_to "#{key}#{t'.table.descending'}",
+      link_to "#{@display_name}#{t '.descending'}",
               api_autopsies_url(
                 order: "#{sort_key} DESC",
                 number: query_params['number'],
@@ -33,7 +34,7 @@ module AutopsiesHelper
                 police_inspector_id: query_params['police_inspector_id']
               )
     else
-      link_to "#{key}#{t '.table.ascending'}",
+      link_to "#{@display_name}#{t '.ascending'}",
               api_autopsies_url(
                 order: sort_key.to_s,
                 number: query_params['number'],
