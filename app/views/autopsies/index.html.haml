@@ -20,7 +20,7 @@
       %th
         = autopsy_header(@query, :id, :id)
       %th
-        = autopsy_header(@query, :autopsy_type, :autopsy_type_id)
+        = autopsy_header(@query, :autopsy_type_id, :autopsy_type_id)
       %th
         = autopsy_header(@query, :completed, :completed)
       %th
@@ -28,11 +28,11 @@
       %th
         = autopsy_header(@query, :approved, :approved)
       %th
-        = autopsy_header(@query, :suspect, :suspect_id)
+        = autopsy_header(@query, :suspect_name, :suspect_id)
       %th
-        = autopsy_header(@query, :victim, :victim_id)
+        = autopsy_header(@query, :victim_name, :victim_id)
       %th
-        = autopsy_header(@query, :place, :place_id)
+        = autopsy_header(@query, :place_id, :place_id)
       %th
         = autopsy_header(@query, :autopsy_date, :autopsy_date)
       %th
