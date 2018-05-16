@@ -12,6 +12,11 @@ ja:
       gall_bladder: 胆嚢
     attributes:
       autopsy:
+        id: ID
+        completed: 完了
+        approved: 承認
+        created_at: 作成日時
+        updated_at: 更新日時
         number: 解剖番号
         suspect: 被疑者
         suspect_name: 被疑者名

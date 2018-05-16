@@ -248,6 +248,13 @@ ja:
         weak_positive: 弱陽性
         strong_positive: 強陽性
   autopsies:
+    index:
+      title: 剖検
+      filter_number: 剖検番号
+      filter_examiner: 執刀者
+      filter_police_inspector: 警視正
+      descending: ▼
+      ascending: ▲
     new:
       title: 新しい解剖所見を作成
     preview:

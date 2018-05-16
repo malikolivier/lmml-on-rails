@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount MagicLamp::Genie, at: '/magic_lamp' if defined?(MagicLamp)
 
-  root to: 'application#index'
+  root to: 'autopsies#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :autopsies, only: %i[new show index create destroy] do

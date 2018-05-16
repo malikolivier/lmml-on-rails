@@ -14,10 +14,10 @@ $desktop: "(min-width: 1024px)";
 }
 
 .main_col {
-  position: absolute;
-  left: 1.1 * $column-desktop-width;
+  position: relative;
+  left: $column-desktop-width;
   @media #{$tablet-or-smaller} {
-    left: 1.1 * $column-tablet-width;
+    left: $column-tablet-width;
   }
 }
 
