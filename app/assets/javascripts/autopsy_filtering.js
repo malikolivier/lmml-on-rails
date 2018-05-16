@@ -38,5 +38,24 @@ LMML.loaders.autopsy_filtering = function () {
     if (e.keyCode === 13) {
       $('#autopsy_filtering')[0].click()
     }
-  })
+  });
+  (function () {
+    var queryParam = window.location.search.substring(1)
+    var number = null
+    var examiner = null
+    var policeInspector = null
+    if (queryParam) {
+      var query = queryParam.split('&')
+      query.forEach(function (value) {
+        param=value.split('=')
+        if (param[0] === 'number') {
+          $('#filterNumber').val(param[1])
+        } else if (param[0] === 'examiner_id') {
+          $('#filterExaminer').val(param[1])
+        } else if (param[0] === 'police_inspector_id') {
+          $('#filterPoliceInspector').val(param[1])
+        }
+      })
+    }
+  })()
 }
