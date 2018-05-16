@@ -29,7 +29,7 @@ LMML.loaders.autopsy_filtering = function () {
     var a = $('<a>', {
       css: {display: 'none'},
       id: 'link',
-      href: './autopsies?' + order + '&number=' + number + '&examiner_id=' + examiner + '&police_inspector_id=' + policeInspector
+      href: './autopsies?' + order + '&number=' + number + '&examiner_filter=' + examiner + '&police_inspector_filter=' + policeInspector
     })
     $('body').append(a)
     $('#link')[0].click()
@@ -47,9 +47,9 @@ LMML.loaders.autopsy_filtering = function () {
         var param = value.split('=')
         if (param[0] === 'number') {
           $('#filterNumber').val(param[1])
-        } else if (param[0] === 'examiner_id') {
+        } else if (param[0] === 'examiner_filter') {
           $('#filterExaminer').val(param[1])
-        } else if (param[0] === 'police_inspector_id') {
+        } else if (param[0] === 'police_inspector_filter') {
           $('#filterPoliceInspector').val(param[1])
         }
       })

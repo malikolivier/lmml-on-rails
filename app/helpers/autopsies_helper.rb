@@ -30,16 +30,16 @@ module AutopsiesHelper
               api_autopsies_url(
                 order: "#{sort_key} DESC",
                 number: query_params['number'],
-                examiner_id: query_params['examiner_id'],
-                police_inspector_id: query_params['police_inspector_id']
+                examiner_filter: query_params['examiner_filter'],
+                police_inspector_filter: query_params['police_inspector_filter']
               )
     else
       link_to "#{@display_name}#{t '.ascending'}",
               api_autopsies_url(
                 order: sort_key.to_s,
                 number: query_params['number'],
-                examiner_id: query_params['examiner_id'],
-                police_inspector_id: query_params['police_inspector_id']
+                examiner_filter: query_params['examiner_filter'],
+                police_inspector_filter: query_params['police_inspector_filter']
               )
     end
   end

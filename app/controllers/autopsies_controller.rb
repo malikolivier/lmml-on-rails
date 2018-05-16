@@ -7,8 +7,8 @@ class AutopsiesController < ApplicationController
 
   # GET /autopsies
   def index
-    filter_params = params.slice(:number, :examiner_id, :police_inspector_id,
-                                 :order)
+    filter_params = params.slice(:number, :examiner_filter,
+                                 :police_inspector_filter, :order)
     @autopsies = Autopsy.filter(filter_params)
   end
 
