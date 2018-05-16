@@ -1,7 +1,7 @@
 class InternalLiverExaminationDecorator < ExaminationBaseDecorator
   decorates_association :gall_bladder
 
-  delegate :description, to: :gall_bladder, prefix: true
+  delegate :description, to: :gall_bladder, prefix: true, allow_nil: true
 
   def weight_description
     return if object.weight.blank?
