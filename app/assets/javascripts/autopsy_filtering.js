@@ -46,11 +46,11 @@ LMML.loaders.autopsy_filtering = function () {
       query.forEach(function (value) {
         var param = value.split('=')
         if (param[0] === 'number') {
-          $('#filterNumber').val(param[1])
+          $('#filterNumber').val(decodeURI(param[1]))
         } else if (param[0] === 'examiner_filter') {
-          $('#filterExaminer').val(param[1])
+          $('#filterExaminer').val(decodeURI(param[1]))
         } else if (param[0] === 'police_inspector_filter') {
-          $('#filterPoliceInspector').val(param[1])
+          $('#filterPoliceInspector').val(decodeURI(param[1]))
         }
       })
     }
