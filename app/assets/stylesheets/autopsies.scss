@@ -34,3 +34,9 @@ th>a{
     color:inherit;
   }
 }
+
+td>a{
+  &:visited{
+    color:inherit;
+  }
+}
