@@ -25,7 +25,7 @@
 class Autopsy < ApplicationRecord
   include Filterable
 
-  scope :number, ->(number) { where(number: number) }
+  scope :number, ->(number) { where('autopsies.number LIKE ?', "%#{number}") }
   scope :examiner_filter, lambda { |examiner_filter|
     like_examiner = '%' + examiner_filter + '%'
     joins(:examiner)
