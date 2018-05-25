@@ -255,6 +255,7 @@ ja:
       filter_police_inspector: 警視正
       descending: ▼
       ascending: ▲
+      no_result: 見つかりませんでした。
     new:
       title: 新しい解剖所見を作成
     preview:
