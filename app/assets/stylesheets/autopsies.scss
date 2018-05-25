@@ -34,3 +34,13 @@ th>a{
     color:inherit;
   }
 }
+
+td>a{
+  &:visited{
+    color:inherit;
+  }
+}
+
+#no_result{
+    text-align: center;
+}

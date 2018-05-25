@@ -276,6 +276,7 @@ en:
       filter_police_inspector: Police Inspector
       descending: ▼
       ascending: ▲
+      no_result: No Result
     new:
       title: Start a new autopsy
     preview:

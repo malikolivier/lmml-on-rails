@@ -44,4 +44,8 @@ module AutopsiesHelper
     end
   end
   # rubocop:enable MethodLength, AbcSize
+
+  def time_format(time)
+    time&.strftime('%-Y-%m-%d %H:%M:%S')
+  end
 end

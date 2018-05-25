@@ -15,5 +15,6 @@ module LmmlOnRails
     config.autoload_paths << Rails.root.join('app', 'decorators')
     config.autoload_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('doc', 'swagger_schemas')
+    config.time_zone = 'Asia/Tokyo'
   end
 end
