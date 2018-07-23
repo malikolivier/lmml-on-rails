@@ -1,89 +1,3734 @@
-# == Schema Information
-#
-# Table name: body_references
-#
-#  id         :integer          not null, primary key
-#  position   :integer
-#  deixis     :integer
-#  abbr       :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-head_top:
+scalp:
   position: 1
-  abbr: head_top
+  abbr: scalp
 
-mental_protuberance:
+galeal_aponeurosis:
   position: 2
-  abbr: mental_protuberance
+  abbr: galeal_aponeurosis
 
-acromion_left:
+loose_connective_tissue:
   position: 3
-  deixis: left
-  abbr: acromion
+  abbr: loose_connective_tissue
 
-acromion_right:
-  position: 3
-  deixis: right
-  abbr: acromion
-
-jugular_notch:
+periosteal:
   position: 4
-  abbr: jugular_notch
+  abbr: periosteal
+
+os_parietale:
+  position: 5
+  abbr: os_parietale
+
+sinus:
+  position: 6
+  abbr: sinus
+
+arachnoid_granulation:
+  position: 7
+  abbr: arachnoid_granulation
+
+dura_mater:
+  position: 8
+  abbr: dura_mater
+
+subdural_space:
+  position: 9
+  abbr: subdural_space
+
+arachnoid:
+  position: 10
+  abbr: arachnoid
+
+subarachnoid_space:
+  position: 11
+  abbr: subarachnoid_space
+
+buffy_coat:
+  position: 12
+  abbr: buffy_coat
+
+cerebral_parenchyma:
+  position: 13
+  abbr: cerebral_parenchyma
+
+communicating_vein:
+  position: 14
+  abbr: communicating_vein
+
+epiderm:
+  position: 15
+  abbr: epiderm
+
+scapus_pili:
+  position: 16
+  abbr: scapus_pili
+
+hypodermis:
+  position: 17
+  abbr: hypodermis
+
+glandula_sebacea:
+  position: 18
+  abbr: glandula_sebacea
+
+sweat_glands:
+  position: 19
+  abbr: sweat_glands
+
+arrectores_pilorum:
+  position: 20
+  abbr: arrectores_pilorum
+
+subcutaneous_tissue:
+  position: 21
+  abbr: subcutaneous_tissue
+
+fibril:
+  position: 22
+  abbr: fibril
+
+folliculus_pili:
+  position: 23
+  abbr: folliculus_pili
+
+bulbus_pili:
+  position: 24
+  abbr: bulbus_pili
+
+sensory_nerve_ending:
+  position: 26
+  abbr: sensory_nerve_ending
+
+hair_papilla:
+  position: 27
+  abbr: hair_papilla
+
+woven_subcutaneous_fat:
+  position: 28
+  abbr: woven_subcutaneous_fat
+
+cranium:
+  position: 29
+  abbr: cranium
+
+frontal_bone:
+  position: 30
+  abbr: frontal_bone
+
+longitudinal_cerebral_fissure:
+  position: 31
+  abbr: longitudinal_cerebral_fissure
+
+sulcus_frontalis_medius_left:
+  position: 32
+  deixis: left
+  abbr: sulcus_frontalis_medius
+
+sulcus_frontalis_medius_right:
+  position: 32
+  deixis: right
+  abbr: sulcus_frontalis_medius
+
+sulcus_frontalis_superior_left:
+  position: 33
+  deixis: left
+  abbr: sulcus_frontalis_superior
+
+sulcus_frontalis_superior_right:
+  position: 33
+  deixis: right
+  abbr: sulcus_frontalis_superior
+
+superior_frontal_convolution_left:
+  position: 34
+  deixis: left
+  abbr: superior_frontal_convolution
+
+superior_frontal_convolution_right:
+  position: 34
+  deixis: right
+  abbr: superior_frontal_convolution
+
+inferior_frontal_sulcus_left:
+  position: 35
+  deixis: left
+  abbr: inferior_frontal_sulcus
+
+inferior_frontal_sulcus_right:
+  position: 35
+  deixis: right
+  abbr: inferior_frontal_sulcus
+
+middle_frontal_convolution_left:
+  position: 36
+  deixis: left
+  abbr: middle_frontal_convolution
+
+middle_frontal_convolution_right:
+  position: 36
+  deixis: right
+  abbr: middle_frontal_convolution
+
+inferior_precentra_sulcus_left:
+  position: 37
+  deixis: left
+  abbr: inferior_precentra_sulcus
+
+inferior_precentra_sulcus_right:
+  position: 37
+  deixis: right
+  abbr: inferior_precentra_sulcus
+
+gyrus_precentralis_left:
+  position: 38
+  deixis: left
+  abbr: gyrus_precentralis
+
+gyrus_precentralis_right:
+  position: 38
+  deixis: right
+  abbr: gyrus_precentralis
+
+superior_precentral_sulcus_left:
+  position: 39
+  deixis: left
+  abbr: superior_precentral_sulcus
+
+superior_precentral_sulcus_right:
+  position: 39
+  deixis: right
+  abbr: superior_precentral_sulcus
+
+posterior_central_convolution_left:
+  position: 40
+  deixis: left
+  abbr: posterior_central_convolution
+
+posterior_central_convolution_right:
+  position: 40
+  deixis: right
+  abbr: posterior_central_convolution
+
+central_sulcus_left:
+  position: 41
+  deixis: left
+  abbr: central_sulcus
+
+central_sulcus_right:
+  position: 41
+  deixis: right
+  abbr: central_sulcus
+
+postcentral_sulcus_left:
+  position: 42
+  deixis: left
+  abbr: postcentral_sulcus
+
+postcentral_sulcus_right:
+  position: 42
+  deixis: right
+  abbr: postcentral_sulcus
+
+sulcus_of_cingulum:
+  position: 43
+  abbr: sulcus_of_cingulum
+
+lobulus_parietalis_inferior_left:
+  position: 44
+  deixis: left
+  abbr: lobulus_parietalis_inferior
+
+lobulus_parietalis_inferior_right:
+  position: 44
+  deixis: right
+  abbr: lobulus_parietalis_inferior
+
+superior_temporal_sulcus_left:
+  position: 45
+  deixis: left
+  abbr: superior_temporal_sulcus
+
+superior_temporal_sulcus_right:
+  position: 45
+  deixis: right
+  abbr: superior_temporal_sulcus
+
+superior_parietal_lobule_left:
+  position: 46
+  deixis: left
+  abbr: superior_parietal_lobule
+
+superior_parietal_lobule_right:
+  position: 46
+  deixis: right
+  abbr: superior_parietal_lobule
+
+sulcus_intraparietalis_left:
+  position: 47
+  deixis: left
+  abbr: sulcus_intraparietalis
+
+sulcus_intraparietalis_right:
+  position: 47
+  deixis: right
+  abbr: sulcus_intraparietalis
+
+outside_and_upper_occiput_time_left:
+  position: 48
+  deixis: left
+  abbr: outside_and_upper_occiput_time
+
+outside_and_upper_occiput_time_right:
+  position: 48
+  deixis: right
+  abbr: outside_and_upper_occiput_time
+
+anterior_occipital_sulcus_left:
+  position: 49
+  deixis: left
+  abbr: anterior_occipital_sulcus
+
+anterior_occipital_sulcus_right:
+  position: 49
+  deixis: right
+  abbr: anterior_occipital_sulcus
+
+transverse_occipital_sulcus_left:
+  position: 50
+  deixis: left
+  abbr: transverse_occipital_sulcus
+
+transverse_occipital_sulcus_right:
+  position: 50
+  deixis: right
+  abbr: transverse_occipital_sulcus
+
+lunate_sulcus_left:
+  position: 51
+  deixis: left
+  abbr: lunate_sulcus
+
+lunate_sulcus_right:
+  position: 51
+  deixis: right
+  abbr: lunate_sulcus
+
+sulcus_parietooccipitalis_left:
+  position: 52
+  deixis: left
+  abbr: sulcus_parietooccipitalis
+
+sulcus_parietooccipitalis_right:
+  position: 52
+  deixis: right
+  abbr: sulcus_parietooccipitalis
+
+cerebral_cortex:
+  position: 54
+  abbr: cerebral_cortex
+
+lentiform_nucleus_pale_globe:
+  position: 55
+  abbr: lentiform_nucleus_pale_globe
+
+internal_iliac_artery:
+  position: 56
+  abbr: internal_iliac_artery
+
+corpus_callous:
+  position: 57
+  abbr: corpus_callous
+
+sulcus_lateralis:
+  position: 58
+  abbr: sulcus_lateralis
+
+nucleus_caudatus:
+  position: 59
+  abbr: nucleus_caudatus
+
+islet:
+  position: 60
+  abbr: islet
+
+intension:
+  position: 61
+  abbr: intension
+
+claustrum:
+  position: 62
+  abbr: claustrum
+
+popliteal_region_left:
+  position: 63
+  deixis: left
+  abbr: popliteal_region
+
+popliteal_region_right:
+  position: 63
+  deixis: right
+  abbr: popliteal_region
+
+anterior_limb_of_internal_capsule:
+  position: 64
+  abbr: anterior_limb_of_internal_capsule
+
+lentiform_nucleus:
+  position: 65
+  abbr: lentiform_nucleus
+
+thalamus:
+  position: 66
+  abbr: thalamus
+
+crus_posterus_capsulae_internae:
+  position: 67
+  abbr: crus_posterus_capsulae_internae
+
+frontopontine_tract:
+  position: 68
+  abbr: frontopontine_tract
+
+tractus_corticopontini:
+  position: 69
+  abbr: tractus_corticopontini
+
+tractus_corticospinalis_upper:
+  position: 70
+  abbr: tractus_corticospinalis_upper
+
+tractus_corticospinalis_lower:
+  position: 71
+  abbr: tractus_corticospinalis_lower
+
+tegmental_radiation:
+  position: 72
+  abbr: tegmental_radiation
+
+centriciput_occiput_temporopontine_tract:
+  position: 73
+  abbr: centriciput_occiput_temporopontine_tract
+
+occipitothalamic_radiation_acoustic_radiation:
+  position: 74
+  abbr: occipitothalamic_radiation_acoustic_radiation
+
+coronal_suture:
+  position: 75
+  abbr: coronal_suture
+
+sutura_sagittalis:
+  position: 76
+  abbr: sutura_sagittalis
+
+lentiform_nucleus_putamen:
+  position: 77
+  abbr: lentiform_nucleus_putamen
+
+parietal_foramen:
+  position: 78
+  abbr: parietal_foramen
+
+squama_frontalis:
+  position: 79
+  abbr: squama_frontalis
+
+lobus_parietalis_cerebri:
+  position: 81
+  abbr: lobus_parietalis_cerebri
+
+frontal_lobe:
+  position: 84
+  abbr: frontal_lobe
+
+lobus_occipitalis_cerebri:
+  position: 85
+  abbr: lobus_occipitalis_cerebri
+
+optic_area:
+  position: 86
+  abbr: optic_area
+
+hearing_territory:
+  position: 88
+  abbr: hearing_territory
+
+temporal_lobe:
+  position: 89
+  abbr: temporal_lobe
+
+cerebral_hemisphere_medial_surface:
+  position: 90
+  abbr: cerebral_hemisphere_medial_surface
+
+transparent_septum:
+  position: 92
+  abbr: transparent_septum
+
+gyrus_of_brain:
+  position: 93
+  abbr: gyrus_of_brain
+
+splenium_of_corpus_callosum:
+  position: 94
+  abbr: splenium_of_corpus_callosum
+
+fornix:
+  position: 95
+  abbr: fornix
+
+columns_of_fornix:
+  position: 96
+  abbr: columns_of_fornix
+
+crus_fornicis:
+  position: 97
+  abbr: crus_fornicis
+
+third_ventricle:
+  position: 98
+  abbr: third_ventricle
+
+choroid_plexus_of_third_ventricle:
+  position: 99
+  abbr: choroid_plexus_of_third_ventricle
+
+mamillary_body:
+  position: 100
+  abbr: mamillary_body
+
+tectum_mesencephali:
+  position: 102
+  abbr: tectum_mesencephali
+
+funnel:
+  position: 103
+  abbr: funnel
+
+oculomotor_nerve:
+  position: 104
+  abbr: oculomotor_nerve
+
+bulbar:
+  position: 106
+  abbr: bulbar
+
+sylvian_aqueduct:
+  position: 107
+  abbr: sylvian_aqueduct
+
+fourth_ventricle:
+  position: 108
+  abbr: fourth_ventricle
+
+cerebellum:
+  position: 109
+  abbr: cerebellum
+
+frontal_region_of_head:
+  position: 110
+  abbr: frontal_region_of_head
+
+regio_zygomatica_left:
+  position: 111
+  deixis: left
+  abbr: regio_zygomatica
+
+regio_zygomatica_right:
+  position: 111
+  deixis: right
+  abbr: regio_zygomatica
+
+regio_parietalis:
+  position: 112
+  abbr: regio_parietalis
+
+sinciput:
+  position: 113
+  abbr: sinciput
+
+regio_temporalis_left:
+  position: 114
+  deixis: left
+  abbr: regio_temporalis
+
+regio_temporalis_right:
+  position: 114
+  deixis: right
+  abbr: regio_temporalis
+
+sutura_lambdoidea:
+  position: 115
+  abbr: sutura_lambdoidea
+
+temporal_bone_left:
+  position: 116
+  deixis: left
+  abbr: temporal_bone
+
+temporal_bone_right:
+  position: 116
+  deixis: right
+  abbr: temporal_bone
+
+parietomastoid_suture_left:
+  position: 117
+  deixis: left
+  abbr: parietomastoid_suture
+
+parietomastoid_suture_right:
+  position: 117
+  deixis: right
+  abbr: parietomastoid_suture
+
+sutura_sphenosquamosa_left:
+  position: 118
+  deixis: left
+  abbr: sutura_sphenosquamosa
+
+sutura_sphenosquamosa_right:
+  position: 118
+  deixis: right
+  abbr: sutura_sphenosquamosa
+
+squama_occipitalis:
+  position: 119
+  abbr: squama_occipitalis
+
+sutura_occipitomastoidea_left:
+  position: 120
+  deixis: left
+  abbr: sutura_occipitomastoidea
+
+sutura_occipitomastoidea_right:
+  position: 120
+  deixis: right
+  abbr: sutura_occipitomastoidea
+
+orbital_top_left:
+  position: 121
+  deixis: left
+  abbr: orbital_top
+
+orbital_top_right:
+  position: 121
+  deixis: right
+  abbr: orbital_top
+
+orbit_left:
+  position: 123
+  deixis: left
+  abbr: orbit
+
+orbit_right:
+  position: 123
+  deixis: right
+  abbr: orbit
+
+infraorbital_region_left:
+  position: 124
+  deixis: left
+  abbr: infraorbital_region
+
+infraorbital_region_right:
+  position: 124
+  deixis: right
+  abbr: infraorbital_region
+
+fossa_temporalis_left:
+  position: 125
+  deixis: left
+  abbr: fossa_temporalis
+
+fossa_temporalis_right:
+  position: 125
+  deixis: right
+  abbr: fossa_temporalis
+
+orbital_region_left:
+  position: 126
+  deixis: left
+  abbr: orbital_region
+
+orbital_region_right:
+  position: 126
+  deixis: right
+  abbr: orbital_region
+
+regio_palpebralis_superior_left:
+  position: 127
+  deixis: left
+  abbr: regio_palpebralis_superior
+
+regio_palpebralis_superior_right:
+  position: 127
+  deixis: right
+  abbr: regio_palpebralis_superior
+
+eyebrow_left:
+  position: 128
+  deixis: left
+  abbr: eyebrow
+
+eyebrow_right:
+  position: 128
+  deixis: right
+  abbr: eyebrow
+
+brow_ridge_left:
+  position: 129
+  deixis: left
+  abbr: brow_ridge
+
+brow_ridge_right:
+  position: 129
+  deixis: right
+  abbr: brow_ridge
+
+outer_eyebrow_left:
+  position: 131
+  deixis: left
+  abbr: outer_eyebrow
+
+outer_eyebrow_right:
+  position: 131
+  deixis: right
+  abbr: outer_eyebrow
+
+bulbar_conjunctiva_left:
+  position: 132
+  deixis: left
+  abbr: bulbar_conjunctiva
+
+bulbar_conjunctiva_right:
+  position: 132
+  deixis: right
+  abbr: bulbar_conjunctiva
+
+external_canthus_left:
+  position: 133
+  deixis: left
+  abbr: external_canthus
+
+external_canthus_right:
+  position: 133
+  deixis: right
+  abbr: external_canthus
+
+cornea_left:
+  position: 134
+  deixis: left
+  abbr: cornea
+
+cornea_right:
+  position: 134
+  deixis: right
+  abbr: cornea
+
+medial_angle_of_eye_left:
+  position: 135
+  deixis: left
+  abbr: medial_angle_of_eye
+
+medial_angle_of_eye_right:
+  position: 135
+  deixis: right
+  abbr: medial_angle_of_eye
+
+lash_left:
+  position: 136
+  deixis: left
+  abbr: lash
+
+lash_right:
+  position: 136
+  deixis: right
+  abbr: lash
+
+pupil_left:
+  position: 137
+  deixis: left
+  abbr: pupil
+
+pupil_right:
+  position: 137
+  deixis: right
+  abbr: pupil
+
+palpebra_superior_conjunctiva_left:
+  position: 138
+  deixis: left
+  abbr: palpebra_superior_conjunctiva
+
+palpebra_superior_conjunctiva_right:
+  position: 138
+  deixis: right
+  abbr: palpebra_superior_conjunctiva
+
+conjunctiva_transition_zone_left:
+  position: 139
+  deixis: left
+  abbr: conjunctiva_transition_zone
+
+conjunctiva_transition_zone_right:
+  position: 139
+  deixis: right
+  abbr: conjunctiva_transition_zone
+
+rima_palpebrarum_left:
+  position: 140
+  deixis: left
+  abbr: rima_palpebrarum
+
+rima_palpebrarum_right:
+  position: 140
+  deixis: right
+  abbr: rima_palpebrarum
+
+iris_left:
+  position: 142
+  deixis: left
+  abbr: iris
+
+iris_right:
+  position: 142
+  deixis: right
+  abbr: iris
+
+crystalline_lens_left:
+  position: 143
+  deixis: left
+  abbr: crystalline_lens
+
+crystalline_lens_right:
+  position: 143
+  deixis: right
+  abbr: crystalline_lens
+
+lower_eyelid_conjunctiva_left:
+  position: 145
+  deixis: left
+  abbr: lower_eyelid_conjunctiva
+
+lower_eyelid_conjunctiva_right:
+  position: 145
+  deixis: right
+  abbr: lower_eyelid_conjunctiva
+
+anterior_chamber_eye_left:
+  position: 146
+  deixis: left
+  abbr: anterior_chamber_eye
+
+anterior_chamber_eye_right:
+  position: 146
+  deixis: right
+  abbr: anterior_chamber_eye
+
+ciliary_body_left:
+  position: 147
+  deixis: left
+  abbr: ciliary_body
+
+ciliary_body_right:
+  position: 147
+  deixis: right
+  abbr: ciliary_body
+
+ciliary_body_habenula_left:
+  position: 148
+  deixis: left
+  abbr: ciliary_body_habenula
+
+ciliary_body_habenula_right:
+  position: 148
+  deixis: right
+  abbr: ciliary_body_habenula
+
+vitreous_humour_left:
+  position: 149
+  deixis: left
+  abbr: vitreous_humour
+
+vitreous_humour_right:
+  position: 149
+  deixis: right
+  abbr: vitreous_humour
+
+medial_rectus_muscle_left:
+  position: 150
+  deixis: left
+  abbr: medial_rectus_muscle
+
+medial_rectus_muscle_right:
+  position: 150
+  deixis: right
+  abbr: medial_rectus_muscle
+
+lateral_rectus_muscle_left:
+  position: 151
+  deixis: left
+  abbr: lateral_rectus_muscle
+
+lateral_rectus_muscle_right:
+  position: 151
+  deixis: right
+  abbr: lateral_rectus_muscle
+
+sclera_left:
+  position: 152
+  deixis: left
+  abbr: sclera
+
+sclera_right:
+  position: 152
+  deixis: right
+  abbr: sclera
+
+vascular_tunic_left:
+  position: 153
+  deixis: left
+  abbr: vascular_tunic
+
+vascular_tunic_right:
+  position: 153
+  deixis: right
+  abbr: vascular_tunic
+
+retina_left:
+  position: 154
+  deixis: left
+  abbr: retina
+
+retina_right:
+  position: 154
+  deixis: right
+  abbr: retina
+
+optic_disc_left:
+  position: 155
+  deixis: left
+  abbr: optic_disc
+
+optic_disc_right:
+  position: 155
+  deixis: right
+  abbr: optic_disc
+
+hairline:
+  position: 156
+  abbr: hairline
+
+central_pit_left:
+  position: 157
+  deixis: left
+  abbr: central_pit
+
+central_pit_right:
+  position: 157
+  deixis: right
+  abbr: central_pit
+
+optic_nerve_left:
+  position: 158
+  deixis: left
+  abbr: optic_nerve
+
+optic_nerve_right:
+  position: 158
+  deixis: right
+  abbr: optic_nerve
+
+regio_palpebralis_inferior_left:
+  position: 159
+  deixis: left
+  abbr: regio_palpebralis_inferior
+
+regio_palpebralis_inferior_right:
+  position: 159
+  deixis: right
+  abbr: regio_palpebralis_inferior
+
+frontonasal_suture:
+  position: 160
+  abbr: frontonasal_suture
+
+frontomaxillary_suture:
+  position: 161
+  abbr: frontomaxillary_suture
+
+nasal:
+  position: 162
+  abbr: nasal
+
+nasomaxillary_suture:
+  position: 163
+  abbr: nasomaxillary_suture
+
+sutura_internasalis:
+  position: 164
+  abbr: sutura_internasalis
+
+zygomatic_bone:
+  position: 165
+  abbr: zygomatic_bone
+
+frontozygomatic_suture:
+  position: 166
+  abbr: frontozygomatic_suture
+
+crista_frontalis:
+  position: 170
+  abbr: crista_frontalis
+
+squamous_suture_left:
+  position: 171
+  deixis: left
+  abbr: squamous_suture
+
+squamous_suture_right:
+  position: 171
+  deixis: right
+  abbr: squamous_suture
+
+sutura_sphenofrontalis_left:
+  position: 172
+  deixis: left
+  abbr: sutura_sphenofrontalis
+
+sutura_sphenofrontalis_right:
+  position: 172
+  deixis: right
+  abbr: sutura_sphenofrontalis
+
+pacchionian_depression:
+  position: 174
+  abbr: pacchionian_depression
+
+lamina_interna_cranii:
+  position: 175
+  abbr: lamina_interna_cranii
+
+diploe:
+  position: 176
+  abbr: diploe
+
+external_table_of_calvaria:
+  position: 178
+  abbr: external_table_of_calvaria
+
+diploic_canal:
+  position: 180
+  abbr: diploic_canal
+
+buccal_region_left:
+  position: 182
+  deixis: left
+  abbr: buccal_region
+
+buccal_region_right:
+  position: 182
+  deixis: right
+  abbr: buccal_region
+
+nasal_cavity:
+  position: 185
+  abbr: nasal_cavity
+
+sulci_arteriosi:
+  position: 186
+  abbr: sulci_arteriosi
+
+pars_nasalis:
+  position: 187
+  abbr: pars_nasalis
+
+temporal_line_left:
+  position: 193
+  deixis: left
+  abbr: temporal_line
+
+temporal_line_right:
+  position: 193
+  deixis: right
+  abbr: temporal_line
+
+external_acoustic_meatus_left:
+  position: 196
+  deixis: left
+  abbr: external_acoustic_meatus
+
+external_acoustic_meatus_right:
+  position: 196
+  deixis: right
+  abbr: external_acoustic_meatus
+
+malar_arch_left:
+  position: 197
+  deixis: left
+  abbr: malar_arch
+
+malar_arch_right:
+  position: 197
+  deixis: right
+  abbr: malar_arch
+
+processus_mastoideus_left:
+  position: 198
+  deixis: left
+  abbr: processus_mastoideus
+
+processus_mastoideus_right:
+  position: 198
+  deixis: right
+  abbr: processus_mastoideus
+
+styloid_process_left:
+  position: 199
+  deixis: left
+  abbr: styloid_process
+
+styloid_process_right:
+  position: 199
+  deixis: right
+  abbr: styloid_process
+
+infratemporal_fossa_left:
+  position: 200
+  deixis: left
+  abbr: infratemporal_fossa
+
+infratemporal_fossa_right:
+  position: 200
+  deixis: right
+  abbr: infratemporal_fossa
+
+sutura_temporozygomatica_left:
+  position: 201
+  deixis: left
+  abbr: sutura_temporozygomatica
+
+sutura_temporozygomatica_right:
+  position: 201
+  deixis: right
+  abbr: sutura_temporozygomatica
+
+nasal_cavity_of_bony_skeleton_left:
+  position: 202
+  deixis: left
+  abbr: nasal_cavity_of_bony_skeleton
+
+nasal_cavity_of_bony_skeleton_right:
+  position: 202
+  deixis: right
+  abbr: nasal_cavity_of_bony_skeleton
+
+intermaxillary_suture:
+  position: 203
+  abbr: intermaxillary_suture
+
+maxillary_bone:
+  position: 204
+  abbr: maxillary_bone
+
+mandible_bone:
+  position: 205
+  abbr: mandible_bone
+
+dental_enamel:
+  position: 206
+  abbr: dental_enamel
+
+mental_foramen:
+  position: 207
+  abbr: mental_foramen
+
+angle_of_mandible:
+  position: 208
+  abbr: angle_of_mandible
+
+regio_oralis:
+  position: 209
+  abbr: regio_oralis
+
+upper_lip:
+  position: 210
+  abbr: upper_lip
+
+interglobular_area:
+  position: 211
+  abbr: interglobular_area
+
+lower_calyx:
+  position: 212
+  abbr: lower_calyx
+
+submental:
+  position: 213
+  abbr: submental
+
+retromandibular:
+  position: 214
+  abbr: retromandibular
+
+infragnathia:
+  position: 215
+  abbr: infragnathia
+
+occiput:
+  position: 216
+  abbr: occiput
+
+protuberantia_occipitalis_externa:
+  position: 217
+  abbr: protuberantia_occipitalis_externa
+
+pars_mastoidea_left:
+  position: 218
+  deixis: left
+  abbr: pars_mastoidea
+
+pars_mastoidea_right:
+  position: 218
+  deixis: right
+  abbr: pars_mastoidea
+
+fovea_nuchae:
+  position: 219
+  abbr: fovea_nuchae
+
+foramen_caecum:
+  position: 220
+  abbr: foramen_caecum
+
+crista_galli:
+  position: 221
+  abbr: crista_galli
+
+digital_compression:
+  position: 222
+  abbr: digital_compression
+
+anterior_cranial_fossa:
+  position: 223
+  abbr: anterior_cranial_fossa
+
+sulcus_chiasmatis:
+  position: 224
+  abbr: sulcus_chiasmatis
+
+processus_clinoideus_medius:
+  position: 225
+  abbr: processus_clinoideus_medius
+
+canalis_opticus:
+  position: 226
+  abbr: canalis_opticus
+
+fossa_cranii_media:
+  position: 227
+  abbr: fossa_cranii_media
+
+processus_clinoideus_anterior:
+  position: 228
+  abbr: processus_clinoideus_anterior
+
+pituitary_fossa:
+  position: 229
+  abbr: pituitary_fossa
+
+posterior_clinoid_process:
+  position: 230
+  abbr: posterior_clinoid_process
+
+dorsum_sellae:
+  position: 231
+  abbr: dorsum_sellae
+
+foramen_lacerum:
+  position: 232
+  abbr: foramen_lacerum
+
+oval_foramen:
+  position: 233
+  abbr: oval_foramen
+
+spinous_foramen:
+  position: 234
+  abbr: spinous_foramen
+
+clivus:
+  position: 235
+  abbr: clivus
+
+porus_acusticus_internus:
+  position: 236
+  abbr: porus_acusticus_internus
+
+foramen_jugulare:
+  position: 237
+  abbr: foramen_jugulare
+
+canalis_nervi_hypoglossi:
+  position: 238
+  abbr: canalis_nervi_hypoglossi
+
+foramen_magnum:
+  position: 239
+  abbr: foramen_magnum
+
+sulcus_sinus_sigmoidei:
+  position: 240
+  abbr: sulcus_sinus_sigmoidei
+
+inferior_occipital_fossa:
+  position: 241
+  abbr: inferior_occipital_fossa
+
+groove_for_transverse_sinus:
+  position: 242
+  abbr: groove_for_transverse_sinus
+
+internal_occipital_protuberance:
+  position: 243
+  abbr: internal_occipital_protuberance
+
+fossa_cranii_posterior:
+  position: 244
+  abbr: fossa_cranii_posterior
+
+sulcus_sinus_sagittalis_superioris:
+  position: 245
+  abbr: sulcus_sinus_sagittalis_superioris
+
+superior_occipital_fossa:
+  position: 246
+  abbr: superior_occipital_fossa
+
+anterior_fontanelle:
+  position: 247
+  abbr: anterior_fontanelle
+
+posterior_fontanelle:
+  position: 249
+  abbr: posterior_fontanelle
+
+occipital:
+  position: 251
+  abbr: occipital
+
+auricular_region_left:
+  position: 256
+  deixis: left
+  abbr: auricular_region
+
+auricular_region_right:
+  position: 256
+  deixis: right
+  abbr: auricular_region
+
+parotid_gland_muscle_of_mastication_left:
+  position: 257
+  deixis: left
+  abbr: parotid_gland_muscle_of_mastication
+
+parotid_gland_muscle_of_mastication_right:
+  position: 257
+  deixis: right
+  abbr: parotid_gland_muscle_of_mastication
+
+pinna_on_attachment_left:
+  position: 258
+  deixis: left
+  abbr: pinna_on_attachment
+
+pinna_on_attachment_right:
+  position: 258
+  deixis: right
+  abbr: pinna_on_attachment
+
+pinna_under_attachment_left:
+  position: 259
+  deixis: left
+  abbr: pinna_under_attachment
+
+pinna_under_attachment_right:
+  position: 259
+  deixis: right
+  abbr: pinna_under_attachment
+
+dentine:
+  position: 261
+  abbr: dentine
+
+dental_pulp:
+  position: 262
+  abbr: dental_pulp
+
+gingiva:
+  position: 263
+  abbr: gingiva
+
+alveolar_bone:
+  position: 264
+  abbr: alveolar_bone
+
+dental_cement:
+  position: 265
+  abbr: dental_cement
+
+tooth_crown:
+  position: 266
+  abbr: tooth_crown
+
+neck_of_a_tooth:
+  position: 267
+  abbr: neck_of_a_tooth
+
+fang:
+  position: 268
+  abbr: fang
+
+labium_inferius_oris:
+  position: 270
+  abbr: labium_inferius_oris
+
+mental_region:
+  position: 271
+  abbr: mental_region
+
+lingual_apex:
+  position: 272
+  abbr: lingual_apex
+
+lingual_septum:
+  position: 273
+  abbr: lingual_septum
+
+genioglossal_muscle:
+  position: 274
+  abbr: genioglossal_muscle
+
+inferior_longitudinal_muscle_of_tongue:
+  position: 275
+  abbr: inferior_longitudinal_muscle_of_tongue
+
+styloglossus_muscle:
+  position: 276
+  abbr: styloglossus_muscle
+
+musculus_hyoglossus:
+  position: 277
+  abbr: musculus_hyoglossus
+
+corpus_ossis_hyoidei:
+  position: 278
+  abbr: corpus_ossis_hyoidei
+
+parotid_gland_left:
+  position: 279
+  deixis: left
+  abbr: parotid_gland
+
+parotid_gland_right:
+  position: 279
+  deixis: right
+  abbr: parotid_gland
+
+median_thyrohyoid_ligament:
+  position: 280
+  abbr: median_thyrohyoid_ligament
+
+vena_auricularis_posterior_left:
+  position: 281
+  deixis: left
+  abbr: vena_auricularis_posterior
+
+vena_auricularis_posterior_right:
+  position: 281
+  deixis: right
+  abbr: vena_auricularis_posterior
+
+vena_jugularis_externa_left:
+  position: 282
+  deixis: left
+  abbr: vena_jugularis_externa
+
+vena_jugularis_externa_right:
+  position: 282
+  deixis: right
+  abbr: vena_jugularis_externa
+
+hyoid_bone:
+  position: 283
+  abbr: hyoid_bone
+
+hyoid_bone_region:
+  position: 284
+  abbr: hyoid_bone_region
+
+lesser_horn_of_hyoid_bone:
+  position: 285
+  abbr: lesser_horn_of_hyoid_bone
+
+thyrohyal:
+  position: 286
+  abbr: thyrohyal
+
+corpus_adiposum:
+  position: 287
+  abbr: corpus_adiposum
+
+middle_constrictor_pharyngeus_muscle:
+  position: 288
+  abbr: middle_constrictor_pharyngeus_muscle
+
+superior_thyroid_notch:
+  position: 289
+  abbr: superior_thyroid_notch
+
+epiglottic_cartilage:
+  position: 290
+  abbr: epiglottic_cartilage
+
+thyroid_cartilage_superior_angle:
+  position: 291
+  abbr: thyroid_cartilage_superior_angle
+
+thyroid_cartilage:
+  position: 292
+  abbr: thyroid_cartilage
+
+thyroid_cartilage_inferior_horn:
+  position: 293
+  abbr: thyroid_cartilage_inferior_horn
+
+rhinopharynx_nerve:
+  position: 294
+  abbr: rhinopharynx_nerve
+
+inferior_constrictor_pharyngeus_muscle:
+  position: 295
+  abbr: inferior_constrictor_pharyngeus_muscle
+
+lamina_sinistra_cartilaginis_thyroidea:
+  position: 296
+  abbr: lamina_sinistra_cartilaginis_thyroidea
+
+inferior_thyroid_notch:
+  position: 297
+  abbr: inferior_thyroid_notch
+
+cartilago_cricoidea:
+  position: 298
+  abbr: cartilago_cricoidea
+
+cricothyroid_ligament:
+  position: 299
+  abbr: cricothyroid_ligament
+
+cricothyroid_muscle_straight:
+  position: 300
+  abbr: cricothyroid_muscle_straight
+
+cricothyroid_muscle_oblique:
+  position: 301
+  abbr: cricothyroid_muscle_oblique
+
+thyroid_gland_region:
+  position: 302
+  abbr: thyroid_gland_region
+
+subclavian_vein_left:
+  position: 303
+  deixis: left
+  abbr: subclavian_vein
+
+subclavian_vein_right:
+  position: 303
+  deixis: right
+  abbr: subclavian_vein
+
+os_lunatum_left:
+  position: 304
+  deixis: left
+  abbr: os_lunatum
+
+os_lunatum_right:
+  position: 304
+  deixis: right
+  abbr: os_lunatum
+
+thyroid_gland_left_lobe:
+  position: 305
+  abbr: thyroid_gland_left_lobe
+
+thyroid_gland_canyon:
+  position: 306
+  abbr: thyroid_gland_canyon
+
+right_lobe_of_thyroid_gland:
+  position: 307
+  abbr: right_lobe_of_thyroid_gland
+
+hyoid_bone_lower:
+  position: 308
+  abbr: hyoid_bone_lower
+
+trachea:
+  position: 309
+  abbr: trachea
+
+tracheal_cartilage:
+  position: 310
+  abbr: tracheal_cartilage
+
+tracheal_bifurcation:
+  position: 311
+  abbr: tracheal_bifurcation
+
+bronchus:
+  position: 312
+  abbr: bronchus
+
+platysma_left:
+  position: 313
+  deixis: left
+  abbr: platysma
+
+platysma_right:
+  position: 313
+  deixis: right
+  abbr: platysma
+
+smaller_occipital_nerve_left:
+  position: 314
+  deixis: left
+  abbr: smaller_occipital_nerve
+
+smaller_occipital_nerve_right:
+  position: 314
+  deixis: right
+  abbr: smaller_occipital_nerve
+
+sternocleidomastoid_muscle_left:
+  position: 315
+  deixis: left
+  abbr: sternocleidomastoid_muscle
+
+sternocleidomastoid_muscle_right:
+  position: 315
+  deixis: right
+  abbr: sternocleidomastoid_muscle
+
+sternocleidomastoid_region_left:
+  position: 316
+  deixis: left
+  abbr: sternocleidomastoid_region
+
+sternocleidomastoid_region_right:
+  position: 316
+  deixis: right
+  abbr: sternocleidomastoid_region
+
+laryngeal_part:
+  position: 317
+  abbr: laryngeal_part
+
+trigonum_caroticum_left:
+  position: 318
+  deixis: left
+  abbr: trigonum_caroticum
+
+trigonum_caroticum_right:
+  position: 318
+  deixis: right
+  abbr: trigonum_caroticum
+
+lateral_neck_region_left:
+  position: 319
+  deixis: left
+  abbr: lateral_neck_region
+
+lateral_neck_region_right:
+  position: 319
+  deixis: right
+  abbr: lateral_neck_region
+
+posterior_region_of_neck:
+  position: 320
+  abbr: posterior_region_of_neck
+
+greater_auricular_nerve_left:
+  position: 321
+  deixis: left
+  abbr: greater_auricular_nerve
+
+greater_auricular_nerve_right:
+  position: 321
+  deixis: right
+  abbr: greater_auricular_nerve
+
+accessory_nerve_left:
+  position: 322
+  deixis: left
+  abbr: accessory_nerve
+
+accessory_nerve_right:
+  position: 322
+  deixis: right
+  abbr: accessory_nerve
+
+trapezius_left:
+  position: 323
+  deixis: left
+  abbr: trapezius
+
+trapezius_right:
+  position: 323
+  deixis: right
+  abbr: trapezius
+
+fossa_supraclavicularis_major_left:
+  position: 324
+  deixis: left
+  abbr: fossa_supraclavicularis_major
+
+fossa_supraclavicularis_major_right:
+  position: 324
+  deixis: right
+  abbr: fossa_supraclavicularis_major
+
+regio_cervicales_lateralis_left:
+  position: 325
+  deixis: left
+  abbr: regio_cervicales_lateralis
+
+regio_cervicales_lateralis_right:
+  position: 325
+  deixis: right
+  abbr: regio_cervicales_lateralis
+
+regio_cervicales_anterior:
+  position: 326
+  abbr: regio_cervicales_anterior
+
+laryngeal_prominence:
+  position: 327
+  abbr: laryngeal_prominence
+
+internal_jugular_vein_left:
+  position: 328
+  deixis: left
+  abbr: internal_jugular_vein
+
+internal_jugular_vein_right:
+  position: 328
+  deixis: right
+  abbr: internal_jugular_vein
+
+atlas:
+  position: 330
+  abbr: atlas
+
+axis:
+  position: 331
+  abbr: axis
+
+cervical_vertebra:
+  position: 332
+  abbr: cervical_vertebra
+
+nucha:
+  position: 333
+  abbr: nucha
+
+neck:
+  position: 334
+  abbr: neck
+
+jugular_vein_region:
+  position: 335
+  abbr: jugular_vein_region
+
+costa_prima_left:
+  position: 340
+  deixis: left
+  abbr: costa_prima
+
+costa_prima_right:
+  position: 340
+  deixis: right
+  abbr: costa_prima
+
+first_thoracic_vertebra:
+  position: 341
+  abbr: first_thoracic_vertebra
+
+brachiocepharic_artery:
+  position: 342
+  abbr: brachiocepharic_artery
+
+chest_upper_mouth:
+  position: 344
+  abbr: chest_upper_mouth
+
+manubrium:
+  position: 345
+  abbr: manubrium
+
+subclavicular_region_left:
+  position: 346
+  deixis: left
+  abbr: subclavicular_region
+
+subclavicular_region_right:
+  position: 346
+  deixis: right
+  abbr: subclavicular_region
+
+spinous_process_of_vertebra:
+  position: 347
+  abbr: spinous_process_of_vertebra
+
+cephalic_vein_left:
+  position: 348
+  deixis: left
+  abbr: cephalic_vein
+
+cephalic_vein_right:
+  position: 348
+  deixis: right
+  abbr: cephalic_vein
+
+clavicle_left:
+  position: 349
+  deixis: left
+  abbr: clavicle
+
+clavicle_right:
+  position: 349
+  deixis: right
+  abbr: clavicle
+
+processus_transversus:
+  position: 350
+  abbr: processus_transversus
+
+scapula_left:
+  position: 351
+  deixis: left
+  abbr: scapula
+
+scapula_right:
+  position: 351
+  deixis: right
+  abbr: scapula
+
+rib_left:
+  position: 352
+  deixis: left
+  abbr: rib
+
+rib_right:
+  position: 352
+  deixis: right
+  abbr: rib
+
+superior_caval_vein:
+  position: 353
+  abbr: superior_caval_vein
+
+acromial_part_left:
+  position: 354
+  deixis: left
+  abbr: acromial_part
+
+acromial_part_right:
+  position: 354
+  deixis: right
+  abbr: acromial_part
+
+suprascapular_left:
+  position: 355
+  deixis: left
+  abbr: suprascapular
+
+suprascapular_right:
+  position: 355
+  deixis: right
+  abbr: suprascapular
+
+lesser_supraclavicular_fossa_left:
+  position: 356
+  deixis: left
+  abbr: lesser_supraclavicular_fossa
+
+lesser_supraclavicular_fossa_right:
+  position: 356
+  deixis: right
+  abbr: lesser_supraclavicular_fossa
+
+pars_clavicularis_left:
+  position: 357
+  deixis: left
+  abbr: pars_clavicularis
+
+pars_clavicularis_right:
+  position: 357
+  deixis: right
+  abbr: pars_clavicularis
+
+regio_deltoidea:
+  position: 359
+  abbr: regio_deltoidea
+
+shoulder_left:
+  position: 360
+  deixis: left
+  abbr: shoulder
+
+shoulder_right:
+  position: 360
+  deixis: right
+  abbr: shoulder
+
+apex_of_lung_left:
+  position: 361
+  deixis: left
+  abbr: apex_of_lung
+
+apex_of_lung_right:
+  position: 361
+  deixis: right
+  abbr: apex_of_lung
+
+common_carotid_artery_left:
+  position: 363
+  deixis: left
+  abbr: common_carotid_artery
+
+common_carotid_artery_right:
+  position: 363
+  deixis: right
+  abbr: common_carotid_artery
+
+subclavian_artery_left:
+  position: 364
+  deixis: left
+  abbr: subclavian_artery
+
+subclavian_artery_right:
+  position: 364
+  deixis: right
+  abbr: subclavian_artery
+
+aortic_arch:
+  position: 366
+  abbr: aortic_arch
+
+vena_pulmonalis_superior_dextra_left:
+  position: 369
+  deixis: left
+  abbr: vena_pulmonalis_superior_dextra
+
+vena_pulmonalis_superior_dextra_right:
+  position: 369
+  deixis: right
+  abbr: vena_pulmonalis_superior_dextra
+
+pulmonary_artery_left:
+  position: 370
+  deixis: left
+  abbr: pulmonary_artery
+
+pulmonary_artery_right:
+  position: 370
+  deixis: right
+  abbr: pulmonary_artery
+
+lower_pulmonary_artery_left:
+  position: 372
+  deixis: left
+  abbr: lower_pulmonary_artery
+
+lower_pulmonary_artery_right:
+  position: 372
+  deixis: right
+  abbr: lower_pulmonary_artery
+
+pulmonary_vein_left:
+  position: 374
+  deixis: left
+  abbr: pulmonary_vein
+
+pulmonary_vein_right:
+  position: 374
+  deixis: right
+  abbr: pulmonary_vein
+
+arterious_ligament:
+  position: 375
+  abbr: arterious_ligament
+
+pars_ascendens_aortae:
+  position: 376
+  abbr: pars_ascendens_aortae
+
+trunk_of_pulmonary_artery:
+  position: 377
+  abbr: trunk_of_pulmonary_artery
+
+auricula_sinistra_left:
+  position: 378
+  deixis: left
+  abbr: auricula_sinistra
+
+auricula_sinistra_right:
+  position: 378
+  deixis: right
+  abbr: auricula_sinistra
+
+arterial_cone:
+  position: 379
+  abbr: arterial_cone
+
+atrium_left:
+  position: 381
+  deixis: left
+  abbr: atrium
+
+atrium_right:
+  position: 381
+  deixis: right
+  abbr: atrium
+
+oblique_veins_of_atrium_left:
+  position: 382
+  deixis: left
+  abbr: oblique_veins_of_atrium
+
+oblique_veins_of_atrium_right:
+  position: 382
+  deixis: right
+  abbr: oblique_veins_of_atrium
+
+coronary_artery_left:
+  position: 383
+  deixis: left
+  abbr: coronary_artery
+
+coronary_artery_right:
+  position: 383
+  deixis: right
+  abbr: coronary_artery
+
+upper_lobe_of_lung_left:
+  position: 386
+  deixis: left
+  abbr: upper_lobe_of_lung
+
+upper_lobe_of_lung_right:
+  position: 386
+  deixis: right
+  abbr: upper_lobe_of_lung
+
+sinus_coronarius:
+  position: 387
+  abbr: sinus_coronarius
+
+sinus_venarum:
+  position: 388
+  abbr: sinus_venarum
+
+great_cardiac_vein:
+  position: 389
+  abbr: great_cardiac_vein
+
+lobar_bronchi:
+  position: 390
+  abbr: lobar_bronchi
+
+venae_cordis_anteriores:
+  position: 392
+  abbr: venae_cordis_anteriores
+
+central_vein:
+  position: 394
+  abbr: central_vein
+
+middle_lode:
+  position: 396
+  abbr: middle_lode
+
+inferior_lobe_left:
+  position: 397
+  deixis: left
+  abbr: inferior_lobe
+
+inferior_lobe_right:
+  position: 397
+  deixis: right
+  abbr: inferior_lobe
+
+ventricular_left:
+  position: 398
+  deixis: left
+  abbr: ventricular
+
+ventricular_right:
+  position: 398
+  deixis: right
+  abbr: ventricular
+
+basis_pulmonis:
+  position: 399
+  abbr: basis_pulmonis
+
+diaphragmatic_surface_of_heart:
+  position: 400
+  abbr: diaphragmatic_surface_of_heart
+
+apical:
+  position: 402
+  abbr: apical
+
+apical_notch:
+  position: 403
+  abbr: apical_notch
+
+regio_mammaria_left:
+  position: 405
+  deixis: left
+  abbr: regio_mammaria
+
+regio_mammaria_right:
+  position: 405
+  deixis: right
+  abbr: regio_mammaria
+
+areola_left:
+  position: 406
+  deixis: left
+  abbr: areola
+
+areola_right:
+  position: 406
+  deixis: right
+  abbr: areola
+
+teat_left:
+  position: 407
+  deixis: left
+  abbr: teat
+
+teat_right:
+  position: 407
+  deixis: right
+  abbr: teat
+
+areolar_gland_left:
+  position: 408
+  deixis: left
+  abbr: areolar_gland
+
+areolar_gland_right:
+  position: 408
+  deixis: right
+  abbr: areolar_gland
+
+greater_pectoral_muscle_left:
+  position: 409
+  deixis: left
+  abbr: greater_pectoral_muscle
+
+greater_pectoral_muscle_right:
+  position: 409
+  deixis: right
+  abbr: greater_pectoral_muscle
+
+breast_left:
+  position: 410
+  deixis: left
+  abbr: breast
+
+breast_right:
+  position: 410
+  deixis: right
+  abbr: breast
+
+latex_vessel_left:
+  position: 411
+  deixis: left
+  abbr: latex_vessel
+
+latex_vessel_right:
+  position: 411
+  deixis: right
+  abbr: latex_vessel
+
+blood_vessel_left:
+  position: 412
+  deixis: left
+  abbr: blood_vessel
+
+blood_vessel_right:
+  position: 412
+  deixis: right
+  abbr: blood_vessel
+
+lymphatic_vessel_left:
+  position: 413
+  deixis: left
+  abbr: lymphatic_vessel
+
+lymphatic_vessel_right:
+  position: 413
+  deixis: right
+  abbr: lymphatic_vessel
+
+breast_lobule_left:
+  position: 414
+  deixis: left
+  abbr: breast_lobule
+
+breast_lobule_right:
+  position: 414
+  deixis: right
+  abbr: breast_lobule
+
+mammary_adipose_body_left:
+  position: 415
+  deixis: left
+  abbr: mammary_adipose_body
+
+mammary_adipose_body_right:
+  position: 415
+  deixis: right
+  abbr: mammary_adipose_body
+
+aorta:
+  position: 416
+  abbr: aorta
+
+corpus_sterni:
+  position: 417
+  abbr: corpus_sterni
+
+intercostal_space:
+  position: 418
+  abbr: intercostal_space
+
+breastbone:
+  position: 419
+  abbr: breastbone
+
+presternal_region:
+  position: 420
+  abbr: presternal_region
+
+interscapular_region_left:
+  position: 421
+  deixis: left
+  abbr: interscapular_region
+
+interscapular_region_right:
+  position: 421
+  deixis: right
+  abbr: interscapular_region
+
+scapular_region_left:
+  position: 422
+  deixis: left
+  abbr: scapular_region
+
+scapular_region_right:
+  position: 422
+  deixis: right
+  abbr: scapular_region
+
+regio_axillaris_left:
+  position: 423
+  deixis: left
+  abbr: regio_axillaris
+
+regio_axillaris_right:
+  position: 423
+  deixis: right
+  abbr: regio_axillaris
+
+axillary_fossa:
+  position: 424
+  abbr: axillary_fossa
+
+scapula_inside_left:
+  position: 425
+  deixis: left
+  abbr: scapula_inside
+
+scapula_inside_right:
+  position: 425
+  deixis: right
+  abbr: scapula_inside
+
+angulus_inferior_scapulae_left:
+  position: 426
+  deixis: left
+  abbr: angulus_inferior_scapulae
+
+angulus_inferior_scapulae_right:
+  position: 426
+  deixis: right
+  abbr: angulus_inferior_scapulae
+
+brachial_artery:
+  position: 428
+  abbr: brachial_artery
+
+thoracic_aorta:
+  position: 429
+  abbr: thoracic_aorta
+
+episternum_left:
+  position: 430
+  deixis: left
+  abbr: episternum
+
+episternum_right:
+  position: 430
+  deixis: right
+  abbr: episternum
+
+xiphoid_process:
+  position: 431
+  abbr: xiphoid_process
+
+apertura_thoracis_inferior:
+  position: 432
+  abbr: apertura_thoracis_inferior
+
+12th_rib_left:
+  position: 433
+  deixis: left
+  abbr: 12th_rib
+
+12th_rib_right:
+  position: 433
+  deixis: right
+  abbr: 12th_rib
+
+twelfth_thoracic_vertebra:
+  position: 434
+  abbr: twelfth_thoracic_vertebra
+
+seventh(7th)_cervical_vertebra:
+  position: 435
+  abbr: seventh(7th)_cervical_vertebra
+
+thoracic_vertebra:
+  position: 436
+  abbr: thoracic_vertebra
+
+hepatic_vein:
+  position: 437
+  abbr: hepatic_vein
+
+lobe_left:
+  position: 438
+  deixis: left
+  abbr: lobe
+
+lobe_right:
+  position: 438
+  deixis: right
+  abbr: lobe
+
+trigeminal_membrane_left:
+  position: 439
+  deixis: left
+  abbr: trigeminal_membrane
+
+trigeminal_membrane_right:
+  position: 439
+  deixis: right
+  abbr: trigeminal_membrane
+
+liver_fiber_attach:
+  position: 440
+  abbr: liver_fiber_attach
+
+gall_bladder:
+  position: 442
+  abbr: gall_bladder
+
+hepatic_sickle_membrane:
+  position: 443
+  abbr: hepatic_sickle_membrane
+
+hepatic_streak:
+  position: 444
+  abbr: hepatic_streak
+
+gastric_indentation:
+  position: 447
+  abbr: gastric_indentation
+
+caudate_lobe:
+  position: 448
+  abbr: caudate_lobe
+
+inferior_vena_cava:
+  position: 449
+  abbr: inferior_vena_cava
+
+portal_vein:
+  position: 450
+  abbr: portal_vein
+
+kidney_impression:
+  position: 451
+  abbr: kidney_impression
+
+intrinsic_hepatic_artery:
+  position: 453
+  abbr: intrinsic_hepatic_artery
+
+hepatic_duct:
+  position: 454
+  abbr: hepatic_duct
+
+cystic_duct:
+  position: 455
+  abbr: cystic_duct
+
+cholecystic_artery:
+  position: 456
+  abbr: cholecystic_artery
+
+quadrate_lobe:
+  position: 459
+  abbr: quadrate_lobe
+
+hemiazygous_vein:
+  position: 462
+  abbr: hemiazygous_vein
+
+azygos_vein:
+  position: 463
+  abbr: azygos_vein
+
+vena_renalis:
+  position: 464
+  abbr: vena_renalis
+
+arteria_coeliaca:
+  position: 465
+  abbr: arteria_coeliaca
+
+arteria_renalis:
+  position: 466
+  abbr: arteria_renalis
+
+inframammary_region_left:
+  position: 467
+  deixis: left
+  abbr: inframammary_region
+
+inframammary_region_right:
+  position: 467
+  deixis: right
+  abbr: inframammary_region
+
+side_chest_left:
+  position: 468
+  deixis: left
+  abbr: side_chest
+
+side_chest_right:
+  position: 468
+  deixis: right
+  abbr: side_chest
+
+kidney_cortex:
+  position: 469
+  abbr: kidney_cortex
+
+renal_medulla:
+  position: 470
+  abbr: renal_medulla
+
+papilla_renalis:
+  position: 471
+  abbr: papilla_renalis
+
+renal_pelvis:
+  position: 472
+  abbr: renal_pelvis
+
+kidney_calix:
+  position: 473
+  abbr: kidney_calix
+
+base_of_renal_pyramid:
+  position: 474
+  abbr: base_of_renal_pyramid
+
+ureter:
+  position: 475
+  abbr: ureter
+
+line_weight_film:
+  position: 476
+  abbr: line_weight_film
+
+vertebral_column:
+  position: 477
+  abbr: vertebral_column
+
+upper_arm:
+  position: 478
+  abbr: upper_arm
+
+chelidon:
+  position: 479
+  abbr: chelidon
+
+esophagus:
+  position: 480
+  abbr: esophagus
+
+liver:
+  position: 481
+  abbr: liver
+
+stomach:
+  position: 482
+  abbr: stomach
+
+cardia:
+  position: 483
+  abbr: cardia
+
+gastric_gland:
+  position: 484
+  abbr: gastric_gland
+
+pylorus:
+  position: 485
+  abbr: pylorus
+
+pyloric_region:
+  position: 486
+  abbr: pyloric_region
+
+gastric_mucosal_folds:
+  position: 487
+  abbr: gastric_mucosal_folds
+
+greater_curverture:
+  position: 488
+  abbr: greater_curverture
+
+gastric_district:
+  position: 489
+  abbr: gastric_district
+
+pancreas:
+  position: 491
+  abbr: pancreas
+
+duodenum:
+  position: 492
+  abbr: duodenum
+
+abdominal_aorta:
+  position: 493
+  abbr: abdominal_aorta
+
+transverse_colon:
+  position: 494
+  abbr: transverse_colon
+
+ascending_colon:
+  position: 495
+  abbr: ascending_colon
+
+jejunum:
+  position: 496
+  abbr: jejunum
+
+costal_arch_left:
+  position: 497
+  deixis: left
+  abbr: costal_arch
+
+costal_arch_right:
+  position: 497
+  deixis: right
+  abbr: costal_arch
+
+arcus_costalis_left:
+  position: 499
+  deixis: left
+  abbr: arcus_costalis
+
+arcus_costalis_right:
+  position: 499
+  deixis: right
+  abbr: arcus_costalis
+
+upper_abdomen:
+  position: 500
+  abbr: upper_abdomen
+
+hypochondrium_left:
+  position: 501
+  deixis: left
+  abbr: hypochondrium
+
+hypochondrium_right:
+  position: 501
+  deixis: right
+  abbr: hypochondrium
+
+umbilical_region:
+  position: 502
+  abbr: umbilical_region
+
+umbilical:
+  position: 503
+  abbr: umbilical
+
+regio_infrascapularis_left:
+  position: 504
+  deixis: left
+  abbr: regio_infrascapularis
+
+regio_infrascapularis_right:
+  position: 504
+  deixis: right
+  abbr: regio_infrascapularis
+
+testicular_vein:
+  position: 505
+  abbr: testicular_vein
+
+arteria_testicularis:
+  position: 506
+  abbr: arteria_testicularis
+
+back_midline:
+  position: 507
+  abbr: back_midline
+
+loin_left:
+  position: 508
+  deixis: left
+  abbr: loin
+
+loin_right:
+  position: 508
+  deixis: right
+  abbr: loin
+
+hip_bone_left:
+  position: 509
+  deixis: left
+  abbr: hip_bone
+
+hip_bone_right:
+  position: 509
+  deixis: right
+  abbr: hip_bone
+
+iliac_bone_left:
+  position: 510
+  deixis: left
+  abbr: iliac_bone
+
+iliac_bone_right:
+  position: 510
+  deixis: right
+  abbr: iliac_bone
+
+iliac_horn_left:
+  position: 511
+  deixis: left
+  abbr: iliac_horn
+
+iliac_horn_right:
+  position: 511
+  deixis: right
+  abbr: iliac_horn
+
+promontory:
+  position: 512
+  abbr: promontory
+
+sacral_bone:
+  position: 513
+  abbr: sacral_bone
+
+cecum:
+  position: 514
+  abbr: cecum
+
+sacroiliac_articulation:
+  position: 515
+  abbr: sacroiliac_articulation
+
+sacral_region:
+  position: 516
+  abbr: sacral_region
+
+iliac_region:
+  position: 517
+  abbr: iliac_region
+
+common_iliac_vein:
+  position: 518
+  abbr: common_iliac_vein
+
+ileum:
+  position: 519
+  abbr: ileum
+
+vermiform_appendix:
+  position: 520
+  abbr: vermiform_appendix
+
+anus:
+  position: 521
+  abbr: anus
+
+external_iliac_vein:
+  position: 522
+  abbr: external_iliac_vein
+
+sigmoid_colon:
+  position: 523
+  abbr: sigmoid_colon
+
+vena_iliaca_interna:
+  position: 524
+  abbr: vena_iliaca_interna
+
+pubic_region:
+  position: 525
+  abbr: pubic_region
+
+large_saphenous_vein:
+  position: 526
+  abbr: large_saphenous_vein
+
+rectum:
+  position: 527
+  abbr: rectum
+
+arteria_iliaca_communis:
+  position: 529
+  abbr: arteria_iliaca_communis
+
+pygostylus:
+  position: 530
+  abbr: pygostylus
+
+descending_colon:
+  position: 532
+  abbr: descending_colon
+
+arteria_iliaca_externa:
+  position: 533
+  abbr: arteria_iliaca_externa
+
+flank_left:
+  position: 534
+  deixis: left
+  abbr: flank
+
+flank_right:
+  position: 534
+  deixis: right
+  abbr: flank
+
+pubic_left:
+  position: 536
+  deixis: left
+  abbr: pubic
+
+pubic_right:
+  position: 536
+  deixis: right
+  abbr: pubic
+
+pubic_symphysis:
+  position: 537
+  abbr: pubic_symphysis
+
+ischeal_bone_left:
+  position: 538
+  deixis: left
+  abbr: ischeal_bone
+
+ischeal_bone_right:
+  position: 538
+  deixis: right
+  abbr: ischeal_bone
+
+lumbar_vertebra:
+  position: 539
+  abbr: lumbar_vertebra
+
+angulus_subpubicus:
+  position: 540
+  abbr: angulus_subpubicus
+
+sacrococcygeal_curvature:
+  position: 541
+  abbr: sacrococcygeal_curvature
+
+hypogastrium:
+  position: 544
+  abbr: hypogastrium
+
+anterachial_region:
+  position: 546
+  abbr: anterachial_region
 
 olecranon_left:
-  position: 5
+  position: 547
   deixis: left
   abbr: olecranon
 
 olecranon_right:
-  position: 5
+  position: 547
   deixis: right
   abbr: olecranon
 
-middle_finger_left:
-  position: 6
+radius_left:
+  position: 549
   deixis: left
-  abbr: middle_finger
+  abbr: radius
 
-middle_finger_right:
-  position: 6
+radius_right:
+  position: 549
   deixis: right
-  abbr: middle_finger
+  abbr: radius
 
-anterior_superior_iliac_spine_left:
-  position: 7
+ulna_left:
+  position: 550
   deixis: left
-  abbr: asis
+  abbr: ulna
 
-anterior_superior_iliac_spine_right:
-  position: 7
+ulna_right:
+  position: 550
   deixis: right
-  abbr: asis
+  abbr: ulna
 
-pubic_symphysis:
-  position: 8
-  abbr: pubic_symphysis
-
-tibial_tuberosity_left:
-  position: 9
+ossa_manus_left:
+  position: 551
   deixis: left
-  abbr: tibial_tuberosity
+  abbr: ossa_manus
 
-tibial_tuberosity_right:
-  position: 9
+ossa_manus_right:
+  position: 551
   deixis: right
-  abbr: tibial_tuberosity
+  abbr: ossa_manus
 
-second_toe_left:
-  position: 10
+opisthenar:
+  position: 552
+  abbr: opisthenar
+
+part_of_palm:
+  position: 553
+  abbr: part_of_palm
+
+styloid_process_of_ulna_left:
+  position: 556
   deixis: left
-  abbr: second_toe
+  abbr: styloid_process_of_ulna
 
-second_toe_right:
-  position: 10
+styloid_process_of_ulna_right:
+  position: 556
   deixis: right
-  abbr: second_toe
+  abbr: styloid_process_of_ulna
+
+deltoid_left:
+  position: 558
+  deixis: left
+  abbr: deltoid
+
+deltoid_right:
+  position: 558
+  deixis: right
+  abbr: deltoid
+
+radiale_left:
+  position: 559
+  deixis: left
+  abbr: radiale
+
+radiale_right:
+  position: 559
+  deixis: right
+  abbr: radiale
+
+os_pisiforme_left:
+  position: 560
+  deixis: left
+  abbr: os_pisiforme
+
+os_pisiforme_right:
+  position: 560
+  deixis: right
+  abbr: os_pisiforme
+
+os_trapezium_left:
+  position: 561
+  deixis: left
+  abbr: os_trapezium
+
+os_trapezium_right:
+  position: 561
+  deixis: right
+  abbr: os_trapezium
+
+trapezoid_left:
+  position: 562
+  deixis: left
+  abbr: trapezoid
+
+trapezoid_right:
+  position: 562
+  deixis: right
+  abbr: trapezoid
+
+os_capitatum_left:
+  position: 563
+  deixis: left
+  abbr: os_capitatum
+
+os_capitatum_right:
+  position: 563
+  deixis: right
+  abbr: os_capitatum
+
+hamatum_left:
+  position: 564
+  deixis: left
+  abbr: hamatum
+
+hamatum_right:
+  position: 564
+  deixis: right
+  abbr: hamatum
+
+thenar_left:
+  position: 565
+  deixis: left
+  abbr: thenar
+
+thenar_right:
+  position: 565
+  deixis: right
+  abbr: thenar
+
+antithenar_left:
+  position: 566
+  deixis: left
+  abbr: antithenar
+
+antithenar_right:
+  position: 566
+  deixis: right
+  abbr: antithenar
+
+proximal_phalanx_region_left:
+  position: 567
+  deixis: left
+  abbr: proximal_phalanx_region
+
+proximal_phalanx_region_right:
+  position: 567
+  deixis: right
+  abbr: proximal_phalanx_region
+
+first_middle_finger_bone_left:
+  position: 569
+  deixis: left
+  abbr: first_middle_finger_bone
+
+first_middle_finger_bone_right:
+  position: 569
+  deixis: right
+  abbr: first_middle_finger_bone
+
+distal_phalanges_left:
+  position: 570
+  deixis: left
+  abbr: distal_phalanges
+
+distal_phalanges_right:
+  position: 570
+  deixis: right
+  abbr: distal_phalanges
+
+proximal_phalanxbottom_left:
+  position: 571
+  deixis: left
+  abbr: proximal_phalanxbottom
+
+proximal_phalanxbottom_right:
+  position: 571
+  deixis: right
+  abbr: proximal_phalanxbottom
+
+proximal_phalanxbody_left:
+  position: 572
+  deixis: left
+  abbr: proximal_phalanxbody
+
+proximal_phalanxbody_right:
+  position: 572
+  deixis: right
+  abbr: proximal_phalanxbody
+
+proximal_phalanxhead_left:
+  position: 573
+  deixis: left
+  abbr: proximal_phalanxhead
+
+proximal_phalanxhead_right:
+  position: 573
+  deixis: right
+  abbr: proximal_phalanxhead
+
+middle_phalanx_left:
+  position: 574
+  deixis: left
+  abbr: middle_phalanx
+
+middle_phalanx_right:
+  position: 574
+  deixis: right
+  abbr: middle_phalanx
+
+distal_phalanx_left:
+  position: 575
+  deixis: left
+  abbr: distal_phalanx
+
+distal_phalanx_right:
+  position: 575
+  deixis: right
+  abbr: distal_phalanx
+
+fifth_basemetacarpal_bone_left:
+  position: 576
+  deixis: left
+  abbr: fifth_basemetacarpal_bone
+
+fifth_basemetacarpal_bone_right:
+  position: 576
+  deixis: right
+  abbr: fifth_basemetacarpal_bone
+
+fifth_shaft_of_metacarpal_bone_left:
+  position: 577
+  deixis: left
+  abbr: fifth_shaft_of_metacarpal_bone
+
+fifth_shaft_of_metacarpal_bone_right:
+  position: 577
+  deixis: right
+  abbr: fifth_shaft_of_metacarpal_bone
+
+fifth_head_metacarpal_bone_left:
+  position: 578
+  deixis: left
+  abbr: fifth_head_metacarpal_bone
+
+fifth_head_metacarpal_bone_right:
+  position: 578
+  deixis: right
+  abbr: fifth_head_metacarpal_bone
+
+intermediate_phalanges_left:
+  position: 579
+  deixis: left
+  abbr: intermediate_phalanges
+
+intermediate_phalanges_right:
+  position: 579
+  deixis: right
+  abbr: intermediate_phalanges
+
+second_finger_base_left:
+  position: 580
+  deixis: left
+  abbr: second_finger_base
+
+second_finger_base_right:
+  position: 580
+  deixis: right
+  abbr: second_finger_base
+
+digitus_medius_base_left:
+  position: 581
+  deixis: left
+  abbr: digitus_medius_base
+
+digitus_medius_base_right:
+  position: 581
+  deixis: right
+  abbr: digitus_medius_base
+
+ring_finger_base_left:
+  position: 582
+  deixis: left
+  abbr: ring_finger_base
+
+ring_finger_base_right:
+  position: 582
+  deixis: right
+  abbr: ring_finger_base
+
+microdactylia_base_left:
+  position: 583
+  deixis: left
+  abbr: microdactylia_base
+
+microdactylia_base_right:
+  position: 583
+  deixis: right
+  abbr: microdactylia_base
+
+inguinal_region_left:
+  position: 584
+  deixis: left
+  abbr: inguinal_region
+
+inguinal_region_right:
+  position: 584
+  deixis: right
+  abbr: inguinal_region
+
+iliac_spine_left:
+  position: 585
+  deixis: left
+  abbr: iliac_spine
+
+iliac_spine_right:
+  position: 585
+  deixis: right
+  abbr: iliac_spine
+
+buttocks_left:
+  position: 586
+  deixis: left
+  abbr: buttocks
+
+buttocks_right:
+  position: 586
+  deixis: right
+  abbr: buttocks
+
+femoral_region_left:
+  position: 587
+  deixis: left
+  abbr: femoral_region
+
+femoral_region_right:
+  position: 587
+  deixis: right
+  abbr: femoral_region
+
+thigh_left:
+  position: 587
+  deixis: left
+  abbr: thigh
+
+thigh_right:
+  position: 587
+  deixis: right
+  abbr: thigh
+
+femur_left:
+  position: 588
+  deixis: left
+  abbr: femur
+
+femur_right:
+  position: 588
+  deixis: right
+  abbr: femur
+
+femoral_vein_left:
+  position: 589
+  deixis: left
+  abbr: femoral_vein
+
+femoral_vein_right:
+  position: 589
+  deixis: right
+  abbr: femoral_vein
+
+profunda_femoris_vein_left:
+  position: 590
+  deixis: left
+  abbr: profunda_femoris_vein
+
+profunda_femoris_vein_right:
+  position: 590
+  deixis: right
+  abbr: profunda_femoris_vein
+
+arteria_femoralis_left:
+  position: 591
+  deixis: left
+  abbr: arteria_femoralis
+
+arteria_femoralis_right:
+  position: 591
+  deixis: right
+  abbr: arteria_femoralis
+
+caput_femoris_left:
+  position: 592
+  deixis: left
+  abbr: caput_femoris
+
+caput_femoris_right:
+  position: 592
+  deixis: right
+  abbr: caput_femoris
+
+fovea_capitis_femoris_left:
+  position: 593
+  deixis: left
+  abbr: fovea_capitis_femoris
+
+fovea_capitis_femoris_right:
+  position: 593
+  deixis: right
+  abbr: fovea_capitis_femoris
+
+fossa_trochanterica_left:
+  position: 594
+  deixis: left
+  abbr: fossa_trochanterica
+
+fossa_trochanterica_right:
+  position: 594
+  deixis: right
+  abbr: fossa_trochanterica
+
+trochanter_major_left:
+  position: 595
+  deixis: left
+  abbr: trochanter_major
+
+trochanter_major_right:
+  position: 595
+  deixis: right
+  abbr: trochanter_major
+
+trochanter_minor_left:
+  position: 596
+  deixis: left
+  abbr: trochanter_minor
+
+trochanter_minor_right:
+  position: 596
+  deixis: right
+  abbr: trochanter_minor
+
+linea_intertrochanterica_left:
+  position: 597
+  deixis: left
+  abbr: linea_intertrochanterica
+
+linea_intertrochanterica_right:
+  position: 597
+  deixis: right
+  abbr: linea_intertrochanterica
+
+corpus_femoris_left:
+  position: 598
+  deixis: left
+  abbr: corpus_femoris
+
+corpus_femoris_right:
+  position: 598
+  deixis: right
+  abbr: corpus_femoris
+
+lateral_epicondyle_left:
+  position: 599
+  deixis: left
+  abbr: lateral_epicondyle
+
+lateral_epicondyle_right:
+  position: 599
+  deixis: right
+  abbr: lateral_epicondyle
+
+medial_condylar_left:
+  position: 600
+  deixis: left
+  abbr: medial_condylar
+
+medial_condylar_right:
+  position: 600
+  deixis: right
+  abbr: medial_condylar
+
+lateral_condyle_left:
+  position: 601
+  deixis: left
+  abbr: lateral_condyle
+
+lateral_condyle_right:
+  position: 601
+  deixis: right
+  abbr: lateral_condyle
+
+medial_condyle_left:
+  position: 602
+  deixis: left
+  abbr: medial_condyle
+
+medial_condyle_right:
+  position: 602
+  deixis: right
+  abbr: medial_condyle
+
+patellar_surface_left:
+  position: 603
+  deixis: left
+  abbr: patellar_surface
+
+patellar_surface_right:
+  position: 603
+  deixis: right
+  abbr: patellar_surface
+
+intertrochanteric_crest_left:
+  position: 608
+  deixis: left
+  abbr: intertrochanteric_crest
+
+intertrochanteric_crest_right:
+  position: 608
+  deixis: right
+  abbr: intertrochanteric_crest
+
+tuberositas_glutea_left:
+  position: 610
+  deixis: left
+  abbr: tuberositas_glutea
+
+tuberositas_glutea_right:
+  position: 610
+  deixis: right
+  abbr: tuberositas_glutea
+
+pubic_muscle_line_left:
+  position: 611
+  deixis: left
+  abbr: pubic_muscle_line
+
+pubic_muscle_line_right:
+  position: 611
+  deixis: right
+  abbr: pubic_muscle_line
+
+outer_lip_roughness_line_left:
+  position: 612
+  deixis: left
+  abbr: outer_lip_roughness_line
+
+outer_lip_roughness_line_right:
+  position: 612
+  deixis: right
+  abbr: outer_lip_roughness_line
+
+inner_lip_line_left:
+  position: 613
+  deixis: left
+  abbr: inner_lip_line
+
+inner_lip_line_right:
+  position: 613
+  deixis: right
+  abbr: inner_lip_line
+
+popliteal_surface_left:
+  position: 614
+  deixis: left
+  abbr: popliteal_surface
+
+popliteal_surface_right:
+  position: 614
+  deixis: right
+  abbr: popliteal_surface
+
+intercondylar_line_left:
+  position: 615
+  deixis: left
+  abbr: intercondylar_line
+
+intercondylar_line_right:
+  position: 615
+  deixis: right
+  abbr: intercondylar_line
+
+intercondylar_fossa_left:
+  position: 620
+  deixis: left
+  abbr: intercondylar_fossa
+
+intercondylar_fossa_right:
+  position: 620
+  deixis: right
+  abbr: intercondylar_fossa
+
+patella_left:
+  position: 621
+  deixis: left
+  abbr: patella
+
+patella_right:
+  position: 621
+  deixis: right
+  abbr: patella
+
+patella_region_left:
+  position: 622
+  deixis: left
+  abbr: patella_region
+
+patella_region_right:
+  position: 622
+  deixis: right
+  abbr: patella_region
+
+popliteal_left:
+  position: 624
+  deixis: left
+  abbr: popliteal
+
+popliteal_right:
+  position: 624
+  deixis: right
+  abbr: popliteal
+
+cruris_left:
+  position: 626
+  deixis: left
+  abbr: cruris
+
+cruris_right:
+  position: 626
+  deixis: right
+  abbr: cruris
+
+sural_region_left:
+  position: 627
+  deixis: left
+  abbr: sural_region
+
+sural_region_right:
+  position: 627
+  deixis: right
+  abbr: sural_region
+
+tibia_left:
+  position: 628
+  deixis: left
+  abbr: tibia
+
+tibia_right:
+  position: 628
+  deixis: right
+  abbr: tibia
+
+fibula_left:
+  position: 629
+  deixis: left
+  abbr: fibula
+
+fibula_right:
+  position: 629
+  deixis: right
+  abbr: fibula
+
+lateral_malleolus_left:
+  position: 630
+  deixis: left
+  abbr: lateral_malleolus
+
+lateral_malleolus_right:
+  position: 630
+  deixis: right
+  abbr: lateral_malleolus
+
+medial_malleolus_left:
+  position: 631
+  deixis: left
+  abbr: medial_malleolus
+
+medial_malleolus_right:
+  position: 631
+  deixis: right
+  abbr: medial_malleolus
+
+bone_of_foot_left:
+  position: 632
+  deixis: left
+  abbr: bone_of_foot
+
+bone_of_foot_right:
+  position: 632
+  deixis: right
+  abbr: bone_of_foot
+
+dorsum_pedis_left:
+  position: 634
+  deixis: left
+  abbr: dorsum_pedis
+
+dorsum_pedis_right:
+  position: 634
+  deixis: right
+  abbr: dorsum_pedis
+
+vola_left:
+  position: 635
+  deixis: left
+  abbr: vola
+
+vola_right:
+  position: 635
+  deixis: right
+  abbr: vola
+
+calcaneal_region_left:
+  position: 636
+  deixis: left
+  abbr: calcaneal_region
+
+calcaneal_region_right:
+  position: 636
+  deixis: right
+  abbr: calcaneal_region
+
+pulley_of_talus_left:
+  position: 640
+  deixis: left
+  abbr: pulley_of_talus
+
+pulley_of_talus_right:
+  position: 640
+  deixis: right
+  abbr: pulley_of_talus
+
+collum_tali_left:
+  position: 641
+  deixis: left
+  abbr: collum_tali
+
+collum_tali_right:
+  position: 641
+  deixis: right
+  abbr: collum_tali
+
+astragalus_left:
+  position: 642
+  deixis: left
+  abbr: astragalus
+
+astragalus_right:
+  position: 642
+  deixis: right
+  abbr: astragalus
+
+os_cuneiforme_mediale_left:
+  position: 644
+  deixis: left
+  abbr: os_cuneiforme_mediale
+
+os_cuneiforme_mediale_right:
+  position: 644
+  deixis: right
+  abbr: os_cuneiforme_mediale
+
+fibular_tarsal_bone_left:
+  position: 645
+  deixis: left
+  abbr: fibular_tarsal_bone
+
+fibular_tarsal_bone_right:
+  position: 645
+  deixis: right
+  abbr: fibular_tarsal_bone
+
+tuberositas_ossis_navicularis_left:
+  position: 646
+  deixis: left
+  abbr: tuberositas_ossis_navicularis
+
+tuberositas_ossis_navicularis_right:
+  position: 646
+  deixis: right
+  abbr: tuberositas_ossis_navicularis
+
+first_metatarsal_bone_left:
+  position: 647
+  deixis: left
+  abbr: first_metatarsal_bone
+
+first_metatarsal_bone_right:
+  position: 647
+  deixis: right
+  abbr: first_metatarsal_bone
+
+tuber_calcanei_left:
+  position: 648
+  deixis: left
+  abbr: tuber_calcanei
+
+tuber_calcanei_right:
+  position: 648
+  deixis: right
+  abbr: tuber_calcanei
+
+proximal_phalanx_left:
+  position: 649
+  deixis: left
+  abbr: proximal_phalanx
+
+proximal_phalanx_right:
+  position: 649
+  deixis: right
+  abbr: proximal_phalanx
+
+sesamoid_bone_left:
+  position: 651
+  deixis: left
+  abbr: sesamoid_bone
+
+sesamoid_bone_right:
+  position: 651
+  deixis: right
+  abbr: sesamoid_bone
+
+cuboid_bone_left:
+  position: 654
+  deixis: left
+  abbr: cuboid_bone
+
+cuboid_bone_right:
+  position: 654
+  deixis: right
+  abbr: cuboid_bone
+
+third_sphenoid_bone_left:
+  position: 656
+  deixis: left
+  abbr: third_sphenoid_bone
+
+third_sphenoid_bone_right:
+  position: 656
+  deixis: right
+  abbr: third_sphenoid_bone
+
+second_sphenoid_bone_left:
+  position: 657
+  deixis: left
+  abbr: second_sphenoid_bone
+
+second_sphenoid_bone_right:
+  position: 657
+  deixis: right
+  abbr: second_sphenoid_bone
+
+first_sphenoid_bone_left:
+  position: 658
+  deixis: left
+  abbr: first_sphenoid_bone
+
+first_sphenoid_bone_right:
+  position: 658
+  deixis: right
+  abbr: first_sphenoid_bone
+
+fifth_metatarsal_bone_left:
+  position: 659
+  deixis: left
+  abbr: fifth_metatarsal_bone
+
+fifth_metatarsal_bone_right:
+  position: 659
+  deixis: right
+  abbr: fifth_metatarsal_bone
+
+basis_ossis_metatarsalis_left:
+  position: 660
+  deixis: left
+  abbr: basis_ossis_metatarsalis
+
+basis_ossis_metatarsalis_right:
+  position: 660
+  deixis: right
+  abbr: basis_ossis_metatarsalis
+
+body_of_metatarsal_bone_left:
+  position: 661
+  deixis: left
+  abbr: body_of_metatarsal_bone
+
+body_of_metatarsal_bone_right:
+  position: 661
+  deixis: right
+  abbr: body_of_metatarsal_bone
+
+head_of_metatarsal_bone_left:
+  position: 662
+  deixis: left
+  abbr: head_of_metatarsal_bone
+
+head_of_metatarsal_bone_right:
+  position: 662
+  deixis: right
+  abbr: head_of_metatarsal_bone
+
+basis_proximal_phalanx_left:
+  position: 666
+  deixis: left
+  abbr: basis_proximal_phalanx
+
+basis_proximal_phalanx_right:
+  position: 666
+  deixis: right
+  abbr: basis_proximal_phalanx
+
+body_of_proximal_phalanx_left:
+  position: 667
+  deixis: left
+  abbr: body_of_proximal_phalanx
+
+body_of_proximal_phalanx_right:
+  position: 667
+  deixis: right
+  abbr: body_of_proximal_phalanx
+
+head_of_proximal_phalanx_left:
+  position: 668
+  deixis: left
+  abbr: head_of_proximal_phalanx
+
+head_of_proximal_phalanx_right:
+  position: 668
+  deixis: right
+  abbr: head_of_proximal_phalanx
+

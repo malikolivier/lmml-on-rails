@@ -1,45 +1,2479 @@
-# == Schema Information
-#
-# Table name: organ_body_references
-#
-#  id                :integer          not null, primary key
-#  organ_id          :integer
-#  body_reference_id :integer
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#
-
-head_head_top:
+head_scalp:
   organ: head
-  body_reference: head_top
+  body_reference: scalp
 
+cranium_galeal_aponeurosis:
+  organ: cranium
+  body_reference: galeal_aponeurosis
 
-face_mental_protuberance:
+cranium_loose_connective_tissue:
+  organ: cranium
+  body_reference: loose_connective_tissue
+
+cranium_periosteal:
+  organ: cranium
+  body_reference: periosteal
+
+cranium_os_parietale:
+  organ: cranium
+  body_reference: os_parietale
+
+cranium_sinus:
+  organ: cranium
+  body_reference: sinus
+
+cranium_arachnoid_granulation:
+  organ: cranium
+  body_reference: arachnoid_granulation
+
+cranium_dura_mater:
+  organ: cranium
+  body_reference: dura_mater
+
+cranium_subdural_space:
+  organ: cranium
+  body_reference: subdural_space
+
+cranium_arachnoid:
+  organ: cranium
+  body_reference: arachnoid
+
+cranium_subarachnoid_space:
+  organ: cranium
+  body_reference: subarachnoid_space
+
+cranium_buffy_coat:
+  organ: cranium
+  body_reference: buffy_coat
+
+brain_cerebral_parenchyma:
+  organ: brain
+  body_reference: cerebral_parenchyma
+
+cranium_communicating_vein:
+  organ: cranium
+  body_reference: communicating_vein
+
+head_epiderm:
+  organ: head
+  body_reference: epiderm
+
+head_scapus_pili:
+  organ: head
+  body_reference: scapus_pili
+
+head_hypodermis:
+  organ: head
+  body_reference: hypodermis
+
+head_glandula_sebacea:
+  organ: head
+  body_reference: glandula_sebacea
+
+head_sweat_glands:
+  organ: head
+  body_reference: sweat_glands
+
+head_arrectores_pilorum:
+  organ: head
+  body_reference: arrectores_pilorum
+
+head_subcutaneous_tissue:
+  organ: head
+  body_reference: subcutaneous_tissue
+
+head_fibril:
+  organ: head
+  body_reference: fibril
+
+head_folliculus_pili:
+  organ: head
+  body_reference: folliculus_pili
+
+head_bulbus_pili:
+  organ: head
+  body_reference: bulbus_pili
+
+head_sensory_nerve_ending:
+  organ: head
+  body_reference: sensory_nerve_ending
+
+head_hair_papilla:
+  organ: head
+  body_reference: hair_papilla
+
+head_woven_subcutaneous_fat:
+  organ: head
+  body_reference: woven_subcutaneous_fat
+
+cranium_cranium:
+  organ: cranium
+  body_reference: cranium
+
+cranium_frontal_bone:
+  organ: cranium
+  body_reference: frontal_bone
+
+brain_longitudinal_cerebral_fissure:
+  organ: brain
+  body_reference: longitudinal_cerebral_fissure
+
+brain_sulcus_frontalis_medius_left:
+  organ: brain
+  body_reference: sulcus_frontalis_medius_left
+
+brain_sulcus_frontalis_medius_right:
+  organ: brain
+  body_reference: sulcus_frontalis_medius_right
+
+brain_sulcus_frontalis_superior_left:
+  organ: brain
+  body_reference: sulcus_frontalis_superior_left
+
+brain_sulcus_frontalis_superior_right:
+  organ: brain
+  body_reference: sulcus_frontalis_superior_right
+
+brain_superior_frontal_convolution_left:
+  organ: brain
+  body_reference: superior_frontal_convolution_left
+
+brain_superior_frontal_convolution_right:
+  organ: brain
+  body_reference: superior_frontal_convolution_right
+
+brain_inferior_frontal_sulcus_left:
+  organ: brain
+  body_reference: inferior_frontal_sulcus_left
+
+brain_inferior_frontal_sulcus_right:
+  organ: brain
+  body_reference: inferior_frontal_sulcus_right
+
+brain_middle_frontal_convolution_left:
+  organ: brain
+  body_reference: middle_frontal_convolution_left
+
+brain_middle_frontal_convolution_right:
+  organ: brain
+  body_reference: middle_frontal_convolution_right
+
+brain_inferior_precentra_sulcus_left:
+  organ: brain
+  body_reference: inferior_precentra_sulcus_left
+
+brain_inferior_precentra_sulcus_right:
+  organ: brain
+  body_reference: inferior_precentra_sulcus_right
+
+brain_gyrus_precentralis_left:
+  organ: brain
+  body_reference: gyrus_precentralis_left
+
+brain_gyrus_precentralis_right:
+  organ: brain
+  body_reference: gyrus_precentralis_right
+
+brain_superior_precentral_sulcus_left:
+  organ: brain
+  body_reference: superior_precentral_sulcus_left
+
+brain_superior_precentral_sulcus_right:
+  organ: brain
+  body_reference: superior_precentral_sulcus_right
+
+brain_posterior_central_convolution_left:
+  organ: brain
+  body_reference: posterior_central_convolution_left
+
+brain_posterior_central_convolution_right:
+  organ: brain
+  body_reference: posterior_central_convolution_right
+
+brain_central_sulcus_left:
+  organ: brain
+  body_reference: central_sulcus_left
+
+brain_central_sulcus_right:
+  organ: brain
+  body_reference: central_sulcus_right
+
+brain_postcentral_sulcus_left:
+  organ: brain
+  body_reference: postcentral_sulcus_left
+
+brain_postcentral_sulcus_right:
+  organ: brain
+  body_reference: postcentral_sulcus_right
+
+brain_sulcus_of_cingulum:
+  organ: brain
+  body_reference: sulcus_of_cingulum
+
+brain_lobulus_parietalis_inferior_left:
+  organ: brain
+  body_reference: lobulus_parietalis_inferior_left
+
+brain_lobulus_parietalis_inferior_right:
+  organ: brain
+  body_reference: lobulus_parietalis_inferior_right
+
+brain_superior_temporal_sulcus_left:
+  organ: brain
+  body_reference: superior_temporal_sulcus_left
+
+brain_superior_temporal_sulcus_right:
+  organ: brain
+  body_reference: superior_temporal_sulcus_right
+
+brain_superior_parietal_lobule_left:
+  organ: brain
+  body_reference: superior_parietal_lobule_left
+
+brain_superior_parietal_lobule_right:
+  organ: brain
+  body_reference: superior_parietal_lobule_right
+
+brain_sulcus_intraparietalis_left:
+  organ: brain
+  body_reference: sulcus_intraparietalis_left
+
+brain_sulcus_intraparietalis_right:
+  organ: brain
+  body_reference: sulcus_intraparietalis_right
+
+brain_outside_and_upper_occiput_time_left:
+  organ: brain
+  body_reference: outside_and_upper_occiput_time_left
+
+brain_outside_and_upper_occiput_time_right:
+  organ: brain
+  body_reference: outside_and_upper_occiput_time_right
+
+brain_anterior_occipital_sulcus_left:
+  organ: brain
+  body_reference: anterior_occipital_sulcus_left
+
+brain_anterior_occipital_sulcus_right:
+  organ: brain
+  body_reference: anterior_occipital_sulcus_right
+
+brain_transverse_occipital_sulcus_left:
+  organ: brain
+  body_reference: transverse_occipital_sulcus_left
+
+brain_transverse_occipital_sulcus_right:
+  organ: brain
+  body_reference: transverse_occipital_sulcus_right
+
+brain_lunate_sulcus_left:
+  organ: brain
+  body_reference: lunate_sulcus_left
+
+brain_lunate_sulcus_right:
+  organ: brain
+  body_reference: lunate_sulcus_right
+
+brain_sulcus_parietooccipitalis_left:
+  organ: brain
+  body_reference: sulcus_parietooccipitalis_left
+
+brain_sulcus_parietooccipitalis_right:
+  organ: brain
+  body_reference: sulcus_parietooccipitalis_right
+
+brain_cerebral_cortex:
+  organ: brain
+  body_reference: cerebral_cortex
+
+brain_lentiform_nucleus_pale_globe:
+  organ: brain
+  body_reference: lentiform_nucleus_pale_globe
+
+abdominal_aorta_internal_iliac_artery:
+  organ: abdominal_aorta
+  body_reference: internal_iliac_artery
+
+brain_corpus_callous:
+  organ: brain
+  body_reference: corpus_callous
+
+brain_sulcus_lateralis:
+  organ: brain
+  body_reference: sulcus_lateralis
+
+brain_nucleus_caudatus:
+  organ: brain
+  body_reference: nucleus_caudatus
+
+brain_islet:
+  organ: brain
+  body_reference: islet
+
+brain_intension:
+  organ: brain
+  body_reference: intension
+
+brain_claustrum:
+  organ: brain
+  body_reference: claustrum
+
+lower_limbs_popliteal_region_left:
+  organ: lower_limbs
+  body_reference: popliteal_region_left
+
+lower_limbs_popliteal_region_right:
+  organ: lower_limbs
+  body_reference: popliteal_region_right
+
+brain_anterior_limb_of_internal_capsule:
+  organ: brain
+  body_reference: anterior_limb_of_internal_capsule
+
+brain_lentiform_nucleus:
+  organ: brain
+  body_reference: lentiform_nucleus
+
+brain_thalamus:
+  organ: brain
+  body_reference: thalamus
+
+brain_crus_posterus_capsulae_internae:
+  organ: brain
+  body_reference: crus_posterus_capsulae_internae
+
+brain_frontopontine_tract:
+  organ: brain
+  body_reference: frontopontine_tract
+
+brain_tractus_corticopontini:
+  organ: brain
+  body_reference: tractus_corticopontini
+
+brain_tractus_corticospinalis_upper:
+  organ: brain
+  body_reference: tractus_corticospinalis_upper
+
+brain_tractus_corticospinalis_lower:
+  organ: brain
+  body_reference: tractus_corticospinalis_lower
+
+brain_tegmental_radiation:
+  organ: brain
+  body_reference: tegmental_radiation
+
+brain_centriciput_occiput_temporopontine_tract:
+  organ: brain
+  body_reference: centriciput_occiput_temporopontine_tract
+
+brain_occipitothalamic_radiation_acoustic_radiation:
+  organ: brain
+  body_reference: occipitothalamic_radiation_acoustic_radiation
+
+cranium_coronal_suture:
+  organ: cranium
+  body_reference: coronal_suture
+
+cranium_sutura_sagittalis:
+  organ: cranium
+  body_reference: sutura_sagittalis
+
+brain_lentiform_nucleus_putamen:
+  organ: brain
+  body_reference: lentiform_nucleus_putamen
+
+cranium_parietal_foramen:
+  organ: cranium
+  body_reference: parietal_foramen
+
+cranium_squama_frontalis:
+  organ: cranium
+  body_reference: squama_frontalis
+
+brain_lobus_parietalis_cerebri:
+  organ: brain
+  body_reference: lobus_parietalis_cerebri
+
+brain_frontal_lobe:
+  organ: brain
+  body_reference: frontal_lobe
+
+brain_lobus_occipitalis_cerebri:
+  organ: brain
+  body_reference: lobus_occipitalis_cerebri
+
+brain_optic_area:
+  organ: brain
+  body_reference: optic_area
+
+brain_hearing_territory:
+  organ: brain
+  body_reference: hearing_territory
+
+brain_temporal_lobe:
+  organ: brain
+  body_reference: temporal_lobe
+
+brain_cerebral_hemisphere_medial_surface:
+  organ: brain
+  body_reference: cerebral_hemisphere_medial_surface
+
+brain_transparent_septum:
+  organ: brain
+  body_reference: transparent_septum
+
+brain_gyrus_of_brain:
+  organ: brain
+  body_reference: gyrus_of_brain
+
+brain_splenium_of_corpus_callosum:
+  organ: brain
+  body_reference: splenium_of_corpus_callosum
+
+brain_fornix:
+  organ: brain
+  body_reference: fornix
+
+brain_columns_of_fornix:
+  organ: brain
+  body_reference: columns_of_fornix
+
+brain_crus_fornicis:
+  organ: brain
+  body_reference: crus_fornicis
+
+brain_third_ventricle:
+  organ: brain
+  body_reference: third_ventricle
+
+brain_choroid_plexus_of_third_ventricle:
+  organ: brain
+  body_reference: choroid_plexus_of_third_ventricle
+
+brain_mamillary_body:
+  organ: brain
+  body_reference: mamillary_body
+
+brain_tectum_mesencephali:
+  organ: brain
+  body_reference: tectum_mesencephali
+
+brain_funnel:
+  organ: brain
+  body_reference: funnel
+
+brain_oculomotor_nerve:
+  organ: brain
+  body_reference: oculomotor_nerve
+
+brain_bulbar:
+  organ: brain
+  body_reference: bulbar
+
+brain_sylvian_aqueduct:
+  organ: brain
+  body_reference: sylvian_aqueduct
+
+brain_fourth_ventricle:
+  organ: brain
+  body_reference: fourth_ventricle
+
+brain_cerebellum:
+  organ: brain
+  body_reference: cerebellum
+
+head_frontal_region_of_head:
+  organ: head
+  body_reference: frontal_region_of_head
+
+head_regio_zygomatica_left:
+  organ: head
+  body_reference: regio_zygomatica_left
+
+head_regio_zygomatica_right:
+  organ: head
+  body_reference: regio_zygomatica_right
+
+head_regio_parietalis:
+  organ: head
+  body_reference: regio_parietalis
+
+head_sinciput:
+  organ: head
+  body_reference: sinciput
+
+head_regio_temporalis_left:
+  organ: head
+  body_reference: regio_temporalis_left
+
+head_regio_temporalis_right:
+  organ: head
+  body_reference: regio_temporalis_right
+
+cranium_sutura_lambdoidea:
+  organ: cranium
+  body_reference: sutura_lambdoidea
+
+cranium_temporal_bone_left:
+  organ: cranium
+  body_reference: temporal_bone_left
+
+cranium_temporal_bone_right:
+  organ: cranium
+  body_reference: temporal_bone_right
+
+cranium_parietomastoid_suture_left:
+  organ: cranium
+  body_reference: parietomastoid_suture_left
+
+cranium_parietomastoid_suture_right:
+  organ: cranium
+  body_reference: parietomastoid_suture_right
+
+cranium_sutura_sphenosquamosa_left:
+  organ: cranium
+  body_reference: sutura_sphenosquamosa_left
+
+cranium_sutura_sphenosquamosa_right:
+  organ: cranium
+  body_reference: sutura_sphenosquamosa_right
+
+cranium_squama_occipitalis:
+  organ: cranium
+  body_reference: squama_occipitalis
+
+cranium_sutura_occipitomastoidea_left:
+  organ: cranium
+  body_reference: sutura_occipitomastoidea_left
+
+cranium_sutura_occipitomastoidea_right:
+  organ: cranium
+  body_reference: sutura_occipitomastoidea_right
+
+face_orbital_top_left:
   organ: face
-  body_reference: mental_protuberance
+  body_reference: orbital_top_left
 
+face_orbital_top_right:
+  organ: face
+  body_reference: orbital_top_right
 
-neck_jugular_notch:
+cranium_orbit_left:
+  organ: cranium
+  body_reference: orbit_left
+
+cranium_orbit_right:
+  organ: cranium
+  body_reference: orbit_right
+
+head_infraorbital_region_left:
+  organ: head
+  body_reference: infraorbital_region_left
+
+head_infraorbital_region_right:
+  organ: head
+  body_reference: infraorbital_region_right
+
+cranium_fossa_temporalis_left:
+  organ: cranium
+  body_reference: fossa_temporalis_left
+
+cranium_fossa_temporalis_right:
+  organ: cranium
+  body_reference: fossa_temporalis_right
+
+head_orbital_region_left:
+  organ: head
+  body_reference: orbital_region_left
+
+head_orbital_region_right:
+  organ: head
+  body_reference: orbital_region_right
+
+face_regio_palpebralis_superior_left:
+  organ: face
+  body_reference: regio_palpebralis_superior_left
+
+face_regio_palpebralis_superior_right:
+  organ: face
+  body_reference: regio_palpebralis_superior_right
+
+cranium_eyebrow_left:
+  organ: cranium
+  body_reference: eyebrow_left
+
+cranium_eyebrow_right:
+  organ: cranium
+  body_reference: eyebrow_right
+
+cranium_brow_ridge_left:
+  organ: cranium
+  body_reference: brow_ridge_left
+
+cranium_brow_ridge_right:
+  organ: cranium
+  body_reference: brow_ridge_right
+
+face_outer_eyebrow_left:
+  organ: face
+  body_reference: outer_eyebrow_left
+
+face_outer_eyebrow_right:
+  organ: face
+  body_reference: outer_eyebrow_right
+
+cranium_bulbar_conjunctiva_left:
+  organ: cranium
+  body_reference: bulbar_conjunctiva_left
+
+cranium_bulbar_conjunctiva_right:
+  organ: cranium
+  body_reference: bulbar_conjunctiva_right
+
+cranium_external_canthus_left:
+  organ: cranium
+  body_reference: external_canthus_left
+
+cranium_external_canthus_right:
+  organ: cranium
+  body_reference: external_canthus_right
+
+cranium_cornea_left:
+  organ: cranium
+  body_reference: cornea_left
+
+cranium_cornea_right:
+  organ: cranium
+  body_reference: cornea_right
+
+cranium_medial_angle_of_eye_left:
+  organ: cranium
+  body_reference: medial_angle_of_eye_left
+
+cranium_medial_angle_of_eye_right:
+  organ: cranium
+  body_reference: medial_angle_of_eye_right
+
+cranium_lash_left:
+  organ: cranium
+  body_reference: lash_left
+
+cranium_lash_right:
+  organ: cranium
+  body_reference: lash_right
+
+cranium_pupil_left:
+  organ: cranium
+  body_reference: pupil_left
+
+cranium_pupil_right:
+  organ: cranium
+  body_reference: pupil_right
+
+cranium_palpebra_superior_conjunctiva_left:
+  organ: cranium
+  body_reference: palpebra_superior_conjunctiva_left
+
+cranium_palpebra_superior_conjunctiva_right:
+  organ: cranium
+  body_reference: palpebra_superior_conjunctiva_right
+
+cranium_conjunctiva_transition_zone_left:
+  organ: cranium
+  body_reference: conjunctiva_transition_zone_left
+
+cranium_conjunctiva_transition_zone_right:
+  organ: cranium
+  body_reference: conjunctiva_transition_zone_right
+
+cranium_rima_palpebrarum_left:
+  organ: cranium
+  body_reference: rima_palpebrarum_left
+
+cranium_rima_palpebrarum_right:
+  organ: cranium
+  body_reference: rima_palpebrarum_right
+
+cranium_iris_left:
+  organ: cranium
+  body_reference: iris_left
+
+cranium_iris_right:
+  organ: cranium
+  body_reference: iris_right
+
+cranium_crystalline_lens_left:
+  organ: cranium
+  body_reference: crystalline_lens_left
+
+cranium_crystalline_lens_right:
+  organ: cranium
+  body_reference: crystalline_lens_right
+
+cranium_lower_eyelid_conjunctiva_left:
+  organ: cranium
+  body_reference: lower_eyelid_conjunctiva_left
+
+cranium_lower_eyelid_conjunctiva_right:
+  organ: cranium
+  body_reference: lower_eyelid_conjunctiva_right
+
+cranium_anterior_chamber_eye_left:
+  organ: cranium
+  body_reference: anterior_chamber_eye_left
+
+cranium_anterior_chamber_eye_right:
+  organ: cranium
+  body_reference: anterior_chamber_eye_right
+
+cranium_ciliary_body_left:
+  organ: cranium
+  body_reference: ciliary_body_left
+
+cranium_ciliary_body_right:
+  organ: cranium
+  body_reference: ciliary_body_right
+
+cranium_ciliary_body_habenula_left:
+  organ: cranium
+  body_reference: ciliary_body_habenula_left
+
+cranium_ciliary_body_habenula_right:
+  organ: cranium
+  body_reference: ciliary_body_habenula_right
+
+cranium_vitreous_humour_left:
+  organ: cranium
+  body_reference: vitreous_humour_left
+
+cranium_vitreous_humour_right:
+  organ: cranium
+  body_reference: vitreous_humour_right
+
+cranium_medial_rectus_muscle_left:
+  organ: cranium
+  body_reference: medial_rectus_muscle_left
+
+cranium_medial_rectus_muscle_right:
+  organ: cranium
+  body_reference: medial_rectus_muscle_right
+
+cranium_lateral_rectus_muscle_left:
+  organ: cranium
+  body_reference: lateral_rectus_muscle_left
+
+cranium_lateral_rectus_muscle_right:
+  organ: cranium
+  body_reference: lateral_rectus_muscle_right
+
+cranium_sclera_left:
+  organ: cranium
+  body_reference: sclera_left
+
+cranium_sclera_right:
+  organ: cranium
+  body_reference: sclera_right
+
+cranium_vascular_tunic_left:
+  organ: cranium
+  body_reference: vascular_tunic_left
+
+cranium_vascular_tunic_right:
+  organ: cranium
+  body_reference: vascular_tunic_right
+
+cranium_retina_left:
+  organ: cranium
+  body_reference: retina_left
+
+cranium_retina_right:
+  organ: cranium
+  body_reference: retina_right
+
+cranium_optic_disc_left:
+  organ: cranium
+  body_reference: optic_disc_left
+
+cranium_optic_disc_right:
+  organ: cranium
+  body_reference: optic_disc_right
+
+head_hairline:
+  organ: head
+  body_reference: hairline
+
+cranium_central_pit_left:
+  organ: cranium
+  body_reference: central_pit_left
+
+cranium_central_pit_right:
+  organ: cranium
+  body_reference: central_pit_right
+
+cranium_optic_nerve_left:
+  organ: cranium
+  body_reference: optic_nerve_left
+
+cranium_optic_nerve_right:
+  organ: cranium
+  body_reference: optic_nerve_right
+
+face_regio_palpebralis_inferior_left:
+  organ: face
+  body_reference: regio_palpebralis_inferior_left
+
+face_regio_palpebralis_inferior_right:
+  organ: face
+  body_reference: regio_palpebralis_inferior_right
+
+cranium_frontonasal_suture:
+  organ: cranium
+  body_reference: frontonasal_suture
+
+cranium_frontomaxillary_suture:
+  organ: cranium
+  body_reference: frontomaxillary_suture
+
+cranium_nasal:
+  organ: cranium
+  body_reference: nasal
+
+cranium_nasomaxillary_suture:
+  organ: cranium
+  body_reference: nasomaxillary_suture
+
+cranium_sutura_internasalis:
+  organ: cranium
+  body_reference: sutura_internasalis
+
+cranium_zygomatic_bone:
+  organ: cranium
+  body_reference: zygomatic_bone
+
+cranium_frontozygomatic_suture:
+  organ: cranium
+  body_reference: frontozygomatic_suture
+
+cranium_crista_frontalis:
+  organ: cranium
+  body_reference: crista_frontalis
+
+cranium_squamous_suture_left:
+  organ: cranium
+  body_reference: squamous_suture_left
+
+cranium_squamous_suture_right:
+  organ: cranium
+  body_reference: squamous_suture_right
+
+cranium_sutura_sphenofrontalis_left:
+  organ: cranium
+  body_reference: sutura_sphenofrontalis_left
+
+cranium_sutura_sphenofrontalis_right:
+  organ: cranium
+  body_reference: sutura_sphenofrontalis_right
+
+cranium_pacchionian_depression:
+  organ: cranium
+  body_reference: pacchionian_depression
+
+cranium_lamina_interna_cranii:
+  organ: cranium
+  body_reference: lamina_interna_cranii
+
+cranium_diploe:
+  organ: cranium
+  body_reference: diploe
+
+cranium_external_table_of_calvaria:
+  organ: cranium
+  body_reference: external_table_of_calvaria
+
+cranium_diploic_canal:
+  organ: cranium
+  body_reference: diploic_canal
+
+head_buccal_region_left:
+  organ: head
+  body_reference: buccal_region_left
+
+head_buccal_region_right:
+  organ: head
+  body_reference: buccal_region_right
+
+cranium_nasal_cavity:
+  organ: cranium
+  body_reference: nasal_cavity
+
+cranium_sulci_arteriosi:
+  organ: cranium
+  body_reference: sulci_arteriosi
+
+head_pars_nasalis:
+  organ: head
+  body_reference: pars_nasalis
+
+cranium_temporal_line_left:
+  organ: cranium
+  body_reference: temporal_line_left
+
+cranium_temporal_line_right:
+  organ: cranium
+  body_reference: temporal_line_right
+
+cranium_external_acoustic_meatus_left:
+  organ: cranium
+  body_reference: external_acoustic_meatus_left
+
+cranium_external_acoustic_meatus_right:
+  organ: cranium
+  body_reference: external_acoustic_meatus_right
+
+cranium_malar_arch_left:
+  organ: cranium
+  body_reference: malar_arch_left
+
+cranium_malar_arch_right:
+  organ: cranium
+  body_reference: malar_arch_right
+
+cranium_processus_mastoideus_left:
+  organ: cranium
+  body_reference: processus_mastoideus_left
+
+cranium_processus_mastoideus_right:
+  organ: cranium
+  body_reference: processus_mastoideus_right
+
+cranium_styloid_process_left:
+  organ: cranium
+  body_reference: styloid_process_left
+
+cranium_styloid_process_right:
+  organ: cranium
+  body_reference: styloid_process_right
+
+cranium_infratemporal_fossa_left:
+  organ: cranium
+  body_reference: infratemporal_fossa_left
+
+cranium_infratemporal_fossa_right:
+  organ: cranium
+  body_reference: infratemporal_fossa_right
+
+cranium_sutura_temporozygomatica_left:
+  organ: cranium
+  body_reference: sutura_temporozygomatica_left
+
+cranium_sutura_temporozygomatica_right:
+  organ: cranium
+  body_reference: sutura_temporozygomatica_right
+
+cranium_nasal_cavity_of_bony_skeleton_left:
+  organ: cranium
+  body_reference: nasal_cavity_of_bony_skeleton_left
+
+cranium_nasal_cavity_of_bony_skeleton_right:
+  organ: cranium
+  body_reference: nasal_cavity_of_bony_skeleton_right
+
+cranium_intermaxillary_suture:
+  organ: cranium
+  body_reference: intermaxillary_suture
+
+cranium_maxillary_bone:
+  organ: cranium
+  body_reference: maxillary_bone
+
+cranium_mandible_bone:
+  organ: cranium
+  body_reference: mandible_bone
+
+cranium_dental_enamel:
+  organ: cranium
+  body_reference: dental_enamel
+
+cranium_mental_foramen:
+  organ: cranium
+  body_reference: mental_foramen
+
+face_angle_of_mandible:
+  organ: face
+  body_reference: angle_of_mandible
+
+neck_regio_oralis:
   organ: neck
-  body_reference: jugular_notch
+  body_reference: regio_oralis
 
+face_upper_lip:
+  organ: face
+  body_reference: upper_lip
 
-trunk_jugular_notch:
-  organ: trunk
-  body_reference: jugular_notch
+cranium_interglobular_area:
+  organ: cranium
+  body_reference: interglobular_area
 
-trunk_jugular_notch:
-  organ: trunk
-  body_reference: jugular_notch
+neck_lower_calyx:
+  organ: neck
+  body_reference: lower_calyx
 
+neck_submental:
+  organ: neck
+  body_reference: submental
 
-upper_limbs_acromion_left:
+neck_retromandibular:
+  organ: neck
+  body_reference: retromandibular
+
+neck_infragnathia:
+  organ: neck
+  body_reference: infragnathia
+
+head_occiput:
+  organ: head
+  body_reference: occiput
+
+face_protuberantia_occipitalis_externa:
+  organ: face
+  body_reference: protuberantia_occipitalis_externa
+
+head_pars_mastoidea_left:
+  organ: head
+  body_reference: pars_mastoidea_left
+
+head_pars_mastoidea_right:
+  organ: head
+  body_reference: pars_mastoidea_right
+
+head_fovea_nuchae:
+  organ: head
+  body_reference: fovea_nuchae
+
+cranium_foramen_caecum:
+  organ: cranium
+  body_reference: foramen_caecum
+
+cranium_crista_galli:
+  organ: cranium
+  body_reference: crista_galli
+
+cranium_digital_compression:
+  organ: cranium
+  body_reference: digital_compression
+
+cranium_anterior_cranial_fossa:
+  organ: cranium
+  body_reference: anterior_cranial_fossa
+
+cranium_sulcus_chiasmatis:
+  organ: cranium
+  body_reference: sulcus_chiasmatis
+
+cranium_processus_clinoideus_medius:
+  organ: cranium
+  body_reference: processus_clinoideus_medius
+
+cranium_canalis_opticus:
+  organ: cranium
+  body_reference: canalis_opticus
+
+cranium_fossa_cranii_media:
+  organ: cranium
+  body_reference: fossa_cranii_media
+
+cranium_processus_clinoideus_anterior:
+  organ: cranium
+  body_reference: processus_clinoideus_anterior
+
+cranium_pituitary_fossa:
+  organ: cranium
+  body_reference: pituitary_fossa
+
+cranium_posterior_clinoid_process:
+  organ: cranium
+  body_reference: posterior_clinoid_process
+
+cranium_dorsum_sellae:
+  organ: cranium
+  body_reference: dorsum_sellae
+
+cranium_foramen_lacerum:
+  organ: cranium
+  body_reference: foramen_lacerum
+
+cranium_oval_foramen:
+  organ: cranium
+  body_reference: oval_foramen
+
+cranium_spinous_foramen:
+  organ: cranium
+  body_reference: spinous_foramen
+
+cranium_clivus:
+  organ: cranium
+  body_reference: clivus
+
+cranium_porus_acusticus_internus:
+  organ: cranium
+  body_reference: porus_acusticus_internus
+
+cranium_foramen_jugulare:
+  organ: cranium
+  body_reference: foramen_jugulare
+
+cranium_canalis_nervi_hypoglossi:
+  organ: cranium
+  body_reference: canalis_nervi_hypoglossi
+
+cranium_foramen_magnum:
+  organ: cranium
+  body_reference: foramen_magnum
+
+cranium_sulcus_sinus_sigmoidei:
+  organ: cranium
+  body_reference: sulcus_sinus_sigmoidei
+
+cranium_inferior_occipital_fossa:
+  organ: cranium
+  body_reference: inferior_occipital_fossa
+
+cranium_groove_for_transverse_sinus:
+  organ: cranium
+  body_reference: groove_for_transverse_sinus
+
+cranium_internal_occipital_protuberance:
+  organ: cranium
+  body_reference: internal_occipital_protuberance
+
+cranium_fossa_cranii_posterior:
+  organ: cranium
+  body_reference: fossa_cranii_posterior
+
+cranium_sulcus_sinus_sagittalis_superioris:
+  organ: cranium
+  body_reference: sulcus_sinus_sagittalis_superioris
+
+cranium_superior_occipital_fossa:
+  organ: cranium
+  body_reference: superior_occipital_fossa
+
+cranium_anterior_fontanelle:
+  organ: cranium
+  body_reference: anterior_fontanelle
+
+cranium_posterior_fontanelle:
+  organ: cranium
+  body_reference: posterior_fontanelle
+
+cranium_occipital:
+  organ: cranium
+  body_reference: occipital
+
+face_auricular_region_left:
+  organ: face
+  body_reference: auricular_region_left
+
+face_auricular_region_right:
+  organ: face
+  body_reference: auricular_region_right
+
+face_parotid_gland_muscle_of_mastication_left:
+  organ: face
+  body_reference: parotid_gland_muscle_of_mastication_left
+
+face_parotid_gland_muscle_of_mastication_right:
+  organ: face
+  body_reference: parotid_gland_muscle_of_mastication_right
+
+head_pinna_on_attachment_left:
+  organ: head
+  body_reference: pinna_on_attachment_left
+
+head_pinna_on_attachment_right:
+  organ: head
+  body_reference: pinna_on_attachment_right
+
+head_pinna_under_attachment_left:
+  organ: head
+  body_reference: pinna_under_attachment_left
+
+head_pinna_under_attachment_right:
+  organ: head
+  body_reference: pinna_under_attachment_right
+
+cranium_dentine:
+  organ: cranium
+  body_reference: dentine
+
+cranium_dental_pulp:
+  organ: cranium
+  body_reference: dental_pulp
+
+cranium_gingiva:
+  organ: cranium
+  body_reference: gingiva
+
+cranium_alveolar_bone:
+  organ: cranium
+  body_reference: alveolar_bone
+
+cranium_dental_cement:
+  organ: cranium
+  body_reference: dental_cement
+
+cranium_tooth_crown:
+  organ: cranium
+  body_reference: tooth_crown
+
+cranium_neck_of_a_tooth:
+  organ: cranium
+  body_reference: neck_of_a_tooth
+
+cranium_fang:
+  organ: cranium
+  body_reference: fang
+
+face_labium_inferius_oris:
+  organ: face
+  body_reference: labium_inferius_oris
+
+neck_mental_region:
+  organ: neck
+  body_reference: mental_region
+
+_lingual_apex:
+  organ: 
+  body_reference: lingual_apex
+
+_lingual_septum:
+  organ: 
+  body_reference: lingual_septum
+
+neck_organs_genioglossal_muscle:
+  organ: neck_organs
+  body_reference: genioglossal_muscle
+
+neck_organs_inferior_longitudinal_muscle_of_tongue:
+  organ: neck_organs
+  body_reference: inferior_longitudinal_muscle_of_tongue
+
+neck_organs_styloglossus_muscle:
+  organ: neck_organs
+  body_reference: styloglossus_muscle
+
+neck_organs_musculus_hyoglossus:
+  organ: neck_organs
+  body_reference: musculus_hyoglossus
+
+neck_organs_corpus_ossis_hyoidei:
+  organ: neck_organs
+  body_reference: corpus_ossis_hyoidei
+
+neck_parotid_gland_left:
+  organ: neck
+  body_reference: parotid_gland_left
+
+neck_parotid_gland_right:
+  organ: neck
+  body_reference: parotid_gland_right
+
+neck_organs_median_thyrohyoid_ligament:
+  organ: neck_organs
+  body_reference: median_thyrohyoid_ligament
+
+neck_organs_vena_auricularis_posterior_left:
+  organ: neck_organs
+  body_reference: vena_auricularis_posterior_left
+
+neck_organs_vena_auricularis_posterior_right:
+  organ: neck_organs
+  body_reference: vena_auricularis_posterior_right
+
+neck_vena_jugularis_externa_left:
+  organ: neck
+  body_reference: vena_jugularis_externa_left
+
+neck_vena_jugularis_externa_right:
+  organ: neck
+  body_reference: vena_jugularis_externa_right
+
+neck_organs_hyoid_bone:
+  organ: neck_organs
+  body_reference: hyoid_bone
+
+neck_hyoid_bone_region:
+  organ: neck
+  body_reference: hyoid_bone_region
+
+neck_organs_lesser_horn_of_hyoid_bone:
+  organ: neck_organs
+  body_reference: lesser_horn_of_hyoid_bone
+
+neck_organs_thyrohyal:
+  organ: neck_organs
+  body_reference: thyrohyal
+
+neck_organs_corpus_adiposum:
+  organ: neck_organs
+  body_reference: corpus_adiposum
+
+neck_organs_middle_constrictor_pharyngeus_muscle:
+  organ: neck_organs
+  body_reference: middle_constrictor_pharyngeus_muscle
+
+neck_organs_superior_thyroid_notch:
+  organ: neck_organs
+  body_reference: superior_thyroid_notch
+
+neck_organs_epiglottic_cartilage:
+  organ: neck_organs
+  body_reference: epiglottic_cartilage
+
+neck_organs_thyroid_cartilage_superior_angle:
+  organ: neck_organs
+  body_reference: thyroid_cartilage_superior_angle
+
+neck_organs_thyroid_cartilage:
+  organ: neck_organs
+  body_reference: thyroid_cartilage
+
+neck_organs_thyroid_cartilage_inferior_horn:
+  organ: neck_organs
+  body_reference: thyroid_cartilage_inferior_horn
+
+neck_organs_rhinopharynx_nerve:
+  organ: neck_organs
+  body_reference: rhinopharynx_nerve
+
+neck_organs_inferior_constrictor_pharyngeus_muscle:
+  organ: neck_organs
+  body_reference: inferior_constrictor_pharyngeus_muscle
+
+neck_organs_lamina_sinistra_cartilaginis_thyroidea:
+  organ: neck_organs
+  body_reference: lamina_sinistra_cartilaginis_thyroidea
+
+neck_organs_inferior_thyroid_notch:
+  organ: neck_organs
+  body_reference: inferior_thyroid_notch
+
+neck_organs_cartilago_cricoidea:
+  organ: neck_organs
+  body_reference: cartilago_cricoidea
+
+neck_organs_cricothyroid_ligament:
+  organ: neck_organs
+  body_reference: cricothyroid_ligament
+
+neck_organs_cricothyroid_muscle_straight:
+  organ: neck_organs
+  body_reference: cricothyroid_muscle_straight
+
+neck_organs_cricothyroid_muscle_oblique:
+  organ: neck_organs
+  body_reference: cricothyroid_muscle_oblique
+
+neck_thyroid_gland_region:
+  organ: neck
+  body_reference: thyroid_gland_region
+
+abdominal_wall_subclavian_vein_left:
+  organ: abdominal_wall
+  body_reference: subclavian_vein_left
+
+abdominal_wall_subclavian_vein_right:
+  organ: abdominal_wall
+  body_reference: subclavian_vein_right
+
+upper_limbs_os_lunatum_left:
   organ: upper_limbs
-  body_reference: acromion_left
+  body_reference: os_lunatum_left
 
-upper_limbs_acromion_right:
+upper_limbs_os_lunatum_right:
   organ: upper_limbs
-  body_reference: acromion_right
+  body_reference: os_lunatum_right
+
+neck_organs_thyroid_gland_left_lobe:
+  organ: neck_organs
+  body_reference: thyroid_gland_left_lobe
+
+neck_organs_thyroid_gland_canyon:
+  organ: neck_organs
+  body_reference: thyroid_gland_canyon
+
+neck_organs_right_lobe_of_thyroid_gland:
+  organ: neck_organs
+  body_reference: right_lobe_of_thyroid_gland
+
+neck_hyoid_bone_lower:
+  organ: neck
+  body_reference: hyoid_bone_lower
+
+neck_organs_trachea:
+  organ: neck_organs
+  body_reference: trachea
+
+neck_organs_tracheal_cartilage:
+  organ: neck_organs
+  body_reference: tracheal_cartilage
+
+neck_organs_tracheal_bifurcation:
+  organ: neck_organs
+  body_reference: tracheal_bifurcation
+
+neck_organs_bronchus:
+  organ: neck_organs
+  body_reference: bronchus
+
+neck_platysma_left:
+  organ: neck
+  body_reference: platysma_left
+
+neck_platysma_right:
+  organ: neck
+  body_reference: platysma_right
+
+neck_organs_smaller_occipital_nerve_left:
+  organ: neck_organs
+  body_reference: smaller_occipital_nerve_left
+
+neck_organs_smaller_occipital_nerve_right:
+  organ: neck_organs
+  body_reference: smaller_occipital_nerve_right
+
+neck_sternocleidomastoid_muscle_left:
+  organ: neck
+  body_reference: sternocleidomastoid_muscle_left
+
+neck_sternocleidomastoid_muscle_right:
+  organ: neck
+  body_reference: sternocleidomastoid_muscle_right
+
+neck_sternocleidomastoid_region_left:
+  organ: neck
+  body_reference: sternocleidomastoid_region_left
+
+neck_sternocleidomastoid_region_right:
+  organ: neck
+  body_reference: sternocleidomastoid_region_right
+
+neck_laryngeal_part:
+  organ: neck
+  body_reference: laryngeal_part
+
+neck_trigonum_caroticum_left:
+  organ: neck
+  body_reference: trigonum_caroticum_left
+
+neck_trigonum_caroticum_right:
+  organ: neck
+  body_reference: trigonum_caroticum_right
+
+neck_lateral_neck_region_left:
+  organ: neck
+  body_reference: lateral_neck_region_left
+
+neck_lateral_neck_region_right:
+  organ: neck
+  body_reference: lateral_neck_region_right
+
+neck_posterior_region_of_neck:
+  organ: neck
+  body_reference: posterior_region_of_neck
+
+neck_organs_greater_auricular_nerve_left:
+  organ: neck_organs
+  body_reference: greater_auricular_nerve_left
+
+neck_organs_greater_auricular_nerve_right:
+  organ: neck_organs
+  body_reference: greater_auricular_nerve_right
+
+neck_organs_accessory_nerve_left:
+  organ: neck_organs
+  body_reference: accessory_nerve_left
+
+neck_organs_accessory_nerve_right:
+  organ: neck_organs
+  body_reference: accessory_nerve_right
+
+neck_trapezius_left:
+  organ: neck
+  body_reference: trapezius_left
+
+neck_trapezius_right:
+  organ: neck
+  body_reference: trapezius_right
+
+neck_fossa_supraclavicularis_major_left:
+  organ: neck
+  body_reference: fossa_supraclavicularis_major_left
+
+neck_fossa_supraclavicularis_major_right:
+  organ: neck
+  body_reference: fossa_supraclavicularis_major_right
+
+neck_regio_cervicales_lateralis_left:
+  organ: neck
+  body_reference: regio_cervicales_lateralis_left
+
+neck_regio_cervicales_lateralis_right:
+  organ: neck
+  body_reference: regio_cervicales_lateralis_right
+
+trunk_regio_cervicales_anterior:
+  organ: trunk
+  body_reference: regio_cervicales_anterior
+
+neck_laryngeal_prominence:
+  organ: neck
+  body_reference: laryngeal_prominence
+
+abdominal_wall_internal_jugular_vein_left:
+  organ: abdominal_wall
+  body_reference: internal_jugular_vein_left
+
+abdominal_wall_internal_jugular_vein_right:
+  organ: abdominal_wall
+  body_reference: internal_jugular_vein_right
+
+_atlas:
+  organ: 
+  body_reference: atlas
+
+_axis:
+  organ: 
+  body_reference: axis
+
+_cervical_vertebra:
+  organ: 
+  body_reference: cervical_vertebra
+
+neck_nucha:
+  organ: neck
+  body_reference: nucha
+
+neck_neck:
+  organ: neck
+  body_reference: neck
+
+neck_jugular_vein_region:
+  organ: neck
+  body_reference: jugular_vein_region
+
+trunk_costa_prima_left:
+  organ: trunk
+  body_reference: costa_prima_left
+
+trunk_costa_prima_right:
+  organ: trunk
+  body_reference: costa_prima_right
+
+trunk_first_thoracic_vertebra:
+  organ: trunk
+  body_reference: first_thoracic_vertebra
+
+thoracic_aorta_brachiocepharic_artery:
+  organ: thoracic_aorta
+  body_reference: brachiocepharic_artery
+
+trunk_chest_upper_mouth:
+  organ: trunk
+  body_reference: chest_upper_mouth
+
+trunk_manubrium:
+  organ: trunk
+  body_reference: manubrium
+
+trunk_subclavicular_region_left:
+  organ: trunk
+  body_reference: subclavicular_region_left
+
+trunk_subclavicular_region_right:
+  organ: trunk
+  body_reference: subclavicular_region_right
+
+trunk_spinous_process_of_vertebra:
+  organ: trunk
+  body_reference: spinous_process_of_vertebra
+
+abdominal_wall_cephalic_vein_left:
+  organ: abdominal_wall
+  body_reference: cephalic_vein_left
+
+abdominal_wall_cephalic_vein_right:
+  organ: abdominal_wall
+  body_reference: cephalic_vein_right
+
+_clavicle_left:
+  organ: 
+  body_reference: clavicle_left
+
+_clavicle_right:
+  organ: 
+  body_reference: clavicle_right
+
+trunk_processus_transversus:
+  organ: trunk
+  body_reference: processus_transversus
+
+back_scapula_left:
+  organ: back
+  body_reference: scapula_left
+
+back_scapula_right:
+  organ: back
+  body_reference: scapula_right
+
+trunk_rib_left:
+  organ: trunk
+  body_reference: rib_left
+
+trunk_rib_right:
+  organ: trunk
+  body_reference: rib_right
+
+abdominal_wall_superior_caval_vein:
+  organ: abdominal_wall
+  body_reference: superior_caval_vein
+
+trunk_acromial_part_left:
+  organ: trunk
+  body_reference: acromial_part_left
+
+trunk_acromial_part_right:
+  organ: trunk
+  body_reference: acromial_part_right
+
+back_suprascapular_left:
+  organ: back
+  body_reference: suprascapular_left
+
+back_suprascapular_right:
+  organ: back
+  body_reference: suprascapular_right
+
+neck_lesser_supraclavicular_fossa_left:
+  organ: neck
+  body_reference: lesser_supraclavicular_fossa_left
+
+neck_lesser_supraclavicular_fossa_right:
+  organ: neck
+  body_reference: lesser_supraclavicular_fossa_right
+
+trunk_pars_clavicularis_left:
+  organ: trunk
+  body_reference: pars_clavicularis_left
+
+trunk_pars_clavicularis_right:
+  organ: trunk
+  body_reference: pars_clavicularis_right
+
+trunk_regio_deltoidea:
+  organ: trunk
+  body_reference: regio_deltoidea
+
+trunk_shoulder_left:
+  organ: trunk
+  body_reference: shoulder_left
+
+trunk_shoulder_right:
+  organ: trunk
+  body_reference: shoulder_right
+
+lung_left_apex_of_lung_left:
+  organ: lung_left
+  body_reference: apex_of_lung_left
+
+lung_left_apex_of_lung_right:
+  organ: lung_left
+  body_reference: apex_of_lung_right
+
+heart_common_carotid_artery_left:
+  organ: heart
+  body_reference: common_carotid_artery_left
+
+heart_common_carotid_artery_right:
+  organ: heart
+  body_reference: common_carotid_artery_right
+
+heart_subclavian_artery_left:
+  organ: heart
+  body_reference: subclavian_artery_left
+
+heart_subclavian_artery_right:
+  organ: heart
+  body_reference: subclavian_artery_right
+
+heart_aortic_arch:
+  organ: heart
+  body_reference: aortic_arch
+
+heart_vena_pulmonalis_superior_dextra_left:
+  organ: heart
+  body_reference: vena_pulmonalis_superior_dextra_left
+
+heart_vena_pulmonalis_superior_dextra_right:
+  organ: heart
+  body_reference: vena_pulmonalis_superior_dextra_right
+
+heart_pulmonary_artery_left:
+  organ: heart
+  body_reference: pulmonary_artery_left
+
+heart_pulmonary_artery_right:
+  organ: heart
+  body_reference: pulmonary_artery_right
+
+heart_lower_pulmonary_artery_left:
+  organ: heart
+  body_reference: lower_pulmonary_artery_left
+heart_pulmonary_vein_left:
+  organ: heart
+  body_reference: pulmonary_vein_left
+
+heart_pulmonary_vein_right:
+  organ: heart
+  body_reference: pulmonary_vein_right
+
+heart_arterious_ligament:
+  organ: heart
+  body_reference: arterious_ligament
+
+heart_pars_ascendens_aortae:
+  organ: heart
+  body_reference: pars_ascendens_aortae
+
+heart_trunk_of_pulmonary_artery:
+  organ: heart
+  body_reference: trunk_of_pulmonary_artery
+
+heart_auricula_sinistra_left:
+  organ: heart
+  body_reference: auricula_sinistra_left
+
+heart_auricula_sinistra_right:
+  organ: heart
+  body_reference: auricula_sinistra_right
+
+heart_arterial_cone:
+  organ: heart
+  body_reference: arterial_cone
+
+heart_atrium_left:
+  organ: heart
+  body_reference: atrium_left
+
+heart_atrium_right:
+  organ: heart
+  body_reference: atrium_right
+
+heart_oblique_veins_of_atrium_left:
+  organ: heart
+  body_reference: oblique_veins_of_atrium_left
+heart_coronary_artery_left:
+  organ: heart
+  body_reference: coronary_artery_left
+
+heart_coronary_artery_right:
+  organ: heart
+  body_reference: coronary_artery_right
+
+lung_left_upper_lobe_of_lung_left:
+  organ: lung_left
+  body_reference: upper_lobe_of_lung_left
+
+lung_left_upper_lobe_of_lung_right:
+  organ: lung_left
+  body_reference: upper_lobe_of_lung_right
+
+heart_sinus_coronarius:
+  organ: heart
+  body_reference: sinus_coronarius
+
+heart_sinus_venarum:
+  organ: heart
+  body_reference: sinus_venarum
+
+heart_great_cardiac_vein:
+  organ: heart
+  body_reference: great_cardiac_vein
+
+lung_left_lobar_bronchi:
+  organ: lung_left
+  body_reference: lobar_bronchi
+
+heart_venae_cordis_anteriores:
+  organ: heart
+  body_reference: venae_cordis_anteriores
+
+heart_central_vein:
+  organ: heart
+  body_reference: central_vein
+
+lung_left_middle_lode:
+  organ: lung_left
+  body_reference: middle_lode
+
+lung_left_inferior_lobe_left:
+  organ: lung_left
+  body_reference: inferior_lobe_left
+
+lung_left_inferior_lobe_right:
+  organ: lung_left
+  body_reference: inferior_lobe_right
+
+heart_ventricular_left:
+  organ: heart
+  body_reference: ventricular_left
+
+heart_ventricular_right:
+  organ: heart
+  body_reference: ventricular_right
+
+lung_left_basis_pulmonis:
+  organ: lung_left
+  body_reference: basis_pulmonis
+
+heart_diaphragmatic_surface_of_heart:
+  organ: heart
+  body_reference: diaphragmatic_surface_of_heart
+
+heart_apical:
+  organ: heart
+  body_reference: apical
+
+heart_apical_notch:
+  organ: heart
+  body_reference: apical_notch
+
+trunk_regio_mammaria_left:
+  organ: trunk
+  body_reference: regio_mammaria_left
+
+trunk_regio_mammaria_right:
+  organ: trunk
+  body_reference: regio_mammaria_right
+
+trunk_areola_left:
+  organ: trunk
+  body_reference: areola_left
+
+trunk_areola_right:
+  organ: trunk
+  body_reference: areola_right
+
+trunk_teat_left:
+  organ: trunk
+  body_reference: teat_left
+
+trunk_teat_right:
+  organ: trunk
+  body_reference: teat_right
+
+trunk_areolar_gland_left:
+  organ: trunk
+  body_reference: areolar_gland_left
+
+trunk_areolar_gland_right:
+  organ: trunk
+  body_reference: areolar_gland_right
+
+trunk_greater_pectoral_muscle_left:
+  organ: trunk
+  body_reference: greater_pectoral_muscle_left
+
+trunk_greater_pectoral_muscle_right:
+  organ: trunk
+  body_reference: greater_pectoral_muscle_right
+
+trunk_breast_left:
+  organ: trunk
+  body_reference: breast_left
+
+trunk_breast_right:
+  organ: trunk
+  body_reference: breast_right
+
+trunk_latex_vessel_left:
+  organ: trunk
+  body_reference: latex_vessel_left
+
+trunk_latex_vessel_right:
+  organ: trunk
+  body_reference: latex_vessel_right
+
+trunk_blood_vessel_left:
+  organ: trunk
+  body_reference: blood_vessel_left
+
+trunk_blood_vessel_right:
+  organ: trunk
+  body_reference: blood_vessel_right
+
+trunk_lymphatic_vessel_left:
+  organ: trunk
+  body_reference: lymphatic_vessel_left
+
+trunk_lymphatic_vessel_right:
+  organ: trunk
+  body_reference: lymphatic_vessel_right
+
+trunk_breast_lobule_left:
+  organ: trunk
+  body_reference: breast_lobule_left
+
+trunk_breast_lobule_right:
+  organ: trunk
+  body_reference: breast_lobule_right
+
+trunk_mammary_adipose_body_left:
+  organ: trunk
+  body_reference: mammary_adipose_body_left
+
+trunk_mammary_adipose_body_right:
+  organ: trunk
+  body_reference: mammary_adipose_body_right
+
+heart_aorta:
+  organ: heart
+  body_reference: aorta
+
+trunk_corpus_sterni:
+  organ: trunk
+  body_reference: corpus_sterni
+
+trunk_intercostal_space:
+  organ: trunk
+  body_reference: intercostal_space
+
+_breastbone:
+  organ: 
+  body_reference: breastbone
+
+trunk_presternal_region:
+  organ: trunk
+  body_reference: presternal_region
+
+back_interscapular_region_left:
+  organ: back
+  body_reference: interscapular_region_left
+
+back_interscapular_region_right:
+  organ: back
+  body_reference: interscapular_region_right
+
+back_scapular_region_left:
+  organ: back
+  body_reference: scapular_region_left
+
+back_scapular_region_right:
+  organ: back
+  body_reference: scapular_region_right
+
+trunk_regio_axillaris_left:
+  organ: trunk
+  body_reference: regio_axillaris_left
+
+trunk_regio_axillaris_right:
+  organ: trunk
+  body_reference: regio_axillaris_right
+
+upper_limbs_axillary_fossa:
+  organ: upper_limbs
+  body_reference: axillary_fossa
+
+back_scapula_inside_left:
+  organ: back
+  body_reference: scapula_inside_left
+
+back_scapula_inside_right:
+  organ: back
+  body_reference: scapula_inside_right
+
+back_angulus_inferior_scapulae_left:
+  organ: back
+  body_reference: angulus_inferior_scapulae_left
+
+back_angulus_inferior_scapulae_right:
+  organ: back
+  body_reference: angulus_inferior_scapulae_right
+
+thoracic_aorta_brachial_artery:
+  organ: thoracic_aorta
+  body_reference: brachial_artery
+
+thoracic_aorta_thoracic_aorta:
+  organ: thoracic_aorta
+  body_reference: thoracic_aorta
+
+_episternum_left:
+  organ: 
+  body_reference: episternum_left
+
+_episternum_right:
+  organ: 
+  body_reference: episternum_right
+
+trunk_xiphoid_process:
+  organ: trunk
+  body_reference: xiphoid_process
+
+trunk_apertura_thoracis_inferior:
+  organ: trunk
+  body_reference: apertura_thoracis_inferior
+
+trunk_12th_rib_left:
+  organ: trunk
+  body_reference: 12th_rib_left
+
+trunk_12th_rib_right:
+  organ: trunk
+  body_reference: 12th_rib_right
+
+trunk_twelfth_thoracic_vertebra:
+  organ: trunk
+  body_reference: twelfth_thoracic_vertebra
+
+_seventh(7th)_cervical_vertebra:
+  organ: 
+  body_reference: seventh(7th)_cervical_vertebra
+
+_thoracic_vertebra:
+  organ: 
+  body_reference: thoracic_vertebra
+
+abdominal_wall_hepatic_vein:
+  organ: abdominal_wall
+  body_reference: hepatic_vein
+
+liver_lobe_left:
+  organ: liver
+  body_reference: lobe_left
+
+liver_lobe_right:
+  organ: liver
+  body_reference: lobe_right
+
+liver_trigeminal_membrane_left:
+  organ: liver
+  body_reference: trigeminal_membrane_left
+liver_liver_fiber_attach:
+  organ: liver
+  body_reference: liver_fiber_attach
+
+liver_gall_bladder:
+  organ: liver
+  body_reference: gall_bladder
+
+liver_hepatic_sickle_membrane:
+  organ: liver
+  body_reference: hepatic_sickle_membrane
+
+liver_hepatic_streak:
+  organ: liver
+  body_reference: hepatic_streak
+
+liver_gastric_indentation:
+  organ: liver
+  body_reference: gastric_indentation
+
+liver_caudate_lobe:
+  organ: liver
+  body_reference: caudate_lobe
+
+liver_inferior_vena_cava:
+  organ: liver
+  body_reference: inferior_vena_cava
+
+liver_portal_vein:
+  organ: liver
+  body_reference: portal_vein
+
+liver_kidney_impression:
+  organ: liver
+  body_reference: kidney_impression
+
+liver_intrinsic_hepatic_artery:
+  organ: liver
+  body_reference: intrinsic_hepatic_artery
+
+liver_hepatic_duct:
+  organ: liver
+  body_reference: hepatic_duct
+
+liver_cystic_duct:
+  organ: liver
+  body_reference: cystic_duct
+
+liver_cholecystic_artery:
+  organ: liver
+  body_reference: cholecystic_artery
+
+liver_quadrate_lobe:
+  organ: liver
+  body_reference: quadrate_lobe
+
+abdominal_wall_hemiazygous_vein:
+  organ: abdominal_wall
+  body_reference: hemiazygous_vein
+
+abdominal_wall_azygos_vein:
+  organ: abdominal_wall
+  body_reference: azygos_vein
+
+abdominal_wall_vena_renalis:
+  organ: abdominal_wall
+  body_reference: vena_renalis
+
+abdominal_aorta_arteria_coeliaca:
+  organ: abdominal_aorta
+  body_reference: arteria_coeliaca
+
+abdominal_aorta_arteria_renalis:
+  organ: abdominal_aorta
+  body_reference: arteria_renalis
+
+trunk_inframammary_region_left:
+  organ: trunk
+  body_reference: inframammary_region_left
+
+trunk_inframammary_region_right:
+  organ: trunk
+  body_reference: inframammary_region_right
+
+trunk_side_chest_left:
+  organ: trunk
+  body_reference: side_chest_left
+
+trunk_side_chest_right:
+  organ: trunk
+  body_reference: side_chest_right
+
+kidney_left_kidney_cortex:
+  organ: kidney_left
+  body_reference: kidney_cortex
+
+kidney_left_renal_medulla:
+  organ: kidney_left
+  body_reference: renal_medulla
+
+kidney_left_papilla_renalis:
+  organ: kidney_left
+  body_reference: papilla_renalis
+
+kidney_left_renal_pelvis:
+  organ: kidney_left
+  body_reference: renal_pelvis
+
+kidney_left_kidney_calix:
+  organ: kidney_left
+  body_reference: kidney_calix
+
+kidney_left_base_of_renal_pyramid:
+  organ: kidney_left
+  body_reference: base_of_renal_pyramid
+
+kidney_left_ureter:
+  organ: kidney_left
+  body_reference: ureter
+
+kidney_left_line_weight_film:
+  organ: kidney_left
+  body_reference: line_weight_film
+
+_vertebral_column:
+  organ: 
+  body_reference: vertebral_column
+
+upper_limbs_upper_arm:
+  organ: upper_limbs
+  body_reference: upper_arm
+
+upper_limbs_chelidon:
+  organ: upper_limbs
+  body_reference: chelidon
+
+intestines_esophagus:
+  organ: intestines
+  body_reference: esophagus
+
+liver_liver:
+  organ: liver
+  body_reference: liver
+
+stomach_stomach:
+  organ: stomach
+  body_reference: stomach
+
+stomach_cardia:
+  organ: stomach
+  body_reference: cardia
+
+stomach_gastric_gland:
+  organ: stomach
+  body_reference: gastric_gland
+
+stomach_pylorus:
+  organ: stomach
+  body_reference: pylorus
+
+stomach_pyloric_region:
+  organ: stomach
+  body_reference: pyloric_region
+
+stomach_gastric_mucosal_folds:
+  organ: stomach
+  body_reference: gastric_mucosal_folds
+
+stomach_greater_curverture:
+  organ: stomach
+  body_reference: greater_curverture
+
+stomach_gastric_district:
+  organ: stomach
+  body_reference: gastric_district
+
+pancreas_pancreas:
+  organ: pancreas
+  body_reference: pancreas
+
+intestines_duodenum:
+  organ: intestines
+  body_reference: duodenum
+
+abdominal_aorta_abdominal_aorta:
+  organ: abdominal_aorta
+  body_reference: abdominal_aorta
+
+intestines_transverse_colon:
+  organ: intestines
+  body_reference: transverse_colon
+
+intestines_ascending_colon:
+  organ: intestines
+  body_reference: ascending_colon
+
+intestines_jejunum:
+  organ: intestines
+  body_reference: jejunum
+
+trunk_costal_arch_left:
+  organ: trunk
+  body_reference: costal_arch_left
+
+trunk_costal_arch_right:
+  organ: trunk
+  body_reference: costal_arch_right
+
+trunk_arcus_costalis_left:
+  organ: trunk
+  body_reference: arcus_costalis_left
+
+trunk_arcus_costalis_right:
+  organ: trunk
+  body_reference: arcus_costalis_right
+
+trunk_upper_abdomen:
+  organ: trunk
+  body_reference: upper_abdomen
+
+trunk_hypochondrium_left:
+  organ: trunk
+  body_reference: hypochondrium_left
+
+trunk_hypochondrium_right:
+  organ: trunk
+  body_reference: hypochondrium_right
+
+trunk_umbilical_region:
+  organ: trunk
+  body_reference: umbilical_region
+
+trunk_umbilical:
+  organ: trunk
+  body_reference: umbilical
+
+back_regio_infrascapularis_left:
+  organ: back
+  body_reference: regio_infrascapularis_left
+
+back_regio_infrascapularis_right:
+  organ: back
+  body_reference: regio_infrascapularis_right
+
+abdominal_wall_testicular_vein:
+  organ: abdominal_wall
+  body_reference: testicular_vein
+
+abdominal_aorta_arteria_testicularis:
+  organ: abdominal_aorta
+  body_reference: arteria_testicularis
+
+back_back_midline:
+  organ: back
+  body_reference: back_midline
+
+back_loin_left:
+  organ: back
+  body_reference: loin_left
+
+back_loin_right:
+  organ: back
+  body_reference: loin_right
+
+_hip_bone_left:
+  organ: 
+  body_reference: hip_bone_left
+
+_hip_bone_right:
+  organ: 
+  body_reference: hip_bone_right
+
+_iliac_bone_left:
+  organ: 
+  body_reference: iliac_bone_left
+
+_iliac_bone_right:
+  organ: 
+  body_reference: iliac_bone_right
+
+trunk_iliac_horn_left:
+  organ: trunk
+  body_reference: iliac_horn_left
+
+trunk_iliac_horn_right:
+  organ: trunk
+  body_reference: iliac_horn_right
+
+_promontory:
+  organ: 
+  body_reference: promontory
+
+_sacral_bone:
+  organ: 
+  body_reference: sacral_bone
+
+intestines_cecum:
+  organ: intestines
+  body_reference: cecum
+
+_sacroiliac_articulation:
+  organ: 
+  body_reference: sacroiliac_articulation
+
+_sacral_region:
+  organ: 
+  body_reference: sacral_region
+
+_iliac_region:
+  organ: 
+  body_reference: iliac_region
+
+abdominal_wall_common_iliac_vein:
+  organ: abdominal_wall
+  body_reference: common_iliac_vein
+
+intestines_ileum:
+  organ: intestines
+  body_reference: ileum
+
+intestines_vermiform_appendix:
+  organ: intestines
+  body_reference: vermiform_appendix
+
+anus_anus:
+  organ: anus
+  body_reference: anus
+
+abdominal_wall_external_iliac_vein:
+  organ: abdominal_wall
+  body_reference: external_iliac_vein
+
+intestines_sigmoid_colon:
+  organ: intestines
+  body_reference: sigmoid_colon
+
+abdominal_wall_vena_iliaca_interna:
+  organ: abdominal_wall
+  body_reference: vena_iliaca_interna
+
+_pubic_region:
+  organ: 
+  body_reference: pubic_region
+
+abdominal_wall_large_saphenous_vein:
+  organ: abdominal_wall
+  body_reference: large_saphenous_vein
+
+intestines_rectum:
+  organ: intestines
+  body_reference: rectum
+
+abdominal_aorta_arteria_iliaca_communis:
+  organ: abdominal_aorta
+  body_reference: arteria_iliaca_communis
+
+_pygostylus:
+  organ: 
+  body_reference: pygostylus
+
+intestines_descending_colon:
+  organ: intestines
+  body_reference: descending_colon
+
+abdominal_aorta_arteria_iliaca_externa:
+  organ: abdominal_aorta
+  body_reference: arteria_iliaca_externa
+
+trunk_flank_left:
+  organ: trunk
+  body_reference: flank_left
+
+trunk_flank_right:
+  organ: trunk
+  body_reference: flank_right
+
+_pubic_left:
+  organ: 
+  body_reference: pubic_left
+
+_pubic_right:
+  organ: 
+  body_reference: pubic_right
+
+_pubic_symphysis:
+  organ: 
+  body_reference: pubic_symphysis
+
+_ischeal_bone_left:
+  organ: 
+  body_reference: ischeal_bone_left
+
+_ischeal_bone_right:
+  organ: 
+  body_reference: ischeal_bone_right
+
+_lumbar_vertebra:
+  organ: 
+  body_reference: lumbar_vertebra
+
+_angulus_subpubicus:
+  organ: 
+  body_reference: angulus_subpubicus
+
+_sacrococcygeal_curvature:
+  organ: 
+  body_reference: sacrococcygeal_curvature
+
+genitalia_hypogastrium:
+  organ: genitalia
+  body_reference: hypogastrium
+
+upper_limbs_anterachial_region:
+  organ: upper_limbs
+  body_reference: anterachial_region
 
 upper_limbs_olecranon_left:
   organ: upper_limbs
@@ -49,65 +2483,747 @@ upper_limbs_olecranon_right:
   organ: upper_limbs
   body_reference: olecranon_right
 
-upper_limbs_middle_finger_left:
+_radius_left:
+  organ: 
+  body_reference: radius_left
+
+_radius_right:
+  organ: 
+  body_reference: radius_right
+
+_ulna_left:
+  organ: 
+  body_reference: ulna_left
+
+_ulna_right:
+  organ: 
+  body_reference: ulna_right
+
+_ossa_manus_left:
+  organ: 
+  body_reference: ossa_manus_left
+
+_ossa_manus_right:
+  organ: 
+  body_reference: ossa_manus_right
+
+upper_limbs_opisthenar:
   organ: upper_limbs
-  body_reference: middle_finger_left
+  body_reference: opisthenar
 
-upper_limbs_middle_finger_right:
+upper_limbs_part_of_palm:
   organ: upper_limbs
-  body_reference: middle_finger_right
+  body_reference: part_of_palm
 
+upper_limbs_styloid_process_of_ulna_left:
+  organ: upper_limbs
+  body_reference: styloid_process_of_ulna_left
 
-lower_limbs_asis_left:
+upper_limbs_styloid_process_of_ulna_right:
+  organ: upper_limbs
+  body_reference: styloid_process_of_ulna_right
+
+upper_limbs_deltoid_left:
+  organ: upper_limbs
+  body_reference: deltoid_left
+
+upper_limbs_deltoid_right:
+  organ: upper_limbs
+  body_reference: deltoid_right
+
+upper_limbs_radiale_left:
+  organ: upper_limbs
+  body_reference: radiale_left
+
+upper_limbs_radiale_right:
+  organ: upper_limbs
+  body_reference: radiale_right
+
+upper_limbs_os_pisiforme_left:
+  organ: upper_limbs
+  body_reference: os_pisiforme_left
+
+upper_limbs_os_pisiforme_right:
+  organ: upper_limbs
+  body_reference: os_pisiforme_right
+
+upper_limbs_os_trapezium_left:
+  organ: upper_limbs
+  body_reference: os_trapezium_left
+
+upper_limbs_os_trapezium_right:
+  organ: upper_limbs
+  body_reference: os_trapezium_right
+
+upper_limbs_trapezoid_left:
+  organ: upper_limbs
+  body_reference: trapezoid_left
+
+upper_limbs_trapezoid_right:
+  organ: upper_limbs
+  body_reference: trapezoid_right
+
+upper_limbs_os_capitatum_left:
+  organ: upper_limbs
+  body_reference: os_capitatum_left
+
+upper_limbs_os_capitatum_right:
+  organ: upper_limbs
+  body_reference: os_capitatum_right
+
+upper_limbs_hamatum_left:
+  organ: upper_limbs
+  body_reference: hamatum_left
+
+upper_limbs_hamatum_right:
+  organ: upper_limbs
+  body_reference: hamatum_right
+
+upper_limbs_thenar_left:
+  organ: upper_limbs
+  body_reference: thenar_left
+
+upper_limbs_thenar_right:
+  organ: upper_limbs
+  body_reference: thenar_right
+
+upper_limbs_antithenar_left:
+  organ: upper_limbs
+  body_reference: antithenar_left
+
+upper_limbs_antithenar_right:
+  organ: upper_limbs
+  body_reference: antithenar_right
+
+upper_limbs_proximal_phalanx_region_left:
+  organ: upper_limbs
+  body_reference: proximal_phalanx_region_left
+
+upper_limbs_proximal_phalanx_region_right:
+  organ: upper_limbs
+  body_reference: proximal_phalanx_region_right
+
+upper_limbs_first_middle_finger_bone_left:
+  organ: upper_limbs
+  body_reference: first_middle_finger_bone_left
+
+upper_limbs_first_middle_finger_bone_right:
+  organ: upper_limbs
+  body_reference: first_middle_finger_bone_right
+
+upper_limbs_distal_phalanges_left:
+  organ: upper_limbs
+  body_reference: distal_phalanges_left
+
+upper_limbs_distal_phalanges_right:
+  organ: upper_limbs
+  body_reference: distal_phalanges_right
+
+upper_limbs_proximal_phalanxbottom_left:
+  organ: upper_limbs
+  body_reference: proximal_phalanxbottom_left
+
+upper_limbs_proximal_phalanxbottom_right:
+  organ: upper_limbs
+  body_reference: proximal_phalanxbottom_right
+
+upper_limbs_proximal_phalanxbody_left:
+  organ: upper_limbs
+  body_reference: proximal_phalanxbody_left
+
+upper_limbs_proximal_phalanxbody_right:
+  organ: upper_limbs
+  body_reference: proximal_phalanxbody_right
+
+upper_limbs_proximal_phalanxhead_left:
+  organ: upper_limbs
+  body_reference: proximal_phalanxhead_left
+
+upper_limbs_proximal_phalanxhead_right:
+  organ: upper_limbs
+  body_reference: proximal_phalanxhead_right
+
+upper_limbs_middle_phalanx_left:
+  organ: upper_limbs
+  body_reference: middle_phalanx_left
+
+upper_limbs_middle_phalanx_right:
+  organ: upper_limbs
+  body_reference: middle_phalanx_right
+
+upper_limbs_distal_phalanx_left:
+  organ: upper_limbs
+  body_reference: distal_phalanx_left
+
+upper_limbs_distal_phalanx_right:
+  organ: upper_limbs
+  body_reference: distal_phalanx_right
+
+upper_limbs_fifth_basemetacarpal_bone_left:
+  organ: upper_limbs
+  body_reference: fifth_basemetacarpal_bone_left
+
+upper_limbs_fifth_basemetacarpal_bone_right:
+  organ: upper_limbs
+  body_reference: fifth_basemetacarpal_bone_right
+
+upper_limbs_fifth_shaft_of_metacarpal_bone_left:
+  organ: upper_limbs
+  body_reference: fifth_shaft_of_metacarpal_bone_left
+
+upper_limbs_fifth_shaft_of_metacarpal_bone_right:
+  organ: upper_limbs
+  body_reference: fifth_shaft_of_metacarpal_bone_right
+
+upper_limbs_fifth_head_metacarpal_bone_left:
+  organ: upper_limbs
+  body_reference: fifth_head_metacarpal_bone_left
+
+upper_limbs_fifth_head_metacarpal_bone_right:
+  organ: upper_limbs
+  body_reference: fifth_head_metacarpal_bone_right
+
+upper_limbs_intermediate_phalanges_left:
+  organ: upper_limbs
+  body_reference: intermediate_phalanges_left
+
+upper_limbs_intermediate_phalanges_right:
+  organ: upper_limbs
+  body_reference: intermediate_phalanges_right
+
+upper_limbs_second_finger_base_left:
+  organ: upper_limbs
+  body_reference: second_finger_base_left
+
+upper_limbs_second_finger_base_right:
+  organ: upper_limbs
+  body_reference: second_finger_base_right
+
+upper_limbs_digitus_medius_base_left:
+  organ: upper_limbs
+  body_reference: digitus_medius_base_left
+
+upper_limbs_digitus_medius_base_right:
+  organ: upper_limbs
+  body_reference: digitus_medius_base_right
+
+upper_limbs_ring_finger_base_left:
+  organ: upper_limbs
+  body_reference: ring_finger_base_left
+
+upper_limbs_ring_finger_base_right:
+  organ: upper_limbs
+  body_reference: ring_finger_base_right
+
+upper_limbs_microdactylia_base_left:
+  organ: upper_limbs
+  body_reference: microdactylia_base_left
+
+upper_limbs_microdactylia_base_right:
+  organ: upper_limbs
+  body_reference: microdactylia_base_right
+
+trunk_inguinal_region_left:
+  organ: trunk
+  body_reference: inguinal_region_left
+
+trunk_inguinal_region_right:
+  organ: trunk
+  body_reference: inguinal_region_right
+
+trunk_iliac_spine_left:
+  organ: trunk
+  body_reference: iliac_spine_left
+
+trunk_iliac_spine_right:
+  organ: trunk
+  body_reference: iliac_spine_right
+
+_buttocks_left:
+  organ: 
+  body_reference: buttocks_left
+
+_buttocks_right:
+  organ: 
+  body_reference: buttocks_right
+
+lower_limbs_femoral_region_left:
   organ: lower_limbs
-  body_reference: anterior_superior_iliac_spine_left
+  body_reference: femoral_region_left
 
-lower_limbs_asis_right:
+lower_limbs_femoral_region_right:
   organ: lower_limbs
-  body_reference: anterior_superior_iliac_spine_right
+  body_reference: femoral_region_right
 
-lower_limbs_pubic_symphysis:
+lower_limbs_thigh_left:
   organ: lower_limbs
-  body_reference: pubic_symphysis
+  body_reference: thigh_left
 
-lower_limbs_tuberosity_left:
+lower_limbs_thigh_right:
   organ: lower_limbs
-  body_reference: tuberosity_left
+  body_reference: thigh_right
 
-lower_limbs_tuberosity_right:
+_femur_left:
+  organ: 
+  body_reference: femur_left
+
+_femur_right:
+  organ: 
+  body_reference: femur_right
+
+abdominal_wall_femoral_vein_left:
+  organ: abdominal_wall
+  body_reference: femoral_vein_left
+
+abdominal_wall_femoral_vein_right:
+  organ: abdominal_wall
+  body_reference: femoral_vein_right
+
+abdominal_wall_profunda_femoris_vein_left:
+  organ: abdominal_wall
+  body_reference: profunda_femoris_vein_left
+
+abdominal_wall_profunda_femoris_vein_right:
+  organ: abdominal_wall
+  body_reference: profunda_femoris_vein_right
+
+abdominal_aorta_arteria_femoralis_left:
+  organ: abdominal_aorta
+  body_reference: arteria_femoralis_left
+
+abdominal_aorta_arteria_femoralis_right:
+  organ: abdominal_aorta
+  body_reference: arteria_femoralis_right
+
+lower_limbs_caput_femoris_left:
   organ: lower_limbs
-  body_reference: tuberosity_right
+  body_reference: caput_femoris_left
 
-lower_limbs_second_toe_left:
+lower_limbs_caput_femoris_right:
   organ: lower_limbs
-  body_reference: second_toe_left
+  body_reference: caput_femoris_right
 
-lower_limbs_second_toe_right:
+lower_limbs_fovea_capitis_femoris_left:
   organ: lower_limbs
-  body_reference: second_toe_right
+  body_reference: fovea_capitis_femoris_left
 
+lower_limbs_fovea_capitis_femoris_right:
+  organ: lower_limbs
+  body_reference: fovea_capitis_femoris_right
 
-genitalia_asis_left:
-  organ: genitalia
-  body_reference: anterior_superior_iliac_spine_left
+lower_limbs_fossa_trochanterica_left:
+  organ: lower_limbs
+  body_reference: fossa_trochanterica_left
 
-genitalia_asis_right:
-  organ: genitalia
-  body_reference: anterior_superior_iliac_spine_right
+lower_limbs_fossa_trochanterica_right:
+  organ: lower_limbs
+  body_reference: fossa_trochanterica_right
 
-genitalia_pubic_symphysis:
-  organ: genitalia
-  body_reference: pubic_symphysis
+lower_limbs_trochanter_major_left:
+  organ: lower_limbs
+  body_reference: trochanter_major_left
 
+lower_limbs_trochanter_major_right:
+  organ: lower_limbs
+  body_reference: trochanter_major_right
 
-anus_asis_left:
-  organ: anus
-  body_reference: anterior_superior_iliac_spine_left
+lower_limbs_trochanter_minor_left:
+  organ: lower_limbs
+  body_reference: trochanter_minor_left
 
-anus_asis_right:
-  organ: anus
-  body_reference: anterior_superior_iliac_spine_right
+lower_limbs_trochanter_minor_right:
+  organ: lower_limbs
+  body_reference: trochanter_minor_right
 
-anus_pubic_symphysis:
-  organ: anus
-  body_reference: pubic_symphysis
+lower_limbs_linea_intertrochanterica_left:
+  organ: lower_limbs
+  body_reference: linea_intertrochanterica_left
+
+lower_limbs_linea_intertrochanterica_right:
+  organ: lower_limbs
+  body_reference: linea_intertrochanterica_right
+
+lower_limbs_corpus_femoris_left:
+  organ: lower_limbs
+  body_reference: corpus_femoris_left
+
+lower_limbs_corpus_femoris_right:
+  organ: lower_limbs
+  body_reference: corpus_femoris_right
+
+lower_limbs_lateral_epicondyle_left:
+  organ: lower_limbs
+  body_reference: lateral_epicondyle_left
+
+lower_limbs_lateral_epicondyle_right:
+  organ: lower_limbs
+  body_reference: lateral_epicondyle_right
+
+lower_limbs_medial_condylar_left:
+  organ: lower_limbs
+  body_reference: medial_condylar_left
+
+lower_limbs_medial_condylar_right:
+  organ: lower_limbs
+  body_reference: medial_condylar_right
+
+lower_limbs_lateral_condyle_left:
+  organ: lower_limbs
+  body_reference: lateral_condyle_left
+
+lower_limbs_lateral_condyle_right:
+  organ: lower_limbs
+  body_reference: lateral_condyle_right
+
+lower_limbs_medial_condyle_left:
+  organ: lower_limbs
+  body_reference: medial_condyle_left
+
+lower_limbs_medial_condyle_right:
+  organ: lower_limbs
+  body_reference: medial_condyle_right
+
+lower_limbs_patellar_surface_left:
+  organ: lower_limbs
+  body_reference: patellar_surface_left
+
+lower_limbs_patellar_surface_right:
+  organ: lower_limbs
+  body_reference: patellar_surface_right
+
+lower_limbs_intertrochanteric_crest_left:
+  organ: lower_limbs
+  body_reference: intertrochanteric_crest_left
+
+lower_limbs_intertrochanteric_crest_right:
+  organ: lower_limbs
+  body_reference: intertrochanteric_crest_right
+
+lower_limbs_tuberositas_glutea_left:
+  organ: lower_limbs
+  body_reference: tuberositas_glutea_left
+
+lower_limbs_tuberositas_glutea_right:
+  organ: lower_limbs
+  body_reference: tuberositas_glutea_right
+
+lower_limbs_pubic_muscle_line_left:
+  organ: lower_limbs
+  body_reference: pubic_muscle_line_left
+
+lower_limbs_pubic_muscle_line_right:
+  organ: lower_limbs
+  body_reference: pubic_muscle_line_right
+
+lower_limbs_outer_lip_roughness_line_left:
+  organ: lower_limbs
+  body_reference: outer_lip_roughness_line_left
+
+lower_limbs_outer_lip_roughness_line_right:
+  organ: lower_limbs
+  body_reference: outer_lip_roughness_line_right
+
+lower_limbs_inner_lip_line_left:
+  organ: lower_limbs
+  body_reference: inner_lip_line_left
+
+lower_limbs_inner_lip_line_right:
+  organ: lower_limbs
+  body_reference: inner_lip_line_right
+
+lower_limbs_popliteal_surface_left:
+  organ: lower_limbs
+  body_reference: popliteal_surface_left
+
+lower_limbs_popliteal_surface_right:
+  organ: lower_limbs
+  body_reference: popliteal_surface_right
+
+lower_limbs_intercondylar_line_left:
+  organ: lower_limbs
+  body_reference: intercondylar_line_left
+
+lower_limbs_intercondylar_line_right:
+  organ: lower_limbs
+  body_reference: intercondylar_line_right
+
+lower_limbs_intercondylar_fossa_left:
+  organ: lower_limbs
+  body_reference: intercondylar_fossa_left
+
+lower_limbs_intercondylar_fossa_right:
+  organ: lower_limbs
+  body_reference: intercondylar_fossa_right
+
+_patella_left:
+  organ: 
+  body_reference: patella_left
+
+_patella_right:
+  organ: 
+  body_reference: patella_right
+
+lower_limbs_patella_region_left:
+  organ: lower_limbs
+  body_reference: patella_region_left
+
+lower_limbs_patella_region_right:
+  organ: lower_limbs
+  body_reference: patella_region_right
+
+lower_limbs_popliteal_left:
+  organ: lower_limbs
+  body_reference: popliteal_left
+
+lower_limbs_popliteal_right:
+  organ: lower_limbs
+  body_reference: popliteal_right
+
+lower_limbs_cruris_left:
+  organ: lower_limbs
+  body_reference: cruris_left
+
+lower_limbs_cruris_right:
+  organ: lower_limbs
+  body_reference: cruris_right
+
+lower_limbs_sural_region_left:
+  organ: lower_limbs
+  body_reference: sural_region_left
+
+lower_limbs_sural_region_right:
+  organ: lower_limbs
+  body_reference: sural_region_right
+
+_tibia_left:
+  organ: 
+  body_reference: tibia_left
+
+_tibia_right:
+  organ: 
+  body_reference: tibia_right
+
+_fibula_left:
+  organ: 
+  body_reference: fibula_left
+
+_fibula_right:
+  organ: 
+  body_reference: fibula_right
+
+lower_limbs_lateral_malleolus_left:
+  organ: lower_limbs
+  body_reference: lateral_malleolus_left
+
+lower_limbs_lateral_malleolus_right:
+  organ: lower_limbs
+  body_reference: lateral_malleolus_right
+
+lower_limbs_medial_malleolus_left:
+  organ: lower_limbs
+  body_reference: medial_malleolus_left
+
+lower_limbs_medial_malleolus_right:
+  organ: lower_limbs
+  body_reference: medial_malleolus_right
+
+_bone_of_foot_left:
+  organ: 
+  body_reference: bone_of_foot_left
+
+_bone_of_foot_right:
+  organ: 
+  body_reference: bone_of_foot_right
+
+lower_limbs_dorsum_pedis_left:
+  organ: lower_limbs
+  body_reference: dorsum_pedis_left
+
+lower_limbs_dorsum_pedis_right:
+  organ: lower_limbs
+  body_reference: dorsum_pedis_right
+
+lower_limbs_vola_left:
+  organ: lower_limbs
+  body_reference: vola_left
+
+lower_limbs_vola_right:
+  organ: lower_limbs
+  body_reference: vola_right
+
+lower_limbs_calcaneal_region_left:
+  organ: lower_limbs
+  body_reference: calcaneal_region_left
+
+lower_limbs_calcaneal_region_right:
+  organ: lower_limbs
+  body_reference: calcaneal_region_right
+
+lower_limbs_pulley_of_talus_left:
+  organ: lower_limbs
+  body_reference: pulley_of_talus_left
+
+lower_limbs_pulley_of_talus_right:
+  organ: lower_limbs
+  body_reference: pulley_of_talus_right
+
+lower_limbs_collum_tali_left:
+  organ: lower_limbs
+  body_reference: collum_tali_left
+
+lower_limbs_collum_tali_right:
+  organ: lower_limbs
+  body_reference: collum_tali_right
+
+lower_limbs_astragalus_left:
+  organ: lower_limbs
+  body_reference: astragalus_left
+
+lower_limbs_astragalus_right:
+  organ: lower_limbs
+  body_reference: astragalus_right
+
+lower_limbs_os_cuneiforme_mediale_left:
+  organ: lower_limbs
+  body_reference: os_cuneiforme_mediale_left
+
+lower_limbs_os_cuneiforme_mediale_right:
+  organ: lower_limbs
+  body_reference: os_cuneiforme_mediale_right
+
+lower_limbs_fibular_tarsal_bone_left:
+  organ: lower_limbs
+  body_reference: fibular_tarsal_bone_left
+
+lower_limbs_fibular_tarsal_bone_right:
+  organ: lower_limbs
+  body_reference: fibular_tarsal_bone_right
+
+lower_limbs_tuberositas_ossis_navicularis_left:
+  organ: lower_limbs
+  body_reference: tuberositas_ossis_navicularis_left
+
+lower_limbs_tuberositas_ossis_navicularis_right:
+  organ: lower_limbs
+  body_reference: tuberositas_ossis_navicularis_right
+
+lower_limbs_first_metatarsal_bone_left:
+  organ: lower_limbs
+  body_reference: first_metatarsal_bone_left
+
+lower_limbs_first_metatarsal_bone_right:
+  organ: lower_limbs
+  body_reference: first_metatarsal_bone_right
+
+lower_limbs_tuber_calcanei_left:
+  organ: lower_limbs
+  body_reference: tuber_calcanei_left
+
+lower_limbs_tuber_calcanei_right:
+  organ: lower_limbs
+  body_reference: tuber_calcanei_right
+
+lower_limbs_proximal_phalanx_left:
+  organ: lower_limbs
+  body_reference: proximal_phalanx_left
+
+lower_limbs_proximal_phalanx_right:
+  organ: lower_limbs
+  body_reference: proximal_phalanx_right
+
+lower_limbs_sesamoid_bone_left:
+  organ: lower_limbs
+  body_reference: sesamoid_bone_left
+
+lower_limbs_sesamoid_bone_right:
+  organ: lower_limbs
+  body_reference: sesamoid_bone_right
+
+lower_limbs_cuboid_bone_left:
+  organ: lower_limbs
+  body_reference: cuboid_bone_left
+
+lower_limbs_cuboid_bone_right:
+  organ: lower_limbs
+  body_reference: cuboid_bone_right
+
+lower_limbs_third_sphenoid_bone_left:
+  organ: lower_limbs
+  body_reference: third_sphenoid_bone_left
+
+lower_limbs_third_sphenoid_bone_right:
+  organ: lower_limbs
+  body_reference: third_sphenoid_bone_right
+
+lower_limbs_second_sphenoid_bone_left:
+  organ: lower_limbs
+  body_reference: second_sphenoid_bone_left
+
+lower_limbs_second_sphenoid_bone_right:
+  organ: lower_limbs
+  body_reference: second_sphenoid_bone_right
+
+lower_limbs_first_sphenoid_bone_left:
+  organ: lower_limbs
+  body_reference: first_sphenoid_bone_left
+
+lower_limbs_first_sphenoid_bone_right:
+  organ: lower_limbs
+  body_reference: first_sphenoid_bone_right
+
+lower_limbs_fifth_metatarsal_bone_left:
+  organ: lower_limbs
+  body_reference: fifth_metatarsal_bone_left
+
+lower_limbs_fifth_metatarsal_bone_right:
+  organ: lower_limbs
+  body_reference: fifth_metatarsal_bone_right
+
+lower_limbs_basis_ossis_metatarsalis_left:
+  organ: lower_limbs
+  body_reference: basis_ossis_metatarsalis_left
+
+lower_limbs_basis_ossis_metatarsalis_right:
+  organ: lower_limbs
+  body_reference: basis_ossis_metatarsalis_right
+
+lower_limbs_body_of_metatarsal_bone_left:
+  organ: lower_limbs
+  body_reference: body_of_metatarsal_bone_left
+
+lower_limbs_body_of_metatarsal_bone_right:
+  organ: lower_limbs
+  body_reference: body_of_metatarsal_bone_right
+
+lower_limbs_head_of_metatarsal_bone_left:
+  organ: lower_limbs
+  body_reference: head_of_metatarsal_bone_left
+
+lower_limbs_head_of_metatarsal_bone_right:
+  organ: lower_limbs
+  body_reference: head_of_metatarsal_bone_right
+
+lower_limbs_basis_proximal_phalanx_left:
+  organ: lower_limbs
+  body_reference: basis_proximal_phalanx_left
+
+lower_limbs_basis_proximal_phalanx_right:
+  organ: lower_limbs
+  body_reference: basis_proximal_phalanx_right
+
+lower_limbs_body_of_proximal_phalanx_left:
+  organ: lower_limbs
+  body_reference: body_of_proximal_phalanx_left
+
+lower_limbs_body_of_proximal_phalanx_right:
+  organ: lower_limbs
+  body_reference: body_of_proximal_phalanx_right
+
+lower_limbs_head_of_proximal_phalanx_left:
+  organ: lower_limbs
+  body_reference: head_of_proximal_phalanx_left
+
+lower_limbs_head_of_proximal_phalanx_right:
+  organ: lower_limbs
+  body_reference: head_of_proximal_phalanx_right
+
